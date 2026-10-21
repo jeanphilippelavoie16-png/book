@@ -3,6 +3,10 @@
 // donne » (percer au poinçon), étape 10 (racine d'épinette refendue), §5-F (la poix).
 // Première page en 60-33a : lever l'écorce, l'aplatir, le gabarit de plis.
 // Aucune cote : le chapitre ne donne aucune dimension de casseau.
+// La charte : le casseau monté garde sa silhouette au contour fort ; la paroi de bout (la face de
+// droite, lumière en haut à gauche) et le bout de la baguette à l'ombre ; l'intérieur, vu par-dessus
+// le bord, en gris loin. Le rouge : le poinçon qu'on enfonce et la palette qu'on presse (les
+// gestes, un par vue). La racine qu'on tire et le sens de la couture restent en noir.
 
 module.exports = (h) => {
   const r1 = (n) => Math.round(n * 10) / 10;
@@ -22,11 +26,11 @@ module.exports = (h) => {
     const { w, d, s, ky, e, rb, P } = gM(z), o = [], rnd = hasard(41);
     const T = s + 1;                                         // dessus de la baguette
     // l'intérieur, vu par-dessus le bord
-    o.push(h.chemin([P(0, 0, s), P(w, 0, s), P(w, d, s), P(0, d, s)], h.a.blanc, true));
+    o.push(h.chemin([P(0, 0, s), P(w, 0, s), P(w, d, s), P(0, d, s)], h.a.loin, true));
     o.push(h.ligne(...P(0, d, s), ...P(0, d, s - d * ky + 3), h.a.detail));
     // les deux faces vues de dehors
     o.push(h.chemin([P(0, 0, 0), P(w, 0, 0), P(w, 0, s), P(0, 0, s)], h.a.blanc, true));
-    o.push(h.chemin([P(w, 0, 0), P(w, d, 0), P(w, d, s), P(w, 0, s)], h.a.blanc, true));
+    o.push(h.chemin([P(w, 0, 0), P(w, d, 0), P(w, d, s), P(w, 0, s)], h.a.ombre, true));
     // lenticelles
     for (let i = 0; i < 40; i++) {
       const zz = 6 + rnd() * (s - rb - 14), x = zz + 6 + rnd() * (w - 2 * zz - 20);
@@ -37,10 +41,11 @@ module.exports = (h) => {
     o.push(h.ligne(...P(2.5, 0, 0.5), ...P(s, 0, s - 2.5), h.a.fin));
     o.push(h.chemin([P(w, 0, 0), P(w, 0, s), P(w - s, 0, s)], B(h.a.arete), true));
     // à gauche : les points de racine à nu
-    [0.2, 0.38, 0.56, 0.74].forEach(t => {
-      const q = P(s * t, 0, s * t);
-      o.push(h.ligne(r1(q[0] - 4), r1(q[1] - 4), r1(q[0] + 4), r1(q[1] + 4), h.a.contour));
-    });
+    // point avant : traits le long du bord, un blanc égal entre eux
+    for (let t = 0.12; t < 0.86; t += 0.16) {
+      const a = P(s * t + 3, 0, s * t - 3), b = P(s * (t + 0.08) + 3, 0, s * (t + 0.08) - 3);
+      o.push(h.ligne(...a, ...b, h.a.contour));
+    }
     // à droite : la même couture, passée à la poix
     const a0 = P(w, 0, 0), a1 = P(w - s, 0, s - rb);
     const dx = a1[0] - a0[0], dy = a1[1] - a0[1], L = Math.hypot(dx, dy), nx = -dy / L * 4, ny = dx / L * 4;
@@ -52,7 +57,8 @@ module.exports = (h) => {
     o.push(h.chemin([P(-e, -e, T), P(w + e, -e, T), P(w + e, d + e, T), P(-e, d + e, T)], h.a.contour, true));
     o.push(h.chemin([P(0, 0, T), P(w, 0, T), P(w, d, T), P(0, d, T)], h.a.arete, true));
     o.push(h.chemin([P(-e, -e, T), P(w + e, -e, T), P(w + e, -e, T - rb), P(-e, -e, T - rb)], B(h.a.arete), true));
-    o.push(h.chemin([P(w + e, -e, T), P(w + e, d + e, T), P(w + e, d + e, T - rb), P(w + e, -e, T - rb)], B(h.a.arete), true));
+    o.push(h.chemin([P(w + e, -e, T), P(w + e, d + e, T), P(w + e, d + e, T - rb), P(w + e, -e, T - rb)], h.a.ombre, true));
+    o.push(h.chemin([P(w + e, -e, T), P(w + e, d + e, T), P(w + e, d + e, T - rb), P(w + e, -e, T - rb)], h.a.arete, true));
     o.push(h.chemin([P(-e, -e, T - rb), P(-e, -e, T), P(-e, d + e, T), P(w + e, d + e, T), P(w + e, d + e, T - rb)], h.a.contour));
     // la racine enroulée sur la baguette, par les trous sous le cerceau
     for (let x = 7; x < w - 4; x += 12) {
@@ -75,8 +81,8 @@ module.exports = (h) => {
   };
   // Un point de racine vu en coupe : dessus, dans le trou, dessous, dans l'autre trou, dessus.
   const point = (xa, x1, x2, xb, y) => {
-    const yt = y - EP - 1.4, yb = y + EP + 1.4;
-    return h.chemin(pl([[xa, yt], [x1 - 3, yt], [x1, yt + 3], [x1, yb - 3], [x1 + 3, yb], [x2 - 3, yb], [x2, yb - 3], [x2, yt + 3], [x2 + 3, yt], [xb, yt]]), h.a.contour);
+    const yt = y - EP - 1.4, yb = y + EP + 4.2;              // dessous : écarté de l'écorce
+    return h.chemin(pl([[xa, yt], [x1 - 3, yt], [x1, yt + 3], [x1, yb - 3], [x1 + 3, yb], [x2 - 3, yb], [x2, yb - 3], [x2, yt + 3], [x2 + 3, yt], [xb, yt]]), h.a.contour.replace('stroke-width="2.4"', 'stroke-width="3.2"'));
   };
 
   // ─── Vue 2 : percer au poinçon, puis coudre ───
@@ -87,7 +93,7 @@ module.exports = (h) => {
     o.push(couches(12, z.l - 12, yA, [nx]));
     o.push(h.chemin(pl([[nx - 2.3, yA - 50], [nx + 2.3, yA - 50], [nx + 2.3, yA + 6], [nx, yA + 15], [nx - 2.3, yA + 6]]), B(h.a.arete), true));
     o.push(h.rect(r1(nx - 8), r1(yA - 54), 16, 4, h.a.plein));
-    o.push(h.fleche(`M${r1(nx + 20)},${r1(yA - 48)} L${r1(nx + 20)},${r1(yA - 16)}`));
+    o.push(h.geste(`M${r1(nx + 20)},${r1(yA - 48)} L${r1(nx + 20)},${r1(yA - 16)}`));
     // coudre : la racine passe dans les trous
     o.push(couches(12, z.l - 12, yB, [hx1, hx2]));
     o.push(point(20, hx1, hx2, z.l - 58, yB));
@@ -122,6 +128,33 @@ module.exports = (h) => {
     return o.join('\n');
   };
 
+  // ─── Vue 5 : la couture de près, vue de face ───
+  const gN = (z) => {
+    const x0 = 70, y0 = z.h - 8, x1 = z.l - 8, y1 = 44;     // le bord de l'oreille, d'un bord du cadre à l'autre
+    const L = Math.hypot(x1 - x0, y1 - y0), ox = -(y1 - y0) / L * 16, oy = (x1 - x0) / L * 16;   // +o : vers la paroi
+    const n = 9, tr = (i) => { const t = 0.1 + i * 0.1; return [r1(x0 + (x1 - x0) * t - ox), r1(y0 + (y1 - y0) * t - oy)]; };
+    return { x0, y0, x1, y1, n, tr, ox, oy };
+  };
+  const vuePres = (z) => {
+    const { x0, y0, x1, y1, n, tr, ox, oy } = gN(z), o = [], rnd = hasard(7);
+        o.push(h.rect(8, 8, z.l - 16, z.h - 16, B(h.a.detail)));
+    for (let i = 0; i < 16; i++) { const x = 90 + rnd() * (z.l - 110), y = 60 + rnd() * (z.h - 80); o.push(h.ligne(r1(x), r1(y), r1(x + 8 + 6 * rnd()), r1(y), h.a.fin)); }
+    // l'oreille par-dessus la paroi
+    o.push(h.chemin([[x0, y0], [x1, y1], [x1, 8], [8, 8], [8, y0]].map(q => q.map(r1)), B(h.a.detail), true));
+    o.push(h.ligne(x0, y0, x1, y1, h.a.contour));
+    const gros = h.a.contour.replace('2.4', '3.2');
+    for (let i = 0; i < n; i++) { const q = tr(i); o.push(h.cercle(q[0], q[1], 2.6, B(h.a.detail))); }
+    // la racine derrière l'écorce, de trou en trou
+    for (let i = 1; i < 6; i += 2) o.push(h.ligne(...tr(i), ...tr(i + 1), h.a.cache.replace('0.7', '1.4')));
+    // trois points faits, dessus
+    for (let i = 0; i < 6; i += 2) o.push(h.ligne(...tr(i), ...tr(i + 1), gros));
+    // le quatrième : la racine sort du trou 7, levée, vers le trou 8
+    const a = tr(6), b = tr(7), c = tr(8);
+    o.push(h.path(`M${a[0]},${a[1]} Q${r1(b[0] - ox * 1.2)},${r1(b[1] - oy * 1.2)} ${r1((b[0] + c[0]) / 2 - ox * 1.6)},${r1((b[1] + c[1]) / 2 - oy * 1.6)}`, gros));
+    o.push(h.fleche(`M${r1(tr(2)[0] - ox * 2.2)},${r1(tr(2)[1] - oy * 2.2)} L${r1(tr(5)[0] - ox * 2.2)},${r1(tr(5)[1] - oy * 2.2)}`));
+    return o.join('\n');
+  };
+
   // ─── Vue 4 : la couture étanchée à la poix ───
   const gP = (z) => {
     const y = z.h * 0.66, hx1 = z.l * 0.38, hx2 = z.l * 0.6, xa = z.l * 0.2, xb = z.l * 0.8, ep = 6.5;
@@ -141,7 +174,8 @@ module.exports = (h) => {
     const yq = yP - ep - 2;
     o.push(h.rect(r1(xa + 18), r1(yq - 8), r1(xb - xa - 36), 8, B(h.a.contour)));
     o.push(h.ligne(r1(xa + 30), r1(yq - 4), r1(xb - 40), r1(yq - 4.6), h.a.fin));
-    [0.36, 0.64].forEach(k => { const x = xa + (xb - xa) * k; o.push(h.fleche(`M${r1(x)},${r1(yq - 44)} L${r1(x)},${r1(yq - 12)}`)); });
+    // le geste : presser la palette, une flèche
+    { const x = xa + (xb - xa) * 0.5; o.push(h.geste(`M${r1(x)},${r1(yq - 44)} L${r1(x)},${r1(yq - 12)}`)); }
     return o.join('\n');
   };
 
@@ -150,9 +184,9 @@ module.exports = (h) => {
     titre: 'Le casseau d’écorce, plié, cousu, étanché',
     desc: 'Le casseau monté, vu de trois quarts : chaque coin plié en oreille rabattue sur la paroi longue et cousu à la racine d’épinette refendue, la même couture passée à la poix de l’autre côté, le bord cerclé d’une baguette que la racine enroule en passant par des trous. En détail : un clou aiguisé perce les deux épaisseurs avant que la racine passe ; la racine fendue en deux ; le rebord en coupe, l’oreille pincée entre la paroi et la baguette ; la couture en coupe sous une couche de poix chaude où un tissu est pris, pressée à la palette jusqu’au froid.',
     format: 'pleine',
-    disposition: [['monte', 'couture'], ['rebord', 'poix']],
+    disposition: [['monte', 'couture'], ['rebord', 'pres', 'poix']],
     hauteurs: [1.35, 1],
-    largeurs: [[1.9, 1], [1, 1]],
+    largeurs: [[1.9, 1], [1, 1, 1.15]],
     vues: {
       monte: {
         titre: 'Plié, cousu, cerclé',
@@ -189,6 +223,17 @@ module.exports = (h) => {
             { n: 8, rond: [bx + r + 40, by - 2], cible: [bx + 5, by + 3], texte: 'baguette cintrée, dehors' },
             { n: 9, rond: [cx - 46, yH + 20], cible: [cx - 1.8, yH - 8], texte: 'racine passée dans le trou' },
             { n: 10, rond: [bx + r + 40, yE - 20], cible: [xo, yE - 16], texte: 'l’oreille, pincée dessous' },
+          ];
+        },
+      },
+      pres: {
+        titre: 'La couture, de près',
+        dessin: vuePres,
+        renvois: (z) => {
+          const { tr, ox, oy } = gN(z), a = tr(6), m = tr(2);
+          return [
+            { n: 14, rond: [r1(tr(8)[0] - ox * 3.5), r1(tr(8)[1] - oy * 3.5)], cible: [r1(tr(7)[0] - ox * 1.2), r1(tr(7)[1] - oy * 1.2)], texte: 'point en cours, racine sortie' },
+            { n: 15, rond: [r1(m[0] - ox * 3), r1(m[1] - oy * 3)], cible: [r1((m[0] + tr(3)[0]) / 2), r1((m[1] + tr(3)[1]) / 2)], texte: 'derrière l’écorce' },
           ];
         },
       },

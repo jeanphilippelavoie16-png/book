@@ -253,6 +253,14 @@ module.exports = (h) => {
     out.push(sol(P, -XR, XR, FOND));
     out.push(h.chemin(toile.map(p => P(...p)), h.a.contour));
     out.push(pierre(P, -XR + 62, 92, 58, 5), pierre(P, XR - 62, 92, 58, 9));
+    // La charte : sur le raté, le cercle rouge marque l'endroit où ça casse, la foliole gelée sous
+    // la toile (la même que vise le renvoi 5)
+    let best = null;
+    for (const f of plant1.feuilles) for (const o of f.fols) if (gele(o.poly)) {
+      const c = o.poly.reduce((a, p) => [a[0] + p[0] / o.poly.length, a[1] + p[1] / o.poly.length], [0, 0]);
+      if (!best || c[0] > best[0]) best = c;
+    }
+    if (best) out.push(h.controle(...P(...best), 13));
     return { svg: out.join('\n'), P, s, coque, gele };
   };
 
@@ -294,7 +302,13 @@ module.exports = (h) => {
       const bas = ell(0, RB, 0, 180);               // le devant du fond
       const o = [];
       const contour = [...g, ...haut.slice(1, -1), ...d, ...bas.slice(1, -1)];
-      o.push(h.chemin(contour, blanc(h.a.arete), true));
+      // La charte : la bouteille est l'objet de la vue (contour 2,4) ; son flanc droit est à l'ombre
+      const id = `om-9706-${cx.toFixed(0)}-${cy.toFixed(0)}`;
+      o.push(h.chemin(contour, h.a.blanc, true));
+      o.push(`<clipPath id="${id}">${h.chemin(contour, 'fill="none"', true)}</clipPath>`);
+      const [bx0, by0] = Q(cx + RB * 0.42, cy, ZB + 20), [bx1, by1] = Q(cx + RB + 4, cy, -RB);
+      o.push(`<g clip-path="url(#${id})">${h.rect(bx0, by0, bx1 - bx0, by1 - by0, h.a.ombre)}</g>`);
+      o.push(h.chemin(contour, h.a.contour, true));
       o.push(h.chemin(ell(ZB, RBO, 0, 180), h.a.detail));                // le dessus du bouchon
       o.push(h.chemin(ell(ZN, RBO, 0, 180), h.a.detail));                // le bas du bouchon
       o.push(h.chemin(ell(272, RN + 3, 0, 180), h.a.fin));               // la bague du col
@@ -327,7 +341,8 @@ module.exports = (h) => {
     };
     for (const a of [45, 90, 135]) {
       const cx = RA * Math.cos(a * RAD);
-      out.push(h.chemin(profil(cx), blanc(h.a.detail), true));
+      // La charte : ces bouteilles sont derrière le plan de coupe, elles reculent en gris loin
+      out.push(h.chemin(profil(cx), h.a.loin, true), h.chemin(profil(cx), h.a.detail, true));
       out.push(h.ligne(...P(cx - RBO, ZN), ...P(cx + RBO, ZN), h.a.fin));
     }
     const plant = tomate(0, H2, { fruits: false, noeuds: 5, graine: 7 });
@@ -341,7 +356,7 @@ module.exports = (h) => {
       const eau = [...g.filter(p => p[1] <= NIV), [cx - RN, NIV], [cx + RN, NIV], ...d.filter(p => p[1] <= NIV)];
       out.push(h.chemin(eau.map(p => P(...p)), h.a.hachure('eau', 'aucun'), true));
       out.push(h.ligne(...P(cx - RN, NIV), ...P(cx + RN, NIV), h.a.detail));
-      out.push(h.chemin([...g, ...d].map(p => P(...p)), h.a.arete, true));
+      out.push(h.chemin([...g, ...d].map(p => P(...p)), h.a.contour, true));   // la charte : l'objet coupé pèse
       // le bouchon, en coupe
       out.push(h.chemin([P(cx - RBO, ZN - 14), P(cx - RBO, ZB), P(cx + RBO, ZB), P(cx + RBO, ZN - 14)], h.a.arete));
       out.push(h.rect(...P(cx - RBO, ZB), 2 * RBO * s, 3.2 * s + 1, h.a.plein));
@@ -397,11 +412,11 @@ module.exports = (h) => {
         const cx = x + (rr() - 0.5) * 40, cy = y + (rr() - 0.5) * 30, rt = 6 + 7 * rr();
         const pts = [];
         for (let j = 0; j < 6; j++) { const a = 2 * Math.PI * j / 6 + rr(); const k2 = 0.7 + 0.5 * rr(); pts.push(P(cx + Math.cos(a) * rt * k2, cy + Math.sin(a) * rt * k2)); }
-        out.push(h.chemin(pts, noir(h.a.fin), true));
+        out.push(h.chemin(pts, h.a.hachure('terre', 'arete'), true));
       }
     });
     // le geste
-    out.push(h.fleche(`M ${P(70, 300).join(' ')} Q ${P(-40, 370).join(' ')} ${P(-135, 280).join(' ')}`, h.a.arete));
+    out.push(h.geste(`M ${P(70, 300).join(' ')} Q ${P(-40, 370).join(' ')} ${P(-135, 280).join(' ')}`));   // la charte : le geste
     return { svg: out.join('\n'), P, s, A };
   };
 
@@ -468,6 +483,7 @@ module.exports = (h) => {
           return [
             { n: 5, rond: P(XR - 28, best[1] + 20), cible: P(...best), texte: 'feuilles gelées là où elle appuie' },
           ];
+
         },
       },
       anneau: {
@@ -487,7 +503,7 @@ module.exports = (h) => {
         renvois: z => {
           const v = une('coupe', vueCoupe)(z), P = v.P;
           return [
-            { n: 7, rond: P(-RA - RB - 45, ZB + 30), cible: P(-RA - 30, ZE + 8), texte: 'sac posé sur les bouchons' },
+            { n: 7, rond: P(-RA - RB - 45, ZB + 30), cible: P(-RA, ZB + 4), texte: 'sac posé sur les bouchons' },
             { n: 8, rond: P(RA + RB + 45, 60), cible: P(RA + 20, 100), texte: 'l’eau gèle avant la plante' },
           ];
         },

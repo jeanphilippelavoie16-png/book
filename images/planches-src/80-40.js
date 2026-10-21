@@ -4,6 +4,10 @@
 // longueur. Le seul chiffre dessiné est la hauteur de saumure au-dessus du chou (au moins 3 cm).
 // La bonde d'eau, le chapitre la décrit sur un couvercle de pot : elle est dessinée sur le pot
 // Mason, pas sur le baril, que le chapitre laisse ouvert sous son sac de saumure.
+// La charte : dans le baril en coupe, la paroi d'en face, vue par-dessus le sac, en gris loin ; le
+// baril vu de dehors a sa face de droite à l'ombre. Le rouge : le coup de maillet (le geste), et le
+// pourtour où le sac se plaque à la paroi, là où l'air passerait. Les flèches des cercles qui
+// descendent ou montent, du gaz et de l'air restent noires.
 module.exports = (h) => {
   const A = h.a;
   const r1 = n => Math.round(n * 10) / 10;
@@ -84,6 +88,8 @@ module.exports = (h) => {
     const ys = yl - 18;                                // surface de la saumure
     const xg = y => cx - Ri(y), xd = y => cx + Ri(y);
 
+    // la paroi d'en face, vue par-dessus le sac : en gris loin
+    out.push(h.path(poly([...courbe(xg, yt, yFondH - eFond, 24), ...courbe(xd, yFondH - eFond, yt, 24)]), A.loin));
     // le fond de la paroi d'en face, vu de l'intérieur : les joints du merrain
     for (let k = -3; k <= 3; k++) {
       const s = Math.sin(k * Math.PI / 8);
@@ -105,7 +111,7 @@ module.exports = (h) => {
     out.push(feuille(xg(yl) + lx * 0.62, xd(yl) - 1, yl - 1, 2.2, 1.1, 0, 2.2));
     // le sac de saumure
     const col = 7, yCol = ys - 62;
-    const dSac = sac({ xg: xg(ys - 20), xd: xd(ys - 20), yPlaque: ys - 8, yHaut: ys - 38, yFond: yl - 3, xFondG: cx - lx * 0.2, xFondD: cx + lx * 0.2, col, yCol });
+    const dSac = sac({ xg: xg(ys), xd: xd(ys), yPlaque: ys + 1, yHaut: ys - 38, yFond: yl - 3, xFondG: cx - lx * 0.2, xFondD: cx + lx * 0.2, col, yCol });
     out.push(h.path(dSac, bA));
     // plis du sac contre la paroi et sur le dessus
     out.push(h.path(`M${r1(xg(ys) + 8)} ${r1(ys - 30)} Q${r1(xg(ys) + 16)} ${r1(ys - 22)} ${r1(xg(ys) + 14)} ${r1(ys - 12)}`, A.fin));
@@ -139,6 +145,8 @@ module.exports = (h) => {
     // le cadre du grossissement
     const gx0 = cx - Ro(ys) - 10, gy0 = ys - 40;
     out.push(h.rect(gx0, gy0, 86, 72, A.cache));
+    // le point qui décide : le sac plaqué à la paroi ferme le pourtour, là où l'air passerait
+    out.push(h.controle(xd(ys) - 4, ys - 3, 11));
 
     return {
       svg: out.join('\n'),
@@ -169,10 +177,9 @@ module.exports = (h) => {
     dedans.push(feuille(xw + 140, xr, yl + 6, 5, 2, 3.4, 1.1));
     dedans.push(feuille(xw + 210, xr, yl, 5, 2, 0, 2.6));
     // le sac : plaqué à la paroi, puis son fond qui descend se poser sur les feuilles
-    const yp = ys - 22, xf = xw + 200, yf = yl - 3;
-    const dSac = `M${r1(xw)} 0 L${r1(xw)} ${r1(yp)} C${r1(xw + 50)} ${r1(ys - 10)} ${r1(xw + 130)} ${r1(yf - 2)} ${r1(xf)} ${r1(yf)} L${r1(xr + 6)} ${r1(yf)} L${r1(xr + 6)} 0 Z`;
+    const yp = ys, xf = xw + 200, yf = yl - 3;
+    const dSac = `M${r1(xw)} 0 L${r1(xw)} ${r1(yp)} C${r1(xw + 50)} ${r1(ys + 8)} ${r1(xw + 130)} ${r1(yf - 2)} ${r1(xf)} ${r1(yf)} L${r1(xr + 6)} ${r1(yf)} L${r1(xr + 6)} 0 Z`;
     dedans.push(h.path(dSac, bC));
-    dedans.push(h.ligne(xw + 1, ys, xw + 31, ys, A.detail));
     // plis du sac contre la paroi
     dedans.push(h.path(`M${r1(xw + 150)} ${r1(yf - 30)} Q${r1(xw + 166)} ${r1(yf - 16)} ${r1(xw + 184)} ${r1(yf - 6)}`, A.fin));
     // la douve en coupe et son cercle
@@ -180,6 +187,8 @@ module.exports = (h) => {
     dedans.push(h.rect(xw - ep - 5, z.h * 0.06, 5, 40, A.plein));
 
     const out = [decoupe('coupe-pourtour', cadre, dedans.join('\n')), h.path(cadre, A.fin)];
+    out.push(h.ligne(xw, ys, xw + 20, ys, A.detail));
+    out.push(h.rect(xw + 20, (ys + yl) / 2 - 8, 58, 17, A.blanc));
     out.push(h.cote(xw + 14, ys, xw + 14, yl, '≥ 30 mm', { cote: 'droite' }));
 
     return {
@@ -271,7 +280,11 @@ module.exports = (h) => {
     const ry = 9;                                  // le baril vu un peu d'en haut
     // silhouette
     const g = courbe(y => cx - R(y), yt, yb), d = courbe(y => cx + R(y), yb, yt);
-    out.push(h.path(poly([...g, ...d]), bC));
+    out.push(h.path(poly([...g, ...d]), A.blanc));
+    // la face de droite du baril, à l'ombre : du joint du merrain au flanc
+    const s2 = Math.sin(2 * Math.PI / 8), c2 = Math.cos(2 * Math.PI / 8);
+    out.push(h.path(poly([...courbe(y => cx + R(y) * s2, yt + ry * c2, yb + ry * c2 * 0.9, 16), ...courbe(y => cx + R(y), yb, yt, 16)]), A.ombre));
+    out.push(h.path(poly([...g, ...d]), A.contour));
     // le bas : l'arc de devant
     out.push(h.path(`M${r1(cx - re)} ${r1(yb)} A${r1(re)} ${ry} 0 0 0 ${r1(cx + re)} ${r1(yb)}`, A.contour));
     // l'ouverture du haut
@@ -282,10 +295,14 @@ module.exports = (h) => {
       const s = Math.sin(k * Math.PI / 8), c = Math.cos(k * Math.PI / 8);
       out.push(h.path('M' + P(courbe(y => cx + R(y) * s, yt + ry * c, yb + ry * c * 0.9, 16)).join(' L'), A.fin));
     }
-    // les cercles : bande avec l'arc de devant
+    // les cercles : bande avec l'arc de devant, vue de dehors (pas une coupe) : blanche, sa face de
+    // droite à l'ombre à partir du même joint que le baril, le contour par-dessus
     const cercle = (y, hh) => {
-      const r0 = R(y), r2 = R(y + hh);
-      out.push(h.path(`M${r1(cx - r0 - 1)} ${r1(y)} A${r1(r0 + 1)} ${ry} 0 0 0 ${r1(cx + r0 + 1)} ${r1(y)} L${r1(cx + r2 + 1)} ${r1(y + hh)} A${r1(r2 + 1)} ${ry} 0 0 1 ${r1(cx - r2 - 1)} ${r1(y + hh)} Z`, A.hachure('metal', 'arete')));
+      const r0 = R(y), r2 = R(y + hh), c45 = Math.SQRT1_2;
+      const bande = `M${r1(cx - r0 - 1)} ${r1(y)} A${r1(r0 + 1)} ${ry} 0 0 0 ${r1(cx + r0 + 1)} ${r1(y)} L${r1(cx + r2 + 1)} ${r1(y + hh)} A${r1(r2 + 1)} ${ry} 0 0 1 ${r1(cx - r2 - 1)} ${r1(y + hh)} Z`;
+      out.push(h.path(bande, A.blanc));
+      out.push(h.path(`M${r1(cx + (r0 + 1) * c45)} ${r1(y + ry * c45)} A${r1(r0 + 1)} ${ry} 0 0 0 ${r1(cx + r0 + 1)} ${r1(y)} L${r1(cx + r2 + 1)} ${r1(y + hh)} A${r1(r2 + 1)} ${ry} 0 0 1 ${r1(cx + (r2 + 1) * c45)} ${r1(y + hh + ry * c45)} Z`, A.ombre));
+      out.push(h.path(bande, A.arete));
     };
     const yq = yt + H * 0.26;                      // le cercle de quartier, du haut
     [yt + 4, yq, yb - H * 0.26 - 12, yb - 16].forEach(y => cercle(y, 12));
@@ -295,19 +312,36 @@ module.exports = (h) => {
     fl(cx + R(yq) + 30, yq + 2, yq + 30);
     fl(cx - R(yb - H * 0.26) - 30, yb - H * 0.26, yb - H * 0.26 - 28);
     fl(cx + R(yb - H * 0.26) + 30, yb - H * 0.26, yb - H * 0.26 - 28);
-    // le maillet, la face posée sur le bord du cercle, côté gauche
-    const xm = cx - R(yq) + 6, tl = 20, th = 30;
-    out.push(h.rect(xm - 70, yq - th / 2 - 4, 70 - tl / 2, 7, A.hachure('bois', 'arete')));
-    out.push(h.rect(xm - tl / 2, yq - th - 1, tl, th, A.hachure('bois', 'contour')));
+    // le maillet : tête en cylindre de bois, axe vertical, la face du bas posée sur l'arête du haut du cercle
+    const rx = 20, rye = 6, th = 44;
+    const maillet = (xm, s, at, atH) => {
+      const yB = yq, yH = yq - th, ym = yq - th / 2;
+      const o = [];
+      // le manche rond, qui entre dans le flanc à mi-hauteur
+      const x0 = xm - s * rx, x1 = xm - s * (rx + 50);
+      o.push(h.path(`M${r1(x0)} ${r1(ym - 4)} L${r1(x1)} ${r1(ym - 4)} A4 4 0 0 ${s > 0 ? 0 : 1} ${r1(x1)} ${r1(ym + 4)} L${r1(x0)} ${r1(ym + 4)}`, at));
+      const tete = `M${r1(xm - rx)} ${r1(yH)} L${r1(xm - rx)} ${r1(yB)} A${rx} ${rye} 0 0 0 ${r1(xm + rx)} ${r1(yB)} L${r1(xm + rx)} ${r1(yH)} Z`;
+      if (atH === 'plein') {
+        // la tête vue de dehors, pas en coupe : blanche, sa face de droite à l'ombre, le contour par-dessus
+        const xo = xm + rx * 0.35;
+        o.push(h.path(tete, A.blanc));
+        o.push(h.path(`M${r1(xo)} ${r1(yH)} L${r1(xo)} ${r1(yB + rye * 0.94)} A${rx} ${rye} 0 0 0 ${r1(xm + rx)} ${r1(yB)} L${r1(xm + rx)} ${r1(yH)} Z`, A.ombre));
+        o.push(h.path(tete, A.contour));
+      } else o.push(h.path(tete, atH));
+      o.push(h.ellipse(xm, yH, rx, rye, at));
+      return o.join('\n');
+    };
+    const xm = cx - R(yq) + 8;
+    out.push(maillet(xm, 1, bD, 'plein'));   // (redessin du 14 octobre : la tête n'est plus hachurée comme une coupe)
+    out.push(h.geste(`M${r1(xm - 34)} ${r1(yq - th - 30)} Q${r1(xm - 4)} ${r1(yq - th - 34)} ${r1(xm)} ${r1(yq - th - 10)}`));
     // son coup suivant, de l'autre côté
-    const xm2 = cx + R(yq) - 6;
-    out.push(h.rect(xm2 - tl / 2, yq - th - 1, tl, th, A.cache));
-    out.push(h.rect(xm2 + tl / 2, yq - th / 2 - 4, 70 - tl / 2, 7, A.cache));
+    const xm2 = cx + R(yq) - 8;
+    out.push(maillet(xm2, -1, A.cache, A.cache));
 
     return {
       svg: out.join('\n'),
       renvois: [
-        { n: 11, rond: [xm - 48, yq - th - 16], cible: [xm - 4, yq - th * 0.6], texte: 'coups alternés, au maillet' },
+        { n: 11, rond: [xm - 62, yq - th - 26], cible: [xm - 40, yq - th / 2 - 4], texte: 'coups alternés, au maillet' },
       ],
     };
   };

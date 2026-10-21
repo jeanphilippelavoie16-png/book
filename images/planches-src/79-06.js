@@ -1,5 +1,8 @@
 // Planche 79-06 — Le silo de terre (chapitre 76, § Le silo de terre).
 // Le chapitre ne donne aucune dimension pour le silo : aucune cote, l'échelle vient de la pelle.
+// La charte : coupes hachurées et plan, donc pas de gris ; les poids étaient déjà justes (la terre
+// du silo au trait fort). Le rouge : un seul point à contrôler, le bouchon de paille qui sort de la
+// terre au sommet (un silo hermétique cuit son contenu). Pas de geste.
 module.exports = (h) => {
   const f = n => (+n).toFixed(1);
   const pl = (pts, ferme) => pts.map((p, i) => (i ? 'L' : 'M') + f(p[0]) + ',' + f(p[1])).join(' ') + (ferme ? ' Z' : '');
@@ -118,18 +121,20 @@ module.exports = (h) => {
     out.push(traits([[cx - g.cl, g.cb, cx - g.cl, g.ct], [cx + g.cl, g.cb, cx + g.cl, g.ct],
       ...[-3, -2, -1, 0, 1, 2, 3].map(i => [cx + i * K(2.2), g.ct + K(1), cx + i * K(3.1), g.ct - K(7)])]));
     out.push(h.path(pl(g.pl1.pts, true), rempli('arete')));
+    // le point qui décide : le bouchon de paille traverse la terre et respire
+    out.push(h.controle(cx, g.ct + K(8), K(15)));
     return out.join('\n');
   };
 
   const renvoisCoupe = z => {
     const g = gC(z), { K, cx, yg } = g;
     return [
-      { n: 1, rond: [cx - K(75), yg + K(38)], cible: [cx - K(75), g.ydep(cx - K(75))], texte: 'dépression peu profonde' },
-      { n: 2, rond: [cx + K(45), yg + K(38)], cible: [cx + K(45), g.ytige(cx + K(45))], texte: 'branches d’épinette ou paille sèche' },
-      { n: 3, rond: [cx - K(235), yg - K(62)], cible: [cx - K(70), yg - g.cone(K(70))], texte: 'cône de racines, espèces séparées' },
-      { n: 4, rond: [cx - K(215), yg - K(138)], cible: [cx - K(60), yg - K(62)], texte: 'paille, foin ou branchages, épais' },
-      { n: 5, rond: [cx + K(225), yg - K(110)], cible: [cx + K(110), yg - K(45)], texte: 'terre du déblai' },
-      { n: 6, rond: [cx - K(125), yg - K(178)], cible: [cx - g.cl, yg - K(132)], texte: 'bouchon de paille qui respire' },
+      { n: 1, rond: [cx - K(75), yg + K(38)], cible: [cx - K(75), g.ytige(cx - K(75))], texte: 'fond d’épinette ou de paille' },
+      { n: 2, rond: [cx - K(235), yg - K(62)], cible: [cx - K(55), yg - K(25)], texte: 'racines en cône, triées' },
+      { n: 3, rond: [cx - K(215), yg - K(138)], cible: [cx - K(60), yg - K(62)], texte: 'paille ou foin, épais' },
+      { n: 4, rond: [cx + K(225), yg - K(110)], cible: [cx + K(110), yg - K(45)], texte: 'terre du déblai' },
+      { n: 5, rond: [cx + K(250), yg + K(40)], cible: [cx + K(180), yg + K(16)], texte: 'rigole tout autour du pied' },
+      { n: 6, rond: [cx + K(175), yg - K(180)], cible: [cx + K(75), g.yneige(cx + K(75)) + K(10)], texte: 'neige qui finit le travail' },
     ];
   };
 
@@ -190,7 +195,7 @@ module.exports = (h) => {
     const g = gD(z), { K, cx } = g;
     const a = g.airPts[3], b = g.airPts[4];
     return [
-      { n: 7, rond: [cx + K(112), g.ct - K(22)], cible: g.pl1.dessus(cx + K(56)), texte: 'planche ou écorce posée en pente' },
+      { n: 7, rond: [cx + K(112), g.ct - K(22)], cible: g.pl1.dessus(cx + K(56)), texte: 'planche ou écorce en pente' },
       { n: 8, rond: [cx - K(74), K(14)], cible: [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2], texte: 'air qui sort sous la planche' },
     ];
   };
@@ -240,7 +245,7 @@ module.exports = (h) => {
   const renvoisFevrier = z => {
     const g = gF(z), { K, cx, yG, px } = g;
     return [
-      { n: 9, rond: [px - K(36), K(26)], cible: [px - K(2.2), K(34)], texte: 'perche haute, plantée côté ouverture' },
+      { n: 9, rond: [px - K(36), K(26)], cible: [px - K(2.2), K(34)], texte: 'perche, côté ouverture' },
       { n: 10, rond: [cx + K(84), yG - K(96)], cible: [cx + K(60), yG - K(8)], texte: 'ouvrir du côté abrité du vent' },
     ];
   };
@@ -277,7 +282,7 @@ module.exports = (h) => {
     const a1 = -Math.PI / 5, a2 = Math.PI / 4;
     return [
       { n: 11, rond: [(cxs[0] + cxs[1]) / 2, K(14)], cible: g.pt(0, R, a1), texte: 'un silo par ouverture prévue' },
-      { n: 12, rond: [(cxs[1] + cxs[2]) / 2, z.h - K(14)], cible: g.pt(1, r2, a2), texte: 'rigole tout autour du pied' },
+      { n: 12, rond: [(cxs[1] + cxs[2]) / 2, z.h - K(14)], cible: g.pt(1, r2, a2), texte: 'une rigole autour de chacun' },
     ];
   };
 
@@ -287,7 +292,7 @@ module.exports = (h) => {
     desc: 'Silo de terre en coupe avec ses couches, la neige par-dessus la planche ; le bouchon de paille et sa planche de près, sous la pluie d’automne ;le silo enneigé en février, ouvert du côté abrité ; plusieurs petits silos vus de dessus avec leur rigole.',
     format: 'pleine',
     disposition: [['coupe'], ['detail', 'fevrier'], ['plan']],
-    hauteurs: [5, 3.6, 2.4],
+    hauteurs: [4.6, 3.3, 2.1],
     largeurs: [[1], [2, 3], [1]],
     vues: {
       coupe: { titre: 'En coupe', dessin: dessinCoupe, renvois: renvoisCoupe },

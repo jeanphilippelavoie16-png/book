@@ -1,6 +1,9 @@
 // Planche 74-11 — la tente à boucane (ch. 69, « Monter un séchoir sans fumoir » ; sert aussi
 // aux ch. 65, 66, 67). Le chapitre ne donne aucune dimension : aucune cote. L'échelle est
 // portée par un homme debout, la claie à hauteur de sa poitrine.
+// Refaite le 13 octobre 2026 : l'homme est le corps simple de profil (JP ne veut plus de corps de face).
+// La charte : le rouge seulement à l'encadré danger (pas de geste ici : c'est un montage) ; la fumée
+// et l'air restent en flèches noires.
 module.exports = (h) => {
   const A = h.a;
   const BL = (A.blanc.match(/fill="([^"]+)"/) || [])[1] || '#FFFFFF';
@@ -43,14 +46,9 @@ module.exports = (h) => {
     return out.join('\n');
   };
   // silhouette debout, pieds en (x, y), hauteur ht — l'échelle
-  const homme = (x, y, ht) => {
-    const d = [[0.028, 0.868], [0.118, 0.832], [0.14, 0.66], [0.142, 0.48], [0.13, 0.43], [0.116, 0.45], [0.112, 0.64],
-      [0.097, 0.73], [0.088, 0.58], [0.097, 0.49], [0.083, 0.27], [0.068, 0.04], [0.088, 0.0], [0.02, 0.0], [0.024, 0.04],
-      [0.02, 0.27], [0, 0.465]];
-    const g = d.slice(0, -1).reverse().map(([u, v]) => [-u, v]);
-    const pts = [...d, ...g].map(([u, v]) => [x + u * ht, y - v * ht]);
-    return [h.chemin(P(pts), A.detail, true), h.cercle(r1(x), r1(y - 0.935 * ht), r1(0.064 * ht), A.detail)].join('\n');
-  };
+  // L'homme debout, pour l'échelle : le corps simple, de profil, tourné vers la tente (cote gauche) ;
+  // (x, y) : au sol sous les chevilles, ht : sa hauteur (1772 mm au moteur).
+  const homme = (x, y, ht) => h.formes.corps({ x, y, pose: 'debout', vue: 'profil', cote: 'gauche', age: 'adulte', echelle: ht / 1772 });
   // tours de ligature : n bandes minces orientées selon ang (degrés), centrées en (x, y)
   const tours = (x, y, n, ang, len, w = 1.8, pas = 2.6) => {
     const u = [Math.cos(ang * Math.PI / 180), Math.sin(ang * Math.PI / 180)], v = [-u[1], u[0]], o = [];
@@ -102,6 +100,11 @@ module.exports = (h) => {
             [cx - hw, yr + 2], [cx - 0.12 * b, yr - 3], [cx - 0.05 * b, yr + 1], [cx + 0.02 * b, yr - 2.5],
             [cx + 0.09 * b, yr - 4], [cx + 0.15 * b, yr + 0.5]];
           o.push(h.chemin(P(toile), bC, true));
+          // la face à l'ombre (la charte) : la toile à droite de la perche avant, la lumière venant
+          // d'en haut à gauche ; puis le contour repasse par-dessus
+          o.push(h.chemin(P([[cx + 0.09 * b, yr - 2], [cx + hw, yr + 2], [cx + b * 0.55, yg - 0.45 * H], [cx + b + 6, yg - 2], [cx + b + 10, yg],
+            [cx + 0.47 * b, yg]]), A.ombre, true));
+          o.push(h.chemin(P(toile), A.contour, true));
           // arête de la perche avant, sous la toile
           o.push(h.ligne(r1(cx + 0.09 * b), r1(yr - 2), r1(cx + 0.47 * b), r1(yg - 1), A.arete));
           // plis
@@ -197,9 +200,11 @@ module.exports = (h) => {
           o.push(h.fleche(`M${r1(cx + 0.02 * b)} ${r1(yg - 18)} C${r1(cx + 0.1 * b)} ${r1(yc + 22)} ${r1(xi(7))} ${r1(yc + 16)} ${r1(xi(7))} ${r1(yc - 2)} S${r1(cx + 4)} ${r1(yr + 10)} ${r1(cx + 9)} ${r1(ya - 0.2 * H)}`, A.cache));
           o.push(h.fleche(`M${r1(cx - b - 30)} ${r1(yg - 8)} L${r1(cx - 0.5 * b)} ${r1(yg - 8)}`, A.cache));
           // l'homme debout : la claie à hauteur de sa poitrine
-          const hm = 0.673 * H, xm = cx + b + 42;
-          o.push(homme(xm, yg, hm));
-          o.push(h.ligne(r1(xb + 9), r1(yc), r1(xm - 0.15 * hm), r1(yc), rappel));
+          const hm = 0.673 * H, xm = cx + b + 46;
+          const m = homme(xm, yg, hm);
+          o.push(m.toString());
+          // le rappel jusqu'à la poitrine (≈ 120 mm devant l'axe du tronc, à la hauteur de la claie)
+          o.push(h.ligne(r1(xb + 9), r1(yc), r1(m.articulations.epauleP[0] - 120 * hm / 1772 - 3), r1(yc), rappel));
           return o.join('\n');
         },
         renvois: z => {

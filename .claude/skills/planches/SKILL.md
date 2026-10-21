@@ -1,6 +1,6 @@
 ---
 name: planches
-description: Dessiner les planches au trait du Grand Livre du Chalet — montages, coupes de principe, séquences de gestes, gabarits à recopier, comparaisons bon/raté — en SVG prêt pour l'impression noir et blanc 8 × 10 po. Utilise ce skill dès qu'il est question de dessiner, illustrer, schématiser ou produire une image pour un chapitre du livre, dès qu'on parle de planche, de figure, de schéma, de coupe, de croquis ou de « comment montrer ça », et dès qu'on demande de remplacer une photo impossible par un dessin. Il porte surtout le critère de choix — une planche montre comment fabriquer ou faire, jamais une règle ni une donnée, et ce qui se construit se dessine en profondeur — et la règle de ce qu'on n'a PAS le droit de dessiner.
+description: Dessiner les planches au trait du Manuel du Nord — montages, coupes de principe, séquences de gestes, gabarits à recopier, comparaisons bon/raté — en SVG prêt pour l'impression noir et blanc 8 × 10 po. Utilise ce skill dès qu'il est question de dessiner, illustrer, schématiser ou produire une image pour un chapitre du livre, dès qu'on parle de planche, de figure, de schéma, de coupe, de croquis ou de « comment montrer ça », et dès qu'on demande de remplacer une photo impossible par un dessin. Il porte surtout le critère de choix — une planche montre comment fabriquer ou faire, jamais une règle ni une donnée, et ce qui se construit se dessine en profondeur — et la règle de ce qu'on n'a PAS le droit de dessiner.
 ---
 
 # Dessiner une planche
@@ -8,6 +8,17 @@ description: Dessiner les planches au trait du Grand Livre du Chalet — montage
 Une planche du livre n'est pas un diagramme de présentation. C'est un dessin technique au
 trait qu'un homme regarde à la lampe frontale, les mains sales, pour comprendre un montage
 qu'il n'a jamais fait. Tout ce qui suit découle de ça.
+
+**Une main qui appuie ou frotte à plat a la paume vers la surface** (JP, 18 octobre 2026, planche 04-41 : « la main est à l'envers, paume vers le sol il faut ») : on voit le dos de la main. Avec `mainStock`, c'est la main `1-08` sans son objet (`objet: false`), penchée de quelques degrés, l'avant-bras prolongé jusqu'au bord de la vue (voir `frotter` dans `images/planches-src/04-41.js`). **Une main de la bibliothèque ne se déforme jamais** (ni écrasée ni étirée : JP, « laid en tabarnak ») ; on prend la main qui a déjà la pose.
+
+**Ce que le personnage porte suit sa taille, vignette par vignette** (JP, 19 octobre 2026, planche 04-40 : « dans l'image le bonhomme est plus petit mais il gardait la même grosseur de bottes ») : certaines poses du moteur des corps (`debout-penche-lit`) dessinent le bonhomme plus petit ; ses bottes, ses gants, son casque rapetissent avec lui. On prend l'échelle sur le corps rendu, le tibia du genou à la cheville contre les 430 mm du moteur (`echelleBotte` de `images/planches-src/04-40.js`), jamais sur l'échelle de la vue.
+
+**Jamais de cheveux, et le visage seulement quand il sert** (JP, 18 octobre 2026 : « on met jamais les cheveux, je veux plus les voir ; le visage est affiché seulement quand le visage fait une action ou qu'il y a une interaction »). Le moteur des têtes ne dessine plus de cheveux. `visage: true` seulement si la bouche, les yeux ou le nez font le geste (souffler, boire, regarder un point) ou si deux personnes interagissent ; sinon la tête reste nue.
+
+**Les mains, les corps et les têtes viennent des moteurs validés** (`h.formes.mainStock`, `h.formes.corps`,
+`h.formes.teteSimple`), jamais d'un dessin à la main (JP, 16 octobre 2026 : « on se met des règles et des outils,
+il faut les utiliser »). Un agent qu'on lance pour dessiner reçoit d'abord le cadre de
+`references/brief-agent.md`, au complet.
 
 ## Avant tout : est-ce que cette planche mérite sa place ?
 
@@ -131,7 +142,8 @@ demi-page, le 0,5 tient encore ; en dessous, il disparaît. Ne descends jamais s
 
 La règle qui porte le plus : **si un trait ne sépare pas deux choses, il ne devrait pas
 exister.** Les cadres décoratifs, les fonds gris, les ombres douces, les dégradés : rien
-de tout ça ne survit en noir et blanc sur papier standard.
+de tout ça ne survit sur papier standard. Les seuls gris permis sont les deux aplats francs
+de la charte, plus bas.
 
 ### 2. Le dessin se reconnaît avant qu'on lise la légende
 
@@ -256,17 +268,53 @@ au lieu de 50, ce qui ne casse rien. Celles en 680 × 900 sont à refaire.
 Chaque planche porte, sous le dessin :
 
 ```
-Planche NN-NN — Titre en une ligne, en minuscules.
+Planche NN-NN. Titre en une ligne, en casse de phrase.
 1 premier renvoi  ·  2 deuxième renvoi  ·  3 troisième renvoi
 ```
 
 Le numéro suit le chapitre : `84-09` est la neuvième planche du chapitre 84. Le titre est
-en casse de phrase, jamais en capitales.
+en casse de phrase, jamais en capitales. Un point sépare le numéro du titre : aucun tiret, ni
+dans le pied, ni dans l'encadré danger, ni dans un renvoi (JP, 15 octobre 2026).
 
-S'il y a un encadré danger sur la planche, il est **en filet rouge `#9B2C1E`, 2 unités**,
-et c'est la seule couleur autorisée dans tout le livre. Tout le reste est en `#1A1A1A` sur
-blanc. Le rouge ne sert jamais à autre chose : s'il apparaît ailleurs, il cesse de vouloir
-dire danger.
+S'il y a un encadré danger sur la planche, il est **en filet rouge `#9B2C1E`, 2 unités**.
+
+### La charte : deux poids, deux gris, un rouge
+
+JP l'a choisie le 13 octobre 2026. Elle vaut pour chaque planche refaite. Tout le reste est
+en `#1A1A1A` sur blanc.
+
+1. **Deux poids de trait.** Le contour de ce qui compte pèse, le reste est fin. L'objet du
+   geste a son contour à 2,4 (`h.a.contour`), ses arêtes à 1,4 et ses détails à 0,7. Le corps
+   simple garde son 1,5 / 0,7, ou `trait: 'fort'` (1,9) quand il est lui-même le sujet de la
+   vue. Un dessin où tout est à 1,4 est plat.
+2. **Deux gris, en aplats francs.**
+   - `h.a.loin` (`#E6E6E6`) : ce qui est derrière. C'est le membre loin (le moteur des corps
+     le fait déjà), le plan d'arrière, ou l'objet secondaire qu'on doit voir sans qu'il prenne
+     l'œil.
+   - `h.a.ombre` (`#CFCFCF`) : la face à l'ombre d'un volume, avec la lumière qui vient d'en
+     haut à gauche. C'est la face de droite ou de dessous d'une bûche, d'une caisse, d'un
+     poteau. Une face par volume.
+
+3. **L'eau, en bleu pâle** (JP, 18 octobre 2026 : « fais l'eau plus belle »). La hachure `h.a.hachure('eau')` pose une
+   teinte d'eau `#DCEAF2` et des vaguelettes fines `#4F7A93` en quinconce. C'est la seule couleur hors du noir, des
+   gris et du rouge, et elle ne sert qu'à l'eau.
+
+   Jamais de dégradé ni d'ombre portée. Pas de gris sur un corps, à part son côté loin. Pas
+   de gris sur une coupe hachurée : la hachure dit déjà la matière. On peint l'aplat d'abord,
+   puis le trait par-dessus.
+3. **Un rouge, `#9B2C1E`, pour ce qui compte**, et à quatre usages seulement :
+   - `h.geste(d)` : la flèche du geste à faire, c'est-à-dire le sens de la poussée, du
+     tirage ou du mouvement. Une par vue, deux au plus. Les autres flèches (l'eau, l'air, la
+     fumée, une pièce qui se déplace) restent noires ;
+   - `h.controle(x, y, r)` : le cercle du point à contrôler, l'endroit que l'œil doit
+     vérifier (le dos droit, le pouce sous le manche, la pointe qui touche). Sur un raté, il
+     marque l'endroit où ça casse, pas tout le dessin ;
+   - `h.a.zone` : le filet tireté de la zone dangereuse, là où la lame passe ou là où la
+     bûche tombe ;
+   - l'encadré danger.
+
+   Jamais en aplat, jamais en texte hors de l'encadré danger, jamais en décor. Le vérificateur
+   grogne au-delà de huit marques rouges : passé ce nombre, le rouge ne désigne plus rien.
 
 ## Le texte sur la planche
 
@@ -360,7 +408,7 @@ un « on » ou un « à » seul en bout de ligne, et construit la boîte autour 
 marge partout :
 
 ```bash
-node .claude/skills/planches/scripts/encadre.js --x 40 --y 330 --max 600 --danger "Danger — …"
+node .claude/skills/planches/scripts/encadre.js --x 40 --y 330 --max 600 --danger "Le monoxyde n’a ni odeur ni couleur : …"
 ```
 
 Il sort le fragment à coller et la hauteur de la boîte, pour poser ce qui suit.
@@ -369,6 +417,59 @@ Il sort le fragment à coller et la hauteur de la boîte, pour poser ce qui suit
 point médian. Six renvois font six lignes courtes ; s'ils ne tiennent pas, c'est qu'il y
 en a trop ou qu'ils sont trop longs, et la légende devient un paragraphe — ce que JP a
 reproché au 13. Deux colonnes alignées sont permises quand la place manque en hauteur.
+
+## Mains, têtes et corps : toujours par formes.js
+
+Toute main, tête, bras ou corps d'une planche passe par `h.formes` (`scripts/formes.js`),
+**jamais à main levée**. Une main en pince de homard, une tête d'enfant « wtf », un mannequin
+chauve « laid en tabarnak » : chaque fois, c'était une forme dessinée planche par planche.
+
+- **La main** : `h.formes.main({ pose, vue, … })`. Elle **reste et se dessine bien** : on ne
+  l'enlève pas pour ne pas avoir à la dessiner (JP, 12 octobre : « je les voulais mais bien
+  faites »). Le geste porté par une main se montre avec la main.
+- **La tête de profil** : `h.formes.teteSimple` (voir plus bas) ; l'ancienne `h.formes.tete()` ne sert plus
+  aux planches neuves. **Le buste** : `h.formes.buste({ main: { …options de main() } })` —
+  le bras va chercher la main, l'avant-bras rejoint son poignet sans cassure.
+- **Le corps entier** : `h.formes.personnage({ pose })`, le **pictogramme** de la règle 8
+  (tête ronde sans visage, bandes d'épaisseur égale) : debout, penche, accroupi, assis,
+  assis-sol, couche, genoux, genou, portage ; `age: 'enfant'`, `enceinte`, `rendu: 'plein'`.
+  Une main qui tient l'objet : `prises: { proche: { …options de main() } }`.
+- **Un corps se montre de profil, jamais de face, de dos ni de dessus** (JP, 13 octobre 2026 : « les vues
+  de côté sont toutes vraiment belles, élimine toutes les vues de face et de haut »). Le corps entier passe par
+  `h.formes.corps` (la bibliothèque des corps simples, `scripts/corps/`). Une vue de dessus d'un objet seul
+  reste, sans corps.
+- **Une matière se reconnaît à sa vraie fibre** (JP, 19 octobre 2026, planche 13-10 : « la laine d'acier, on dirait du
+  poil de pubis ») : la laine d'acier, ce sont des fibres de métal longues et presque droites, croisées en couches, avec du
+  jour au travers ; jamais des boucles ni des frisettes. On regarde la matière en vrai ou en photo, on fait une feuille
+  d'essai (`images/planches-src/_essai-*.js`), puis on la pose.
+- **Le bois se dessine comme du bois** (JP, 19 octobre 2026, planche 13-40 : « le bois pas beau, refais ça ») : une
+  branche ou une bûche a son écorce (un trait irrégulier, des nœuds, des gerçures), un bout scié avec ses cernes
+  décentrés et une fente de séchage, un quartier fendu a ses faces nettes ; les pièces d'un tas varient de grosseur,
+  de longueur et d'angle. Jamais des tubes identiques empilés comme des crayons.
+- **Une coupe suit le contour de l'objet** (JP, 19 octobre 2026, planche 13-09 : « la coupe est pas bonne de la roche,
+  c'est offset ») : la face cassée ou sciée partage la silhouette de la pierre, de la bûche ou de l'os, sans décalage
+  ni débord ; on la découpe dans la forme (`clipPath`), on ne la pose pas à côté.
+- **Un objet qui revient d'une planche à l'autre reprend le dessin réussi** (JP, 19 octobre 2026, planche 13-10 : « le
+  nid est pas beau, prends le nid [de la 13-40] qui est réussi ») : on importe la fonction de la planche réussie, on ne
+  redessine pas le même objet autrement.
+- **Quand la tête n'apprend rien, on cadre sur les mains** (JP, 19 octobre 2026, planche 13-40, souffler sur le nid :
+  « dégueulasse la main et tout ; au pire fais le zoom sur une main, montre pas le visage ») : un gros plan des mains
+  qui tiennent l'objet, le geste (le souffle, la flamme) qui entre par le bord de la vignette ; pas de tête de face
+  ou de profil tracée pour l'occasion.
+- **Les gros plans de mains** passent par `h.formes.mainStock` : les mains Adobe Stock 116570613 que JP a choisies (18 octobre 2026 : « les bonnes mains »), tracés exacts de l'illustratrice au style du livre ; `scripts/mains/stock.js`, catalogue `scripts/mains/stock/catalogue.json`, noms `stock/noms.json`, feuille des ids `images/planches-src/_palette-mains-stock.js` (aperçu `livre/apercus-palette/mains-stock-ids.png`). Seules les mains gardées servent (nommées dans `noms.json`,
+  sans « exclue » : JP, 18 octobre, « y a des mains vraiment weird » ; le moteur refuse les autres). On choisit la prise, on la
+  place (`x`, `y`, `ancre`), on la tourne (`angle`), on la retourne (`miroir`) ; `objet: false` enlève l'objet du fichier et
+  rend son axe (`.objet`), où la planche pose le sien avant la main. `mainSimple` est retiré (JP, 16 octobre : « c'est pas
+  beau en criss ») ; les 68 planches qui l'emploient sont à refaire avec `mainStock`. Le poing et la
+  prise de manche vus de la paume, tournés de `[-25, 0, 0]`, se lisent bien ; le poing vu de dos fait moufle.
+  **Une main laide ne s'imprime pas** (JP : « les prises que c'est laid, on élimine ») : pour une pince, le
+  gros plan des deux bouts de doigts coupés par le bord de la vue (27-04, 23-02, 34-01) ; sinon une autre
+  prise (la pierre à feu dans le poing, 13-09) ; sinon l'objet seul, et le renvoi dit la prise (24-16, 34-02).
+- **La tête avec un visage** passe par `h.formes.teteSimple` (`scripts/tetes/`), ou `corps({ visage })` pour un
+  corps simple : œil en amande vide, bouche au contour seul, cheveux en ligne de contour (JP, 14 octobre :
+  « les têtes sont belles »). Une tête écrasée à plat contre une autre se lit mal (29-05 garde sa tête d'avant).
+- Il manque une pose, un âge, une prise ? **On l'ajoute à formes.js**, on la regarde en grand
+  sur les feuilles d'essai (`images/planches-src/_formes-essai-*.js`), puis on s'en sert.
 
 ## Les pièges qui reviennent
 

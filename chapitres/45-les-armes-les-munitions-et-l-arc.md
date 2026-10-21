@@ -83,9 +83,9 @@ coupée sur le dos le casse, d'où la bille fendue selon le fil et tout le trava
 
 | Bête | Ch. | Arme | Ce qu'une prise coûte | Ce qui remplace la cartouche |
 | --- | --- | --- | --- | --- |
-| Orignal (*Alces americanus*) | 61 à 65 | Une des quatre carabines — la .308 Winchester d'abord, la 7 mm Remington Magnum, la .303 British ; à courte distance, le 12 à balle unique | Le coup qui tue, et le coup de grâce s'il y a lieu (ch. 61, étape 3) | Rien. C'est pour lui qu'on garde les dernières |
-| Ours noir (*Ursus americanus*) | 52 | Les mêmes carabines | Le même compte | Rien |
-| Phoque commun (*Phoca vitulina*), phoque gris (*Halichoerus grypus*) | 56 | Les mêmes carabines ; jamais la .22 | Le même compte | Rien : une bête blessée plonge |
+| Orignal (*Alces americanus*) | 61 à 65 | Une carabine de chasse au gros gibier ; à courte distance, le 12 à balle unique | Le coup qui tue, et le coup de grâce s'il y a lieu (ch. 61, étape 3) | Rien. C'est pour lui qu'on garde les dernières |
+| Ours noir (*Ursus americanus*) | 52 | La même carabine | Le même compte | Rien |
+| Phoque commun (*Phoca vitulina*), phoque gris (*Halichoerus grypus*) | 56 | La même carabine ; jamais la .22 | Le même compte | Rien : une bête blessée plonge |
 | Castor du Canada (*Castor canadensis*) | 50 | Piège ; la .22 pour une bête prise vivante | 1 par bête vivante | Le coup porté de l'arrière (ch. 50, étape 4) |
 | Porc-épic d'Amérique (*Erethizon dorsatum*) | 51 | .22 à la tête | 1 | Le bâton (ch. 51 §9) ; la flèche sur la bête perchée (§9) |
 | Lièvre d'Amérique (*Lepus americanus*) | 48 | Collet ; .22 sur la bête accroupie | 1 | Collet (ch. 48) ; flèche mousse (§9) |
@@ -115,22 +115,21 @@ coupée sur le dos le casse, d'où la bille fendue selon le fil et tout le trava
    gibier. Dès que le stock devient fini, plus aucune cartouche de carabine ne part sur du petit
    gibier (ch. 41).
 
-**Le compte, arme par arme.** Six armes, cinq cartouches. Chaque ligne ramène à une cartouche ce
-qui précède : les bêtes du tableau, le réglage (étape 2), la pratique (étape 3).
+**Le compte, calibre par calibre.** On fait une ligne par calibre qu'on a. Chaque ligne compte en
+cartouches ce qui précède : les bêtes du tableau, le réglage (étape 2) et la pratique (étape 3).
 
-| Cartouche | Armes | Ce qu'elle prend | Avant la première bête | Ce qui compte |
-| --- | --- | --- | --- | --- |
-| .22 | 1 | Tout ce qui s'assoit : lièvre, porc-épic, gélinotte et tétras perchés, lagopède, écureuil, rat musqué ; la bête vivante au piège | Le zéro à 25 m, trois au froid (étapes 33 et 34), et toute la pratique | Une cartouche par bête assise. C'est celle qu'on tire le plus et la plus fragile (§8, bloc 3) : ce qui manque ici passe aux engins et à l'arc (§9) |
-| 12 | 1 | La gélinotte levée, le lagopède en bande, la sauvagine ; à courte distance, l'orignal à balle unique | — | Plusieurs cartouches par oiseau en vol, de l'ordre de cinq par canard. Plomb et acier jamais dans la même veste (ch. 54, étape 0) |
-| .308 Winchester | **2** | Orignal, ours, phoque | 12 par carabine, donc **24** | **Le stock se concentre ici.** Une boîte sert deux armes et deux tireurs, et si une carabine casse, ses cartouches passent à l'autre sans qu'une seule soit perdue |
-| 7 mm Remington Magnum | 1 | Orignal, ours, phoque | 12 | Ses cartouches ne vont dans aucune autre arme. Et c'est la seule chambre de la maison où deux autres cartouches se glissent — la .308 et la .303 —, qui n'y partent jamais (étape 39) |
-| .303 British | 1 | Orignal, ours, phoque | 12 | Cartouche à bourrelet, qui ne va que dans son arme. Elle se fabrique encore ; si la boîte est un vieux surplus militaire, l'amorce peut être corrosive (étape 24) |
+| Cartouche | Ce qu'elle prend | Avant la première bête | Ce qui compte |
+| --- | --- | --- | --- |
+| .22 | Tout ce qui s'assoit : lièvre, porc-épic, gélinotte et tétras perchés, lagopède, écureuil, rat musqué ; la bête vivante au piège | Le zéro à 25 m, trois au froid (étapes 33 et 34), et toute la pratique | Une cartouche par bête assise. C'est celle qu'on tire le plus et la plus fragile (§8, bloc 3) : ce qui manque ici passe aux engins et à l'arc (§9) |
+| 12 | La gélinotte levée, le lagopède en bande, la sauvagine ; à courte distance, l'orignal à balle unique | — | Plusieurs cartouches par oiseau en vol, de l'ordre de cinq par canard. Plomb et acier jamais dans la même veste (ch. 54, étape 0) |
+| Chaque calibre de carabine | Orignal, ours, phoque | 12 par carabine | Une cartouche d'un autre calibre peut entrer dans la chambre : si on la tire, l'arme cède (étape 39). Si la boîte est un vieux surplus militaire, l'amorce peut être corrosive (étape 24) |
 
-Le réglage des quatre carabines coûte **48 cartouches** avant qu'un seul orignal soit vu. Une
-cartouche de 7 mm ou de .303 ne sert qu'une arme : que cette arme casse, et sa boîte ne vaut plus
-rien. Une cartouche de .308 en sert deux. Au mois d'août, c'est la boîte de .308 qu'on remplit
-d'abord ; la 7 mm et la .303 reçoivent leur réglage et les coups des bêtes qu'on leur confie, pas
-plus.
+Le réglage coûte **12 cartouches par carabine** avant qu'un seul orignal soit vu. Quand deux
+carabines tirent le même calibre, une boîte sert deux armes et deux tireurs, et si une carabine
+casse, ses cartouches passent à l'autre sans qu'une seule soit perdue. Une cartouche qu'une seule
+carabine tire ne sert qu'à elle : si cette carabine casse, sa boîte ne vaut plus rien. Au mois
+d'août, on remplit d'abord la boîte du calibre que plusieurs carabines partagent ; une carabine
+seule de son calibre reçoit son réglage et les coups des bêtes qu'on lui confie, pas plus.
 
 ### B — Garder les cartouches vivantes
 
@@ -287,15 +286,12 @@ plus.
     si un coup est parti derrière l'obstacle, pour le renflement[^1].
 39. **Un seul calibre par poche, par veste, par caisse, au fusil comme à la carabine.** Même
     discipline que celle du plomb et de l'acier au ch. 54 (étape 0), pour d'autres raisons. Au
-    fusil, c'est le canon bouché (§8, bloc 1). À la carabine, c'est **la 7 mm Remington Magnum** :
-    sa chambre est assez proche de celles de la .308 et de la .303 pour qu'on y glisse l'une ou
-    l'autre, et leur balle est plus grosse que l'âme de la 7 mm de six à sept dixièmes de
-    millimètre. Elle s'y force, la pression monte au-delà de ce que l'arme tient, et l'arme cède à
-    hauteur du visage. Qu'une cartouche entre ne veut pas dire qu'elle peut partir. Les deux .308
-    et la .303 ne risquent rien des autres cartouches de la maison. Au toucher, à la mitaine, dans
-    le noir : la .303 a un bourrelet qui déborde au culot, la 7 mm une ceinture juste au-dessus du
-    culot, la .308 ni l'un ni l'autre. Les cartouches de la 7 mm voyagent seules, dans une poche
-    qui ne sert qu'à elles.
+    fusil, c'est le canon bouché (§8, bloc 1). À la carabine, une cartouche d'un autre calibre peut
+    entrer dans la chambre : si on la tire, la pression du gaz monte au-delà de ce que l'arme tient,
+    ou le gaz sous pression s'échappe, et l'arme cède à hauteur du visage. Lire le calibre gravé sur le canon
+    de chaque carabine, et ne mettre dans sa poche ou sa caisse que des boîtes qui portent ce
+    calibre. Au toucher, à la mitaine, dans le noir : une cartouche à bourrelet a un rebord qui déborde au culot, une cartouche à ceinture
+    un anneau juste au-dessus du culot, et les autres ni l'un ni l'autre.
 
 [^1]: Le renflement est un anneau où le canon a gonflé sous le choc de la balle contre l'obstacle.
     Il se voit parfois dehors, comme un anneau autour du canon. Sinon, l'âme bien propre, regardée
@@ -363,7 +359,7 @@ plus.
 > un fusil de calibre 12** descend dans le canon et s'y coince ; le fusil fait clic, la chambre a
 > l'air vide, on y met une cartouche de 12, et le coup suivant tire dans un canon bouché. Même
 > piège avec un 16 dans un 12, un 20 dans un 16, un 28 dans un 20. **Même famille à la
-> carabine** : une .308 ou une .303 glissée dans la 7 mm Remington Magnum pousse une balle plus
+> carabine** : une cartouche d'un autre calibre glissée dans la chambre peut pousser une balle plus
 > grosse que l'âme, et la pression monte de la même façon (étape 39). **La conduite :** le canon se
 > vérifie avant le premier coup de chaque sortie, après une chute, après une branche chargée de
 > neige frôlée, après tout coup qui sonne mou, et après **tout** clic, une fois les soixante

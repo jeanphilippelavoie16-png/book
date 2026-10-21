@@ -169,9 +169,7 @@ aucun de ces chiffres n'a été comblé par une valeur plausible. Le vérificate
 1. **environ 4 L/jour/personne (eau tout usage)**
    - *Où :* Section 5.1 et tableau A — l'eau. Le plancher officiel de 2 L/jour/personne (Sécurité publique Québec) ne couvre que la consommation, pas la cuisson ni l'hygiène.
    - *Pourquoi :* La valeur circule dans des fiches municipales québécoises mais n'a été retrouvée dans aucune publication provinciale ou fédérale. Si aucune source officielle n'est trouvée, retirer la ligne et ne garder que les 2 L sourcés.
-2. **majoration calorique pour le froid et le travail d'hiver (chiffre de travail : 9 000 kcal/jour pour la famille)**
-   - *Où :* Section 5.1 — le calcul des calories à stocker, bâti sur la somme sourcée de 8 550 à 8 800 kcal/jour (MSSS).
-   - *Pourquoi :* Le document du MSSS précise que ses valeurs sont des approximations pour la taille et le poids médians au Canada, sans aucune majoration pour le froid extrême ni le travail physique. Bloquant : dépend du chapitre 26, qui passe par un nutritionniste.
+2. **majoration calorique pour le froid et le travail d'hiver : levé le 19 octobre 2026.** Le stock se bâtit sur 9 500 kcal/jour pour la famille, le chiffre de planification du ch. 21 (ch. 5, étape 8) ; provenance dans `suivi/21-redaction.md`.
 3. **riz 4 kg, farine 4 kg, avoine 2 kg, légumineuses 3 kg, pâtes 2 kg, sucre 1 kg, lait en poudre 1 kg par personne-mois**
    - *Où :* Tableau B — les calories sèches.
    - *Pourquoi :* Masses dérivées de la cible calorique, pas d'une table publiée. Confirmer la densité énergétique de chaque denrée dans le Fichier canadien sur les éléments nutritifs (Santé Canada), puis recalculer.

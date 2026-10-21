@@ -3,6 +3,9 @@
 // dedans, souvent de la taille du grain, parfois bien plus gros et qui dépasse des balles).
 // Le chapitre ne donne aucune dimension de chaudière, d'écumoire ni de bâton : aucune cote. Le
 // seul nombre est dans la légende (250 g de sel par litre d'eau).
+// 14 oct. : les deux poings sont des mains simples (mains/moteur.js, prise-manche vue côté paume) au lieu
+// des calques s11 grossis avec le manche ; la charte : le bâton au contour 2,4, brasser et lever
+// l'écumoire en flèches rouges du geste. Le sol et la chaudière ne changent pas.
 module.exports = (h) => {
   const A = h.a, F = h.formes;
   const r1 = v => Math.round(v * 10) / 10;
@@ -26,6 +29,27 @@ module.exports = (h) => {
     const c = Math.cos(ang * RAD), s = Math.sin(ang * RAD);
     const p1 = [x + rx * c, y + rx * s], p2 = [x - rx * c, y - rx * s];
     return h.path(`M${pt(p1)} A${rx} ${ry} ${r1(ang)} 1 0 ${pt(p2)} A${rx} ${ry} ${r1(ang)} 1 0 ${pt(p1)} Z`, at);
+  };
+
+  // ─── La main (main simple, mains/moteur.js) ────────────────────────────────────────────
+  // poser : l'angle qui met l'axe de la prise sur `axe` (degrés à l'écran) et l'avant-bras du côté de `vers`
+  const poser = (o, axe, vers) => {
+    const base = Object.assign({}, o, { angle: 0, avantbras: { longueur: 100 } }); delete base.objet;
+    const e0 = F.mainSimple(base); let best = null;
+    for (const k of [0, 180]) {
+      const a = axe - e0.prise.angle + k, m = F.mainSimple(Object.assign({}, base, { angle: a }));
+      const d = [m.coude[0] - m.poignet[0], m.coude[1] - m.poignet[1]], v = [vers[0] - m.poignet[0], vers[1] - m.poignet[1]];
+      const c = (d[0] * v[0] + d[1] * v[1]) / ((Math.hypot(d[0], d[1]) * Math.hypot(v[0], v[1])) || 1);
+      if (!best || c > best.c) best = { a, c };
+    }
+    return best.a;
+  };
+  // le poing (prise-manche vue côté paume, penché de 25°) fermé sur un manche d'axe e (vers le haut) :
+  // le manche entre d'un côté du poing et ressort de l'autre ; l'avant-bras court (140 mm) vers `vers`
+  const poing = (z, G, e, s, d, cote, vers, objet) => {
+    const o = { x: G[0], y: G[1], pose: 'prise-manche', vue: 'paume', cote, echelle: s, diametre: d, rotation: [-25, 0, 0] };
+    return F.mainSimple({ ...o, angle: poser(o, Math.atan2(e[1], e[0]) / RAD, vers), objet,
+      avantbras: { vers, bord: { x0: 0, y0: 0, x1: z.l, y1: z.h }, longueur: 140 } }).svg;
   };
 
   // ─── Les petites pièces ────────────────────────────────────────────────────────────────
@@ -96,7 +120,6 @@ module.exports = (h) => {
     // le bâton : du fond, un peu à droite du milieu, jusqu'au poing au-dessus du bord gauche
     const B = [cx + Wt * 0.16, yb - C.t - 10], G = [cx - Wt * 0.06, yt - 44];
     const u = [G[0] - B[0], G[1] - B[1]], lu = Math.hypot(u[0], u[1]), e = [u[0] / lu, u[1] / lu];
-    const ang = Math.atan2(e[0], -e[1]) / RAD;
     const d = 28 * s;                          // un bâton d'un pouce
     const n = [-e[1], e[0]];
     const haut = [G[0] + e[0] * 30, G[1] + e[1] * 30];
@@ -111,16 +134,15 @@ module.exports = (h) => {
     // le bâton au-dessus de la surface (le bout arrondi en haut)
     const S = [B[0] + e[0] * ((yS - B[1]) / e[1]), yS];
     const cap = [haut[0] + e[0] * d * 0.5, haut[1] + e[1] * d * 0.5];
-    o.push(h.path(`M${pt(bord(S, 1))} L${pt(bord(haut, 1))} Q${pt(bord(cap, 1))} ${pt(cap)} Q${pt(bord(cap, -1))} ${pt(bord(haut, -1))} L${pt(bord(S, -1))}`, bA));
-    o.push(h.ligne(bord(S, 0.3)[0], bord(S, 0.3)[1], bord(haut, 0.3)[0], bord(haut, 0.3)[1], A.fin));
+    const batonHaut = [h.path(`M${pt(bord(S, 1))} L${pt(bord(haut, 1))} Q${pt(bord(cap, 1))} ${pt(cap)} Q${pt(bord(cap, -1))} ${pt(bord(haut, -1))} L${pt(bord(S, -1))}`, blanc(A.contour)),
+      h.ligne(bord(S, 0.3)[0], bord(S, 0.3)[1], bord(haut, 0.3)[0], bord(haut, 0.3)[1], A.fin)].join('\n');
     o.push(...C.trait);
     // la saumure qui tourne autour du bâton
     const ym = yS + (yb - yS) * 0.42, rx = Wt * 0.3, ry = 10, xm = cx + 4;
     const P = a => [xm + rx * Math.cos(a * RAD), ym + ry * Math.sin(a * RAD)];
-    o.push(h.fleche(`M${pt(P(200))} A${rx} ${ry} 0 0 0 ${pt(P(90))} A${rx} ${ry} 0 0 0 ${pt(P(-10))}`, A.arete));
-    // la main
-    const m = F.main({ x: G[0], y: G[1], pose: 'prise', vue: 'dos', echelle: s, diametre: d, angle: ang, bras: 45 });
-    o.push(m.toString());
+    o.push(h.geste(`M${pt(P(200))} A${rx} ${ry} 0 0 0 ${pt(P(90))} A${rx} ${ry} 0 0 0 ${pt(P(-10))}`));   // brasser : le geste (charte)
+    // la main droite sur le bâton, l'avant-bras vers la gauche, en haut ; le bâton passe dans le poing
+    o.push(poing(z, G, e.map(v => -v), s, 28, 'droite', [G[0] - 500, G[1] - 150], batonHaut));
     const yB = yt - 12, xB = S[0] + (yB - yS) * e[0] / e[1];
     const y2 = yS + (yb - yS) * 0.72;
     return {
@@ -184,13 +206,11 @@ module.exports = (h) => {
     const u = [G[0] - M0[0], G[1] - M0[1]], lu = Math.hypot(u[0], u[1]), e = [u[0] / lu, u[1] / lu], nn = [-e[1], e[0]];
     const dm = 22 * s, M1 = [G[0] + e[0] * 30, G[1] + e[1] * 30];
     const bm = (p, k) => [p[0] + nn[0] * dm / 2 * k, p[1] + nn[1] * dm / 2 * k];
-    o.push(h.path(`M${pt(bm(M0, 1))} L${pt(bm(M1, 1))} Q${pt([M1[0] + e[0] * 6, M1[1] + e[1] * 6])} ${pt(bm(M1, -1))} L${pt(bm(M0, -1))} Z`, bA));
-    // la main : pouce vers l'écumoire, l'avant-bras qui part vers la droite
-    const ang = Math.atan2(-e[0], e[1]) / RAD;
-    const m = F.main({ x: G[0], y: G[1], pose: 'prise', vue: 'dos', echelle: s, diametre: dm, angle: ang, bras: 30 });
-    o.push(m.toString());
-    // le geste : lever hors de la chaudière
-    o.push(h.fleche(`M${pt(E(-ex - 8, 4))} C${pt(E(-ex - 14, -34))} ${pt(E(-12, -58))} ${pt(E(14, -54))}`, A.arete));
+    const manche = h.path(`M${pt(bm(M0, 1))} L${pt(bm(M1, 1))} Q${pt([M1[0] + e[0] * 6, M1[1] + e[1] * 6])} ${pt(bm(M1, -1))} L${pt(bm(M0, -1))} Z`, bA);
+    // la main gauche sur le manche, l'avant-bras qui part vers la droite ; le manche passe dans le poing
+    o.push(poing(z, G, e, s, 22, 'gauche', [G[0] + 500, G[1] - 20], manche));
+    // le geste : lever hors de la chaudière (charte : le rouge)
+    o.push(h.geste(`M${pt(E(-ex - 8, 4))} C${pt(E(-ex - 14, -34))} ${pt(E(-12, -58))} ${pt(E(14, -54))}`));
     const yL = yg + (yb - yg) * 0.5;
     return {
       svg: o.join('\n'),

@@ -130,7 +130,7 @@ fumier seul perd le sien dans l'air ; mêlés, ils se corrigent.
     en andain en bordure du champ, du côté du vent : l'andain coupe le vent et pourrit en place.
     Même au tas de compost, le bois non haché met jusqu'à deux ans à se défaire ; en andain, bien
     davantage. S'il faut brûler, c'est sur la roche, le sable ou la terre minérale mise à nu ; jamais
-    quand le faisceau de sécheresse du ch. 11 §9 est réuni — mousse cassante, humus qui s'effrite,
+    quand le faisceau de sécheresse du ch. 11, section 7, est réuni — mousse cassante, humus qui s'effrite,
     ruisseaux bas —, même si le sol est encore mouillé ; jamais par un vent qui porte vers le bois ou
     vers le chalet. Personne ne viendra éteindre un brûlis qu'on perd : on brûle par petits tas, un à
     la fois, et on refait le tour au dégel (ch. 11). La cendre du tas suit la règle de celle du
@@ -555,7 +555,7 @@ fumier seul perd le sien dans l'air ; mêlés, ils se corrigent.
 > **3. Un brûlis d'abattis peut couver tout l'hiver.** Le feu qu'on allume sur l'humus d'une pessière
 > descend dans la matière organique, y avance à l'horizontale sans flamme ni fumée, couve sous la
 > neige et peut ressortir au printemps à distance de l'endroit où on l'avait laissé. On brûle sur la
-> terre minérale ou la roche, jamais quand le faisceau de sécheresse du ch. 11 §9 est réuni, même sur
+> terre minérale ou la roche, jamais quand le faisceau de sécheresse du ch. 11, section 7, est réuni, même sur
 > un sol encore mouillé, jamais par un vent qui porte vers le bois ou le chalet ; on gratte autour
 > jusqu'au minéral ; on repasse au dégel (ch. 11). Personne ne viendra l'éteindre.
 >

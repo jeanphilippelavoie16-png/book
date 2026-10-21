@@ -252,3 +252,401 @@ Verdicts de `suivi/verifications/19-verifications.md` appliqués au chapitre. Pl
 Non appliqués, faute de drapeau (section « À corriger ailleurs » du fichier de vérifications) : les chiffres de l'antenne et de la terre au §9 (« L'antenne et la mise à la terre… »), la portée de 80 km du poste à galène, et le geste de la paire de rechange au §7.
 
 - Compression §3 et §4 — 27 septembre 2026 : 1676 mots → 198 mots (§3 : 773 → 119 ; §4 : 903 → 79, tableau devenu liste de 4 lignes) ; matériel coupé : piles de rechange (fondues dans la ligne du récepteur), crayon de bois (→ §9 « Écrire quand il n'y a plus de papier »), fiche de position plastifiée (produit de l'étape 4), liste papier des numéros, antenne filaire et fil de terre (fil de récupération, étape 3 et §9), radios portatives et code de sifflet, balise 406 MHz (doublon de l'appareil satellite avec SOS ; reste optionnelle aux étapes 6 et 8), montre ou horloge, substitut « VHF de bateau sur 12 V », paragraphes après le tableau (dédoublement maison/chalet, radioamateur, portées d'emballage 26 km / moins d'un kilomètre, renvoi ch. 85, ch. 42 et chapitre d'achat). §3 : sortent Radio-Météo 162,400-162,550 MHz et 60 km, l'autonomie des tours (quelques heures sur batteries), les trois conditions LTE (déjà au §8), la limite de -20 °C de l'appareil satellite, le détail de la balise. Déplacé : « le signal de la balise ne porte qu'un numéro ; non inscrite, elle alerte sans dire qui appelle » → §5, étape 6. Aucun appel de note, aucun renvoi « section 4 » à corriger ; le renvoi « (section 3) » du §9 (ondes moyennes réfléchies la nuit) reste couvert.
+
+## Refonte au gabarit final, 19 octobre 2026
+
+Commande : « Monte le reste du tome 1 final ». Le chapitre passe au gabarit à **sept sections** plus « En plus », sur les
+modèles des ch. 4 et 12. Rédacteur (rôle 2). **Aucun travail de source refait** (JP, 19 octobre 2026 : « fuck les
+sources, on a pas déjà fait ce travail-là ? ») : tout chiffre nouveau vient d'une page déjà enregistrée dans `sources/`,
+recopiée mot pour mot dans `sources/14-refonte-2026-10-19-balise-et-en-plus.md`. Fins de ligne LF gardées. Fichiers
+touchés : le chapitre, cette fiche, `sources/14-refonte-2026-10-19-balise-et-en-plus.md`, le logigramme
+`images/logigrammes/14-communiquer.json` et ses rendus (`.svg`, `.pdf`, `.png`, `-livre.svg`). Aucun fichier commun touché.
+Montage d'essai dans le scratchpad (`build_chapitre.py 14 --rendu`, avec une copie de `placements.json` qui porte les
+ancres proposées) : 14 pages, l'appel de la planche 14-01 en p. 10 et la planche en p. 11, les quatre notes En plus
+posées (p. 6, 7, 8 et 14), logigramme en double page après le Matériel.
+
+### Ce qui a changé
+
+- **Sous le titre** : la ligne de lieu seule (`**Les deux**`). La note de lieu (« À la maison, le problème est de
+  *savoir*… ») sort : ce qui change d'un lieu à l'autre est dit dans l'étape (étapes 14, 15, 17, 18, 20, 25, 29).
+- **Section 2** : seulement quand l'utiliser, avec les étapes. Sortent : la liste « C'est un mauvais choix quand »
+  (son seul fait utile, la radio est une diffusion, va à l'étape 28 ; la confiance que donne l'appareil, à l'étape 30 ;
+  « le chapitre 2 tranche » et l'écoute qui devient une occupation sont redits aux étapes 24 et ch. 2) ; la « note sur
+  ce qui est déjà en place » (le chalet de JP a déjà un lien satellite : propos centré sur JP et justification du
+  cadrage) ; « un adulte sur la 138 » ; « village ».
+- **Section 3 « Pourquoi ça marche » sort** ; le Matériel devient la section 3, au format d'une ligne par item, sans
+  tiret ni « § ». La VHF ne redit plus la comparaison avec le téléphone (elle est à l'étape 2).
+- **Section 8 Danger sort** ; la variante d'urgence devient la section 7.
+- **Procédure renumérotée d'un bout à l'autre (1 à 30)**, sans « Palier 1 — », et dans l'ordre : deux séries orange en
+  tête (étapes 1 à 8 et 9 à 13), puis « Avant, une fois : monter le plan » (14 à 23), « Chaque jour » (24 à 28),
+  « Quand quelqu'un sort » (29 et 30). Correspondance avec l'ancienne numérotation : 1 → 14 ; 2 → 15 ; 3 → 16 ; 4 → 17 ;
+  5 → 18 ; 6 → 19 ; 7 → 20 et 21 ; 8 → 23 ; 9 → 24 ; 10 → 25 ; 11 → 27 ; 12 → 29 ; 13 → 26 ; 14 → 5 ; 15 → 5 et 6 ;
+  16 → 2 ; 17 → 8.
+- **Nouveau, sur des pages déjà enregistrées** : la série « Quelqu'un n'est pas revenu à l'heure prévue » (étapes 9 à
+  13), bâtie sur la fiche de sortie, le correspondant, le relais et l'envoi à deux de l'ancienne section 9 ; l'heure
+  limite fixée à une heure après le retour prévu (étapes 10 et 29 ; AIM, plan de vol) ; la balise laissée en marche, au
+  moins 24 h, et rester près de la machine (étape 3) ; l'attente jusqu'à 24 h, la verdure, la lampe frontale et le
+  flash (étape 4) ; la fausse alerte signalée avec l'heure, la durée et la position (étape 8) ; les alertes du téléphone
+  et les batteries des tours (étape 14) ; le message texte à la maison (étape 25) ; environ 60 g de fil pour la bobine
+  et la portée de 80 km du poste à galène (section 7) ; un tableau du code sol-air (section 7).
+- **Le correspondant** (étape 18) : sa consigne passe de « deux heures plus tard » à « une heure plus tard », pour suivre
+  l'heure limite de l'étape 29. C'était un exemple du rédacteur (« une consigne en trois lignes du genre… »), pas un
+  chiffre sourcé. La fiche de position perd, pour la maison, « qui est présent et de quel âge, où est la seconde sortie,
+  où est l'entrée d'eau et la valve de gaz » : c'était une fiche pour des secours qui entrent, et l'âge des personnes est
+  déjà sur la liste remise au correspondant.
+- **Phrases réécrites** (règle 0, maximes, chutes, tournures, pronominal) : « c'est le cœur du système », « une fiche
+  introuvable pendant une urgence n'a jamais existé », « c'est la règle la moins négociable du chapitre », « une note
+  vaut une heure de recherche aérienne », « un code inventé sur le moment est un bruit », « deux fils valent mieux que
+  deux appareils », « une inquiétude, elle, ne se lit pas », « c'est la station qui paie », « Sans soleil, ça ne vaut
+  rien — d'où la fumée », « le stylo à bille refuse de partir », « l'œil attrape », « C'est la vraie variante d'urgence
+  de la Côte-Nord », « personne n'a jamais bricolé une balise », « C'est la seule pièce du chapitre qui… », « Tout ce
+  qui précède dans cette section sert à savoir », « le montage des tranchées ; il est laid… et il marche », « le
+  poste… il s'écoute moteur coupé », « se fabrique », « se branche seule ». « Au village » → « En ville » ; « 2 enfants
+  de 4 et 6 ans » → « dont 2 jeunes enfants » ; « Pour un enfant de 4 ans, savoir que grand-maman a répondu » → « Pour
+  un jeune enfant, recevoir une réponse de sa grand-mère ou d'un proche ».
+- **Renvois** : « ch. 85 » (Éclairage) → « ch. 86 » (L'électricité du chalet, qui porte le banc de la radio) ; « (ch. 87) »
+  pour les seuils en ppm sort avec le Danger (la page `co` les porte) ; « (section 8) » sort partout ; « → §9 » devient
+  « section 7 ». Ajoutés : ch. 4, section 7 (les fils du poste d'auto au multimètre), ch. 12, étapes 1 à 14 (l'abri),
+  ch. 13 (le feu), ch. 15, étapes 11 à 13 (le moteur qu'on fait tourner avec des gens à bord), étape 18 (la nuit au bord
+  de la trace) et étape 31 (l'heure de demi-tour), ch. 16, section 7 (le téléphone à deux haut-parleurs) et étape 19 (le
+  signal convenu), ch. 26 et ch. 35 (les soins en attendant, la décision de partir), ch. 30 (épidémie), ch. 11.
+
+### Où est allé chaque bloc de l'ancienne section 3, « Pourquoi ça marche »
+
+| Bloc | Où il est allé |
+| --- | --- |
+| Recevoir ne coûte presque rien, émettre coûte cher ; écouter s'improvise, joindre non | Section 7, « Ce qui ne se remplace pas », « La portée en émission » (déjà là ; la phrase de la section 3 était la redite) ; le mécanisme du poste à galène, au premier paragraphe de la section 7 |
+| La portée tient à la géométrie : FM et VHF en ligne droite, coupées par le relief ; l'AM le soir, réfléchie, porte loin | Étape 15 (mesurer la réception le jour et le soir) ; Matériel, ligne de la radio |
+| Le cellulaire et ses alertes meurent avec la tour ; la radio météo ne capte plus ; reste la radiodiffusion | Étape 14, trois sous-étapes (les trois conditions d'En Alerte, sans la liste ; les batteries des tours ; Radio-Météo) |
+| Un message satellite « envoyé » est mis en file, pas reçu | Étape 7 (série orange) |
+| Le froid vide les piles ; lithium-ion pas sous 0 °C ; les appareils dorment à l'intérieur et voyagent sous le manteau | Étape 22, avec les 10 °C de certaines piles et les −20 °C de l'appareil satellite (déjà sourcés, retirés à la compression du 27 septembre) |
+
+### Où est allé chaque bloc de l'ancienne section 8, Danger
+
+| Bloc | Où il est allé | Ce qui saute, et pourquoi |
+| --- | --- | --- |
+| 1. Recharger à l'intérieur : le mécanisme (sans odeur ni couleur, l'enfant fatigué ou de mauvais caractère, seul un avertisseur le détecte) | Rien dans le chapitre | La page `co` le dit au complet |
+| 1. La règle de la génératrice (dehors, loin des portes et fenêtres, jamais garage, garage de toile, abri) | Étape 21, `{!generatrice}` `{!co}` : seulement à l'air libre, **même pour dix minutes** (le propre du chapitre), la rallonge seule entre ; l'avertisseur posé là où sont les gens | Le reste est la page `generatrice` |
+| 1. Le camion qu'on fait tourner pour recharger (échappement, fenêtre opposée au vent, 10 min par 30 min, la bordée) | Étape 21, en une phrase avec renvoi au ch. 15, étapes 11 à 13 | Le ch. 15 porte la série orange de l'auto immobilisée, avec les mêmes chiffres et la même source (`19-quebec-trousse-urgence-et-auto.md`) : un fait, une place |
+| 1. Si l'avertisseur sonne : sortir tout le monde, ouvrir, couper ; ne pas rentrer avant d'avoir aéré ; seuils ppm au ch. 87 | Signes d'échec, ligne de l'avertisseur (l'action de la recharge) | La page `co`, points 1 à 5 ; le renvoi au ch. 87 sort |
+| 2. La confiance que l'appareil donne (on part plus loin, plus tard, seul ; le délai du secours contre celui du corps) | Étape 30, sans pictogramme (inventaire, section 4) ; « des heures » devient « en heures, parfois en une journée (étape 4) », avec les 24 h de l'AIM | La formule « écrite au mur » et « exactement l'endroit où les gens meurent » sortent (maxime, chute) |
+| 2. Sur l'eau : un cellulaire ne remplace pas la radio maritime ; personne à personne contre diffusion | Étape 2, troisième sous-étape | |
+| 2. Trois défaillances silencieuses (message jamais monté, batterie au froid, alerte En Alerte sans LTE) | Étape 7 ; étape 22 ; étape 14 | |
+
+### Pictogrammes (étape → id)
+
+| Étape | Id | Ce qui est propre au chapitre |
+| --- | --- | --- |
+| 4 | `froid` | Une recherche peut prendre jusqu'à 24 h : abri et feu près de la machine |
+| 21 | `generatrice`, `co` | Même une recharge de dix minutes ; la rallonge seule entre ; l'avertisseur là où sont les gens |
+
+Montage d'essai : les trois pictogrammes sortent à droite de leur étape (FROID, GÉNÉRATRICE, MONOXYDE). `froid` n'avait
+pas le ch. 14 dans l'inventaire (rendu à l'orchestrateur).
+
+### Séries orange et leurs pastilles
+
+| Série | Pastille | Étapes | Ce qui fonde la pastille |
+| --- | --- | --- | --- |
+| Il faut de l'aide, loin de tout | 10 min | 1 à 8 | **Le temps des gestes** : décider et envoyer le premier appel. Ordre de grandeur des « minutes précieuses » de la Garde côtière (« On ne rattrape jamais le temps perdu dans les premiers stades… ces minutes précieuses peuvent faire toute la différence », `19-garde-cotiere-aides-radio-navigation-maritime.md`) et des « minutes qui suivent l'activation » où un signal de 406 MHz est capté (AIM 3.5). Même pastille que la série « Quelqu'un est blessé dans le bois » du ch. 16, dont l'étape 3 donne l'alerte. **Doute** : c'est le temps des gestes, pas un délai de danger sourcé (même doute qu'au ch. 15, « La machine s'arrête ») |
+| Quelqu'un n'est pas revenu à l'heure prévue | 1 h | 9 à 13 | L'heure entre le retour prévu et l'heure limite, comme les recherches d'un avion qui a déposé un plan de vol : « d'une heure après l'heure d'arrivée prévue (ETA) dans le cas d'un plan de vol » (AIM SAR 3.5, `19-transports-canada-aim-sar-2025-fr.pdf`, recopié dans `14-refonte-2026-10-19-balise-et-en-plus.md`) |
+
+La scène jouée : série 1, l'adulte blessé ou pris, avec l'appareil satellite sous le manteau ou la VHF, ou l'adulte
+resté au chalet avec un enfant malade ; on décide d'abord la détresse ou l'avis, puis on organise l'attente. Série 2,
+l'adulte resté seul au chalet avec les enfants à la fin du jour : il écrit l'heure, essaie de joindre, relit la fiche,
+allume et siffle, avertit à l'heure limite, et ne part qu'à deux. Ce qui demande une préparation (correspondant, fiche
+de position, fiche de sortie) a son autre façon dans l'étape quand elle n'existe pas (étapes 5, 6 et 10). Consignes
+confrontées aux autres dangers du scénario : partir chercher seul ou de nuit fait un deuxième disparu (étape 13) ;
+attendre 24 h dehors appelle le froid (étape 4).
+
+### Logigramme
+
+Nouveau : `images/logigrammes/14-communiquer.json`, double page, sur le modèle du 12 (et du 04). Page de gauche, la
+série 1 : départ, question « La vie de quelqu'un est en jeu maintenant ? » (avec la précision de l'étape 1), branche
+« Oui » (étapes 2 à 4) et branche « Non, ou dans le doute » (étapes 5 à 8). Page de droite, la série 2 (étapes 9 à
+12), puis la question « Deux adultes peuvent partir sans laisser les enfants seuls ? » et ses deux réponses
+(étape 13). Pastilles identiques à l'orange (10 min sur les deux premières boîtes de la fourche, 1 h). Phrases
+complètes ; aucun avertissement redit (ni le monoxyde, ni le froid). Colonnes de droite de 8,625 à 15,5 po. Rendus :
+`env -u TMPDIR python3 design/outils/logigramme.py images/logigrammes/14-communiquer.json` (svg, pdf, png) et
+`… --sans-entete --svg` (`14-communiquer-livre.svg`) : **0 erreur, 0 avis** les deux fois ; regardé à l'image.
+Ancre : « **Radio VHF maritime portative, sur le fleuve** », dernier item du Matériel.
+
+### Planches
+
+- **14-01** (le poste à galène, validée) : appelée une fois, au premier paragraphe de « Écouter sans pile : le poste à
+  galène » (section 7), qui devient son ancre : « Le poste à galène n'a besoin d'aucune pile ». Ses quinze repères sont
+  appelés dans l'ordre : 1 et 2 (la bobine), 3 et 4 (l'accord), 5 et 6 (les bornes, sous-étape ajoutée pour suivre la
+  planche), 7 à 9 (le détecteur), 10 et 11 (l'écouteur), 12 à 14 (l'antenne), 15 (le contrepoids). L'ancienne ancre,
+  « Côté terre, la règle qui surprend », n'existe plus. Montage d'essai : appel p. 10, planche p. 11.
+- La PNG validée porte encore, sous le dessin, la ligne « Planche 14-01 — Le poste à galène. » avec un tiret, que le
+  moteur pose maintenant en bandeau ; et l'en-tête de `images/planches-src/14-01.js` parle du « chapitre 19, section 9 ».
+  Rendu à l'orchestrateur, rien redessiné.
+
+### Chiffres nouveaux et leurs sources
+
+| Chiffre | Où | Source (déjà enregistrée) |
+| --- | --- | --- |
+| Au moins 24 h d'émission d'une balise à pile en bon état | Étape 3 | AIM SAR 3.1 |
+| Jusqu'à 24 h avant le sauvetage | Étapes 4 et 30 | AIM SAR 4.7.1 |
+| Une heure après l'heure prévue (heure limite, pastille 1 h) | Étapes 10, 18, 29 ; série 2 | AIM SAR 3.5 |
+| Quelques minutes, 90 min, 121,5 MHz | En plus, « Comment la balise est entendue » | AIM SAR 3.1 et 3.5 |
+| 1 h, heure SAR, 24 h (plan de vol, itinéraire) | En plus, « Une heure ou une journée » | AIM SAR 3.5 |
+| 2 à 10 h, rarement une journée (batteries des tours) | Étape 14 | `19-cbc-2018-batteries-tours-cellulaires.md` (2 à 4 h, 4 à 10 h, 16 ou 24 h) |
+| 10 °C (certaines piles), −20 °C (appareil satellite) | Étape 22 | `19-lithium-ion-recharge-au-froid.md` |
+| Environ 60 g de fil (2 oz = 56,7 g, arrondi) | Section 7, la bobine | `19-nbs-circulaire-120-poste-recepteur.md` |
+| Jusqu'à environ 80 km, plus loin le soir | Section 7, ce qu'on perd avec le poste | `19-nbs-circulaire-120-poste-recepteur.md` (« within 50 miles ») |
+| 26 km, 4,8 km, 0,8 km | En plus, « La portée d'une radio portative » | `19-motorola-talkabout-portee.md` |
+| 18 à 27 km, 1945 | En plus, « Le téléphone de campagne au grand froid » | `19-us-army-tm11-333-telephone-ee8.md` |
+
+Le message texte (étape 25) n'a pas de chiffre : `11-isde-rester-connecte-messages-texte.md` (« encombrent moins les
+réseaux… peuvent fonctionner même lorsque le service téléphonique est interrompu »). Les chiffres qui ne font que
+changer de section ne sont pas rouverts (antenne 23 m, 9 m, 1 à 2 m ; bobine 10 cm, 80 spires ; 10 à 100 kΩ ; 3 V ;
+2,4 m et 3 m du code sol-air ; 0 °C ; voie 16 et 156,800 MHz ; 406 MHz ; six mois).
+
+**Disparus, et pourquoi** : 2182 kHz (ondes moyennes, qu'une VHF portative n'émet pas) et voie 70, 156,525 MHz (l'appel
+sélectif numérique demande une VHF qui l'a ; aucune source enregistrée ne dit ce que fait son bouton) ; « 30 minutes »
+(le camion : devient « par demi-heure » avec renvoi au ch. 15) ; « 4 et 6 ans » (âge des enfants de JP) ; « 138 » ;
+le renvoi au ch. 87 (seuils en ppm, portés par la page `co`) ; ch. 85 remplacé par ch. 86.
+
+### `[À VÉRIFIER]`
+
+Aucun ajouté, aucun dans le chapitre.
+
+### Notes « En plus » (quatre)
+
+| Note | Genre | Étape | Provenance |
+| --- | --- | --- | --- |
+| Comment la balise est entendue | Fait | 3 | AIM SAR 3.1, 3.2 (type P, la balise personnelle est une ELT), 3.5 |
+| La portée d'une radio portative | Fait | 15 | `19-motorola-talkabout-portee.md` (les chiffres retirés du Matériel le 27 septembre reviennent hors du geste) |
+| Une heure ou une journée | Fait | 29 | AIM SAR 3.5 |
+| Le téléphone de campagne au grand froid | Fait | Section 7 | `19-us-army-tm11-333-telephone-ee8.md` (portée sur fil W-110-B ; piles et membrane au froid) |
+
+Aucune façon des Innus : aucune page déjà enregistrée ne décrit comment les Innus se donnaient des nouvelles ou des
+signaux (cherché dans `80-turner-1894-ethnology-ungava-gutenberg.txt`, `autochtones-turner-1894-ungava.md`, les fiches
+N360, Tipatshimuna et Armitage), et la commande était de ne pas refaire de recherche. Aucune photo : Wikimedia Commons
+répondait 429 (trop de requêtes) le 19 octobre ; une photo pour reconnaître une pastille piézo ou une diode au germanium
+serait utile (question rendue).
+
+### `controle.py`, avant et après
+
+| | Avant (`bc816f4`) | Après |
+| --- | --- | --- |
+| Mots (`controle.py`) | 6 415 | 6 859 |
+| Mots (`wc -w`) | 6 253 | 6 711 |
+| Tirets | 43 (40 lignes) | 2 (titre et ligne de tome, lus par l'assembleur) |
+| Mots bannis | 5 (« village » ×4, « 4 et 6 ans ») | 0 |
+| « § » | 2 | 0 |
+| Tournures | 3 | 0 |
+| Mises en relief | 15 | 2 (« Si la vie n'est pas en jeu mais que ça peut mal tourner » : une condition, gardée) |
+| Mots vides à juger | 56 | 41 (« tout de suite », « tous les six mois », « bien sec », « tout le monde » : ils portent le sens) |
+| Redites à juger | | 2 (des renvois « (étape 29) ») |
+| Invariants disparus | | 30 minutes, 4 ans, 6 ans ; ch. 17, ch. 2 (« le chapitre 2 tranche », dans la liste coupée), ch. 85, ch. 87 ; 85, 87, 138, 156,525, 2182 : justifiés plus haut. Ancre 14-01 « Côté terre… » : remplacée |
+
+### Renvois à corriger ailleurs (rendus à l'orchestrateur)
+
+- `chapitres/16-le-voisinage-et-le-groupe-de.md` : « (ch. 14, étapes 14 et 15) » → « (ch. 14, étapes 5 et 6) » ;
+  « (ch. 14, étape 15) » → « (ch. 14, étape 6) » ; « (ch. 14, étape 13) » → « (ch. 14, étape 26) ».
+- `images/logigrammes/16-sortir-un-blesse.json` (champs « source ») : « ch. 14, étapes 14 et 15 » → « ch. 14, étapes 5
+  et 6 » ; « ch. 14, étapes 13 et 15 » → « ch. 14, étapes 26 et 6 ».
+- `chapitres/86-l-electricite-du-chalet.md` : « (ch. 14, étape 7) » → « (ch. 14, étape 20) ».
+
+## Corrections après la vérification technique, 19 octobre 2026
+
+Rôle 2, rédacteur, sur le rapport du vérificateur technique (16 points : 2 erreurs, 14 à préciser). Relu avant :
+`.claude/cadre-agents.md`, `CLAUDE.md`, le skill `ecriture`, `gabarit-chapitre.md`, les pages `generatrice`, `co`,
+`froid` et `coupure` (`dangers/partie-1.md`). **Aucune page nouvelle cherchée** (JP, 19 octobre 2026 : « fuck les
+sources, on a pas déjà fait ce travail-là ? ») : chaque correction s'appuie sur une page déjà au dossier, citée par le
+vérificateur et relue ici ; ce qu'aucune page ne porte est coupé, pas marqué. Les extraits sont ajoutés à
+`sources/14-refonte-2026-10-19-balise-et-en-plus.md` (section 3 et « Ce que le chapitre en tire »). Numéros d'étapes
+inchangés (1 à 30).
+
+### Appliqué
+
+| # | Où | Avant | Après | Page |
+| --- | --- | --- | --- | --- |
+| 1 | Étape 29 | « Passé l'heure limite, la personne qui reste suit les étapes 9 à 13. » | « Si la personne partie n'est pas rentrée à l'heure de retour prévue, la personne qui reste suit les étapes 9 à 13. » La série commence au retour prévu ; l'heure limite (une heure après) est celle de l'étape 12 | AIM SAR 3.5 a, p. 379 (`19-transports-canada-aim-sar-2025-fr.pdf`) |
+| 2 | Étape 16 | « Sur une radio sans borne d'antenne, enrouler le bout du fil sur l'antenne télescopique. » | Coupé. Aucune page au dossier, et l'antenne télescopique d'une radio de poche sert à la FM, pas à l'écoute AM du soir que l'étape vise | NON RETROUVÉ |
+| 3 | Étapes 12 et 18 | Étape 12 : « Le correspondant suit alors sa consigne (étape 18). » ; étape 18 : consigne de trois lignes, qui ne couvre que le message qui manque | Étape 12 : « Le correspondant donne alors l'alerte tout de suite (étape 18). » ; étape 18 : consigne de **quatre** lignes, avec « si le chalet écrit que quelqu'un n'est pas rentré à son heure limite, donner l'alerte tout de suite » | AIM SAR 3.5 a : à l'heure limite (retour prévu + 1 h), les recherches commencent |
+| 4 | Étape 21 | « seulement à l'air libre » ; « Laisser la génératrice dehors » | « seulement dehors » ; « Poser la génératrice à au moins 6 m du bâtiment, l'échappement tourné à l'opposé des portes et des fenêtres » ; « Ne jamais faire tourner la génératrice ni l'auto dans un bâtiment, sous un auvent ni dans un garage, même porte ouverte. » Comme les ch. 1, 2, 3, 4, 5, 10, 11 et 12 | **6 m, nouveau au ch. 14** : `10-sante-canada-generatrice-distance.md` (« au moins 6 mètres (20 pieds) ») ; garage même porte ouverte, attenant, à côté ou en toile : `19-quebec-monoxyde-de-carbone.md` ; l'auvent : tableau de `CLAUDE.md` et page `generatrice` |
+| 5 | Étape 21 | « ouvrir un peu une fenêtre » | « ouvrir un peu la fenêtre du côté opposé au vent » (comme le ch. 15, étape 12) | `19-quebec-trousse-urgence-et-auto.md`, l. 43 |
+| 6 | Logigramme, `q1.precision` | « …se réveille mal, ou ne pourra pas… » | « …se réveille mal ou devient confus, ou ne pourra pas… » (critère de l'étape 1 et du ch. 16, étape 3) | Page `co`, point 4 |
+| 7 | Étape 3 | « Garder l'appareil satellite allumé, sous le manteau, pour lire les messages qui arrivent. » | « Garder l'appareil satellite allumé, au chaud sous le manteau, et le sortir sous un ciel dégagé à l'heure des messages pour envoyer et recevoir (étape 7). » | Étape 7 et section 6 (ciel dégagé) ; étape 22 (le froid) |
+| 8 | Étape 14 | « Au chalet, le téléphone ne reçoit pas les alertes » | « Au chalet hors réseau cellulaire, le téléphone ne reçoit pas les alertes » : la condition est le LTE, pas le lieu | `19-en-alerte-conditions-et-types.md` (« Connecté à un réseau cellulaire LTE lors de l'émission de l'alerte ») |
+| 9 | Étape 4 | Branches vertes seulement | Ajouté : « Sur la neige, garder aussi à côté du feu de quoi faire de la fumée noire : du caoutchouc, de l'huile ou du plastique (section 7, « La fumée »). » L'hiver, le fond de l'étape est la neige, et la fumée blanche s'y voit mal | Section 7, « La fumée » (déjà vérifié) ; AIM 4.7.1 |
+| 10 | Étape 8 | « Si la balise ou le SOS est parti par erreur, éteindre la balise… » | « Si la balise est partie par erreur, l'éteindre… ». Le SOS de l'appareil satellite sort de la phrase : aucune page au dossier ne dit comment l'annuler (les deux pages Garmin ne portent que la température et la recharge) ; rien d'écrit, donc rien à marquer | AIM SAR 3.7, p. 380 (balise seulement) |
+| 11 | En plus ; étape 9 ; logigramme `r1` | « La portée d'une radio portative » (une radio portative courante… elle… (étape 15)) ; « l'appeler à la radio portative » | « La portée d'un walkie-talkie » (un walkie-talkie courant… il… (étape 9)) ; « l'appeler au walkie-talkie » ; boîte `r1` : « au walkie-talkie ». Le renvoi passe à l'étape 9, où le walkie-talkie sert (l'étape 15 mesure la réception, pas une portée de poste à poste), et il place la note | `19-motorola-talkabout-portee.md` (Talkabout T110 : 16 mi, 3 mi, 0,5 mi ; « terrain, weather conditions […] obstructions ») |
+| 12 | Section 7, « Le son » | « Un signal sonore sert seulement s'il a été convenu d'avance… » | « Pour appeler à l'aide, un signal sonore sert seulement s'il a été convenu d'avance… » : le sifflet de l'étape 11 donne la direction du chalet sans code | Ancien texte (déjà vérifié) |
+| 13 | Étape 22 | « L'appareil satellite est fait pour fonctionner jusqu'à −20 °C seulement. » | « Un appareil satellite courant est donné pour fonctionner jusqu'à −20 °C seulement : lire la plage de température dans la notice du sien. » | `19-garmin-inreach-mini2-specifications.html` (« Operating temperature range From -20° to 60°C » : un modèle) |
+| 14 | Étape 6, tableau, ligne 1 | « Qui écrit, deux fois » | « Qui écrit, répété » (ancien texte : « Qui appelle, répété ») ; l'exemple garde le nom deux fois, pour un message écrit | `19-garde-cotiere-aides-radio-navigation-maritime.md` (« NOM DU NAVIRE RÉPÉTÉ 3 FOIS » à la voix ; l'étape 2 dit « trois fois ») |
+| 15 | Étape 14 | « rarement une journée » | « parfois jusqu'à une journée » | `19-cbc-2018-batteries-tours-cellulaires.md` (« Sometimes they have large capacity batteries and they have 16 hours or 24 hours ») |
+
+### Point 16, la pastille « 10 min » de « Il faut de l'aide, loin de tout »
+
+Aucun texte changé. Le vérificateur demandait de trancher ou d'écrire le fondement ici. **Pastille 10 min : même
+fondement que la pastille de la série « Quelqu'un est blessé dans le bois » du ch. 16** (`suivi/16-redaction.md`), un
+délai de danger déjà sourcé, et non le seul temps des gestes. Les deux critères de l'étape 1 qui pressent le plus sont le
+saignement qu'on n'arrive pas à arrêter (page `coupure` : la grosse artère vide le corps « en quelques minutes ») et la
+nuit dans le froid sans abri (par −30 °C et un vent de 10 km/h, refroidissement de −39 ; la peau exposée gèle en 10 à
+30 minutes : `20-environnement-canada-refroidissement-eolien.md`, table et seuils ; page `froid`). La pastille prend le
+bas de la fourchette. Ce qui reste un doute : l'été et sur la branche « Non » (l'avis), 10 min est le temps des gestes
+des étapes 1, 2, 5 et 6 (décider et envoyer le premier appel), sans délai de danger ; la pastille dit le pire cas de la
+série. Remplace la ligne « Doute » du tableau « Séries orange et leurs pastilles » de la refonte. Question rendue à JP
+s'il veut une autre lecture.
+
+### Le logigramme
+
+`images/logigrammes/14-communiquer.json` : `q1.precision` (« ou devient confus ») et `r1` (« au walkie-talkie »).
+Rendus refaits : `env -u TMPDIR python3 design/outils/logigramme.py images/logigrammes/14-communiquer.json` (`.svg`,
+`.pdf`, `.png`) et `… --sans-entete --svg` (`14-communiquer-livre.svg`) : **0 erreur, 0 avis** les deux fois. Regardé à
+l'image : la précision tient sur deux lignes, rien ne déborde.
+
+### Pictogrammes, à jour
+
+| Étape | Id | Ce que l'étape dit de propre au chapitre |
+| --- | --- | --- |
+| 4 | `froid` | Une recherche peut prendre jusqu'à 24 h : abri et feu près de la machine, de quoi faire de la fumée noire sur la neige |
+| 21 | `generatrice`, `co` | Même une recharge de dix minutes ; génératrice à 6 m, échappement à l'opposé des portes et fenêtres, jamais dans un bâtiment, sous un auvent ni dans un garage, même porte ouverte ; l'auto : échappement dégagé, fenêtre du côté opposé au vent, dix minutes par demi-heure ; l'avertisseur là où sont les gens |
+
+### Chiffres nouveaux
+
+| Chiffre | Où | Page |
+| --- | --- | --- |
+| 6 m | Étape 21 | `10-sante-canada-generatrice-distance.md` |
+| Parfois jusqu'à une journée (16 ou 24 h) | Étape 14 | `19-cbc-2018-batteries-tours-cellulaires.md` |
+| 10 à 30 min, −39 (fondement de la pastille, pas dans le texte) | Pastille de la série 1 | `20-environnement-canada-refroidissement-eolien.md` |
+
+Coupés : rien de chiffré. **`[À VÉRIFIER]`** dans le texte : aucun.
+
+### controle.py
+
+Comparé au texte d'avant ces corrections (`git show HEAD:chapitres/14-communiquer-et-savoir.md`) : 6 859 mots avant,
+6 968 après (`wc -w` : 6 711 → 6 814) ; 2 tirets (titre et ligne de tome, lus par l'assembleur) ; 0 « § » ; 0 tournure,
+0 maxime, 0 pronominal ; 2 mises en relief (la condition de l'étape 5, gardée). Mots vides : 43, jugés (les deux
+nouveaux, « tout de suite » aux étapes 12 et 18, portent le sens). Redites : 3, jugées ; la nouvelle, « caoutchouc, de
+l'huile ou du plastique » (étape 4 et section 7, « La fumée »), reste : la série orange porte ce qu'il faut garder à côté
+du feu, et la section 7 garde la règle de la couleur selon le fond (forêt, neige, nuages bas) pour toutes les
+situations, dont le chalet de l'étape 11 ; l'étape 4 y renvoie. Invariants : rien n'a disparu. Ancre introuvable : 14-01,
+« Côté terre, la règle qui surprend », l'ancienne ancre encore dans `placements-tome-1.json` (nouvelle ancre rendue à
+l'orchestrateur).
+
+### Renvois à corriger ailleurs, à jour
+
+Les renvois du ch. 16 et de `16-sortir-un-blesse.json` sont déjà justes dans le fichier de travail (étapes 1 et 2, 3, 5
+et 6, 6 et 8, 26). Reste `chapitres/86-l-electricite-du-chalet.md`, l. 88 et 89 : « (ch. 14, étape 7) » → « (ch. 14,
+étape 20) ».
+
+## Corrections après la vérification technique, 19 octobre 2026 (deuxième passe)
+
+Rôle 2, rédacteur, sur le deuxième rapport du vérificateur technique (10 points : 2 erreurs, 8 à préciser), qui ne
+portait que sur ce que la première passe de corrections avait ajouté ou changé de sens. Relu avant : le cadre des agents,
+`CLAUDE.md`, le skill `ecriture`, `gabarit-chapitre.md`, `roles.md`, le ch. 12 (étape 2), le ch. 16 (étape 19), les
+ch. 1 (étape 6) et 3 (section 7) pour les tours cellulaires. **Aucune page nouvelle cherchée** : chaque correction
+s'appuie sur une page déjà au dossier, relue ici, et recopiée dans `sources/14-refonte-2026-10-19-balise-et-en-plus.md`
+(section 1, 4.7.1 et « Ce que le chapitre en tire » ; section 3, lignes des tours, de la bobine, du téléphone de
+campagne, et une ligne nouvelle pour le sifflet). Numéros d'étapes inchangés (1 à 30). Logigramme inchangé : ses boîtes
+`n3` (« rester près de la machine ») et `n4` (« un feu qu'on voit d'en haut ») restent justes ; rien à refaire.
+
+### Appliqué
+
+| # | Où | Avant | Après | Page |
+| --- | --- | --- | --- | --- |
+| 1 | Section 7, « Le son » | « Pour appeler à l'aide, un signal sonore sert seulement s'il a été convenu d'avance avec les gens qui peuvent l'entendre : convenir du code avec le camp voisin (ch. 16, étape 19). » | « Pour appeler à l'aide, faire le signal que les chercheurs au sol connaissent : souffler trois coups de sifflet, faire une pause, puis trois autres coups, et recommencer, en se taisant de temps en temps pour écouter la réponse. Convenir du même signal avec le camp voisin (ch. 16, étape 19). » Le texte du vérificateur, remis dans l'ordre pour éviter la mise en relief « c'est le signal que » | `21-adventuresmart-signaux-detresse.md` ; ch. 16, étape 19 |
+| 2 | Étape 14, troisième puce | « de 2 à 10 h, parfois jusqu'à une journée ; certaines tours ont une génératrice » | « de 2 à 4 h, parfois jusqu'à une journée ; certaines tours ont aussi une génératrice ». Les 4 à 10 h de l'opérateur comptaient les génératrices ; le chiffre rejoint les ch. 1, étape 6, et 3, section 7 | `19-cbc-2018-batteries-tours-cellulaires.md` |
+| 3 | Étape 4, première puce | « …près de la machine, ou dans l'ouverture la plus proche (un lac, une coupe, une clairière), pour qu'on voie le feu d'en haut. » | « …près de la machine, ou au bord de l'ouverture la plus proche (un lac, une coupe, une clairière). Garder l'abri sous les arbres, à l'écart du vent, et faire le feu du côté ouvert, pour qu'on le voie d'en haut. » Plus de contradiction avec le ch. 12, étape 2, ni avec le pictogramme `froid` de l'étape | Ch. 12, étape 2 ; AIM SAR 4.7.1, p. 387 |
+| 4 | Étape 3 | « Garder l'appareil satellite allumé, au chaud sous le manteau, et le sortir sous un ciel dégagé à l'heure des messages pour envoyer et recevoir (étape 7). » | « Garder l'appareil satellite allumé et au chaud sous le manteau. Pendant un SOS, le sortir sous un ciel dégagé aussi souvent que le froid le permet : sous le manteau, ce qu'il envoie reste en file, et il ne reçoit pas les réponses (étapes 7 et 22). » Le « et pas seulement à l'heure des messages » du vérificateur est coupé : « aussi souvent que le froid le permet » le dit, et l'opposition n'ajoute pas de fait. Le mécanisme vient de l'étape 7, déjà vérifiée (le message part sous un ciel dégagé) ; aucune page au dossier ne décrit le mode SOS d'un appareil de messagerie, et le texte n'en dit rien de plus | Étape 7 (ancien texte : « Se déplacer vers un ciel dégagé, renvoyer ») ; AIM SAR 3.5, p. 379 (signal irrégulier, pour la balise) ; étape 22 (−20 °C) |
+| 5 | Étape 3 | « Rester aussi près de la machine, de l'auto ou du traîneau : d'un avion, on repère une machine plus facilement qu'une personne. » | « Rester aussi près de la machine, de l'auto ou du traîneau, et la dégager de la neige : d'un avion, on repère une machine plus facilement qu'une personne. » | AIM SAR 3.5, note, p. 380 ; 4.7.1, p. 387 (« La neige qui pourrait s'accumuler sur l'aéronef devrait être dégagée ») |
+| 6 | Étape 15, troisième puce | « Aucune carte ne donne ces renseignements pour le chalet. » | Coupé. NON RETROUVÉ, et le relevé dit déjà ce qu'on fait | Aucune |
+| 7 | Section 7, « La bobine » | « il faut environ 60 g de fil » | « il faut environ 25 m de fil ». La masse de la page vaut pour du fil n° 24 sous gaine de coton ; le fil récupéré est émaillé, de calibre inconnu, et on mesure sa longueur en le déroulant. 3,14 × 0,10 m × 80 spires = 25,1 m | `19-nbs-circulaire-120-poste-recepteur.md` (4 inches, 80 turns, 2 ounces of No. 24) ; calcul |
+| 8 | En plus, « Le téléphone de campagne au grand froid » | « En 1945, le téléphone… » ; « l'humidité de l'haleine gelait » | « Le téléphone… » ; « l'humidité gelait ». La portée vient du manuel de mars 1945, le froid de la section 21.1 ajoutée le 9 juin 1960, et la page parle de l'humidité des écarts de température, pas de l'haleine. 72 mots | `19-us-army-tm11-333-telephone-ee8-texte-integral.txt`, l. 108 à 125 et 1227 |
+
+### Rendu à l'orchestrateur (fichiers communs, non touchés)
+
+| # | Fichier | Correction |
+| --- | --- | --- |
+| 9 | `chapitres/86-l-electricite-du-chalet.md`, l. 88 et 89 | « (ch. 14, étape 7) » → « (ch. 14, étape 20) » |
+| 10 | `plan/dangers-inventaire.md`, l. 47 (ligne `froid`) | Ajouter 14 entre 13 et 17 dans la liste des chapitres |
+
+La fiche `sources/19-us-army-tm11-333-telephone-ee8.md` ne date pas la section 21.1 (changement de 1960) : la date est
+notée dans `sources/14-refonte-2026-10-19-balise-et-en-plus.md`, section 3 ; la fiche 19 n'est pas touchée.
+
+### Remplace, dans la refonte plus haut
+
+Dans le tableau « Chiffres nouveaux et leurs sources » de la refonte : la ligne « 2 à 10 h, rarement une journée » devient
+« 2 à 4 h, parfois jusqu'à une journée » ; la ligne « Environ 60 g de fil » devient « Environ 25 m de fil (calcul sur
+10 cm et 80 spires) » ; la ligne « 18 à 27 km, 1945 » perd « 1945 ».
+
+### Chiffres nouveaux
+
+| Chiffre | Où | Page |
+| --- | --- | --- |
+| Environ 25 m de fil | Section 7, la bobine | Calcul sur `19-nbs-circulaire-120-poste-recepteur.md` (10 cm, 80 spires) |
+| Trois coups, une pause, trois coups | Section 7, « Le son » | `21-adventuresmart-signaux-detresse.md` |
+
+Disparus : 10 h (remplacé par 4 h), 60 g (remplacé par 25 m), 1945. **`[À VÉRIFIER]`** dans le texte : aucun.
+
+### controle.py
+
+Comparé au texte d'avant ces corrections (`git show HEAD:chapitres/14-communiquer-et-savoir.md`) : 6 968 mots avant,
+7 019 après (`wc -w` : 6 865) ; 2 tirets (titre et ligne de tome, lus par l'assembleur) ; 0 « § » ; 0 tournure, 0 maxime,
+0 pronominal ; 2 mises en relief (la condition de l'étape 5, gardée ; « c'est le signal que » de la correction 1 réécrit).
+Mots vides : 43, comme avant ; aucun nouveau (« trois autres coups » évite un « encore »).
+Redites : 3, les mêmes qu'à la passe précédente, jugées. Invariants : 10 h, 60 g, 60, 1945, justifiés plus haut. Ancre
+introuvable : 14-01, « Côté terre, la règle qui surprend », l'ancienne ancre encore dans `placements-tome-1.json`
+(nouvelle ancre rendue à l'orchestrateur).
+
+## Points réglés après l'édition, 19 octobre 2026
+
+Rédacteur du lot 11-13-14, passe « trancher » (JP : « on a pas déjà fait ce travail-là ? ») : rien n'est revérifié ; une
+source déjà au dossier n'est ouverte que pour trancher un point neuf. Les quatre questions laissées à JP se ferment
+par une règle ; les cinq points de l'éditeur (`suivi/14-edition.md`, « Faits à signaler ») sont réglés.
+
+### Les questions à JP
+
+| Question | Réglée comment | Règle |
+| --- | --- | --- |
+| La pastille « 10 min » de « Il faut de l'aide, loin de tout » | Gardée. Elle dit le temps qu'on a dans le pire cas de la série (la peau exposée gèle en 10 à 30 min par −30 °C et un vent de 10 km/h ; un gros saignement vide le corps en quelques minutes), sourcé, comme au ch. 16 et maintenant au ch. 13. Une pastille par série, donc le pire cas de la série | CLAUDE.md, « La pastille dit le temps qu'on a pour faire la série, à partir de ce qui la déclenche » ; cadre, « ce temps est sourcé » ; point 16 plus haut |
+| Le mode SOS de l'appareil (rythme d'envoi, annuler un SOS parti par erreur) | Rien à changer : le texte n'affirme rien du mode SOS, et la notice de l'appareil de JP ne ferait pas un livre ouvert. Si on veut écrire l'annulation d'un SOS, c'est une recherche sur la page publique d'un fabricant, pas une question à JP | CLAUDE.md, « Un livre ouvert, pas centré sur JP » ; règle 1 |
+| Aucune façon des Innus dans les notes En plus | Les notes En plus sont « un mélange de trois sortes seulement », pas une de chaque ; quatre notes, c'est la réserve minimale (4 à 8). Rien à ajouter | Cadre, « Les encadrés En plus » |
+| Une photo pour reconnaître une pastille piézo ou une diode au germanium | Pas une question à JP : la photo se cherche sous licence (Wikimedia Commons filtré par licence) à la phase des images ; Commons répondait 429 le 19 octobre. Une photo de JP reste possible s'il en offre une | CLAUDE.md, « Les images » |
+
+### Les points de l'éditeur
+
+| Point | Où | Ce qui a changé | Règle ou source |
+| --- | --- | --- | --- |
+| 1. Le logigramme n'avait plus les mots du chapitre | `images/logigrammes/14-communiquer.json` : boîtes a1 et b4, précision de q1 ; et r4 | « Déclencher la détresse » → « Lancer l'appel de détresse » (a1, b4) ; « se réveille mal » → « est difficile à réveiller » (q1) ; et, vu en relisant, « ce que dit la fiche de sortie » → « ce qui est écrit sur la fiche de sortie » (r4, comme l'étape 12). Le `_note` donne le nouveau fondement de la pastille. Rendus refaits (`env -u TMPDIR python3 design/outils/logigramme.py …`, puis `--sans-entete --svg`) : 0 erreur, 0 avis les deux fois ; regardé à l'image, rien ne déborde | Skill `ecriture`, règle 6 (le même mot pour la même chose) ; « la chose qui parle » |
+| 2. « Dans le doute, avertir quand même (étape 5) » se lisait de deux façons | Étape 1 | « Sinon, ou dans le doute, avertir le correspondant (étape 5), et lancer l'appel de détresse si la situation empire (étape 8). » Même chose que la branche « Non, ou dans le doute » du logigramme | `sources/19-transports-canada-aim-sar-2025-fr.pdf`, AIM SAR 3.5 (« s'il n'existe aucune situation d'urgence, il ne doit pas déclencher son ELT ») et 3.8.1 (les balises de 406 MHz « ne devraient jamais être activées à moins qu'il ne s'agisse réellement d'une urgence ») ; extraits ajoutés à `sources/14-refonte-2026-10-19-balise-et-en-plus.md`, section 4 |
+| 3. La section 5 (« Ensuite, compter sur le correspondant pour suivre sa consigne ») tirait contre l'étape 7 (« Ne rien décider en se disant que le correspondant est au courant ») | Section 5, ligne « Chaque message envoyé » | « Aller sous un ciel dégagé et renvoyer. Tant que la réponse ne vient pas, faire comme si le message n'était pas arrivé (étape 7). » | L'étape 7, déjà vérifiée, tranche |
+| 4. « Dévisser le mât de l'antenne de l'auto et le rentrer » : le texte ne dit pas comment le brancher au poste | Section 7, « Le poste d'auto sorti du tableau de bord » | Coupé ; reste « coincer le bout d'un long fil dans le centre de la prise d'antenne » | Phrase sans source (la fiche des fils du poste, `04-verification-technique-2026-10-18.md`, section 10, ne parle pas du mât) ; la consigne tient sans elle |
+| 5. « Autre façon de régler plus fin » avec deux tubes de papier d'aluminium : le texte ne dit pas où les brancher | Section 7, « L'accord » | Coupé. Aucune page au dossier ne décrit ce condensateur (la circulaire NBS 120 dit seulement qu'on accorde « by a variable inductor or by a variable condenser », et son poste s'accorde par les prises) ; la planche 14-01 ne le montre pas ; l'accord par les prises tient seul | Règle de la passe : une phrase sans source se coupe si la consigne tient sans elle |
+
+**Ancres** : aucune ne bouge (« **Radio VHF maritime portative, sur le fleuve** » et « Le poste à galène n'a besoin
+d'aucune pile » sont intactes).
+
+**controle.py** (`--avant` HEAD) : 7 024 → 6 989 mots ; 2 tirets (titre et ligne de tome) ; 0 « § », 0 tournure,
+0 maxime, 0 pronominal ; 2 mises en relief, les mêmes (la condition de l'étape 5) ; 44 mots vides et 6 redites, jugés
+(des renvois) ; invariants : rien n'a disparu. Ancre introuvable : l'ancienne de 14-01 dans `placements-tome-1.json`,
+la nouvelle est rendue dans le JSON du lot. Fins de ligne LF.
+
+## Décisions de JP, 19 octobre 2026
+
+Rédacteur de la passe « décisions de JP » (les douze réponses de JP du 19 octobre ; le libellé des décisions est dans
+`_reprise/scratchpad/tome1-final/decisions-jp.js`). Aucune recherche refaite sur ce qui était déjà vérifié ; texte d'avant
+cette passe : commit `f515e01`.
+
+| Décision | Où | Ce qui a changé | Source ou règle |
+| --- | --- | --- | --- |
+| 7. Le SOS sans réponse : déclencher le SOS dès que la vie est en jeu (étape 1) ; rester sur place seulement si une réponse confirme que des secours viennent, ou si on ne peut pas arriver avant la nuit ; sinon, sortir le blessé avec l'appareil allumé sur soi | Étape 3 ; étape 4 | Étape 3 : le titre perd « et rester sur place » ; deux tirets s'ajoutent : « Rester sur place seulement si une réponse confirme que des secours viennent, ou si on ne peut pas arriver au chalet ou à la route avant la nuit (ch. 16, étape 14). Rester alors près de la machine… » et « Sinon, sortir le blessé (ch. 16, étape 5), sans attendre de réponse, avec l'appareil allumé sur soi et le SOS en marche. » Étape 4 : « **Si on reste sur place**, se préparer à attendre longtemps, et à être vu. » Rien d'autre ne bouge (la balise qu'on n'éteint pas, la pile, l'appareil sous le manteau) | Décision 7 |
+| Logigramme 14 | `images/logigrammes/14-communiquer.json` | a2 : « Laisser la balise ou le SOS en marche jusqu'à ce que quelqu'un arrive. Rester près de la machine seulement si une réponse dit que des secours viennent, ou si on ne peut pas arriver avant la nuit. Sinon, sortir le blessé avec l'appareil allumé sur soi. » (renvoi « ch. 14, étape 3 ; ch. 16 ») ; a3 : « Si on reste, monter un abri… » (rang g5a). Le logigramme 14 n'était pas dans la liste du jour, mais il disait encore « rester près de la machine » sans condition. Rendu et version du livre : 0 erreur, 0 avis | Décision 7 |
+
+`controle.py --avant` (f515e01) : 6 989 → 7 046 mots ; 2 tirets (titre et ligne de tome) ; 0 « § », 0 mot banni,
+0 tournure, 0 maxime, 0 pronominal ; 2 mises en relief, 44 mots vides et 6 redites, ceux d'avant ; rien n'a disparu.
+Aucune ancre touchée. Fins de ligne LF.
+
+### Après la vérification technique (19 octobre 2026)
+
+Corrections du rédacteur sur les points du vérificateur de la passe « décisions de JP ».
+
+| Point | Où | Ce qui a changé | Source ou raison |
+| --- | --- | --- | --- |
+| Décision 7, « seulement si » qui excluait un cas du ch. 16 | Étape 3, deuxième tiret | « …ou si on ne peut pas arriver au chalet ou à la route avant la nuit (ch. 16, étape 14) » devient « …avant la nuit, ou avec le monde qu'on a (ch. 16, étapes 5 et 14) » | Ch. 16, étape 5 (pas assez de monde pour tirer et se relayer) et étape 14 |
+
+Contrôle : `controle.py --avant` (HEAD) : 7 046 → 7 054 mots ; 2 tirets (titre et ligne de tome) ; rien n'a disparu ; les deux « pas en jeu mais » de l'étape 5 sont d'avant. Fins de ligne LF.

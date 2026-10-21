@@ -4,16 +4,16 @@
 module.exports = (h) => {
   // Géométrie commune aux trois vues.
   const geo = (z) => {
-    const t = 60;                         // épaisseur des plats
+    const t = 78;                         // épaisseur des plats (vues agrandies de 30 %)
     const c = z.l / 2;
-    const ys = z.h / 2 - t / 2 + 4;       // surface du dessus
-    return { t, c, ys, yb: ys + t, x0: 6, x1: z.l - 6, g: 3, w: 96, hc: 10, rw: 16 };
+    const ys = 74;                        // surface du dessus : le blanc du bas reçoit la loupe
+    return { t, c, ys, yb: ys + t, x0: 6, x1: z.l - 6, g: 4, w: 112, hc: 13, rw: 21 };
   };
   const zig = (x, y0, W, a) => [[x, y0], [x, y0 + 0.38 * W], [x - a, y0 + 0.46 * W], [x + a, y0 + 0.54 * W], [x, y0 + 0.62 * W], [x, y0 + W]];
 
   // Le sillon du caniveau : part de la surface, plonge, et son fond est le pied du cordon.
   // Le flanc du cordon fait la paroi intérieure du sillon (pas de crochet sous le pied).
-  const GW = 18, DT = 9;                  // largeur du sillon ; son creux, où s'arrête le pied du cordon
+  const GW = 26, DT = 18;                  // largeur du sillon ; son creux, où s'arrête le pied du cordon
   const sillon = (G, sens) => {
     const toe = G.c + sens * G.w / 2;
     const P = [[toe + sens * GW, G.ys], [toe + sens * GW * 0.5, G.ys], [toe + sens * GW * 0.12, G.ys + DT], [toe, G.ys + DT]];
@@ -46,11 +46,13 @@ module.exports = (h) => {
     // dt > 0 (caniveau) : le pied descend au fond du sillon, le dessus plus plat.
     const { yb, c, hc, t } = G, ys = G.ys + dt, yc = G.ys - (dt ? hc * 0.6 : hc), kp = dt ? 0.05 : 0.18;
     const dessus = `M ${L} ${ys} C ${L + G.w * kp} ${G.ys} ${c - G.w * 0.28} ${yc} ${c} ${yc} C ${c + G.w * 0.28} ${yc} ${R - G.w * kp} ${G.ys} ${R} ${ys}`;
-    const fusD = `C ${R - 3} ${ys + t * 0.45} ${c + r + 7} ${yb - 9} ${c + r} ${yb}`;
-    const racine = `Q ${c} ${yb + 9} ${c - r} ${yb}`;
-    const fusG = `C ${c - r - 7} ${yb - 9} ${L + 3} ${ys + t * 0.45} ${L} ${ys}`;
+    const fusD = `C ${R - 3} ${ys + t * 0.45} ${c + r + 9} ${yb - 12} ${c + r} ${yb}`;
+    const racine = `Q ${c} ${yb + 12} ${c - r} ${yb}`;
+    const fusG = `C ${c - r - 9} ${yb - 12} ${L + 3} ${ys + t * 0.45} ${L} ${ys}`;
     return [
       h.path(`${dessus} ${fusD} ${racine} ${fusG} Z`, h.a.blanc),
+      `<defs><pattern id="p-fondu-10703" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="0.5" fill="#000"/></pattern></defs>`,
+      h.path(`${dessus} ${fusD} ${racine} ${fusG} Z`, 'fill="url(#p-fondu-10703)" stroke="none"'),
       h.path(dessus, h.a.contour),
       h.path(`M ${R} ${ys} ${fusD}`, h.a.arete),
       h.path(`M ${c + r} ${yb} ${racine}`, h.a.contour),
@@ -60,19 +62,41 @@ module.exports = (h) => {
   // Point de la ligne de fusion de droite, à mi-épaisseur (pour la pastille).
   const surFusion = (G) => {
     const R = G.c + G.w / 2, r = G.rw / 2, s = 0.4, u = 1 - s;
-    const P = [[R, G.ys], [R - 3, G.ys + G.t * 0.45], [G.c + r + 7, G.yb - 9], [G.c + r, G.yb]];
+    const P = [[R, G.ys], [R - 3, G.ys + G.t * 0.45], [G.c + r + 9, G.yb - 12], [G.c + r, G.yb]];
     const k = [u * u * u, 3 * u * u * s, 3 * u * s * s, s * s * s];
     return [0, 1].map(i => k.reduce((a, kk, j) => a + kk * P[j][i], 0));
   };
 
   // Le cordon pas fondu : un boudin posé sur la surface, les flancs qui débordent en surplomb.
   const boudin = (G) => {
-    const { c, ys } = G, b = 28, hb = 30;
+    const { c, ys } = G, b = 36, hb = 39;
     const d = `M ${c - b} ${ys} C ${c - b - 16} ${ys - 2} ${c - b - 13} ${ys - hb} ${c} ${ys - hb} C ${c + b + 13} ${ys - hb} ${c + b + 16} ${ys - 2} ${c + b} ${ys} Z`;
-    return [h.path(d, h.a.contour.replace('fill="none"', 'fill="#fff"'))];
+    return [h.path(d, h.a.contour.replace('fill="none"', 'fill="#fff"')),
+      `<defs><pattern id="p-fondu-10703b" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="0.5" fill="#000"/></pattern></defs>`,
+      h.path(d, 'fill="url(#p-fondu-10703b)" stroke="none"'), h.path(d, h.a.contour)];
   };
 
   const G0 = (z) => geo(z);
+  // Loupe ×3 du sillon gauche : petit cercle tireté sur le sillon, grand cercle dessous.
+  const LR = 42, LK = 3;
+  const loupe = (z, G) => {
+    const s = sillon(G, -1), src = [s[12][0] - 7, G.ys + 9];
+    const L = [G.c, G.yb + 16 + LR];
+    const inner = [...plats(G, true), ...fondu(G, DT)].join('\n')
+      .replace(/<path /g, '<path vector-effect="non-scaling-stroke" ')
+      .replace(/<polyline /g, '<polyline vector-effect="non-scaling-stroke" ')
+      .replace(/<polygon /g, '<polygon vector-effect="non-scaling-stroke" ');
+    const r0 = LR / LK;
+    const d = Math.hypot(L[0] - src[0], L[1] - src[1]), ux = (L[0] - src[0]) / d, uy = (L[1] - src[1]) / d;
+    return { src, L, svg: [
+      `<defs><clipPath id="clip-loupe-10703"><circle cx="${L[0]}" cy="${L[1]}" r="${LR}"/></clipPath></defs>`,
+      `<circle cx="${L[0]}" cy="${L[1]}" r="${LR}" fill="#fff"/>`,
+      `<g clip-path="url(#clip-loupe-10703)"><g transform="translate(${L[0]} ${L[1]}) scale(${LK}) translate(${-src[0]} ${-src[1]})">${inner}</g></g>`,
+      `<circle cx="${L[0]}" cy="${L[1]}" r="${LR}" ${h.a.contour}/>`,
+      `<circle cx="${src[0]}" cy="${src[1]}" r="${r0}" ${h.a.cache}/>`,
+      h.chemin([[src[0] + ux * r0, src[1] + uy * r0], [L[0] - ux * LR, L[1] - uy * LR]], h.a.cache),
+    ].join('\n') };
+  };
   return {
     ref: '107-03',
     titre: 'Trois cordons en coupe',
@@ -90,7 +114,8 @@ module.exports = (h) => {
       },
       froid: {
         titre: 'Manque de fusion',
-        dessin: z => { const G = G0(z); return [...plats(G, false), ...boudin(G)].join('\n'); },
+        // la charte : le point qui casse, le pied du boudin posé sans fusion
+        dessin: z => { const G = G0(z); return [...plats(G, false), ...boudin(G), h.controle(G.c + 37, G.ys - 2, 11)].join('\n'); },
         renvois: z => {
           const G = G0(z);
           return [{ n: 2, rond: [G.c - 72, G.ys - 40], cible: [G.c - 28 - 12, G.ys - 10], texte: 'bords nets, posé sur la surface' }];
@@ -98,11 +123,14 @@ module.exports = (h) => {
       },
       caniveau: {
         titre: 'Caniveau',
-        dessin: z => { const G = G0(z); return [...plats(G, true), ...fondu(G, DT)].join('\n'); },
+        // la charte : le point qui casse, le sillon de droite (le gauche est sous la loupe)
+        dessin: z => { const G = G0(z), q = sillon(G, 1)[10]; return [...plats(G, true), ...fondu(G, DT), loupe(z, G).svg, h.controle(q[0] + 2, q[1] - 2, 13)].join('\n'); },
         renvois: z => {
           const G = G0(z);
-          const s = sillon(G, -1);
-          return [{ n: 3, rond: [G.c - 74, G.ys - 40], cible: s[8], texte: 'sillon creusé le long du bord' }];
+          const { src, L } = loupe(z, G), s = sillon(G, -1);
+          const p = s[9];
+          const cible = [L[0] + (p[0] - src[0]) * LK, L[1] + (p[1] - src[1]) * LK];
+          return [{ n: 3, rond: [L[0] - LR - 22, L[1] + 8], cible, texte: 'sillon creusé le long du bord' }];
         },
       },
     },

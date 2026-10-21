@@ -107,8 +107,11 @@ module.exports = (h) => {
     const [xa] = P(xc - 10, 0), [xb] = P(xc + 10, 0), [, yh] = P(0, sol - 40), [, ys] = P(0, sol);
     return [
       h.path(`M${f1(xa)} ${f1(ys)} L${f1(xa)} ${f1(ys + 34 * k)} L${f1((xa + xb) / 2)} ${f1(ys + 46 * k)} L${f1(xb)} ${f1(ys + 34 * k)} L${f1(xb)} ${f1(ys)}`, A.cache),
-      h.rect(xa, yh, xb - xa, ys - yh, blanc),
+      // La charte : le flanc droit du piquet, à l'ombre (lumière en haut à gauche)
+      h.rect(xa, yh, xb - xa, ys - yh, fond),
+      h.rect(xa + (xb - xa) * 0.64, yh, (xb - xa) * 0.36, ys - yh, A.ombre),
       h.path(`M${f1(xa + (xb - xa) * 0.35)} ${f1(yh + 5)} L${f1(xa + (xb - xa) * 0.38)} ${f1(ys - 4)} M${f1(xa + (xb - xa) * 0.68)} ${f1(yh + 9)} L${f1(xa + (xb - xa) * 0.66)} ${f1(ys - 7)}`, A.fin),
+      h.rect(xa, yh, xb - xa, ys - yh, A.arete),
     ].join('\n');
   }
   function sol(P, xa, xb, y, k) {
@@ -151,8 +154,9 @@ module.exports = (h) => {
           const out = [];
           // planches de champ : minces vues de dessus
           const ep = Math.max(25 * s, 4);
-          out.push(h.rect(P(-25, 0)[0] - (ep - 25 * s), P(0, 0)[1], ep, 2000 * s, A.arete));
-          out.push(h.rect(P(1330, 0)[0], P(0, 0)[1], ep, 2000 * s, A.arete));
+          // La charte : les deux planches sont le cadre du métier, leur contour pèse
+          out.push(h.rect(P(-25, 0)[0] - (ep - 25 * s), P(0, 0)[1], ep, 2000 * s, A.contour));
+          out.push(h.rect(P(1330, 0)[0], P(0, 0)[1], ep, 2000 * s, A.contour));
           // la ligne de coupe en travers, au trait mixte, et le sens du regard (vers le haut)
           const [xc1, yc] = P(-150, 1000), [xc2] = P(1480, 1000);
           out.push(h.ligne(xc1, yc, xc2, yc, mixte));
@@ -303,8 +307,8 @@ module.exports = (h) => {
           const [bx, by] = P(-22, -30);
           out.push(bobine(bx, by, 120 * k, 15 * k, 10 * k, 6 * k));
           out.push(F.cordes([{ pts: [P(0, -8), P(0, -52)], ep, debut: 'ouvert', fin: 'ouvert' }]).toString());
-          // le geste : la bobine file sous la ficelle tendue, de droite à gauche
-          out.push(h.fleche(`M${f1(P(8, -58)[0])} ${f1(P(8, -58)[1])} L${f1(P(-44, -58)[0])} ${f1(P(-44, -58)[1])}`, A.arete));
+          // le geste : la bobine file sous la ficelle tendue, de droite à gauche (la charte : en rouge)
+          out.push(h.geste(`M${f1(P(8, -58)[0])} ${f1(P(8, -58)[1])} L${f1(P(-44, -58)[0])} ${f1(P(-44, -58)[1])}`));
           return out.join('\n');
         },
         renvois: z => {
@@ -324,7 +328,7 @@ module.exports = (h) => {
           const k = Math.min((z.l - 4) / 62, (z.h - 4) / 96);
           const P = repere(z.l / 2, z.h / 2, k);
           const w = [[14.4, 48, 0.5], ...noeud(32, 0.8), ...noeud(0, 1, 0, 6), [-17, -23, 0], [-25, -25, 0], [-31, -26, 0]];
-          const fl = h.fleche(`M${f1(P(-10, -35)[0])} ${f1(P(-10, -35)[1])} L${f1(P(-28, -37)[0])} ${f1(P(-28, -37)[1])}`, A.arete);
+          const fl = h.geste(`M${f1(P(-10, -35)[0])} ${f1(P(-10, -35)[1])} L${f1(P(-28, -37)[0])} ${f1(P(-28, -37)[1])}`);   // la charte : le geste
           return couture(P, k, { y0: 48, y1: -48, L: 31, pinces: [{ yc: 32, taille: 3 }, { yc: 0 }], w, ep: 3.4, apres: fl });
         },
       },
@@ -334,7 +338,7 @@ module.exports = (h) => {
           const k = Math.min((z.l - 4) / 62, (z.h - 4) / 96);
           const P = repere(z.l / 2, z.h / 2, k);
           const w = [[14.4, 48, 0.5], ...noeud(32, 0.8), ...noeud(0, 1, 0, 10), [22, 0, 0.5], [31, -0.5, 0.5]];
-          const fl = h.fleche(`M${f1(P(12, -14)[0])} ${f1(P(12, -14)[1])} L${f1(P(28, -15)[0])} ${f1(P(28, -15)[1])}`, A.arete);
+          const fl = h.geste(`M${f1(P(12, -14)[0])} ${f1(P(12, -14)[1])} L${f1(P(28, -15)[0])} ${f1(P(28, -15)[1])}`);   // la charte : le geste
           return couture(P, k, { y0: 48, y1: -48, L: 31, pinces: [{ yc: 32, taille: 3 }, { yc: 0 }], w, ep: 3.4, apres: fl });
         },
         renvois: z => {
@@ -349,7 +353,7 @@ module.exports = (h) => {
           const k = Math.min((z.l - 4) / 62, (z.h - 4) / 96);
           const P = repere(z.l / 2, z.h / 2, k);
           const w = [[14.4, 48, 0.5], ...noeud(32, 0.8), ...noeud(0, 0.8), ...noeud(-32, 1, 0, 3), [7, -43, 1.2], [7, -48, 1.2]];
-          const fl = h.fleche(`M${f1(P(23, -14)[0])} ${f1(P(23, -14)[1])} L${f1(P(23, -44)[0])} ${f1(P(23, -44)[1])}`, A.arete);
+          const fl = h.geste(`M${f1(P(23, -14)[0])} ${f1(P(23, -14)[1])} L${f1(P(23, -44)[0])} ${f1(P(23, -44)[1])}`);   // la charte : le geste
           return couture(P, k, { y0: 48, y1: -48, L: 31, pinces: [{ yc: 32, taille: 3 }, { yc: 0, taille: 3 }, { yc: -32 }], w, ep: 3.4, apres: fl });
         },
         renvois: z => {

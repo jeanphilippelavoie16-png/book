@@ -1,5 +1,8 @@
 // Planche 22-40 — parer le cœur en croix, pocher et peler la langue (chapitre 22, section C,
 // points 14 à 16). Les joues ne sont pas dans le chapitre : pas de vue.
+// 14 octobre : la main de « Pocher » passe aux mains simples (prise-manche, vue de la paume, à la taille de la
+// marmite : la vue est un peu plus haute pour que le poing y tienne) ; la charte : une flèche rouge du geste par
+// vue (la coupe, parer, gratter, enfoncer, peler), les autres flèches restent noires.
 module.exports = (h) => {
   const A = h.a, F = h.formes, I = F._interne;
   const f1 = v => Math.round(v * 10) / 10;
@@ -48,13 +51,13 @@ module.exports = (h) => {
   }).join(' '), A.fin);
 
   // Le couteau : la pointe en tip, dir va de la pointe vers le manche, cote = côté du fil (+1/−1).
-  const couteau = (tip, dir, cote, Lb, wb, Lh) => {
+  const couteau = (tip, dir, cote, Lb, wb, Lh, whM) => {
     const n = [-dir[1] * cote, dir[0] * cote];
     const P = (u, v) => [tip[0] + u * dir[0] + v * n[0], tip[1] + u * dir[1] + v * n[1]];
     const q = (u, v) => P(u, v).map(f1).join(' ');
     const lame = `M ${q(0, 0)} C ${q(Lb * 0.1, -wb * 0.32)} ${q(Lb * 0.2, -wb * 0.5)} ${q(Lb * 0.32, -wb * 0.5)} L ${q(Lb, -wb * 0.5)} L ${q(Lb, wb * 0.5)} L ${q(Lb * 0.45, wb * 0.5)} C ${q(Lb * 0.2, wb * 0.5)} ${q(Lb * 0.06, wb * 0.25)} ${q(0, 0)} Z`;
     const biseau = `M ${q(Lb * 0.12, wb * 0.08)} C ${q(Lb * 0.3, wb * 0.3)} ${q(Lb * 0.6, wb * 0.3)} ${q(Lb, wb * 0.3)}`;
-    const wh = wb * 1.05, u0 = Lb + 4, u1 = u0 + Lh;
+    const wh = whM || wb * 1.05, u0 = Lb + 4, u1 = u0 + Lh;
     const mitre = `M ${q(Lb, -wb * 0.58)} L ${q(u0, -wb * 0.58)} L ${q(u0, wb * 0.58)} L ${q(Lb, wb * 0.58)} Z`;
     const manche = `M ${q(u0, -wh / 2)} L ${q(u1 - wh * 0.4, -wh / 2)} C ${q(u1, -wh / 2)} ${q(u1, wh / 2)} ${q(u1 - wh * 0.4, wh / 2)} L ${q(u0, wh / 2)} Z`;
     const r1 = P(u0 + Lh * 0.28, 0), r2 = P(u0 + Lh * 0.68, 0);
@@ -95,7 +98,7 @@ module.exports = (h) => {
     // la coupe de face (un bras de la croix), et le sens de la lame
     o.push(h.path(lis([[30, -33], [31, 20], [30, 80], [24, 130], [14, 162]], T), COUPE));
     const fa = pt(T, [45, 20]), fb = pt(T, [41, 116]);
-    o.push(h.fleche(`M ${fa.join(' ')} L ${fb.join(' ')}`, A.arete));
+    o.push(h.geste(`M ${fa.join(' ')} L ${fb.join(' ')}`));                // le geste (la charte : en rouge)
     // le trait de coupe de la section
     const t1 = pt(T, [-80, SY]), t2 = pt(T, [80, SY]);
     o.push(h.ligne(...t1, ...t2, AXE),
@@ -197,7 +200,7 @@ module.exports = (h) => {
     const ut0 = QR[0] * 0.7, tip = Q(0)([ut0, -W(0, ut0) - 4]);
     o.push(couteau(pt(T, tip), [-1, 0], 1, 64 * s, 13 * s, 54 * s));
     const g0 = pt(T, Q(0)([ut0 - 11, -W(0, ut0 - 11) + 16])), g1 = pt(T, Q(0)([ut0 - 10, W(0, ut0 - 10) - 12]));
-    o.push(h.fleche(`M ${g0.join(' ')} L ${g1.join(' ')}`, A.detail));
+    o.push(h.geste(`M ${g0.join(' ')} L ${g1.join(' ')}`));                // le geste : parer au trait
     return o.join('\n');
   };
   const ouvertRenvois = z => {
@@ -248,8 +251,8 @@ module.exports = (h) => {
     o.push(h.path(lis([[-40, -38], [-50, -16], [-44, 8], [-52, 36]], T), A.fin));
     // le couteau qui gratte la racine, en travers ; il tire vers le bout coupé
     o.push(couteau(pt(T, [24, -40]), [0, 1], 1, 70 * s, 13 * s, 52 * s));
-    const a0 = pt(T, [46, -58]), a1 = pt(T, [6, -58]);
-    o.push(h.fleche(`M ${a0.join(' ')} L ${a1.join(' ')}`, A.arete));
+    const a0 = pt(T, [18, 0]), a1 = pt(T, [-14, 0]);
+    o.push(h.geste(`M ${a0.join(' ')} L ${a1.join(' ')}`));                // le geste : gratter vers le bout coupé
     // la brosse, sur le dessus, en va-et-vient
     const bx = 206, by = 0;
     const tete = [[bx - 26, by - 12], [bx + 20, by - 12], [bx + 26, by - 6], [bx + 26, by + 6], [bx + 20, by + 12], [bx - 26, by + 12], [bx - 30, by + 6], [bx - 30, by - 6]];
@@ -278,7 +281,7 @@ module.exports = (h) => {
   const FLANC = [[272, -6], [244, -12], [206, -18], [170, -21], [150, -23], [124, -29], [90, -34], [50, -34], [16, -32], [2, -30]];
 
   // ── pocher ──────────────────────────────────────────────────────────────────────────────
-  const BB_P = [-172, -170, 140, 12];
+  const BB_P = [-172, -212, 140, 12];
   const KL = 0.72, LX = -102;                                 // la langue dans la marmite
   const L = p => [LX + p[0] * KL, p[1] * KL];
   const PTE = [100, -47];                                     // où entre la pointe, repère de la langue
@@ -297,10 +300,14 @@ module.exports = (h) => {
     o.push(h.path(bulles.map(([x, y, r]) => point(T([x, y]), f1(r * s))).join(' '), plein(A.detail)));
     for (const x of [-86, -52, 30, 78]) o.push(h.path(lis([[x - 5, -62], [x, -66.5], [x + 5, -62]], T), A.detail));
     // le couteau tenu droit, la pointe dans le bourrelet, la main au-dessus de la marmite
-    const tip = L(PTE), Lb = 76, Lh = 58, u0 = Lb + 4;
-    const kn = couteau(pt(T, tip), [0, -1], 1, Lb * s, 11 * s, Lh * s);
-    const cM = pt(T, [tip[0], tip[1] - u0 - Lh * 0.48]);
-    o.push(F.main({ x: cM[0], y: cM[1], pose: 'prise', vue: 'dos', diametre: 11.6 * s, echelle: 0.46 * s, bras: 60, objet: kn }).toString());
+    const tip = L(PTE), Lb = 76, Lh = 62, u0 = Lb + 4, DM = 20;
+    const kn = couteau(pt(T, tip), [0, -1], 1, Lb * s, 11 * s, Lh * s, DM * s);
+    const cM = pt(T, [tip[0], tip[1] - u0 - Lh * 0.5]);
+    // la main droite en poing sur le manche (mains simples, prise-manche, vue de la paume) : l'avant-bras part à
+    // gauche, le pouce en bas vers la lame ; le manche (20 mm, le diamètre de la prise) entre par le haut du poing,
+    // la lame sort par le bas, sous le pouce
+    o.push(F.mainSimple({ pose: 'prise-manche', vue: 'paume', cote: 'droite', diametre: DM, echelle: s, angle: 20, x: cM[0], y: cM[1],
+      objet: kn, avantbras: { bord: { x0: 0, y0: 0, x1: z.l, y1: z.h }, longueur: 'bord' } }).svg);
     // la langue, sous l'eau, sur le fond
     o.push(h.path(lis(PROF.map(L), T, true), plein(A.contour)));
     o.push(h.path(lis(FLANC.map(L), T), A.fin));
@@ -308,7 +315,7 @@ module.exports = (h) => {
     const pp = (u, v) => pt(T, [tip[0] + v, tip[1] - u]).join(' ');
     o.push(h.path(`M ${pp(0, 0)} C ${pp(Lb * 0.1, -3.5)} ${pp(Lb * 0.2, -5.5)} ${pp(Lb * 0.32, -5.5)} M ${pp(0, 0)} C ${pp(Lb * 0.06, 2.7)} ${pp(Lb * 0.2, 5.5)} ${pp(Lb * 0.45, 5.5)}`, A.cache));
     const fl0 = pt(T, [tip[0] + 14, tip[1] - 48]), fl1 = pt(T, [tip[0] + 14, tip[1] - 22]);
-    o.push(h.fleche(`M ${fl0.join(' ')} L ${fl1.join(' ')}`, A.detail));
+    o.push(h.geste(`M ${fl0.join(' ')} L ${fl1.join(' ')}`));              // le geste : enfoncer la pointe
     return o.join('\n');
   };
   const pocherRenvois = z => {
@@ -355,10 +362,11 @@ module.exports = (h) => {
     const papF = b1.slice(1, 4).map((p, i) => point(T(decale(b1, -1.6)[i + 1]), 0.7)).join(' ');
     const flapSvg = [h.path(flap, plein(A.arete)), h.path(envers, A.fin), h.path(papF, A.fin),
       h.path(lis([[160, -48], [178, -70], [204, -83]], T), A.fin)].join('\n');
-    const pc = pt(T, PINCE);
-    o.push(F.main({ x: pc[0], y: pc[1], pose: 'pince', vue: 'profil', echelle: 0.52 * s, bras: 30, angle: -6, objet: flapSvg }).toString());
+    o.push(flapSvg);
+    // le bord tiré, roulé sur lui-même
+    o.push(h.path(lis([[236, -88], [244, -95], [250, -93], [249, -87], [243, -86]], T), A.arete));
     const p0 = pt(T, [262, -100]), p1 = pt(T, [300, -122]);
-    o.push(h.fleche(`M ${p0.join(' ')} L ${p1.join(' ')}`, A.arete));
+    o.push(h.geste(`M ${p0.join(' ')} L ${p1.join(' ')}`));                // le geste : peler
     return o.join('\n');
   };
   const pelerRenvois = z => {

@@ -1,0 +1,92 @@
+{
+ "fichier": "12-tentes-a-poele.jpg",
+ "titre": "File:Camp école en forêt.jpg",
+ "pageid": 68440793,
+ "requete": "https://commons.wikimedia.org/w/api.php?action=query&format=json&prop=imageinfo&iiprop=url%7Csize%7Csha1%7Cmime%7Cextmetadata&titles=File%3ACamp+%C3%A9cole+en+for%C3%AAt.jpg&formatversion=2",
+ "lu_le": "2026-10-19",
+ "imageinfo": {
+  "size": 2459813,
+  "width": 3264,
+  "height": 2448,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/0/06/Camp_%C3%A9cole_en_for%C3%AAt.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+  "descriptionurl": "https://commons.wikimedia.org/wiki/File:Camp_%C3%A9cole_en_for%C3%AAt.jpg",
+  "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=68440793",
+  "sha1": "18cc9e6bf39c9cfe85d92ed68f20288afea897da",
+  "extmetadata": {
+   "DateTime": {
+    "value": "2018-04-20 14:15:38",
+    "source": "mediawiki-metadata",
+    "hidden": ""
+   },
+   "ObjectName": {
+    "value": "Camp école en forêt",
+    "source": "mediawiki-metadata"
+   },
+   "CommonsMetadataExtension": {
+    "value": 1.2,
+    "source": "extension",
+    "hidden": ""
+   },
+   "Categories": {
+    "value": "Atikamekw|Nitaskinan|Self-published work|Atikamekw projects|Buildings in Manawan",
+    "source": "commons-categories",
+    "hidden": ""
+   },
+   "Assessments": {
+    "value": "",
+    "source": "commons-categories",
+    "hidden": ""
+   },
+   "ImageDescription": {
+    "value": "Camp école en forêt",
+    "source": "commons-desc-page"
+   },
+   "DateTimeOriginal": {
+    "value": "2018-04-14 10:16:37",
+    "source": "commons-desc-page"
+   },
+   "Credit": {
+    "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+    "source": "commons-desc-page"
+   },
+   "Artist": {
+    "value": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Bilbo40&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Bilbo40 (page does not exist)\">Bilbo40</a>",
+    "source": "commons-desc-page"
+   },
+   "LicenseShortName": {
+    "value": "CC BY-SA 4.0",
+    "source": "commons-desc-page",
+    "hidden": ""
+   },
+   "UsageTerms": {
+    "value": "Creative Commons Attribution-Share Alike 4.0",
+    "source": "commons-desc-page"
+   },
+   "AttributionRequired": {
+    "value": "true",
+    "source": "commons-desc-page",
+    "hidden": ""
+   },
+   "LicenseUrl": {
+    "value": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "commons-desc-page"
+   },
+   "Copyrighted": {
+    "value": "True",
+    "source": "commons-desc-page",
+    "hidden": ""
+   },
+   "Restrictions": {
+    "value": "",
+    "source": "commons-desc-page",
+    "hidden": ""
+   },
+   "License": {
+    "value": "cc-by-sa-4.0",
+    "source": "commons-templates",
+    "hidden": ""
+   }
+  },
+  "mime": "image/jpeg"
+ }
+}

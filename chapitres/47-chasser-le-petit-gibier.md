@@ -710,7 +710,7 @@ La section 5-J devient la règle, sans exception :
 - La gélinotte en vol n'est plus une cible : on l'attend perchée à la brunante, ou on la laisse.
 - Tout ce qui se fige passe au bâton, à la perche et à la flèche, et la cartouche va à ce qui ne se
   fige pas.
-- Les dernières cartouches de carabine — .308, 7 mm, .303 — vont à l'orignal (ch. 45 §5-A).
+- Les dernières cartouches de carabine vont à l'orignal (ch. 45, section 5-A).
 
 ### Ce qui ne se remplace pas
 

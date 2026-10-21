@@ -86,7 +86,7 @@ garde. Une génératrice rend plus par litre quand elle travaille fort, d'où le
 
 1. **Lister ce qui tire sur le banc, un appareil à la fois.** L'éclairage se mesure point par
    point comme au ch. 85. La radio a son propre banc et n'entre pas dans ce compte (ch. 14,
-   étape 7).
+   étape 20).
 
 2. **Le coffre : partir de l'étiquette, corriger pour l'endroit.** L'étiquette donne des
    kilowattheures par an mesurés à 32 °C ; divisés par 365, c'est la journée d'un coffre dans une
@@ -322,7 +322,7 @@ garde. Une génératrice rend plus par litre quand elle travaille fort, d'où le
     6 heures par jour dans un chalet à 20 °C, un peu moins de 3 heures dans une remise à 0 °C, un
     peu plus d'une heure à -10 °C. Ces heures se groupent en un ou deux blocs : un coffre plein
     et fermé travaille le reste du jour sur sa glace. Le thermomètre du coffre décide, pas la montre
-    (ch. 3, étape 18).
+    (ch. 3, étape 19).
 
 28. **Charger vite pendant le bloc, finir au soleil.** Le plomb accepte beaucoup de courant quand
     il est bas, et de moins en moins en approchant du plein ; au-dessus de 80 %, chaque litre
@@ -542,7 +542,7 @@ le montage finit comme le paragraphe suivant.
 **Deux batteries.** Une batterie pleine branchée en parallèle sur une vide, de même tension, lui
 donne jusqu'à ce que les deux aient la même tension, pas plus. On se retrouve avec deux batteries
 à moitié : utile pour démarrer, inutile pour remplir. Les batteries des véhicules comme réserve
-de courant du terrain sont au ch. 3, §9.
+de courant du terrain sont au ch. 3, section 7.
 
 ### B. Le petit moteur et l'alternateur d'auto : un chargeur à essence
 

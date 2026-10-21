@@ -2,6 +2,11 @@
 // Chapitre 29, §9-A (« La serviette cousue », « La sphaigne », étape 5).
 // Aucune cote : le chapitre ne donne aucune mesure de la serviette. Les proportions suivent
 // le texte : l'enveloppe a la largeur de l'entrejambe, les ailes se croisent dessous.
+//
+// La charte : l'enveloppe garde son contour fort. En perspective, la bouche ouverte (l'intérieur
+// vu par l'ouverture) passe en gris loin ; le bout de l'âme pliée et le flanc du sachet, à l'ombre.
+// Pas de gris sur la coupe ni sur la ceinture (le côté doublure y est déjà hachuré). Le rouge :
+// l'âme, puis le sachet, qu'on pousse dans le bout ouvert.
 
 const N = '#1A1A1A', B = '#FFFFFF';
 const f = v => Math.round(v * 10) / 10;
@@ -212,7 +217,7 @@ module.exports = (h) => {
     const ordre = [...ech.filter(e => e.i === der), ...ech.filter(e => e.i === -1 || e.i === 0 || e.i === 1)];
     const haut = ordre.map(e => T3(e.p[0], e.p[1], EP + leve(e.p[1])));
     const bas = ordre.map(e => T3(e.p[0], e.p[1], 0)).reverse();
-    out.push(h.path(poly([...haut, ...bas], true), NP));
+    out.push(h.path(poly([...haut, ...bas], true), h.a.loin));
     // ce qu'on glisse dedans
     out.push(insert);
     // la flanelle, dessus, avec la bouche soulevée
@@ -229,7 +234,7 @@ module.exports = (h) => {
   };
   const fleche = (T3, wo) => {
     const a = T3(XA1 + 6, wo / 2 + 34, 0), c = T3(L / 2 + 26, wo / 2 + 34, 0);
-    return h.fleche(`M ${P(a)} L ${P(c)}`, h.a.arete);
+    return h.geste(`M ${P(a)} L ${P(c)}`);
   };
   const cache = (T3, wo, x0) =>
     h.path(poly([T3(L / 2 - 10, -wo / 2, EP), T3(x0, -wo / 2, EP), T3(x0, wo / 2, EP), T3(L / 2 - 10, wo / 2, EP)]), h.a.cache);
@@ -255,7 +260,7 @@ module.exports = (h) => {
       }
     }
     // la silhouette du bout, puis le fil de l'accordéon dedans
-    ins.push(h.path(poly([T3(X1, zA, y1), T3(X1, zB, y1), T3(X1, zB, y0), T3(X1, zA, y0)], true), rempli(1.4)));
+    ins.push(h.path(poly([T3(X1, zA, y1), T3(X1, zB, y1), T3(X1, zB, y0), T3(X1, zA, y0)], true), rempli(1.4).replace(`fill="${B}"`, 'fill="#CFCFCF"')));   // le bout, à l'ombre
     ins.push(h.path(poly(prof.map(([zz, y]) => T3(X1, zz, y))), tr(0.9)));
     // le bord libre du dernier pli, sur le dessus
     ins.push(h.path(poly([T3(X0 + 4, zA + WA * 0.34, y1), T3(X1, zA + WA * 0.34, y1)]), tr(0.9)));
@@ -285,7 +290,7 @@ module.exports = (h) => {
       return [...lo.slice(0, -1), ...up.slice(0, -1)];
     })();
     const ins = [];
-    ins.push(h.path(poly(hull, true), rempli(1.4)), h.path(poly(haut, true), tr(1.0)));
+    ins.push(h.path(poly(hull, true), rempli(1.4).replace(`fill="${B}"`, 'fill="#CFCFCF"')), h.path(poly(haut, true), rempli(1.0)));   // le flanc, à l'ombre
     // la couture, à mi-hauteur sur le côté et le bout qu'on voit
     const mi = [];
     coin(X0 - 60 + rc, WS / 2 - rc, 90, rc, []);

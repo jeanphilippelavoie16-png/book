@@ -1,6 +1,10 @@
 // Planche 94-34 — La poix de gomme (ch. 60, §5-F et « Poix et gomme : la partie qui n'a jamais
 // eu besoin de magasin », « Réparer au lieu de remplacer »). Aucune proportion : le chapitre n'en
 // sourcé aucune, le réglage se fait à la goutte.
+// La charte : la face de droite à l'ombre sur les volumes debout (les deux troncs, la boîte sur les
+// braises, le panier) et sur le flanc du lit de sable des bâtonnets. Le rouge : pousser la gomme au
+// bâton, piler le charbon, presser le bois sur la fuite (les gestes, un par vue), et la goutte qui
+// casse net (le point que le test vérifie).
 module.exports = (h) => {
   const R = (v) => Math.round(v * 10) / 10;
   const rot = (bx, by, deg) => {
@@ -17,6 +21,20 @@ module.exports = (h) => {
       d += ` C ${R(p1[0] + (p2[0] - p0[0]) * k)} ${R(p1[1] + (p2[1] - p0[1]) * k)} ${R(p2[0] - (p3[0] - p1[0]) * k)} ${R(p2[1] - (p3[1] - p1[1]) * k)} ${R(p2[0])} ${R(p2[1])}`;
     }
     return ferme ? d + ' Z' : d;
+  };
+  // les points de la même courbe, échantillonnés (pour borner un aplat sur une ligne de cassure)
+  const lissePts = (p, n = 8) => {
+    const g = (i) => p[Math.max(0, Math.min(p.length - 1, i))], out = [p[0]];
+    for (let i = 0; i < p.length - 1; i++) {
+      const p0 = g(i - 1), p1 = g(i), p2 = g(i + 1), p3 = g(i + 2);
+      const c1 = [p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6], c2 = [p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6];
+      for (let k = 1; k <= n; k++) {
+        const t = k / n, u = 1 - t;
+        out.push([u * u * u * p1[0] + 3 * u * u * t * c1[0] + 3 * u * t * t * c2[0] + t * t * t * p2[0],
+          u * u * u * p1[1] + 3 * u * u * t * c1[1] + 3 * u * t * t * c2[1] + t * t * t * p2[1]]);
+      }
+    }
+    return out;
   };
   const forme = (d, t = h.a.detail, fond = h.a.blanc) => h.path(d, fond) + '\n' + h.path(d, t);
   const poly = (p, t = h.a.arete, fond = h.a.blanc) => h.chemin(p, fond, true) + '\n' + h.chemin(p, t, true);
@@ -50,10 +68,17 @@ module.exports = (h) => {
   const goutte = (x, y, r, fond = h.a.blanc) =>
     forme(`M ${R(x)} ${R(y - 2.4 * r)} Q ${R(x + 1.3 * r)} ${R(y - 0.2 * r)} ${R(x)} ${R(y + r)} Q ${R(x - 1.3 * r)} ${R(y - 0.2 * r)} ${R(x)} ${R(y - 2.4 * r)} Z`, h.a.detail, fond);
   // boîte de conserve vue de côté
-  const boite = (cx, yt, w, ht, contenu) => {
+  const boite = (cx, yt, w, ht, contenu, ombre = false) => {
     const x1 = R(cx - w / 2), x2 = R(cx + w / 2), e = R(w * 0.14), yb = R(yt + ht), r = R(w / 2);
     const corps = `M ${x1} ${R(yt)} L ${x1} ${yb} A ${r} ${e} 0 0 0 ${x2} ${yb} L ${x2} ${R(yt)}`;
-    const out = [h.path(corps + ' Z', h.a.blanc), h.path(corps, h.a.arete)];
+    const out = [h.path(corps + ' Z', h.a.blanc)];
+    if (ombre) {
+      // le flanc droit à l'ombre, jusqu'à l'arrondi du fond
+      const xs = cx + w * 0.24, bas = [];
+      for (let i = 0; i <= 10; i++) { const x = x2 - (x2 - xs) * i / 10; bas.push([R(x), R(yb + e * Math.sqrt(Math.max(0, 1 - ((x - cx) / r) ** 2)))]); }
+      out.push(h.chemin([[R(xs), R(yt)], [x2, R(yt)], ...bas], h.a.ombre, true));
+    }
+    out.push(h.path(corps, h.a.arete));
     [0.34, 0.64].forEach((f) => out.push(h.path(`M ${x1} ${R(yt + ht * f)} A ${r} ${e} 0 0 0 ${x2} ${R(yt + ht * f)}`, h.a.fin)));
     out.push(h.ellipse(cx, yt, w / 2, e, h.a.blanc), h.ellipse(cx, yt, w / 2, e, h.a.arete));
     if (contenu) out.push(h.ellipse(cx, yt + 1.5, w / 2 - 3.5, e - 1.6, contenu));
@@ -100,8 +125,12 @@ module.exports = (h) => {
     return out.join('\n');
   };
   const tronc = (xL, xR, y1, y2) => {
-    const casse = (y) => lisse([[xL, y], [xL + (xR - xL) * 0.3, y - 3], [xL + (xR - xL) * 0.55, y + 2], [xL + (xR - xL) * 0.8, y - 2], [xR, y + 1]], false);
-    return [h.rect(xL, y1, xR - xL, y2 - y1, h.a.blanc), h.path(casse(y1), h.a.detail), h.path(casse(y2), h.a.detail),
+    const pts = (y) => [[xL, y], [xL + (xR - xL) * 0.3, y - 3], [xL + (xR - xL) * 0.55, y + 2], [xL + (xR - xL) * 0.8, y - 2], [xR, y + 1]];
+    const casse = (y) => lisse(pts(y), false);
+    // la face de droite du tronc à l'ombre, bornée par les deux cassures
+    const xs = xR - (xR - xL) * 0.28, cl = (q) => [R(Math.max(q[0], xs)), R(q[1])];
+    const ombre = h.chemin([...lissePts(pts(y1)).map(cl), ...lissePts(pts(y2)).reverse().map(cl)], h.a.ombre, true);
+    return [h.rect(xL, y1, xR - xL, y2 - y1, h.a.blanc), ombre, h.path(casse(y1), h.a.detail), h.path(casse(y2), h.a.detail),
       h.ligne(xL, y1, xL, y2 + 1, h.a.contour), h.ligne(xR, y1 + 1, xR, y2 + 1, h.a.contour)].join('\n');
   };
 
@@ -114,12 +143,12 @@ module.exports = (h) => {
   const gEpi = (z) => {
     const cx = z.l * 0.46, tw = Math.min(72, z.l * 0.42);
     const W = { x: cx + 2, y: Math.round(z.h * 0.33), hw: 13, hh: Math.min(42, z.h * 0.21) };
-    const c = [[W.x - 8, W.y + W.hh * 0.55, W.y + W.hh + 14], [W.x + 6, W.y + W.hh * 0.8, W.y + W.hh + 28], [W.x + 11, W.y + W.hh * 0.1, W.y + W.hh * 0.62]];
+    const c = [[W.x - 9, W.y + W.hh + 2, W.y + W.hh + 16], [W.x + 5, W.y + W.hh + 4, W.y + W.hh + 30], [W.x + 15, W.y + W.hh * 0.4, W.y + W.hh * 0.95]];
     return { cx, tw, xL: cx - tw / 2, xR: cx + tw / 2, W, c };
   };
   const gBr = (z) => {
-    const G = Math.round(z.h * 0.78), x1 = z.l * 0.37, x2 = z.l * 0.66;
-    return { G, x1, x2, ec: { cx: x2 + 26, lh: 52, ht: 13 } };
+    const G = Math.round(z.h * 0.78), x1 = z.l * 0.44, x2 = z.l * 0.63;
+    return { G, x1, x2, ec: { cx: x2 + 36, lh: 52, ht: 13 } };
   };
   const gRep = (z) => {
     const G = z.h - 6, w = 46, H = Math.min(72, z.h - 60);
@@ -201,18 +230,25 @@ module.exports = (h) => {
               out.push(h.path(`M ${R(x - 4.5)} ${R(y)} Q ${R(x)} ${R(y - 4)} ${R(x + 4.5)} ${R(y)}`, h.a.fin));
             }
           }
-          const lens = (hw, hh) => lisse([[W.x, W.y - hh], [W.x + hw * 0.8, W.y - hh * 0.5], [W.x + hw, W.y + hh * 0.05], [W.x + hw * 0.75, W.y + hh * 0.55],
-            [W.x, W.y + hh], [W.x - hw * 0.8, W.y + hh * 0.5], [W.x - hw, W.y], [W.x - hw * 0.8, W.y - hh * 0.55]]);
-          out.push(forme(lens(W.hw + 5, W.hh + 6), h.a.arete));        // bourrelet de la vieille blessure
-          out.push(forme(lens(W.hw, W.hh), h.a.detail));               // bois à nu
-          [-5, 0, 5].forEach((dx) => out.push(h.path(`M ${R(W.x + dx)} ${R(W.y - W.hh * 0.75)} Q ${R(W.x + dx * 1.3)} ${R(W.y)} ${R(W.x + dx)} ${R(W.y + W.hh * 0.75)}`, h.a.fin)));
-          // grumeaux durcis sur le bord
-          [[-W.hw - 3, -W.hh * 0.3, 3], [W.hw + 2, -W.hh * 0.55, 2.6], [-W.hw * 0.4, W.hh + 3, 2.8]].forEach(([dx, dy, r]) =>
-            out.push(h.cercle(W.x + dx, W.y + dy, r, h.a.blanc), h.cercle(W.x + dx, W.y + dy, r, h.a.detail)));
-          // coulées : un col étroit qui finit en goutte
-          g.c.forEach(([x, y0, y1]) => {
-            out.push(forme(lisse([[x - 2, y0], [x - 2.2, y1 - 9], [x - 4.8, y1 - 3], [x - 3.2, y1 + 2.5], [x, y1 + 4], [x + 3.2, y1 + 2.5], [x + 4.8, y1 - 3], [x + 2.2, y1 - 9], [x + 2, y0]]), h.a.detail));
-            out.push(h.path(`M ${R(x - 2.4)} ${R(y1 - 2)} Q ${R(x - 2.2)} ${R(y1 + 1)} ${R(x - 0.6)} ${R(y1 + 2)}`, h.a.fin));
+          // la plaie : bois nu au contour irrégulier, bourrelet de gomme bosselé autour
+          const ovale = (hw, hh, n, jit, gr) => { const r = alea(gr); return Array.from({ length: n }, (_, i) => {
+            const t = 2 * Math.PI * i / n, k = 1 + (r() - 0.5) * jit; return [W.x + hw * k * Math.sin(t), W.y - hh * k * Math.cos(t)]; }); };
+          const bour = ovale(W.hw + 6, W.hh + 6, 22, 0.22, 31);
+          out.push(forme(lisse(bour), h.a.arete));
+          const nu = ovale(W.hw, W.hh, 11, 0.16, 17);
+          out.push(forme(lisse(nu), h.a.detail));
+          // fil vertical du bois
+          [-8, -4, 0, 4, 8].forEach((dx, i) => { const f = 1 - (dx / (W.hw + 1)) ** 2, hy = W.hh * Math.sqrt(Math.max(0, f)) * 0.8;
+            out.push(h.path(`M ${R(W.x + dx)} ${R(W.y - hy)} Q ${R(W.x + dx + (i % 2 ? 1.2 : -1.2))} ${R(W.y)} ${R(W.x + dx)} ${R(W.y + hy)}`, h.a.fin)); });
+          // bosses de la gomme sur le bourrelet
+          bour.forEach(([x, y], i) => { if (i % 3) return; const dx = x - W.x, dy = y - W.y, d = Math.hypot(dx, dy);
+            out.push(h.path(`M ${R(x - dx / d * 3 - dy / d * 2.5)} ${R(y - dy / d * 3 + dx / d * 2.5)} Q ${R(x)} ${R(y)} ${R(x - dx / d * 3 + dy / d * 2.5)} ${R(y - dy / d * 3 - dx / d * 2.5)}`, h.a.fin)); });
+          // coulées : des gouttes irrégulières qui partent du bourrelet, de longueurs inégales
+          g.c.forEach(([x, y0, y1], j) => {
+            const w = [2.6, 2.2, 1.8][j];
+            out.push(forme(lisse([[x - w, y0], [x - w * 0.7, (y0 + y1) / 2 - 4], [x - w * 1.2, (y0 + y1) / 2 + 3], [x - w * 0.8, y1 - 6], [x - w * 1.9, y1 - 1], [x - w * 0.6, y1 + 3.5],
+              [x + w * 0.9, y1 + 3], [x + w * 1.8, y1 - 2], [x + w * 0.9, y1 - 7], [x + w, (y0 + y1) / 2], [x + w * 1.1, y0]]), h.a.detail));
+            out.push(h.path(`M ${R(x - w * 1.2)} ${R(y1 - 2)} Q ${R(x - w)} ${R(y1 + 1)} ${R(x)} ${R(y1 + 2)}`, h.a.fin));
           });
           const [kx, , ky] = g.c[1];
           out.push(couteau(kx + 1, ky + 8, 16));
@@ -231,25 +267,34 @@ module.exports = (h) => {
         dessin: (z) => {
           const { G, x1, x2, ec } = gBr(z), out = [];
           out.push(h.ligne(0, G, z.l, G, h.a.arete));
-          // le feu, repoussé à l'écart
-          const fx = z.l * 0.09;
-          out.push(flamme(fx + 1, G - 14, 16, 36), flamme(fx + 21, G - 16, 14, 30), flamme(fx + 11, G - 28, 18, 46));
+          // le feu, repoussé loin de la pierre, coupé au bord de la vue
+          // dessiné à partir de 0, puis décalé de 16 vers la gauche : la découpe le coupe au bord
+          const fx = 0;
+          const feu = [flamme(fx + 1, G - 14, 16, 36), flamme(fx + 21, G - 16, 14, 30), flamme(fx + 11, G - 28, 18, 46)];
           [[fx, G - 9], [fx + 20, G - 9], [fx + 10, G - 25]].forEach(([x, y]) =>
-            out.push(h.cercle(x, y, 8.6, h.a.blanc), h.cercle(x, y, 8.6, h.a.arete), h.cercle(x, y, 4, h.a.fin)));
+            feu.push(h.cercle(x, y, 8.6, h.a.blanc), h.cercle(x, y, 8.6, h.a.arete), h.cercle(x, y, 4, h.a.fin)));
+          out.push(`<defs><clipPath id="coupe-feu-94-34"><rect x="0" y="0" width="${R(z.l)}" height="${R(z.h)}"/></clipPath></defs><g clip-path="url(#coupe-feu-94-34)"><g transform="translate(-16 0)">\n${feu.join('\n')}\n</g></g>`);
           // la pierre plate
-          const pierre = [[x1, G], [x1 - 3, G - 10], [x1 + 2, G - 19], [x1 + 14, G - 22], [x2 - 12, G - 23], [x2 + 2, G - 21], [x2 + 4, G - 12], [x2 + 1, G]];
+          const pierre = [[x1, G], [x1 - 3, G - 10], [x1 + 2, G - 19], [x1 + 12, G - 22], [x2 - 10, G - 23], [x2 + 2, G - 21], [x2 + 4, G - 12], [x2 + 1, G]];
           out.push(h.chemin(pierre, h.a.blanc, true), h.chemin(pierre, h.a.hachure('pierre', 'aucun'), true), h.chemin(pierre, h.a.contour, true));
-          // les braises jusque contre la pierre
-          out.push(braises(z.l * 0.03, x1 + 12, G, 13, 7));
-          // la gomme qui fond et qu'on pousse vers le bord
-          out.push(forme(lisse([[x1 + 8, G - 22], [x1 + 10, G - 30], [x1 + 18, G - 34], [x1 + 26, G - 30], [x1 + 28, G - 22.5]]), h.a.detail));
-          out.push(forme(lisse([[x1 + 31, G - 22.5], [x1 + 33, G - 29], [x1 + 40, G - 31], [x1 + 45, G - 22.8]]), h.a.detail));
-          out.push(forme(`M ${R(x1 + 44)} ${R(G - 22.8)} Q ${R((x1 + x2) / 2 + 12)} ${R(G - 28)} ${R(x2 - 14)} ${R(G - 23.2)} Z`, h.a.detail));
-          out.push(forme(lisse([[x2 - 11, G - 23], [x2 - 8, G - 27.5], [x2 - 1, G - 26], [x2 + 3, G - 22], [x2 + 3.5, G - 18], [x2 + 2, G - 21.5]]), h.a.detail));
-          
-          out.push(baton(x2 - 12, G - 26, -50, 62, 4.5));
+          // seul le tas de braises touche la pierre
+          out.push(braises(z.l * 0.2, x1 + 12, G, 13, 7));
+          // la gomme qui fond : base à plat, le bas foncé (fondu), poussée vers le bord droit
+          const W = x2 - x1, m = (xa, xb, ht) => {
+            const d = lisse([[xa, G - 22.5], [xa + 1, G - 22.5 - ht * 0.7], [(xa + xb) / 2, G - 22.5 - ht], [xb - 1, G - 22.5 - ht * 0.6], [xb, G - 22.5]]);
+            return forme(d, h.a.detail) + '\n' + h.path(`M ${R(xa)} ${R(G - 22.5)} Q ${R(xa + 0.5)} ${R(G - 26)} ${R(xa + 3)} ${R(G - 26.5)} L ${R(xb - 3)} ${R(G - 26.5)} Q ${R(xb - 0.5)} ${R(G - 26)} ${R(xb)} ${R(G - 22.5)} Z`, h.a.plein);
+          };
+          out.push(m(x1 + 5, x1 + W * 0.3, 9), m(x1 + W * 0.33, x1 + W * 0.55, 7));
+          // la nappe fondue, qui va au bord et passe par-dessus
+          const ec2 = ec.cx - ec.lh / 2 + 10, yE = G - ec.ht + 2;
+          out.push(h.path(`M ${R(x1 + W * 0.56)} ${R(G - 22.6)} Q ${R(x1 + W * 0.6)} ${R(G - 26)} ${R(x1 + W * 0.7)} ${R(G - 25.5)} L ${R(x2 - 2)} ${R(G - 24)} Q ${R(x2 + 4)} ${R(G - 23)} ${R(x2 + 5)} ${R(G - 18)}`
+            + ` C ${R(x2 + 6)} ${R(G - 14)} ${R(ec2 - 1)} ${R(G - 16)} ${R(ec2 - 0.6)} ${R(yE)} L ${R(ec2 + 1.4)} ${R(yE)} C ${R(ec2 + 1.4)} ${R(G - 18)} ${R(x2 + 8)} ${R(G - 19)} ${R(x2 + 6.5)} ${R(G - 23)}`
+            + ` Q ${R(x2 + 4)} ${R(G - 27.5)} ${R(x2 - 3)} ${R(G - 27.5)} L ${R(x1 + W * 0.7)} ${R(G - 27.5)} Q ${R(x1 + W * 0.6)} ${R(G - 28)} ${R(x1 + W * 0.56)} ${R(G - 22.6)} Z`, h.a.plein));
+          out.push(goutte(ec2 + 0.4, yE + 3, 1.6, h.a.plein));
+          // le bâton couché qui pousse la gomme vers le bord
+          out.push(baton(x1 + W * 0.66, G - 29, -155, 42, 4.5));
+          out.push(h.geste(`M ${R(x1 + W * 0.62)} ${R(G - 38)} L ${R(x2 - 4)} ${R(G - 38)}`));
           out.push(ecuelle(ec.cx, G, ec.lh, ec.ht));
-          out.push(goutte(x2 + 8, G - 18, 2.2));
           return out.join('\n');
         },
         renvois: (z) => {
@@ -335,9 +380,9 @@ module.exports = (h) => {
           [[40, G - 22], [62, G - 23], [58, G - 20]].forEach(([x, y]) => out.push(h.cercle(x, y, 0.9, h.a.blanc)));
           const mol = lisse([[34, G - 42], [44, G - 53], [62, G - 55], [74, G - 46], [73, G - 34], [60, G - 28], [42, G - 29]]);
           out.push(h.path(mol, h.a.blanc), h.path(mol, h.a.hachure('pierre', 'aucun')), h.path(mol, h.a.contour));
-          out.push(h.fleche(`M 86 ${G - 60} L 86 ${G - 36}`, h.a.detail));
+          out.push(h.geste(`M 86 ${G - 60} L 86 ${G - 36}`));
           // la boîte sur les braises
-          out.push(boite(cx, yt, 54, 56, h.a.plein));
+          out.push(boite(cx, yt, 54, 56, h.a.plein, true));
           out.push(braises(cx - 44, cx + 44, G, 12, 5));
           // le tissu noué, secoué au-dessus : la poudre passe, les grains restent
           const [nx, ny] = nouet;
@@ -383,6 +428,8 @@ module.exports = (h) => {
           out.push(h.path(`M ${b(-12.5, 0)} Q ${b(-12, -7.5)} ${b(-3, -7.5)} L ${b(-1.5, -4)} L ${b(-2.8, 0)} Z`, h.a.plein));
           out.push(h.path(`M ${b(1, 0)} L ${b(2.2, -3.5)} L ${b(0.8, -7.5)} Q ${b(11, -7.5)} ${b(12, 0)} Z`, h.a.plein));
           out.push(h.path(`M ${b(-9, -4.5)} Q ${b(-7, -6.2)} ${b(-4.5, -6.2)}`, REFLET), h.path(`M ${b(4, -6.2)} Q ${b(7, -6.2)} ${b(9, -4.5)}`, REFLET));
+          // le point que le test vérifie : la goutte qui casse net
+          out.push(h.controle(xb, ys - 4, 19));
           // trop sèche : elle éclate en miettes
           [[[-14, 0], [-11, -3.5], [-8, 0]], [[-6, 0], [-5, -5], [-1, -3.5], [-1.5, 0]], [[1, 0], [3, -4.5], [6.5, -2], [6, 0]], [[8.5, 0], [11.5, -2.8], [13, 0]],
             [[-19, 0], [-17.5, -2.2], [-16, 0]], [[15, 0], [17, -2], [18.5, 0]], [[-9, -11], [-6.5, -14], [-5, -10.5]], [[9, -13], [12, -14.5], [11, -10.5]]]
@@ -408,6 +455,7 @@ module.exports = (h) => {
           const dessus = [[x1, yF], [x2, yF], [x2 + sk, yK], [x1 + sk, yK]];
           out.push(h.chemin(dessus, h.a.blanc, true), h.chemin(dessus, h.a.hachure('gravier', 'aucun'), true));
           const face = [[x1, yF], [x2, yF], [x2, yF + ep], [x1, yF + ep]], cote = [[x2, yF], [x2 + sk, yK], [x2 + sk, yK + ep], [x2, yF + ep]];
+          out.push(h.chemin(cote, h.a.ombre, true));
           out.push(h.chemin(face, h.a.hachure('gravier', 'aucun'), true), h.chemin(cote, h.a.hachure('gravier', 'aucun'), true));
           out.push(h.chemin([[x1, yF + ep], [x1, yF], [x1 + sk, yK], [x2 + sk, yK], [x2 + sk, yK + ep], [x2, yF + ep], [x1, yF + ep]], h.a.contour, true));
           out.push(h.chemin([[x1, yF], [x2, yF], [x2 + sk, yK]], h.a.arete), h.ligne(x2, yF, x2, yF + ep, h.a.arete));
@@ -449,7 +497,10 @@ module.exports = (h) => {
           const { pa, patch, co } = gFu(z), out = [];
           // le panier d'écorce
           const corps = [[pa.cx - pa.wt / 2, pa.yt], [pa.cx + pa.wt / 2, pa.yt], [pa.cx + pa.wb / 2, pa.yb], [pa.cx - pa.wb / 2, pa.yb]];
-          out.push(poly(corps, h.a.contour));
+          out.push(h.chemin(corps, h.a.blanc, true));
+          // le flanc droit du panier, à l'ombre
+          out.push(h.chemin([[R(pa.cx + pa.wt * 0.22), R(pa.yt)], [R(pa.cx + pa.wt / 2), R(pa.yt)], [R(pa.cx + pa.wb / 2), R(pa.yb)], [R(pa.cx + pa.wb * 0.22), R(pa.yb)]], h.a.ombre, true));
+          out.push(h.chemin(corps, h.a.contour, true));
           out.push(h.path(`M ${R(pa.cx - pa.wb / 2)} ${R(pa.yb)} Q ${R(pa.cx)} ${R(pa.yb + 4)} ${R(pa.cx + pa.wb / 2)} ${R(pa.yb)}`, h.a.detail));
           out.push(h.ellipse(pa.cx, pa.yt, pa.wt / 2, 5, h.a.blanc), h.ellipse(pa.cx, pa.yt, pa.wt / 2, 5, h.a.arete));
           const yr = pa.yt + 7, wr = pa.wt / 2 - (pa.wt - pa.wb) / 2 * (7 / (pa.yb - pa.yt));
@@ -478,7 +529,7 @@ module.exports = (h) => {
           out.push(h.path(`M ${R(xc - 32)} ${y - 2.5} Q ${R(xc - 16)} ${y - 5.5} ${R(xc)} ${y - 4} Q ${R(xc + 16)} ${y - 2.5} ${R(xc + 32)} ${y - 3}`, TISSU));
           // pressée jusqu'au froid
           out.push(h.rect(xc - 22, y - 19, 44, 11, h.a.blanc), h.rect(xc - 22, y - 19, 44, 11, h.a.hachure('bois', 'arete')));
-          out.push(h.fleche(`M ${R(xc)} ${y - 40} L ${R(xc)} ${y - 22}`, h.a.arete));
+          out.push(h.geste(`M ${R(xc)} ${y - 40} L ${R(xc)} ${y - 22}`));
           return out.join('\n');
         },
         renvois: (z) => {

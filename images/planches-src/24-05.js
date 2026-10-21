@@ -11,10 +11,12 @@
 // courroie et soulève le fagot d'autant ; le bout entre la tête et l'épaule, lui, se détend (même
 // longueur de courroie sur une corde plus courte) : le front ne porte plus.
 //
-// Le haussement d'épaules se dessine avec le corps de la bibliothèque : un second personnage, le même
-// décalé le long de l'axe du tronc, peint seulement derrière une ligne parallèle au bras (le bras, le
-// haut du dos, le bas de la nuque) ; la poitrine, la gorge et la tête restent celles du premier. Les
-// traits coupés par cette zone sont tous parallèles au décalage : aucune cassure.
+// Le porteur est le corps simple « courroie-front », de profil, les bras pendant le long du tronc.
+// Le haussement d'épaules se dessine avec lui : un second corps, le même décalé le long de l'axe du
+// tronc, peint seulement derrière une ligne parallèle au bras (le bras, le haut du dos, le bas de la
+// nuque) ; la poitrine, la gorge et la tête restent celles du premier. Les traits coupés par cette
+// zone sont tous parallèles au décalage : aucune cassure. Rouge : la flèche du geste dans chaque vue
+// (hausser, relâcher : les deux temps du même geste).
 
 module.exports = (h) => {
   const F = h.formes, A = h.a;
@@ -28,33 +30,39 @@ module.exports = (h) => {
   const uni = a => { const l = lon(a) || 1; return [a[0] / l, a[1] / l]; };
   const lerp = (a, b, t) => [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t];
 
-  // ─── Le porteur : la géométrie du personnage de la bibliothèque (formes.js), refaite ici pour
-  // savoir où tombent la tête, la nuque, l'épaule et le dos. Monde en mm, sol en y = 0, y vers le bas.
-  const PENCHE = 15, REGARD = -3, HAUSSE = 40;
-  const kP = y => { const t = Math.max(0, Math.min(1, (-150 - y) / 150)); return 0.35 + 0.65 * t * t * (3 - 2 * t); };
-  const HAN = [0, -950];
-  const TT = p => add(HAN, rot(p, PENCHE * kP(p[1])));
-  const cou0 = TT([-6, -540]), dCou = rot([0, -1], PENCHE * 0.5 + 10), atlas = add(cou0, mul(dCou, 84));
-  const RT = PENCHE * 0.35 + REGARD, Et = sub(atlas, rot([4, 32], RT));
-  const TH = p => add(Et, rot(p, RT));                       // repère de la tête : l'oreille
-  const U = rot([0, -1], PENCHE);                             // l'axe du tronc, vers le haut
-  const AV = rot([1, 0], PENCHE);                             // perpendiculaire, vers l'avant
+  // ─── Le porteur : le corps simple « courroie-front », de profil (corps/moteur.js). Sa géométrie
+  // est lue une fois, en mm (sol en y = 0, y vers le bas) : l'axe du tronc, l'épaule, la tête, et le
+  // contour du dos tiré de sa silhouette.
+  const POSE = 'courroie-front', HAUSSE = 40;
+  // les bras pendent le long du tronc (parallèles au haussement : la zone qui monte les contient
+  // entiers, aucun trait n'y casse)
+  const ANGLES = { brasP: -14, avantbrasP: -10, mainP: -10, brasL: -16, avantbrasL: -12, mainL: -12 };
+  const C1 = F.corps({ x: 0, y: 0, pose: POSE, echelle: 1, angles: ANGLES, objetP: '<g/>' });
+  const J = C1.articulations;
+  const U = uni(sub(J.cou, J.bassin));                      // l'axe du tronc, vers le haut
+  const AV = [-U[1], U[0]];                                   // perpendiculaire, vers l'avant
   const DEC = mul(U, HAUSSE);                                 // le haussement d'épaules
-  const EPAULE = TT([-14, -470]);
-  const BAS = mul(U, -1);
-  // Les bras pendent tendus le long du tronc : une cible hors d'atteinte donne le bras droit.
-  const POIGNET = add(EPAULE, mul(BAS, 800));
-  const POIGNET_LOIN = add(add(EPAULE, [-8, -4]), mul(BAS, 800));
-
-  // Le dos, du haut de la nuque aux fesses.
-  const DOS = [[-68, -540], [-100, -492], [-118, -420], [-110, -340], [-95, -250], [-92, -170], [-108, -92], [-121, -8]].map(TT);
+  const EPAULE = J.epauleP;
+  // la tête : son centre, son haut ; repère (a vers l'avant, b vers le haut), en mm
+  const TC = [C1.tete.x, C1.tete.y], UPT = uni(sub(C1.tete.haut, TC)), FWT = [-UPT[1], UPT[0]];
+  const TH = ([a, b]) => add(TC, add(mul(FWT, a), mul(UPT, b)));
+  // le contour du corps (sans le bras proche), en mm
+  const SIL = (() => {
+    const m = /<path d="([^"]+)" fill="#FFFFFF" stroke="none"\/>/.exec(C1.svg);
+    return [...m[1].matchAll(/(-?[\d.]+) (-?[\d.]+)/g)].map(q => [+q[1], +q[2]]);
+  })();
+  // le dos : le bord arrière de la silhouette à la hauteur y
   const dosX = y => {
-    for (let i = 0; i < DOS.length - 1; i++) {
-      const a = DOS[i], b = DOS[i + 1];
-      if ((y - a[1]) * (y - b[1]) <= 0) return a[0] + (b[0] - a[0]) * (y - a[1]) / (b[1] - a[1]);
+    let x = Infinity;
+    for (let i = 0; i < SIL.length; i++) {
+      const a = SIL[i], b = SIL[(i + 1) % SIL.length];
+      if ((y - a[1]) * (y - b[1]) <= 0 && a[1] !== b[1]) x = Math.min(x, a[0] + (b[0] - a[0]) * (y - a[1]) / (b[1] - a[1]));
     }
-    return y < DOS[0][1] ? DOS[0][0] : DOS[DOS.length - 1][0];
+    return x;
   };
+  // le dos, de la nuque aux fesses
+  const DOS = [];
+  for (let y = J.nuque[1] + 40; y <= J.bassin[1] + 120; y += 20) DOS.push([dosX(y), y]);
   const distDos = p => {
     let m = Infinity;
     for (let i = 0; i < DOS.length - 1; i++) {
@@ -70,9 +78,9 @@ module.exports = (h) => {
   const uB = rot([0, 1], 17), vB = rot([-1, 0], 17);
   const BUCHES = [[0, 0, 50], [104, -3, 54], [206, 4, 47], [52, 96, 49], [152, 100, 53], [246, 90, 42]];
   const placeB = o => BUCHES.map(([u, v, r]) => ({ c: add(o, add(mul(uB, u), mul(vB, v))), r }));
-  // On pousse le fagot contre le dos : la bûche du haut à hauteur du bas de l'omoplate.
+  // On pousse le fagot contre le dos, assez bas pour que sa moitié basse repose au creux des reins.
   const FAGOT = (() => {
-    const y0 = -1285;
+    const y0 = J.bassin[1] - 250;
     let o = [dosX(y0) - 200, y0];
     for (let s = 0; s < 400; s += 0.5) {
       const cand = add([dosX(y0) - 200, y0], mul(vB, -s));
@@ -84,12 +92,12 @@ module.exports = (h) => {
 
   // ─── La courroie. Sur la tête (repère de la tête), puis derrière la nuque, puis sur le haut du dos.
   const EP = 24;                                              // largeur de la courroie vue de profil
-  const SUR_TETE = [[-10, -53], [-30, -46], [-48, -28], [-59, -4], [-64, 22]].map(TH);
+  const SUR_TETE = [[-2, 50], [-30, 46], [-56, 30], [-74, 4], [-82, -26]].map(TH);
   const SORTIE = SUR_TETE[SUR_TETE.length - 1];
   // Là où elle porte sur le haut du dos : la tangente au dos tirée de la nuque, épaules relâchées.
   const APPUI_ = (() => {
     let best = null, bestA = -Infinity;
-    for (let y = SORTIE[1] + 40; y < -1280; y += 2) {
+    for (let y = SORTIE[1] + 40; y < EPAULE[1] + 160; y += 2) {
       const q = [dosX(y), y], a = Math.atan2(SORTIE[0] - q[0], q[1] - SORTIE[1]);
       if (a > bestA) { bestA = a; best = q; }
     }
@@ -108,7 +116,7 @@ module.exports = (h) => {
   const milieuLache = () => lache(DERRIERE, add(APPUI, DEC), LONG_HAUT);
 
   // La bande du front, en repère de tête : large sur le front, amincie vers la tempe.
-  const BANDE = [[85, -84], [60, -90], [28, -80], [2, -66], [-10, -64], [-10, -43], [2, -42], [30, -40], [62, -38], [94, -38], [96, -50], [92, -68]];
+  const BANDE = [[86, 70], [60, 80], [28, 74], [2, 62], [-8, 60], [-8, 38], [2, 37], [30, 36], [62, 35], [94, 38], [97, 50], [94, 62]];
 
   // La courroie lâche : de longueur L entre a et b, un seul point milieu rejeté vers l'arrière (la
   // courbe lisse de la corde passe par lui). Flèche d'une parabole : L ≈ c + 8 s² / 3c.
@@ -132,8 +140,8 @@ module.exports = (h) => {
     return lo.slice(0, -1).concat(hi.slice(0, -1));
   }
 
-  // ─── La vue : le porteur coupé aux hanches, cadré sur la tête, le dos et le fagot.
-  const X0 = -330, X1 = 285, Y0 = -1725, Y1 = -975;
+  // ─── La vue : le porteur coupé sous les fesses, cadré sur la tête, le dos et le fagot.
+  const X0 = Math.min(...placeB(FAGOT).map(b => b.c[0] - b.r)) - 30, X1 = TC[0] + 150, Y0 = C1.tete.haut[1] - 70, Y1 = J.bassin[1] + 160;
   function cadre(z) {
     const e = Math.min((z.l - 8) / (X1 - X0), (z.h - 4) / (Y1 - Y0));
     const ox = (z.l - (X1 - X0) * e) / 2 - X0 * e, oy = 4 - Y0 * e;
@@ -146,10 +154,7 @@ module.exports = (h) => {
     const { e, ox, oy, V } = cadre(z);
     const hausse = etat === 'hausse';
     const o = [];
-    const pers = decal => F.personnage({
-      x: ox + decal[0] * e, y: oy + decal[1] * e, pose: 'debout', echelle: e, penche: PENCHE, regard: REGARD,
-      mains: { proche: V(add(POIGNET, decal)), loin: V(add(POIGNET_LOIN, decal)) },
-    }).toString();
+    const pers = decal => F.corps({ x: ox + decal[0] * e, y: oy + decal[1] * e, pose: POSE, echelle: e, angles: ANGLES, trait: 'fort' }).svg;
     o.push(`<clipPath id="k2405-${etat}"><rect x="0" y="0" width="${r1(z.l)}" height="${r1(z.h)}"/></clipPath>`);
     o.push(`<g clip-path="url(#k2405-${etat})">`);
     o.push(pers([0, 0]));
@@ -159,13 +164,29 @@ module.exports = (h) => {
       const lf = t => add(add(EPAULE, mul(AV, 60)), mul(U, t));
       const lb = t => add(add(EPAULE, mul(AV, -60)), mul(U, t));
       const tAt = (f, y) => { const p0 = f(0), p1 = f(1); return (y - p0[1]) / (p1[1] - p0[1]); };
-      const yCoupe = -1352;
-      const tete = [[-86, -10], [-82, 14], [-77, 32], [-66, 48], [-50, 60], [-20, 80], [10, 92], [40, 99]].map(TH);
+      const yCoupe = EPAULE[1] + 80;
+      // le dessous de la tête, de derrière le crâne au dessous du menton : la tête ne monte pas
+      const tete = [[-104, 10], [-100, -22], [-90, -50], [-74, -72], [-50, -92], [-20, -108], [12, -120], [44, -126]].map(TH);
       const avant = lf(tAt(lf, tete[tete.length - 1][1]));
       const zone = [[-600, tete[0][1]], ...tete, avant, lf(tAt(lf, -700)), lb(tAt(lb, -700)), lb(tAt(lb, yCoupe)), [-600, yCoupe]].map(V);
-      o.push(`<clipPath id="z2405"><path d="${d(zone)} Z" fill="none"/></clipPath>`);
+      o.push(`<clipPath id="zone-k"><path d="${d(zone)} Z" fill="none"/></clipPath>`);
       o.push(`<path d="${d(zone)} Z" fill="#FFFFFF" stroke="none"/>`);
-      o.push(`<g clip-path="url(#z2405)">`, pers(DEC), `</g>`);
+      o.push(`<g clip-path="url(#zone-k)">`, pers(DEC), `</g>`);
+      // Le raccord du dos sous la coupe : un seul trait qui passe du dos haussé au dos resté en place.
+      const dH = y => [dosX(y - DEC[1]) + DEC[0], y], dB = y => [dosX(y), y];
+      const ya = yCoupe - 70, yb = yCoupe + 70;
+      const Pa = dH(ya), Pb = dB(yb), ta = uni(sub(dH(ya + 5), Pa)), tb = uni(sub(dB(yb + 5), Pb));
+      const cache = [add(dH(ya - 4), [-30, 0]), add(dH(ya - 4), [14, 0]), add(dB(yb + 4), [14, 0]), add(dB(yb + 4), [-30, 0])].map(V);
+      o.push(`<path d="${d(cache)} Z" fill="#FFFFFF" stroke="none"/>`);
+      const c1 = add(Pa, mul(ta, 50)), c2 = sub(Pb, mul(tb, 50));
+      const bez = Array.from({ length: 17 }, (_, k) => { const t = k / 16, m = 1 - t;
+        return add(add(mul(Pa, m * m * m), mul(c1, 3 * m * m * t)), add(mul(c2, 3 * m * t * t), mul(Pb, t * t * t))); }).map(V);
+      o.push(h.chemin(bez, A.arete, false));
+      // L'épaule basse de l'autre vue, en tireté fin : on voit de combien elle monte.
+      const C0 = V(add(EPAULE, mul(U, 20))), RC = 95 * e;
+      o.push(`<clipPath id="fantome-k"><circle cx="${r1(C0[0])}" cy="${r1(C0[1])}" r="${r1(RC)}"/></clipPath>`);
+      const fant = pers([0, 0]).replace(/fill="[^"]*"/g, 'fill="none"').replace(/stroke-width="[^"]*"/g, 'stroke-width="0.5" stroke-dasharray="2.2 1.6"');
+      o.push(`<g clip-path="url(#fantome-k)">`, fant, `</g>`);
     }
     const dec = hausse ? DEC : [0, 0];
     // Le fagot.
@@ -204,10 +225,10 @@ module.exports = (h) => {
     // La bande sur le front.
     const bande = BANDE.map(p => V(TH(p)));
     o.push(h.chemin(bande, A.blanc, true), h.chemin(bande, A.arete, true));
-    // La flèche du geste, devant l'épaule.
-    const f0 = add(add(EPAULE, mul(AV, 158)), mul(U, hausse ? -20 : 60));
-    const f1 = add(f0, mul(U, hausse ? 80 : -80));
-    o.push(h.fleche(`M ${V(f0).map(r1).join(' ')} L ${V(f1).map(r1).join(' ')}`, A.arete));
+    // La flèche du geste, le long du tronc, juste au-dessus du sommet de l'épaule.
+    const f0 = add(add(add(EPAULE, mul(AV, 20)), mul(U, hausse ? 58 : 118)), dec);
+    const f1 = add(f0, mul(U, hausse ? 55 : -55));
+    o.push(h.geste(`M ${V(f0).map(r1).join(' ')} L ${V(f1).map(r1).join(' ')}`));
     o.push('</g>');
     return o.join('\n');
   }
@@ -220,7 +241,7 @@ module.exports = (h) => {
       { n: 1, rond: V([-110, -1665]), cible: V(sommet), texte: 'courroie lâche : le front ne porte plus' },
       { n: 2, rond: V([-230, -1560]), cible: V(add(APPUI_DOS, DEC)), texte: 'l’épaule haussée porte la courroie' },
       { n: 3, rond: V([-320, -1430]), cible: V(add(ATTACHE, DEC)), texte: 'bout noué autour de la charge' },
-      { n: 4, rond: V([-345, -1060]), cible: V(buches[3].c), texte: 'charge appuyée au creux des reins' },
+      { n: 4, rond: V([-345, -930]), cible: V(buches[3].c), texte: 'charge appuyée au creux des reins' },
     ];
   }
   function renvoisRelache(z) {
@@ -235,7 +256,7 @@ module.exports = (h) => {
   return {
     ref: '24-05',
     titre: 'Porter à la courroie de front',
-    desc: 'Deux fois le même porteur, de profil, penché en avant, un fagot de bûches couchées en travers du bas du dos. La bande large passe sur le front ; la courroie longe le côté de la tête au-dessus de l’oreille, descend derrière la nuque, porte sur le haut du dos et longe le dos jusqu’au fagot, qu’elle entoure et où elle est nouée. Épaules haussées (flèche vers le haut) : le haut du dos monte sous la courroie et soulève le fagot ; le bout entre la tête et l’épaule pend, lâche. Épaules relâchées (flèche vers le bas) : la courroie est tendue d’un trait du front au fagot, le front porte.',
+    desc: 'Deux fois le même porteur (corps simple), de profil, penché en avant, les bras pendant le long du tronc, un fagot de bûches couchées en travers du bas du dos. La bande large passe sur le front ; la courroie longe le côté de la tête au-dessus de l’oreille, descend derrière la nuque, porte sur le haut du dos et longe le dos jusqu’au fagot, qu’elle entoure et où elle est nouée. Épaules haussées (flèche vers le haut) : le haut du dos monte sous la courroie et soulève le fagot ; le bout entre la tête et l’épaule pend, lâche. Épaules relâchées (flèche vers le bas) : la courroie est tendue d’un trait du front au fagot, le front porte.',
     format: 'demi',
     disposition: [['hausse', 'relache']],
     vues: {

@@ -16,6 +16,22 @@ module.exports = (h) => {
   const lerp = (a, b, t) => [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t];
   const dir = deg => [Math.cos(deg * Math.PI / 180), Math.sin(deg * Math.PI / 180)];
 
+  // ─── mains simples : la boîte d'une vue, et l'angle qui met l'axe de la prise sur `axe` (degrés à l'écran)
+  // avec l'avant-bras du côté de `vers`
+  const BORD = z => ({ x0: 0, y0: 0, x1: z.l, y1: z.h });
+  const poser = (o, axe, vers) => {
+    const base = Object.assign({}, o, { angle: 0, avantbras: { longueur: 100 } });
+    delete base.objet;
+    const e0 = F.mainSimple(base);
+    let best = null;
+    for (const k of [0, 180]) {
+      const a = axe - e0.prise.angle + k, e = F.mainSimple(Object.assign({}, base, { angle: a }));
+      const d = [e.coude[0] - e.poignet[0], e.coude[1] - e.poignet[1]], w = [vers[0] - e.poignet[0], vers[1] - e.poignet[1]];
+      const c = (d[0] * w[0] + d[1] * w[1]) / ((Math.hypot(d[0], d[1]) * Math.hypot(w[0], w[1])) || 1);
+      if (!best || c > best.c) best = { a, c };
+    }
+    return best.a;
+  };
   // Catmull-Rom : la courbe passe par chaque point
   const lisse = (pts, ferme = false) => {
     const n = pts.length, get = i => ferme ? pts[(i + n) % n] : pts[Math.max(0, Math.min(n - 1, i))];
@@ -172,6 +188,8 @@ module.exports = (h) => {
     const c = couteau(g.pointe, 172, e, { dos: 1 });
     out.push(h.path(`M${f(c.K(0.02 * c.lb, 0))} L${f(c.K(c.lb, 0))}`, `fill="none" stroke="#FFFFFF" stroke-width="${r1(c.hb + 7)}" stroke-linecap="round"`));
     out.push(c.lame, c.mitre, c.manche);
+    // le point à frapper pour assommer : le dessus du crâne, derrière l'œil
+    { const crane = P(0.098, dos(0.098) + 0.012); out.push(h.controle(crane[0], crane[1], 9)); }
     return out.join('\n');
   };
 
@@ -206,7 +224,14 @@ module.exports = (h) => {
     out.push(c.mitre);
     const grip = c.s0 + 0.5 * c.lm;
     const cen = c.K(grip, 0);
-    out.push(F.main({ x: r1(cen[0]), y: r1(cen[1]), pose: 'prise', vue: 'paume', angle: -90 - PENTE, echelle: e, diametre: r1(c.hm), bras: 18, objet: c.manche }));
+    // la main droite paume en haut (mains simples, vue côté paume) : le manche (18 mm) couché dans le poing, le
+    // pouce du côté de la lame ; l'avant-bras descend et sort du cadre
+    const vers = [cen[0] + 20, z.h + 300], axe = Math.atan2(c.d[1], c.d[0]) * 180 / Math.PI;
+    const faire = cote => { const o = { x: r1(cen[0]), y: r1(cen[1]), pose: 'prise-manche', vue: 'paume', cote, echelle: e, diametre: 18 };
+      return F.mainSimple({ ...o, angle: poser(o, axe, vers), avantbras: { vers, bord: BORD(z), longueur: 'bord' } }); };
+    let mK = faire('droite');
+    if ((mK.pouce[0] - cen[0]) * -c.d[0] + (mK.pouce[1] - cen[1]) * -c.d[1] < 0) mK = faire('gauche');
+    out.push(mK.couches.main, mK.couches.masque, c.manche, mK.couches.devant);
     return out.join('\n');
   };
 
@@ -266,7 +291,7 @@ module.exports = (h) => {
 
   // ─── vue 4 : sortir le bloc ──────────────────────────────────────────────────────────
   const geoBloc = z => {
-    const L = Math.min(z.l * 0.62, (z.h - 10) / 0.5), e = L / LMM;
+    const L = Math.min(z.l * 0.62, (z.h - 8) / 0.7), e = L / LMM;     // de la place sous le poisson pour le poing
     const xs = z.l - 14, yc = 6 + 0.21 * L;
     const P = (u, v) => [xs - u * L, yc + v * L];
     const haut = u => 0.006 + 0.012 * Math.pow((u - 0.4) / 0.2, 2);     // le haut de la cavité, sous l'arête
@@ -318,7 +343,7 @@ module.exports = (h) => {
     out.push(h.path(lisse(Q([[0.83, 0.224], [0.842, 0.252], [0.832, 0.284]])), A.detail));
     // le cœur
     out.push(h.path(lisse(Q([[0.9, 0.242], [0.925, 0.23], [0.945, 0.242], [0.938, 0.264], [0.912, 0.268]]), true), bA));
-    // les branchies : quatre arcs et leurs lamelles, tenus dans la pince
+    // les branchies : quatre arcs et leurs lamelles, serrées dans le poing
     const bra = [];
     [0, 1, 2, 3].forEach(k => {
       const x0 = 0.95 + k * 0.018;
@@ -327,10 +352,15 @@ module.exports = (h) => {
       pts.forEach((p, i) => { if (i % 1 === 0 && i > 0 && i < pts.length - 1) { const a = P(...p); bra.push(seg(a, [a[0] - 0.012 * L, a[1] + 0.002 * L], A.fin)); } });
       bra.push(h.path(lisse(Q(arc)), A.arete));
     });
-    out.push(bra.join('\n'));
-    // la main qui tire vers l'arrière, et le sens
-    out.push(F.main({ x: r1(g.pince[0]), y: r1(g.pince[1]), pose: 'pince', vue: 'profil', angle: -22, echelle: e, bras: 30 }));
-    out.push(h.fleche(`M${f(P(1.05, 0.085))} L${f(P(1.26, 0.085))}`, A.arete));
+    // la main gauche qui tire vers l'arrière (mains simples, poing vu de la paume) : le poing serre le paquet des
+    // branchies (30 mm), qui passe derrière les doigts ; l'avant-bras repart vers la gauche et sort du cadre.
+    // (La pince fine, à cette échelle, faisait crochet : JP, 14 octobre.)
+    { const C = P(0.975, 0.285), vers = [C[0] - 300, C[1]];
+      const o = { x: r1(C[0]), y: r1(C[1]), pose: 'prise-manche', vue: 'paume', cote: 'gauche', echelle: e, diametre: 30 };
+      const m = F.mainSimple({ ...o, angle: poser(o, 90, vers), avantbras: { vers, bord: BORD(z), bras: { pli: 0 } } });
+      // sans le masque : le cylindre du moteur, plus long que le paquet dessiné, effaçait le bord bas de la main
+      out.push(m.couches.main, bra.join('\n'), m.couches.devant); }
+    out.push(h.geste(`M${f(P(1.05, -0.07))} L${f(P(1.26, -0.07))}`));
     return out.join('\n');
   };
 
@@ -340,7 +370,7 @@ module.exports = (h) => {
     desc: 'Le poisson couché sur le flanc, ventre vers soi. Saigner : l’opercule soulevé, la pointe coupe les arcs branchiaux où ils se rejoignent, des deux côtés. Ouvrir : la pointe entre à l’anus, peu profond, tranchant vers le haut, et remonte jusqu’à l’isthme ; en coupe, la lame reste sous la paroi du ventre et l’intestin n’est pas touché. Sortir le bloc : les branchies pincées, tout vient d’un morceau en tirant vers l’arrière, et il reste le rein à racler le long de l’arête.',
     format: 'pleine',
     disposition: [['saigner'], ['ouvrir', 'coupe'], ['bloc']],
-    hauteurs: [0.93, 1.07, 1],
+    hauteurs: [0.84, 0.98, 1.24],
     largeurs: [[1], [3, 2], [1]],
     vues: {
       saigner: {
@@ -352,7 +382,7 @@ module.exports = (h) => {
           const oper = P(...g.lev[Math.round(0.3 * (g.lev.length - 1))]);
           const arc = P(...g.arcs[2][Math.round(0.82 * (g.lev.length - 1))]);
           return [
-            { n: 1, rond: [crane[0] + 34, 14], cible: crane, texte: 'assommer : un coup sec ici' },
+            { n: 1, rond: [crane[0] + 34, 14], cible: [crane[0] + 5, crane[1] - 5], texte: 'assommer : un coup sec ici' },
             { n: 2, rond: [oper[0] - 44, 14], cible: add(oper, [2, 0]), texte: 'l’opercule soulevé' },
             { n: 3, rond: [Math.min(z.l - 14, g.xs + 40), z.h - 16], cible: arc, texte: 'les arcs coupés, puis l’autre côté' },
           ];
@@ -391,7 +421,7 @@ module.exports = (h) => {
           const rein = P(0.44, g.haut(0.44) + 0.008);
           return [
             { n: 9, rond: [isth[0] + 16, z.h - 14], cible: isth, texte: 'l’isthme coupé : les branchies suivent' },
-            { n: 10, rond: [P(1.16, 0)[0] - 26, 14], cible: P(1.16, 0.085), texte: 'tirer d’un bloc vers l’arrière' },
+            { n: 10, rond: [P(1.16, 0)[0] - 26, 14], cible: P(1.16, -0.07), texte: 'tirer d’un bloc vers l’arrière' },
             { n: 11, rond: [rein[0] - 20, 14], cible: rein, texte: 'le rein, à racler le long de l’arête' },
           ];
         },

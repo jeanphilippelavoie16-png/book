@@ -10,6 +10,9 @@
 // loin de la fenêtre ; le thermomètre dit quand l'air, à la hauteur où ils dormiront, a passé
 // 4,4 °C ; le chaudron de neige bout couvercle mis ; le sac de neige suspendu à côté du poêle
 // goutte dans une chaudière posée dessous.
+// Refaite le 13 octobre 2026 avec les corps simples de profil : l'adulte debout près du lit, et
+// l'enfant de 4 ans couché dans son sac (couche-dos, enfant4 : le gabarit, sous le sac et le
+// capuchon ; on ne voit que le visage). Un seul rouge : le thermomètre à lire, à leur hauteur.
 // Les deux vues sont à la même échelle et alignées : la coupe est prise au trait mixte du plan.
 // Aucune cote : le chapitre ne donne aucune mesure de ce qu'on monte ici (le 2 m est une
 // distance, il reste dans la légende).
@@ -178,6 +181,8 @@ module.exports = (h) => {
     o.push(h.ligne(X(tx), Z(t1 - 0.03), X(tx), Z(t0 + 0.05), tr(1.4)));
     o.push(h.cercle(...C(tx, t0 + 0.04), 2.2, A.plein));
     for (let k = 1; k <= 5; k++) o.push(h.ligne(X(tx + 0.012), Z(t0 + 0.05 * k + 0.02), X(tx + 0.028), Z(t0 + 0.05 * k + 0.02), A.fin));
+    // le point à contrôler : le thermomètre, à la hauteur où dormiront les enfants (4,4 °C passés)
+    o.push(h.controle(X(tx), Z((t0 + t1) / 2 + 0.02), 0.15 * S));
 
     // le tuyau du poêle, qui monte de l'arrière de la plaque et passe le plafond
     const tx0 = POELE.tuyau[0] - POELE.rt, tx1 = POELE.tuyau[0] + POELE.rt, ptop = 0.76;
@@ -228,24 +233,27 @@ module.exports = (h) => {
     }
     o.push(h.rect(X(3.4), Z(haut + mat), 1.38 * S, mat * S, tr(1.4, '#fff')));
     const zb = haut + mat;
-    // la tête, couchée sur le dos, le visage au plafond, le crâne vers l'est dans le capuchon
-    const teteC = [[4.59, 0.09], [4.57, 0.145], [4.535, 0.172], [4.505, 0.176], [4.49, 0.172], [4.472, 0.198], [4.458, 0.176],
-      [4.445, 0.172], [4.425, 0.158], [4.41, 0.12], [4.41, 0.06], [4.44, 0.015], [4.5, 0], [4.56, 0.015], [4.585, 0.045]].map(q => C(q[0], zb + q[1]));
-    o.push(h.path(lisse(teteC, true), tr(1.4, '#fff')));
-    // le capuchon : son bord passe devant la joue, il cache le crâne
-    o.push(h.path(`${lisse([C(4.515, zb + 0.182), C(4.6, zb + 0.205), C(4.665, zb + 0.14), C(4.672, zb + 0.06), C(4.635, zb)])} L ${pt(C(4.47, zb))} ${lisse([C(4.47, zb), C(4.49, zb + 0.09), C(4.515, zb + 0.182)]).replace(/^M [^C]*/, '')} Z`, tr(1.4, '#fff')));
-    o.push(h.path(lisse([C(4.53, zb + 0.16), C(4.505, zb + 0.09), C(4.49, zb + 0.02)]), A.fin));
-    // le sac, tiré jusqu'au menton
-    const sacE = [C(3.46, zb), C(3.47, zb + 0.09), C(3.7, zb + 0.13), C(4.0, zb + 0.17), C(4.25, zb + 0.2), C(4.39, zb + 0.19)];
-    o.push(h.path(`${lisse(sacE)} L ${pt(C(4.4, zb + 0.07))} Q ${pt(C(4.52, zb + 0.02))} ${pt(C(4.6, zb))} Z`, tr(1.4, '#fff')));
-    for (const [x, zz] of [[3.7, 0.12], [3.9, 0.15], [4.1, 0.18]]) o.push(h.path(`M ${pt(C(x, zb + 0.005))} Q ${pt(C(x + 0.025, zb + zz / 2))} ${pt(C(x, zb + zz))}`, A.fin));
+    // l'enfant de 4 ans, couché sur le dos dans son sac, la tête à l'est : le corps simple (couche-dos,
+    // enfant4, en miroir pour que la tête aille vers l'est) sert de gabarit ; le sac, tiré jusqu'au
+    // menton, et le capuchon, qui cache le crâne, se peignent par-dessus. On ne voit que le visage.
+    const oE = { y: Z(zb), pose: 'couche-dos', vue: 'profil', cote: 'gauche', age: 'enfant4', echelle: S / 1000 };
+    const e0 = F.corps({ ...oE, x: X(4) });
+    const enfant = F.corps({ ...oE, x: X(4) + (X(4.5) - e0.tete.x) });
+    o.push(enfant.toString());
+    // le sac : le pied du sac a de la place pour les bottes, qui pointent au plafond
+    const sacE = [C(3.47, zb), C(3.47, zb + 0.15), C(3.53, zb + 0.21), C(3.68, zb + 0.19), C(3.9, zb + 0.16), C(4.1, zb + 0.18), C(4.28, zb + 0.2), C(4.39, zb + 0.19)];
+    o.push(h.path(`${lisse(sacE)} L ${pt(C(4.4, zb + 0.07))} Q ${pt(C(4.47, zb + 0.02))} ${pt(C(4.5, zb))} L ${pt(C(3.47, zb))} Z`, tr(1.4, '#fff')));
+    for (const [x, zz] of [[3.72, 0.17], [3.92, 0.15], [4.12, 0.17]]) o.push(h.path(`M ${pt(C(x, zb + 0.005))} Q ${pt(C(x + 0.025, zb + zz / 2))} ${pt(C(x, zb + zz))}`, A.fin));
+    // le capuchon : il entoure le crâne, du front à la nuque
+    const cap = [C(4.5 + 0.005, zb + 0.2), C(4.6, zb + 0.215), C(4.665, zb + 0.15), C(4.672, zb + 0.06), C(4.635, zb)];
+    o.push(h.path(`${lisse(cap)} L ${pt(C(4.56, zb))} ${lisse([C(4.56, zb), C(4.59, zb + 0.09), C(4.56, zb + 0.17), C(4.5 + 0.005, zb + 0.2)]).replace(/^M [^C]*/, '')} Z`, tr(1.4, '#fff')));
     // l'avertisseur, debout sur le lit à leur tête
     o.push(h.rect(X(AVERT.x - 0.06), Z(zb + 0.13), 0.12 * S, 0.13 * S, tr(1.4, '#fff')));
     o.push(h.cercle(...C(AVERT.x, zb + 0.07), 0.035 * S, A.detail));
     o.push(h.cercle(...C(AVERT.x, zb + 0.07), 0.8, A.plein));
 
     // l'adulte debout près du lit : le dessus des caisses arrive à son genou
-    o.push(String(F.personnage({ x: X(3.02), y: ZF, echelle: 0.08, pose: 'debout', regard: 14 })));
+    o.push(F.corps({ x: X(3.0), y: ZF, pose: 'debout', vue: 'profil', age: 'adulte', echelle: S / 1000, angles: { tete: 10, cou: 14 } }).toString());
     o.push(h.ligne(X(3.13), Z(haut), X(l0), Z(haut), tr(0.5, 'none', ' stroke-dasharray="3 2"')));
 
     // les coupes : plancher, plafond, murs ouest et est

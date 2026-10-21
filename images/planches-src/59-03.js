@@ -123,6 +123,8 @@ module.exports = (h) => {
             h.path(manche + ' Z', fishFill),
             h.cercle(...t(couteau(29.5, 1.8)), 0.9 * s, h.a.detail),
             h.cercle(...t(couteau(35, 1.8)), 0.9 * s, h.a.detail),
+            // le point qui casse sur un raté : la pointe s'arrête avant la peau du ventre
+            h.controle(...t([POINTE[0] + 0.4, 6.4]), 3.4 * s),
           ].join('\n');
         },
         renvois: z => {
@@ -168,7 +170,8 @@ module.exports = (h) => {
             h.path(replis, h.a.detail),
             h.path(teteD, fishFill),
             detailsTete(tt).join('\n'),
-            h.fleche(`M${fl1[0].toFixed(1)} ${fl1[1].toFixed(1)} L${fl2[0].toFixed(1)} ${fl2[1].toFixed(1)}`),
+            // le geste : tirer la tête vers l'avant
+            h.geste(`M${fl1[0].toFixed(1)} ${fl1[1].toFixed(1)} L${fl2[0].toFixed(1)} ${fl2[1].toFixed(1)}`),
           ].join('\n');
         },
         renvois: z => {

@@ -5,6 +5,9 @@
 // Le chapitre ne donne ni la taille de la claie, ni la hauteur, ni la distance au poêle : aucune
 // cote. Le montage (perches, lattes clouées, brides aux solives) est le plus simple qui tienne ;
 // la moustiquaire tendue sur des lattes vient du ch. 100 §9, auquel le chapitre renvoie.
+// 14 oct. : la main qui brasse le grain est une main simple (mains/moteur.js, plat vue du pouce) au lieu
+// du calque s10-plat ; son va-et-vient (le geste) passe en rouge. La charte : les perches de la claie
+// au contour 2,4, le côté des lattes à l'ombre.
 module.exports = (h) => {
   const A = h.a, F = h.formes;
   const r1 = v => Math.round(v * 10) / 10;
@@ -22,7 +25,6 @@ module.exports = (h) => {
     const p1 = [x + rx * c, y + rx * sn], p2 = [x - rx * c, y - rx * sn];
     return h.path(`M${pt(p1)} A${rx} ${ry} ${r1(ang)} 1 0 ${pt(p2)} A${rx} ${ry} ${r1(ang)} 1 0 ${pt(p1)} Z`, at);
   };
-  const double = (d, at = A.arete) => `<path d="${d}" ${at} marker-start="url(#fl)" marker-end="url(#fl)"/>`;
   let nClip = 0;
   const decoupe = (pts, contenu) => {
     const id = `k9810-${++nClip}`;
@@ -77,21 +79,19 @@ module.exports = (h) => {
     // la bride vue de côté (ses deux brins l'un derrière l'autre), l'anneau, la vis à œil
     const claie = (xa, xb, yb, lat, cordes, sommet, graine) => {
       const q = [];
+      const T = 100;                                               // épaisseur de la perche, doublée pour qu'elle se lise
       for (const xc of cordes) {
-        q.push(h.ligne(X(xc), Y(yb + 50), X(xc), Y(PL - 18), A.detail));
+        q.push(h.ligne(X(xc), Y(yb + T + 22), X(xc), Y(PL - 18), A.detail));
         q.push(h.cercle(X(xc), Y(sommet), 2.2, bD));
         q.push(h.path(`M${pt([X(xc), Y(PL - 18)])} a2.3 2.3 0 1 1 0.1 0`, A.detail), h.ligne(X(xc), Y(PL - 13), X(xc), Y(PL), A.detail));
       }
-      // le grain : une bosse basse, piquée
-      const g0 = lat[0] + 45, g1 = lat[1] - 5;
-      q.push(h.path(`M${pt([X(g0), Y(yb + 50)])} Q${pt([X((g0 + g1) / 2), Y(yb + 50 + 55)])} ${pt([X(g1), Y(yb + 50)])} Z`, bF));
-      const r = alea(graine);
-      for (let i = 0; i < (g1 - g0) / 22; i++) {
-        const xx = g0 + 30 + r() * (g1 - g0 - 60), hh = 55 * (1 - Math.pow((xx - (g0 + g1) / 2) / ((g1 - g0) / 2), 2));
-        q.push(h.cercle(X(xx), Y(yb + 50 + 6 + r() * Math.max(0, hh * 0.45 - 6)), 0.55, A.plein));
+      q.push(R(xa, yb, xb, yb + T, bA));
+      for (const xl of lat) q.push(R(xl, yb + T, xl + 40, yb + T + 22, bA));
+      // le grain : une rangée d'ovales posés sur la claie, entre les lattes
+      const r = alea(graine), g0 = lat[0] + 60, g1 = lat[1] - 20;
+      for (let xx = g0; xx <= g1; xx += 38) {
+        q.push(ovale(X(xx + (r() - 0.5) * 8), Y(yb + T) - 1.4, (r() - 0.5) * 30, 2.1, 1.25, bD));
       }
-      q.push(R(xa, yb, xb, yb + 50, bA));
-      for (const xl of lat) q.push(R(xl, yb + 50, xl + 40, yb + 72, bA));
       return q;
     };
     o.push(...claie(470, 1370, 1480, [510, 1290], [490, 1350], 1880, 7));
@@ -118,7 +118,7 @@ module.exports = (h) => {
   };
   const perche = (y, seed) => {
     const q = [];
-    q.push(poly(enveloppe([...capot(0, y), ...capot(L, y)]), bA));
+    q.push(poly(enveloppe([...capot(0, y), ...capot(L, y)]), bC));     // la charte : la claie pèse
     // l'écorce : quelques traits fins le long
     const rr = alea(seed);
     for (let i = 0; i < 5; i++) {
@@ -193,7 +193,8 @@ module.exports = (h) => {
       const x2 = xl + LAL, y0 = -45, y1 = W + 45, za = Zs, zb = Zs + LAE;
       o.push(poly([P(xl, y1, zb), P(x2, y1, zb), P(x2, y0, zb), P(xl, y0, zb)], bA));           // dessus
       o.push(poly([P(xl, y0, za), P(x2, y0, za), P(x2, y0, zb), P(xl, y0, zb)], A.hachure('bois', 'arete'))); // bout
-      o.push(poly([P(x2, y0, za), P(x2, y1, za), P(x2, y1, zb), P(x2, y0, zb)], bA));           // côté
+      const cote = [P(x2, y0, za), P(x2, y1, za), P(x2, y1, zb), P(x2, y0, zb)];
+      o.push(poly(cote, A.ombre), poly(cote, A.arete));                                             // côté, à l'ombre
       for (const yy of [0, W]) o.push(h.cercle(...P(xl + LAL / 2, yy, zb), 1.5, A.plein));
     }
 
@@ -214,10 +215,12 @@ module.exports = (h) => {
 
     // le plan de la coupe, en trait mixte, vu dans le sens des flèches
     const xc = 330;
-    o.push(h.chemin([P(xc, 0, Zs), P(xc, W + 40, Zs)], MIXTE));
-    for (const [ya, yb] of [[-300, -200], [W + 70, W + 150]]) {
+    const HALO = 'fill="none" stroke="#FFFFFF" stroke-width="4.2" stroke-linecap="round"';
+    const MIXTE2 = MIXTE.replace('stroke-width="0.7"', 'stroke-width="1.4"');
+    o.push(h.chemin([P(xc, -250, Zs), P(xc, W + 110, Zs)], HALO), h.chemin([P(xc, -250, Zs), P(xc, W + 110, Zs)], MIXTE2));
+    for (const [ya, yb] of [[-300, -250], [W + 110, W + 160]]) {
       o.push(h.chemin([P(xc, ya, Zs), P(xc, yb, Zs)], A.contour));
-      const a = P(xc, ya < 0 ? ya : yb, Zs), b = P(xc - 170, ya < 0 ? ya : yb, Zs);
+      const a = P(xc, ya < 0 ? ya : yb, Zs), b = P(xc - 85, ya < 0 ? ya : yb, Zs);
       o.push(h.fleche(`M${pt(a)} L${pt(b)}`, A.arete));
     }
     return o.join('\n');
@@ -279,12 +282,19 @@ module.exports = (h) => {
     // la cassure : la claie continue à droite
     const xc = xFin, yc = yFin;
     o.push(h.chemin([[xc, yc - EP - 8], [xc + 3, yc - EP + 2], [xc - 3, yc - 2], [xc, yc + 6]], A.detail));
-    // la main à plat sur le grain, venue par-dessus la perche
-    const m = F.main({ x: xm, y: surf(xm), pose: 'appui', vue: 'profil', echelle: k, bras: 70, inclinaison: 42 });
-    o.push(m);
+    // la main à plat sur le grain, venue par-dessus la perche (main simple, plat vue du pouce, un peu vue
+    // d'en haut, comme 50-40) : la paume posée sur le grain, le pouce dessous, les doigts vers l'arrière
+    // de la claie, l'avant-bras qui remonte à gauche et sort de la vue
+    const xt = xm + 75, tg = Math.atan2(surf(xt + 5) - surf(xt - 5), 10) * 180 / Math.PI;
+    const oM = { x: xt, ancre: 'bout', pose: 'plat', vue: 'pouce', cote: 'gauche', echelle: 0.75, angle: tg, rotation: [-25, 0, 0],
+      avantbras: { vers: [xm - 300, surf(xm) - 220], bord: { x0: 0, y0: 0, x1: z.l, y1: z.h }, longueur: 130 } };
+    const m0 = F.mainSimple({ ...oM, y: surf(xt) });
+    const dy = surf(m0.pouce[0]) - m0.pouce[1] - 0.8;                  // le pouce posé sur le grain
+    o.push(F.mainSimple({ ...oM, y: surf(xt) + dy }).svg);
     // brasser : aller-retour à plat
-    const yb = surf(xm) - 58;
-    o.push(double(`M${pt([xm - 26, yb])} Q${pt([xm + 34, yb - 10])} ${pt([xm + 94, yb])}`, A.arete));
+    // (au-dessus de la main calquée, dont l'avant-bras remonte à gauche)
+    const yb = surf(xm) - 70;
+    o.push(h.geste(`M${pt([xm + 8, yb])} Q${pt([xm + 63, yb - 10])} ${pt([xm + 118, yb])}`, { double: true }));   // le geste (charte)
     return o.join('\n');
   };
 
@@ -308,9 +318,9 @@ module.exports = (h) => {
         renvois: z => {
           const { X, Y } = gP(z);
           return [
-            { n: 1, rond: [X(1720), Y(1820)], cible: [X(1250), Y(1505)], texte: 'la claie du grain de table' },
+            { n: 1, rond: [X(1720), Y(1820)], cible: [X(1250), Y(1530)], texte: 'la claie du grain de table' },
             { n: 2, rond: [X(1560), Y(1080)], cible: [X(1000), Y(1110)], texte: 'l’air chaud traverse le grain' },
-            { n: 3, rond: [X(3500), Y(1150)], cible: [X(3960), Y(1585)], texte: 'la semence, loin du poêle' },
+            { n: 3, rond: [X(3500), Y(1150)], cible: [X(3960), Y(1610)], texte: 'la semence, loin du poêle' },
           ];
         },
       },

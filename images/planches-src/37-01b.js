@@ -10,6 +10,9 @@
 // passage.
 // Cotes : « une main » (le jeu sous la cage) et 100 à 150 (les pierres). Aucune autre : le chapitre
 // ne donne ni la section des barres, ni la hauteur des piles, ni celle de la rampe.
+// La charte : l'intérieur du baril et du tuyau, vu par les coupes, en gris loin. Pas de gris sur la
+// vue de dessus ni sur le coin en grand. Le rouge : le dessus du baril sous la cage, le point à
+// regarder chaque saison (la rouille perce là, sous les pierres).
 // Même repère que la planche a : x le long du baril (0 = bout gauche du caisson), y du mur du fond
 // vers le passage, h au-dessus du plancher, en millimètres.
 module.exports = (h) => {
@@ -61,6 +64,9 @@ module.exports = (h) => {
     o.push(R(-150, -80, 1230, 0, A.hachure('bois', 'arete')));
     o.push(R(0, 0, 1080, 150, A.hachure('gravier', 'aucun')), L(20, 150, 1060, 150, A.detail));
     o.push(R(0, 0, 20, 165, W(A.arete)), R(1060, 0, 1080, 165, W(A.arete)));
+    // l'intérieur du baril et du tuyau, vu par la coupe : gris loin, au-dessus du lit de sable
+    o.push(R(100, 340, 980, 820, A.loin));
+    o.push(h.chemin([[125, 820], [125, 1431.7], [165, 1445], [235, 1415], [275, 1428.3], [275, 820]].map(([x, t]) => [X(x), Y(t)]), A.loin, true));
     // la pile du fond, loin derrière la coupe : un simple contour tireté, sans motif, pour que
     // le jeu entre le dessus du baril et le fond de la cage reste de l'air
     o.push(h.chemin([[X(430), Y(150)], [X(430), Y(870)], [X(970), Y(870)], [X(970), Y(150)]], A.cache));
@@ -84,6 +90,8 @@ module.exports = (h) => {
     for (const x of [510, 700, 890]) o.push(R(x - 13, 870, x + 13, 895, A.plein));
     o.push(L(465, 897, 935, 897, A.arete));
     for (let x = 490; x < 935; x += 50) o.push(h.cercle(X(x), Y(900), 0.9, A.plein));
+    // le point à contrôler : le dessus du baril, sous la cage, là où l'eau des pierres le perce
+    o.push(h.controle(X(700), Y(838), 15));
     // les pierres : grosses en bas, petites en haut, de l'air entre toutes
     const pierres = [
       [540, 962, 70, 60], [685, 958, 68, 58], [830, 962, 70, 60],
@@ -123,9 +131,11 @@ module.exports = (h) => {
     // pattes du bout, baril coupé : lit de sable, la porte vue de l'intérieur
     // chaque patte monte jusqu'à la tôle, soudée : le cercle blanc du baril couvre ce qui dépasse
     for (const y of [475, 915]) o.push(R(y - 20, 150, y + 20, 395, W(A.arete)));
-    o.push(h.cercle(X(695), Y(535), 285 * S, W(A.contour)));
+    // l'intérieur du baril, vu par la coupe : gris loin ; le lit de sable reste blanc
+    o.push(h.cercle(X(695), Y(535), 285 * S, A.loin));
     const c = Math.sqrt(285 * 285 - 195 * 195);
-    o.push(h.path(`M${f(X(695 - c))} ${f(Y(340))} A${f(285 * S)} ${f(285 * S)} 0 0 0 ${f(X(695 + c))} ${f(Y(340))} Z`, A.hachure('gravier', 'fin')));
+    const sable = `M${f(X(695 - c))} ${f(Y(340))} A${f(285 * S)} ${f(285 * S)} 0 0 0 ${f(X(695 + c))} ${f(Y(340))} Z`;
+    o.push(h.path(sable, A.blanc), h.path(sable, A.hachure('gravier', 'fin')));
     o.push(h.cercle(X(695), Y(535), 285 * S, A.contour));
     // fers debout du bout (derrière la barre coupée), barre du milieu coupée en long, treillis
     for (const y of [440, 950]) o.push(R(y - 10, 870, y + 10, 1285, W(A.arete)));

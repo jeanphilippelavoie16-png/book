@@ -100,7 +100,7 @@ presque pas.
  bâtiment qu'on accepte de perdre : le sauna est ce bâtiment-là. S'il brûle, il ne prend pas le
  chalet avec lui. La forêt, elle, est à côté : en été, un sauna qui brûle ou un tuyau qui crache
  des escarbilles l'allume, et un feu de forêt revient au chalet (ch. 11). D'où le pare-étincelles
- (étape 6), et les jours où le combustible est sec, la règle du ch. 11 (section 5-B) : aucun feu
+ (étape 6), et les jours où le combustible est sec, la règle du ch. 11 (étape 57) : aucun feu
  sans pare-étincelles.
 2. **Petit, bas, et deux pièces.** Plus la pièce chaude est grande, plus elle mange de bois, et
  une surface nue qui boit la chaleur en coûte encore : chaque mètre carré de brique, de béton, de
@@ -244,7 +244,7 @@ presque pas.
  pièce chaude et du coin où on se lave : la vapeur le sort de sa plage ou le fait sonner pour
  rien, et un avertisseur qui sonne pour rien finit ignoré. Bouton d'essai, puis on **lit
  l'affichage** : 0 ppm. Le bouton prouve la pile, le circuit et la sirène, pas la cellule qui
- sent le CO (ch. 12, section 5-F, point 3).
+ sent le CO (ch. 12, étape 50).
 26. **Boire avant d'entrer.** De l'eau, ou une tisane de sapin baumier (*Abies balsamea*) ou
  d'épinette tiédie. **Jamais de cèdre (thuya, *Thuja occidentalis*)** : sa thuyone est toxique,
  et c'est le sapin ou l'épinette qui donnent la vitamine C (ch. 20).
@@ -341,7 +341,7 @@ de l'arrêt.
  autres soirs, un bain chaud à 40-42,5 °C, au thermomètre, dix minutes suffisent (étape 60).
 50. **Chauffer le lit, pas la chambre.** Pour un adulte bien couvert, une chambre froide ne gâte
  pas le sommeil : c'est le creux sous les couvertures qui doit être chaud. La roche du poêle ou
- la bouteille d'eau chaude, enveloppée, **au pied du lit** (ch. 06, section 9) : des pieds
+ la bouteille d'eau chaude, enveloppée, **au pied du lit** (ch. 6, section 7) : des pieds
  chauds aident à s'endormir. Autant d'épaisseur sous soi que sur soi : le matelas froid vole la
  chaleur par en dessous.
 51. **La tuque la nuit, et la chambre au-dessus de 10 °C.** La tête est la seule partie qui
@@ -586,7 +586,7 @@ que durent les pierres.
  qui marquent la limite qu'on ne franchit pas et qui arrêtent le pied qui glisse. La bâche ne
  touche jamais le bac ni les pierres : une bâche de plastique fond, coule et prend feu au
  contact d'une pierre qui sort d'un feu.
-7. **Le plancher : du sapinage épais, posé en écailles comme au ch. 12 (section 5-E), gardé loin
+7. **Le plancher : du sapinage épais, posé en écailles comme au ch. 12 (étapes 40 à 43), gardé loin
  du bac.** Le sapinage sec qui touche une pierre chaude s'enflamme ; on garde un rond de sol nu
  autour du bac, comme autour du poêle de la tente.
 
@@ -599,7 +599,7 @@ que durent les pierres.
  le feu nourri jusqu'à ce qu'il tombe en braises. Elles sont prêtes quand une goutte d'eau jetée
  dessus ne s'étale pas mais danse en sifflant et disparaît.
 10. **Les sortir à la pelle, ou avec deux bâtons verts taillés en pince**, comme les pierres à
- faire bouillir l'eau (ch. 10, section 9).
+ faire bouillir l'eau (ch. 10, section 7).
 11. **Brosser chaque pierre avant qu'elle entre.** Une branche verte de sapin, deux ou trois coups
  dehors : on fait tomber les braises, le charbon et la cendre collés dessus. **C'est l'étape
  qui empêche le monoxyde.** Des pierres seules n'en font presque pas ; ce sont les braises et
@@ -640,7 +640,7 @@ les pierres au ras du sol.
 La tente à poêle du ch. 12 fait un sauna quand elle est de toile. On monte au-dessus du poêle de
 tôle une petite cage de fil de fer ou de treillis, ni l'un ni l'autre galvanisé, remplie de
 pierres éprouvées. Elle ne repose pas sur la tôle mince du dessus : ses pattes portent sur les
-pieux du ch. 12 (section 5-D), ou sur deux traverses de fer liées d'un pieu à l'autre, **jamais
+pieux du ch. 12 (étape 33), ou sur deux traverses de fer liées d'un pieu à l'autre, **jamais
 dans la neige**, qui fond sous le poêle et la ferait pencher contre lui ou contre la toile. Les
 pierres restent sur le poêle, pas autour du tuyau. Toutes les règles du ch. 12 s'appliquent, et
 certaines deviennent plus sévères :
@@ -649,8 +649,7 @@ certaines deviennent plus sévères :
  avant que le dernier adulte se couche ;
 - **l'avertisseur de CO de la tente quitte sa place pendant le sauna** : la chaleur et la vapeur
  le sortent de sa plage, et c'est lui qui gardera la nuit. Il passe dans la poche intérieure de
- celui qui veille, contre le corps, et revient au coucher comme le veut le ch. 12 (section 5-F,
- point 3) : bouton d'essai, affichage lu ;
+ celui qui veille, contre le corps, et revient au coucher comme le veut le ch. 12 (étape 50) : bouton d'essai, affichage lu ;
 - **pas d'eau jetée près de la toile** : la vapeur se dépose sur la toile froide, y gèle la nuit
  et retombe en pluie au premier feu du matin, comme le givre d'haleine du ch. 12 ; on arrose
  seulement les pierres, peu à la fois ;
@@ -748,7 +747,7 @@ pièce :
 - **autant sous soi que sur soi** : couvertures pliées sous le corps, sapinage sous le matelas, ou
  le matelas monté sur des planches plutôt que posé au plancher froid ;
 - **la roche du poêle ou la bouteille d'eau chaude** au pied du lit, enveloppée
- (ch. 06, section 9) : des pieds chauds font s'endormir ;
+ (ch. 6, section 7) : des pieds chauds font s'endormir ;
 - **la tuque**, toute la nuit ;
 - **les deux enfants dans le même lit**, dans la pièce la plus chaude, près de la cible de 19 °C
  du ch. 39 ; les adultes dorment dans la pièce plus froide, dans un lit chaud.

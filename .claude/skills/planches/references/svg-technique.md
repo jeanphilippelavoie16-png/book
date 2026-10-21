@@ -6,7 +6,7 @@
 
 ```xml
 <svg xmlns="http://www.w3.org/2000/svg" width="680" height="440" viewBox="0 0 680 440" role="img">
-  <title>Planche 84-09 — Le montage en série</title>
+  <title>Planche 84-09. Le montage en série</title>
   <desc>Description pour qui n'a pas le dessin sous les yeux.</desc>
   <style> … </style>
   <rect fill="#FFFFFF" x="0" y="0" width="680" height="440"/>

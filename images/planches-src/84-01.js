@@ -9,6 +9,10 @@
 // clapet de pied en coupe (il se ferme vers le lac), la toilette et le siphon à l'antigel.
 // Aucune cote : le chapitre ne donne aucune dimension de la plomberie. Les seuls chiffres sont
 // les volumes d'antigel de l'étape 7, dans la légende.
+// La charte : l'intérieur du chalet, vu par la coupe, en gris loin ; les tuyaux et les appareils
+// restent blancs devant. Les détails restent sans gris. Le rouge : un seul point à contrôler, la
+// boucle sous le plancher, le point bas qu'on oublie (étape 6). Aucune flèche n'est un geste :
+// l'eau, l'air et la poussée sur le clapet restent noirs.
 module.exports = (h) => {
   const f = v => Math.round(v * 10) / 10;
   const blanc = a => a.replace('fill="none"', 'fill="#FFFFFF"');
@@ -84,6 +88,8 @@ module.exports = (h) => {
   const Lt = 146;        // niveau de l'eau restée au fond du réservoir et dans ce qui lui est relié
   const coupe = () => {
     const fond = [
+      // l'intérieur du chalet, vu par la coupe
+      h.rect(224, 70, 364, 126, h.a.loin),
       // le terrain et le lac
       h.path(`M 0 369 L ${P([[0, 366], [50, 364], [80, 352], [108, 322], [128, 286], [160, 272], [200, 258], [226, 254], [600, 254]])} L 600 369 Z`, h.a.hachure('terre', 'aucun')),
       h.path(`M ${P([[0, 286], [128, 286], [108, 322], [80, 352], [50, 364], [0, 366]])} Z`, EAU),
@@ -115,8 +121,8 @@ module.exports = (h) => {
     const chaude = tuyau([[486, 96], [486, 76], [538, 76], [538, 105]], { r: 6 });
     // les drains : siphon de l'évier, drain de plancher, et le renvoi vers la fosse
     const siphonEvier = tuyau([[554, 151], [554, 178], [568, 178], [568, 164], [580, 164], [580, 234]], { w: 9, r: 7, eau: 167.8, xMax: 573 });
-    const drainPlancher = tuyau([[520, 199], [520, 238], [536, 238], [536, 224], [552, 224], [600, 239]], { w: 9, r: 7, eau: 227.8, xMax: 541 });
-    const boyau = tuyau([[505, 181], [515, 181], [520, 192]], { w: 5, r: 6 });
+    const drainPlancher = tuyau([[502, 199], [502, 238], [518, 238], [518, 224], [532, 224], [600, 239]], { w: 9, r: 7, eau: 227.8, xMax: 523 });
+    const boyau = tuyau([[506, 181], [510, 186], [503, 192]], { w: 5, r: 6 });
 
     const tuyaux = poser([conduite, refoulement, mamelon, purge, alimentation, froideCE, chaude, drainPlancher, siphonEvier, boyau]);
 
@@ -125,6 +131,7 @@ module.exports = (h) => {
       h.rect(31, 338, 10, 5, blanc(h.a.arete)),
       h.path('M 30 343 L 42 343 L 42 350 Q 42 353 39 353 L 33 353 Q 30 353 30 350 Z', h.a.hachure('grillage')),
       // la pompe de surface : corps plein d'eau, moteur, bloc
+      h.rect(268, 182, 40, 14, h.a.blanc),
       h.rect(268, 182, 40, 14, h.a.hachure('bois')),
       h.rect(271, 157, 32, 24, blanc(h.a.arete)),
       h.path('M 303 157 L 306 157 Q 311 157 311 162 L 311 176 Q 311 181 306 181 L 303 181', blanc(h.a.arete)),
@@ -153,8 +160,8 @@ module.exports = (h) => {
       h.rect(494, 178, 5, 6, blanc(h.a.arete)),
       h.rect(499, 176, 7, 10, blanc(h.a.arete)),
       // le drain de plancher
-      h.rect(513, 194, 14, 4, blanc(h.a.arete)),
-      h.ligne(517, 194, 517, 198, h.a.detail), h.ligne(520, 194, 520, 198, h.a.detail), h.ligne(523, 194, 523, 198, h.a.detail),
+      h.rect(495, 194, 14, 4, blanc(h.a.arete)),
+      h.ligne(499, 194, 499, 198, h.a.detail), h.ligne(502, 194, 502, 198, h.a.detail), h.ligne(505, 194, 505, 198, h.a.detail),
       // l'évier : comptoir, cuve, robinet mural
       h.rect(524, 128, 62, 6, blanc(h.a.arete)),
       h.path('M 540 134 L 540 144 Q 540 152 548 152 L 564 152 Q 572 152 572 144 L 572 134', blanc(h.a.arete)),
@@ -162,6 +169,8 @@ module.exports = (h) => {
       h.path('M 542 106 L 554 106 Q 561 106 561 113 L 561 119 L 556 119 L 556 113 Q 556 111 554 111 L 542 111 Z', blanc(h.a.arete)),
       // l'air qui entre par le robinet chaud ouvert
       h.fleche('M 558.5 146 L 558.5 123', h.a.cache),
+      // le point bas qu'on oublie : la boucle sous le plancher
+      h.controle(422, 240, 14),
     ];
 
     return [...fond, tuyaux, ...appareils].join('\n');
@@ -230,7 +239,8 @@ module.exports = (h) => {
     // la poussée vers le lac, qui ferme le clapet
     `<path d="M 74 16 L 74 102" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/>`,
     h.fleche('M 74 16 L 74 104', h.a.arete),
-    // le fond du lac
+    // la roche sur laquelle pose la crépine, et le fond du lac
+    h.path('M 44 195 C 42 186 52 178 74 178 C 96 178 106 186 104 195 Z', h.a.hachure('pierre')),
     h.rect(0, 194, 148, 13, h.a.hachure('terre', 'aucun')),
     h.ligne(0, 194, 148, 194, h.a.arete),
   ].join('\n');

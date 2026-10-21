@@ -3,12 +3,15 @@
 <desc>Un bouleau abattu, entaillé sur toute sa longueur dans l’écorce seule : un couteau croche décolle le bord et le feuillet se lève d’un seul morceau. En coupe, la lame s’arrête au bois. Les feuillets sèchent à plat sous une planche chargée de pierres ; laissé libre, un feuillet s’enroule. Le gabarit vu de dessus : un rectangle d’écorce, le fond et les parois marqués de plis, chaque coin plié sur sa diagonale en oreille qui se rabat sur la paroi longue, sans fente.</desc>
 <defs>
 <marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#1A1A1A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<marker id="fl-r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 Z" fill="#9B2C1E" stroke="#9B2C1E" stroke-width="1" stroke-linejoin="round"/></marker>
 </defs>
 <rect x="0" y="0" width="680" height="826" fill="#FFFFFF"/>
 <text x="40" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Lever l’écorce, sur l’arbre abattu</text>
 <g transform="translate(40 46)" data-vue="lever">
 <line x1="8" y1="127.4" x2="592" y2="127.4" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M46,48.4 L560,48.4 A13.3,39 0 0 1 560,126.4 L46,126.4 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M46,48.4 L560,48.4 A13.3,39 0 0 1 560,126.4 L46,126.4 Z" fill="#FFFFFF" stroke="none"/>
+<path d="M46 108.8 L571.1 108.8 L570.7 110.3 L570.4 111.7 L569.9 113.2 L569.5 114.7 L569 116.1 L568.4 117.6 L567.7 119 L567 120.5 L566.1 122 L565 123.4 L563.6 124.9 L560 126.4 L46 126.4 Z" fill="#CFCFCF" stroke="none"/>
+<path d="M46,48.4 L560,48.4 A13.3,39 0 0 1 560,126.4 L46,126.4 Z" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M313.3 76.4 L560 76.4 L568.2 61 L560 48.4 L370.8 48.4 L369.3 48.9 L367.3 49.7 L365.3 50.6 L363.3 51.4 L361.3 52.2 L359.3 53.1 L357.3 54 L355.3 54.9 L353.3 55.8 L351.3 56.7 L349.3 57.6 L347.3 58.5 L345.3 59.5 L343.3 60.4 L341.3 61.4 L339.3 62.4 L337.3 63.4 L335.3 64.4 L333.3 65.4 L331.3 66.5 L329.3 67.5 L327.3 68.6 L325.3 69.7 L323.3 70.8 L321.3 71.9 L319.3 73 L317.3 74.1 L315.3 75.3 L313.3 76.4 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="331.3" y1="69.8" x2="556" y2="69.8" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="344.3" y1="63.1" x2="556" y2="63.1" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
@@ -80,6 +83,7 @@
 <line x1="302.3" y1="88" x2="307.5" y2="97.7" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="298.7" y1="89.9" x2="304" y2="99.6" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M308 88.2 L309.4 87.5 L310.8 86.9 L312.1 86.3 L313.5 85.6 L314.9 85 L316.2 84.4 L317.6 83.7 L319 83.1 L320.3 82.5 L321.7 81.8 L323 81.2 L324.3 80.6 L325.5 80 L326.7 79.2 L327.9 78.3 L328.9 77.4 L329.9 76.4 L330.8 75.3 L331.7 74.1 L332.4 72.8 L333.7 73.4 L333.1 74.8 L332.3 76.2 L331.5 77.5 L330.6 78.8 L329.5 80 L328.4 81.1 L327.2 82.1 L325.9 83.1 L324.5 83.9 L323.3 84.7 L322 85.5 L320.7 86.3 L319.4 87.1 L318.2 87.9 L316.9 88.7 L315.6 89.5 L314.3 90.3 L313.1 91.1 L311.8 91.9 L310.5 92.7 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M569,44.4 Q573,28.9 561,10.4" fill="none" stroke="#9B2C1E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl-r)"/>
 </g>
 <text x="40" y="238.8" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">En coupe</text>
 <g transform="translate(40 246.8)" data-vue="tronc">
@@ -97,6 +101,7 @@
 <path d="M68,31 L68,12 Q74,5 80,12 L80,31 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="68" y1="27" x2="80" y2="27" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="68" y1="23" x2="80" y2="23" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="74" cy="57.4" r="9" fill="none" stroke="#9B2C1E" stroke-width="1.6"/>
 </g>
 <text x="210.2" y="238.8" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Aplatir jusqu’au séchage</text>
 <g transform="translate(210.2 246.8)" data-vue="aplatir">

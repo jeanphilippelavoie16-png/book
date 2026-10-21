@@ -4,6 +4,7 @@
 <defs>
 <pattern id="h-bois" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#1A1A1A" stroke-width="0.7"/></pattern>
 <pattern id="h-neige" width="8" height="8" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="0.7" fill="#1A1A1A" stroke="none"/><circle cx="6" cy="6" r="0.7" fill="#1A1A1A" stroke="none"/></pattern>
+<marker id="fl-r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 Z" fill="#9B2C1E" stroke="#9B2C1E" stroke-width="1" stroke-linejoin="round"/></marker>
 </defs>
 <rect x="0" y="0" width="680" height="413" fill="#FFFFFF"/>
 <text x="40" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Sur le dos</text>
@@ -38,12 +39,16 @@
 <circle cx="90" cy="163" r="4.2" fill="#fff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="90" cy="163" r="1.6" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="90" cy="154" r="6" fill="#fff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="202.9" y1="67.4" x2="177.6" y2="103.8" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+<line x1="202.9" y1="67.4" x2="177.6" y2="103.8" fill="none" stroke="#000" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="177.6" cy="103.8" r="1.8" fill="#000" stroke="#fff" stroke-width="0.7"/>
 <path d="M126.6 131.2 L122.5 91.2 L115.1 92.7 Q118.4 120.6 126.6 131.2Z" fill="#fff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="126" y1="125.2" x2="119.4" y2="91.9" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M122.4 87.2 L117.3 61.7 Q116.3 56.8 111.9 57.7 Q107.5 58.5 108.5 63.4 L113.6 88.9Z" fill="#fff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M124.3 90.9 L123.5 87 L112.5 89.2 L113.3 93.1 Z" fill="#fff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="115.9" cy="77.8" r="1.3" fill="#1A1A1A" stroke="none"/>
 <circle cx="113.8" cy="66.9" r="1.3" fill="#1A1A1A" stroke="none"/>
+<circle cx="128.6" cy="133.2" r="11" fill="none" stroke="#9B2C1E" stroke-width="1.6"/>
 </g>
 <text x="417.6" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Ensuite, à plat</text>
 <g transform="translate(417.6 46)" data-vue="plat">
@@ -51,7 +56,7 @@
 <path d="M47 218 Q127 194 207 218" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M73 218 Q127 201 181 218" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M99 218 Q127 208 155 218" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M34 194 L32.5 197.6 M38 194 L36.5 197.6 M42 194 L40.5 197.6 M46 194 L44.5 197.6 M50 194 L48.5 197.6 M54 194 L52.5 197.6 M58 194 L56.5 197.6 M62 194 L60.5 197.6 M66 194 L64.5 197.6 M70 194 L68.5 197.6 M74 194 L72.5 197.6 M78 194 L76.5 197.6 M82 194 L80.5 197.6 M86 194 L84.5 197.6 M90 194 L88.5 197.6 M94 194 L92.5 197.6 M98 194 L96.5 197.6 M102 194 L100.5 197.6 M106 194 L104.5 197.6 M110 194 L108.5 197.6 M114 194 L112.5 197.6 M118 194 L116.5 197.6 M122 194 L120.5 197.6 M126 194 L124.5 197.6 M130 194 L128.5 197.6 M134 194 L132.5 197.6 M138 194 L136.5 197.6 M142 194 L140.5 197.6 M146 194 L144.5 197.6 M150 194 L148.5 197.6 M154 194 L152.5 197.6 M158 194 L156.5 197.6 M162 194 L160.5 197.6 M166 194 L164.5 197.6 M170 194 L168.5 197.6 M174 194 L172.5 197.6 M178 194 L176.5 197.6 M182 194 L180.5 197.6 M186 194 L184.5 197.6 M190 194 L188.5 197.6 M194 194 L192.5 197.6 M198 194 L196.5 197.6 M202 194 L200.5 197.6 M206 194 L204.5 197.6" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M33 195 L36.8 196.4 M38.5 195 L42.3 196.4 M44 195 L47.8 196.4 M49.5 195 L53.3 196.4 M55 195 L58.8 196.4 M60.5 195 L64.3 196.4 M66 195 L69.8 196.4 M71.5 195 L75.3 196.4 M77 195 L80.8 196.4 M82.5 195 L86.3 196.4 M88 195 L91.8 196.4 M93.5 195 L97.3 196.4 M99 195 L102.8 196.4 M104.5 195 L108.3 196.4 M110 195 L113.8 196.4 M115.5 195 L119.3 196.4 M121 195 L124.8 196.4 M126.5 195 L130.3 196.4 M132 195 L135.8 196.4 M137.5 195 L141.3 196.4 M143 195 L146.8 196.4 M148.5 195 L152.3 196.4 M154 195 L157.8 196.4 M159.5 195 L163.3 196.4 M165 195 L168.8 196.4 M170.5 195 L174.3 196.4 M176 195 L179.8 196.4 M181.5 195 L185.3 196.4 M187 195 L190.8 196.4 M192.5 195 L196.3 196.4 M198 195 L201.8 196.4 M203.5 195 L207.3 196.4" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <rect x="32" y="188" width="178" height="6" fill="#FFFFFF" stroke="none"/>
 <line x1="32" y1="194" x2="210" y2="194" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="210" y1="188" x2="210" y2="194" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
@@ -65,6 +70,7 @@
 <path d="M119 187.6 L180 184.8 L180 187.6Z" fill="#1A1A1A" stroke="none"/>
 <rect x="180" y="181" width="4" height="7" fill="#fff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M184 187.4 L184 179.5 L209 180 Q212 183.7 209 187.4Z" fill="#fff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M206 175 L176 175" fill="none" stroke="#9B2C1E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl-r)"/>
 </g>
 <line x1="130.3" y1="202.3" x2="96.5" y2="193.3" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
 <line x1="130.3" y1="202.3" x2="96.5" y2="193.3" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>

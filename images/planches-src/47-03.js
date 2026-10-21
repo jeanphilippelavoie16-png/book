@@ -1,6 +1,6 @@
 // Planche 47-03 — L'appelant de fortune (ch. 47, étape 32 ; ch. 54, « Quand il n'y a plus de cartouches »).
 // Le premier canard pris, la tête calée droite sur un bâton fourchu planté dans la vase ; la motte
-// de vase ou de neige coiffée d'un chiffon sombre. Aucune cote : le chapitre ne donne aucune mesure.
+// de neige et son bout de chiffon noir (ch. 54). Aucune cote : le chapitre ne donne aucune mesure.
 //
 // Le montage, pour qu'il tienne pour vrai : le bâton est planté devant le poitrail, un peu penché
 // vers l'oiseau ; sa fourche prend le haut du cou juste sous la tête, une branche de chaque côté.
@@ -8,8 +8,12 @@
 // rouler de côté ; le cou repart vers le corps derrière le bâton. L'oiseau flotte, retenu par le
 // cou : le bâton sert aussi d'ancre.
 //
-// Unités : le canard fait environ 1,45 du bout du bec au bout de la queue ; la ligne d'eau est à
-// y = 0, y vers le bas. La loupe redessine la même scène, grossie autour du menton.
+// Le canard de côté est calqué sur la cane colvert de Fuertes (pl. 12, Birds of New York, 1910 ;
+// images/photos/lot5/50-01c-canard-noir-colvert-fuertes-pl12.jpg : même silhouette que le canard
+// noir, qui n'y est montré qu'au repos), par _animaux.js (canard). Repère en mm, celui du canard,
+// la ligne d'eau à y = 0. La tête est reprise de profil, de près (JP : mieux que de face), le même
+// calque à plus grande échelle ; la fourche enjambe le cou, la branche loin en tireté derrière.
+const A_ = require('./_animaux');
 
 module.exports = (h) => {
   const f = v => Math.round(v * 10) / 10;
@@ -71,65 +75,22 @@ module.exports = (h) => {
     return h.path(lisse(q, true), h.a.detail);
   };
 
-  // ── Le canard de profil, tourné vers la gauche ─────────────────────────────────────────
-  const CANARD = [
-    ['M', -0.54, 0],
-    ['C', -0.585, -0.08, -0.585, -0.22, -0.53, -0.30],      // poitrail
-    ['C', -0.55, -0.36, -0.58, -0.42, -0.61, -0.47],        // devant du cou
-    ['C', -0.625, -0.495, -0.645, -0.512, -0.675, -0.516],  // gorge, menton
-    ['L', -0.79, -0.507],                                    // dessous du bec
-    ['C', -0.82, -0.506, -0.83, -0.522, -0.815, -0.533],     // bout du bec
-    ['C', -0.77, -0.545, -0.72, -0.555, -0.69, -0.575],      // dessus du bec
-    ['C', -0.67, -0.62, -0.63, -0.66, -0.585, -0.66],        // front, calotte
-    ['C', -0.54, -0.66, -0.508, -0.625, -0.512, -0.565],     // arrière de la tête
-    ['C', -0.515, -0.50, -0.47, -0.40, -0.39, -0.33],        // nuque
-    ['C', -0.31, -0.265, -0.15, -0.27, 0.05, -0.27],         // dos
-    ['C', 0.25, -0.27, 0.40, -0.22, 0.48, -0.17],            // croupion
-    ['L', 0.62, -0.152],                                     // queue, dessus
-    ['L', 0.50, -0.092],                                     // queue, dessous
-    ['C', 0.49, -0.06, 0.48, -0.03, 0.46, 0],                // sous la queue
-    ['C', 0.40, 0.10, 0.15, 0.15, -0.05, 0.15],              // la coque, sous l'eau
-    ['C', -0.30, 0.15, -0.48, 0.10, -0.54, 0],
-    ['Z'],
-  ];
-  const AILE = [['M', -0.37, -0.25], ['C', -0.27, -0.11, 0.02, -0.075, 0.28, -0.095], ['L', 0.53, -0.148]];
-  const PLUMES = [
-    [['M', 0.10, -0.10], ['C', 0.25, -0.13, 0.38, -0.155, 0.50, -0.17]],
-    [['M', 0.20, -0.095], ['C', 0.30, -0.115, 0.42, -0.14, 0.52, -0.158]],
-  ];
-  const FOURCHE = [-0.628, -0.425];                 // l'enfourchure, sous la gorge
-  const VASE = 0.22, BAS = 0.42;                   // le fond sous l'eau ; le bas de la coupe
+  // ── De côté : le canard calqué (_animaux.js, canard), tourné vers la gauche ──────────────
+  // Repère en mm, celui du canard : x vers l'avant de la bête (le bec), y vers le haut, l'origine
+  // sur la ligne d'eau sous le menton. Sur la vue, l'avant est à gauche.
+  const VASE = -110, BAS = -190, FK = [5, 230];   // le fond ; le bas de la coupe ; l'enfourchure
   const geoCote = z => {
-    const s = Math.min((z.l - 16) / 1.52, (z.h - 6) / (BAS + 0.69));
-    const hDes = (BAS + 0.69) * s;
-    return { s, P: tf(s, z.l / 2 + 0.10 * s, (z.h - hDes) / 2 + 0.69 * s) };
+    const s = Math.min((z.l - 16) / 690, (z.h - 6) / 560);
+    const ox = z.l / 2 - 160 * s, oy = z.h / 2 + 86 * s;
+    return { s, ox, oy, P: (x, y) => [ox - s * x, oy - s * y] };
   };
-
-  // Le canard et son bâton, dans un repère P d'échelle s (réutilisé grossi dans la loupe).
-  const scene = (P, s, garde = () => true) => {
-    const out = [], r = 0.02 * s, Fk = P(...FOURCHE);
-    // La branche de derrière : elle monte devant la gorge, jusque sous le menton.
-    const loin = [Fk, P(-0.648, -0.468), P(-0.668, -0.512)];
-    out.push(h.chemin(branche(loin, [r * 0.8, r * 0.7, r * 0.6]), blanc(h.a.arete), true));
-    out.push(coupe(loin[1], loin[2], r * 0.6));
-    out.push(h.path(versD(CANARD, P), blanc(h.a.contour)));
-    out.push(h.path(versD(AILE, P), h.a.arete));
-    PLUMES.forEach(q => out.push(h.path(versD(q, P), h.a.detail)));
-    out.push(h.path(versD([['M', -0.69, -0.575], ['C', -0.695, -0.55, -0.69, -0.53, -0.675, -0.516]], P), h.a.detail));
-    out.push(h.path(versD([['M', -0.69, -0.536], ['C', -0.73, -0.528, -0.78, -0.522, -0.815, -0.522]], P), h.a.detail));
-    if (garde(P(-0.738, -0.552))) out.push(h.ellipse(...P(-0.738, -0.552), 0.009 * s, 0.0035 * s, h.a.plein));
-    if (garde(P(-0.607, -0.605))) out.push(h.cercle(...P(-0.607, -0.605), 0.011 * s, h.a.plein));
-    // Le bâton et la branche de devant, par-dessus le cou ; le bout taillé dans la vase.
-    const axe = [P(-0.695, 0.31), P(-0.68, 0.12), P(-0.653, -0.15), Fk, P(-0.605, -0.462), P(-0.588, -0.503)];
-    out.push(h.chemin(branche(axe, [r, r, r, r * 0.95, r * 0.72, r * 0.6], true), blanc(h.a.arete), true));
-    out.push(coupe(axe[4], axe[5], r * 0.6));
-    return out;
-  };
-  // La loupe : centre dans la vue, point grossi, rayon (en unités de la vue), grossissement.
-  const LOUPE = { c: [0.21, -0.495], m: [-0.645, -0.51], R: 0.19, k: 1.9 };
+  // le bâton : la pointe dans la vase, devant le poitrail, penché vers l'oiseau ; la fourche
+  // prend le haut du cou sous la tête, une branche de chaque côté
+  const AXE = [[118, -158], [112, -115], [88, -30], [60, 60], [32, 150], FK, [-25, 250], [-48, 263]];
+  const LOIN = [FK, [-20, 255], [-42, 269]];
 
   const dessinCote = z => {
-    const { s, P } = geoCote(z);
+    const { s, ox, oy, P } = geoCote(z);
     const ySurf = P(0, 0)[1], yVase = P(0, VASE)[1], yBas = P(0, BAS)[1];
     const vase = [];
     for (let i = 0; i <= 40; i++) { const x = z.l * i / 40; vase.push([x, yVase + 2.2 * Math.sin(x / 23) + 1.4 * Math.sin(x / 9 + 1)]); }
@@ -138,19 +99,45 @@ module.exports = (h) => {
     out.push(h.path(`${lisse(vase)} L ${f(z.l)} ${f(yBas)} L 0 ${f(yBas)} Z`, sansBord(h.a.hachure('terre'))));
     out.push(h.path(lisse(vase), h.a.arete));
     out.push(h.ligne(0, ySurf, z.l, ySurf, h.a.arete));
-    out.push(...scene(P, s));
-
-    // La loupe sur la fourche : un petit cercle sur le dessin, un trait, le grand cercle.
-    const C = P(...LOUPE.c), M = P(...LOUPE.m), R = LOUPE.R * s, rm = R / LOUPE.k;
-    const ks = LOUPE.k * s, P2 = (x, y) => [C[0] + (x - LOUPE.m[0]) * ks, C[1] + (y - LOUPE.m[1]) * ks];
-    const dx = C[0] - M[0], dy = C[1] - M[1], L = Math.hypot(dx, dy);
-    out.push(h.cercle(M[0], M[1], rm, h.a.detail));
-    out.push(h.ligne(M[0] + dx / L * rm, M[1] + dy / L * rm, C[0] - dx / L * R, C[1] - dy / L * R, h.a.detail));
-    out.push(h.cercle(C[0], C[1], R, h.a.blanc));
-    const id = `pl4703-${++nClip}`;
-    out.push(`<clipPath id="${id}"><circle cx="${f(C[0])}" cy="${f(C[1])}" r="${f(R)}"/></clipPath>\n<g clip-path="url(#${id})">\n${scene(P2, ks, q => Math.hypot(q[0] - C[0], q[1] - C[1]) < R - 4).join('\n')}\n</g>`);
-    out.push(h.cercle(C[0], C[1], R, h.a.arete));
+    // le canard, puis la branche de derrière en caché, puis le bâton et la branche de devant
+    out.push(A_.canard(h, { x: ox, y: oy, echelle: s, cote: 'gauche' }).svg);
+    const r = 8 * s;
+    out.push(h.chemin(branche(LOIN.map(q => P(...q)), [r * 0.9, r * 0.75, r * 0.6]), h.a.cache, true));
+    const axe = AXE.map(q => P(...q));
+    out.push(h.chemin(branche(axe, [r, r, r, r, r, r * 0.95, r * 0.75, r * 0.6], true), blanc(h.a.arete), true));
+    out.push(coupe(axe[6], axe[7], r * 0.6));
     return out.join('\n');
+  };
+
+  // ── De profil, de près : la tête posée sur la fourche ───────────────────────────────────
+  // Le même canard calqué (_animaux.js, canard), plus grand, cadré sur la tête et le cou ; la nuque
+  // sort du cadre. Même repère en mm. La branche proche passe devant le cou, au trait plein ; la
+  // branche loin passe derrière : en gris loin là où elle se voit, en tireté sur le cou. De près,
+  // les deux branches sont un peu plus longues et plus écartées que dans la vue de côté, pour qu'on
+  // voie la fourche enjamber le cou.
+  const LOIN_PRES = [FK, [-22, 261], [-52, 285]];
+  const AXE_PRES = AXE.slice(0, 6).concat([[-28, 249], [-62, 266]]);
+  const geoFace = z => {
+    const s = (z.l - 12) / 206;
+    const ox = 6 + 96 * s, oy = 40 + 358 * s;
+    return { s, P: (x, y) => [ox - s * x, oy - s * y] };
+  };
+  const dessinFace = z => {
+    const { s, P } = geoFace(z), out = [];
+    const [ox, oy] = P(0, 0);
+    const r = 8 * s;
+    // la branche loin, derrière le cou : gris loin, puis le canard par-dessus
+    const loin = branche(LOIN_PRES.map(q => P(...q)), [r * 0.95, r * 0.75, r * 0.6]);
+    out.push(h.chemin(loin, sansBord(h.a.loin), true), h.chemin(loin, h.a.arete, true));
+    out.push(A_.canard(h, { x: ox, y: oy, echelle: s, cote: 'gauche' }).svg);
+    // … et son contour en tireté là où le cou la cache
+    out.push(h.chemin(loin, h.a.cache, true));
+    // le bâton et la branche proche, devant le cou : un seul contour
+    const axe = AXE_PRES.map(q => P(...q));
+    const Y = A_._outils.unir([branche(axe, [r, r, r, r, r, r * 0.95, r * 0.75, r * 0.6], true)]);
+    Y.forEach(q => out.push(h.chemin(q, blanc(h.a.arete), true)));
+    out.push(coupe(axe[6], axe[7], r * 0.6));
+    return decoupe(0, 0, z.l, z.h, out);
   };
 
   // ── Les mottes ─────────────────────────────────────────────────────────────────────────
@@ -161,11 +148,11 @@ module.exports = (h) => {
   const bordChiffon = x => -0.16 + 0.012 * Math.sin(x * 13 + 0.7) + 0.006 * Math.sin(x * 37);
   const geoMotte = z => {
     const y0 = -0.34, y1 = 0.08;
-    const s = Math.min((z.l - 30) / 1.0, (z.h - 6) / (y1 - y0));
+    const s = Math.min((z.l - 60) / 1.0, (z.h - 6) / (y1 - y0));
     return { s, y1, P: tf(s, z.l / 2 + 0.02 * s, (z.h - (y1 - y0) * s) / 2 - y0 * s) };
   };
   const dessinMotte = matiere => z => {
-    const { y1, P } = geoMotte(z), vase = matiere === 'vase';
+    const { y1, P } = geoMotte(z), vase = false;
     const out = [], ySol = P(0, 0)[1], yBas = P(0, y1)[1];
     const sol = [];
     for (let i = 0; i <= 30; i++) { const x = z.l * i / 30; sol.push([x, ySol + 1.4 * Math.sin(x / 19) + (vase ? 1.0 * Math.sin(x / 7) : 0)]); }
@@ -176,24 +163,22 @@ module.exports = (h) => {
     out.push(h.path(`${lisse(dessus)} Z`, h.a.blanc));
     out.push(h.path(`${lisse(dessus)} Z`, sansBord(h.a.hachure(vase ? 'terre' : 'neige'))));
     out.push(h.path(lisse(dessus), h.a.contour));
-    // Le chiffon, jeté sur le dessus : il épouse la motte et pend d'un coin de chaque côté.
-    const dans = xs.filter(x => hMotte(x, vase) < bordChiffon(x) - 0.005);
-    const haut = dans.map(x => P(x, hMotte(x, vase) - 0.01));
-    const a = dans[0], b = dans[dans.length - 1];
-    const bas = dans.slice().reverse().map(x => P(x, bordChiffon(x)));
-    const coinG = P(a - 0.03, bordChiffon(a) + 0.05), coinD = P(b + 0.025, bordChiffon(b) + 0.035);
-    out.push(h.path(`M ${pt(coinG)} L ${pt(haut[0])} ${lisse(haut).replace(/^M [^C]+/, '')} L ${pt(coinD)} L ${pt(bas[0])} ${bas.slice(1).map(p => `L ${pt(p)}`).join(' ')} Z`, h.a.plein));
-    const pli = (x, dx) => versD([['M', x, hMotte(x, vase) + 0.025], ['C', x + dx, hMotte(x, vase) + 0.06, x - dx, bordChiffon(x) - 0.04, x + dx, bordChiffon(x) - 0.012]], P);
-    [[-0.22, 0.012], [0.02, -0.01], [0.2, 0.012]].forEach(([x, dx]) => out.push(h.path(pli(x, dx), 'fill="none" stroke="#FFFFFF" stroke-width="0.8" stroke-linecap="round"')));
+    // Le bout de chiffon noir, sur un bout de la motte seulement (le bout des ailes).
+    const cx0 = 0.21, cx1 = 0.43;
+    const bout = xs.filter(x => x >= cx0 && x <= cx1);
+    const haut = bout.map(x => P(x, hMotte(x, false) - 0.008));
+    const bas = bout.slice().reverse().map(x => P(x, hMotte(x, false) + 0.05 + 0.006 * Math.sin(x * 40)));
+    out.push(h.path(`${lisse(haut)} L ${pt(P(cx1 + 0.012, 0.0))} ${bas.map(p => `L ${pt(p)}`).join(' ')} Z`, h.a.plein));
     return out.join('\n');
   };
 
   return {
     ref: '47-03',
     titre: 'L’appelant de fortune',
-    desc: 'De côté : le premier canard pris flotte sur l’eau peu profonde ; un bâton fourchu, planté dans la vase devant le poitrail et un peu penché vers l’oiseau, prend le haut du cou dans sa fourche, une branche de chaque côté, juste sous la tête, qui repose dessus et tient droite. En bas : une motte de vase coiffée d’un chiffon sombre, et une motte de neige coiffée d’un chiffon noir, pour l’oie des neiges.',
+    desc: 'De côté : le premier canard pris flotte sur l’eau peu profonde ; un bâton fourchu, planté dans la vase devant le poitrail et un peu penché vers l’oiseau, prend le haut du cou dans sa fourche, une branche de chaque côté, juste sous la tête, qui repose dessus et tient droite. De près, de profil : la tête repose sur la fourche, une branche devant le cou, l’autre derrière. En bas : une motte de neige avec un bout de chiffon noir à un bout, pour l’oie des neiges.',
     format: 'pleine',
-    disposition: [['cote'], ['vase', 'neige']],
+    disposition: [['cote', 'face'], ['neige']],
+    largeurs: [[2.4, 1], [1]],
     hauteurs: [2.1, 1],
     vues: {
       cote: {
@@ -202,20 +187,19 @@ module.exports = (h) => {
         renvois: z => {
           const { P } = geoCote(z);
           return [
-            { n: 1, rond: [z.l - 18, P(0, -0.24)[1]], cible: P(0.30, -0.19), texte: 'le premier canard pris' },
-            { n: 2, rond: [P(LOUPE.c[0] - LOUPE.R, 0)[0] - 18, P(0, LOUPE.c[1] + LOUPE.R * 0.75)[1]], cible: (() => { const C = P(...LOUPE.c), ks = LOUPE.k * geoCote(z).s; return [C[0] + (FOURCHE[0] - LOUPE.m[0]) * ks, C[1] + (FOURCHE[1] - LOUPE.m[1]) * ks]; })(), texte: 'la gorge dans la fourche' },
-            { n: 3, rond: [16, P(0, 0.33)[1]], cible: P(-0.694, 0.30), texte: 'bâton planté dans la vase' },
+            { n: 1, rond: [z.l - 18, P(0, 190)[1]], cible: P(-330, 110), texte: 'le premier canard pris' },
+            { n: 2, rond: [16, P(0, -150)[1]], cible: P(115, -135), texte: 'bâton planté dans la vase' },
           ];
         },
       },
-      vase: {
-        titre: 'Motte de vase',
-        dessin: dessinMotte('vase'),
+      face: {
+        titre: 'La tête, de profil, de près',
+        dessin: dessinFace,
         renvois: z => {
-          const { P } = geoMotte(z);
+          const { P } = geoFace(z);
           return [
-            { n: 4, rond: [14, P(0, -0.26)[1]], cible: P(-0.34, -0.06), texte: 'motte de vase' },
-            { n: 5, rond: [z.l - 14, P(0, -0.30)[1]], cible: P(0.16, -0.22), texte: 'chiffon sombre par-dessus' },
+            { n: 3, rond: [14, P(0, 368)[1] - 4], cible: P(-30, 330), texte: 'la tête, plus large, posée sur la fourche' },
+            { n: 4, rond: [14, P(0, 190)[1]], cible: P(-9, 249), texte: 'une branche de chaque côté du cou' },
           ];
         },
       },
@@ -225,7 +209,8 @@ module.exports = (h) => {
         renvois: z => {
           const { P } = geoMotte(z);
           return [
-            { n: 6, rond: [z.l - 14, P(0, -0.30)[1]], cible: P(0.16, -0.22), texte: 'pour l’oie des neiges' },
+            { n: 5, rond: [14, P(0, -0.26)[1]], cible: P(-0.25, -0.12), texte: 'motte de neige : le corps blanc de l’oie' },
+            { n: 6, rond: [z.l - 14, P(0, -0.30)[1]], cible: P(0.33, -0.17), texte: 'bout de chiffon noir : le bout des ailes' },
           ];
         },
       },

@@ -33,7 +33,10 @@ module.exports = (h) => {
   const rep = (ox, oy, k) => ({ k, X: x => ox + x * k, Y: y => oy + y * k, p: (x, y) => [ox + x * k, oy + y * k] });
 
   // ── un bâton, de xr à xb (le bout arrondi) ; en xr, une rupture ou un autre bout arrondi ──
-  function baton(R, xr, xb, r, rupture = true, at = A.arete) {
+  // La charte : les bâtons sont les deux pièces du fléau, leur contour pèse (2,4) ; vus en grand,
+  // le bas du bâton rond est à l'ombre (lumière en haut à gauche), en aplat découpé par le contour.
+  let nOm = 0;
+  function baton(R, xr, xb, r, rupture = true, at = A.contour, ombre = true) {
     const s = Math.sign(xb - xr), c = Math.min(5, r * 0.3), X = R.X, Y = R.Y;
     const c0 = rupture ? 0 : c;
     let d = `M${f1(X(xr + s * c0))} ${f1(Y(-r))} L${f1(X(xb - s * c))} ${f1(Y(-r))} Q${f1(X(xb))} ${f1(Y(-r))} ${f1(X(xb))} ${f1(Y(-r + c))}`
@@ -44,7 +47,11 @@ module.exports = (h) => {
     } else {
       d += ` Q${f1(X(xr))} ${f1(Y(r))} ${f1(X(xr))} ${f1(Y(r - c))} L${f1(X(xr))} ${f1(Y(-r + c))} Q${f1(X(xr))} ${f1(Y(-r))} ${f1(X(xr + s * c))} ${f1(Y(-r))} Z`;
     }
-    return h.path(d, blanc(at));
+    if (!ombre) return h.path(d, blanc(at));
+    const id = `om-9801a-${nOm++}`, xa = Math.min(X(xr), X(xb)) - 8, xc = Math.max(X(xr), X(xb)) + 8;
+    return [h.path(d, A.blanc), `<clipPath id="${id}"><path d="${d}" fill="none"/></clipPath>`,
+      `<g clip-path="url(#${id})">${h.rect(xa, Y(r * 0.34), xc - xa, Y(r) - Y(r * 0.34) + 4, A.ombre)}</g>`,
+      h.path(d, at)].join('\n');
   }
 
   // ── la boucle vue de face : la bande pliée sur le bout, ses deux queues couchées sur le bâton ──
@@ -169,12 +176,12 @@ module.exports = (h) => {
     const pts = [Q(x0, -r), Q(x1 - s * c, -r), Q(x1, -r + c), Q(x1, r - c), Q(x1 - s * c, r), Q(x0, r)];
     if (rupt) pts.push(Q(x0 + s * 12, r * 0.4), Q(x0 - s * 14, -r * 0.1), Q(x0 + s * 9, -r * 0.55));
     else pts.push(Q(x0 + s * c, r), Q(x0, r - c), Q(x0, -r + c), Q(x0 + s * c, -r));
-    return h.path(pl(pts) + ' Z', blanc(A.arete));
+    return h.path(pl(pts) + ' Z', blanc(A.contour));   // la charte : les deux pièces pèsent
   }
   function comparaison(z, libre) {
     const k = KC, yS = z.h - 10, yT = yS - 3, yC = yT - 26;          // sol, toile, dessus de la couche
     const out = [sol(4, z.l - 4, yS), h.ligne(10, yT, z.l - 10, yT, A.detail), couche(12, z.l - 12, yC, yT, libre ? 3 : 7)];
-    let J, u, Bd;
+    let J, u, Bd, pointe;
     if (libre) {
       // le manche descend à 34 degrés ; l'attache plie, le battoir se couche sur les épis
       const a = 34 * Math.PI / 180;
@@ -185,7 +192,8 @@ module.exports = (h) => {
       // l'attache bridée : le battoir reste dans l'axe du manche et pique du bout dans la couche
       const a = 28 * Math.PI / 180;
       u = [Math.cos(a), Math.sin(a)];
-      const Lb = (LB + G * 0.3) * k, pointe = [z.l * 0.76, yC + 5];
+      const Lb = (LB + G * 0.3) * k;
+      pointe = [z.l * 0.76, yC + 5];
       J = [pointe[0] - Lb * u[0], pointe[1] - Lb * u[1]];
       Bd = u;
     }
@@ -208,6 +216,8 @@ module.exports = (h) => {
       const t0 = [B0[0] + u[0] * L * 0.35 + n[0] * 16, B0[1] + u[1] * L * 0.35 + n[1] * 16];
       const t1 = [B0[0] + u[0] * L * 0.8 + n[0] * 16, B0[1] + u[1] * L * 0.8 + n[1] * 16];
       out.push(h.fleche(`M${f1(t0[0])} ${f1(t0[1])} L${f1(t1[0])} ${f1(t1[1])}`, A.arete));
+      // La charte : sur le raté, le cercle rouge marque l'endroit où ça casse : la tête qui pique
+      out.push(h.controle(pointe[0] - 4, pointe[1] - 2, 10));
     }
     return out.join('\n');
   }
@@ -235,8 +245,9 @@ module.exports = (h) => {
         dessin: z => {
           const { R } = vueEnsemble(z);
           const out = [];
-          out.push(baton(R, 0, LM, RM, false), fil(R, 0, LM - QA - 10, RM));
-          out.push(baton(R, LM + G + LB, LM + G, RB, false), fil(R, LM + G + QA + 10, LM + G + LB, RB));
+          // à cette échelle, les bâtons sont trop minces pour une ombre
+          out.push(baton(R, 0, LM, RM, false, A.contour, false), fil(R, 0, LM - QA - 10, RM));
+          out.push(baton(R, LM + G + LB, LM + G, RB, false, A.contour, false), fil(R, LM + G + QA + 10, LM + G + LB, RB));
           out.push(boucleFace(rep(R.X(LM), R.Y(0), R.k), 0, 1, RM, A.detail));
           out.push(boucleFace(rep(R.X(LM + G), R.Y(0), R.k), 0, -1, RB, A.detail));
           out.push(h.ligne(R.X(LM + CA - RC), R.Y(0), R.X(LM + CB + RC), R.Y(0), A.arete));

@@ -55,7 +55,7 @@ module.exports = (h) => {
   };
 
   // un sac de coton plein, pendu par le col (élévation)
-  const sac = (cx, haut, l, ht) => {
+  const sac = (cx, haut, l, ht, loin = false) => {
     const w = l / 2, b = haut + ht;
     const d = `M ${f(cx - 3)} ${f(haut)} C ${f(cx - 7)} ${f(haut + 8)} ${f(cx - w)} ${f(haut + 9)} ${f(cx - w)} ${f(haut + ht * 0.5)}`
       + ` C ${f(cx - w)} ${f(haut + ht * 0.86)} ${f(cx - w * 0.55)} ${f(b + 1)} ${f(cx - w * 0.05)} ${f(b)}`
@@ -69,7 +69,9 @@ module.exports = (h) => {
     ].join(' ');
     const frange = `M ${f(cx - 2.5)} ${f(haut - 1)} L ${f(cx - 6)} ${f(haut - 7)} M ${f(cx + 2.5)} ${f(haut - 1)} L ${f(cx + 6)} ${f(haut - 7)}`;
     const noeud = `M ${f(cx - 4.5)} ${f(haut - 1)} L ${f(cx + 4.5)} ${f(haut - 1)} M ${f(cx - 4)} ${f(haut + 2)} L ${f(cx + 4)} ${f(haut + 2)}`;
-    return [h.path(d, plein(h.a.contour)), h.path(plis, h.a.fin), h.path(frange, h.a.detail), h.path(noeud, h.a.arete)].join('\n');
+    // la charte : un sac derrière un autre recule, en gris loin
+    const fond = loin ? h.a.contour.replace('fill="none"', 'fill="#E6E6E6"') : plein(h.a.contour);
+    return [h.path(d, fond), h.path(plis, h.a.fin), h.path(frange, h.a.detail), h.path(noeud, h.a.arete)].join('\n');
   };
 
   // un morceau de viande en coupe : la chair, l'os, le fil des fibres
@@ -94,7 +96,9 @@ module.exports = (h) => {
       const xx = x + (alea() - 0.5) * (w - 6), l = entre(5, 11);
       ecorce.push(`M ${f(xx)} ${f(y)} L ${f(xx + entre(-0.6, 0.6))} ${f(y + l)}`);
     }
-    return [h.path(D(g.concat(d), true), h.a.blanc), h.path(`${D(g)} ${D(d)}`, h.a.contour), h.path(ecorce.join(' '), h.a.fin)].join('\n');
+    // la charte : la face à l'ombre du tronc, à droite, peinte avant le trait
+    const ombre = [[x + lh / 6, 0], [x + lh / 2, 0], [x + lb / 2, y1 - 12], [x + lb / 2 + 5, y1], [x + lb / 6 + 3, y1], [x + lb / 6, y1 - 12]];
+    return [h.path(D(g.concat(d), true), h.a.blanc), h.path(D(ombre, true), h.a.ombre), h.path(`${D(g)} ${D(d)}`, h.a.contour), h.path(ecorce.join(' '), h.a.fin)].join('\n');
   };
 
   const sol = (x0, x1, y) => {
@@ -188,7 +192,9 @@ module.exports = (h) => {
     const pierre = h.path(D(pierreP, true), h.a.hachure('pierre', 'contour'));
     return {
       dessin: [eau, terre, h.path(D(lit), h.a.contour), ...galets, surface, ...piquet, ...corde,
-        h.path(D(sacPts, true), plein(h.a.arete)), fronces, viande, ...col, pierre].join('\n'),
+        h.path(D(sacPts, true), plein(h.a.arete)), fronces, viande, ...col, pierre,
+        // la charte : le point à contrôler, le col noué (c'est par là que l'eau entre)
+        h.controle(c1[0], c1[1] + 6, 13)].join('\n'),
       c1, xN, yN, cx, base, pierreP, L, H,
     };
   };
@@ -268,7 +274,7 @@ module.exports = (h) => {
     const grappe = [[-19, 30, 48, 8], [19, 28, 44, 10], [0, 36, 56, 14]];
     const pieces = [h.cercle(f(K[0]), f(K[1] + 1.5), 2.4, h.a.plein), ...grappe.map(([dx, l, ht, c]) => {
       const x = xm + dx;
-      return [h.ligne(f(K[0]), f(K[1] + 2), f(x), f(K[1] + c), h.a.arete), sac(x, K[1] + c + 1, l, ht)].join('\n');
+      return [h.ligne(f(K[0]), f(K[1] + 2), f(x), f(K[1] + c), h.a.arete), sac(x, K[1] + c + 1, l, ht, dx !== 0)].join('\n');
     })];
     const basSacs = K[1] + 15 + 56;
     // le feu de boucane, loin en dessous
@@ -291,10 +297,14 @@ module.exports = (h) => {
     };
     const fumees = [[-8, -16, 0], [2, 0, 1.7], [10, 16, 3.1]].map(([dx, cible, ph]) =>
       h.path(D(Array.from({ length: 41 }, (_, i) => fumeePt(dx, cible, ph, i / 40))), h.a.cache));
+    // la charte : le geste, on tire le bout libre vers le bas pour hisser, en rouge
+    const Hh = [xm - 4, yP - 3], vh = [xT - Hh[0], yT - Hh[1]], lv = Math.hypot(...vh), uh = [vh[0] / lv, vh[1] / lv], nh = [-uh[1], uh[0]];
+    const ph = t => [Hh[0] + vh[0] * t + nh[0] * 12, Hh[1] + vh[1] * t + nh[1] * 12];
+    const geste = h.geste(D([ph(0.6), ph(0.82)]));
     return {
       dessin: [
         tronc(xG, yg, lb, lh), tronc(xD, yg, lb, lh), ...rameaux, tours(xG), tours(xD), corde, hissage, noeudT, ...pieces,
-        sol(0, L, yg), ...fumees, tas, ...brins, mousse, ...braises, ...pierres,
+        sol(0, L, yg), ...fumees, tas, ...brins, mousse, ...braises, ...pierres, geste,
       ].join('\n'),
       xm, cordeY, B, xf, yg, basSacs, K, xT, yT, fumee: fumeePt(-8, -16, 0, 0.3),
     };

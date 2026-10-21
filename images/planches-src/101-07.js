@@ -1,5 +1,5 @@
 // Planche 101-07 — le tablier de grillage au pied du mur (ch. 78, §B point 6, et point 14).
-// Cotes : 30 cm au moins, 5 cm de terre au moins (ch. 78, §5-B étape 6, [À VÉRIFIER] n° 3 levé le 23 septembre 2026).
+// Cotes : 300 mm au moins, 50 mm de terre au moins (ch. 78, §5-B étape 6, [À VÉRIFIER] n° 3 levé le 23 septembre 2026).
 module.exports = (h) => {
   const zig = (x1, y1, x2, y2) => {   // les points d'un trait de rupture en zigzag
     const dx = x2 - x1, dy = y2 - y1, n = 4, pts = [];
@@ -70,11 +70,18 @@ module.exports = (h) => {
           for (let x = wx + 10; x <= fin; x += 9) out.push(h.cercle(x, my, 1.7, h.a.plein));
           // trois crampes, la dernière au bas de la planche : aucun jour entre le mur et le grillage
           [36, 76, g - 13].forEach(y => out.push(h.rect(wx - 5, y - 1, 11, 2.4, h.a.plein)));
+          // charte : le point à vérifier, le joint du bas entre le mur et le grillage
+          out.push(h.controle(wx + 1, g - 8, 11));
           // les cotes : largeur du tablier depuis le nu du mur, terre par-dessus
           const yc = my + 24, xc = fin - 26;
           out.push(h.ligne(wx, my + 4, wx, yc - 6, h.a.fin), h.ligne(fin, my + 4, fin, yc - 6, h.a.fin));
-          out.push(h.cote(wx, yc, fin, yc, '30 cm au moins', { cote: 'dessous' }));
-          out.push(h.cote(xc, g, xc, my - 1.2, '5 cm au moins', { cote: 'gauche' }));
+          out.push(h.cote(wx, yc, fin, yc, '300 mm au moins', { cote: 'dessous' }));
+          // terre par-dessus : vraie cote hors de la terre, du sol au grillage, flèches aux deux bouts
+          const xd = fin + 16;
+          out.push(h.ligne(fin + 3, my, xd + 6, my, h.a.fin));
+          out.push(h.rect(fin + 2, g - 26, 74, 18, 'fill="#FFFFFF" stroke="none"'));
+          out.push(`<line x1="${xd}" y1="${g + 1}" x2="${xd}" y2="${my - 1}" ${h.a.detail} marker-start="url(#fl)" marker-end="url(#fl)"/>`);
+          out.push(h.texte(xd + 4, g - 12, '50 mm au moins', { corps: 12 }));
           return out.join('\n');
         },
         renvois: z => {

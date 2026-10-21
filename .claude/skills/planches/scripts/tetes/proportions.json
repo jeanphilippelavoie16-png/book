@@ -1,0 +1,75 @@
+{
+  "usage": "Dessin des têtes simples de profil (tetes/moteur.js) seulement : rien de ceci ne s'imprime. La hauteur de la tête (sommet → menton), sa profondeur et la largeur du cou de l'homme, de la femme et des enfants viennent du corps simple (corps/proportions.json et corps/moteur.js) : la tête raccorde au corps. Ce fichier porte ce que le corps n'a pas : la part du visage dans la tête, la hauteur du nez, la place de la bouche, l'oreille, et le nouveau-né.",
+  "provenance_generale": "Le réseau de la session ne joint ni PMC, ni MDPI, ni ScienceDirect, ni l'éditeur de Farkas : aucune page n'a pu être enregistrée. Les valeurs viennent des résumés de recherche (WebSearch) cités dans « sources » ; une valeur qu'aucun résumé ne donnait porte [À VÉRIFIER].",
+  "sources": {
+    "farkas": "Farkas L.G., Hreczko T.A., Katic M.J. (1994), « Craniofacial norms in North American Caucasians from birth (one year) to young adulthood », dans Farkas L.G. (dir.), Anthropometry of the Head and Face, 2e éd., Raven Press, p. 241-312 ; valeurs relevées dans le tableau « Facial anthropometry (Amended from Farkas (1994)) » du manuscrit « A guided manual method for juvenile age progression using digital images », Liverpool John Moores University, researchonline.ljmu.ac.uk/id/eprint/12298 (Forensic Science International, 2020). Résumé de recherche, page non enregistrée.",
+    "nouveau_ne_tiers": "« Anthropometric orofacial measures of newborns and their relationship with sex, weight and height », PMC9886102 (130 nouveau-nés à terme, Brésil) : tiers du visage tr-g 32,6 mm, g-sn 29,6 mm, sn-gn 28,9 mm (moyennes). Résumé de recherche, page non enregistrée.",
+    "crane_visage": "Poster ESR EPOS C-1449, ECR 2016, « Development of the skull » (epos.myesr.org/poster/esr/ecr2016/C-1449) : volume du neurocrâne 8 à 9 fois celui de la face à la naissance, 5:1 à 2 ans, 3:1 à 6 ans, 2:1 adulte ; rapport crâne / os de la face en coupe médiane 4 à 4,5 à la naissance, 3 à 3,5 à 2 ans, 2,5 à 6 ans, 1,5 à 2 adulte. Résumé de recherche.",
+    "oreille": "Longueur de l'oreille adulte de référence 59,83 mm (hommes) et 56,25 mm (femmes) (étude de croissance de l'oreille chez l'enfant trisomique, earsiv.medeniyet.edu.tr, valeurs de référence citées) ; Purkait R. (2013), Aesthetic Plastic Surgery (2 147 enfants de 0 à 18 ans) : à la naissance, la plupart des dimensions de l'oreille font 52 à 76 % de l'adulte, les longueurs mûrissent entre 12 et 16 ans ; étude égyptienne (400 sujets) : la longueur croît de 45 % entre la naissance et 9 ans. Résumés de recherche."
+  },
+  "definitions": {
+    "visage": "n-gn / v-gn : du nasion (le creux entre le front et le nez) au menton, sur la hauteur de la tête (sommet → menton)",
+    "nez": "n-sn / n-gn : du nasion au creux sous le nez, sur la hauteur du visage",
+    "levre": "sn-sto / n-gn : du creux sous le nez à la fente des lèvres, sur la hauteur du visage",
+    "profondeur": "g-op / v-gn : la longueur de la tête de profil (front → arrière du crâne) sur sa hauteur",
+    "oreille": "longueur de l'oreille (haut → bas du lobe), mm"
+  },
+  "ages": {
+    "homme": {
+      "cible": { "visage": 0.532, "nez": 0.45, "levre": 0.18, "profondeur": 0.857, "oreille": 59.8 },
+      "dessin": { "visage": 0.545, "nez": 0.444, "levre": 0.154, "profondeur": 0.85, "oreille": 60.3 },
+      "provenance": {
+        "visage": "n-gn 121 mm [À VÉRIFIER : valeur courante de Farkas pour l'homme adulte, non retrouvée par la recherche] sur v-gn 227,5 (corps/proportions.json)",
+        "nez": "n-sn 55 / n-gn 121 [À VÉRIFIER, même raison]",
+        "levre": "sn-sto ≈ 22 mm [À VÉRIFIER]",
+        "profondeur": "corps/proportions.json (195 / 227,5)",
+        "oreille": "source oreille (59,83 mm)"
+      }
+    },
+    "femme": {
+      "cible": { "visage": 0.53, "nez": 0.45, "oreille": 56.3 },
+      "dessin": { "visage": 0.547, "nez": 0.441, "levre": 0.155, "profondeur": 0.848, "oreille": 54.3 },
+      "provenance": {
+        "visage, nez": "comme l'homme, la tête étant plus petite (211,9) [À VÉRIFIER]",
+        "oreille": "source oreille (56,25 mm)",
+        "dessin": "le menton plus fin et moins avancé, le nez plus petit : dessin, sans chiffre sourcé"
+      }
+    },
+    "enfant6": {
+      "cible": { "visage": 0.483, "nez": 0.40, "profondeur": 0.948 },
+      "dessin": { "visage": 0.486, "nez": 0.387, "levre": 0.156, "profondeur": 0.949, "oreille": 50.4 },
+      "provenance": {
+        "visage": "n-gn 98,5 mm (garçons de 6 ans, source farkas) sur une hauteur de tête estimée à 227,5 × 0,8964 = 203,9 mm (le facteur du périmètre crânien de corps/proportions.json) ; la tête dessinée garde la hauteur du corps (184,4) et la part du visage. La hauteur de 184,4 (canon de Domljan) paraît courte pour 98,5 mm de visage : le rapport est préféré au chiffre [À VÉRIFIER]",
+        "nez": "n-sn 38,9 / n-gn 96,7 à 5 ans (source farkas) = 0,40",
+        "profondeur": "corps/proportions.json (174,8 / 184,4)",
+        "oreille": "≈ 0,84 de l'adulte : dessin, dans la fourchette des sources oreille [À VÉRIFIER]",
+        "controle": "rapport crâne / visage de la tête dessinée (aire de profil, au-dessus et en arrière de la ligne nasion → bas de l'oreille) : 3,6 contre 2,4 pour l'homme, soit 1,5 fois ; source crane_visage : 2,5 contre 1,5 à 2 (1,4 fois)"
+      }
+    },
+    "enfant4": {
+      "cible": { "visage": 0.455, "nez": 0.40, "profondeur": 1.01 },
+      "dessin": { "visage": 0.457, "nez": 0.374, "levre": 0.171, "profondeur": 0.982, "oreille": 48.1 },
+      "provenance": {
+        "visage": "n-gn 92,7 mm, interpolé entre 1 an (80,6) et 5 ans (96,7) (source farkas), sur 203,9 mm (même facteur crânien qu'à 6 ans, corps/proportions.json) [À VÉRIFIER : interpolation]",
+        "nez": "n-sn 36,9 interpolé (30,9 à 1 an, 38,9 à 5 ans) / 92,7 = 0,40",
+        "profondeur": "corps/proportions.json (174,8 / 173,2)",
+        "oreille": "dessin [À VÉRIFIER]"
+      }
+    },
+    "bebe": {
+      "tete": { "hauteur": 125, "profondeur": 119 },
+      "cou": { "largeur": 0.6, "longueur": 18 },
+      "cible": { "visage": 0.42, "nez": 0.38, "oreille": 36 },
+      "dessin": { "visage": 0.429, "nez": 0.378, "levre": 0.142, "profondeur": 0.955, "oreille": 34.2 },
+      "provenance": {
+        "tete.hauteur": "125 mm : le quart d'une longueur de naissance de 500 mm (canon de quatre têtes du nouveau-né) [À VÉRIFIER : ni le canon ni la longueur n'ont été retrouvés à la source]",
+        "tete.profondeur": "[À VÉRIFIER] (dessin : le crâne long, front bombé)",
+        "visage": "g-sn + sn-gn = 58,5 mm (source nouveau_ne_tiers), moins l'écart glabelle → nasion, soit n-gn ≈ 53 mm sur 125 [À VÉRIFIER : l'écart g-n et la hauteur de tête]",
+        "nez": "1 an : 30,9 / 80,6 = 0,383 (source farkas) ; à la naissance, g-sn ≈ sn-gn (source nouveau_ne_tiers) : le nez reste court, 0,38 retenu [À VÉRIFIER]",
+        "oreille": "≈ 0,6 de l'adulte (sources oreille : 52 à 76 % pour la plupart des dimensions, moins pour les longueurs ; +45 % jusqu'à 9 ans) [À VÉRIFIER]",
+        "cou": "le cou ne se voit pas : court (18 mm sous la nuque par défaut) et large (0,6 du cou de l'homme) [À VÉRIFIER : dessin]",
+        "controle": "rapport crâne / visage de la tête dessinée : 4,9, soit 2 fois l'homme ; source crane_visage : 4 à 4,5 contre 1,5 à 2"
+      }
+    }
+  }
+}

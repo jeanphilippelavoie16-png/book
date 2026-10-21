@@ -280,7 +280,7 @@ quand elle n'est qu'une manière parmi d'autres de passer la journée.
 53. **Agir quand le critère est atteint, et le critère n'est pas un délai.** Le seuil est le
  fonctionnement : consulter si les comportements persistent, ou s'ils empêchent l'enfant de
  fonctionner normalement. Sans personne à consulter, le critère ne disparaît pas :
- il devient un critère de sortie, et c'est à ce titre qu'il entre au calcul du ch. 2 (§9).
+ il devient un critère de sortie, et c'est à ce titre qu'il entre au calcul du ch. 2 (étape 41).
 
 ---
 

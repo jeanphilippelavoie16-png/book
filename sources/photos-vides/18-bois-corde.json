@@ -1,0 +1,92 @@
+{
+ "fichier": "18-bois-corde.jpg",
+ "titre": "File:L'automne au Québec (8072445876).jpg",
+ "pageid": 40526091,
+ "requete": "https://commons.wikimedia.org/w/api.php?action=query&format=json&prop=imageinfo&iiprop=url%7Csize%7Csha1%7Cmime%7Cextmetadata&titles=File%3AL%27automne+au+Qu%C3%A9bec+%288072445876%29.jpg&formatversion=2",
+ "lu_le": "2026-10-19",
+ "imageinfo": {
+  "size": 21741594,
+  "width": 4948,
+  "height": 3280,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/7/74/L%27automne_au_Qu%C3%A9bec_%288072445876%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+  "descriptionurl": "https://commons.wikimedia.org/wiki/File:L%27automne_au_Qu%C3%A9bec_(8072445876).jpg",
+  "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=40526091",
+  "sha1": "115978c112f051f643a15e01c08f267172b81719",
+  "extmetadata": {
+   "DateTime": {
+    "value": "2015-05-28 10:09:45",
+    "source": "mediawiki-metadata",
+    "hidden": ""
+   },
+   "ObjectName": {
+    "value": "L'automne au Québec (8072445876)",
+    "source": "mediawiki-metadata"
+   },
+   "CommonsMetadataExtension": {
+    "value": 1.2,
+    "source": "extension",
+    "hidden": ""
+   },
+   "Categories": {
+    "value": "Flickr images reviewed by FlickreviewR|Forests in Quebec|Brown textures|Files uploaded by The Photographer from Flickr|Files uploaded by The Photographer needing category checks|Woodpile textures",
+    "source": "commons-categories",
+    "hidden": ""
+   },
+   "Assessments": {
+    "value": "",
+    "source": "commons-categories",
+    "hidden": ""
+   },
+   "ImageDescription": {
+    "value": "L'automne au Québec",
+    "source": "commons-desc-page"
+   },
+   "DateTimeOriginal": {
+    "value": "2012-10-07 10:33",
+    "source": "commons-desc-page"
+   },
+   "Credit": {
+    "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/mateeas/8072445876/\">L'automne au Québec</a>",
+    "source": "commons-desc-page"
+   },
+   "Artist": {
+    "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/60582647@N00\">Matias Garabedian</a> from Montreal, Canada",
+    "source": "commons-desc-page"
+   },
+   "LicenseShortName": {
+    "value": "CC BY-SA 2.0",
+    "source": "commons-desc-page",
+    "hidden": ""
+   },
+   "UsageTerms": {
+    "value": "Creative Commons Attribution-Share Alike 2.0",
+    "source": "commons-desc-page"
+   },
+   "AttributionRequired": {
+    "value": "true",
+    "source": "commons-desc-page",
+    "hidden": ""
+   },
+   "LicenseUrl": {
+    "value": "https://creativecommons.org/licenses/by-sa/2.0",
+    "source": "commons-desc-page"
+   },
+   "Copyrighted": {
+    "value": "True",
+    "source": "commons-desc-page",
+    "hidden": ""
+   },
+   "Restrictions": {
+    "value": "",
+    "source": "commons-desc-page",
+    "hidden": ""
+   },
+   "License": {
+    "value": "cc-by-sa-2.0",
+    "source": "commons-templates",
+    "hidden": ""
+   }
+  },
+  "mime": "image/jpeg"
+ }
+}

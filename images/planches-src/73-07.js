@@ -3,6 +3,18 @@
 // d'environ 1,8 m de côté (la famille de ferme, 4,5 t). La coupe est à l'échelle de ces deux
 // chiffres. Le lit de branches, le gravier et le drain n'ont pas de cote dans le chapitre :
 // ils n'en ont pas ici.
+// La charte : la coupe hachurée n'a pas de gris ; la paroi de gauche du trou, et la face de droite
+// du bloc à l'anse, à l'ombre ; le dessous de la chaudière à l'ombre et son intérieur en gris loin.
+// Le contour fort sur le bord de la plaque et du trou, et sur le bloc qu'on tire. Le rouge : le
+// levier qu'on tire, la corde qu'on tire, et la sortie du drain, qui doit être plus basse que le fond.
+//
+// La vue « Découper les blocs » a été redessinée le 14 octobre 2026 : la plaque y était une feuille
+// mince posée haut sur l'eau, le bloc libre une autre feuille, et le trou du dernier bloc se lisait
+// comme une boîte. C'est maintenant un bloc-diagramme coupé devant et à droite : la glace épaisse
+// (la moitié de la largeur d'un bloc) qui flotte, le dessus à peine hors de l'eau ; le bloc déjà
+// sorti flotte dans le chenal, coupé lui aussi ; le levier dans le trait pousse le bloc du coin
+// vers le chenal. Les proportions ne sont pas cotées : le chapitre ne donne ni l'épaisseur ni la
+// taille des blocs.
 
 const NOIR = '#1A1A1A';
 const blanc = (a) => a.replace('fill="none"', 'fill="#FFFFFF"');
@@ -46,13 +58,18 @@ module.exports = (h) => {
   // ── Projection oblique pour le lac et l'anse ──
   const obl = (ox, oy, k = 1) => (u, v, w = 0) => [ox + k * (u + v * 0.55), oy - k * (w + v * 0.38)];
 
-  // ── Géométrie du lac ──
+  // ── Géométrie du lac : un bloc-diagramme. La face avant (v = 0) et la face de droite (u = U1)
+  // sont des coupes : on y voit l'épaisseur de la glace, qui flotte, le dessus à peine sorti de
+  // l'eau. À gauche, l'eau libre du chenal, où flotte le bloc déjà sorti, coupé lui aussi.
+  // Le bloc du coin, entre le chenal, le trait de scie et le travers, part au levier vers le chenal.
   const gl = (z) => {
-    const k = Math.min(1, (z.l - 20) / 352, (z.h - 8) / 214);
-    const bu = 58, bv = 50, t = 30, wE = -0.14 * t;
-    const U0 = -24, U1 = 3 * bu + 22, V1 = 3 * bv + 14;
-    const P = obl(12 + k * (70), z.h - 10 - k * 32, k);
-    return { k, bu, bv, t, wE, U0, U1, V1, P };
+    const bu = 52, bv = 44, T = 26, h0 = 3, wB = h0 - T - 15;     // bloc, épaisseur, glace hors de l'eau
+    const Ua = -80, U1 = 2.6 * bu, V1 = 2.6 * bv;
+    const xMin = Ua, xMax = U1 + 0.55 * V1, haut = 92, bas = -wB;
+    const k = Math.min(1, (z.l - 44) / (xMax - xMin), (z.h - 12) / (haut + bas));
+    const ox = 10 + (z.l - 44 - k * (xMax - xMin)) / 2 - k * xMin;
+    const oy = (z.h - k * (haut + bas)) / 2 + k * haut;
+    return { k, bu, bv, T, h0, wB, Ua, U1, V1, P: obl(ox, oy, k) };
   };
 
   // ── Géométrie de l'anse ──
@@ -126,7 +143,9 @@ module.exports = (h) => {
           out.push(h.ligne(xR, yG, xR, drain(xR, d), h.a.contour));
           // sol de part et d'autre
           out.push(h.chemin([[0, yG], [xL - 20, yG]], h.a.contour));
-          out.push(h.chemin([[xR + 20, yG], [xT, yT], [xB, yB], [L, yB + 3]], h.a.contour));
+          // la pente s'interrompt à la bouche du drain : rien ne la ferme
+          out.push(h.chemin([[xR + 20, yG], [xT, yT], sortH], h.a.contour));
+          out.push(h.chemin([sortB, [xB, yB], [L, yB + 3]], h.a.contour));
           // couvercle de planches jointives, débordant sur le sol, deux traverses dessus
           const n = 17, lp = (W + 40) / n;
           for (let i = 0; i < n; i++) out.push(h.rect(xL - 20 + i * lp, yG - 7, lp, 7, h.a.hachure('bois', 'detail')));
@@ -135,16 +154,23 @@ module.exports = (h) => {
           // l'eau de fonte : à travers le fond, le long de la pente du fond, dans le drain, dehors
           const xm = xL + W * 0.34;
           const yM = (x) => yFL + (yFR - yFL) * (x - xL) / W - 5;
-          out.push(h.fleche(`M ${xm} ${yGlB + 4} L ${xm} ${yM(xm) - 2} L ${xR - 2} ${yM(xR - 2)} L ${sortB[0] - 6} ${drain(sortB[0] - 6, d / 2)} L ${sortB[0] + 18} ${drain(sortB[0] - 6, d / 2) + 16}`, h.a.cache));
-          out.push(h.fleche(`M ${xg1 + e / 2} ${yGlH + 30} L ${xg1 + e / 2} ${yGlB + 10}`, h.a.cache));
+          const TF = 'fill="none" stroke="#1A1A1A" stroke-width="1.1" stroke-dasharray="5 3.5" stroke-linecap="round" stroke-linejoin="round"';
+          const HALO = 'fill="none" stroke="#FFFFFF" stroke-width="5.1" stroke-linecap="round" stroke-linejoin="round"';
+          const dF = `M ${xm} ${yGlB + 4} L ${xm} ${yM(xm) - 2} L ${xR - 2} ${yM(xR - 2)} L ${sortB[0] - 6} ${drain(sortB[0] - 6, d / 2)} L ${sortB[0] + 18} ${drain(sortB[0] - 6, d / 2) + 16}`;
+          const dV = `M ${xg1 + e / 2} ${yGlH + 30} L ${xg1 + e / 2} ${yGlB + 10}`;
+          out.push(h.path(dF, HALO), h.fleche(dF, TF));
+          out.push(h.path(dV, HALO), h.fleche(dV, TF));
+          // le point qui décide : la sortie du drain, plus basse que le fond de la fosse
+          out.push(h.controle((sortB[0] + sortH[0]) / 2 + 2, (sortB[1] + sortH[1]) / 2 + 1, 15));
+
           // cotes : 30 cm et 1,8 m en travers, au-dessus du couvercle
-          out.push(h.cote(xL, yG - 24, xg0, yG - 24, '30 cm'));
-          out.push(h.cote(xg0, yG - 48, xg1, yG - 48, '1,8 m'));
+          out.push(h.cote(xL, yG - 24, xg0, yG - 24, '300'));
+          out.push(h.cote(xg0, yG - 48, xg1, yG - 48, '1800'));
           // cotes verticales, côté pente : chapeau, glace, dessous
           const xv = xR + 14;
-          out.push(h.cote(xv, yG, xv, yGlH, '30 cm', { cote: 'droite' }));
-          out.push(h.cote(xv, yGlH, xv, yGlB, '1,8 m', { cote: 'droite' }));
-          out.push(h.cote(xv, yGlB, xv, yBr, '30 cm', { cote: 'droite' }));
+          out.push(h.cote(xv, yG, xv, yGlH, '300', { cote: 'droite' }));
+          out.push(h.cote(xv, yGlH, xv, yGlB, '1800', { cote: 'droite' }));
+          out.push(h.cote(xv, yGlB, xv, yBr, '300', { cote: 'droite' }));
           return out.join('\n');
         },
         renvois: (z) => {
@@ -164,52 +190,57 @@ module.exports = (h) => {
       lac: {
         titre: 'Découper les blocs, vu de biais',
         dessin: (z) => {
-          const { k, bu, bv, t, wE, U0, U1, V1, P } = gl(z);
-          const out = [];
-          // eau libre, là où les blocs précédents sont partis, et le trou du dernier
-          const vf = -bv - 16;
-          out.push(h.chemin([P(U0 - 10, vf, wE), P(U1, vf, wE), P(U1, 0, wE), P(bu, 0, wE), P(bu, bv, wE), P(0, bv, wE), P(0, 0, wE), P(U0 - 10, 0, wE)], h.a.hachure('eau', 'aucun'), true));
-          // la plaque : dessus
-          out.push(h.chemin([P(U0, 0), P(0, 0), P(0, bv), P(bu, bv), P(bu, 0), P(U1, 0), P(U1, V1), P(U0, V1)], blanc(h.a.fin), true));
-          // chant avant, au-dessus de l'eau
-          for (const [a, b] of [[U0, 0], [bu, U1]]) out.push(h.chemin([P(a, 0), P(b, 0), P(b, 0, wE), P(a, 0, wE)], blanc(h.a.arete), true));
-          // parois du trou : le fond (face avant du bloc de derrière) et le côté gauche
-          out.push(h.chemin([P(0, bv), P(bu, bv), P(bu, bv, wE), P(0, bv, wE)], blanc(h.a.arete), true));
-          out.push(h.chemin([P(0, 0), P(0, bv), P(0, bv, wE), P(0, 0, wE)], blanc(h.a.arete), true));
-          // bords du trou et bord avant, en trait fort
-          out.push(h.chemin([P(U0, 0), P(0, 0), P(0, bv), P(bu, bv), P(bu, 0), P(U1, 0)], h.a.arete));
-          // la plaque continue : bords arrière et côtés en trait fin
-          out.push(h.chemin([P(U0, 0, wE), P(U0, 0), P(U0, V1), P(U1, V1), P(U1, 0), P(U1, 0, wE)], h.a.fin));
-          // traits de scie parallèles, de bout en bout
-          for (const u of [0, bu, 2 * bu, 3 * bu]) out.push(h.chemin([P(u, u < bu + 1 ? bv : 0), P(u, V1)], h.a.arete));
-          for (const u of [2 * bu, 3 * bu]) out.push(h.ligne(...P(u, 0), ...P(u, 0, wE), h.a.arete));
-          // travers à la scie, derrière le premier rang
-          out.push(h.chemin([P(bu, bv), P(3 * bu, bv)], h.a.arete));
-          // travers à la tarière : trous rapprochés
-          for (let u = 4; u <= 3 * bu - 3; u += 9.3) out.push(h.ellipse(...P(u, 2 * bv), 3.3 * k, 1.9 * k, blanc(h.a.detail)));
-          // le bloc libre, qui flotte devant
-          const f0 = 6, f1 = bu - 6, g0 = vf + 8, g1 = -10, wt = 0;
-          out.push(h.chemin([P(f0, g0, wt), P(f1, g0, wt), P(f1, g1, wt), P(f0, g1, wt)], blanc(h.a.arete), true));
-          out.push(h.chemin([P(f0, g0, wt), P(f1, g0, wt), P(f1, g0, wE), P(f0, g0, wE)], blanc(h.a.arete), true));
-          out.push(h.chemin([P(f1, g0, wt), P(f1, g1, wt), P(f1, g1, wE), P(f1, g0, wE)], blanc(h.a.arete), true));
-          // le levier dans le trait de derrière, manche tiré vers l'arrière
-          const tip = P(1.5 * bu, bv, 0), top = P(1.5 * bu, bv + 58, 96);
+          const { k, bu, bv, T, h0, wB, Ua, U1, V1, P } = gl(z);
+          const out = [], poly = (arr, at) => h.chemin(arr, at, true);
+          const wb = h0 - T;                                  // dessous de la glace
+          const eau = h.a.hachure('eau', 'aucun');
+          // l'eau libre du chenal, vue de dessus
+          out.push(poly([P(Ua, 0, 0), P(0, 0, 0), P(0, V1, 0), P(Ua, V1, 0)], eau));
+          // le dessus de la plaque
+          out.push(poly([P(0, 0, h0), P(U1, 0, h0), P(U1, V1, h0), P(0, V1, h0)], blanc(h.a.fin)));
+          // d'abord les traits de scie parallèles, de bout en bout
+          for (const u of [bu, 2 * bu]) out.push(h.chemin([P(u, 0, h0), P(u, V1, h0)], h.a.arete));
+          // puis le travers à la scie, derrière le premier rang
+          out.push(h.chemin([P(0, bv, h0), P(U1, bv, h0)], h.a.arete));
+          // sans scie : le travers suivant en trous de tarière rapprochés
+          for (let u = 5; u <= U1 - 4; u += 8.6) out.push(h.ellipse(...P(u, 2 * bv, h0), 2.9 * k, 1.7 * k, blanc(h.a.detail)));
+          // le bord de la plaque sur l'eau libre, au trait fort
+          out.push(h.chemin([P(0, V1, h0), P(0, 0, h0)], h.a.contour));
+          // les coupes : l'eau sous la glace et dans le chenal, puis la glace par-dessus
+          out.push(poly([P(Ua, 0, 0), P(U1, 0, 0), P(U1, 0, wB), P(Ua, 0, wB)], eau));
+          out.push(poly([P(U1, 0, wb), P(U1, V1, wb), P(U1, V1, wB), P(U1, 0, wB)], eau));
+          out.push(poly([P(U1, 0, h0), P(U1, V1, h0), P(U1, V1, wb), P(U1, 0, wb)], blanc(h.a.contour)));
+          out.push(poly([P(0, 0, h0), P(U1, 0, h0), P(U1, 0, wb), P(0, 0, wb)], blanc(h.a.contour)));
+          // les traits traversent toute l'épaisseur
+          for (const u of [bu, 2 * bu]) out.push(h.chemin([P(u, 0, h0), P(u, 0, wb)], h.a.arete));
+          out.push(h.chemin([P(U1, bv, h0), P(U1, bv, wb)], h.a.arete));
+          // la ligne d'eau, et le bord gauche de la coupe
+          out.push(h.chemin([P(Ua, V1, 0), P(Ua, 0, 0), P(0, 0, 0)], h.a.detail));
+          out.push(h.chemin([P(Ua, 0, 0), P(Ua, 0, wB)], h.a.fin));
+          // le bloc déjà sorti, qui flotte dans le chenal : neuf dixièmes sous l'eau
+          const f0 = Ua + 13, f1 = -15, fv = bv / 2;
+          out.push(poly([P(f1, 0, h0), P(f1, fv, h0), P(f1, fv, 0), P(f1, 0, 0)], h.a.ombre));
+          out.push(poly([P(f1, 0, h0), P(f1, fv, h0), P(f1, fv, 0), P(f1, 0, 0)], h.a.detail));
+          out.push(poly([P(f0, 0, h0), P(f1, 0, h0), P(f1, fv, h0), P(f0, fv, h0)], blanc(h.a.arete)));
+          out.push(poly([P(f0, 0, h0), P(f1, 0, h0), P(f1, 0, wb), P(f0, 0, wb)], blanc(h.a.contour)));
+          // le bloc du coin part vers le chenal
+          const b1 = P(0.72 * bu, 0.5 * bv, h0), b2 = P(0.12 * bu, 0.5 * bv, h0);
+          out.push(h.fleche(`M ${b1[0].toFixed(1)} ${b1[1].toFixed(1)} L ${b2[0].toFixed(1)} ${b2[1].toFixed(1)}`, h.a.arete));
+          // le levier dans le trait, le manche tiré vers la droite : le bout pousse le bloc
+          const tip = P(bu, 0.5 * bv, h0), top = P(bu + 40, 0.5 * bv + 6, 80);
           out.push(perche(tip[0], tip[1], top[0], top[1]));
-          const a1 = P(1.5 * bu + 8, bv + 52, 92), a2 = P(1.5 * bu + 8, bv + 84, 62);
-          out.push(h.fleche(`M ${a1[0]} ${a1[1]} Q ${a2[0] + 2} ${a1[1] - 4} ${a2[0]} ${a2[1]}`, h.a.arete));
-          // le bloc poussé vers l'eau
-          const b1 = P(1.5 * bu + 4, 0.55 * bv, 2), b2 = P(1.5 * bu + 4, -0.3 * bv, 2);
-          out.push(h.fleche(`M ${b1[0]} ${b1[1]} L ${b2[0]} ${b2[1]}`, h.a.arete));
+          const a1 = P(bu + 46, 0.5 * bv + 6, 84), a2 = P(bu + 66, 0.5 * bv + 6, 60), ac = P(bu + 64, 0.5 * bv + 6, 82);
+          out.push(h.geste(`M ${a1[0].toFixed(1)} ${a1[1].toFixed(1)} Q ${ac[0].toFixed(1)} ${ac[1].toFixed(1)} ${a2[0].toFixed(1)} ${a2[1].toFixed(1)}`));
           return out.join('\n');
         },
         renvois: (z) => {
-          const { bu, bv, P, k } = gl(z);
-          const c7 = P(3 * bu, 2.55 * bv), c8 = P(2.55 * bu, bv), c9 = P(1.5 * bu, bv + 30, 50), c10 = P(2.45 * bu, 2 * bv);
+          const { bu, bv, h0, U1, P } = gl(z);
+          const c7 = P(2 * bu, 1.55 * bv, h0), c8 = P(U1 - 14, bv, h0), c9 = P(bu + 22, 0.5 * bv + 3, 44), c10 = P(U1 - 20, 2 * bv, h0);
           return [
-            { n: 7, rond: [z.l - 14, c7[1] - 26], cible: c7, texte: 'd’abord les traits parallèles' },
-            { n: 8, rond: [z.l - 14, c8[1] + 14], cible: c8, texte: 'puis les travers' },
-            { n: 9, rond: [c9[0] - 44, c9[1] - 6], cible: [c9[0] - 3, c9[1]], texte: 'levier dans le trait, on casse' },
-            { n: 10, rond: [z.l - 14, c10[1] - 3], cible: c10, texte: 'sans scie : trous de tarière' },
+            { n: 7, rond: [c7[0] + 8, c7[1] - 34], cible: c7, texte: 'd’abord les traits parallèles' },
+            { n: 8, rond: [z.l - 13, c8[1] + 18], cible: c8, texte: 'puis les travers' },
+            { n: 9, rond: [c9[0] - 44, c9[1] - 16], cible: [c9[0] - 2, c9[1]], texte: 'levier dans le trait, on casse' },
+            { n: 10, rond: [z.l - 13, c10[1] - 22], cible: c10, texte: 'sans scie : trous de tarière' },
           ];
         },
       },
@@ -223,7 +254,9 @@ module.exports = (h) => {
           // le bloc, vu de biais
           out.push(h.chemin([P(0, 0, 0), P(U, 0, 0), P(U, V, 0), P(0, V, 0)], blanc(h.a.arete), true));
           out.push(h.chemin([P(0, 0, 0), P(U, 0, 0), P(U, 0, -Wb), P(0, 0, -Wb)], blanc(h.a.arete), true));
-          out.push(h.chemin([P(U, 0, 0), P(U, V, 0), P(U, V, -Wb), P(U, 0, -Wb)], blanc(h.a.arete), true));
+          out.push(h.chemin([P(U, 0, 0), P(U, V, 0), P(U, V, -Wb), P(U, 0, -Wb)], h.a.ombre, true));   // face de droite, à l'ombre
+          out.push(h.chemin([P(U, 0, 0), P(U, V, 0), P(U, V, -Wb), P(U, 0, -Wb)], h.a.arete, true));
+          out.push(h.chemin([P(0, 0, -Wb), P(0, 0, 0), P(0, V, 0), P(U, V, 0), P(U, V, -Wb), P(U, 0, -Wb)], h.a.contour, true));
           // la glace versée : une plaque mince qui couvre la boucle sur le dessus
           const gv = [P(15, 3, 0), P(49, 3, 0), P(51, 35, 0), P(13, 35, 0)];
           out.push(h.chemin(gv, h.a.fin, true));
@@ -237,10 +270,14 @@ module.exports = (h) => {
           const R = (x, y) => [lv[0] + x * ca - y * sa, lv[1] + x * sa + y * ca];
           const Rs = (arr) => arr.map((p) => R(p[0], p[1]));
           // corps effilé vers le fond, bord roulé en ellipse ; repère : ouverture en y = 0, fond en y = 34
-          out.push(h.path(`M ${pts(Rs([[-16, 0]]))} L ${pts(Rs([[-12, 34]]))} Q ${pts(Rs([[0, 38]]))} ${pts(Rs([[12, 34]]))} L ${pts(Rs([[16, 0]]))} Z`, blanc(h.a.arete)));
+          // le côté de dessous, à l'ombre (en x positif dans le repère de la chaudière) ; l'ouverture couvre le haut
+          out.push(h.path(`M ${pts(Rs([[-16, 0]]))} L ${pts(Rs([[-12, 34]]))} Q ${pts(Rs([[0, 38]]))} ${pts(Rs([[12, 34]]))} L ${pts(Rs([[16, 0]]))} Z`, h.a.blanc));
+          out.push(h.path(`M ${pts(Rs([[7, 0]]))} L ${pts(Rs([[16, 0]]))} L ${pts(Rs([[12, 34]]))} Q ${pts(Rs([[8, 35.3]]))} ${pts(Rs([[4, 35.8]]))} Z`, h.a.ombre));
+          out.push(h.path(`M ${pts(Rs([[-16, 0]]))} L ${pts(Rs([[-12, 34]]))} Q ${pts(Rs([[0, 38]]))} ${pts(Rs([[12, 34]]))} L ${pts(Rs([[16, 0]]))} Z`, h.a.arete));
           out.push(h.path(`M ${pts(Rs([[-12, 34]]))} Q ${pts(Rs([[0, 30]]))} ${pts(Rs([[12, 34]]))}`, h.a.detail));
           const e0 = R(0, 0);
-          out.push(h.chemin(Array.from({ length: 36 }, (_, i) => R(16 * Math.cos(i * Math.PI / 18), 4.5 * Math.sin(i * Math.PI / 18))), blanc(h.a.arete), true));
+          const ouv = Array.from({ length: 36 }, (_, i) => R(16 * Math.cos(i * Math.PI / 18), 4.5 * Math.sin(i * Math.PI / 18)));
+          out.push(h.chemin(ouv, h.a.loin, true), h.chemin(ouv, h.a.arete, true));   // l'intérieur, vu par l'ouverture
           const f0 = R(15, 2), cib = P(32, 19, 0);
           out.push(h.path(`M ${f0[0].toFixed(1)} ${f0[1].toFixed(1)} Q ${(f0[0] - 6).toFixed(1)} ${(f0[1] + 12).toFixed(1)} ${cib[0].toFixed(1)} ${cib[1].toFixed(1)}`, h.a.detail));
           // à droite : on tire le bloc hors de l'eau par l'anse, il bascule sur le bord
@@ -253,14 +290,14 @@ module.exports = (h) => {
           // bloc incliné : son coin avant sur le bord de la plaque
           // repère du bloc : x vers l'arrière (gauche), y vers le haut
           const q = [B(0, 0), B(bw, 0), B(bw, bh), B(0, bh)];
-          out.push(h.chemin(q, blanc(h.a.arete), true));
+          out.push(h.chemin(q, blanc(h.a.contour), true));
           // la corde prise dans la glace du dessus, puis libre vers la main
           const r0 = B(bw - 12, bh + 2), r1 = B(3, bh + 2);
           out.push(h.path(`M ${B(bw - 16, bh)[0]} ${B(bw - 16, bh)[1]} Q ${B(bw / 2, bh + 6)[0]} ${B(bw / 2, bh + 6)[1]} ${B(0, bh)[0]} ${B(0, bh)[1]}`, blanc(h.a.fin)));
           const fin = libre(1);
           out.push(corde(`M ${r0[0]} ${r0[1]} L ${r1[0]} ${r1[1]} Q ${r2[0]} ${r2[1]} ${r2[0] + 10} ${r2[1] - 8} L ${fin[0]} ${fin[1]}`));
           const fa = libre(1.12), fb = libre(1.55);
-          out.push(h.fleche(`M ${fa[0]} ${fa[1]} L ${fb[0]} ${fb[1]}`, h.a.arete));
+          out.push(h.geste(`M ${fa[0]} ${fa[1]} L ${fb[0]} ${fb[1]}`));
           return out.join('\n');
         },
         renvois: (z) => {

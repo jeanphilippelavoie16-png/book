@@ -64,15 +64,27 @@ module.exports = (h) => {
     }
     return { bande: dedans.concat(dehors.reverse()), dehors: dehors.slice().reverse() };
   };
+  // la silhouette d'une main simple (le chemin à 1,5 de son SVG : le moteur n'expose pas son contour), et ses
+  // bords haut et bas à l'abscisse x
+  const silhouette = svg => {
+    const segs = [];
+    for (const mm of String(svg).matchAll(/<path d="([^"]+)"[^>]*stroke-width="1\.5"/g)) for (const sp of mm[1].split('M').filter(Boolean)) {
+      const n = sp.match(/-?\d+(\.\d+)?/g).map(Number), Q = [];
+      for (let i = 0; i + 1 < n.length; i += 2) Q.push([n[i], n[i + 1]]);
+      for (let i = 1; i < Q.length; i++) segs.push([Q[i - 1], Q[i]]);
+    }
+    const coupe = x => segs.filter(([a, b]) => (a[0] - x) * (b[0] - x) <= 0 && a[0] !== b[0]).map(([a, b]) => a[1] + (b[1] - a[1]) * (x - a[0]) / (b[0] - a[0]));
+    return { haut: x => Math.min(...coupe(x)), bas: x => Math.max(...coupe(x)), ymax: Math.max(...segs.flat().map(p => p[1])) };
+  };
   const indexPres = (C, u, v) => { let b = 0, dm = 1e9; C.forEach((p, k) => { const d = Math.hypot(p[0] - u, p[1] - v); if (d < dm) { dm = d; b = k; } }); return b; };
 
   // ── le sac de sable noué, couché, vu de côté (repère : y vers le bas, le dessous à y = 25,5) ──
   const CORPS = [[60, -8], [42, -21], [20, -27], [-20, -27], [-45, -24], [-58, -12], [-60, 4], [-54, 18], [-40, 24.5], [0, 25.5], [34, 24.5], [48, 16], [60, 7]];
-  const sac = (cx, cy, k) => {
+  const sac = (cx, cy, k, trait = 'contour') => {
     const T = p => [cx + p[0] * k, cy + p[1] * k];
     const q = (a, c, b, at) => h.path(`M${f(T(a)[0])} ${f(T(a)[1])} Q${f(T(c)[0])} ${f(T(c)[1])} ${f(T(b)[0])} ${f(T(b)[1])}`, at);
     const out = [];
-    out.push(plein(P(cr(CORPS, true).map(T), true), h.a.hachure('gravier', 'arete')));
+    out.push(plein(P(cr(CORPS, true).map(T), true), h.a.hachure('gravier', trait)));
     // plis du tissu ramassé vers le col
     out.push(q([58, -5], [50, -10], [38, -15], h.a.fin), q([58, 0], [48, 0], [36, 2], h.a.fin), q([58, 4], [50, 9], [40, 15], h.a.fin));
     // la queue froncée au-delà du nœud
@@ -112,7 +124,7 @@ module.exports = (h) => {
     format: 'pleine',
     disposition: [['sac', 'chauffer'], ['rouler', 'place'], ['coupe']],
     largeurs: [[1, 1], [1.15, 2.6], [1]],
-    hauteurs: [1.6, 1.85, 3.2],
+    hauteurs: [1.6, 2.2, 2.85],
     vues: {
       sac: {
         titre: 'Le sac de sable, noué',
@@ -174,14 +186,14 @@ module.exports = (h) => {
           // le linge encore étendu, qui part du dessous du rouleau
           const xa = T([0, vBas])[0], xb = z.l - 8;
           out.push(plein(`M${f(xa)} ${f(yg - ep * s)} L${f(xb)} ${f(yg - ep * s)} L${f(xb)} ${f(yg)} L${f(xa)} ${f(yg)} Z`, h.a.hachure('grillage', 'detail')));
-          out.push(plein(P(OV.map(T), true), h.a.hachure('gravier', 'arete')));
+          out.push(plein(P(OV.map(T), true), h.a.hachure('gravier', 'contour')));
           out.push(plein(P(sp.bande.map(T), true), h.a.hachure('grillage', 'detail')));
           out.push(h.ligne(4, yg, z.l - 4, yg, h.a.arete));
           // le rouleau tourne sur lui-même en avançant
           const r = 36 * s, c = T([0, 13]);
           const a0 = 200 * Math.PI / 180, a1 = 330 * Math.PI / 180;
-          out.push(h.fleche(`M${f(c[0] + r * Math.cos(a0))} ${f(c[1] + r * Math.sin(a0))} A${f(r)} ${f(r)} 0 0 1 ${f(c[0] + r * Math.cos(a1))} ${f(c[1] + r * Math.sin(a1))}`, h.a.arete));
-          out.push(h.fleche(`M${f(cx + 40 * s)} ${f(yg - 12)} L${f(z.l - 10)} ${f(yg - 12)}`, h.a.arete));
+          out.push(h.geste(`M${f(c[0] + r * Math.cos(a0))} ${f(c[1] + r * Math.sin(a0))} A${f(r)} ${f(r)} 0 0 1 ${f(c[0] + r * Math.cos(a1))} ${f(c[1] + r * Math.sin(a1))}`));
+          out.push(h.geste(`M${f(cx + 40 * s)} ${f(yg - 12)} L${f(z.l - 10)} ${f(yg - 12)}`));
           return out.join('\n');
         },
       },
@@ -191,14 +203,21 @@ module.exports = (h) => {
           const out = [];
           const s = Math.min((z.h - 34) / V_MAX, (z.l - 20) / 450);
           const ys = z.h - 22;                                  // le dessus de la table
-          const xm = z.l - 12 - 140 * s;
-          const bras = (xm - 8) / s - 50;
           out.push(h.rect(2, ys, z.l - 4, 7, h.a.hachure('bois', 'arete')));
-          const m = h.formes.main({ x: xm, y: ys, pose: 'appui', vue: 'profil', echelle: s, bras, inclinaison: -0.6 });
-          out.push(m);
-          const W = m.poignet, F = m.bras;
-          // le dessus de l'avant-bras, du poignet au coude
-          const dessusBras = x => { const t = (x - W[0]) / (F[0] - W[0]); return W[1] - 17 * s + t * ((F[1] - 22 * s) - (W[1] - 17 * s)); };
+          // la main gauche du malade (mains simples), à plat sur la table, vue du côté du pouce et un peu
+          // d'en haut ; l'avant-bras entier, posé jusqu'au coude
+          const RX = -10;
+          const o = k => ({ x: z.l - 14, y: ys, ancre: 'bout', pose: 'plat', vue: 'pouce', cote: 'gauche', echelle: s, angle: 0, rotation: [RX, 0, 0],
+            avantbras: { vers: [-1000, ys - k * 1000], longueur: 'entier' } });
+          // la pente de l'avant-bras qui pose à la fois le coude et la main sur la table
+          const ecart = k => { const mk = h.formes.mainSimple(o(k)), sk = silhouette(mk.svg); return sk.bas(mk.coude[0] + 30 * s) - sk.bas(mk.poignet[0] + 60 * s); };
+          const e0 = ecart(0), e1 = ecart(0.05), kk = -e0 * 0.05 / (e1 - e0);
+          const m0 = h.formes.mainSimple(o(kk));
+          const m = h.formes.mainSimple({ ...o(kk), y: ys + (ys - 0.6 - silhouette(m0.svg).ymax) });
+          out.push(m.svg);
+          const W = m.poignet, sil = silhouette(m.svg);
+          // le dessus de l'avant-bras, lu sur la silhouette
+          const dessusBras = x => sil.haut(x);
           const X = mmDuPoignet => W[0] - mmDuPoignet * s;
           // la compresse mouillée, drapée sur le dessus et le côté
           const c1 = X(178), c2 = X(62);
@@ -208,8 +227,14 @@ module.exports = (h) => {
           const comp = [...haut, [c2 + 1.5, bord - 2], [c2 - 12, bord + 1], [c2 - 30, bord - 1.5], [(c1 + c2) / 2, bord + 1], [c1 + 30, bord - 1], [c1 + 12, bord + 1.5], [c1 - 1.5, bord - 2]];
           out.push(plein(P(comp, true), h.a.hachure('eau', 'arete')));
           // le rouleau : le sac dans le deuxième linge
-          const r1 = X(168), r2 = X(72), yB = ys - (48.5 + TC - 1.5) * s, yH = ys - V_MAX * s, rr = (yB - yH) / 2;
-          out.push(h.path(`M${f(r1 + rr)} ${f(yH)} L${f(r2 - rr)} ${f(yH)} A${f(rr)} ${f(rr)} 0 0 1 ${f(r2 - rr)} ${f(yB)} L${f(r1 + rr)} ${f(yB)} A${f(rr)} ${f(rr)} 0 0 1 ${f(r1 + rr)} ${f(yH)} Z`, blanc(h.a.arete)));
+          const r1 = X(168), r2 = X(72), yB = Math.min(dessusBras(r1 + 10), dessusBras(r2 - 10)) - (TC - 1.5) * s;
+          const yH = yB - (V_MAX - 48.5 - TC + 1.5) * s, rr = (yB - yH) / 2;
+          const rouleau = `M${f(r1 + rr)} ${f(yH)} L${f(r2 - rr)} ${f(yH)} A${f(rr)} ${f(rr)} 0 0 1 ${f(r2 - rr)} ${f(yB)} L${f(r1 + rr)} ${f(yB)} A${f(rr)} ${f(rr)} 0 0 1 ${f(r1 + rr)} ${f(yH)} Z`;
+          out.push(h.path(rouleau, blanc(h.a.contour)));
+          // la face du dessous du rouleau, à l'ombre
+          const yo = yB - rr * 0.55, dx = rr - Math.sqrt(rr * rr - (yo - (yH + rr)) ** 2);
+          out.push(h.path(`M${f(r1 + dx)} ${f(yo)} L${f(r2 - dx)} ${f(yo)} A${f(rr)} ${f(rr)} 0 0 1 ${f(r2 - rr)} ${f(yB)} L${f(r1 + rr)} ${f(yB)} A${f(rr)} ${f(rr)} 0 0 1 ${f(r1 + dx)} ${f(yo)} Z`, h.a.ombre));
+          out.push(h.path(rouleau, h.a.contour));
           // le bord libre du linge, qui court le long du rouleau
           out.push(h.path(`M${f(r1 + rr * 0.55)} ${f(yH + rr * 0.42)} L${f(r2 - rr * 0.55)} ${f(yH + rr * 0.42)}`, h.a.detail));
           [r1 + rr * 0.9, r2 - rr * 0.9].forEach((x, i) => out.push(h.path(`M${f(x)} ${f(yH + 3)} Q${f(x + (i ? 4 : -4))} ${f(yH + rr)} ${f(x)} ${f(yB - 3)}`, h.a.fin)));
@@ -250,6 +275,8 @@ module.exports = (h) => {
             const d = `M${f(T([u, sous + 9])[0])} ${f(T([u, sous + 9])[1])} L${f(T([u, 40])[0])} ${f(T([u, 42 - Math.abs(u) * 0.15])[1])}`;
             out.push(h.path(d, SOUS), h.fleche(d, h.a.arete));
           });
+          // la peau, sous le bord de la compresse : on y regarde à chaque changement
+          { const k = indexPres(BRAS, 36, 14); out.push(h.controle(...T([BRAS[k][0], BRAS[k][1]]), 10)); }
           return out.join('\n');
         },
         renvois: z => {

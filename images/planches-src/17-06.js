@@ -1,6 +1,12 @@
 // Planche 17-06 — Le renfort de porte (chapitre 22, « La porte, et l'endroit où elle cède »).
 // Aucune cote : le chapitre ne donne aucune dimension. L'échelle est portée par les objets
 // connus (le montant en coupe, la porte, la poignée).
+//
+// La charte : vue de l'intérieur, la porte passe derrière la barre, en gris loin et au trait
+// moyen, pour que la barre et ses blocs se lisent d'abord ; les coupes tramées et les plans
+// restent sans gris. Le rouge : trois points d'ancrage que le chapitre fait vérifier — la vis
+// qui mord dans le montant, le clou du bloc qui y entre, la butée de l'encoche sous le pied de
+// la perche. La flèche du coup d'épaule est une charge, pas un geste : elle reste noire.
 
 module.exports = (h) => {
   const W = t => h.a[t].replace('fill="none"', 'fill="#ffffff"');   // trait sur aplat blanc
@@ -109,6 +115,8 @@ module.exports = (h) => {
             // la vis longue
             P([[121.5, 63.5], [126, 66], [212, 66], [219, 68], [212, 70], [126, 70], [121.5, 72.5]], h.a.plein),
             coupure(X(330), Y(-4), X(330), Y(131)),
+            // la pointe de la vis : elle mord dans le montant, pas dans le vide
+            h.controle(X(214), Y(68), 11),
           ].join('\n');
         },
         renvois: z => {
@@ -142,7 +150,7 @@ module.exports = (h) => {
             R(-3, 0, 816, 2035, W('arete')),
             h.ligne(X(-73), Y(2105), X(-3), Y(2035), h.a.detail),
             h.ligne(X(886), Y(2105), X(816), Y(2035), h.a.detail),
-            R(0, 12, 813, 2032, W('contour')),
+            R(0, 12, 813, 2032, h.a.arete.replace('fill="none"', h.a.loin.split(' ')[0])),
             R(120, 1170, 693, 1880, h.a.detail),
             R(120, 190, 693, 950, h.a.detail),
             h.cercle(X(748), Y(915), 34 * s, W('arete')),
@@ -186,6 +194,8 @@ module.exports = (h) => {
             clou(22, -70, 25),
             clou(52, -70, 25),
             clou(120, -50, 100),
+            // le clou long entre dans le montant : sinon le bloc s'arrache
+            h.controle(X(-44), Y(120), 10),
           ].join('\n');
         },
         renvois: z => {
@@ -236,6 +246,8 @@ module.exports = (h) => {
             P([[hautH, 55], [972, -20], [900, -20], [hautB, 55]], h.a.blanc),
             P([[hautH, 55], [972, -20], [900, -20], [hautB, 55]], h.a.contour, false),
             coupure(X(hautB), Y(55), X(hautH), Y(55)),
+            // la butée de l'encoche : le pied de la perche s'y appuie
+            h.controle(X(966), Y(-8), 13),
           ].join('\n');
         },
         renvois: z => {

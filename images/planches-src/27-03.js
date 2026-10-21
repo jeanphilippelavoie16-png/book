@@ -8,6 +8,11 @@
 // Étapes 34 et 47-48 pour l'encadré : la dent de lait ne se remet jamais.
 // Rien ne se construit : aucune cote. Les dents sont dessinées en mm d'adulte (incisive
 // centrale du haut), mis à l'échelle k (unités de vue par mm) dans chaque vue.
+//
+// La charte : pas de gris (la tasse est en coupe, la tête est un corps). Le rouge, cinq marques :
+// les deux doigts qui pincent la couronne, la dent qu'on trempe et ressort, la poussée dans le
+// trou, et le cercle sur le bord qui doit arriver au niveau des voisines. Le va-et-vient tournant
+// reste noir : il accompagne la poussée, une seule flèche rouge par vue.
 module.exports = (h) => {
   const A = h.a, F = h.formes;
   const f = v => (Math.round(v * 10) / 10).toString();
@@ -127,12 +132,23 @@ module.exports = (h) => {
     const T = rep(z.l * 0.5, 22 + 20.8 * k, k);
     return { k, T, d: 8 };                        // d : la dent qui entre, 8 mm plus bas que sa place
   };
-  // Vue 5 : la tête de profil, le linge mordu.
+  // Vue 5 : la tête de profil (bibliothèque de formes), regard vers la droite, repère à l'oreille,
+  // en mm ; le linge sort de la bouche vers l'avant.
   const g5 = z => {
-    const e = Math.min((z.h - 10) / 285, (z.l - 10) / 240);
-    return { e, x: 6 + 91 * e, y: 4 + 126 * e };
+    const e = Math.min((z.l - 10) / 250, (z.h - 46) / 277);
+    return { e, T: rep(z.l - 6 - 159 * e, 10 + 129 * e, e) };
   };
-
+  // le linge plié en trois, pincé entre les lèvres : un point à s mm devant la bouche, à v (−0,5 dessus, 0,5 dessous)
+  // de son épaisseur ; le contour : le bout replié en avant, en deux plis
+  const EP_LINGE = 17, L_LINGE = 52;
+  const surLinge = (g, e, s, v) => { const u = g.axe, n = [-u[1], u[0]]; return [g.bouche[0] + u[0] * s * e + n[0] * v * EP_LINGE * e, g.bouche[1] + u[1] * s * e + n[1] * v * EP_LINGE * e]; };
+  const linge = (g, e) => {
+    const P = (s, v) => surLinge(g, e, s, v).map(f).join(' ');
+    const r = EP_LINGE / 4;
+    const d = `M${P(-14, -0.5)} L${P(L_LINGE, -0.5)} Q${P(L_LINGE + r * 1.6, -0.5)} ${P(L_LINGE + r * 1.6, -0.25)} Q${P(L_LINGE + r * 1.6, 0)} ${P(L_LINGE, 0)}`
+      + ` Q${P(L_LINGE + r * 1.9, 0)} ${P(L_LINGE + r * 1.9, 0.25)} Q${P(L_LINGE + r * 1.9, 0.5)} ${P(L_LINGE, 0.5)} L${P(-14, 0.5)} Z`;
+    return [h.path(d, A.arete.replace('fill="none"', 'fill="#FFFFFF"')), h.path(`M${P(2, 0)} L${P(L_LINGE, 0)}`, A.fin)].join('\n');
+  };
   return {
     ref: '27-03',
     titre: 'Replanter une dent permanente',
@@ -147,7 +163,7 @@ module.exports = (h) => {
         dessin: z => {
           const { k, T } = g1(z);
           const [xg, y] = T([-4.4, -4.5]), [xd] = T([4.35, -4.5]);
-          return [dent(T, k, bC), h.fleche(`M${f(xg - 7 * k)} ${f(y)} L${f(xg - 1.2 * k)} ${f(y)}`), h.fleche(`M${f(xd + 7 * k)} ${f(y)} L${f(xd + 1.2 * k)} ${f(y)}`)].join('\n');
+          return [dent(T, k, bC), h.geste(`M${f(xg - 7 * k)} ${f(y)} L${f(xg - 1.2 * k)} ${f(y)}`), h.geste(`M${f(xd + 7 * k)} ${f(y)} L${f(xd + 1.2 * k)} ${f(y)}`)].join('\n');
         },
         renvois: z => {
           const { T } = g1(z);
@@ -178,7 +194,7 @@ module.exports = (h) => {
           out.push(h.ligne(xl0, yl, xl1, yl, A.detail));
           // tremper, ressortir
           const [, yb0] = T([0, 0.1]);
-          out.push(deux(`M${f(cx)} ${f(yb0 - 26 * e)} L${f(cx)} ${f(yb0 - 5 * e)}`));
+          out.push(h.geste(`M${f(cx)} ${f(yb0 - 26 * e)} L${f(cx)} ${f(yb0 - 5 * e)}`, { double: true }));
           return out.join('\n');
         },
         renvois: z => {
@@ -201,7 +217,7 @@ module.exports = (h) => {
           const p = t => [ax + rx * Math.cos(t * Math.PI / 180), ay + ry * Math.sin(t * Math.PI / 180)];
           const [p0, p1] = [p(160), p(20)];
           out.push(deux(`M${f(p0[0])} ${f(p0[1])} A${f(rx)} ${f(ry)} 0 0 0 ${f(p1[0])} ${f(p1[1])}`));
-          out.push(h.fleche(`M${f(ax)} ${f(ay + ry + 9 * k)} L${f(ax)} ${f(ay + ry + 1.5 * k)}`));
+          out.push(h.geste(`M${f(ax)} ${f(ay + ry + 9 * k)} L${f(ax)} ${f(ay + ry + 1.5 * k)}`));
           return out.join('\n');
         },
         renvois: z => {
@@ -221,6 +237,8 @@ module.exports = (h) => {
           const out = [rangee(T, true), h.path(lisse(COURONNE.map(Td), true), bA), gencive(T)];
           const [x0, y0] = T([-22, 0.1]), [x1] = T([22, 0.1]);
           out.push(h.ligne(x0, y0, x1, y0, A.cache));
+          const [bx, by] = T([4.25, 0.1]);               // le bord de la dent remise, sur la ligne
+          out.push(h.controle(bx, by, 14));
           return out.join('\n');
         },
         renvois: z => {
@@ -231,25 +249,19 @@ module.exports = (h) => {
       },
       linge: {
         titre: 'Mordre un linge plié',
+        // la tête simple (tetes/moteur.js), les lèvres serrées sur le linge plié en trois, de 17 mm ; le linge
+        // est peint derrière la tête : ce qui entre dans la bouche se cache sous les lèvres
         dessin: z => {
-          const { e, x, y } = g5(z);
-          const t = F.tete({ x, y, echelle: e });
-          const [bx, by] = t.bouche;
-          const P = (u, v) => [bx + u * e, by + v * e];
-          const pts = L => L.map(p => p.map(f).join(' ')).join(' L');
-          // le linge plié, pris entre les dents : il sort d'entre les lèvres et retombe un peu
-          const lin = [
-            h.path(`M${pts([P(-14, -4.6), P(8, -4.8), P(18, -3.8), P(25, -0.6)])} Q${P(31, 3.6).map(f).join(' ')} ${P(25.6, 8.6).map(f).join(' ')} ` +
-              `L${pts([P(17, 6.4), P(6, 5), P(-14, 4.8)])} Z`, bA),
-            h.path(lisse([P(0, -1.6), P(12, -1.6), P(20.5, -0.2), P(26.6, 3)]), A.fin),
-            h.path(lisse([P(0, 1.7), P(12, 1.9), P(20, 3.6), P(25.2, 5.9)]), A.fin),
-          ];
-          return [lin.join('\n'), t.toString()].join('\n');
+          const { e, T } = g5(z);
+          const o = T([0, 0]);
+          return String(F.teteSimple({ x: o[0], y: o[1], echelle: e, bouche: 'serre', epaisseur: EP_LINGE, objet: g => linge(g, e) }));
         },
         renvois: z => {
-          const { e, x, y } = g5(z);
-          const [bx, by] = h.formes.tete({ x, y, echelle: e }).bouche;
-          return [{ n: 7, rond: [Math.min(z.l - 14, bx + 22 * e), by + 30 * e + 20], cible: [bx + 22 * e, by + 5 * e], texte: 'un linge propre plié, mordu' }];
+          const { e, T } = g5(z);
+          const o = T([0, 0]);
+          const t = F.teteSimple({ x: o[0], y: o[1], echelle: e, bouche: 'serre', epaisseur: EP_LINGE });
+          const c = surLinge(t, e, 34, 0.5);
+          return [{ n: 7, rond: [Math.min(z.l - 14, c[0]), c[1] + 34], cible: c, texte: 'un linge propre plié, mordu' }];
         },
       },
     },

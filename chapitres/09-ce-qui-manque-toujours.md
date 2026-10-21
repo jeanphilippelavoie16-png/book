@@ -2,260 +2,235 @@
 
 *Tome 1 — Tenir*
 
-**Les deux.** Le stock existe aux deux endroits et se corrige aux deux, mais pas avec la même règle : à la maison, un manque est une commission ; au chalet, un manque dure jusqu'à la réouverture du chemin.
+**Les deux**
 
 ---
 
 ## 1. En une ligne
 
-La passe de correction du stock : la méthode pour trouver, dans une réserve déjà montée, les consommables qui ne se mangent pas et ceux qui meurent en silence sur la tablette avant le jour où on les cherche.
+Avant chaque hiver, calculer ce qui va manquer (le sel, les pièces qui s'usent, ce qui se périme sans changer d'apparence) et le commander à temps ; quand un article ou un instrument de mesure manque quand même, le fabriquer avec ce qu'on a, ou faire sans.
 
 ---
 
 ## 2. Quand l'utiliser
 
-**Le bon moment.** Une fois l'achat du chapitre 00b fait et les listes des chapitres 5, 6, 7 et 8 montées, jamais avant : ce chapitre corrige une liste, il n'en crée pas. À l'inventaire d'automne, avant la dernière commande de l'année — et au chalet, avant que le chemin ferme, ce qui avance la date de plusieurs semaines sur celle du village. Après chaque hiver, pour transformer ce qui a manqué en ligne de commande, pendant qu'on s'en souvient encore. Après une arrivée neuve — un poêle, une scie, un congélateur, un enfant — parce que chaque objet neuf traîne derrière lui une famille de consommables que personne n'a comptés.
-
-**Le mauvais moment.** Pour arbitrer un budget serré. Une liste d'oublis est plate : tout y pèse pareil, parce qu'elle est rangée par famille et non par conséquence. La suivre au pied de la lettre achète du coton à fromage avant du bois de chauffage. Le classement par priorité est au chapitre 00b, et c'est lui qui tranche quand l'argent manque.
-
----
-
-## 3. Pourquoi ça marche
-
-Un stock se bâtit en imaginant des repas ; ce qui manque en février, c'est ce qui ne se mange pas. Le sel, le nitrite et le vinaigre sont ce qui change la viande d'octobre en nourriture de mars. On stocke l'objet, pas son **usure** : la scie dure, sa chaîne et sa lime s'en vont. Ce qui se dégrade **en silence** meurt sans changer d'apparence, qu'on s'en serve ou non. Et la quantité juste se calcule sur le **délai de réapprovisionnement**, pas sur la consommation : une heure au village, l'hiver entier au chalet.
+- **L'achat du ch. 00b est fait et les listes des ch. 5 à 8 sont montées** : on calcule combien garder de chaque article (étapes 1 à 10).
+- **L'automne arrive** : on fait l'inventaire avant la dernière commande de l'année ; au chalet, avant que le chemin ferme, plusieurs semaines plus tôt qu'en ville (section 5).
+- **L'hiver finit** : on note ce qui a manqué pendant qu'on s'en souvient (étape 6).
+- **Un poêle, une scie, un congélateur ou un enfant arrive** : chacun amène des consommables que personne n'a comptés (étapes 1 à 5).
+- **Un article manque et on ne peut plus le racheter, ou un instrument de mesure est mort** (section 7).
 
 ---
 
-## 4. Matériel
+## 3. Matériel
 
-- **Balance au gramme** — le sel se dose en % du poids de la viande (→ §9 : fléau, jamais pour le nitrite).
-- **Deux thermomètres à sonde** — le second est le seul substitut du premier : rien d'autre ne lit 74 °C à cœur.
-
----
-
-## 5. La passe de correction
-
-Chapitre de référence : les tableaux remplacent la procédure numérotée.
-
-**La liste des articles n'est pas ici.** Elle est au **chapitre 00b**, classée par priorité, chaque ligne disant si l'article est pour la maison, pour le chalet ou pour les deux. C'est le seul inventaire du livre. Ce chapitre-ci donne ce que la liste ne peut pas contenir : la méthode qui la remplit, qui la corrige d'une année à l'autre et qui dit combien, chez soi, de chaque ligne.
-
-### 5.1 Les quatre familles de calcul
-
-Un consommable se calcule selon ce qui l'use, et il n'y a que quatre façons d'être usé. Se tromper de famille est l'erreur qui produit les manques, pas l'oubli.
-
-| Famille | Ce qui fixe la quantité | Comment on l'établit | L'erreur typique |
-| --- | --- | --- | --- |
-| **1. Lié à une masse traitée** — sel, nitrite, vinaigre, couvercles plats, papier de boucherie, ficelle, coton à fromage | Le poids de matière qui passe entre les mains dans l'année | Masse annuelle × le taux de la méthode retenue, plus la perte. Les pourcentages de sel se calculent **toujours sur le poids de la viande**, et le sel de surface qui coule ne se récupère pas | Compter par année quand ça se compte par carcasse. Une année à deux orignaux n'est pas une année à un orignal majorée |
-| **2. Lié à l'usure d'un outil** — limes, chaînes, bougies, filtres, pierres, lames, électrodes | L'usage de l'outil, pas le calendrier | Usage annuel ÷ durée de vie **mesurée**. Une lime dure un nombre d'affûtages, une chaîne un nombre de cordes, une électrode un nombre de centimètres de cordon. Aucun de ces nombres ne s'apprend autrement qu'en usant | Stocker l'outil et pas son usure. On a une chaîne de rechange, jamais trois, et la deuxième lâche le même hiver que la première |
-| **3. Lié à une personne et à un temps** — savon, papier hygiénique, produits d'hygiène menstruelle, couches, café, médicaments d'ordonnance | Le nombre de personnes multiplié par la durée d'isolement retenue | Consommation mensuelle observée × durée retenue × une marge de 1,5 — marge de planification retenue par la maisonnée, pas valeur mesurée. C'est la seule famille où la marge se prend en multipliant, parce que la consommation monte quand tout le reste se dégrade | Calculer sur la consommation d'une semaine ordinaire. Un hiver n'est pas une semaine ordinaire répétée |
-| **4. Ne dépend pas de l'usage du tout** — essence, eau de Javel, piles, semences, caoutchoucs, avertisseurs, médicaments | Rien. Ces articles meurent qu'on s'en serve ou non | **La quantité ne se calcule pas : c'est la date qui se gère.** Voir 5.4 | Croire qu'on se protège en stockant plus. Stocker plus de ce qui périme, c'est jeter plus. La protection est dans la rotation, pas dans le volume |
-
-Un article peut tomber dans deux familles à la fois, et c'est le cas du plus important : les médicaments d'ordonnance tirent leur **quantité** de la famille 3 et leur **date** de la famille 4. Calculer l'une sans l'autre donne une réserve suffisante et morte.
-
-La quatrième famille est celle que les listes d'achat ratent systématiquement, parce qu'une liste d'achat sait écrire une quantité et ne sait pas écrire une date.
-
-### 5.2 Calculer une couverture
-
-**Couverture en jours = quantité en réserve ÷ consommation quotidienne mesurée.** Une moyenne imprimée ne connaît ni la maisonnée, ni le bâtiment, ni l'hiver qui s'en vient.
-
-Quatre règles rendent le résultat honnête.
-
-**La couverture d'une réserve est celle de son article le plus court, pas la moyenne de ses articles.** Un stock de douze mois qui contient trois semaines de sel est un stock de trois semaines pour tout ce qui doit être salé, et de douze mois pour le reste — et comme la viande arrive en octobre, c'est la ligne de trois semaines qui décide de l'hiver. C'est pour ça que la passe cherche les manques et non les abondances.
-
-**Une couverture se calcule à la consommation de la saison visée, pas à la moyenne de l'année.** Les postes qui montent en janvier montent ensemble : bois, éclairage, calories, piles. Diviser par une moyenne annuelle donne un chiffre rassurant et faux.
-
-**La couverture se compare au délai de réapprovisionnement, pas à un idéal.** À la maison, la cible est le délai de la pire semaine — une tempête, une route coupée, un magasin vide. Au chalet, la cible est la fenêtre de transport : ce n'est pas un nombre de jours qu'on choisit, c'est la date à laquelle le chemin ferme et celle à laquelle il rouvre.
-
-**Certaines couvertures sont plafonnées, et le plafond n'est pas un chiffre, c'est un bâtiment.** L'essence liquide ne brûle pas : ce sont ses vapeurs, et elles sont plus lourdes que l'air. Elles coulent au plancher, suivent la pente, passent sous une porte et vont trouver la veilleuse du chauffe-eau ou l'étincelle d'un interrupteur à l'autre bout de la pièce. Un bidon qui suinte dans un cabanon attenant ne fait rien pendant des semaines, puis fait tout d'un coup. Le carburant vit donc dans une remise détachée, au sol, à l'ombre, jamais sous un plancher habité ni au-dessus d'un sous-sol. Quand le volume voulu ne rentre pas là, le calcul ne s'arrête pas : il change de variable. On réduit la consommation — machine plus sobre, moins d'heures de génératrice —, on multiplie les voyages, ou on choisit une filière qui ne brûle pas d'essence.
-
-### 5.3 Faire tourner le stock
-
-| Geste | Ce qu'il empêche |
-| --- | --- |
-| **Dater à l'achat, au marqueur, sur l'article** — pas sur le bac, qui se vide et se remplit | La date d'un bac ne veut rien dire quand il reste deux articles du fond |
-| **Premier entré, premier sorti.** Ce qui rentre va au fond, jamais devant | L'article du fond atteint sa date sans jamais être vu |
-| **Le double bac : un en service, un plein.** On recommande au moment où on entame le plein, pas au moment où on le vide | Commander quand le stock est à zéro, c'est être à zéro pendant tout le délai de livraison — une heure au village, un hiver au chalet |
-| **Faire tourner par l'usage**, en cuisinant et en utilisant le stock dans l'année ordinaire | Un stock qui ne sert jamais n'est pas conservé, il est oublié ; et personne ne découvre en urgence qu'il ne sait pas s'en servir |
-
-**Deux pièges d'étiquette.** «Meilleur avant » est une date de qualité et non de salubrité : la date échue ne rend pas l'aliment dangereux. La **date limite d'utilisation** est autre chose et ne se dépasse pas, mais elle ne figure que sur quelques produits — préparations pour nourrissons, substituts de repas, suppléments nutritifs.
-
-Le deuxième piège fonctionne à l'envers du réflexe. **Un aliment qui se conserve plus de 90 jours peut n'avoir aucune date** : conserves, aliments secs, congelés. L'absence de date n'est donc pas une garantie de stabilité. Une boîte sans date est une boîte d'âge inconnu, et c'est exactement le contenu d'un stock de chalet. D'où le marqueur à l'achat : la date que l'emballage ne donne pas, c'est le lecteur qui l'écrit.
-
-### 5.4 Ce qui meurt sans être touché
-
-La famille 4, mécanisme par mécanisme. Aucun de ces articles ne change d'apparence avant l'instant où on compte dessus.
-
-| Article | Ce qui se dégrade, et pourquoi | Ce qu'on voit avant | Comment on le gère |
-| --- | --- | --- | --- |
-| **Essence** | Oxydation : les gommes formées bouchent les gicleurs et collent les soupapes | Ambrée ou brunie, odeur de vernis, dépôt gommeux — mais tard | Vider les bidons dans la machinerie au printemps, remplir frais à l'automne, avec du stabilisant mis au remplissage : un bidon qui attend plus de trois mois en a besoin, et le stabilisant ne rattrape pas une essence déjà vieillie. Les ennuis peuvent paraître en moins d'un mois ; la chaleur, l'humidité, les écarts de température et un bidon à moitié vide les accélèrent |
-| **Eau de Javel** | Le titre en chlore actif s'effondre en entreposage | Rien, sauf l'odeur qui s'en va | Date d'achat au marqueur sur la bouteille. Périmée à un an si elle a été gardée à la température de la pièce, plus tôt si elle a eu chaud — ch. 10 |
-| **Piles alcalines** | L'électrolyte sort et ronge les contacts. C'est de l'hydroxyde de potassium | Poudre blanche aux bornes — et l'appareil est déjà perdu | Sortir les piles des appareils rangés. Mesurer au multimètre, pas deviner. Inventorier par **format**, pas par nombre |
-| **Caoutchoucs : joints toriques, joints plats, tuyaux souples, détendeurs** | Le plastifiant migre et le matériau durcit. La fissure s'ouvre au froid, pas au chaud | Surface dure et brillante, craquelures fines | Un jeu complet par appareil à démonter. Vérifier à la première grosse froidure, pas au printemps |
-| **Semences** | Le pouvoir germinatif baisse d'année en année, et pas au même rythme d'une espèce à l'autre | Rien : une graine morte a exactement l'air d'une graine | Test de germination, section 6. Il n'y a pas de seuil à retenir, il y a un multiplicateur : on sème en proportion de ce qui a levé. Ch. 100 |
-| **Médicaments** | Perte d'activité, imprévisible d'une molécule à l'autre. La chaleur et l'humidité l'accélèrent ; le gel défait les suspensions et les liquides | Rien | Au sec et au frais, jamais dans la salle de bain ni dans un véhicule. Ce qui se garde au-delà de sa date et ce qui ne se garde pas se tranche au ch. 32 |
-| **Avertisseur de fumée** | La cellule de détection vieillit | Rien : l'appareil répond encore au bouton d'essai | Remplacer **tous les 10 ans à partir de la date de fabrication**. L'essai mensuel et le remplacement aux 10 ans sont deux consignes distinctes : un avertisseur qui sonne au bouton a quand même une date |
-| **Avertisseur de monoxyde de carbone** | Même chose | Rien | Remplacer **selon les recommandations du fabricant**. Le livre ne donne pas de nombre d'années |
-| **Bouteille de propane** | La bouteille elle-même vieillit, indépendamment de ce qu'elle contient. Ce qui la tue, c'est la rouille du pied, par en dessous, là où elle a passé l'hiver posée à même le sol ou dans la neige. La paroi s'amincit sans que le contenu change | Rien du côté du gaz ; la date est estampée au collet, et la rouille du pied ne se voit qu'en couchant la bouteille | Entreposer debout, dehors, sur une planche ou une dalle, jamais à même le sol. Garder le collet lisible : une bouteille dont la date ne se lit plus ne se fait plus remplir nulle part, ce qui fait disparaître une réserve de propane sans qu'une seule goutte ait été brûlée. Requalification aux 10 ans : dix ans après la dernière date estampée au collet, la bouteille ne se remplit plus tant qu'elle n'a pas été requalifiée |
-
-### 5.5 Répartir entre les deux endroits
-
-La même ligne n'a pas le même poids au village et au bout du chemin. Trois règles suffisent à trancher.
-
-**Ce qui se dégrade vite et se rachète vite reste à la maison.** Piles, eau de Javel, médicaments, aliments frais, essence en petite quantité. Au chalet, ces articles passent leur date avant d'être utilisés : les y stocker, c'est les y jeter. La maison a l'aqueduc, l'égout et un magasin : l'eau qu'on y garde en réserve sert à la panne, pas à l'année.
-
-**Ce qui est stable, lourd et encombrant va au chalet, et se décide avant la fermeture du chemin.** Sel, sucre, vinaigre, papier hygiénique, savon, essence en bidons, propane, bois. Ce sont les articles dont le coût réel n'est pas le prix mais le transport, et ils se commandent deux fois par année plutôt que douze.
-
-**Ce qui est critique et léger est aux deux endroits, en double.** Thermomètre à sonde, lampe frontale, trousse de premiers soins, ordonnance écrite, lunettes de rechange, piles des formats critiques. Le doublon coûte peu et supprime la seule situation qui n'a pas de solution : l'objet indispensable qui est à l'autre endroit.
-
-**Un renvoi, pas une liste.** Quel article tombe dans quel palier d'achat, et pour quel endroit : chapitre 00b.
+- **Balance au gramme** : pèse le sel en pourcentage du poids de la viande. Sans balance, on prend le fléau de la section 7, jamais pour le nitrite.
+- **Deux thermomètres à sonde** : le deuxième remplace le premier, parce que rien d'autre ne mesure 74 °C à cœur (section 7).
 
 ---
 
-## 6. Points de contrôle
+## 4. Procédure
+
+### Classer chaque article selon ce qui l'use
+
+1. **Prendre la liste du ch. 00b et ranger chaque article dans une des quatre familles des étapes 2 à 5, selon ce qui l'use.** Le ch. 00b dit quoi acheter en premier, et si l'article va à la maison, au chalet ou aux deux ; la famille donne la façon de calculer combien en garder. On monte un stock en pensant aux repas, et on oublie ce qui ne se mange pas : le sel, le nitrite et le vinaigre qui servent à garder la viande, ou la pièce qui s'use. Mais un article manque plus souvent parce qu'on a calculé sa quantité avec la mauvaise famille que parce qu'on l'a oublié. On n'achète pas dans l'ordre des familles : on achèterait le coton à fromage avant le bois de chauffage. Quand l'argent manque, on suit les paliers du ch. 00b.
+2. **Famille 1, ce qui sert à traiter la nourriture : calculer sur le poids qu'on traite.** Ce sont le sel, le nitrite, le vinaigre, les couvercles plats, le papier de boucherie, la ficelle et le coton à fromage.
+ - Multiplier le poids de viande, de poisson ou de légumes qu'on traite dans l'année par le taux de la méthode choisie, puis ajouter la perte : on ne récupère pas le sel de surface qui coule avec le jus.
+ - Toujours calculer les pourcentages de sel sur le poids de la viande.
+ - Compter par carcasse, pas par année : deux orignaux demandent deux fois le sel d'un seul.
+ - {!botulisme} Quand le sel manque, traiter moins de viande au même taux, jamais la même quantité de viande avec moins de sel. Une salaison ou une saumure trop peu salée laisse pousser le botulisme, et le botulisme ne change ni l'odeur, ni le goût, ni l'apparence. Le poisson est le plus exposé, parce que sa toxine se forme dès 3 °C, au réfrigérateur (ch. 67, 68, 69 et 77).
+ - Les 9 % de sel qui permettent de garder un poisson fumé plus de 14 jours au froid sont la teneur du poisson fini, pas un taux à appliquer au poisson cru : ils ne servent pas à calculer le sel à acheter.
+3. **Famille 2, ce qui s'use avec un outil : calculer sur l'usage.** Ce sont les limes, les chaînes, les bougies, les filtres, les pierres, les lames et les électrodes. Diviser l'usage de l'année par la durée de vie qu'on a mesurée soi-même : une lime dure un nombre d'affûtages, une chaîne un nombre de cordes de bois, une électrode un nombre de centimètres de soudure. On apprend ces nombres en usant l'outil, pas au calendrier. L'erreur courante est de stocker l'outil et d'oublier ce qu'il use : la scie dure des années, mais sa chaîne et sa lime s'usent. On a souvent une seule chaîne de rechange, et elle lâche le même hiver que la première.
+4. **Famille 3, ce qu'une personne use avec le temps : calculer sur le nombre de personnes et la durée.** Ce sont le savon, le papier hygiénique, les produits d'hygiène menstruelle, les couches, le café et les médicaments d'ordonnance.
+ - Prendre ce que la maisonnée consomme en un mois (étape 6), le multiplier par le nombre de mois d'isolement qu'on prévoit, puis par 1,5. Ce 1,5 est un choix de prudence, pas une mesure : la consommation monte quand tout le reste se dégrade. Ne pas calculer sur une semaine ordinaire.
+ - Calculer ici la quantité de médicaments d'ordonnance, et gérer leur date avec la famille 4 (étape 20) : si on calcule la réserve sans suivre sa date, on a assez de médicaments, mais ils sont périmés.
+ - {!mal-de-caribou} Calculer le gras de la même façon : la ration de gras de la maisonnée pour une journée, multipliée par le nombre de jours jusqu'au dégel (ch. 19). Le gibier est maigre, et la viande maigre seule mène au mal de caribou, qui tue en quelques semaines. Garder et faire fondre le gras de la chasse d'automne (ch. 72 ; section 7, « Le gras, dans l'animal »).
+5. **Famille 4, ce qui se dégrade même quand on ne s'en sert pas : gérer la date.** Ce sont l'essence, l'eau de Javel, les piles, les semences, les caoutchoucs, les avertisseurs et les médicaments. Ils se dégradent sans changer d'apparence. On ne calcule pas leur quantité : ce qu'on garde en trop se périme, et on le jette. On les protège en faisant tourner le stock (étapes 11 à 14) et en suivant la date de chacun (étapes 15 à 23).
+
+### Calculer la couverture
+
+6. **Mesurer chez soi ce que la maisonnée consomme de chaque article en une journée, et calculer la couverture de l'article, c'est-à-dire le nombre de jours que dure sa réserve : la quantité en réserve divisée par la consommation d'une journée.** Une moyenne prise ailleurs ne tient compte ni de la maisonnée, ni du bâtiment, ni de l'hiver. Au printemps, noter aussi ce qui a manqué pendant l'hiver, et l'ajouter à la commande suivante.
+7. **Calculer la couverture avec la consommation de la saison qu'on prépare.** Le bois, l'éclairage, les calories et les piles montent ensemble en janvier : une moyenne sur l'année donne une couverture plus longue que la vraie.
+8. **Prendre la couverture la plus courte d'un article comme couverture de toute la réserve, et commander cet article en premier.** Un stock de douze mois qui contient trois semaines de sel tient trois semaines pour tout ce qu'il faut saler, et la viande arrive en octobre : sans sel, on ne la garde pas jusqu'au printemps.
+9. **Comparer la couverture au temps qu'il faut pour remplacer l'article.** À la maison, on règle un manque en une commission : la réserve doit couvrir la pire semaine, celle d'une tempête, d'une route coupée ou d'un magasin vide. Au chalet, on ne peut rien racheter avant la réouverture du chemin : la réserve doit couvrir tout le temps où le chemin est fermé, souvent l'hiver entier.
+10. {!vapeurs} {!generatrice} **Garder le carburant dans une remise détachée, et limiter la réserve à ce que la remise peut contenir.** Poser les bidons au sol, à l'ombre, jamais sous un plancher habité, au-dessus d'un sous-sol ni dans un cabanon attenant à la maison : un bidon qui suinte peut y rester des semaines sans que rien n'arrive, puis prendre feu d'un coup. Quand la quantité voulue n'entre pas dans la remise, réduire la consommation (une machine plus sobre, moins d'heures de génératrice), faire plus de voyages, ou choisir une façon de faire qui ne brûle pas d'essence. Faire tourner la génératrice dehors, à au moins 6 m de tout bâtiment, la remise du carburant comprise.
+
+### Faire tourner le stock
+
+11. **Écrire la date d'achat au marqueur sur chaque article, pas sur le bac.** Le bac se vide et se remplit : sa date ne veut plus rien dire quand il reste deux articles au fond.
+ - « Meilleur avant » est une date de qualité, pas de salubrité : passé cette date, l'aliment n'est pas dangereux. On ne dépasse pas la date limite d'utilisation, qu'on trouve seulement sur quelques produits : les préparations pour nourrissons, les substituts de repas et les suppléments nutritifs.
+ - Un aliment qui se conserve plus de 90 jours peut n'avoir aucune date : les conserves, les aliments secs, les congelés. Une boîte sans date ne se garde pas plus longtemps qu'une autre : on ne connaît pas son âge, et c'est le cas de la plupart des articles d'un stock de chalet.
+12. **Ranger ce qui rentre au fond, et prendre ce qu'on sort devant** (premier entré, premier sorti) : sinon l'article du fond atteint sa date sans qu'on le voie.
+13. **Garder deux bacs de chaque article, un en service et un plein, et recommander dès qu'on entame le plein.** Si on attend que le bac soit vide pour commander, on reste sans rien jusqu'au prochain arrivage (étape 9).
+14. **Cuisiner avec le stock pendant l'année ordinaire.** Sinon on l'oublie, et on découvre dans l'urgence qu'on ne sait pas s'en servir.
+
+### Suivre la date de chaque article de la famille 4
+
+15. **Essence : vider les bidons dans la machinerie au printemps, et les remplir d'essence fraîche à l'automne, avec du stabilisateur mis au remplissage.** L'essence s'oxyde : il s'y forme des gommes qui bouchent les gicleurs et collent les soupapes. Les ennuis peuvent commencer en moins d'un mois, et la chaleur, l'humidité, les écarts de température et un bidon à moitié vide les accélèrent. Il faut du stabilisateur dans tout bidon qui attend plus de trois mois ; le stabilisateur ne rattrape pas une essence qui a vieilli. On voit l'essence vieillie tard : elle devient ambrée ou brune, sent le vernis et laisse un dépôt gommeux (section 6).
+16. **Eau de Javel : la compter périmée un an après sa date de fabrication, lue dans le code imprimé sur le contenant, si on l'a gardée à la température de la pièce, plus tôt si elle a eu chaud** (ch. 10, étape 18). Le chlore qu'elle contient se perd pendant l'entreposage sans que rien ne se voie : seule l'odeur s'en va.
+17. **Piles : les sortir des appareils qu'on range, et les compter par format, pas par nombre.** En vieillissant, une pile alcaline laisse sortir un liquide qui ronge les contacts. Quand on voit la poudre blanche aux bornes, le liquide est déjà sorti ; l'appareil est perdu si les contacts sont rongés jusqu'au métal (section 6).
+18. **Caoutchoucs : garder un jeu complet de joints toriques, de joints plats, de tuyaux souples et de détendeurs pour chaque appareil qu'on démonte, et les vérifier à la première grosse froidure.** Avec le temps, le caoutchouc perd ce qui le garde souple : il durcit et fend au froid. On voit une surface dure et brillante, avec de fines craquelures.
+19. **Semences : faire le test de germination avant les semis** (section 5 ; ch. 100). Le taux de germination baisse d'année en année, à un rythme propre à chaque espèce, et une graine morte a l'air d'une graine vivante.
+20. **Médicaments : les garder au sec et au frais, jamais dans la salle de bain ni dans un véhicule.** Ils perdent leur effet à une vitesse qu'on ne peut pas prévoir d'une molécule à l'autre ; la chaleur et l'humidité accélèrent la perte, et le gel défait les suspensions et les liquides. La perte ne se voit pas. Le ch. 32 dit ce qu'on peut garder après la date.
+21. **Avertisseur de fumée : le remplacer 10 ans après sa date de fabrication, même s'il sonne au bouton d'essai** (section 6). Sa cellule, qui détecte la fumée, vieillit sans aucun signe.
+22. {!co} **Avertisseur de monoxyde de carbone : le remplacer à la date que donne le fabricant, 7 à 10 ans après la date de fabrication inscrite au dos, selon le modèle, ou 7 ans quand on ne connaît pas le modèle** (ch. 1 et 6). Sa cellule vieillit de la même façon. En mettre un par étage, sous-sol compris, un dans la pièce du poêle, à au moins 2 m de lui, et un dans chaque pièce où quelqu'un dort la porte fermée : derrière une porte fermée, la personne qui dort est hors de portée de l'avertisseur du corridor, et le monoxyde peut la tuer pendant son sommeil.
+23. **Bouteille de propane : l'entreposer debout, dehors, sur une planche ou une dalle, et garder lisible la date estampée au collet.** La bouteille vieillit, peu importe ce qu'elle contient. La rouille amincit la paroi par en dessous, au pied, là où la bouteille a passé l'hiver sur le sol ou dans la neige ; on ne la voit qu'en penchant la bouteille, robinet fermé. Le dépôt ne remplit pas une bouteille dont la date ne se lit plus, ni une bouteille dont la dernière date estampée a plus de 10 ans et qui n'a pas été requalifiée (inspectée, puis estampée de nouveau).
+
+### Répartir entre la maison et le chalet
+
+24. **Garder à la maison ce qui se dégrade vite et qu'on rachète facilement** : l'eau de Javel, les médicaments, les aliments frais, l'essence en petite quantité. Au chalet, ces articles passent leur date avant qu'on s'en serve. À la maison, on garde de l'eau pour la durée d'une panne, pas pour l'année.
+25. **Monter au chalet ce qui est stable, lourd et encombrant, avant la fermeture du chemin** : le sel, le sucre, le vinaigre, le papier hygiénique, le savon, l'essence en bidons, le propane, le bois. Ils coûtent surtout à transporter : on les commande deux fois par année plutôt que douze.
+26. **Avoir en double ce qui est indispensable et léger, un à chaque endroit** : le thermomètre à sonde, la lampe frontale, la trousse de premiers soins, l'ordonnance écrite, les lunettes de rechange et les piles des formats dont les appareils importants ont besoin. Le double coûte peu, et quand l'objet indispensable est resté à l'autre endroit, on n'a aucune solution.
+
+---
+
+## 5. Points de contrôle
 
 | Moment | Ce qu'on vérifie | Cible chiffrée | Si c'est hors cible |
 | --- | --- | --- | --- |
-| À chaque achat | La date portée par l'article | Date d'achat au marqueur sur l'**article**, pas sur le bac. Une conserve ou un aliment sec qui se garde plus de 90 jours peut arriver sans aucune date | Article sans date : le dater le jour où on le trouve et le sortir en premier, puisque son âge est inconnu |
-| Chaque mois, aux deux endroits | Avertisseurs de fumée et de monoxyde de carbone | «Chaque mois, vérifiez vos avertisseurs en appuyant sur le bouton d'essai quelques secondes pour entendre le signal sonore » | Pile neuve. Si le signal ne revient pas avec une pile neuve, l'appareil est fini : le remplacer le jour même |
-| Avril, au ramonage | Créosote dans le tuyau et la cheminée | Ramonage **au moins 1 fois par année** ; au printemps, les dépôts sont encore secs et tombent en poudre, alors qu'à l'automne ils sont collés | Ramoner soi-même : hérisson d'acier au diamètre du tuyau, par le haut, poêle froid, registre fermé et bas du tuyau bouché. Une bûche de ramonage ou un additif ne remplace pas le geste : ces produits assèchent une partie des dépôts, ils ne les sortent pas du tuyau |
-| Avril | Joint de porte de poêle | Un billet de banque pincé dans la porte fermée doit résister quand on tire | Remplacer le joint et le ciment réfractaire avant l'automne |
-| Avril | Essence des bidons | Bidons vidés dans la machinerie avant l'été, puis remplis de carburant frais à l'automne | Brûler le vieux carburant dans un moteur tolérant, jamais dans la scie à chaîne |
-| Mai, avant les semis | Pouvoir germinatif des semences | 10 graines sur papier humide, comptées à 10 jours, lot par lot et espèce par espèce. Le pourcentage levé n'est pas une note de passage, c'est le multiplicateur du semis | 5 graines levées sur 10, on sème deux fois plus dense ; 2 sur 10, le lot se remplace parce que la densité ne rattrape plus l'espacement des plants. Ch. 100 |
-| Juin | Piles, aux bornes | Aucune poudre blanche, aucune trace de coulée. Tension mesurée au multimètre, pas devinée | Jeter la pile **et** l'appareil dont les contacts sont rongés |
-| Septembre, inventaire, aux deux endroits | La couverture la plus courte de la réserve | Couverture en jours = quantité en réserve ÷ consommation quotidienne. C'est l'article le plus court qui donne la couverture du stock, jamais la moyenne des articles | Commander celui-là en premier. À la maison, la semaine même ; au chalet, avant la fermeture du chemin |
-| Septembre, inventaire | Sel restant contre le poids de viande attendu | Poids de viande prévu × pourcentage de la méthode, **calculé sur le poids de la viande**, × 2 | Commander avant la fermeture du chemin. Le sel est le seul poste de cette liste qui n'a aucun substitut local commode |
-| Septembre | Gras disponible pour l'hiver | Gras en réserve ≥ ration quotidienne de gras de la maisonnée × jours jusqu'au dégel — calcul au ch. 19 | Voir l'encadré DANGER |
-| Septembre | Formats de piles contre appareils critiques | Chaque appareil critique a son format en réserve | Remplacer l'appareil orphelin plutôt que de chercher le format |
-| Septembre, inventaire | Âge et propreté des avertisseurs | Avertisseur de fumée : remplacement **tous les 10 ans à partir de la date de fabrication**. Avertisseur de CO : **selon les recommandations du fabricant**. Nettoyage annuel des appareils à piles, aspirateur passé légèrement à l'intérieur et à l'extérieur du boîtier | Boîtier sans date de fabrication lisible : remplacer. Acheter le remplacement d'un appareil qui arrive au bout de ses 10 ans **avant** la fermeture du chemin — c'est une dépense prévue, pas une urgence |
-| Octobre, à la carcasse | Refroidissement | **7 °C dans les 24 premières heures** | Fendre les quartiers, ouvrir la cage, chercher le courant d'air |
-| Novembre, à la première grosse froidure | Détendeurs, joints toriques, tuyaux souples | Aucun caoutchouc craquelé, aucune fuite au savon | Remplacer sur-le-champ, pas au printemps |
-| En continu | Couverture en avertisseurs de CO | Un par étage, sous-sol compris, et **un dans chaque pièce où quelqu'un dort la porte fermée** : une porte close met le dormeur hors de portée de l'appareil du corridor | Aucun appareil à combustion ne fonctionne tant que l'avertisseur ne fonctionne pas |
-| Après chaque panne | Congélateur | Un cube de glace dans un verre, au congélateur : fondu et regelé au fond, le contenu a dégelé | ch. 74 |
+| À chaque achat | La date sur l'article | Date d'achat écrite au marqueur sur l'article, pas sur le bac (étape 11) | Si on trouve un article sans date, le dater ce jour-là et le sortir en premier |
+| Chaque mois, aux deux endroits | Avertisseurs de fumée et de monoxyde de carbone | On tient le bouton d'essai quelques secondes, et le signal sonne | Mettre une pile neuve. Si le signal ne revient pas avec une pile neuve, l'appareil est fini : le remplacer le jour même |
+| L'hiver, avant les semis | Taux de germination des semences | 20 graines sur un papier humide, lot par lot et espèce par espèce, comptées quand il n'en lève plus depuis plusieurs jours (ch. 100). On règle la densité du semis sur la proportion qui lève | Si 10 graines sur 20 lèvent, semer deux fois plus dense. Si 4 sur 20 seulement lèvent, remplacer le lot : semer plus dense ne rattrape plus l'espacement des plants (ch. 100) |
+| Avril, au ramonage | Créosote dans le tuyau et la cheminée | Ramonage au moins 1 fois par année ; au printemps, les dépôts sont secs et tombent en poudre, à l'automne ils collent | Ramoner par le haut avec une brosse de ramonage au diamètre du tuyau, le poêle froid, le registre fermé et le bas du tuyau bouché. Une bûche de ramonage ou un additif assèche une partie des dépôts sans les sortir du tuyau |
+| Avril | Joint de porte de poêle | Un billet de banque pincé dans la porte fermée résiste quand on tire | Remplacer le joint et le ciment réfractaire avant l'automne |
+| Avril | Essence des bidons | Bidons vidés dans la machinerie avant l'été, remplis d'essence fraîche à l'automne (étape 15) | Brûler la vieille essence dans un moteur qui la tolère (section 6) |
+| Juin | Piles, aux bornes | Aucune poudre blanche, aucune trace de coulée. Tension mesurée au multimètre | Jeter la pile **et** l'appareil dont les contacts sont rongés |
+| Septembre, inventaire, aux deux endroits | L'article qui a la couverture la plus courte | Sa couverture est celle de tout le stock (étape 8) | Le commander en premier : à la maison, la semaine même ; au chalet, avant la fermeture du chemin |
+| Septembre, inventaire | Sel restant, contre le poids de viande attendu | Poids de viande prévu × pourcentage de la méthode, calculé sur le poids de la viande, × 2 | Commander avant la fermeture du chemin. Le sel n'a aucun substitut commode sur place (section 7) |
+| Septembre | Gras disponible pour l'hiver | Gras en réserve ≥ ration quotidienne de gras de la maisonnée × jours jusqu'au dégel (étape 4) | Faire fondre le gras de la chasse d'automne (section 7 ; ch. 72) |
+| Septembre | Formats de piles, contre les appareils importants | Chaque appareil important a son format en réserve | Remplacer l'appareil dont le format manque plutôt que de chercher le format |
+| Septembre, inventaire | Âge et propreté des avertisseurs | Dates de remplacement des étapes 21 et 22. Nettoyage annuel des appareils à piles : passer l'aspirateur légèrement à l'intérieur et à l'extérieur du boîtier | Si le boîtier n'a pas de date de fabrication lisible, remplacer l'avertisseur. Acheter le remplacement d'un appareil en fin de vie **avant** la fermeture du chemin |
+| Octobre, à la carcasse | Refroidissement | **7 °C** à cœur dans les 24 premières heures | Fendre les quartiers, ouvrir la cage thoracique, chercher un courant d'air |
+| Novembre, à la première grosse froidure | Détendeurs, joints toriques, tuyaux souples | Aucun caoutchouc craquelé, aucune fuite à l'eau savonneuse | Remplacer sur-le-champ |
+| En continu | Avertisseurs de CO en place | Un par étage, sous-sol compris, un dans la pièce du poêle et un dans chaque pièce où quelqu'un dort la porte fermée (étape 22) | N'allumer aucun appareil qui brûle tant que l'avertisseur ne marche pas |
+| Après chaque panne | Congélateur | Le pot témoin (section 7) : la pièce de monnaie est restée en surface | Si la pièce est au fond, le contenu a dégelé (ch. 74) |
 
 ---
 
-## 7. Signes d'échec
+## 6. Signes d'échec
 
 | Observation | Diagnostic | Action |
 | --- | --- | --- |
-| Poudre ou croûte blanche aux bornes d'une pile ou dans le compartiment d'un appareil | L'électrolyte alcalin est sorti. C'est de l'hydroxyde de potassium, corrosif pour la peau, les yeux et le cuivre des contacts | Gants et lunettes. Jeter la pile. Si les contacts sont rongés jusqu'au métal nu piqué, l'appareil est perdu : il ne fera plus contact au froid |
-| Essence ambrée ou brunie, odeur de vernis, dépôt gommeux au fond du bidon | Oxydation : les gommes formées bouchent les gicleurs et collent les soupapes | Ne pas la mettre dans la scie à chaîne ni dans la génératrice — ce sont les gicleurs les plus fins du chalet. La brûler diluée dans du carburant frais, à bas régime, dans un vieux moteur à quatre temps qui tolère tout. Filtrer au chamois ou au feutre sort l'eau et les particules, jamais les gommes déjà formées |
-| Eau de Javel sans odeur de chlore à l'ouverture | Le titre en chlore actif est effondré | Ne plus compter dessus pour désinfecter l'eau. Remplacer et dater la bouteille neuve |
-| Sel pris en un bloc dur | Humidité reprise. Le sel n'est pas altéré | Concasser. Refermer dans un contenant étanche. Le bloc n'est pas un signe d'échec, c'est un signe de contenant |
-| Sel rosé ou coloré dont le sac n'est plus identifiable | Confusion possible entre sel de table et mélange de salaison au nitrite. Les deux ne se dosent pas du tout pareil | Jeter. Aucun test de cuisine ne distingue les deux avec certitude |
-| Couvercle plat de pot Mason bombé, ou qui claque sous le doigt | Le scellement a lâché, ou une pression interne s'est formée | Jeter le contenu **sans le goûter et sans le sentir de près** : voir l'encadré DANGER |
-| Graines qui ne lèvent pas au test des 10 jours | Pouvoir germinatif perdu | Semer plus dense, ou remplacer le lot. Ne pas découvrir ça en juin |
-| Joint de porte de poêle plat, dur, qui laisse passer le billet sans résistance | Le joint est écrasé. L'air parasite fait surchauffer la combustion et emballe le feu | Remplacer avant l'automne |
-| Caoutchouc de détendeur ou de tuyau craquelé, dur, brillant | Le plastifiant a migré. La fissure s'ouvre au froid, pas au chaud : la fuite apparaît la nuit où il fait -35 °C | Remplacer. Ne pas réparer au ruban |
-| Avertisseur de fumée ou de monoxyde de carbone qui émet un signal sonore intermittent | La pile est à remplacer | Pile neuve sur-le-champ. Si le signal persiste avec une pile neuve, l'appareil est en fin de vie : le remplacer, jamais le débrancher |
-| Avertisseur qui répond encore au bouton d'essai, mais dont le boîtier porte une date de fabrication de plus de 10 ans, ou aucune date lisible | Le bouton d'essai n'annule pas la date. La durée de vie est de 10 ans à partir de la fabrication pour l'avertisseur de fumée | Remplacer. C'est la ligne de ce chapitre qu'on saute le plus souvent, parce que l'appareil sonne |
-| Collet de bouteille de propane sans date lisible, ou pied rouillé et piqué | La date est celle de la bouteille, pas de son contenu, et le pied rouille par en dessous là où elle repose dans la neige | Elle ne se fait plus remplir : la compter comme perdue dans le calcul de couverture avant l'automne, pas le jour où le robinet crache. Ne jamais la vider en la couchant ni la percer : elle contient encore du gaz sous pression et du gaz liquide au fond |
-| Médicament au-delà de sa date, comprimé mou, friable ou décoloré, liquide trouble ou séparé | Perte d'activité, imprévisible selon la molécule ; le mou et l'effritement disent l'humidité reprise, la séparation dit le gel | Trier au ch. 32. La règle de stock, elle, ne change pas : un médicament de crise dont on doute ne compte pas comme réserve de crise |
+| Poudre ou croûte blanche aux bornes d'une pile ou dans le compartiment d'un appareil | Le liquide de la pile alcaline est sorti : de l'hydroxyde de potassium, corrosif pour la peau, les yeux et le cuivre des contacts | Mettre des gants et des lunettes. Jeter la pile. Si les contacts sont rongés jusqu'au métal nu piqué, l'appareil est perdu : il ne fera plus contact au froid |
+| Essence ambrée ou brune, odeur de vernis, dépôt gommeux au fond du bidon | Essence oxydée (étape 15) | La mêler à de l'essence fraîche et la brûler à bas régime dans un vieux moteur à quatre temps qui tolère tout. Ne pas en mettre dans la scie à chaîne ni dans la génératrice : elles ont les gicleurs les plus fins du chalet. Filtrer l'essence au chamois ou au feutre enlève l'eau et les particules, pas les gommes |
+| Eau de Javel sans odeur de chlore à l'ouverture | Le chlore qu'elle contenait est perdu | Ne plus compter sur elle pour désinfecter l'eau. La remplacer et dater la bouteille neuve |
+| Sel pris en un bloc dur | Le sel a repris de l'humidité ; il n'est pas altéré | Le concasser, puis le refermer dans un contenant étanche |
+| Sel rosé ou coloré dont on ne reconnaît plus le sac | Ce peut être du sel de table ou un mélange de salaison au nitrite, et on ne les dose pas du tout pareil | Le jeter. Aucun essai de cuisine ne distingue les deux avec certitude |
+| Couvercle plat de pot Mason bombé, ou qui claque sous le doigt | Le scellement a lâché, ou une pression s'est formée dans le pot | Jeter le contenu **sans le goûter et sans le sentir de près** |
+| Graines qui ne lèvent pas au test de germination | Le lot ne germe plus | Semer plus dense, ou remplacer le lot (section 5) |
+| Joint de porte de poêle plat et dur, qui laisse passer le billet sans résistance | Le joint est écrasé : l'air qui entre par la fente fait surchauffer le feu et l'emballe | Remplacer le joint avant l'automne |
+| Caoutchouc de détendeur ou de tuyau craquelé, dur, brillant | Le caoutchouc a perdu ce qui le gardait souple, et il fuit au grand froid, à −35 °C | Le remplacer. Ne pas le réparer au ruban |
+| Avertisseur de fumée ou de monoxyde de carbone qui émet un bip de temps en temps | La pile est à remplacer | Mettre une pile neuve tout de suite. Si le bip continue avec une pile neuve, l'appareil est en fin de vie : le remplacer, jamais le débrancher |
+| Avertisseur qui répond au bouton d'essai, mais qui a passé la date de remplacement des étapes 21 et 22, ou dont le boîtier ne porte aucune date lisible | Le bouton d'essai vérifie la pile et la sirène, pas la cellule | Remplacer l'avertisseur |
+| Collet de bouteille de propane sans date lisible, ou pied rouillé et piqué | Bouteille en fin de vie, peu importe ce qu'elle contient (étape 23) | On ne pourra plus la faire remplir : la compter comme perdue dans le calcul de couverture avant l'automne. Ne jamais la vider en la couchant ni la percer : elle contient du gaz sous pression, et du propane liquide au fond |
+| Médicament après sa date, comprimé mou, friable ou décoloré, liquide trouble ou séparé | Perte d'effet, qu'on ne peut pas prévoir selon la molécule. Le comprimé mou ou friable a repris l'humidité ; le liquide séparé a gelé | Faire le tri avec le ch. 32. Un médicament de crise dont on doute ne compte pas dans la réserve de crise |
 
 ---
 
-## 8. DANGER
+## 7. Variante d'urgence
 
-> ### Ce qui tue quand quelque chose manque
->
-> **Le manque ne tue pas. Le dépannage improvisé, oui.** Quatre mécanismes, tous déclenchés par une réserve vide.
->
-> **1. Le chauffage et l'électricité improvisés — monoxyde de carbone.**
-> Une génératrice, un réchaud de camping, un barbecue au propane ou au charbon, une chaufferette à combustible : la combustion incomplète produit du monoxyde de carbone. Ce gaz est **inodore, incolore, sans saveur**. Il se fixe sur l'hémoglobine à la place de l'oxygène et ne s'en détache presque plus : le sang circule encore, mais il ne transporte plus rien. La victime a mal à la tête, puis sommeil, puis ne se réveille pas. Il n'y a **aucun** signe d'alerte sensoriel.
-> **Génératrice, réchaud, barbecue, chaufferette : jamais dans un bâtiment, jamais dans un garage, jamais sous un auvent, jamais dans une entrée fermée sur trois côtés**. Une porte de garage ouverte ne ventile rien : le monoxyde pèse presque exactement le poids de l'air, il ne monte pas et ne descend pas, il se mélange et il reste.
-> Un avertisseur par étage, sous-sol compris, et **un dans chaque pièce où quelqu'un dort la porte fermée** : une porte close met le dormeur hors de portée de l'appareil du corridor, et c'est en dormant qu'on meurt du monoxyde.
-> **Un avertisseur silencieux ne prouve rien.** Ces appareils sont faits pour ne pas sonner sur une concentration basse tenue longtemps — à 30 ppm, pas d'alarme avant 30 jours —, et c'est exactement cette concentration-là qui donne le mal de tête du matin, la fatigue et l'enfant de mauvais caractère qui redevient lui-même dehors. Trois personnes qui ont mal à la tête dans la même pièce valent mieux qu'un appareil muet : on sort.
-> Si l'alarme sonne : tout le monde dehors, tout de suite, personne ne retourne chercher quoi que ce soit. On ne rentre pas tant que la source n'est pas arrêtée et le bâtiment ouvert au grand air.
->
-> **2. Le gras qui manque — le mal de caribou.**
-> De la viande maigre seule, en quantité, sans gras et sans glucides, tue. Le foie et les reins ne suivent pas l'élimination de l'azote des protéines, et l'apport énergétique reste sous le besoin même l'estomac plein. Nausées, diarrhée, faiblesse, puis mort en quelques semaines. Voir le chapitre 19. Un stock d'hiver qui contient de la viande sauvage et pas de gras est un stock incomplet, pas un stock maigre. Chapitres 19 et 72.
->
-> **3. Le sel qui manque — on sale moins, et *Clostridium botulinum* travaille.**
-> Une salaison ou une saumure sous-dosée parce que le sel s'épuise n'est pas une salaison plus douce : c'est un milieu où la bactérie pousse. **Le botulisme ne change ni l'odeur, ni le goût, ni l'apparence.** Il n'y a rien à sentir et rien à voir : goûter pour vérifier ne vérifie rien et expose. Le type E, celui du poisson, produit sa toxine dès **3 °C** — c'est-à-dire **au réfrigérateur**, où on croit justement être à l'abri. Cette bactérie ne travaille qu'à l'abri de l'air : un poisson fumé emballé serré ou sous vide devient exactement le milieu qu'elle cherche, et le froid ne l'arrête pas. D'où l'emballage **perméable à l'oxygène**, **14 jours** au froid au maximum, sauf si le poisson fini contient au moins **9 %** de sel — une teneur du produit fini, pas un dosage sur la viande crue. Les pourcentages de sel de ce livre se calculent **toujours sur le poids de la viande** : quand le sel manque, on traite moins de viande, on ne sale pas plus faible. Chapitres 67, 68, 69, 77, 78.
->
-> **4. Les faux dépannages, quand on cherche ce qui manque dans l'animal ou dans le bois.**
-> - **Foie et reins de cervidés : jamais.** Ils accumulent le cadmium venu des plantes. «Un repas de reins de cervidé contaminés peut contenir jusqu'à 100 fois la quantité tolérée par l'Organisation mondiale de la santé ». Le métal s'accumule dans le foie et les reins du mangeur et s'élimine très lentement. La viande — muscles, cœur, langue — n'est pas touchée. Chapitre 22.
-> - **Graisse et viande d'ours noir (*Ursus americanus*) : *Trichinella*.** Ni le sel, ni le fumage, ni le gel d'un congélateur domestique ne détruisent ce parasite. La seule barrière est la cuisson à **74 °C à cœur**, mesurée au thermomètre dans la partie la plus charnue, sans toucher l'os ni le gras. Même règle pour le phoque. Chapitres 52 et 56.
-> - **Tisane de conifère pour la vitamine C : pas le cèdre.** Le thuya occidental (*Thuja occidentalis*), appelé cèdre ici, contient de la **thuyone**, une substance neurotoxique et convulsivante. Pour la vitamine C, ce sont les aiguilles de **sapin baumier** (*Abies balsamea*) ou d'**épinette** (*Picea glauca*, *Picea mariana*). Chapitres 20 et 94.
-> - **Lièvre d'Amérique (*Lepus americanus*) : gants obligatoires à la manipulation.** *Francisella tularensis* traverse une égratignure. Chapitre 48.
->
-> **Toutes les cuissons de gibier sauvage sont à 74 °C à cœur, gros gibier comme petit gibier. Gibier à plumes entier : 82 °C. Poisson : 70 °C. Viande congelée : -18 °C ou plus froid.**
+### Mesurer quand l'instrument est mort
+
+**La balance à fléau : un bâton, deux boîtes de conserve, de l'eau.** Prendre une tige droite et sèche (érable, bouleau, un bout de tuyau), y faire une encoche au milieu, et la poser sur un clou planté dans une poutre, qui sert de pivot. Pendre une boîte de conserve à chaque bout, par trois fils de même longueur. Équilibrer à vide en limant le bout le plus lourd, jamais en ajoutant du poids : un fléau alourdi perd sa sensibilité. On pèse avec de l'eau : **1 L d'eau pèse 1 kg**, et avec une tasse à mesurer, on prépare toute la série de poids (250 mL, 500 mL, 1 L) dans des bouteilles remplies à ras et bouchées. Peser la viande contre les bouteilles, puis le sel contre de l'eau.
+
+Pour les gros poids, faire du même bâton une romaine : déplacer le pivot vers un bout, pendre la charge du côté court et la bouteille du côté long. À vide, le bras long penche : attacher une pierre au bout court, près de la boîte vide, jusqu'à ce que le bâton soit à niveau, et la laisser en place pendant les pesées. La pierre enlève un peu de sensibilité au bâton, ce qui ne compte pas quand on pèse des kilos. Le rapport des deux bras multiplie alors le poids de la bouteille : avec le pivot à 20 cm d'un bout et à 60 cm de l'autre, une bouteille de 1 L fait équilibre à 3 kg.
+
+{!poison} **Ce qu'on perd :** les petites pesées. Un fléau de fortune pèse juste un kilo de viande contre un kilo d'eau, mais pas quelques grammes de sel nitrité. Ne jamais doser le nitrite sur une balance improvisée ni sur une balance au gramme : on le pèse au 0,1 g (ch. 67), parce qu'une erreur de dose sur le nitrite empoisonne la personne qui mange la viande. Sans balance au 0,1 g, renoncer aux salaisons longues, emballées serré ou enterrées, et faire court : au sel seul, à l'air, et séché (ch. 67, 68, 69).
+
+{!cuisson} **Le thermomètre : le vérifier avant de le déclarer mort.** Une sonde qui donne des lectures douteuses est plus souvent déréglée que finie, et deux points fixes le montrent sans rien coûter. Plantée dans un verre plein de glace pilée et d'eau, qu'on a brassé, elle doit lire **0 °C**. Dans l'eau à gros bouillons, elle doit lire **100 °C** au niveau de la mer ; plus haut dans les terres, l'eau bout un peu plus bas, et on se fie surtout au verre de glace. On reporte un écart constant : une sonde qui lit 2 °C de trop aux deux points lit 2 °C de trop à 74 °C, et on cuit jusqu'à 76 °C affichés. Une sonde dont les deux points s'écartent dans des sens contraires, on ne peut pas la corriger : on la jette.
+
+**Ce qu'on perd :** si la sonde est morte, rien ne la remplace. La couleur du jus et la fermeté sous le doigt ne mesurent pas 74 °C, et une viande d'ours qui n'a pas atteint 74 °C à cœur peut donner la trichinellose : c'est pour ça qu'on garde deux thermomètres (section 3).
+
+**Le multimètre : une ampoule à filament.** On teste une pile pendant qu'elle débite : une alcaline finie affiche une tension presque normale à vide, et cette tension s'effondre dès qu'elle débite. Sans multimètre, prendre une petite ampoule à filament de lampe de poche et deux fils, et comparer les piles une à une avec la même ampoule, en les classant selon la lueur. Une DEL s'allume avec presque rien : elle ne permet pas de les classer.
+
+**Ce qu'on perd :** la mesure. On sait quelle pile est la meilleure, pas si elle est encore assez forte. On les répartit donc en cascade : les meilleures aux avertisseurs, les moyennes à la radio et à la lampe frontale, les plus faibles aux jouets.
+
+**L'enregistreur de température : un pot d'eau gelée et une pièce de monnaie.** Laisser geler un pot d'eau, poser une pièce de monnaie sur la glace, et mettre le pot au congélateur ou dans le caveau. Au retour, si la pièce est restée en surface, rien n'a dégelé ; si elle est au fond, tout a dégelé, puis regelé pendant l'absence (ch. 1, planche 01-02). Mettre un pot dans chaque congélateur et un dans le caveau.
+
+**Ce qu'on perd :** la durée et la température du dégel. Le pot montre qu'il y a eu un dégel, pas combien de temps il a duré, et il faut cette durée pour savoir si on peut garder la viande ou s'il faut la cuire tout de suite (ch. 74).
+
+### Fabriquer ce qui manque
+
+Ces façons de faire demandent le bois, l'eau et le territoire du chalet. À la maison, quand un article manque et qu'on ne peut plus le racheter, on monte au chalet (ch. 2).
+
+**Le sel, par évaporation d'eau du fleuve.** Le long de la Côte-Nord, le fleuve est de l'eau de mer, avec de 27 à 29 g de sels par litre, un peu moins en surface au printemps : il faut faire évaporer au moins 34 à 37 L d'eau pour obtenir 1 kg de sel. Puiser loin d'une embouchure de rivière, filtrer l'eau au coton, la faire bouillir et récolter les cristaux à mesure qu'ils se forment. Arrêter avant la fin : le fond de liquide qui reste, amer, porte les sels de magnésium et de calcium, et on le jette (ch. 67). **Ce qu'on perd :** la salinité change avec la marée, la crue et la distance du large ; avant de planifier, on la mesure en faisant évaporer un volume connu et en pesant ce qui reste. Le rendement est faible, et chaque litre puisé doit partir en vapeur, au bois. Le sel obtenu n'est pas du chlorure de sodium pur : il contient aussi des chlorures de magnésium et de calcium, qui le rendent amer et lui font prendre l'humidité, et une salaison faite avec lui ne se comporte pas de la même façon. Il ne contient aucun nitrite, donc rien contre le botulisme dans une salaison longue faite à l'abri de l'air : avec ce sel, on fait seulement des salaisons courtes, à l'air (« La balance à fléau », plus haut).
+
+**Le gras, dans l'animal.** On le prend surtout à l'automne.
+
+- {!abats} **Prendre le gras de l'orignal**, autour des reins et sur le dos, et la moelle des os longs. Laisser les reins avec les restes : le foie et les reins des cervidés accumulent le cadmium, et on ne les mange jamais (ch. 22).
+- {!trichine} **Faire fondre le gras d'ours**, et cuire la viande qui y reste attachée à 74 °C à cœur, mesurés au thermomètre. Ni le sel, ni le fumage, ni le gel ne tuent la trichine (ch. 52 ; même règle pour le phoque, ch. 56).
+- {!tularemie} **Prendre le gras du castor avec des gants imperméables**, du moment où on ramasse la bête jusqu'à la fin du travail (ch. 50).
+
+**Ce qu'on perd :** on ne trouve pas de gras toute l'année : un animal de mars n'en a pas. On peut garder le gras fondu ; le gras cru rancit vite (ch. 72).
+
+{!thuyone} **La vitamine C, dans les aiguilles.** Faire infuser des aiguilles de sapin baumier ou d'épinette, jamais de cèdre : la thuyone du cèdre est toxique (ch. 20 et 94). Verser une eau chaude, mais pas bouillante, et laisser infuser peu de temps : la chaleur et le temps détruisent la vitamine C. **Ce qu'on perd :** la certitude. Les aiguilles et les pousses fraîches de sapin baumier en contiennent beaucoup, de l'ordre de 270 mg par 100 g, mais on ne sait pas combien en passe dans la tasse, et la quantité change d'une espèce et d'une partie de l'arbre à l'autre. On ne compte donc pas une infusion en milligrammes : on la boit chaque jour, tout l'hiver, avec des fruits séchés et des légumes fermentés (ch. 91 et 80).
+
+{!co} **La lumière, avec du suif.** Couler une chandelle de suif sur une mèche de coton tordu, ou faire une lampe à graisse : du gras fondu et une mèche dans un contenant. **Ce qu'on perd :** de la nourriture, parce qu'on brûle des calories qu'on aurait pu manger ; de la lumière, parce qu'une flamme de suif éclaire beaucoup moins qu'une lampe à l'huile ; et de l'air, parce que la flamme fume, noircit les murs et consomme l'oxygène de la pièce. Aérer la pièce pendant que la flamme brûle (ch. 85 et 112).
+
+{!chimie} **Le savon, à la cendre.** Faire passer de l'eau à travers de la cendre de bois de feuillu pour obtenir une lessive, puis la cuire avec du gras pour faire le savon. **Ce qu'on perd :** le contrôle de la force de la lessive. Elle change d'une brassée à l'autre, le test de l'œuf dit seulement si elle est trop faible ou trop forte (ch. 112), et le savon sort tantôt gras, tantôt caustique. Un savon caustique brûle la peau. Pour le reconnaître, se laver une main avec, de l'eau à portée : s'il chauffe, démange ou laisse la peau glissante après un bon rinçage, il est caustique. On le recuit alors avec du gras, sans le jeter (ch. 112).
+
+**La corde et le fil, dans l'animal.** Tailler de la babiche dans une peau crue, non tannée, refendre des tendons, ou prendre de la racine d'épinette. **Ce qu'on perd :** la tenue à l'humidité. La babiche mouillée s'allonge et perd sa tension : un assemblage qui en dépend se relâche au redoux et se raidit au gel (ch. 103).
+
+**Le levain, dans l'air.** Mélanger de la farine et de l'eau, et attendre une semaine. **Ce qu'on perd :** le pain lève lentement et de façon irrégulière, surtout dans le chalet froid de janvier (ch. 88).
+
+**Les joints, dans le cuir gras.** On remplace un joint torique durci, un joint plat fendu ou une rondelle d'étanchéité par une rondelle de cuir graissé, taillée avec un emporte-pièce fait d'un bout de tuyau (planche 09-08).
+
+- Limer le bout du tuyau en biseau, par l'extérieur (repère 1), pour que le tranchant reste au bord intérieur (repère 2). Garder la lime à plat sur le biseau et tourner le tuyau à mesure (repère 3).
+- Poser une bille de bois debout, le bois de bout en haut (repère 4), et poser le cuir à plat dessus : du cuir de botte ou une vieille semelle de cuir (repère 5).
+- Tenir le tuyau d'aplomb sur le cuir et frapper dessus au marteau (repère 6). La pastille coupée remonte dans le tuyau (repère 7).
+- Pour une rondelle, percer d'abord le trou du milieu avec un petit tuyau (repère 8), puis couper le tour avec un gros tuyau centré sur le trou (repère 9).
+- Faire fondre du suif (repère 10) et y tremper la rondelle, pendue à un fil de fer (repère 11).
+- Serrer la rondelle à sa place (repère 12) : le cuir gras gonfle un peu à l'eau, et il scelle d'autant mieux qu'il est serré.
+
+Ce joint fait tenir une pompe à eau, un presse-étoupe, un bouchon de vidange ou une pompe de puits à piston.
+
+{!vapeurs} **Ce qu'on perd :** le cuir durcit au froid, s'écrase lentement sous la pression et finit par fendre ; l'essence et le propane le dessèchent. Ne mettre aucun joint improvisé sur une ligne de gaz ou de carburant. Quand une ligne de gaz fuit, la fermer au robinet de la bouteille, et ne la rouvrir qu'avec la pièce faite pour elle (ch. 87).
+
+**Le papier de boucherie, dans la glace.** Quand le papier ciré et la pellicule manquent, tremper une pièce gelée dur dans l'eau froide : elle ressort couverte d'une mince couche de glace. La tremper trois ou quatre fois, en la laissant regeler entre chaque trempage : la couche de glace scelle la surface. Ce glaçage protège mieux qu'un papier mal serré contre la brûlure de congélation, parce qu'il ne laisse aucune poche d'air contre la viande.
+
+**Ce qu'on perd :** le glaçage tient seulement tant que la pièce reste gelée sans interruption : au premier redoux, il coule. On le fait au froid naturel, dehors, en janvier ; il se défait dans un congélateur qui se dégivre par cycles (ch. 73 et 74).
+
+**Le coton à fromage et la ficelle.** Remplacer le coton à fromage par un vieux drap de coton, une taie d'oreiller ou un sac de farine en toile, bouillis avant usage et réservés à ça. Remplacer la ficelle de boucher par du fil de lin, du coton tressé ou de la babiche fine. Ne pas prendre de corde synthétique : le nylon fond dans un fumoir chaud, et le polypropylène s'étire sous le poids d'un quartier. **Ce qu'on perd :** la maille. Un drap est plus serré qu'un coton à fromage : il garde l'humidité contre la viande, et une pièce enroulée serré dans un drap mouille au lieu de sécher. Pour le séchage, tendre le drap autour de la viande comme une moustiquaire au lieu de l'enrouler dessus.
+
+**La lime, dans le vinaigre.** On peut redonner du mordant à une lime émoussée, mais pas ébréchée. La dégraisser à la cendre ou au savon, la rincer, la tremper dans du vinaigre, puis la rincer, la sécher et l'huiler tout de suite. L'acide ronge l'acier à la même vitesse partout, et la pointe des dents, plus mince, s'amincit plus vite que leur fond ne s'élargit : la dent redevient pointue. Il n'y a pas de durée fixe : sortir la lime de temps en temps, la rincer, l'essayer sur un bout d'acier doux, et arrêter dès qu'elle mord. Faire le premier essai sur une vieille lime avant d'y passer la bonne. **Ce qu'on perd :** de l'épaisseur, donc des reprises. La lime ressort plus fine et plus cassante chaque fois : on peut la reprendre deux ou trois fois, pas dix. Et le vinaigre ne répare pas une dent arrachée, et il ne change pas le diamètre d'une lime ronde.
+
+**La chaîne finie, le godendard.** Quand la dernière chaîne est morte ou que toute l'essence a vieilli, couper le bois au sciotte et au godendard. Trois gestes gardent une lame en état : égaliser la hauteur des dents à la lime plate, refaire le fil à la lime triangulaire, et donner la voie au poinçon ou à la pince. Sans voie, la lame frotte, chauffe et coince dans son propre trait : quand elle coince, il faut lui redonner de la voie, pas l'affûter.
+
+**Ce qu'on perd :** du temps et des calories. Couper une corde de bois au godendard coûte de la nourriture, du gras surtout : il faut l'ajouter au calcul de couverture (étape 6 ; ch. 105 et 106).
+
+**Les électrodes, avec des batteries d'auto.** Des batteries d'auto de 12 V montées en série soudent l'acier doux quand il n'y a plus de poste ni de courant. Avec deux (24 V), l'arc s'amorce mal et ne tient que très court ; avec trois (36 V), on a la tension d'un arc de travail. Quand la boîte d'électrodes est vide, on soude avec ce qui reste : une tige d'acier doux nue tire un arc, mais sans enrobage, il n'y a ni gaz protecteur ni laitier ; le bain prend l'oxygène et l'azote de l'air, et la soudure sort poreuse et cassante. Elle tient une réparation d'attelage, un support, une pièce qu'on peut doubler et boulonner par-dessus ; elle ne tient pas une pièce qui porte une charge au-dessus de quelqu'un. **Ce qu'on perd :** les batteries. Ce travail les abîme, et une batterie abîmée ne démarre plus rien en janvier. Le montage, les polarités et la masse sont au ch. 107.
+
+**L'eau de Javel vieille.** On ne la rattrape pas en doublant la dose : on ne connaît pas la force qui lui reste. Sans javel dont on connaît la force, traiter l'eau par l'ébullition et la filtration (ch. 10).
+
+{!botulisme} **L'acide des conserves : rien ne le remplace** (ch. 78). La fermentation lactique conserve d'une autre façon (ch. 80). On peut faire un vinaigre de petits fruits ou de sève pour assaisonner, mais on ne peut pas mesurer son acidité, et un acide dont on ne connaît pas la force ne rend aucun pot sûr : une conserve de légumes ou de viande faite sans vinaigre d'acidité connue et sans autoclave peut porter la toxine du botulisme.
+
+### Ce qui ne se remplace pas
+
+On peut refaire une lame : une vieille lime devient un couteau, une lame de ressort de camion devient une hache ou un fer de plane (ch. 111). Quatre choses n'ont pas de remplacement ; à l'automne, on les commande en premier, dans cet ordre.
+
+- **La pile.** On ne fabrique pas de pile. Une lampe à manivelle et une lampe à l'huile remplacent une lampe à piles ; rien ne remplace la pile d'un avertisseur de monoxyde de carbone, d'une radio ou d'un appareil médical. Il reste la cascade (« Le multimètre », plus haut) et l'inventaire par format. Choisir les appareils pour garder le moins de formats de piles possible : la réserve sert alors à plus d'appareils. Un appareil dont le format manque reste inutilisable, même à côté d'une réserve pleine.
+- **Le sel nitrité (nitrite de sodium).** Le salpêtre (nitrate de potassium) a servi quand il n'y avait rien d'autre, mais on ne le dose pas comme le nitrite (ch. 67). Sans nitrite dont on connaît la dose et sans balance au 0,1 g, on fait seulement des salaisons courtes, à l'air (« La balance à fléau », plus haut), et on cuit la viande à 74 °C à cœur.
+- **Le médicament d'ordonnance.** On ne fabrique ni insuline ni antibiotique, et aucune plante du ch. 33 ne remplace une ordonnance. On prépare la réserve avant, avec le ch. 32.
+- **Le carburant de la petite machinerie.** L'alcool et le gaz de bois font tourner des moteurs (ch. 87 et 15), mais pas une scie à chaîne : l'alcool attaque les membranes et les joints du carburateur, et un moteur deux-temps mal alimenté grippe avant de s'arrêter. Le godendard fait donc partie du stock du ch. 00b.
 
 ---
 
-## 9. Variante d'urgence
+## En plus
 
-Sans électricité, sans rien à acheter, sans produit spécialisé, sans personne à appeler. Chaque ligne dit ce qu'on perd, parce que ces substitutions ne sont pas des équivalents.
+### Le gras fondu, chez les Naskapis
 
-Ce sont des solutions de chalet : elles supposent le bois, l'eau et le territoire. À la maison, elles ne servent à rien tant que le village fonctionne — et elles servent exactement autant qu'au chalet le jour où il ne fonctionne plus, sauf qu'il n'y a ni bois ni fleuve à portée. C'est un argument de plus pour la bascule du chapitre 2 : la variante d'urgence de la maison, c'est le chalet.
+Les Naskapis de l'Ungava faisaient fondre le gras du caribou dans un chaudron, sur le feu, puis le versaient dans un autre récipient pour qu'il fige. Ils mangeaient ce gras fondu, l'échangeaient et s'en servaient pour tanner les peaux. Le gras du dos qu'ils faisaient sécher et fumer sans le fondre prenait un goût rance (section 7, « Le gras, dans l'animal »).
 
-### 9.1 Mesurer quand l'instrument est mort
+### La babiche des raquettes, chez les Innus
 
-La section 4 ne garde que deux instruments : la balance au gramme et le thermomètre à sonde. Indispensable ne veut pas dire irremplaçable — ça veut dire qu'on ne travaille pas sans mesure. Voici comment on mesure quand l'appareil est mort.
+Pour lacer les raquettes, des Innus du Labrador prennent de la peau de caribou verte, non tannée, qu'ils grattent puis tendent au piquet pour qu'elle gèle mouillée ; la peau de phoque bien grattée dure aussi. Ils trouvent que la babiche d'orignal dure moins que celle du caribou. Sur une raquette lacée à l'orignal (ch. 103), il faut surveiller l'usure du laçage. Pour joindre deux bouts, on fait une fente dans chacun et on les passe l'un dans l'autre.
 
-**La balance : un fléau, deux boîtes de conserve, de l'eau.** Une tige droite et sèche — érable, bouleau, un bout de tuyau —, une encoche au milieu, un clou planté dans une poutre comme pivot. À chaque bout, une boîte de conserve suspendue par trois fils de longueur égale. On équilibre à vide en limant le bout lourd, jamais en ajoutant du poids : un fléau alourdi perd sa sensibilité. La masse étalon, c'est l'eau — **1 L d'eau pèse 1 kg** (définition historique du kilogramme) —, et une tasse à mesurer donne toute la série : 250 mL, 500 mL, 1 L, autant de bouteilles remplies à ras et bouchées. On pèse la viande contre des bouteilles, puis on pèse le sel contre de l'eau.
+### Reconnaître une pile qui a coulé
 
-Pour les gros poids, le même bâton devient une romaine : on déplace le pivot vers un bout, la charge pend du côté court, l'étalon du côté long, et le rapport des bras multiplie l'étalon. Pivot à 20 cm d'un bout et 60 cm de l'autre, une bouteille de 1 L en pèse 3.
+![En haut, deux piles intactes ; en bas, deux piles qui ont coulé dans le compartiment du même appareil](images/extras/09-pile-coulee.jpg)
 
-**Ce qu'on perd :** le bas de l'échelle. Un fléau de fortune pèse honnêtement un kilo de viande contre un kilo d'eau ; il ne pèse pas quelques grammes de sel de salaison nitrité (nitrite de sodium). **Le nitrite ne se dose jamais sur une balance improvisée** : c'est le seul dosage du livre où l'erreur se paie en toxicité et non en goût. Sans balance juste, on renonce aux salaisons longues, emballées serré ou enterrées, et on fait court, au sel seul, ouvert à l'air et séché (ch. 67, 68, 69).
+Une pile alcaline qui a coulé se couvre d'une croûte blanche, en poudre ou en petits cristaux, qui déborde sur les contacts et dans le compartiment. Sur la photo, les deux piles du bas ont coulé ; les deux du haut, dans le même appareil, sont intactes (étape 17).
 
-**Le thermomètre : le vérifier avant de le déclarer mort.** Une sonde qui donne des lectures suspectes est plus souvent déréglée que finie, et deux points fixes le disent sans rien coûter. Dans un verre bourré de glace pilée et d'eau, brassé, elle doit lire **0 °C** ; dans l'eau à gros bouillons, **100 °C** (points fixes de l'eau, au niveau de la mer — la Côte-Nord y est). L'écart constant se reporte : une sonde qui lit 2 °C de trop aux deux points lit 2 °C de trop à 74 °C, et on cuit à 76 °C indiqués. Une sonde dont les deux points s'écartent dans des sens contraires ne se corrige pas, elle se jette.
+### Combien de temps on garde une pile
 
-**Ce qu'on perd :** rien tant que l'appareil vit. S'il est mort, il n'y a pas de substitut, et c'est une des rares lignes du livre où c'est vrai. La couleur du jus et la fermeté au doigt ne lisent pas 74 °C, et 74 °C est ce qui sépare une viande d'ours mangeable d'une trichinellose. C'est pour ça que la section 4 en demande deux.
-
-**Le multimètre : une ampoule à filament.** Une pile se teste en charge, jamais à vide — une alcaline finie affiche encore une tension presque normale tant qu'on ne lui demande rien et s'effondre dès qu'elle débite. Sans multimètre : une petite ampoule à filament de lampe de poche, deux fils, et on compare les piles une à une à la même ampoule, en les classant à la lueur. Une DEL ne fait pas l'affaire, elle s'allume sur presque rien.
-
-**Ce qu'on perd :** le seuil. On sait laquelle est la meilleure, pas si la meilleure est encore bonne. D'où la cascade : les meilleures aux avertisseurs, les moyennes à la radio et à la lampe frontale, les faibles aux jouets, jamais l'inverse.
-
-**L'enregistreur : un pot d'eau gelée et une pièce de monnaie.** Un pot d'eau qu'on laisse geler, une pièce de monnaie posée sur la glace, le pot au congélateur ou dans le caveau. Au retour : pièce en surface, rien n'a dégelé ; pièce au fond, tout a dégelé et regelé, et la question n'est plus la température actuelle mais ce qui s'est passé pendant l'absence. Un pot par appareil et un dans la cave.
-
-**Ce qu'on perd :** la durée, qui est justement ce qui décide. Le témoin dit qu'il y a eu un dégel, jamais combien de temps ni jusqu'à quelle température, et c'est la durée qui tranche si la viande se garde ou se cuisine tout de suite (ch. 74).
-
-### 9.2 Fabriquer le consommable
-
-**Le sel, par évaporation d'eau du fleuve.** L'estuaire est salé à la hauteur de la Côte-Nord. On puise loin d'un embouchure de rivière, on filtre au coton, on fait évaporer, on récolte le solide. **Ce qu'on perd :** énormément. La salinité au point de puisage varie avec la marée, la crue et la distance au large : on la mesure par évaporation d'un volume connu avant de planifier quoi que ce soit. Le rendement est faible et le coût en bois est celui d'une évaporation complète, donc plusieurs brassées de bois par kilo. Le sel obtenu n'est pas du chlorure de sodium pur : les chlorures de magnésium et de calcium donnent de l'amertume et attirent l'humidité, ce qui change le comportement d'une salaison. Et il n'y a **aucun nitrite**, donc aucune protection contre *Clostridium botulinum* dans les salaisons longues et anaérobies : en variante d'urgence, on fait des salaisons courtes, ouvertes à l'air, séchées, pas des pièces emballées serré ni des pièces enterrées.
-
-**Le gras, dans l'animal.** Graisse périrénale et graisse de dos de l'orignal à l'automne, moelle des os longs, gras de castor (*Castor canadensis*), gras d'ours. **Ce qu'on perd :** la disponibilité. Le gras est saisonnier et se concentre à l'automne ; un animal de mars n'en a pas. Le gras d'ours impose la règle *Trichinella* ci-dessus sans exception. Le gras rendu se conserve, le gras cru rancit vite. Chapitres 22 et 72.
-
-**La vitamine C, dans les aiguilles.** Infusion d'aiguilles de sapin baumier ou d'épinette, à l'eau chaude **non bouillante** et courte : la vitamine C se dégrade à la chaleur et à la durée. Pas de cèdre. **Ce qu'on perd :** la certitude. Les aiguilles et pousses fraîches de sapin baumier en contiennent beaucoup, de l'ordre de 270 mg aux 100 g, mais on ne sait pas combien en passe dans la tasse, et la teneur change d'une espèce et d'une partie de l'arbre à l'autre : la dose bue n'est pas connue. On ne compte pas une infusion en milligrammes ; on la boit tous les jours, tout l'hiver, et on la complète par les fruits séchés et les légumes fermentés (chapitres 91 et 80).
-
-**La lumière, avec du suif.** Chandelle de suif coulée sur une mèche de coton tordu, ou lampe à huile improvisée avec du gras rendu. **Ce qu'on perd :** de la nourriture — on brûle des calories qui se mangent —, de la lumière, parce qu'une flamme de suif éclaire beaucoup moins qu'une lampe à l'huile, et de l'air : ça fume, ça noircit, et ça consomme l'oxygène de la pièce. Ventiler. Chapitres 85 et 112.
-
-**Le savon, à la cendre.** Lessive de cendre de bois de feuillu percolée à l'eau, puis saponification avec du gras. **Ce qu'on perd :** le contrôle du titre. La concentration de la lessive varie d'une brassée à l'autre, donc le savon sort tantôt gras, tantôt caustique. Un savon caustique brûle la peau. À réserver au lavage du linge et des planchers tant qu'on n'a pas de méthode de titrage. Chapitre 112.
-
-**La corde et le fil, dans l'animal.** Babiche de peau brute, tendons refendus, racine d'épinette. **Ce qu'on perd :** la tenue à l'humidité. La babiche mouillée s'allonge et perd sa tension ; un assemblage qui compte dessus se relâche au redoux et se raidit au gel. Chapitre 103.
-
-**Le levain, dans l'air.** Farine et eau, une semaine. **Ce qu'on perd :** la vitesse et la constance. Les levées sont longues, irrégulières, et froides au chalet en janvier.
-
-**Les joints, dans le cuir gras.** Un joint torique durci, un joint plat fendu, une rondelle d'étanchéité : ça se retaille dans du cuir de botte, dans une vieille chambre à air ou dans une semelle, à l'emporte-pièce improvisé — un bout de tuyau affûté au biseau frappé au marteau sur une bille de bois de bout. Le cuir se graisse au suif avant d'être serré : il gonfle légèrement à l'eau et scelle d'autant mieux qu'il est comprimé. C'est ce qui fait tenir une pompe à eau, un presse-étoupe, un bouchon de vidange, une pompe de puits à piston.
-
-**Ce qu'on perd :** tout le reste. Le cuir durcit au froid, flue sous pression et se fend ; l'essence et le propane le dessèchent. **Aucun joint improvisé sur une ligne de gaz ou de carburant.** Le propane est plus lourd que l'air : il coule au plancher, s'accumule dans le creux, la cave ou la fosse au lieu de se disperser, et il attend l'étincelle. Une ligne de gaz se répare avec la pièce faite pour ça, ou ne se répare pas et se ferme au robinet de la bouteille (ch. 87).
-
-**Le papier de boucherie, dans la glace.** Quand le papier ciré et la pellicule manquent, une pièce déjà gelée dur se trempe dans l'eau froide et ressort avec une pellicule de glace ; on retrempe trois ou quatre fois, en laissant regeler entre chaque trempe, et la gaine de glace scelle la surface. C'est le glaçage, et il protège de la brûlure de congélation mieux qu'un papier mal serré, parce qu'il ne laisse aucune poche d'air contre la viande.
-
-**Ce qu'on perd :** la tolérance. Le glaçage tient tant que la pièce reste gelée sans interruption : un seul redoux et il coule, emportant la protection. Il se fait au froid naturel, dehors, en janvier, et il se défait tout seul dans un congélateur qui se dégivre par cycles (ch. 73 et 74).
-
-**Le coton à fromage et la ficelle.** Un vieux drap de coton, une taie d'oreiller, un sac de farine en toile, bouillis avant usage et réservés à ça. La ficelle de boucher se remplace par du fil de lin, du coton tressé ou de la babiche fine — jamais par de la corde synthétique : le nylon fond dans un fumoir chaud et le polypropylène s'étire sous le poids d'un quartier. **Ce qu'on perd :** la maille. Un drap est plus serré qu'un coton à fromage : il retient là où il faudrait laisser respirer, et une pièce enveloppée serré dans du drap mouille au lieu de sécher. Pour le séchage, on tend le drap comme une moustiquaire autour de la viande au lieu de l'enrouler dessus.
-
-**La lime, dans le vinaigre.** Une lime émoussée mais non ébréchée se remord. On la dégraisse à la cendre ou au savon, on rince, on la trempe dans du vinaigre, puis on rince, on sèche et on huile tout de suite. L'acide ronge l'acier partout à la même vitesse, ce qui amincit la pointe des dents plus vite qu'il n'élargit leur fond : la dent redevient pointue. Pas de durée fixe : on sort la lime, on la rince et on l'essaie sur un bout d'acier doux à intervalles, et on arrête dès qu'elle mord. Le premier essai se fait sur une vieille lime avant d'y passer la bonne. **Ce qu'on perd :** de l'épaisseur, donc des reprises. La lime ressort plus fine et plus cassante chaque fois : deux ou trois fois, pas dix. Et ça ne remplace pas une dent arrachée ni une lime ronde du mauvais diamètre.
-
-**La chaîne finie, le godendard.** Quand la dernière chaîne est morte ou l'essence vernie, le bois se coupe au sciotte et au godendard. Une lame se garde vivante avec trois gestes : la lime plate qui égalise la hauteur des dents, la lime triangulaire qui refait le fil, et la voie donnée au poinçon ou à la pince — sans voie, la lame frotte, chauffe et coince dans son propre trait. Une lame qui coince n'est pas émoussée, elle manque de voie, et c'est l'erreur qui fait abandonner le godendard.
-
-**Ce qu'on perd :** du temps et des calories, et ça se paie ailleurs dans le livre. Une corde de bois au godendard se prend sur le gras et sur le manger, pas sur le budget : passer de la scie à chaîne au godendard augmente la consommation de nourriture avant d'augmenter quoi que ce soit d'autre, et cette ligne-là remonte directement dans le calcul de couverture de la section 5.2 (ch. 105 et 106).
-
-**Les électrodes, avec deux batteries.** Deux batteries de char de 12 V montées en série donnent 24 V continus, et c'est assez pour tirer un arc et souder de l'acier doux quand il n'y a plus de poste ni de courant. La boîte d'électrodes vide, on soude avec ce qui reste : une tige d'acier doux nue tire un arc, mais sans enrobage il n'y a ni gaz protecteur ni laitier, le bain prend l'oxygène et l'azote de l'air, et le cordon sort poreux et cassant. Ça tient une réparation d'attelage, un support, une pièce qu'on peut doubler et boulonner par-dessus ; ça ne tient pas une pièce qui porte une charge au-dessus de quelqu'un. **Ce qu'on perd :** les batteries aussi. Ce régime les cuit, et une batterie cuite pour souder est une batterie qui ne démarre plus rien en janvier. Montage, polarités et masse au ch. 107.
-
-**L'eau de Javel : c'est le titre qui meurt, pas le liquide.** Une javel vieille n'est pas une javel faible qu'on rattrape en doublant la dose : elle est d'un titre inconnu, et doubler un chiffre inconnu ne donne rien de connu. Sans javel qui titre, l'eau se traite à l'ébullition et à la filtration, pas à l'estime (ch. 10).
-
-**L'acide des conserves : rien ne le remplace.** La fermentation lactique conserve, mais autrement (chapitre 80). Un vinaigre de petits fruits ou de sève se fait et assaisonne, mais il ne se titre pas, et un acide dont on ignore la force ne rend aucun pot sécuritaire : une conserve peu acide sans vinaigre titré et sans stérilisation sous pression reste une conserve peu acide. Ce n'est pas une substitution, c'est un changement de méthode.
-
-### 9.3 Ce qui ne se remplace pas
-
-Quatre postes, et pas cinq. La lame n'en est pas, parce qu'elle se refait : une vieille lime devient un couteau, une lame de ressort de camion devient une hache ou un fer de plane (ch. 111). Un outil tranchant est un poste de forge, pas un poste de commande.
-
-- **La pile.** Rien ne fait une pile. Une lampe à manivelle et une lampe à l'huile remplacent une lampe à piles ; rien ne remplace la pile d'un avertisseur de monoxyde de carbone, d'une radio ou d'un appareil médical. Il ne reste que la cascade décrite en 9.1 et l'inventaire **par format** : trois formats de piles dans la maisonnée valent mieux que six, parce qu'un appareil orphelin de son format est un appareil mort avec une réserve pleine à côté.
-- **Le sel de salaison nitrité (nitrite de sodium).** Le salpêtre (nitrate de potassium) a servi historiquement là où il n'y avait rien d'autre, mais les deux ne se dosent pas pareil et aucune quantité ne se donne ici. Sans nitrite mesurable et sans balance juste, on ne fait pas de salaison longue, anaérobie ou emballée serré : on fait court, ouvert à l'air, séché, et on cuit à 74 °C à cœur.
-- **Le médicament d'ordonnance.** Il n'y a pas de version bois d'une insuline ni d'un antibiotique, et aucune plante du chapitre 33 ne prend le relais d'une ordonnance. Ce qui se prépare se prépare avant, au ch. 32.
-- **Le carburant liquide de la petite machinerie.** L'alcool et le gaz de bois font tourner des moteurs (ch. 87 et 15), mais pas une scie à chaîne : l'alcool attaque les membranes et les joints du carburateur, et un moteur deux-temps mal alimenté se serre avant de s'arrêter. Une scie à chaîne sans essence est un objet lourd. C'est la raison pour laquelle le godendard est dans le stock du chapitre 00b avant d'être dans cette section.
-
-Ces quatre postes sont, dans cet ordre, les quatre premières lignes de la commande d'automne. Tout le reste de ce chapitre sert à repérer les manques ; ces quatre-là sont les seuls qu'aucune passe de correction ne rattrape après coup.
+Pour la réserve du chalet, qu'on touche peu, prendre des piles au lithium plutôt que des alcalines : dans leur emballage, elles restent bonnes plus longtemps (les durées sont au ch. 6, « La pile au lithium »), et on les remplace moins souvent (étape 5).

@@ -3,6 +3,8 @@
 // (44 à 46), variante d'urgence « Contenir, et refaire le joint ».
 // Le chapitre ne donne aucune dimension du pot, du tamis, du cadre, de la guenille ni de la
 // caisse : aucune cote. Les seuls nombres sont dans la légende (20 graines, ou 100 ; × 5).
+// La charte : les pots, le cadre et la tomate au contour ; la face à l'ombre du rouleau ; le rouge sur le
+// geste (rouler) et sur le joint qui fuit. La main du joint est la main simple (mains/moteur.js), à plat.
 module.exports = (h) => {
   const A = h.a, F = h.formes;
   const r1 = v => Math.round(v * 10) / 10;
@@ -57,7 +59,7 @@ module.exports = (h) => {
     const Wn = W * 0.8, yn = -H * 0.87;
     const inter = ser(profil(W - 2 * G_VERRE, H - G_VERRE, -G_VERRE), T) + ' Z';
     const trait = [];
-    trait.push(h.path(ser(profil(W, H), T), A.arete));
+    trait.push(h.path(ser(profil(W, H), T), A.contour));
     // filets du goulot
     for (const k of [0.35, 0.7]) {
       const yy = -H + (H + yn) * k;
@@ -163,31 +165,36 @@ module.exports = (h) => {
   // ─── Vue 2 : le voile blanc ────────────────────────────────────────────────────────────
   const voile = z => {
     const o = [];
-    const W = Math.min(64, z.l * 0.42), H = Math.min(112, z.h - 28);
-    const px = z.l * 0.46, py = z.h - 4;
+    const W = 60, H = 112;                          // le même bocal que « Racler »
+    const px = z.l * 0.42, py = z.h - 4;
     const P = pot(rep(px, py, 0), W, H);
     const yPulpe = py - H * 0.22, yEau = py - H * 0.46;
-    // le voile : une peau mate, bosselée, pleine de petites colonies rondes
+    // le voile : une croûte continue d'une paroi à l'autre, le dessus ridé, un pointillé serré
     const r = alea(31), bosses = [];
     const x0 = px - W / 2, x1 = px + W / 2;
-    for (let x = x0; x <= x1 + 0.1; x += W / 14) bosses.push([x, yEau - 7 - r() * 3]);
-    const dVoile = `M${pt([x0, yEau + 2])} L${bosses.map(pt).join(' L')} L${pt([x1, yEau + 2])} Z`;
+    for (let x = x0 - 4; x <= x1 + 4.1; x += 2.2) bosses.push([x, yEau - 3 - r() * 1.4]);
+    const dVoile = `M${pt([x0 - 4, yEau])} L${bosses.map(pt).join(' L')} L${pt([x1 + 4, yEau])} Z`;
     const colonies = [];
-    for (let i = 0; i < 34; i++) colonies.push(h.cercle(x0 + 2 + r() * (W - 4), yEau - 5.5 + r() * 6, 0.9 + r() * 1.3, A.fin));
+    for (let i = 0; i < 260; i++) {
+      const x = x0 + r() * W, y = yEau - 0.6 - r() * 2.6;
+      colonies.push(h.cercle(x, y, 0.32, A.plein));
+    }
     o.push(decoupe(P.inter, [
-      h.rect(px - W, yEau, 2 * W, py - yEau + 2, sans('eau')),
-      h.rect(px - W, yPulpe, 2 * W, py - yPulpe + 2, A.blanc),
+      h.rect(px - W / 2 - 4, yEau, W + 8, py - yEau + 2, sans('eau')),
+      h.rect(px - W / 2 - 4, yPulpe, W + 8, py - yPulpe + 2, A.blanc),
       ...pulpe(x0, x1, yPulpe + 3, py - 4, 10, 11),
       ...pulpe(x0, x1, yEau + 4, yEau + 12, 4, 5, { graines: false }),
-      h.path(`M${px - W} ${r1(yPulpe)} Q${r1(px - W / 4)} ${r1(yPulpe - 3)} ${r1(px)} ${r1(yPulpe + 1)} T${r1(px + W)} ${r1(yPulpe)}`, A.detail),
-      h.path(dVoile, bD),
+      h.path(`M${px - W / 2 - 4} ${r1(yPulpe)} Q${r1(px - W / 4)} ${r1(yPulpe - 3)} ${r1(px)} ${r1(yPulpe + 1)} T${r1(px + W / 2 + 4)} ${r1(yPulpe)}`, A.detail),
+      h.path(dVoile, A.blanc),
       ...colonies,
+      h.path(`M${pt(bosses[0])} L${bosses.slice(1).map(pt).join(' L')}`, A.detail),
+      h.ligne(px - W / 2 - 4, yEau, px + W / 2 + 4, yEau, A.detail),
     ]));
     o.push(...P.trait);
     return {
       svg: o.join('\n'),
       renvois: [
-        { n: 3, rond: [px + W / 2 + 18, yEau - 30], cible: [px + W / 4, yEau - 3], texte: 'voile blanc : c’est prêt' },
+        { n: 3, rond: [px + W / 2 + 18, yEau - 30], cible: [px + W / 4, yEau - 2], texte: 'voile blanc : c’est prêt' },
       ],
     };
   };
@@ -267,7 +274,7 @@ module.exports = (h) => {
     const c = [[xa, yb], [xa + Lf, yb], [xa + Lf + ox, yb - oy], [xa + ox, yb - oy]];
     const k = e / oy;
     const ci = [[xa + e + ox * k, yb - e], [xa + Lf - e + ox * k, yb - e], [xa + Lf + ox - e - ox * k, yb - oy + e], [xa + ox + e - ox * k, yb - oy + e]];
-    o.push(h.chemin(c, A.hachure('bois', 'arete'), true));
+    o.push(h.chemin(c, A.hachure('bois', 'contour'), true));
     o.push(h.chemin(ci, A.blanc, true), h.chemin(ci, A.hachure('grillage', 'detail'), true));
     const rg = alea(19);
     for (let i = 0; i < 5; i++) for (let j = 0; j < 3; j++) {
@@ -314,11 +321,15 @@ module.exports = (h) => {
   const etendre = z => {
     const g = guenille(z, 3);
     const o = [...g.o, ...g.pos.map(([x, y, a]) => graine(x, y, a, 3.2, 2.2))];
+    // l'accolade qui tient les deux rangs
+    const xa = Math.max(...g.pos.map(p => p[0])) + 6, ya = Math.min(...g.pos.map(p => p[1])) - 5, yb = Math.max(...g.pos.map(p => p[1])) + 5, ym = (ya + yb) / 2;
+    o.push(h.path(`M${r1(xa)} ${r1(ya)} Q${r1(xa + 3)} ${r1(ya)} ${r1(xa + 3)} ${r1(ya + 4)} L${r1(xa + 3)} ${r1(ym - 3)} Q${r1(xa + 3)} ${r1(ym)} ${r1(xa + 6)} ${r1(ym)} Q${r1(xa + 3)} ${r1(ym)} ${r1(xa + 3)} ${r1(ym + 3)} L${r1(xa + 3)} ${r1(yb - 4)} Q${r1(xa + 3)} ${r1(yb)} ${r1(xa)} ${r1(yb)}`, A.detail));
+    g.acc = [xa + 6, ym];
     return {
       svg: o.join('\n'),
       renvois: [
         { n: 8, rond: [g.x0 + 14, g.y1 - 12], cible: [g.x0 + 40, g.y1 - 26], texte: 'coton ou papier humide' },
-        { n: 9, rond: [g.x1 - 22, g.y0 + 14], cible: [g.pos[9][0] - 2, g.pos[9][1] - 1], texte: '20 graines (× 5), ou 100' },
+        { n: 9, rond: [g.x1 - 22, g.y0 + 14], cible: g.acc, texte: '20 graines (× 5), ou 100' },
       ],
     };
   };
@@ -333,7 +344,11 @@ module.exports = (h) => {
       const rr = 3 + pas * t / 360, a = t * RAD;
       sp.push([xa + rr * Math.cos(a) * 0.55, cy + rr * Math.sin(a)]);
     }
-    o.push(h.path(`M${r1(xa)} ${r1(cy - R)} L${r1(xb)} ${r1(cy - R)} A${r1(R * 0.55)} ${r1(R)} 0 0 1 ${r1(xb)} ${r1(cy + R)} L${r1(xa)} ${r1(cy + R)} Z`, bA));
+    const corpsR = `M${r1(xa)} ${r1(cy - R)} L${r1(xb)} ${r1(cy - R)} A${r1(R * 0.55)} ${r1(R)} 0 0 1 ${r1(xb)} ${r1(cy + R)} L${r1(xa)} ${r1(cy + R)} Z`;
+    // le rouleau : le blanc, la face du dessous à l'ombre, puis le trait
+    o.push(h.path(corpsR, A.blanc));
+    o.push(h.path(`M${r1(xa)} ${r1(cy + R * 0.35)} L${r1(xb + R * 0.515)} ${r1(cy + R * 0.35)} A${r1(R * 0.55)} ${r1(R)} 0 0 1 ${r1(xb)} ${r1(cy + R)} L${r1(xa)} ${r1(cy + R)} Z`, A.ombre));
+    o.push(h.path(corpsR, A.arete));
     o.push(h.ellipse(xa, cy, R * 0.55, R, bA));
     o.push(h.chemin(sp, A.detail));
     // le bord libre de la guenille, qui court le long du rouleau
@@ -343,15 +358,22 @@ module.exports = (h) => {
       o.push(h.cercle(xa + rr * Math.cos(a) * 0.55, cy + rr * Math.sin(a), 1.1, A.plein));
     }
     // le geste : on roule
-    o.push(h.fleche(`M${r1(xa - R * 0.9)} ${r1(cy + R * 0.9)} A${r1(R * 0.9)} ${r1(R * 1.35)} 0 0 1 ${r1(xa + R * 0.2)} ${r1(cy - R * 1.4)}`, A.arete));
+    o.push(h.geste(`M${r1(xa - R * 0.9)} ${r1(cy + R * 0.9)} A${r1(R * 0.9)} ${r1(R * 1.35)} 0 0 1 ${r1(xa + R * 0.2)} ${r1(cy - R * 1.4)}`));
     // le pot fermé, le rouleau debout dedans
     const W = Math.min(50, z.l * 0.24), H = Math.min(z.h - 16, 96);
     const px = z.l - W / 2 - 12, py = z.h - 4;
     const P = pot(rep(px, py, 0), W, H, { ferme: true });
-    const lr = W * 0.5, hr = H * 0.72;
+    const lr = W * 0.56, hr = H * 0.66, ry = lr / 2 * 0.4, yt = py - hr, yf = py - G_VERRE - ry;
+    const spd = [];
+    for (let t = 0; t <= tours * 360; t += 12) {
+      const rr = (3 + pas * t / 360) * (lr / 2) / R, a = t * RAD;
+      spd.push([px + rr * Math.cos(a), yt + rr * Math.sin(a) * 0.4]);
+    }
     o.push(decoupe(P.inter, [
-      h.path(`M${r1(px - lr / 2)} ${r1(py - G_VERRE)} L${r1(px - lr / 2)} ${r1(py - hr)} A${r1(lr / 2)} 3 0 0 1 ${r1(px + lr / 2)} ${r1(py - hr)} L${r1(px + lr / 2)} ${r1(py - G_VERRE)} Z`, bD),
-      h.path(`M${r1(px + lr * 0.18)} ${r1(py - G_VERRE)} L${r1(px + lr * 0.18)} ${r1(py - hr + 2.5)}`, A.fin),
+      h.path(`M${r1(px - lr / 2)} ${r1(yt)} L${r1(px - lr / 2)} ${r1(yf)} A${r1(lr / 2)} ${r1(ry)} 0 0 0 ${r1(px + lr / 2)} ${r1(yf)} L${r1(px + lr / 2)} ${r1(yt)} Z`, bA),
+      h.ellipse(px, yt, lr / 2, ry, bA),
+      h.chemin(spd, A.detail),
+      h.path(`M${r1(px + lr * 0.3)} ${r1(yt + ry * 0.9)} L${r1(px + lr * 0.3)} ${r1(yf + ry * 0.9)}`, A.fin),
     ]));
     o.push(...P.trait);
     o.push(h.fleche(`M${r1(xb + R * 0.8)} ${r1(cy)} L${r1(px - W / 2 - 8)} ${r1(cy)}`, A.arete));
@@ -359,7 +381,7 @@ module.exports = (h) => {
       svg: o.join('\n'),
       renvois: [
         { n: 10, rond: [xa - 2, cy + R + 22], cible: [xa, cy + 5], texte: 'rouler, les graines dedans' },
-        { n: 11, rond: [px - W / 2 - 16, py - H - 2], cible: [px - W / 2 + 4, py - H * 0.55], texte: 'pot fermé, clarté indirecte' },
+        { n: 11, rond: [px - W / 2 - 16, py - H - 2], cible: [px - W * 0.3, py - H - 1], texte: 'pot fermé, clarté indirecte' },
       ],
     };
   };
@@ -404,7 +426,7 @@ module.exports = (h) => {
     const ext = profil(Wp, Hp), int = profil(Wp - 2 * g, Hp - g, -g);
     // la paroi de verre en coupe : l'extérieur, puis l'intérieur en blanc par-dessus
     const dExt = ser(ext, T) + ' Z', dInt = ser(int, T) + ' Z';
-    o.push(h.path(dExt, bA));
+    o.push(h.path(dExt, bC));
     o.push(h.path(dInt, bD));
     // les petits traits du verre coupé
     const Wn = Wp * 0.8, yn = -Hp * 0.87;
@@ -495,13 +517,18 @@ module.exports = (h) => {
     o.push(h.ligne(cj[0] + du[0] / dl * rj, cj[1] + du[1] / dl * rj, Lx - du[0] / dl * Lr, Ly - du[1] / dl * Lr, A.detail));
     const rond = Z([Wn / 2 - g / 2, -Hp - 1.5]);
 
+    // le renvoi 15 sort de la rondelle vers la gauche, dans le blanc, puis descend
+    const coude = [Lx - Lr * 0.55, rond[1]];
+    o.push(h.ligne(rond[0] - 3, rond[1], coude[0], coude[1], 'fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"'));
+    o.push(h.ligne(rond[0] - 3, rond[1], coude[0], coude[1], 'fill="none" stroke="#000000" stroke-width="0.5" stroke-dasharray="3 2.5"'));
+    o.push(h.cercle(rond[0] - 3, rond[1], 1.8, 'fill="#000000" stroke="#FFFFFF" stroke-width="0.7"'));
     const s0 = sachets[0], s1 = sachets[2];
     const bord = X0 + Wc;
     return {
       svg: o.join('\n'),
       renvois: [
         { n: 14, rond: [X0 - 26, Yt + 4], cible: [X0 + 2.5, Yt + 20], texte: 'caisse de métal à couvercle' },
-        { n: 15, rond: [Lx - Lr * 0.2, Ly + Lr + 18], cible: [rond[0] - 4, rond[1]], texte: 'rondelle de chambre à air' },
+        { n: 15, rond: [coude[0], Ly + Lr + 18], cible: coude, texte: 'rondelle de chambre à air' },
         { n: 16, rond: [X0 - 26, s0.ey + 10], cible: [s0.ex + 4, s0.ey + 10], texte: 'étiquette sur le sachet' },
         { n: 17, rond: [bord + 26, s1.ey + 7], cible: [s1.ex + s1.ew - 3, s1.ey + 7], texte: 'étiquette dans le sachet' },
         { n: 18, rond: [X0 - 26, yi - 6], cible: [xi0 + 8, yi - 6], texte: 'dessiccant au fond' },
@@ -510,6 +537,18 @@ module.exports = (h) => {
   };
 
   // ─── Rangée 3 : le joint vérifié sous l'eau ────────────────────────────────────────────
+  // la silhouette d'une main simple (le chemin à 1,5 de son SVG : le moteur n'expose pas son contour) : le bas
+  // de la main au-dessus d'une abscisse, pour la poser à plat sur le fond du pot
+  const silhouette = svg => {
+    const segs = [];
+    for (const mm of String(svg).matchAll(/<path d="([^"]+)"[^>]*stroke-width="1\.5"/g)) for (const sp of mm[1].split('M').filter(Boolean)) {
+      const n = sp.match(/-?\d+(\.\d+)?/g).map(Number), Q = [];
+      for (let i = 0; i + 1 < n.length; i += 2) Q.push([n[i], n[i + 1]]);
+      for (let i = 1; i < Q.length; i++) segs.push([Q[i - 1], Q[i]]);
+    }
+    const coupe = x => segs.filter(([a, b]) => (a[0] - x) * (b[0] - x) <= 0 && a[0] !== b[0]).map(([a, b]) => a[1] + (b[1] - a[1]) * (x - a[0]) / (b[0] - a[0]));
+    return { bas: x => Math.max(...coupe(x)) };
+  };
   const test = z => {
     const o = [];
     const yb = z.h - 4, t = 4;
@@ -532,12 +571,22 @@ module.exports = (h) => {
     const chaine = [[j[0] + 2, j[1] - 3, 1.6], [j[0] + 6, j[1] - 11, 2], [xw - 1, j[1] - 22, 2.4]];
     for (let y = j[1] - 36, i = 0; y > cyFond + 10; y -= 15, i++) chaine.push([xw + (i % 2 ? 1 : -0.5), y, 2.8 + Math.min(i, 3) * 0.2]);
     for (const [x, y, rr] of chaine) o.push(h.cercle(x, y, rr, bD));
+    // le point à contrôler : le joint, d'où sortent les bulles
+    o.push(h.controle(j[0] + 1, j[1] - 2, 8));
     o.push(h.path(`M${r1(xw - 7)} ${r1(ys - 1.5)} Q${r1(xw)} ${r1(ys - 6)} ${r1(xw + 7)} ${r1(ys - 1.5)}`, A.detail));
     // la chaudière par-dessus
     o.push(h.path(`M${r1(xb)} ${r1(yt)} L${r1(xb)} ${r1(yb)} L${r1(xb + Wb)} ${r1(yb)} L${r1(xb + Wb)} ${r1(yt)} L${r1(xb + Wb - t)} ${r1(yt)} L${r1(xb + Wb - t)} ${r1(yb - t)} L${r1(xb + t)} ${r1(yb - t)} L${r1(xb + t)} ${r1(yt)} Z`, A.plein));
-    // la main qui appuie sur le fond du pot et le tient sous l'eau
-    const m = F.main({ x: cx, y: cyFond, pose: 'appui', vue: 'profil', echelle: 0.44, bras: 110, cote: 'gauche' });
-    o.push(m.toString());
+    // la main gauche qui appuie sur le fond du pot et le tient sous l'eau : la main simple à plat, de profil
+    // côté pouce, un peu vue d'en haut ; la paume posée sur le fond, les doigts vers la droite, l'avant-bras
+    // qui remonte à gauche, passe par-dessus le bord et sort de la vue (les bulles, à droite, restent libres)
+    const MAIN = { ech: 0.5, dx: 30, rot: [-25, 0, 0], vers: [-50, -120] };
+    const oM = { x: cx - MAIN.dx, y: cyFond - 30, ancre: 'poignet', pose: 'plat', vue: 'pouce', cote: 'gauche', echelle: MAIN.ech, angle: 0,
+      ...(MAIN.rot ? { rotation: MAIN.rot } : {}), avantbras: { vers: MAIN.vers, bord: { x0: 0, y0: 0, x1: z.l, y1: z.h }, bras: { pli: 0 } } };
+    // la paume posée : le bas de la main touche le fond au milieu du pot
+    const m0 = F.mainSimple(oM), sil = silhouette(m0.svg);
+    const xs = [cx - Wp * 0.3, cx, cx + Wp * 0.3].map(x => sil.bas(x)).filter(Number.isFinite);
+    const m = F.mainSimple({ ...oM, y: oM.y + (cyFond - Math.max(...xs)) - 0.6 });
+    o.push(m.svg);
     return {
       svg: o.join('\n'),
       renvois: [

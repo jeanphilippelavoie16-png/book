@@ -2,6 +2,10 @@
 // §5-C, étapes 13 à 18 ; §9 « Réparer sans chaudron », la gomme mâchée lissée au tison).
 // Aucune cote : le chapitre ne donne ni la taille de la pièce ni l'épaisseur des couches.
 // La gomme, au charbon, est noire : elle est en aplat noir partout.
+// La charte : pas de gris sur les coupes hachurées ni sur la vue de dessus ; le flanc du tison,
+// côté bas, à l'ombre. Le rouge : la palette qui presse (le geste) et la ligne où l'eau entre
+// sous la pièce, celle que la seconde couche doit couvrir (le point à vérifier). En passant : le
+// bout du tison entrait dans le titre de sa vue.
 
 module.exports = (h) => {
   const BL = h.a.blanc.match(/fill="([^"]+)"/)[1];
@@ -66,6 +70,8 @@ module.exports = (h) => {
         o.push(h.path(d, h.a.plein));
         o.push(h.ligne(p, Y - g + 0.5, p, Y - 0.5, trBlanc));
       });
+      // le point à vérifier : la ligne où la pièce rencontre la coque, couverte
+      o.push(h.controle(p2, Y - 2, 11));
     } else {
       // La gomme chassée par la pression perle au bord.
       [[p2, 1], [p1, -1]].forEach(([p, s]) => {
@@ -75,7 +81,7 @@ module.exports = (h) => {
       const xa = p2 - bord + 4, xb = p2 - 6;
       o.push(palette(xa, yp - 1.2, xb, yp - 1.2, xa - 80, yp - 72));
       const xf = (xa + xb) / 2 + 8;
-      o.push(h.fleche(`M ${xf} ${yp - 64} V ${yp - 14}`));
+      o.push(h.geste(`M ${xf} ${yp - 64} V ${yp - 14}`));
     }
     return o.join('\n');
   }
@@ -124,12 +130,15 @@ module.exports = (h) => {
       o.push(h.path(d, h.a.plein));
       o.push(h.ligne(pe, Y - g + 0.5, pe, Y - 0.5, trBlanc));
       // Le tison : un bout de bois au bout rougi, posé sur la gomme au bord de la pièce.
-      const T = [pe + 16, yp - 5], E = [R - 20, yp - 112];
+      // (le bout du haut restait dans le titre de la vue : le tison est un peu plus court)
+      const T = [pe + 16, yp - 5], E = [R - 26, yp - 98];
       const mx = E[0] - T[0], my = E[1] - T[1], M = Math.hypot(mx, my), vx = mx / M, vy = my / M;
       const w = 8, qx = -vy, qy = vx;
       const baton = [[T[0] + qx * w, T[1] + qy * w], [E[0] + qx * w, E[1] + qy * w],
         [E[0] - qx * w, E[1] - qy * w], [T[0] - qx * w, T[1] - qy * w]];
       o.push(h.chemin(baton, h.a.blanc, true));
+      // le flanc du bas du tison, à l'ombre (lumière en haut à gauche)
+      o.push(h.chemin([[T[0] + qx * w * 0.1, T[1] + qy * w * 0.1], [E[0] + qx * w * 0.1, E[1] + qy * w * 0.1], [E[0] + qx * w, E[1] + qy * w], [T[0] + qx * w, T[1] + qy * w]], h.a.ombre, true));
       o.push(h.chemin(baton, h.a.contour, true));
       const rot = Math.atan2(vy, vx) * 180 / Math.PI;
       o.push(h.path(`M ${E[0] + qx * w} ${E[1] + qy * w} A 3 ${w} ${rot} 1 0 ${E[0] - qx * w} ${E[1] - qy * w} A 3 ${w} ${rot} 1 0 ${E[0] + qx * w} ${E[1] + qy * w} Z`, h.a.arete));
@@ -267,7 +276,7 @@ module.exports = (h) => {
           const G = geomBord(z);
           return [
             { n: 10, rond: [G.pe + 96, G.Y + 42], cible: [G.pe + 60, G.Y - 7], texte: 'gomme mâchée, sur le bord de la pièce' },
-            { n: 11, rond: [G.pe - 40, G.yp - 70], cible: [G.pe + 16 + 0.55 * (G.R - 36 - G.pe), G.yp - 5 - 0.55 * 107], texte: 'tison : bout de bois rougi' },
+            { n: 11, rond: [G.pe - 40, G.yp - 70], cible: [G.pe + 16 + 0.55 * (G.R - 42 - G.pe), G.yp - 5 - 0.55 * 93], texte: 'tison : bout de bois rougi' },
           ];
         },
       },

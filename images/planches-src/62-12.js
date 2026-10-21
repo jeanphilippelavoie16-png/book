@@ -219,7 +219,7 @@ module.exports = (h) => ({
       titre: 'Les coupes',
       dessin: z => {
         const p = vignettePlace(z);
-        const out = ['<g transform="translate(0 14)">', C.dessiner(h, p, { id: 'v', valeur: { muscles: ['longe'], trame: 'gris' }, loin: 'fin' })];
+        const out = ['<g transform="translate(0 14)">', C.dessiner(h, p, { id: 'v', valeur: { muscles: ['longe'], trame: 'gris' }, loin: 'gris' })];
         [[X_A, 206, 482, 'A'], [X_B, 222, 476, 'B']].forEach(([x, y0, y1, l]) => {
           const a = p.pt([x, y0]), b = p.pt([x, y1]);
           out.push(h.ligne(a[0], a[1], b[0], b[1], h.a.arete));
@@ -248,7 +248,8 @@ module.exports = (h) => ({
           chemin(out, [[-100.5, -45], [-100.5, -26], [-99, -10], [-95.5, 8]].map(V));
           [[[-4.8, -130], [-4.8, -110]], [[-104, -76], [-102, -53]]].forEach(([a, b]) => {
             const A1 = V(a), B1 = V(b);
-            out.push(h.fleche(`M${f1(A1[0])} ${f1(A1[1])} L${f1(B1[0])} ${f1(B1[1])}`, h.a.arete));
+            // la charte : les deux entrées du couteau, les deux gestes de la coupe, en rouge
+            out.push(h.geste(`M${f1(A1[0])} ${f1(A1[1])} L${f1(B1[0])} ${f1(B1[1])}`));
           });
         },
       }),
@@ -279,7 +280,8 @@ module.exports = (h) => ({
           // le trait contre l'apophyse épineuse, puis la lame à plat sur la tablette jusqu'au bout
           chemin(out, [[-5.2, -77], [-5, -45], [-5.6, -31], [-10, -25], [-14.8, -12], [-19, -9.5], [-40, -9.4], [-64, -9.3], [-84, -9.6], [-91, -11]].map(V));
           const A1 = V([-5.2, -103]), B1 = V([-5.2, -83]);
-          out.push(h.fleche(`M${f1(A1[0])} ${f1(A1[1])} L${f1(B1[0])} ${f1(B1[1])}`, h.a.arete));
+          // la charte : l'entrée du couteau, le geste, en rouge
+          out.push(h.geste(`M${f1(A1[0])} ${f1(A1[1])} L${f1(B1[0])} ${f1(B1[1])}`));
         },
       }),
       renvois: z => {

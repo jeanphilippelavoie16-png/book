@@ -4,33 +4,16 @@
 // tendue d'un mur de côté à l'autre, sous le linteau, porte les deux couvertures. La palette est
 // posée à cheval sous le rideau : on s'y déchausse sans toucher la neige, les bottes du dehors
 // restent devant, la deuxième paire attend derrière.
+// Mains simples (14 octobre) : les mains dessinées à la main des quatre temps du retrait des gants passent par
+// mainSimple (gantées par le moteur, le gant hachuré jusqu'au bout de sa manchette). La pince du premier temps se
+// voit du dos : de profil, à 0,3 px/mm, elle ne se lisait pas. Rouge : les deux gestes de retourner le gant.
 module.exports = (h) => {
   const A = h.a;
   const R = v => Math.round(v * 10) / 10;
   const blanc = at => at.replace('fill="none"', 'fill="#FFFFFF"');
   const bois = h.a.hachure('bois', 'contour');
 
-  // ─── la main, dessinée une fois, placée partout ──────────────────────────────────────
-  // repère local : poignet en (0, 0), doigts vers le haut, pouce vers +x
-  const POUCE = [['L', 18, -34], ['L', 22, -32], ['L', 31, -45], ['Q', 35, -50, 38.5, -46.5],
-    ['Q', 41.5, -43, 38, -39], ['L', 26, -18], ['Q', 20, -6, 13, 6], ['L', 13, 24]];
-  const INDEX_MAJEUR = [['L', 1.5, -65], ['Q', 1.5, -73, 5.75, -73], ['Q', 10, -73, 10, -65], ['L', 10.5, -58],
-    ['L', 11, -60], ['Q', 11, -67, 14.5, -67], ['Q', 18, -67, 18, -60]];
-  const MAIN = [['M', -13, 24], ['L', -13, 4], ['Q', -18, -10, -18, -30], ['L', -18, -52],
-    ['Q', -18, -59, -13.75, -59], ['Q', -9.5, -59, -9.5, -52], ['L', -9, -49],
-    ['L', -8.5, -62], ['Q', -8.5, -69, -4, -69], ['Q', 0.5, -69, 0.5, -62], ['L', 1, -57],
-    ...INDEX_MAJEUR, ...POUCE];
-  // deux doigts tendus, vue du dos : annulaire et auriculaire repliés serré, le pouce rentré
-  // dans la paume ; la main reste compacte sous les deux doigts, rien d'autre ne touche le gant
-  const DEUX_TENDUS = [['L', 1.5, -70], ['Q', 1.5, -78, 5.75, -78], ['Q', 10, -78, 10, -70], ['L', 10.5, -62],
-    ['L', 11, -65], ['Q', 11, -72, 14.5, -72], ['Q', 18, -72, 18, -65]];
-  const DEUX_BOUT = [5.75, -78];
-  const DEUX = [['M', -13, 24], ['L', -13, 4], ['Q', -18, -8, -18, -20],
-    ['Q', -18, -27, -13.5, -27], ['Q', -9.5, -27, -9, -24], ['Q', -8.5, -31, -4, -31], ['Q', 0.5, -31, 1, -27],
-    ...DEUX_TENDUS, ['L', 18.5, -40], ['Q', 20.5, -16, 15.5, -3], ['Q', 13.2, 3, 13, 8], ['L', 13, 24]];
-  // le contour des deux doigts tendus, pour les suivre en tireté sous le gant
-  const DEUX_DOIGTS = [['M', 1, -27], ...DEUX_TENDUS, ['L', 18.5, -40], ['M', 10.5, -62], ['L', 10, -34]];
-  const BOUT = [5.75, -73];                 // bout du majeur
+  // ─── le repère des pièces du gant (le rebord qu'on roule) : poignet en (0, 0), doigts vers le haut, à 0,7 px
   const K = 0.7;
 
   const place = (segs, p, ferme = true) => {
@@ -41,29 +24,6 @@ module.exports = (h) => {
     for (const g of segs) d += g[0] === 'Q' ? `Q${T(g[1], g[2])} ${T(g[3], g[4])} ` : `${g[0]}${T(g[1], g[2])} `;
     return d + (ferme ? 'Z' : '');
   };
-  // le poignet placé pour que le bout du majeur tombe sur « cible »
-  const viser = (cible, m, rot, bout = BOUT) => {
-    const c = Math.cos(rot * Math.PI / 180), s = Math.sin(rot * Math.PI / 180);
-    const X = m * bout[0], Y = bout[1];
-    return { x: cible[0] - K * (X * c - Y * s), y: cible[1] - K * (X * s + Y * c), m, rot };
-  };
-  const AVANT_BRAS = [['M', -13, 24], ['L', -14, 40], ['L', 14, 40], ['L', 13, 24]];
-  const avantBras = p => [
-    h.path(place(AVANT_BRAS, p), A.blanc),
-    h.path(place([['M', -13, 24], ['L', -14, 40]], p, false), A.arete),
-    h.path(place([['M', 13, 24], ['L', 14, 40]], p, false), A.arete),
-  ].join('\n');
-  // main gantée : la face du gant qui a touché le malade est hachurée
-  const gantee = p => [
-    avantBras(p),
-    h.path(place(MAIN, p), h.a.hachure('bois', 'arete')),
-    h.path(place([['M', -13, 18], ['L', 13, 18]], p, false), A.detail),
-  ].join('\n');
-  // main nue
-  const nue = (p, segs = MAIN) => [
-    h.path(place(AVANT_BRAS, p), A.blanc),
-    h.path(place([['M', -14, 40], ['L', -13, 24], ...segs.slice(1), ['L', 14, 40]], p, false), blanc(A.arete)),
-  ].join('\n');
   // ─── le gant retourné ────────────────────────────────────────────────────────────────
   // On n'en voit que l'envers, propre (blanc) : une masse froissée d'où pendent des doigts
   // vides (trois bouts côte à côte) et, de l'autre côté, le rebord ouvert : un bout de manchette et
@@ -123,35 +83,9 @@ module.exports = (h) => {
     return out.join('\n');
   };
 
-  // ─── la main droite gantée qui pince (vue côté paume, le pouce en haut) ─────────────────
-  // repère : le point pincé en (0, 0), les doigts vers la gauche ; le pouce et l'index se
-  // referment sur le rebord, les trois autres doigts repliés dessous.
-  const PINCE = [['M', 3, 0], ['L', 0.6, -0.8], ['Q', -1.6, -0.9, -1.6, -3.2], ['Q', -1.6, -5.9, 1.6, -6],
-    ['Q', 8, -7.2, 15, -9], ['Q', 22, -10.8, 28, -6.5], ['L', 35, -6], ['L', 35, 10.5], ['L', 28, 10.3],
-    ['Q', 22, 15.5, 15, 15.2], ['Q', 10, 15.6, 9.8, 12.6], ['Q', 6.8, 12.4, 7.2, 9.4], ['Q', 4.2, 9, 5.2, 6],
-    ['Q', 2, 5.8, 0, 4.6], ['Q', -1.8, 3.4, -1.4, 1.6], ['Q', -1.1, 0.7, 0.6, 0.8], ['L', 3, 0]];
+  // le point pincé, au rebord du premier gant
   const PINCE_P = [58.6, 103.4], PINCE_ROT = 8;
   const surPince = (x, y) => { const c = Math.cos(PINCE_ROT * RAD), s = Math.sin(PINCE_ROT * RAD); return [R(PINCE_P[0] + x * c - y * s), R(PINCE_P[1] + x * s + y * c)]; };
-  const pinceur = (P, rot) => {
-    const c = Math.cos(rot * RAD), s = Math.sin(rot * RAD);
-    const T = (x, y) => pt([P[0] + x * c - y * s, P[1] + x * s + y * c]);
-    const d = (segs, ferme = true) => segs.map(g => g[0] === 'Q' ? `Q${T(g[1], g[2])} ${T(g[3], g[4])}` : `${g[0]}${T(g[1], g[2])}`).join(' ') + (ferme ? ' Z' : '');
-    return [
-      // l'avant-bras nu, au-delà du poignet du gant
-      h.path(d([['M', 35, -6], ['L', 48, -5.2], ['L', 48, 11.4], ['L', 35, 10.5]]), A.blanc),
-      h.path(d([['M', 35, -6], ['L', 48, -5.2]], false), A.arete),
-      h.path(d([['M', 35, 10.5], ['L', 48, 11.4]], false), A.arete),
-      h.path(d(PINCE, false), h.a.hachure('bois', 'arete')),
-      h.path(d([['M', 32, -6.2], ['L', 32, 10.4]], false), A.detail),
-      // le pouce contre l'index, le pli du pouce, les trois doigts repliés
-      h.path(d([['M', 3, 0], ['Q', 7, -0.8, 12, -3.2]], false), A.detail),
-      h.path(d([['M', 12, -3.2], ['Q', 19, -1, 23, 7]], false), A.detail),
-      h.path(d([['M', 9.8, 12.6], ['L', 13.5, 12]], false), A.detail),
-      h.path(d([['M', 7.2, 9.4], ['L', 11, 8.8]], false), A.detail),
-      h.path(d([['M', 5.2, 6], ['L', 9, 5.5]], false), A.detail),
-    ].join('\n');
-  };
-
   // ─── petites pièces du sas ───────────────────────────────────────────────────────────
   const botte = (x0, yb, sens) => {
     const P = (dx, dy) => [x0 + sens * dx, yb + dy];
@@ -302,40 +236,68 @@ module.exports = (h) => {
   // les doigts sous le gant : un tireté franc, détouré de blanc pour ne pas se perdre dans la hachure
   const HALO = 'fill="none" stroke="#FFFFFF" stroke-width="3.8" stroke-linejoin="round" stroke-linecap="round"';
   const SOUS = 'fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-dasharray="3.5 2.5"';
+  // Les mains : des mains simples (mains/moteur.js) à 0,3 px/mm. Une main gantée porte le gant du moteur (gant:
+  // true), hachuré : le dessus du gant a touché le malade. La hachure se pose sous le contour de la main.
+  const EG = 0.3;
+  const F = h.formes;
+  const silhouetteDe = m => (String(m.svg).match(/<path d="([^"]+)" fill="#FFFFFF"/) || [])[1] || '';
+  // le gant s'arrête au bout de sa manchette (45 mm au-delà du poignet) : au-delà, l'avant-bras est nu. demiPlan :
+  // le côté de la main de cette droite, en polygone (pour un clipPath)
+  let nClip = 0;
+  const demiPlan = m => {
+    const u0 = [m.coude[0] - m.poignet[0], m.coude[1] - m.poignet[1]], l = Math.hypot(u0[0], u0[1]) || 1, u = [u0[0] / l, u0[1] / l], v = [-u[1], u[0]];
+    const P = [m.poignet[0] + u[0] * 45 * EG, m.poignet[1] + u[1] * 45 * EG], G = 1000;
+    return [[P[0] + v[0] * G, P[1] + v[1] * G], [P[0] - v[0] * G, P[1] - v[1] * G], [P[0] - v[0] * G - u[0] * G, P[1] - v[1] * G - u[1] * G], [P[0] + v[0] * G - u[0] * G, P[1] + v[1] * G - u[1] * G]];
+  };
+  const gantSeul = (m, contenu) => {
+    const id = `gant-30-40-${++nClip}`;
+    return `<clipPath id="${id}"><path fill="none" stroke="none" d="${demiPlan(m).map((p, i) => `${i ? 'L' : 'M'}${R(p[0])} ${R(p[1])}`).join(' ')} Z"/></clipPath>\n<g clip-path="url(#${id})">\n${contenu}\n</g>`;
+  };
+  const hacher = m => {
+    const svg = String(m.svg), i = svg.indexOf('stroke-width="1.5"'), j = i < 0 ? -1 : svg.lastIndexOf('<path', i);
+    const hach = gantSeul(m, `<path d="${silhouetteDe(m)}" ${h.a.hachure('bois', 'aucun')}/>`);
+    return j < 0 ? svg + hach : svg.slice(0, j) + hach + '\n' + svg.slice(j);
+  };
+  const main30 = (o, boite, gant) => {
+    const m = F.mainSimple({ echelle: EG, gant: !!gant, ...o, avantbras: Object.assign({ bord: boite, bras: { pli: 0 } }, o.avantbras || {}) });
+    return { m, svg: gant ? hacher(m) : m.svg };
+  };
   const gants = (z) => {
     const pw = z.l / 2, ph = z.h / 2;
+    const C1 = { x0: 0, y0: 0, x1: pw, y1: ph }, C2 = { x0: pw, y0: 0, x1: z.l, y1: ph }, C3 = { x0: 0, y0: ph, x1: pw, y1: z.h };
     const out = [h.ligne(pw, 6, pw, z.h - 6, A.fin), h.ligne(6, ph, z.l - 6, ph, A.fin)];
     // 1. pincer le premier gant par l'extérieur, au rebord, et le rouler vers les doigts :
     //    le rebord décolle et se retourne sous la pince, l'envers (blanc) sort sous la hachure
     const p1 = { x: 40, y: 100, m: -1 };
+    const L1 = main30({ x: p1.x, y: p1.y, ancre: 'poignet', pose: 'ouverte', vue: 'paume', cote: 'gauche', angle: -90 }, C1, true);
+    out.push(L1.svg);
     out.push(h.path(place([['M', -13, 10], ['L', 13, 16], ['L', 14, 40], ['L', -14, 40]], p1), A.blanc));
     out.push(h.path(place([['M', -13, 15], ['L', -13, 24], ['L', -14, 40]], p1, false), A.arete));
     out.push(h.path(place([['M', 13, 18], ['L', 13, 24], ['L', 14, 40]], p1, false), A.arete));
-    out.push(h.path(place([['M', -13, 1], ...MAIN.slice(2, -1), ['L', 13, 13], ['Q', 0, 7, -13, 1]], p1), h.a.hachure('bois', 'arete')));
     out.push(h.path(place([['M', 13, 13], ['Q', 0, 7, -13, 1], ['L', -26, 3.5], ['Q', -28.5, 4.8, -26, 6], ['L', -14.3, 16],
       ['Q', 0, 20.5, 14.3, 19], ['Q', 14.8, 15.5, 13, 13]], p1), blanc(A.arete)));
     out.push(h.path(place([['M', 13, 13], ['Q', 0, 7, -13, 1], ['L', -26, 3.5]], p1, false), A.contour));
-    out.push(pinceur(PINCE_P, PINCE_ROT));
-    out.push(h.fleche('M63 91 Q74 66 56 45'));
+    // la main droite gantée qui pince le rebord, de profil côté pouce, l'avant-bras à droite
+    out.push(main30({ x: PINCE_P[0], y: PINCE_P[1], pose: 'pince-fine', vue: 'dos', cote: 'droite', diametre: 2, angle: 180 + PINCE_ROT }, C1, true).svg);
+    out.push(h.geste('M63 91 Q74 66 56 45'));
     // 2. le premier gant, retourné, reste dans la main encore gantée
-    out.push(nue({ x: pw + 38, y: 100, m: -1 }));
-    out.push(gantee({ x: pw + 96, y: 100, m: -1 }));
-    out.push(retourne(pw + 97, 79, 0.95, { doigts: 20, ouverture: 200 }));
+    out.push(main30({ x: pw + 38, y: 100, ancre: 'poignet', pose: 'ouverte', vue: 'paume', cote: 'gauche', angle: -90 }, C2, false).svg);
+    out.push(main30({ x: pw + 97, y: 79, pose: 'prise-manche', vue: 'paume', cote: 'droite', diametre: 30, angle: -100,
+      objet: retourne(pw + 97, 79, 0.95, { doigts: 20, ouverture: 200 }) }, C2, true).svg);
     // 3. deux doigts nus sous le rebord du second, par l'intérieur : le rebord passe
     //    par-dessus, les bouts de doigts se suivent en tireté sous le gant
     const oy = ph;
-    const pR = { x: 92, y: oy + 64, m: -1 };
-    const pL = viser([93, oy + 59.8], 1, 14, DEUX_BOUT);
-    out.push(gantee(pR));
-    out.push(nue(pL, DEUX));
-    out.push(h.path(place([['M', 10.5, -62], ['L', 10, -34]], pL, false), A.detail));
-    out.push(h.path(place(MAIN, pR), h.a.hachure('bois', 'arete')));
-    out.push(`<clipPath id="gant-trente-40">${h.path(place(MAIN, pR), A.blanc)}</clipPath>`);
-    out.push(`<g clip-path="url(#gant-trente-40)">\n${h.path(place(DEUX_DOIGTS, pL, false), HALO)}\n${h.path(place(DEUX_DOIGTS, pL, false), SOUS)}\n</g>`);
-    out.push(h.path(place([['M', -13, 18], ['L', 13, 18]], pR, false), A.detail));
-    out.push(h.path(place([['M', -13.3, 24], ['L', 13.3, 24]], pR, false), A.contour));
-    out.push(retourne(94, oy + 40, 0.95, { doigts: 20, ouverture: 200 }));
-    out.push(h.fleche(`M114 ${oy + 84} Q131 ${oy + 50} 112 ${oy + 12}`));
+    const oR3 = { x: 94, y: oy + 40, pose: 'prise-manche', vue: 'paume', cote: 'droite', diametre: 30, angle: -100,
+      objet: retourne(94, oy + 40, 0.95, { doigts: 20, ouverture: 200 }) };
+    const R3 = main30(oR3, C3, true);
+    const L3 = main30({ x: 93, y: oy + 59.8, ancre: 'bout', pose: 'deux-doigts', vue: 'dos', cote: 'gauche', angle: -90 + 14 }, C3, false);
+    // la main droite, puis les doigts nus par-dessus son avant-bras, puis le gant repeint par-dessus les doigts : ils
+    // entrent sous le rebord
+    const R3b = main30(oR3, C3, true);
+    out.push(R3.svg, L3.svg, gantSeul(R3b.m, R3b.svg));
+    out.push(`<clipPath id="gant-trente-40"><path fill="none" stroke="none" d="${silhouetteDe(R3.m)}"/></clipPath>`);
+    out.push(gantSeul(R3.m, `<g clip-path="url(#gant-trente-40)">\n${h.path(silhouetteDe(L3.m), HALO)}\n${h.path(silhouetteDe(L3.m), SOUS)}\n</g>`));
+    out.push(h.geste(`M114 ${oy + 84} Q131 ${oy + 50} 112 ${oy + 12}`));
     // 4. le second retourné par-dessus le premier, le tout dans le sac
     const ox = pw;
     // le sac ouvert : goulot froncé, fond affaissé, plis

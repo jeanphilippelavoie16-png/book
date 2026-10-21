@@ -1,7 +1,7 @@
 # Tome 1 · Tenir — rapport d'assemblage
 
-- **Produit le :** 2026-09-29 06:47, par `design/outils/assembler-tome.py 1`
-- **Fichier :** `livre/tome-1/interieur.pdf` — 332 pages, 68.9 Mo
+- **Produit le :** 2026-10-15 13:47, par `design/outils/assembler-tome.py 1 --hors-ligne`
+- **Fichier :** `livre/tome-1/interieur.pdf` — 308 pages, 68.8 Mo
 - **Ouvertures :** toujours au recto (page de droite), une page blanche devant au besoin
 - **Placements :** design/epreuves-livre/placements.json, design/epreuves-livre/placements-tome-1.json
 - **Exigences de Blurb :** `sources/blurb-specifications.md` (relevées le 27 septembre 2026)
@@ -10,34 +10,44 @@
 
 | Pages du tome | Contenu | Pages |
 | --- | --- | ---: |
-| 1–26 | ch. 00 — Le chapitre principal | 26 |
-| 27 | Page de titre | 1 |
-| 29 | Sommaire | 1 |
-| 31–63 | ch. 00b — Acheter par priorité | 33 |
-| 65–76 | ch. 01 — Les quatre horloges | 12 |
-| 77–88 | ch. 02 — Rester ou partir | 12 |
-| 89–106 | ch. 03 — Panne majeure d’Hydro en janvier | 18 |
-| 107–121 | ch. 04 — Retombées radioactives | 15 |
-| 123–138 | ch. 05 — Le stock permanent du chalet | 16 |
-| 139–152 | ch. 06 — La liste de 72 heures | 14 |
-| 153–167 | ch. 07 — Quand on a un préavis | 15 |
-| 169–181 | ch. 08 — Listes par scénario | 13 |
-| 183–196 | ch. 09 — Ce qui manque toujours | 14 |
-| 197–214 | ch. 10 — Eau : puiser, filtrer, désinfecter | 18 |
-| 215–230 | ch. 11 — Le feu de forêt | 16 |
-| 231–254 | ch. 12 — La tente d’hiver et l’abri de neige | 24 |
-| 255–270 | ch. 13 — Feu sans allumettes | 16 |
-| 271–282 | ch. 14 — Communiquer et savoir | 12 |
-| 283–294 | ch. 15 — Se déplacer et le carburant | 12 |
-| 295–307 | ch. 16 — Le voisinage et le groupe de chasse | 13 |
-| 309–320 | ch. 17 — Qui cogne à la porte | 12 |
-| 321–331 | ch. 18 — S’organiser à plusieurs familles | 11 |
-| | Pages blanches (verso de la page de titre, avant les ouvertures, fin du tome) | 8 |
-| | **Total** | **332** |
+| 1 | Dédicace | 1 |
+| 3 | Page de titre | 1 |
+| 5 | Sommaire | 1 |
+| 7–39 | ch. 00b — Acheter par priorité | 33 |
+| 41–52 | ch. 01 — Les quatre horloges | 12 |
+| 53–64 | ch. 02 — Rester ou partir | 12 |
+| 65–81 | ch. 03 — Panne majeure d’Hydro en janvier | 17 |
+| 83–99 | ch. 04 — Retombées radioactives | 17 |
+| 101–116 | ch. 05 — Le stock permanent du chalet | 16 |
+| 117–130 | ch. 06 — La liste de 72 heures | 14 |
+| 131–145 | ch. 07 — Quand on a un préavis | 15 |
+| 147–159 | ch. 08 — Listes par scénario | 13 |
+| 161–174 | ch. 09 — Ce qui manque toujours | 14 |
+| 175–190 | ch. 10 — Eau : puiser, filtrer, désinfecter | 16 |
+| 191–206 | ch. 11 — Le feu de forêt | 16 |
+| 207–230 | ch. 12 — La tente d’hiver et l’abri de neige | 24 |
+| 231–246 | ch. 13 — Feu sans allumettes | 16 |
+| 247–258 | ch. 14 — Communiquer et savoir | 12 |
+| 259–270 | ch. 15 — Se déplacer et le carburant | 12 |
+| 271–283 | ch. 16 — Le voisinage et le groupe de chasse | 13 |
+| 285–296 | ch. 17 — Qui cogne à la porte | 12 |
+| 297–307 | ch. 18 — S’organiser à plusieurs familles | 11 |
+| | Pages blanches (verso de la page de titre, avant les ouvertures, fin du tome) | 10 |
+| | **Total** | **308** |
 
 Aucune page de crédits (JP, 28 septembre 2026) : copie hors du livre dans `livre/credits/tome-1-credits.md` et `livre/credits/tome-1-credits.pdf`.
 
-Les chapitres seuls font 322 pages ; 6 blanche(s) servent à faire ouvrir chaque chapitre à droite. Avec `--verso` (un chapitre peut ouvrir à gauche), le tome ferait 326 pages.
+Les chapitres seuls font 295 pages ; 7 blanche(s) servent à faire ouvrir chaque chapitre à droite. Avec `--verso` (un chapitre peut ouvrir à gauche), le tome ferait 298 pages.
+
+## Premières minutes (série orange)
+
+Marqueur `{.orange}` sur l'intertitre ### de la série, dans le Markdown (CLAUDE.md, « Les premières minutes, en orange ») : encadré orange, repère orange sur la tranche, colonne orange au sommaire.
+
+| Ch. | Pages du tome |
+| --- | --- |
+| 01 | 43, 44, 45 |
+| 03 | 66, 67 |
+| 04 | 86, 87, 88 |
 
 ## Contrôle Blurb
 
@@ -45,41 +55,20 @@ Les chapitres seuls font 322 pages ; 6 blanche(s) servent à faire ouvrir chaque
 | --- | --- | --- | --- |
 | Taille de chaque page | 585 × 738 pt (8,125 × 10,25 po) | 585.0 × 738.0 pt | oui |
 | Rognage (TrimBox) | 8 × 10 po, fond perdu au bord extérieur | recto : reliure à gauche ; verso : à droite | oui |
-| Nombre de pages | pair, de 20 à 440 (papier Standard) | 332 | oui |
+| Nombre de pages | pair, de 20 à 440 (papier Standard) | 308 | oui |
 | Page 1 | à droite | ouverture du chapitre 00 | oui |
-| Polices incorporées | toutes | 63 police(s), 0 non incorporée(s) | oui |
-| Taille du fichier | 2 Go au plus | 68.9 Mo | oui |
+| Polices incorporées | toutes | 57 police(s), 0 non incorporée(s) | oui |
+| Taille du fichier | 2 Go au plus | 68.8 Mo | oui |
 | Marques d'imprimeur | aucune | aucune | oui |
 | Couleur | CMJN ou sRVB, sans ton direct | sRVB (Edge) | oui |
 | Noir du texte | 100 % K | noir sRVB (0, 0, 0) : la conversion est faite chez Blurb | à juger sur épreuve |
 | PDF/X | plus exigé en 2026 (le guide de 2010 le demandait) | PDF 1.4 d'Edge, pas PDF/X | à surveiller au téléversement |
 
-Polices du fichier : Georgia, Georgia-Italic, IBMPlexSansCond-Bold, IBMPlexSansCond-Italic, IBMPlexSansCond-Medium, IBMPlexSansCond-SemiBold, IBMPlexSansCond-SemiBoldItalic, IBMPlexSerif-Bold, IBMPlexSerif-Italic, IBMPlexSerif-Regular, IBMPlexSerif-SemiBold, IBMPlexSerif-SemiBoldItalic, NotoSansSymbols2-Regular, NotoSerif-Bold, NotoSerif-Regular, Type 3 sans nom (texte des planches)
+Polices du fichier : IBMPlexSansCond-Bold, IBMPlexSansCond-Italic, IBMPlexSansCond-Medium, IBMPlexSansCond-SemiBold, IBMPlexSansCond-SemiBoldItalic, IBMPlexSerif-Bold, IBMPlexSerif-Italic, IBMPlexSerif-Regular, IBMPlexSerif-SemiBold, IBMPlexSerif-SemiBoldItalic, LiberationSerif, LiberationSerif-Italic, NotoSansSymbols2-Regular, NotoSerif-Bold, NotoSerif-Regular, Type 3 sans nom (texte des planches)
 
 ## Tranche et couverture
 
-Calculateur de Blurb interrogé le 2026-09-29 06:47 pour **332 pages**, papier Standard, couverture **souple** (`softcover`), en pouces :
-
-**Tranche : 0.75 x 10.25 po. PDF de couverture : 17.0 x 10.25 po.**
-
-| Pages (ce PDF) | Pouces |
-| --- | --- |
-| Final, exported PDF should measure (w x h) | 8.125 x 10.25 |
-| Page size / trim line (w x h) | 8.0 x 10.0 |
-| Bleed (top, bottom, and outside edges) | 0.125 |
-| Inset for Margins / Safe boundary (Top, Bottom, Outside Edge) | 0.25 |
-| Inset for Margins / Safe boundary (Binding Edge) | 0.5 |
-
-| Couverture | Pouces |
-| --- | --- |
-| Final, exported PDF should measure (w x h) | 17.0 x 10.25 |
-| Total Page size / trim line (w x h) | 16.75 x 10.0 |
-| Bleed (all edges) | 0.125 |
-| Flaps (w x h, measured from trim edge to fold) | none |
-| Gutter / Spine (w x h) | 0.75 x 10.25 |
-| Inset for Margins / Safe boundary (from edge of trim) | 0.25 |
-
-La tranche change par paliers avec le nombre de pages : la couverture se fait **après** le dernier assemblage, avec la mesure du jour.
+Calculateur non interrogé (--hors-ligne). Relevé du 27 septembre 2026 dans `sources/blurb-specifications.md` §2 ; pour 308 pages, prendre la ligne du tableau dont le palier couvre ce nombre, et revérifier au calculateur. [À VÉRIFIER]
 
 ## Figures
 
@@ -87,25 +76,24 @@ Les planches de `images/a-valider/` sont posées comme les validées (JP les rel
 
 | Ch. | Posées (page du tome) | Mentionnées dans le texte sans planche dessinée | À valider, non posées | Photos demandées encore à acquérir (credits.md) |
 | --- | --- | --- | --- | ---: |
-| 00 | — | — | — | 0 (ancien 00) |
 | 00b | — | — | — | 0 (ancien 00b) |
 | 01 | — | — | — | 6 (ancien 01) |
 | 02 | — | — | — | 6 (ancien 02) |
-| 03 | 03-09 (99, pleine), 03-08 (101, pleine), 03-10 (103, pleine) | — | — | 7 (ancien 04) |
-| 04 | 04-01a (117, pleine), 04-01b (118, pleine), 04-40 (121, pleine, à valider), 04-lichen-caribous-tapis.jpg (111) | — | — | 6 (ancien 06) |
-| 05 | 05-boite-bombee.jpg (135) | — | — | 5 (ancien 08) |
+| 03 | 03-09 (74, pleine), 03-08 (76, pleine), 03-10 (78, pleine) | — | — | 7 (ancien 04) |
+| 04 | 04-01a (94, pleine), 04-01b (96, pleine), 04-41 (97, pleine, à valider), 04-40 (99, pleine, à valider), 04-retombees-livre (84, double page), 04-lichen-caribous-tapis.jpg (89) | — | — | 6 (ancien 06) |
+| 05 | 05-boite-bombee.jpg (113) | — | — | 5 (ancien 08) |
 | 06 | — | — | — | 5 (ancien 09) |
 | 07 | — | — | — | 5 (ancien 10) |
 | 08 | — | — | — | 6 (ancien 11) |
-| 09 | 09-08 (195, pleine) | — | — | 7 (ancien 12) |
-| 10 | 10-02 (210, pleine), 10-07 (212, pleine), 10-01 (209), 10-03 (213), 10-hutte-castor.jpg (199) | — | — | 6 (ancien 13) |
-| 11 | 11-03 (229, pleine, à valider) | — | — | 0 (ancien 16b) |
-| 12 | 12-01a (235, pleine, à valider), 12-01b (236, pleine, à valider), 12-02 (237, pleine, à valider), 12-03 (239, pleine, à valider), 12-04 (241, pleine, à valider), 12-06a (243, pleine, à valider), 12-05a (245, pleine, à valider), 12-05b (246, pleine, à valider), 12-06b (252, pleine, à valider) | — | — | 0 (ancien 16c) |
-| 13 | 13-40 (258, pleine, à valider), 13-08 (264, pleine), 13-07 (267, pleine), 13-09 (268, pleine, à valider), 13-01 (270, pleine), 13-bouleau-ecorce-rubans.jpg (265), 13-gomme-epinette.jpg (265) | — | — | 6 (ancien 17) |
-| 14 | 14-01 (280, pleine) | — | — | 7 (ancien 19) |
-| 15 | 15-01 (288, pleine) | — | — | 8 (ancien 20) |
-| 16 | 16-07 (304, pleine), 16-08 (306, pleine) | — | — | 7 (ancien 21) |
-| 17 | 17-06 (318, pleine) | — | — | 6 (ancien 22) |
+| 09 | 09-08 (173, pleine) | — | — | 7 (ancien 12) |
+| 10 | 10-02 (187, pleine), 10-07 (189, pleine), 10-01 (185), 10-03 (188), 10-hutte-castor.jpg (177) | — | — | 6 (ancien 13) |
+| 11 | 11-03 (205, pleine) | — | — | 0 (ancien 16b) |
+| 12 | 12-01a (211, pleine), 12-01b (212, pleine), 12-02 (213, pleine), 12-03 (215, pleine), 12-04 (217, pleine), 12-06a (219, pleine), 12-05a (221, pleine), 12-05b (222, pleine), 12-06b (228, pleine) | — | — | 0 (ancien 16c) |
+| 13 | 13-40 (234, pleine), 13-08 (240, pleine), 13-07 (243, pleine), 13-09 (244, pleine), 13-01 (246, pleine), 13-bouleau-ecorce-rubans.jpg (241), 13-gomme-epinette.jpg (241) | — | — | 6 (ancien 17) |
+| 14 | 14-01 (256, pleine) | — | — | 7 (ancien 19) |
+| 15 | 15-01 (264, pleine) | — | — | 8 (ancien 20) |
+| 16 | 16-07 (280, pleine), 16-08 (282, pleine) | — | — | 7 (ancien 21) |
+| 17 | 17-06 (294, pleine) | — | — | 6 (ancien 22) |
 | 18 | — | — | — | 7 (ancien 23) |
 
 ## Crédits des images — hors du livre
@@ -114,11 +102,11 @@ Rien ne s'imprime (JP, 28 septembre 2026). Copie de sauvegarde : `livre/credits/
 
 | Page | Ch. | Fichier | Auteur | Licence |
 | ---: | --- | --- | --- | --- |
-| 111 | 04 | 04-lichen-caribous-tapis.jpg | (c) mbrenner131, some rights reserved (CC BY-NC) | CC BY-NC |
-| 135 | 05 | 05-boite-bombee.jpg | Kat1100 | CC BY 4.0 — Creative Commons Attribution 4.0 |
-| 199 | 10 | 10-hutte-castor.jpg | U.S. Fish and Wildlife Service - Midwest Region | Public domain |
-| 265 | 13 | 13-bouleau-ecorce-rubans.jpg | usfs_Eastern_Region | Public domain |
-| 265 | 13 | 13-gomme-epinette.jpg | S. Rae from Scotland, UK | CC BY 2.0 — Creative Commons Attribution 2.0 |
+| 89 | 04 | 04-lichen-caribous-tapis.jpg | (c) mbrenner131, some rights reserved (CC BY-NC) | CC BY-NC |
+| 113 | 05 | 05-boite-bombee.jpg | Kat1100 | CC BY 4.0 — Creative Commons Attribution 4.0 |
+| 177 | 10 | 10-hutte-castor.jpg | U.S. Fish and Wildlife Service - Midwest Region | Public domain |
+| 241 | 13 | 13-bouleau-ecorce-rubans.jpg | usfs_Eastern_Region | Public domain |
+| 241 | 13 | 13-gomme-epinette.jpg | S. Rae from Scotland, UK | CC BY 2.0 — Creative Commons Attribution 2.0 |
 
 Photos téléchargées pour ces chapitres et non posées (images de référence ou photos à placer) :
 
@@ -129,10 +117,9 @@ Photos téléchargées pour ces chapitres et non posées (images de référence 
 
 ## Avertissements
 
-- ch. 01, paginateur : p01-8 : page à moitié vide
-- ch. 04, paginateur : p04-7 : page à moitié vide
 - ch. 05, paginateur : p05-11 : page à moitié vide
 - ch. 09, paginateur : p09-8 : page à moitié vide
+- ch. 10, paginateur : p10-9 : page à moitié vide
 - ch. 13, paginateur : p13-7 : page à moitié vide
 - ch. 14, paginateur : p14-6 : page à moitié vide
 

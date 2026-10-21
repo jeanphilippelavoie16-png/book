@@ -114,7 +114,7 @@ module.exports = (h) => {
           const top = lisse(butte);
           const o = [`<path d="${dd([...top, [z.l, z.h], [0, z.h]], true)}" ${A.hachure('terre', 'aucun')}/>`];
           o.push(R.couronne(P0, { seg: 1, id: 'g1' }), R.couronne(P1, { seg: 2, id: 'g2' }));
-          o.push(`<path d="${dd(top)}" ${A.arete}/>`);
+          o.push(`<path d="${dd(top)}" ${A.contour}/>`);
           return o.join('\n');
         },
         renvois: z => {
@@ -131,8 +131,10 @@ module.exports = (h) => {
         titre: 'L’hiver, forcer au noir',
         dessin: z => {
           const { oy, P, T } = gF(z);
-          const box = (x, y, l, ht) => `<path d="${dd([[x, y], [x + l, y], [x + l, y + ht], [x, y + ht]].map(P), true)}" ${A.hachure('bois')}/>`;
+          const box = (x, y, l, ht) => `<path d="${dd([[x, y], [x + l, y], [x + l, y + ht], [x, y + ht]].map(P), true)}" ${A.hachure('bois', 'contour')}/>`;
           const o = [];
+          // charte : l'intérieur des deux caisses, au noir, en gris loin (le fond vu en coupe)
+          o.push(`<path d="${dd([[EP, -HC - HH + EP], [LC - EP, -HC - HH + EP], [LC - EP, SURF], [EP, SURF]].map(P), true)}" ${A.loin}/>`);
           // le plancher
           o.push(h.rect(0, oy, z.l, 8, A.hachure('bois', 'aucun')), h.ligne(0, oy, z.l, oy, A.contour));
           // la terre ou le sable dans la caisse

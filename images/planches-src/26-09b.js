@@ -1,6 +1,15 @@
 // Planche 26-09b — Déplacer un blessé : la porte dégondée, le blessé sanglé dessus, la tête
 // calée ; vue par la tête ; et l'ensemble roulé d'un bloc sur le côté.
+// Lot 3 (13 octobre au soir, JP : « élimine toutes les vues de face et de haut ») : la vue de dessus
+// et son corps vu d'en haut sortent. À leur place, la même porte de côté, posée sur la neige, le
+// blessé en corps simple couché sur le dos (couche-dos) : les sangles passent par-dessus lui et
+// sous la porte, la bande sur le front, le rouleau de vêtements contre la tête et le linge roulé
+// contre les jambes (celui du côté de l'œil, devant le corps ; l'autre est caché derrière). Les
+// vues par la tête restent : une tête ronde sur la bosse des épaules, en forme simple.
+// Charte : la porte, les sangles et la bande à 2,4, le corps à 1,5 ; gris ombre sous les rouleaux ;
+// rouge : le geste qui roule tout d'un bloc.
 module.exports = (h) => {
+  const F = h.formes;
   const BL = h.a.blanc.split(' ')[0];
   const plein = t => t.replace('fill="none"', BL);
   const f = v => Math.round(v * 10) / 10;
@@ -26,40 +35,55 @@ module.exports = (h) => {
     return h.chemin(P, a);
   };
 
-  // Corps couché sur le dos, vu de dessus, tête à gauche. x0 : sommet du crâne ; H : taille.
-  const corpsDessus = (x0, cy, H, a) => {
-    const D = [
-      [0, 0], [0.012, 0.03], [0.055, 0.045], [0.105, 0.037], [0.13, 0.025], [0.155, 0.027],
-      [0.172, 0.07], [0.19, 0.112], [0.22, 0.128], [0.30, 0.127], [0.37, 0.124], [0.46, 0.12],
-      [0.53, 0.115], [0.575, 0.11], [0.60, 0.095], [0.585, 0.082], [0.62, 0.085], [0.75, 0.068],
-      [0.85, 0.06], [0.93, 0.048], [0.955, 0.068], [0.99, 0.064], [1.0, 0.042], [0.985, 0.02],
-      [0.94, 0.02], [0.75, 0.013], [0.60, 0.008], [0.545, 0],
-    ];
-    const P = [...D, ...D.slice(1, -1).reverse().map(([x, y]) => [x, -y])]
-      .map(([x, y]) => [x0 + x * H, cy + y * H]);
-    const ligne = pts => h.path(lisse(pts.map(([x, y]) => [x0 + x * H, cy + y * H]), false), h.a.detail);
-    return [
-      forme(P, a),
-      ligne([[0.225, 0.093], [0.34, 0.09], [0.47, 0.088], [0.56, 0.09]]),
-      ligne([[0.225, -0.093], [0.34, -0.09], [0.47, -0.088], [0.56, -0.09]]),
-      ligne([[0.135, -0.018], [0.142, 0], [0.135, 0.018]]),
-    ].join('\n');
-  };
-
-  // Un rouleau de linge vu de dessus : un cylindre couché, deux plis.
-  const rouleauDessus = (x1, x2, y, r) => [
-    h.path(`M${f(x1 + r * 0.5)},${f(y - r)} L${f(x2 - r * 0.5)},${f(y - r)} Q${f(x2 + r * 0.3)},${f(y)} ${f(x2 - r * 0.5)},${f(y + r)} L${f(x1 + r * 0.5)},${f(y + r)} Q${f(x1 - r * 0.3)},${f(y)} ${f(x1 + r * 0.5)},${f(y - r)} Z`, plein(h.a.arete)),
-    h.path(`M${f(x1 + r)},${f(y - r * 0.35)} L${f(x2 - r)},${f(y - r * 0.45)}`, h.a.detail),
-    h.path(`M${f(x1 + r * 1.6)},${f(y + r * 0.4)} L${f(x2 - r * 1.4)},${f(y + r * 0.3)}`, h.a.fin),
+  // ─── vu par la tête : une tête ronde sur la bosse des épaules, en forme simple. Toutes les
+  // silhouettes à 2,4 dessous, puis chaque pièce son blanc et son trait 1,4.
+  const NOIR = '#1A1A1A';
+  const rond = (c, r) => `M${f(c[0] - r)},${f(c[1])} A${f(r)} ${f(r)} 0 1 0 ${f(c[0] + r)},${f(c[1])} A${f(r)} ${f(r)} 0 1 0 ${f(c[0] - r)},${f(c[1])} Z`;
+  const picto = D => [
+    ...D.map(d => `<path d="${d}" fill="none" stroke="${NOIR}" stroke-width="2.4" stroke-linejoin="round"/>`),
+    ...D.map(d => `<path d="${d}" fill="#FFFFFF" stroke="${NOIR}" stroke-width="1.4" stroke-linejoin="round"/>`),
   ].join('\n');
 
-  // ─── la porte vue de dessus ───
-  const geoPorte = z => {
-    const Ld = z.l - 56, Wd = Math.round(Ld * 0.4), x0 = 28, cy = Math.round(z.h / 2), y0 = cy - Wd / 2;
-    const H = Ld * 0.86, xc = x0 + Ld * 0.045;          // taille du blessé ; sommet du crâne
-    const X = fr => xc + fr * H;                       // position le long du corps
-    const lb = H * 0.036;                              // largeur d'une sangle
-    return { Ld, Wd, x0, y0, cy, H, xc, X, lb };
+  // ─── la porte de côté, le blessé couché dessus ───
+  // Les y où une verticale x coupe les contours d'un SVG fait de polylignes (le corps simple).
+  const coupesX = (svg, x) => {
+    const ys = [];
+    for (const m of String(svg).matchAll(/ d="([^"]+)"/g)) {
+      const n = m[1].match(/-?\d+(\.\d+)?/g).map(Number);
+      for (let i = 0; i + 3 < n.length; i += 2) {
+        const [x0, y0, x1, y1] = [n[i], n[i + 1], n[i + 2], n[i + 3]];
+        if (x0 !== x1 && (x0 - x) * (x1 - x) <= 0) ys.push(y0 + (y1 - y0) * (x - x0) / (x1 - x0));
+      }
+    }
+    return ys;
+  };
+  const memo = {};
+  // mm réels : la porte 2030 × 45, le blessé de 1750 (couche-dos) ; les sangles aux mêmes places
+  // que sur la vue de dessus d'avant, en part de la taille depuis le sommet du crâne.
+  const LP = 2030, EP = 45, TAILLE = 1750;
+  const geoCote = z => {
+    const cle = [z.l, z.h].join(',');
+    if (memo[cle]) return memo[cle];
+    const e = (z.l - 56) / LP, x0 = 28, G = Math.round(z.h * 0.5 + 52 * e * 2.4), yp = G - EP * e;   // G : sous la porte, sur la neige
+    const c = F.corps({ x: 0, y: yp, pose: 'couche-dos', echelle: e });
+    const dx = x0 + 70 * e - c.boite.x0, corps = `<g transform="translate(${f(dx)} 0)">\n${c}\n</g>`;
+    const X = fr => x0 + 70 * e + fr * TAILLE * e;             // depuis le sommet du crâne
+    const haut = x => { const ys = coupesX(c, x - dx); return ys.length ? Math.min(...ys) : yp; };
+    return (memo[cle] = { e, x0, G, yp, X, haut, corps, Ld: LP * e });
+  };
+  // Un rouleau de linge vu de côté, couché sur la porte : un cylindre, sa face de dessous à l'ombre.
+  const rouleauCote = (x1, x2, yb, r) => {
+    const yc = yb - r;
+    const d = `M${f(x1 + r * 0.4)},${f(yc - r)} L${f(x2 - r * 0.4)},${f(yc - r)} Q${f(x2 + r * 0.25)},${f(yc)} ${f(x2 - r * 0.4)},${f(yc + r)} L${f(x1 + r * 0.4)},${f(yc + r)} Q${f(x1 - r * 0.25)},${f(yc)} ${f(x1 + r * 0.4)},${f(yc - r)} Z`;
+    const ombre = `M${f(x1 + r * 0.2)},${f(yc + r * 0.45)} L${f(x2 - r * 0.2)},${f(yc + r * 0.45)} Q${f(x2 - r * 0.1)},${f(yc + r * 0.8)} ${f(x2 - r * 0.4)},${f(yc + r)} L${f(x1 + r * 0.4)},${f(yc + r)} Q${f(x1 + r * 0.1)},${f(yc + r * 0.8)} ${f(x1 + r * 0.2)},${f(yc + r * 0.45)} Z`;
+    return [h.path(d, h.a.blanc), h.path(ombre, h.a.ombre), h.path(d, h.a.arete),
+      h.path(`M${f(x1 + r * 1.2)},${f(yc - r * 0.35)} L${f(x2 - r * 1.4)},${f(yc - r * 0.3)}`, h.a.detail)].join('\n');
+  };
+  // Une sangle vue de côté : par-dessus le corps (elle en suit le dessus) et sous la porte.
+  const sangle = (g, x, l) => {
+    const P = [];
+    for (let k = 0; k <= 8; k++) { const xx = x - l / 2 + l * k / 8; P.push([xx, g.haut(xx) - 1]); }
+    return h.chemin([[x - l / 2, g.G + 1.5], ...P, [x + l / 2, g.G + 1.5]], plein(h.a.arete), true);
   };
 
   // ─── l'ensemble vu par la tête, repère local en cm : (0,0) = milieu de la face de la porte ───
@@ -67,22 +91,24 @@ module.exports = (h) => {
   const ensemble = (k, T, tourne) => {
     const q = T;
     const out = [];
-    // épaules et bras, derrière la tête
-    out.push(forme([[-25, 0], [-26, -8], [-22, -17], [-12, -21], [0, -22], [12, -21], [22, -17], [26, -8], [25, 0]].map(([x, y]) => q(x, y)), plein(h.a.detail)));
-    out.push(h.path(`M${pt(q(-19, 0))} Q${pt(q(-20, -9))} ${pt(q(-17, -15))}`, h.a.detail));
-    out.push(h.path(`M${pt(q(19, 0))} Q${pt(q(20, -9))} ${pt(q(17, -15))}`, h.a.detail));
+    // le tronc derrière la tête et les bras le long du corps : un seul bloc du pictogramme
+    out.push(picto([
+      lisse([[-31, 0], [-31.8, -6.5], [-29.4, -12.4], [-21, -18.4], [-10, -21.4], [0, -22], [10, -21.4], [21, -18.4], [29.4, -12.4], [31.8, -6.5], [31, 0]].map(([x, y]) => q(x, y)), true),
+    ]));
+    // le pli entre le bras et la poitrine
+    for (const s of [-1, 1]) out.push(h.path(`M${pt(q(s * 23.4, -16.6))} Q${pt(q(s * 22, -8))} ${pt(q(s * 22.6, 0))}`, h.a.detail));
     // la porte, en travers
     out.push(h.chemin([q(-40.5, 0), q(40.5, 0), q(40.5, 4.5), q(-40.5, 4.5)].map(p => p.map(f)), h.a.hachure('bois', 'contour'), true));
-    // la tête vue par le crâne : nez en haut, oreilles de côté
-    out.push(forme([[-7.6, -9.5], [-6.8, -15.2], [-4, -18.4], [-1.4, -19.2], [0, -21.8], [1.4, -19.2], [4, -18.4], [6.8, -15.2], [7.6, -9.5], [8.4, -8], [7.2, -6.5], [6.6, -3], [3.5, -0.4], [0, 0], [-3.5, -0.4], [-6.6, -3], [-7.2, -6.5], [-8.4, -8]].map(([x, y]) => q(x, y)), plein(h.a.arete)));
+    // la tête vue par le crâne : le rond du pictogramme, posé sur la porte
+    out.push(picto([rond(q(0, -11.4), 11.4 * k)]));
     // les deux rouleaux serrés contre la tête
     for (const s of [-1, 1]) {
-      const c = q(s * 13.4, -5.6);
+      const c = q(s * 16.8, -5.6);
       out.push(h.cercle(c[0], c[1], 5.6 * k, plein(h.a.arete)));
       out.push(spirale(c[0], c[1], 1.2 * k, 5.2 * k, 2.2, Math.PI / 2 + (tourne ? Math.PI / 2 : 0), s, h.a.detail));
     }
     // la bande : par-dessus le front et les rouleaux, autour de la porte
-    const B = [[40.9, 1.2], [30, -4.6], [18.4, -10.2], [11, -15.6], [5, -18.5], [0, -19.4], [-5, -18.5], [-11, -15.6], [-18.4, -10.2], [-30, -4.6], [-40.9, 0.4], [-41.2, 4.8], [-38, 5.3], [0, 5.3], [38, 5.3], [41.2, 4.8]];
+    const B = [[40.9, 1.2], [30, -6], [22, -10], [16, -12.6], [9.4, -18.4], [4.4, -21.6], [0, -22.4], [-4.4, -21.6], [-9.4, -18.4], [-16, -12.6], [-22, -10], [-30, -6], [-40.9, 0.4], [-41.2, 4.8], [-38, 5.3], [0, 5.3], [38, 5.3], [41.2, 4.8]];
     out.push(h.path(lisse(B.map(([x, y]) => q(x, y)), true), h.a.contour));
     // le nœud, sur la tranche
     const n = q(-42.4, 2.2);
@@ -109,50 +135,39 @@ module.exports = (h) => {
   return {
     ref: '26-09b',
     titre: 'Déplacer un blessé : la porte dégondée, le blessé sanglé et calé',
-    desc: 'Une porte dégondée sert de planche. Vue de dessus : le blessé couché sur le dos, sanglé en travers de la poitrine, du bassin et des cuisses, du linge roulé dans les vides le long des jambes, tenu par la sangle des cuisses, un rouleau de vêtements de chaque côté de la tête et une bande large en travers du front. Vue par la tête : les rouleaux serrés contre les tempes et la bande qui passe sur le front et fait le tour de la porte. Enfin, porte et blessé roulés ensemble sur la tranche, d’un bloc.',
+    desc: 'Une porte dégondée sert de planche. De côté, la porte posée sur la neige, les pentures dans son chant : le blessé couché sur le dos, sanglé en travers de la poitrine, du bassin et des cuisses, chaque sangle passant par-dessus lui et sous la porte ; du linge roulé contre les jambes, un rouleau de vêtements contre la tête et une bande large en travers du front. Vue par la tête : les rouleaux serrés contre les tempes et la bande qui passe sur le front et fait le tour de la porte. Enfin, porte et blessé roulés ensemble sur la tranche, d’un bloc, une flèche rouge pour le mouvement.',
     format: 'pleine',
-    disposition: [['dessus'], ['tete', 'roule']],
-    hauteurs: [1.15, 1],
+    disposition: [['cote'], ['tete', 'roule']],
+    hauteurs: [0.68, 1],
     largeurs: [[1], [1, 1]],
     vues: {
-      dessus: {
-        titre: 'Vu de dessus',
+      cote: {
+        titre: 'De côté',
         dessin: z => {
-          const g = geoPorte(z), { Ld, Wd, x0, y0, cy, H, X, lb } = g, out = [];
-          // la porte : panneaux, pentures, trou de la poignée
-          out.push(h.rect(x0, y0, Ld, Wd, plein(h.a.contour)));
-          for (const [a, b] of [[0.06, 0.2], [0.25, 0.7], [0.75, 0.94]]) for (const [c, d] of [[0.13, 0.47], [0.53, 0.87]]) {
-            out.push(h.rect(f(x0 + a * Ld), f(y0 + c * Wd), f((b - a) * Ld), f((d - c) * Wd), h.a.detail));
-            out.push(h.rect(f(x0 + a * Ld + 5), f(y0 + c * Wd + 5), f((b - a) * Ld - 10), f((d - c) * Wd - 10), h.a.fin));
-          }
-          for (const a of [0.12, 0.5, 0.88]) out.push(h.rect(f(x0 + a * Ld - 16), y0, 32, 6, h.a.hachure('metal', 'arete')));
-          out.push(h.cercle(f(x0 + 0.555 * Ld), f(y0 + Wd - 17), 7, h.a.arete));
-          out.push(h.rect(f(x0 + 0.555 * Ld - 7), f(y0 + Wd - 5), 14, 5, h.a.hachure('metal', 'arete')));
-          // linge roulé le long des jambes, glissé contre elles : la cuisse le recouvre, la sangle
-          // des cuisses le tient
-          const rl = H * 0.03;
-          for (const s of [-1, 1]) out.push(rouleauDessus(X(0.64), X(0.93), cy + s * H * 0.1, rl));
+          const g = geoCote(z), { e, x0, G, yp, X, Ld } = g, out = [];
+          out.push(h.rect(0, G, z.l, 6, h.a.hachure('neige', 'aucun')), h.ligne(0, G, z.l, G, h.a.arete));
+          // la porte sur sa tranche : les pentures encastrées dans le chant
+          out.push(h.rect(x0, yp, Ld, EP * e, plein(h.a.contour)));
+          for (const a of [0.12, 0.5, 0.88]) out.push(h.rect(f(x0 + a * Ld - 45 * e), f(yp + 4 * e), f(90 * e), f(EP * e - 8 * e), h.a.hachure('metal', 'detail')));
           // le blessé
-          out.push(corpsDessus(g.xc, cy, H, plein(h.a.arete)));
-          // les deux rouleaux contre la tête
-          const rt = H * 0.03;
-          for (const s of [-1, 1]) out.push(rouleauDessus(X(-0.01), X(0.14), cy + s * H * (0.046 + 0.03), rt));
-          // les sangles, qui font le tour de la porte, et leur nœud sur la tranche
-          for (const fr of [0.035, 0.3, 0.52, 0.665]) {
-            const x = X(fr), l = fr === 0.035 ? lb * 1.25 : lb;
-            out.push(h.rect(f(x - l / 2), y0 - 3, f(l), Wd + 6, plein(h.a.contour)));
-          }
+          out.push(g.corps);
+          // le rouleau de vêtements contre la tête, le linge roulé contre les jambes (côté de l'œil)
+          out.push(rouleauCote(X(-0.01), X(0.14), yp, 56 * e));
+          out.push(rouleauCote(X(0.62), X(0.93), yp, 60 * e));
+          // les sangles, et la bande en travers du front
+          for (const fr of [0.066, 0.3, 0.52, 0.665]) out.push(sangle(g, X(fr), (fr === 0.066 ? 1.25 : 1) * 0.036 * TAILLE * e));
           return out.join('\n');
         },
         renvois: z => {
-          const g = geoPorte(z), { Wd, y0, cy, H, X } = g, yh = y0 - 20, yb = y0 + Wd + 24;
+          const g = geoCote(z), { e, yp, X } = g, yh = Math.min(...[0.066, 0.3, 0.52, 0.665].map(fr => g.haut(X(fr)))) - 34, yb = g.G + 26;
+          const sur = fr => [f(X(fr)), f(g.haut(X(fr)) - 1)];
           return [
-            { n: 1, rond: [f(X(0.3) + 22), yh], cible: [f(X(0.3)), f(y0 + 10)], texte: 'sangle en travers de la poitrine' },
-            { n: 2, rond: [f(X(0.52) + 22), yh], cible: [f(X(0.52)), f(y0 + 10)], texte: 'sangle en travers du bassin' },
-            { n: 3, rond: [f(X(0.665) + 22), yh], cible: [f(X(0.665)), f(y0 + 10)], texte: 'sangle en travers des cuisses' },
-            { n: 4, rond: [f(X(0.82)), yb], cible: [f(X(0.82)), f(cy + H * 0.1 + 3)], texte: 'linge roulé dans les vides' },
-            { n: 5, rond: [f(X(0.2)), yb], cible: [f(X(0.1)), f(cy + H * 0.076 + 2)], texte: 'rouleaux de vêtements serrés contre la tête' },
-            { n: 6, rond: [f(X(0.035) + 24), yh], cible: [f(X(0.035)), f(y0 + 10)], texte: 'bande large en travers du front' },
+            { n: 1, rond: [f(X(0.3) + 24), yh], cible: sur(0.3), texte: 'sangle en travers de la poitrine' },
+            { n: 2, rond: [f(X(0.52) + 24), yh], cible: sur(0.52), texte: 'sangle en travers du bassin' },
+            { n: 3, rond: [f(X(0.665) + 24), yh], cible: sur(0.665), texte: 'sangle en travers des cuisses' },
+            { n: 4, rond: [f(X(0.82)), yb], cible: [f(X(0.82)), f(yp - 4 * e)], texte: 'linge roulé dans les vides' },
+            { n: 5, rond: [f(X(0.2)), yb], cible: [f(X(0.11)), f(yp - 10 * e)], texte: 'rouleaux de vêtements serrés contre la tête' },
+            { n: 6, rond: [f(X(0.066) + 26), yh], cible: sur(0.066), texte: 'bande large en travers du front' },
           ];
         },
       },
@@ -179,7 +194,7 @@ module.exports = (h) => {
           out.push(h.rect(f(px - 81 * k), f(G - 4.5 * k), f(81 * k), f(4.5 * k), h.a.cache));
           // le mouvement : le bord gauche monte en arc autour du coin
           const R = 70 * k, a0 = Math.PI * 1.03, a1 = Math.PI * 1.44;
-          out.push(h.fleche(`M${f(px + R * Math.cos(a0))},${f(G + R * Math.sin(a0) - 8)} A${f(R)} ${f(R)} 0 0 1 ${f(px + R * Math.cos(a1))},${f(G + R * Math.sin(a1))}`));
+          out.push(h.geste(`M${f(px + R * Math.cos(a0))},${f(G + R * Math.sin(a0) - 8)} A${f(R)} ${f(R)} 0 0 1 ${f(px + R * Math.cos(a1))},${f(G + R * Math.sin(a1))}`));
           out.push(ensemble(k, v, true));
           return out.join('\n');
         },

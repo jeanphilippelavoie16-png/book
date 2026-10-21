@@ -1,6 +1,10 @@
 // 86-03a — L'éolienne de fortune, montée (chapitre 86, section D, « Bâtir », « Le mât »)
 // Repères en unités de dessin, y vers le haut ; proportions seulement, aucune cote tirée de là.
 // Le vent vient de la gauche : le rotor est devant le mât, la queue derrière.
+// La charte : le moteur de la tête au trait fort, son dessous à l'ombre ; le tuyau à fendre, son
+// dessous à l'ombre ; les pales du rotor de face au trait fort. Le rouge : la portée des pales, la
+// zone où une pale frappe (le tireté de l'ensemble), et la boucle du câble, le point qu'on vérifie
+// et qu'on détord à chaque visite. Le vent reste noir.
 
 const cadre = (z, bb, m = [16, 10, 16, 10]) => {
   const [x0, x1, y0, y1] = bb;
@@ -14,6 +18,9 @@ const cadre = (z, bb, m = [16, 10, 16, 10]) => {
 
 // ── ensemble : mât H, collier des haubans sous la portée des pales ──
 const H = 10, R = 1.4, HUB = H + 0.27, XR = -1.0, HG = H - 1.9, GP = 3.6;
+// le mât, un peu plus gros qu'à l'échelle (redessin du 14 octobre : à 0,08 de demi-largeur, il ne se
+// lisait plus qu'en fil) ; son côté droit à l'ombre, comme un tuyau
+const MW = 0.15;
 const repE = z => cadre(z, [-5.6, 5.2, -0.5, H + 1.85], [14, 8, 14, 6]);
 // ── tête : unité = diamètre du mât ──
 const repT = z => cadre(z, [-3.4, 6.8, -6.5, 4.3], [18, 6, 10, 6]);
@@ -41,7 +48,7 @@ module.exports = (h) => {
     format: 'pleine',
     disposition: [['ensemble', 'tete'], ['pales']],
     hauteurs: [3, 2],
-    largeurs: [[5, 6], [1]],
+    largeurs: [[5.6, 5.4], [1]],
     vues: {
       ensemble: {
         titre: 'L’ensemble, de profil',
@@ -52,28 +59,29 @@ module.exports = (h) => {
           o.push(seg(E, [-5.6, 0], [5.2, 0], h.a.arete));
           // semelle et charnière
           o.push(rct(E, -0.45, 0, 0.45, 0.2, BLANCD));
-          o.push(poly(E, [[-0.16, 0.2], [0.16, 0.2], [0.12, 0.62], [-0.12, 0.62]], BLANCD));
+          o.push(poly(E, [[-MW - 0.08, 0.2], [MW + 0.08, 0.2], [MW + 0.04, 0.62], [-MW - 0.04, 0.62]], BLANCD));
           // bras de levage couché, lié à l'ancrage
-          o.push(rct(E, 0.08, 0.36, GP, 0.5, BLANCD));
+          o.push(rct(E, MW, 0.36, GP, 0.5, BLANCD));
           o.push(seg(E, [GP, 0.43], [GP + 0.5, 0], h.a.detail));
           o.push(seg(E, [GP + 0.5, 0.12], [GP + 0.5, -0.4], h.a.arete));
           o.push(seg(E, [-5, 0.12], [-5, -0.4], h.a.arete));
           // haubans
-          o.push(seg(E, [-0.08, HG], [-5, 0.1], h.a.detail));
-          o.push(seg(E, [0.08, HG], [GP, 0.5], h.a.detail));
+          o.push(seg(E, [-MW, HG], [-5, 0.1], h.a.detail));
+          o.push(seg(E, [MW, HG], [GP, 0.5], h.a.detail));
           // portée des pales (disque vu par la tranche)
-          o.push(seg(E, [XR, HUB - R], [XR, HUB - 0.55 * R], h.a.cache));
+          o.push(seg(E, [XR - 0.2, HUB - R], [XR - 0.2, HUB + R], h.a.zone));   // là où une pale frappe
+          o.push(seg(E, [XR - 0.2, HUB - R], [-MW, HUB - R], h.a.fin + ' stroke-dasharray="3 2"'));
           // mât
-          o.push(rct(E, -0.08, 0.42, 0.08, H, BLANC));
+          o.push(rct(E, -MW, 0.42, MW, H, h.a.blanc), rct(E, MW * 0.15, 0.42, MW, H - 0.5, h.a.ombre), rct(E, -MW, 0.42, MW, H, h.a.arete));
           o.push(h.cercle(...E(0, 0.45), 1.6, h.a.plein));
           // collier des haubans
-          o.push(rct(E, -0.14, HG - 0.08, 0.14, HG + 0.08, h.a.plein));
+          o.push(rct(E, -MW - 0.06, HG - 0.08, MW + 0.06, HG + 0.08, h.a.plein));
           // câble le long du mât jusqu'à l'interrupteur, puis vers le chalet
-          o.push(h.chemin(pts(E, [[0.16, H - 1.25], [0.13, H - 1.5], [0.13, 1.7], [-0.2, 1.62]]), h.a.fin));
-          o.push(rct(E, -0.5, 1.0, -0.08, 1.55, BLANCD));
+          o.push(h.chemin(pts(E, [[MW + 0.08, H - 1.25], [MW + 0.05, H - 1.5], [MW + 0.05, 1.7], [-MW - 0.12, 1.62]]), h.a.fin));
+          o.push(rct(E, -MW - 0.42, 1.0, -MW, 1.55, BLANCD));
           o.push(h.chemin(pts(E, [[-0.36, 1.0], [-0.36, 0.72], [-0.7, 0.62], [-1.2, 0.02], [-5.6, 0.02]]), h.a.fin));
           // tête
-          o.push(rct(E, -0.13, H - 0.5, 0.13, H + 0.08, BLANCD));
+          o.push(rct(E, -MW - 0.05, H - 0.5, MW + 0.05, H + 0.08, BLANCD));
           o.push(rct(E, -0.9, H + 0.08, 0.35, H + 0.14, BLANCD));
           o.push(rct(E, -0.8, H + 0.14, 0.05, H + 0.42, BLANCD));
           o.push(seg(E, [-0.8, HUB], [XR, HUB], h.a.arete));
@@ -85,7 +93,7 @@ module.exports = (h) => {
           // câble : sort du moteur, boucle lâche, pris au mât
           o.push(h.chemin(pts(E, [[0.05, H + 0.3], [0.3, H + 0.25], [0.3, H - 0.55]]), h.a.fin));
           o.push(courbe(E, boucle(0.3, H - 0.55, 0.6, 0.22), 40, h.a.fin));
-          o.push(h.chemin(pts(E, [[0.3, H - 1.15], [0.16, H - 1.25]]), h.a.fin));
+          o.push(h.chemin(pts(E, [[0.3, H - 1.15], [MW + 0.08, H - 1.25]]), h.a.fin));
           // le vent
           o.push(h.fleche(`M ${E(-5.4, HUB + 0.9).map(f).join(' ')} L ${E(-3.6, HUB + 0.9).map(f).join(' ')}`));
           o.push(h.fleche(`M ${E(-5.4, HUB).map(f).join(' ')} L ${E(-3.6, HUB).map(f).join(' ')}`));
@@ -93,7 +101,7 @@ module.exports = (h) => {
         },
         renvois: z => {
           const E = repE(z);
-          const a = E(0.1, HG), b = E(2.2, 0.43), c = E(0, 0.45), d = E(-0.5, 1.28), e = E(XR, HUB - 0.9 * R);
+          const a = E(MW + 0.02, HG), b = E(2.2, 0.43), c = E(0, 0.45), d = E(-MW - 0.42, 1.28), e = E(XR - 0.2, HUB - R);
           return [
             { n: 1, rond: [e[0] - 30, e[1] + 6], cible: e, texte: 'portée des pales' },
             { n: 2, rond: [a[0] + 34, a[1] - 10], cible: a, texte: 'haubans pris sous les pales' },
@@ -122,7 +130,8 @@ module.exports = (h) => {
           o.push(rct(T, 0.4, 0.34, 6.4, 0.62, BLANC));
           for (const x of [4.9, 5.9]) o.push(h.cercle(...T(x, 0.48), 2.2, h.a.plein));
           // moteur bridé
-          o.push(rct(T, -1.8, 0.34, 0.1, 1.74, BLANC));
+          o.push(rct(T, -1.8, 0.34, 0.1, 1.74, h.a.blanc), rct(T, -1.8, 0.34, 0.1, 0.8, h.a.ombre));   // le dessous du moteur, à l'ombre
+          o.push(rct(T, -1.8, 0.34, 0.1, 1.74, h.a.contour));
           o.push(rct(T, -2.0, 0.46, -1.8, 1.62, BLANC), rct(T, 0.1, 0.46, 0.3, 1.62, BLANC));
           for (const x of [-1.5, -0.25]) o.push(rct(T, x, 0.34, x + 0.2, 1.8, BLANCD));
           for (const x of [-1.4, -0.15]) o.push(seg(T, [x, 0.14], [x, 0.04], h.a.contour));
@@ -142,6 +151,8 @@ module.exports = (h) => {
           // câble : du moteur, derrière la plaque, le long du manchon, une boucle lâche, pris au mât
           o.push(h.path(`M ${T(0.3, 1.1).map(f).join(' ')} Q ${T(1.0, 1.1).map(f).join(' ')} ${T(1.0, 0.5).map(f).join(' ')} L ${T(0.95, -2.9).map(f).join(' ')}`, h.a.arete));
           o.push(courbe(T, boucle(0.95, -2.9, 1.8, 0.6), 80, h.a.arete));
+          // le point qu'on vérifie à chaque visite : la boucle, qu'on détord à la main
+          o.push(h.controle(...T(1.55, -3.8), 0.95 * T.s));
           o.push(h.path(`M ${T(0.95, -4.7).map(f).join(' ')} Q ${T(0.95, -5.3).map(f).join(' ')} ${T(0.58, -5.5).map(f).join(' ')} L ${T(0.58, -6.3).map(f).join(' ')}`, h.a.arete));
           o.push(rct(T, 0.5, -5.72, 0.74, -5.52, h.a.plein));
           return o.join('\n');
@@ -166,7 +177,12 @@ module.exports = (h) => {
           const P = repP(z), s = P.s, o = [];
           // 1. le tuyau, en bout et de biais, fendu en quatre
           const cx = 1.8, cy = 0.4, r = 1.9, rx = 0.62 * r, L = 5.4;
-          o.push(h.path(`M ${P(cx, cy + r).map(f).join(' ')} L ${P(cx + L, cy + r).map(f).join(' ')} A ${f(rx * s)} ${f(r * s)} 0 0 1 ${P(cx + L, cy - r).map(f).join(' ')} L ${P(cx, cy - r).map(f).join(' ')}`, BLANC));
+          const dTuyau = `M ${P(cx, cy + r).map(f).join(' ')} L ${P(cx + L, cy + r).map(f).join(' ')} A ${f(rx * s)} ${f(r * s)} 0 0 1 ${P(cx + L, cy - r).map(f).join(' ')} L ${P(cx, cy - r).map(f).join(' ')}`;
+          o.push(h.path(dTuyau, h.a.blanc));
+          // le dessous du tuyau, à l'ombre, jusqu'au bord du bout arrondi
+          { const bord = []; for (let i = 0; i <= 8; i++) { const t = -0.55 - 0.45 * i / 8; bord.push([cx + L + rx * Math.sqrt(1 - t * t), cy + t * r]); }
+            o.push(poly(P, [[cx, cy - 0.55 * r], ...bord, [cx, cy - r]], h.a.ombre)); }
+          o.push(h.path(dTuyau, h.a.arete));
           o.push(h.ellipse(...P(cx, cy), rx * s, r * s, BLANC));
           o.push(h.ellipse(...P(cx, cy), rx * s * 0.86, r * s * 0.86, h.a.detail));
           for (const t of [0, Math.PI / 2, Math.PI, 1.5 * Math.PI]) {
@@ -188,7 +204,7 @@ module.exports = (h) => {
           for (let k = 0; k < 3; k++) {
             const th = Math.PI / 2 + k * 2 * Math.PI / 3, u = [Math.cos(th), Math.sin(th)], v = [-Math.sin(th), Math.cos(th)];
             const Q = (a, b) => [rcx + a * u[0] + b * v[0], rcy + a * u[1] + b * v[1]];
-            o.push(poly(P, [Q(0.3, 0), Q(RR, 0), Q(RR, 0.3 * w), Q(0.3 + rac, w), Q(0.3, w)], BLANC));
+            o.push(poly(P, [Q(0.3, 0), Q(RR, 0), Q(RR, 0.3 * w), Q(0.3 + rac, w), Q(0.3, w)], h.a.contour.replace('fill="none"', 'fill="#FFFFFF"')));
             o.push(seg(P, Q(0.3 + rac + 0.2, w / 2), Q(RR - 0.2, 0.15 * w), h.a.fin));
           }
           o.push(h.cercle(...P(rcx, rcy), rho * s, BLANC));
@@ -201,7 +217,7 @@ module.exports = (h) => {
         },
         renvois: z => {
           const P = repP(z);
-          const a = P(1.8 + 0.62 * 1.9 + 3.2, 0.4), b = P(15.4, 1.1 - 0.9), c = P(9.85, 0.35), d = P(25.4, 0.2 - 0.95 + 0.02), e = P(25.4 + 0.2, 0.2);
+          const a = P(1.8 + 0.62 * 1.9 + 3.2, 0.4), b = P(15.4, 1.1 - 0.9), c = P(10.15, 0.35), d = P(25.4, 0.2 - 0.95 + 0.02), e = P(25.4 + 0.2, 0.2);
           return [
             { n: 12, rond: [a[0] + 12, a[1] + 58], cible: a, texte: 'tuyau fendu en long' },
             { n: 13, rond: [b[0] + 20, b[1] + 46], cible: b, texte: 'large au pied, fine au bout' },

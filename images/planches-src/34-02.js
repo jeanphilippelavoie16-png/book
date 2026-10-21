@@ -11,9 +11,13 @@
 // La tête vue de dos (le haut relevé en chignon, le bas en mèches, la mèche de travail au milieu),
 // puis la racine de la même mèche en gros plan de côté, le peigne un peu de trois quarts pour qu’
 // on voie ses dents. La loupe grossit la lente plus que les doigts, sinon elle ne se verrait pas.
+// Mains simples et charte (14 octobre) : les deux bouts de doigts dessinés à la main sortent de la loupe, et aucune
+// pince de la bibliothèque ne s'y lit ; la loupe garde le cheveu et la lente, le renvoi 7 dit la prise. La tête vue
+// de dos est gardée telle quelle. Rouge : les quatre
+// gestes (tirer le peigne, deux fois ; le tremper ; glisser la lente).
 module.exports = (h) => {
   const A = h.a, F = h.formes, I = F._interne;
-  const { lisse, ser, tube, peindre } = I;
+  const { lisse, ser } = I;
   const NOIR = '#1A1A1A';
   const f1 = v => Math.round(v * 10) / 10;
   const trait = ep => `fill="none" stroke="${NOIR}" stroke-width="${ep}" stroke-linejoin="round" stroke-linecap="round"`;
@@ -81,7 +85,7 @@ module.exports = (h) => {
     });
     // la flèche du geste, sur la mèche
     o.push(h.path(`M${P(0, 32).map(f1).join(' ')} L${P(0, 70).map(f1).join(' ')}`, trait(6).replace(NOIR, '#FFFFFF')));
-    o.push(h.fleche(`M${P(0, 32).map(f1).join(' ')} L${P(0, 72).map(f1).join(' ')}`, A.arete));
+    o.push(h.geste(`M${P(0, 32).map(f1).join(' ')} L${P(0, 72).map(f1).join(' ')}`));
     // le peigne, dents vers la racine
     const yP = 1.5, yD = yP + PEIGNE.dents * INCL, yF = yD + PEIGNE.dos * INCL, l2 = PEIGNE.l / 2, nD = 12;
     o.push(h.path(poly(P, [[-l2 + 0.6, yP - 0.3], [l2 - 0.6, yP - 0.3], [l2 - 0.6, yD], [-l2 + 0.6, yD]]), FOND));
@@ -144,7 +148,7 @@ module.exports = (h) => {
     const pointe = surCrane(angleDeY(1.2), 0.1);
     o.push(peigneCote(P, pointe));
     o.push(peigneCote(P, [1.2, 58], A.cache, true));
-    o.push(h.fleche(`M${P(31, 27).map(f1).join(' ')} L${P(31, 70).map(f1).join(' ')}`, A.arete));
+    o.push(h.geste(`M${P(31, 27).map(f1).join(' ')} L${P(31, 70).map(f1).join(' ')}`));
     o.push('</g>');
     return o.join('\n');
   };
@@ -185,7 +189,7 @@ module.exports = (h) => {
     }
     const [sx, sy] = P(x0 - l2, yH), [ex, ey] = P(x0 + l2, yD);
     o.push(`<rect x="${f1(sx)}" y="${f1(sy)}" width="${f1(ex - sx)}" height="${f1(ey - sy)}" rx="${f1(1.2 * s)}" ${blanc(1.4)}/>`);
-    o.push(h.fleche(`M${P(10, -30).map(f1).join(' ')} L${P(10, 4).map(f1).join(' ')}`, A.arete));
+    o.push(h.geste(`M${P(10, -30).map(f1).join(' ')} L${P(10, 4).map(f1).join(' ')}`));
     return o.join('\n');
   };
 
@@ -195,14 +199,17 @@ module.exports = (h) => {
     const s = Math.min(z.l, z.h) / (2 * R + 3);
     const cx = z.l / 2, cy = z.h / 2;
     const P = (x, y) => [cx + x * s, cy + y * s];
-    const T = p => P(p[0], p[1]);
     const o = [`<clipPath id="pl3402-loupe"><circle cx="${f1(cx)}" cy="${f1(cy)}" r="${f1(R * s)}"/></clipPath>`, '<g clip-path="url(#pl3402-loupe)">'];
     // le cuir chevelu et d'autres cheveux
     const cuir = [[-26.8, -40], [-26.2, -18], [-26, 0], [-26.2, 18], [-26.8, 40]];
     o.push(h.path(courbe(P, cuir), A.arete));
     // le cheveu pincé
     o.push(h.path(courbe(P, [[-26, 0.45], [-14, 0.55], [4, 0.2], [24, 0.8], [40, 0.4]]), A.detail));
-    // la lente : un œuf collé au cheveu, la base vers le cuir chevelu, le couvercle au bout
+    // deux cheveux voisins, sans lente
+    o.push(h.path(courbe(P, [[-26.4, -11], [-12, -11.6], [6, -12.4], [24, -12], [40, -13]]), A.detail));
+    o.push(h.path(courbe(P, [[-26.3, 11.5], [-12, 12.2], [6, 12.6], [24, 13.4], [40, 13]]), A.detail));
+    // la lente : un œuf collé au cheveu, la base vers le cuir chevelu, le couvercle au bout. Pas de main : à cette
+    // échelle, aucune pince de la bibliothèque ne se lit (le « O » des doigts fait une boîte) ; le renvoi 7 dit la prise.
     const LC = [-19.6, -1.35], LR = [4.0, 1.8], LA = -7 * RAD;
     const G = (lx, ly) => [LC[0] + lx * Math.cos(LA) - ly * Math.sin(LA), LC[1] + lx * Math.sin(LA) + ly * Math.cos(LA)];
     const oeuf = [];
@@ -210,43 +217,8 @@ module.exports = (h) => {
     o.push(h.path(ser(lisse(oeuf, true), q => q), blanc(1.4)));
     o.push(h.path(courbe(P, [G(2.9, -1.35), G(2.4, 0), G(2.9, 1.35)]), A.detail));
     o.push(h.path(courbe(P, [G(-3.0, 1.4), G(-4.4, 1.75), [-25, 0.45]]), A.detail));
-    // les deux doigts : l'index vient d'en haut à droite, le pouce d'en bas à droite ; le bout
-    // des deux ongles se referme sur la lente
-    const doigt = (pts, ep, sens) => tube({ pts, sens, bout: 'doigt', ongle: 'cote', plis: true,
-      dos: [[ep[0] * 0.44, ep[1] * 0.44], [ep[1] * 0.44, ep[2] * 0.44]],
-      ventre: [[ep[0] * 0.54, ep[1] * 0.54], [ep[1] * 0.54, ep[2] * 0.52]], coussin: [0.8, 0.9] });
-    const vers = (p, d, l) => [p[0] + d[0] * l, p[1] + d[1] * l];
-    const nrm = v => { const l = Math.hypot(v[0], v[1]); return [v[0] / l, v[1] / l]; };
-    // le bord libre de l'ongle : un croissant qui déborde le bout du doigt, côté dos
-    const bordLibre = (P2, u, sens, e) => {
-      const nd = [sens * u[1], -sens * u[0]], wd = e * 0.44, wv = e * 0.52, w = wd + wv;
-      const Ap = vers(P2, nd, wd), Bp = vers(P2, nd, -wv);
-      const c1 = vers(Ap, u, 0.74 * w), c2 = vers(Bp, u, 0.6 * w);
-      const cub = t => { const m = 1 - t; return [0, 1].map(i => m * m * m * Ap[i] + 3 * m * m * t * c1[i] + 3 * m * t * t * c2[i] + t * t * t * Bp[i]); };
-      const Q = vers(P2, u, 1.5), dedans = [], dehors = [];
-      for (let k = 0; k <= 8; k++) {
-        const t = 0.06 + k * 0.05, p = cub(t), d = nrm([p[0] - Q[0], p[1] - Q[1]]);
-        const ep = 0.8 * Math.sin(Math.PI * k / 8) ** 0.6;
-        dedans.push(p); dehors.push(vers(p, d, ep));
-      }
-      return h.path(poly(P, [...dehors, ...dedans.reverse()]), blanc(0.7));
-    };
-    const K = 0.7;
-    // P2 (la dernière jointure) tel que le bout du doigt tombe sur le point de contact C
-    const bout = (C, u, sens, e) => {
-      const nd = [sens * u[1], -sens * u[0]], w = e * 0.96, dd = (e * 0.44 - e * 0.52) / 2;
-      return [C[0] - u[0] * w * 0.5025 - nd[0] * dd, C[1] - u[1] * w * 0.5025 - nd[1] * dd];
-    };
-    const uI = nrm([-0.62, 0.78]), uI0 = nrm([-0.85, 0.53]);
-    const I2 = bout([-18.6, -3.1], uI, -1, 12.2 * K), I1 = vers(I2, uI, -21 * K), I0 = vers(I1, uI0, -40);
-    const uT = nrm([-0.62, -0.78]), uT0 = nrm([-0.85, -0.53]);
-    const T2 = bout([-18.6, 0.95], uT, 1, 13.5 * K), T1 = vers(T2, uT, -26 * K), T0 = vers(T1, uT0, -40);
-    const index = doigt([I0, I1, I2], [16.2 * K, 14.2 * K, 12.2 * K], -1);
-    const pouce = doigt([T0, T1, T2], [19 * K, 16.5 * K, 13.5 * K], 1);
-    o.push(peindre([pouce], T), bordLibre(T2, uT, 1, 13.5 * K));
-    o.push(peindre([index], T), bordLibre(I2, uI, -1, 12.2 * K));
     // le geste : on glisse vers le bout du cheveu
-    o.push(h.fleche(`M${P(-5, -4).map(f1).join(' ')} L${P(17, -4).map(f1).join(' ')}`, A.arete));
+    o.push(h.geste(`M${P(-13, -4.5).map(f1).join(' ')} L${P(15, -4.5).map(f1).join(' ')}`));
     o.push('</g>');
     o.push(h.cercle(cx, cy, R * s, A.contour));
     return o.join('\n');
@@ -294,7 +266,7 @@ module.exports = (h) => {
         dessin: loupe,
         renvois: z => [
           { n: 6, rond: pl(z, -32.5, 21), cible: pl(z, -22, -1.1), texte: 'lente vivante, près du cuir chevelu' },
-          { n: 7, rond: pl(z, 32.5, -21), cible: pl(z, 9, -4), texte: 'glissée entre deux ongles jusqu’au bout' },
+          { n: 7, rond: pl(z, 32.5, -21), cible: pl(z, 9, -4.5), texte: 'glissée entre deux ongles jusqu’au bout' },
         ],
       },
     },

@@ -92,3 +92,46 @@
   99 %. Jamais 100 % : on désinfecte après.
 - Test visuel : lire un gros caractère à travers une bouteille de 2 L ne garantit que
   **moins de 50 UNT** — cent soixante fois le 0,3 UNT du chapitre.
+
+## Ajout du 18 octobre 2026 (vérification technique du ch. 10) : laver le sable, et le débit qui tombe
+
+Tirés du même PDF (`13-cawst-2009-biosand-filter-manual.pdf`, texte extrait avec `pdftotext`).
+
+### Laver le sable (p. 23)
+
+> « Put double the amount of water in the container. Using your hand, swirl the sand around the container 10 times
+> very quickly, making sure your fingers touch the bottom of the container and get all of the sand moving. Quickly
+> decant the dirty water. »
+
+> « Tip: Do NOT wash the sand until the water in your container is clean. This residual water should still be
+> somewhat dirty. »
+
+> « Unlike the gravel, the water in your container should not run clear. »
+
+> « put some sand into a clear container with an equal amount of clear water. Put the lid on and swirl it. Looking
+> from the side of the container, 3-4 seconds after you stop swirling, you should be able to see the surface of the
+> sand. »
+
+### Sable trop lavé (p. 51)
+
+> « If the flow rate is faster than 0.4 L/minute, the filter may not work efficiently. In this case, the sand has
+> been washed too much and needs to be replaced. »
+
+### La couche vivante (p. 3)
+
+> « […] develops at the top 1-2 cm […] »
+
+### « Swirl & dump » quand le débit tombe (p. 56)
+
+> « 4. Using the palm of your hand, lightly touch the very top of the sand and move your hand in a circular motion;
+> be careful to not mix the top of the sand deeper into the filter. 5. Scoop out the dirty water with a small
+> container. 6. Dump the dirty water outside the house in soak pit or garden. 7. Make certain the sand is smooth and
+> level. […] 12. Repeat the swirl & dump steps until the flow rate has been restored. »
+
+> « The biolayer has been disturbed by the swirl and dump, but it will develop again over time. It is recommended to
+> disinfect the filtered water during this time. »
+
+Ce que le livre en tire : on lave le gravier jusqu'à l'eau claire, mais pas le sable (on arrête quand l'eau de
+lavage est encore un peu sale ; test du pot : on voit le dessus du sable 3 ou 4 secondes après l'avoir secoué).
+Quand le débit tombe, on frotte à peine le dessus du sable de la paume, en rond, et on puise l'eau sale ; on ne
+gratte pas 2 ou 3 cm, qui enlèveraient toute la couche vivante.

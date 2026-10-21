@@ -157,9 +157,9 @@ module.exports = (h) => {
     titre: 'Le baril à lessive',
     desc: 'Un baril de bois au fond percé, monté sur deux blocs au-dessus d’un contenant : en coupe, le lit de branchettes, de paille et de cendres tassées sous l’eau versée en pluie ; de face, le liquide recueilli reversé sur un lit de cendres neuves ; de dessus, les trous placés au-dessus du contenant, entre les blocs ; le tassage couche par couche, et le lit lâche où l’eau se creuse un chemin. L’encadré danger rappelle que ce qui coule est déjà de la lessive.',
     format: 'pleine',
-    disposition: [['coupe', 'elev'], ['fond', 'tasser']],
+    disposition: [['coupe', 'elev'], ['fond', 'tasser', 'rate']],
     hauteurs: [3, 2],
-    largeurs: [[1, 1], [1, 1]],
+    largeurs: [[1, 1], [250, 168, 138]],
     vues: {
       // ── En coupe ────────────────────────────────────────────────────────────────────
       coupe: {
@@ -175,8 +175,11 @@ module.exports = (h) => {
           out.push(seau(g.xL + 2, 20, 118, 30));
           for (const [x, y] of [[g.cx - 34, 44], [g.cx - 18, 36], [g.cx - 4, 50], [g.cx + 12, 40], [g.cx - 26, 62], [g.cx + 2, 66], [g.cx + 24, 58], [g.cx - 12, 74]]) out.push(goutte(x, y, 0.8));
           // le trajet de l'eau dans le lit
-          out.push(h.fleche(`M ${f(g.cx - 40)} ${g.yA + 8} L ${f(g.cx - 40)} ${g.yPa - 4}`, h.a.cache));
-          out.push(h.fleche(`M ${f(g.cx + 40)} ${g.yA + 8} L ${f(g.cx + 40)} ${g.yPa - 4}`, h.a.cache));
+          for (const sg of [-1, 1]) {
+            const d = `M ${f(g.cx + sg * 40)} ${g.yA + 8} L ${f(g.cx + sg * 40)} ${g.yPa + 2} C ${f(g.cx + sg * 40)} ${f(g.yBr + 8)} ${f(g.trous[1 + sg])} ${f(g.yBr + 2)} ${f(g.trous[1 + sg])} ${f(g.yF + 3)}`;
+            out.push(h.path(d, 'fill="none" stroke="#ffffff" stroke-width="4.7" stroke-linecap="round"'));
+            out.push(h.fleche(d, h.a.cache));
+          }
           // le liquide brun qui sort par les trous
           for (const x of g.trous) { out.push(goutte(x, g.yB + 5, 0.8)); out.push(goutte(x, g.yC + 3, 0.8)); }
           return out.join('\n');
@@ -206,6 +209,9 @@ module.exports = (h) => {
           // blocs : billots debout
           for (const x0 of [g.xL - 8, g.xR - g.bw]) {
             out.push(h.rect(x0, g.yB, g.bw + 8, g.hb, blanc('arete')));
+            // la charte : le flanc droit du billot à l'ombre (lumière en haut à gauche)
+            out.push(h.rect(f(x0 + (g.bw + 8) * 0.64), g.yB, f((g.bw + 8) * 0.36), g.hb, h.a.ombre));
+            out.push(h.rect(x0, g.yB, g.bw + 8, g.hb, h.a.arete));
             for (const u of [0.25, 0.55, 0.8]) out.push(h.path(`M ${f(x0 + (g.bw + 8) * u)} ${g.yB + 4} q 2 ${f(g.hb / 3)} -1 ${f(g.hb * 0.6)}`, h.a.fin));
           }
           // contenant entre les blocs
@@ -216,6 +222,18 @@ module.exports = (h) => {
           const flancD = [...pas(g.yB, g.yT, 16).map(y => [g.cx + rs(y), y])];
           const corps = `M ${P(flanc).map(p => p.join(' ')).join(' L ')} A ${f(r0)} ${ry} 0 0 0 ${P(flancD).map(p => p.join(' ')).join(' L ')} A ${f(r0)} ${ry} 0 0 0 ${f(g.cx - r0)} ${g.yT} Z`;
           out.push(h.path(corps, blanc('contour')));
+          // la charte : le flanc droit du baril à l'ombre, en suivant le bouge
+          {
+            const k = 0.45, sk = Math.sqrt(1 - k * k), us = Array.from({ length: 13 }, (_, i) => k + (1 - k) * i / 12);
+            const ombre = [
+              ...us.map(u => [g.cx + u * r0, g.yT + ry * Math.sqrt(1 - u * u)]),
+              ...pas(g.yT, g.yB, 16).map(y => [g.cx + rs(y), y]),
+              ...us.slice().reverse().map(u => [g.cx + u * r0, g.yB + ry * Math.sqrt(1 - u * u)]),
+              ...pas(g.yB, g.yT, 16).map(y => [g.cx + k * rs(y), y + ry * sk]),
+            ];
+            out.push(h.chemin(P(ombre), h.a.ombre, true));
+            out.push(h.path(corps, h.a.contour));
+          }
           // douves
           for (const c of [-0.82, -0.5, -0.17, 0.17, 0.5, 0.82]) {
             const pts = P(pas(g.yT + ry * Math.sqrt(1 - c * c), g.yB + ry * Math.sqrt(1 - c * c), 16).map(y => [g.cx + rs(y) * c, y]));
@@ -238,7 +256,9 @@ module.exports = (h) => {
           for (const x of [g.cx - 22, g.cx + 3, g.cx + 24]) out.push(goutte(x, g.yB + ry + 5, 0.8));
           // la boucle : du contenant, remonté et reversé en haut
           const xa = z.l - 22;
-          out.push(h.fleche(`M ${f(g.cR - 10)} ${f(g.yC + 22)} C ${f(xa + 6)} ${f(g.yC + 26)} ${f(xa)} ${f(g.yC)} ${f(xa)} ${f(g.yB - 30)} L ${f(xa)} ${f(g.yT + 30)} C ${f(xa)} ${f(g.yT + 4)} ${f(xa + 2)} 4 ${f(g.xR + 22)} 6`, h.a.cache));
+          const dRet = `M ${f(g.cR - 8)} ${f(g.yC)} C ${f(xa + 6)} ${f(g.yC + 26)} ${f(xa)} ${f(g.yC)} ${f(xa)} ${f(g.yB - 30)} L ${f(xa)} ${f(g.yT + 30)} C ${f(xa)} ${f(g.yT + 4)} ${f(xa + 2)} 4 ${f(g.xR + 22)} 6`;
+          out.push(h.path(dRet, 'fill="none" stroke="#ffffff" stroke-width="6.7" stroke-linecap="round"'));
+          out.push(h.fleche(dRet, h.a.cache));
           return out.join('\n');
         },
         renvois: z => {
@@ -268,6 +288,11 @@ module.exports = (h) => {
             const xi = (db * db - rb * rb + R * R) / (2 * db), yi = Math.sqrt(R * R - xi * xi);
             const px = cx + sg * xi;
             out.push(h.path(`M ${f(px)} ${f(cy - yi)} A ${rb} ${rb} 0 0 ${sg > 0 ? 1 : 0} ${f(px)} ${f(cy + yi)}`, h.a.arete));
+            // bois de bout : cernes de croissance sur la part qui dépasse
+            for (const rr of [11.5, 15.5]) {
+              const xj = (db * db - rr * rr + R * R) / (2 * db), yj = Math.sqrt(R * R - xj * xj);
+              out.push(h.path(`M ${f(cx + sg * xj)} ${f(cy - yj)} A ${rr} ${rr} 0 0 ${sg > 0 ? 1 : 0} ${f(cx + sg * xj)} ${f(cy + yj)}`, h.a.fin));
+            }
           }
           // douves vues du dessus
           out.push(h.path(`M ${f(cx - R)} ${f(cy)} A ${R} ${R} 0 1 0 ${f(cx + R)} ${f(cy)} A ${R} ${R} 0 1 0 ${f(cx - R)} ${f(cy)} Z M ${f(cx - Ri)} ${f(cy)} A ${Ri} ${Ri} 0 1 1 ${f(cx + Ri)} ${f(cy)} A ${Ri} ${Ri} 0 1 1 ${f(cx - Ri)} ${f(cy)} Z`, h.a.hachure('bois', 'aucun') + ' fill-rule="evenodd"'));
@@ -343,20 +368,50 @@ module.exports = (h) => {
           out.push(h.ligne(f(xInG(g, T.yC1)), T.yC1, f(xd), T.yC1, h.a.fin + ' stroke-dasharray="6 4"'));
           // le pilon : un rondin debout, posé sur la couche
           out.push(h.rect(f(T.px - T.pw / 2), 4, T.pw, f(T.yC2 - 4), h.a.hachure('bois', 'arete')));
-          out.push(h.fleche(`M ${f(T.px - T.pw / 2 - 10)} 10 L ${f(T.px - T.pw / 2 - 10)} ${f(T.yC2 - 6)}`));
-          // le raté : lit lâche, un chemin creusé, l'eau passe droit et ressort claire
-          out.push(barilCoupe(r, lit(r, T.yAr, false)));
-          const xc = T.xc;
-          const chem = P([[xc - 7, T.yAr], [xc - 2, T.yAr + 22], [xc - 7, T.yAr + 44], [xc - 2, r.yPa], [xc + 4, r.yPa], [xc - 1, T.yAr + 44], [xc + 4, T.yAr + 22], [xc + 7, T.yAr]]);
-          out.push(h.chemin(chem, blanc('detail'), true));
-          out.push(h.fleche(`M ${f(xc)} ${f(T.yAr - 22)} L ${f(xc + 1)} ${f(r.yPa - 2)}`, h.a.cache));
-          for (const x of r.trous) out.push(goutte(x, r.yB + 6, 0.7));
+          out.push(h.geste(`M ${f(T.px - T.pw / 2 - 10)} 10 L ${f(T.px - T.pw / 2 - 10)} ${f(T.yC2 - 6)}`));   // la charte : tasser, le geste en rouge
           return out.join('\n');
         },
         renvois: z => {
           const T = geoT(z);
           return [
             { n: 14, rond: [T.px + T.pw / 2 + 14, 14], cible: [T.px + T.pw / 2 - 2, 24], texte: 'chaque couche au rondin' },
+          ];
+        },
+      },
+      rate: {
+        titre: 'Raté : lit lâche',
+        dessin: z => {
+          const T = geoT(z), r = T.r;
+          const out = [];
+          // le raté : lit lâche, un chemin creusé, l'eau passe droit et ressort claire
+          out.push(barilCoupe(r, lit(r, T.yAr, false)));
+          // trame du lit lâche : gros points espacés, poches d'air
+          out.push(h.chemin(bande(r, T.yAr, r.yPa), h.a.blanc, true));
+          let pts = '';
+          for (let y = T.yAr + 5, k = 0; y < r.yPa - 3; y += 9, k++) {
+            for (let x = xInG(r, y) + 5 + (k % 2) * 4.5; x < xInD(r, y) - 4; x += 9) {
+              if (Math.abs(x - T.xc) < 10) continue;
+              pts += `M ${f(x - 1.3)} ${f(y)} a 1.3 1.3 0 1 0 2.6 0 a 1.3 1.3 0 1 0 -2.6 0 `;
+            }
+          }
+          out.push(h.path(pts, h.a.plein));
+          for (const [x, y, a, b] of [[r.xL + 18, T.yAr + 22, 6, 3.5], [r.xR - 16, T.yAr + 12, 5, 3], [r.xR - 20, T.yAr + 50, 6.5, 4], [r.xL + 20, T.yAr + 62, 5, 3]]) {
+            out.push(h.path(`M ${f(x - a)} ${f(y)} C ${f(x - a)} ${f(y - b - 1)} ${f(x + a * 0.4)} ${f(y - b)} ${f(x + a)} ${f(y - 1)} C ${f(x + a + 1)} ${f(y + b)} ${f(x - a * 0.3)} ${f(y + b + 0.5)} ${f(x - a)} ${f(y)} Z`, blanc('fin')));
+          }
+          out.push(h.ligne(f(xInG(r, r.yPa)), r.yPa, f(xInD(r, r.yPa)), r.yPa, h.a.detail));
+          out.push(h.ligne(f(xInG(r, T.yAr)), T.yAr, f(xInD(r, T.yAr)), T.yAr, h.a.arete));
+          const xc = T.xc;
+          const chem = P([[xc - 7, T.yAr], [xc - 2, T.yAr + 22], [xc - 7, T.yAr + 44], [xc - 2, r.yPa], [xc + 4, r.yPa], [xc - 1, T.yAr + 44], [xc + 4, T.yAr + 22], [xc + 7, T.yAr]]);
+          out.push(h.chemin(chem, blanc('detail'), true));
+          out.push(h.fleche(`M ${f(xc)} ${f(T.yAr - 22)} L ${f(xc + 1)} ${f(r.yPa - 2)}`, h.a.cache));
+          for (const x of r.trous) out.push(goutte(x, r.yB + 6, 0.7));
+          // la charte : le point qui rate, le chemin creusé où l'eau passe sans rien tirer
+          out.push(h.controle(xc, T.yAr + 34, 13));
+          return out.join('\n');
+        },
+        renvois: z => {
+          const T = geoT(z);
+          return [
             { n: 15, rond: [T.xc - 32, T.yAr - 14], cible: [T.xc - 5, T.yAr + 22], texte: 'lit lâche : l’eau passe droit' },
             { n: 16, rond: [T.r.xL - 10, T.r.yB + 2], cible: [T.r.trous[0] - 2, T.r.yB + 6], texte: 'et ressort claire' },
           ];

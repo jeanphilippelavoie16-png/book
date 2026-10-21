@@ -415,7 +415,7 @@ Une bête qui marche ou qui trotte garde le même espacement sur de longues dist
 rend l'outil juste. Quand la piste s'efface, on pose la troisième encoche sur le centre de la
 dernière empreinte sûre, le bâton dans le sens de la marche : **la pointe tombe à la hauteur de la
 suivante, qui est celle de l'autre pied**, décalée sur le côté de la largeur de piste. On la
-cherche là, à genoux, de près, et nulle part ailleurs. Pour une bête qui bondit, la troisième
+cherche là, à genoux, de près, et nulle part ailleurs (planche 43-04). Pour une bête qui bondit, la troisième
 encoche mesure d'un groupe au groupe suivant.
 
 Trois corrections, parce que la bête n'est pas une machine : **le pas raccourcit dans une montée

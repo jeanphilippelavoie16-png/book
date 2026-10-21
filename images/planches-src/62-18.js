@@ -104,6 +104,16 @@ const PIECE = [[272, 10, 'c'], [214, 3], [150, 0], [92, 6], [48, 18], [20, 38], 
   [12, 90], [34, 112], [76, 127], [142, 134], [208, 132], [272, 128, 'c']];
 const ECRASE3 = 0.62;
 
+// la chaîne du haut, du point le plus à gauche au plus à droite (le complément de chaineBasse)
+function chaineHaute(pts) {
+  const bas = chaineBasse(pts);
+  const dans = new Set(bas.slice(1, -1));
+  const n = pts.length, iL = pts.indexOf(bas[0]), iR = pts.indexOf(bas[bas.length - 1]);
+  const a = [], b = [];
+  for (let i = iL; ; i = (i + 1) % n) { a.push(pts[i]); if (i === iR) break; }
+  for (let i = iL; ; i = (i - 1 + n) % n) { b.push(pts[i]); if (i === iR) break; }
+  return a.some(p => dans.has(p)) ? b : a;
+}
 function chaineBasse(pts) {
   let iL = 0, iR = 0;
   pts.forEach((p, i) => { if (p[0] < pts[iL][0] - 1e-6) iL = i; if (p[0] > pts[iR][0] + 1e-6 || (Math.abs(p[0] - pts[iR][0]) < 1e-6 && p[1] > pts[iR][1])) iR = i; });
@@ -156,7 +166,7 @@ module.exports = (h) => {
         dessin: z => {
           const p = place1(z);
           const out = [C.dessiner(h, p, {
-            id: 'v1', fondOs: false, loin: 'fin',
+            id: 'v1', fondOs: false, loin: 'gris',
             os: ['cote1', 'cote8', 'sternum', 'omoplate', 'humerus', 'radius', 'cubitus'],
             osForts: [],
           })];
@@ -210,7 +220,8 @@ module.exports = (h) => {
           });
           out.push(`<path d="${dP(tr(L1), false)}" ${trait(0.7)}/>`);
           out.push(`<path d="${dP(tr(L2), false)}" ${trait(0.7)}/>`);
-          out.push(`<path d="${dP(tr([...L0, ...rev(L3)]), true)}" ${trait(1.4)}/>`);
+          // la charte : le contour de la coupe pèse (2,4) ; les limites entre couches restent fines
+          out.push(`<path d="${dP(tr([...L0, ...rev(L3)]), true)}" ${trait(2.4)}/>`);
           // l'os coupé : cartilages et sternum
           out.push(`<path d="${dP(tr([...osExt, ...rev(osInt)]), true)}" fill="${NOIR}" stroke="${NOIR}" stroke-width="0.7" stroke-linejoin="round"/>`);
           // la couture qui reste à ouvrir, entre l'os et le gras, de la lame jusqu'à l'autre bout
@@ -221,7 +232,7 @@ module.exports = (h) => {
           // la lame : dans le coin ouvert, le long du cartilage, vers le sternum
           const fl = osExt.map((q, i) => [q, i]).filter(([q]) => q[0] > 0 && q[1] <= -56 && q[1] >= -97)
             .map(([q, i]) => { const e = ouvert(q) / 2; return [q[0] + norm[i][0] * e, q[1] + norm[i][1] * e]; }).reverse();
-          out.push(h.fleche(dP(tr(fl), false), h.a.arete));
+          out.push(h.geste(dP(tr(fl), false)));   // la charte : la lame, le geste, en rouge
           return out.join('\n');
         },
         renvois: z => {
@@ -263,6 +274,8 @@ module.exports = (h) => {
           out.push(`<path d="${dP(top, true)}" fill="${BLANC}" stroke="none"/>`);
           out.push(`<path d="${dP(top, true)}" fill="url(#v3-gras)" stroke="none"/>`);
           out.push(`<path d="${dP(top, true)}" ${trait(1.4)}/>`);
+          // la charte : la silhouette de la pièce pèse (2,4), l'arête entre le dessus et la tranche reste à 1,4
+          out.push(`<path d="${dP([...chaineHaute(top), ...l3.slice().reverse()], true)}" ${trait(2.4)}/>`);
           return out.join('\n');
         },
         renvois: () => [],

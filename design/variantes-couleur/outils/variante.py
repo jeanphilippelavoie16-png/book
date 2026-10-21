@@ -6,13 +6,21 @@ et pose par-dessus le CSS d'une variante (couleur.css).
     (numéros nouveaux, six tomes ; --tome force une couleur t1 … t6 pour comparer)
 
 -> design/variantes-couleur/NN-V.html, puis V-1-ouverture.png, V-2-procedure.png, V-3-urgence.png
-   (768 × 960, facteur 2, page rognée comme les épreuves). Les pages sont retrouvées par leur
+   (page rognée du format, facteur 2, comme les épreuves). Les pages sont retrouvées par leur
    contenu (la couleur change la hauteur de l'ouverture, donc la pagination) : voir CIBLES.
    Le rapport du paginateur (avertissements, pages trouvées) s'imprime dans le terminal.
 """
 import sys, os, re, json, time, glob, shutil, urllib.parse
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = r"C:\Users\jeanp\New folder"
+def _racine_livre():
+    # Windows (le PC de JP) : le dossier d'origine ; ailleurs (session dans le nuage) : le dépôt qui contient ce fichier
+    if os.name == "nt":
+        return r"C:\Users\jeanp\New folder"
+    d = os.path.dirname(os.path.abspath(__file__))
+    while d != os.path.dirname(d) and not os.path.exists(os.path.join(d, "CLAUDE.md")):
+        d = os.path.dirname(d)
+    return d
+ROOT = _racine_livre()
 ENGINE = os.path.join(ROOT, "design", "directions", "1-manuel-de-terrain", "outils")
 sys.path.insert(0, ENGINE)
 import build_chapitre as bc
@@ -24,29 +32,72 @@ CIBLES = {   # numéros NOUVEAUX (six tomes) : le 10 est l'ancien 13
     "10": {"procedure": ("h3.sub", "ébullition"), "urgence": ("img", "Planche 10-01")},
 }
 # chiffres clés en exergue (variante C) : posés après le titre dont le texte commence par « apres ».
-# Chiffres et mots repris du chapitre, section 5-E, étape 12.
+# Chiffres et mots repris du chapitre (ch. 10, étape 14 depuis la refonte du 18 octobre 2026).
 EXERGUES = {
-    "10": [{"apres": "E — Désinfecter", "html":
+    "10": [{"apres": "Faire bouillir", "html":
         '<div class="exergue"><div class="ex-h"><i class="pk"></i>Ébullition, à gros bouillons</div>'
-        '<div class="ex-r"><div class="ex-n">1<small>MIN</small></div><div class="ex-l"><b>Puits</b>, avis d’ébullition au village</div></div>'
-        '<div class="ex-r"><div class="ex-n">5<small>MIN</small></div><div class="ex-l"><b>Toute eau de surface</b> : castor, rat musqué, lièvre</div></div>'
-        '<div class="ex-f">On compte quand la surface roule. Un frémissement ne compte pas.</div></div>'}],
+        '<div class="ex-r"><div class="ex-n">1<small>MIN</small></div><div class="ex-l"><b>Puits</b> ou eau du robinet</div></div>'
+        '<div class="ex-r"><div class="ex-n">5<small>MIN</small></div><div class="ex-l"><b>Lac, ruisseau, neige, glace</b> : toute eau prise en forêt</div></div>'
+        '<div class="ex-f">On compte quand toute la surface roule.</div></div>'}],
 }
 
 # pictogrammes au trait (même main que les planches : trait noir, angles francs)
 S = "fill='none' stroke='#000' stroke-width='1.8' stroke-linejoin='round' stroke-linecap='square'"
+# Lieu, option A « le trait resserré » (JP, 15 octobre 2026) : trait de 2,2 à angles vifs, fenêtres, porte, tuyau et
+# épinette en aplat ; la maison à deux étages, le chalet en trois billes à bouts ronds sous son toit, Les deux = les
+# deux mêmes dessins côte à côte. Le dessin remplit sa boîte (viewBox 20, 32,8 et 56 × 24) : les proportions
+# 0,833 / 1,367 / 2,333 sont reprises dans couleur.css, ancrage.css (--r) et assembler-tome.py (sommaire).
 ICONES = {
-    "maison": f"<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' {S}><path d='M2.5 11.5 12 3.5l9.5 8M5 9.5V21h14V9.5M10 21v-5.5h4V21M15.8 6.6V4h2.4v4.6'/></svg>",
-    "chalet": f"<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 31 24' {S}><path d='M1.5 12.5 10 5l8.5 7.5M3.5 11v10h13V11M3.5 14.5h13M3.5 18h13M25 3l-4 7h2.5L20 16h10l-3.5-6H29zM25 16v5'/></svg>",
-    "deux": f"<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 24' {S}><path d='M1 12.5 7.5 6.5l6.5 6M2.8 11v10h9.4V11M6.2 21v-4.5h2.6V21M17.5 12.5 25 6l7.5 6.5M19.3 11v10h11.4V11M19.3 14.5h11.4M19.3 18h11.4'/></svg>",
+    "maison": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 24'><path d='M1.1 11.2L10 1.7L18.9 11.2M3.3 9L3.3 22.9L16.7 22.9L16.7 9' fill='none' stroke='#000' stroke-width='2.2' stroke-linejoin='miter' stroke-miterlimit='6' stroke-linecap='butt'/><path d='M5.6 12.8L8.7 12.8L8.7 15.8L5.6 15.8ZM11.3 12.8L14.4 12.8L14.4 15.8L11.3 15.8ZM5.6 18L8.7 18L8.7 21L5.6 21ZM11.3 18L14.4 18L14.4 23L11.3 23Z' fill='#000'/></svg>",
+    "chalet": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32.8 24'><path d='M1.1 15.2L19.9 15.2M1.1 19.05L19.9 19.05M1.1 22.9L19.9 22.9' fill='none' stroke='#000' stroke-width='2.2' stroke-linecap='round'/><path d='M2.2 14.4L10.5 6.1L18.8 14.4' fill='none' stroke='#000' stroke-width='2.2' stroke-linejoin='miter' stroke-miterlimit='6' stroke-linecap='butt'/><path d='M5 3.4L6.4 3.4L6.4 11L5 11ZM4.6 3L6.8 3L6.8 4.2L4.6 4.2ZM28.1 0.4L30 6L29.05 6L31.25 12L30 12L32.8 19.4L28.95 19.4L28.95 24L27.25 24L27.25 19.4L23.4 19.4L26.2 12L24.95 12L27.15 6L26.2 6Z' fill='#000'/></svg>",
+    "deux": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56 24'><path d='M24.3 15.2L43.1 15.2M24.3 19.05L43.1 19.05M24.3 22.9L43.1 22.9' fill='none' stroke='#000' stroke-width='2.2' stroke-linecap='round'/><path d='M1.1 11.2L10 1.7L18.9 11.2M3.3 9L3.3 22.9L16.7 22.9L16.7 9M25.4 14.4L33.7 6.1L42 14.4' fill='none' stroke='#000' stroke-width='2.2' stroke-linejoin='miter' stroke-miterlimit='6' stroke-linecap='butt'/><path d='M5.6 12.8L8.7 12.8L8.7 15.8L5.6 15.8ZM11.3 12.8L14.4 12.8L14.4 15.8L11.3 15.8ZM5.6 18L8.7 18L8.7 21L5.6 21ZM11.3 18L14.4 18L14.4 23L11.3 23ZM28.2 3.4L29.6 3.4L29.6 11L28.2 11ZM27.8 3L30 3L30 4.2L27.8 4.2ZM51.3 0.4L53.2 6L52.25 6L54.45 12L53.2 12L56 19.4L52.15 19.4L52.15 24L50.45 24L50.45 19.4L46.6 19.4L49.4 12L48.15 12L50.35 6L49.4 6Z' fill='#000'/></svg>",
     "minuteur": f"<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' {S}><circle cx='12' cy='13.5' r='8'/><path d='M12 13.5V8.5M9.5 2.5h5M12 2.5v3M18.4 6.8l1.4-1.4'/></svg>",
     "thermo": f"<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' {S}><path d='M10 14.6V4.5a2 2 0 0 1 4 0v10.1a4.2 4.2 0 1 1-4 0z'/><circle cx='12' cy='18.1' r='1.9' fill='#000'/><path d='M12 16V9M17 6h2M17 9h2M17 12h2'/></svg>",
     "danger": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 22'><path d='M12 1 23.5 21H.5z' fill='#000'/><path d='M10.7 7.5h2.6l-.5 7.5h-1.6z' fill='#fff'/><rect x='10.8' y='16.4' width='2.4' height='2.4' fill='#fff'/></svg>",
 }
 
+def _uri(s):
+    return f'url("data:image/svg+xml,{urllib.parse.quote(s, safe=" =:/,.-")}")'
+
+def _teinte(s, c):
+    """Le SVG dans sa couleur d'impression : tout le noir (#000) devient c. Le blanc reste blanc : le « ! » du
+    triangle de danger se voit (JP, 15 octobre 2026 ; sous l'ancien masque, le triangle sortait plein)."""
+    return re.sub(r"#000(?![0-9A-Fa-f])", c, s)
+
+def _jetons(texte, sel):
+    # tous les blocs du sélecteur : le gabarit a deux :root (le format d'impression, puis les couleurs)
+    out = {}
+    for m in re.finditer(re.escape(sel) + r"\{([^}]*)\}", texte):
+        out.update(re.findall(r"(--[\w-]+):\s*([^;]+?)\s*(?:;|$)", m.group(1)))
+    return out
+
+# Pictogrammes posés en image de fond, déjà teints (15 octobre 2026). Le masque CSS (mask-image teint par
+# currentColor) sortait du PDF d'Edge en masques de transparence imbriqués : filet gris au bord des pictos,
+# rectangle noir dans certains lecteurs. Une variante par couleur réellement imprimée, les couleurs lues dans les
+# jetons du livre (interieur.tpl.html :root, couleur.css body.tN), jamais recopiées ici :
+#   --i-NOM-k  noir --k (pieds de page, sommaire, pied du 00b)    --i-NOM-g  gris --k70 (bloc Lieu, case non cochée)
+#   --i-NOM-w  blanc (bloc Lieu, case cochée)                      --i-NOM-ta / -tsq  couleur du tome (body.tN)
+#   --i-danger-red  rouge --red
+# --i-NOM (noir, sans suffixe) reste pour les études qui posent encore un masque.
+LIEUX = ("maison", "chalet", "deux")
 def icon_vars():
-    v = ";".join(f'--i-{k}:url("data:image/svg+xml,{urllib.parse.quote(s, safe=" =:/,.-")}")' for k, s in ICONES.items())
-    return "body{" + v + "}"
+    base = ";".join(f"--i-{k}:{_uri(s)}" for k, s in ICONES.items())
+    tpl = open(os.path.join(ENGINE, "interieur.tpl.html"), encoding="utf-8").read()
+    rac = _jetons(tpl, ":root")
+    fixes = {"k": rac["--k"], "g": rac["--k70"], "w": "#fff"}
+    v = [f"--i-{k}-{suf}:{_uri(_teinte(ICONES[k], c))}" for k in LIEUX for suf, c in fixes.items()]
+    rouge = _teinte(ICONES["danger"], rac["--red"])
+    v.append(f"--i-danger-red:{_uri(rouge)}")
+    # minuteur noir sur l'orange : bandeau de la série des premières minutes (chapitre.css), sommaire du tome
+    v.append(f"--i-minuteur-k:{_uri(_teinte(ICONES['minuteur'], rac['--k']))}")
+    css = "body{" + base + ";" + ";".join(v) + "}"
+    coul = open(os.path.join(HERE, "couleur.css"), encoding="utf-8").read()
+    for t in sorted(set(re.findall(r"body\.(t\d+)\{", coul))):
+        j = _jetons(coul, f"body.{t}")
+        tv = [f"--i-{k}-ta:{_uri(_teinte(ICONES[k], j['--ta']))}" for k in LIEUX]
+        tv += [f"--i-{k}-tsq:{_uri(_teinte(ICONES[k], j['--tsq']))}" for k in ("minuteur", "thermo")]
+        css += f"\nbody.{t}{{" + ";".join(tv) + "}"
+    return css
 
 DUR = re.compile(r"\d[\d\s\u202f,]*\s*(min|minute|heure|h\b|jour)", re.I)
 def mark_steps(h):
@@ -140,7 +191,7 @@ def rapport(dst, cib):
 
 def shoot(dst, pid, png):
     if os.path.exists(png): os.remove(png)
-    p, prof = bc.edge(["--force-device-scale-factor=2", "--window-size=768,960", f"--screenshot={png}", bc.url(dst, "#page=" + pid)], png)
+    p, prof = bc.edge(["--force-device-scale-factor=2", "--window-size=%d,%d" % bc.fmt()["px"], f"--screenshot={png}", bc.url(dst, "#page=" + pid)], png)
     return p, prof
 
 if __name__ == "__main__":

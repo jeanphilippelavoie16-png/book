@@ -29,6 +29,16 @@ module.exports = (h) => {
     }
     return d + (ferme ? ' Z' : '');
   };
+  // La charte : un volume rond (pierre, sac) a son flanc d'en bas à droite à l'ombre. On peint le
+  // blanc, puis, découpé par la forme, le gris et une copie blanche décalée vers le haut à gauche :
+  // il reste un croissant gris ; le trait passe par-dessus.
+  let nOm = 0;
+  const ombreRonde = (d, dx, dy, trait) => {
+    const id = `om-9704-${nOm++}`;
+    return [`<clipPath id="${id}"><path d="${d}" fill="none"/></clipPath>`, h.path(d, h.a.blanc),
+      `<g clip-path="url(#${id})">${h.path(d, h.a.ombre)}<path d="${d}" transform="translate(${-dx} ${-dy})" ${h.a.blanc}/></g>`,
+      h.path(d, trait)].join('\n');
+  };
   const alea = k => { const x = Math.sin(k * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); };
   const enveloppe = P => {
     const p = P.slice().sort((a, b) => a[0] - b[0] || a[1] - b[1]);
@@ -156,7 +166,7 @@ module.exports = (h) => {
     // 6. les plis du plastique aux deux bouts, puis son contour
     for (const t of [0.45, 0.95, 1.5, 2.05, 2.6]) out.push(h.path(dp([Q(arcPt(0, t, OFF)), Q([-CAP, -(A + OFF) * Math.cos(t), 0])]), h.a.fin));
     for (const t of [0.95, 2.05]) out.push(h.path(dp([Q(arcPt(LONG, t, OFF)), Q([LONG + CAP, -(A + OFF) * Math.cos(t), 0])]), h.a.fin));
-    out.push(h.path(dp(sil, true), h.a.arete));
+    out.push(h.path(dp(sil, true), h.a.contour));   // la charte : la silhouette du tunnel pèse
     // 7. les trous d'aération, dans le côté
     const trou = X => {
       const c = arcPt(X, TT, OFF), tg = norm([0, (A + OFF) * Math.sin(TT), (HT + OFF) * Math.cos(TT)]);
@@ -177,7 +187,7 @@ module.exports = (h) => {
         pts.push([X + rr * 1.15 * Math.cos(az) * Math.cos(el), Y + rr * 0.75 * Math.sin(az) * Math.cos(el), r * 0.8 * Math.sin(el)]);
       }
       const facette = [Q([X - 0.45 * r, Y - 0.55 * r, 0.35 * r]), Q([X - 0.05 * r, Y - 0.25 * r, 0.72 * r]), Q([X + 0.55 * r, Y - 0.1 * r, 0.6 * r])];
-      return h.path(lisse(enveloppe(pts.map(Q)), true), plein(h.a.arete)) + '\n' + h.path(lisse(facette), h.a.fin);
+      return ombreRonde(lisse(enveloppe(pts.map(Q)), true), 4, 3.5, h.a.arete) + '\n' + h.path(lisse(facette), h.a.fin);
     };
     const sac = X => {
       const Y = -555, pts = [], se = v => Math.sign(v) * Math.pow(Math.abs(v), 0.45);
@@ -188,7 +198,7 @@ module.exports = (h) => {
       pts.push([X + 285, Y, 55], [X + 300, Y - 25, 70], [X + 300, Y + 25, 70]);
       const lien = [Q([X + 245, Y - 30, 45]), Q([X + 250, Y - 5, 75])];
       const pli = [Q([X + 235, Y - 60, 90]), Q([X + 120, Y - 70, 112]), Q([X - 60, Y - 75, 115])];
-      return [h.path(lisse(enveloppe(pts.map(Q)), true), plein(h.a.arete)), h.ligne(...lien[0], ...lien[1], h.a.detail), h.path(lisse(pli), h.a.fin)].join('\n');
+      return [ombreRonde(lisse(enveloppe(pts.map(Q)), true), 6, 4.5, h.a.arete), h.ligne(...lien[0], ...lien[1], h.a.detail), h.path(lisse(pli), h.a.fin)].join('\n');
     };
     const objets = [...PIERRES.map(([X, r], k) => ({ X, f: () => pierre(X, r, k + 1) })), ...SACS.map(X => ({ X, f: () => sac(X) }))];
     objets.sort((a, b) => V.prof([a.X, -560, 0]) - V.prof([b.X, -560, 0])).forEach(o => out.push(o.f()));
@@ -241,7 +251,7 @@ module.exports = (h) => {
     out.push(h.ligne(...P(XF0, ZF + 25), ...P(XF0, ZF + 110), h.a.fin), h.ligne(...P(XF1, ZF + 25), ...P(XF1, ZF + 110), h.a.fin));
     out.push(h.cote(...P(XF0, ZF + 85), ...P(XF1, ZF + 85), '1 650 mm'));
     const f0 = P(XF1 + 60, ZF + 40), fc = P(-560, 470), f1 = P(-300, HT + 20);
-    out.push(h.fleche(`M ${f0.join(' ')} Q ${fc.join(' ')} ${f1.join(' ')}`, h.a.arete));
+    out.push(h.geste(`M ${f0.join(' ')} Q ${fc.join(' ')} ${f1.join(' ')}`));   // la charte : le geste, plier le fil
     // les cotes de l'arceau
     for (const sg of [-1, 1]) out.push(h.ligne(...P(sg * A, -PATTE - 15), ...P(sg * A, -330), h.a.fin));
     out.push(h.cote(...P(-A, -305), ...P(A, -305), '≈ 900 mm', { cote: 'dessous' }));
@@ -261,7 +271,7 @@ module.exports = (h) => {
     for (const X of ARCS) out.push(bande([P(X, 0), P(X, HT)], 2 * RP * s));
     out.push(bande([P(-15, ZFAITE), P(LONG + 15, ZFAITE)], 2 * RP * s));
     // le plastique
-    out.push(h.path(dp(Pl([[-CAP, 0], [0, ZPLAST + 12], [LONG, ZPLAST + 12], [LONG + CAP, 0]])), h.a.arete));
+    out.push(h.path(dp(Pl([[-CAP, 0], [0, ZPLAST + 12], [LONG, ZPLAST + 12], [LONG + CAP, 0]])), h.a.contour));   // la charte
     // les trous
     for (const X of TROUS) out.push(h.ellipse(...P(X, ZTROU), Math.max(25 * s, 2.8), Math.max(21 * s, 2.4), plein(h.a.detail)));
     // la terre pelletée aux deux bouts
@@ -313,6 +323,8 @@ module.exports = (h) => {
       return [
         ...bouts.filter(b => !b.vis).map(ell),
         h.path(dp([...G, ...D.slice().reverse()], true), 'fill="#fff" stroke="none"'),
+        // La charte : le dessous de la perche (le côté droit de l'arceau) à l'ombre, jusqu'au trait fin
+        h.path(dp([...G, ...reflet.slice().reverse()], true), h.a.ombre),
         h.path(dp(G), h.a.arete), h.path(dp(D), h.a.arete), h.path(dp(reflet.slice(1, -1)), h.a.fin),
         ...bouts.filter(b => b.vis).map(b => [ell(b), h.path(dp(b.cerne, true), h.a.fin), h.cercle(...b.centre, 1, h.a.plein)].join('\n')),
       ].join('\n');
@@ -378,7 +390,7 @@ module.exports = (h) => {
     out.push(h.path(dp([P(-705, 12), P(-AP - 6, 12), ...arc(0.03, t1)]), h.a.arete));
     out.push(h.path(dp(arc(t2, tfin)), h.a.arete));
     // la pierre sur le rabat
-    out.push(h.path(lisse([[-690, 14], [-684, 62], [-645, 100], [-585, 108], [-540, 76], [-527, 14]].map(p => P(...p))) + ' Z', plein(h.a.arete)));
+    out.push(ombreRonde(lisse([[-690, 14], [-684, 62], [-645, 100], [-585, 108], [-540, 76], [-527, 14]].map(p => P(...p))) + ' Z', 6, 5, h.a.arete));
     out.push(h.path(lisse([P(-660, 45), P(-620, 85), P(-565, 88)]), h.a.fin));
     if (etat === 'jour') {
       const e1 = pp(t1), e2 = pp(t2), o = 55;

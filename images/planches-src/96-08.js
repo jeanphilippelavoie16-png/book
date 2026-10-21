@@ -11,6 +11,9 @@
 // nodules coupés, la face de coupe vers l'œil — les couleurs ne se dessinent pas, la légende les
 // dit ; 5 écraser au pilon dans le fond du bol ; 6 les pois roulés dans ce jus.
 // Aucune cote : le chapitre ne donne aucune mesure pour ces gestes.
+// 14 oct. : les deux poings (le rinçage, le pilon) sont des mains simples (mains/moteur.js) au lieu des
+// calques s11 ; la plante du rinçage, qui mordait sur le titre, tient dans sa vue. La charte : les flèches
+// du geste en rouge (secouer, couper, écraser, rouler) ; celles de la motte qui sort de terre restent noires.
 module.exports = (h) => {
   const F = h.formes, A = h.a;
   const NOIR = '#1A1A1A', RAD = Math.PI / 180;
@@ -46,47 +49,81 @@ module.exports = (h) => {
     const a0 = add(c0, mul(n, r0)), a1 = add(c1, mul(n, r1_)), b1 = sub(c1, mul(n, r1_)), b0 = sub(c0, mul(n, r0));
     return `M ${pt(a0)} L ${pt(a1)} A ${r1(r1_)} ${r1(r1_)} 0 0 0 ${pt(b1)} L ${pt(b0)}` + (base ? ` A ${r1(r0)} ${r1(r0)} 0 0 0 ${pt(a0)} Z` : '');
   };
-  const doubleFleche = (d) => `<path d="${d}" ${A.arete} marker-start="url(#fl)" marker-end="url(#fl)"/>`;
+  const doubleFleche = (d) => h.geste(d, { double: true });     // le geste (charte : le rouge)
+  // l'angle de la main simple qui met l'axe de sa prise sur `axe` (degrés à l'écran) et son avant-bras du
+  // côté de `vers` (le même outil que 104-40 et 50-40)
+  const poser = (o, axe, vers) => {
+    const base = Object.assign({}, o, { angle: 0, avantbras: { longueur: 100 } }); delete base.objet;
+    const e0 = F.mainSimple(base); let best = null;
+    for (const k of [0, 180]) {
+      const a = axe - e0.prise.angle + k, m = F.mainSimple(Object.assign({}, base, { angle: a }));
+      const d = [m.coude[0] - m.poignet[0], m.coude[1] - m.poignet[1]], v = [vers[0] - m.poignet[0], vers[1] - m.poignet[1]];
+      const c = (d[0] * v[0] + d[1] * v[1]) / ((Math.hypot(d[0], d[1]) * Math.hypot(v[0], v[1])) || 1);
+      if (!best || c > best.c) best = { a, c };
+    }
+    return best.a;
+  };
+  // le poing (main gauche simple, prise-manche vue côté paume, penché de 25°) fermé sur un objet debout, le
+  // pouce en haut, l'avant-bras court (130 mm) qui part à gauche ; l'objet peint par le moteur entre les couches
+  const poing = (z, x, y, s, diametre, objet) => {
+    const o = { x, y, pose: 'prise-manche', vue: 'paume', cote: 'gauche', echelle: s, diametre, rotation: [-25, 0, 0] };
+    const vers = [x - 600, y];
+    return F.mainSimple({ ...o, angle: poser(o, 90, vers), objet, avantbras: { vers, bord: { x0: 0, y0: 0, x1: z.l, y1: z.h }, longueur: 130 } }).svg;
+  };
 
   // ── La vesce (mm) : tiges grimpantes, feuilles à folioles par paires, vrille au bout ────────
-  const vrille = (P, S, ang, L, sens) => {
+  // Une vrille : une courte hampe au bout de la feuille, puis deux ou trois brins en spirale lâche.
+  // acc reçoit le milieu de chaque brin (pour qu'un renvoi tombe sur une vrille).
+  const brin = (P, S, ang, L, sens, acc) => {
     const pts = [S]; let p = S, a = ang;
-    const n = 14, pas = L / n;
-    for (let i = 0; i < n; i++) { a += sens * (6 + i * 3.2); p = add(p, [Math.cos(a * RAD) * pas, Math.sin(a * RAD) * pas]); pts.push(p); }
-    return h.path(lisse(pts.map(q => P(...q))), A.detail);
+    const n = 12, pas = L / n;
+    for (let i = 0; i < n; i++) { a += sens * (4 + i * 2.4); p = add(p, [Math.cos(a * RAD) * pas, Math.sin(a * RAD) * pas]); pts.push(p); }
+    if (acc) acc.push(P(...pts[5]));
+    return h.path(lisse(pts.map(q => P(...q))), tr(1));
   };
-  const feuille = (P, b, ang, L, n, cote) => {
+  const vrille = (P, S, ang, L, nb, acc) => {
+    const h0 = L * 0.22, F0 = add(S, [Math.cos(ang * RAD) * h0, Math.sin(ang * RAD) * h0]);
+    const out = [h.path(`M ${pt(P(...S))} L ${pt(P(...F0))}`, tr(0.9))];
+    const ecarts = nb === 3 ? [-40, 0, 40] : [-32, 32];
+    ecarts.forEach((e, j) => out.push(brin(P, F0, ang + e, L * (0.78 - 0.06 * j), e < 0 ? -1 : 1, acc)));
+    return out.join('\n');
+  };
+  // Une feuille : le pétiole, des folioles étroites par paires, la vrille ramifiée au bout (≈ L/3).
+  const feuille = (P, b, ang, L, n, cote, acc, nb = 3) => {
     const u = [Math.cos(ang * RAD), Math.sin(ang * RAD)], nn = perp(u);
-    const f = t => add(add(b, mul(u, L * t)), mul(nn, cote * L * 0.07 * Math.sin(Math.PI * t)));
-    const out = [h.path(lisse([0, 0.25, 0.5, 0.75, 1].map(t => P(...f(t)))), A.detail)];
-    const lf = L * 0.2, wf = lf * 0.32;
+    const f = t => add(add(b, mul(u, L * t)), mul(nn, cote * L * 0.05 * Math.sin(Math.PI * t)));
+    const out = [h.path(lisse([0, 0.25, 0.5, 0.75, 1].map(t => P(...f(t)))), tr(0.9))];
+    // huit à douze paires de petites folioles étroites, presque à angle droit, serrées en échelle
+    const lf = L * 0.17, wf = lf * 0.2;
     for (let i = 0; i < n; i++) {
-      const t = 0.1 + 0.8 * i / (n - 1), B = f(t), tg = uni(sub(f(t + 0.01), f(t - 0.01)));
+      const t = 0.1 + 0.84 * i / (n - 1), B = f(t), tg = uni(sub(f(t + 0.01), f(t - 0.01)));
+      const l = lf * (1 - 0.3 * Math.abs(i - (n - 1) * 0.35) / n);
       for (const sg of [1, -1]) {
-        const dir = tourne(tg, sg * 42), T = add(B, mul(dir, lf)), M = mul(add(B, T), 0.5), q = perp(dir);
-        out.push(h.path(`M ${pt(P(...B))} Q ${pt(P(...add(M, mul(q, wf))))} ${pt(P(...T))} Q ${pt(P(...sub(M, mul(q, wf))))} ${pt(P(...B))} Z`, tr(0.5, '#fff')));
+        const dir = tourne(tg, sg * 58), T = add(B, mul(dir, l)), M = mul(add(B, T), 0.5), q = perp(dir);
+        out.push(h.path(`M ${pt(P(...B))} Q ${pt(P(...add(M, mul(q, wf))))} ${pt(P(...T))} Q ${pt(P(...sub(M, mul(q, wf))))} ${pt(P(...B))} Z`, tr(0.6, '#fff')));
       }
     }
     const fin = f(1), a = Math.atan2(u[1], u[0]) / RAD;
-    out.push(vrille(P, fin, a - 18, L * 0.42, 1), vrille(P, fin, a + 22, L * 0.36, -1));
+    out.push(vrille(P, fin, a, L * 0.42, nb, acc));
     return out.join('\n');
   };
-  // Les tiges, relatives au collet ; une feuille à chaque nœud, d'un côté puis de l'autre.
+  // Les tiges, relatives au collet ; quatre feuilles en tout, une ou deux par tige.
   const TIGES = [
     [[0, 0], [-6, -40], [-18, -85], [-36, -130], [-60, -170], [-82, -196]],
     [[0, 0], [4, -50], [8, -100], [6, -150], [-2, -196], [-10, -236]],
     [[0, 0], [10, -38], [28, -80], [52, -118], [82, -150], [112, -168]],
   ];
-  const plante = (P, C, L = 84) => {
+  const NOEUDS = [[2, 5], [4], [3]];
+  const plante = (P, C, L = 150, acc) => {
     const out = [];
     TIGES.forEach((tige, k) => {
       const pts = tige.map(p => add(C, p));
       out.push(h.path(lisse(pts.map(p => P(...p))), A.arete));
-      for (let i = 1 + (k % 2); i < pts.length; i += 2) {
+      for (const i of NOEUDS[k]) {
         const tg = uni(sub(pts[Math.min(i + 1, pts.length - 1)], pts[i - 1]));
         const cote = (i + k) % 2 ? 1 : -1;
-        const a = Math.atan2(tg[1], tg[0]) / RAD + cote * 52;
-        out.push(feuille(P, pts[i], a, i === pts.length - 1 ? L * 0.8 : L, 8, -cote));
+        const a = Math.atan2(tg[1], tg[0]) / RAD + cote * 50;
+        out.push(feuille(P, pts[i], a, L, 8, -cote, acc, (i + k) % 2 ? 3 : 2));
       }
     });
     return out.join('\n');
@@ -154,8 +191,8 @@ module.exports = (h) => {
       deterrer: {
         titre: 'Au semis, déterrer quelques vesces',
         dessin: z => {
-          const s = Math.min((z.h - 6) / 700, (z.l - 10) / 640);
-          const ox = z.l * 0.46, oy = 4 + 470 * s;
+          const s = Math.min((z.h - 6) / 790, (z.l - 10) / 640);
+          const ox = z.l * 0.46, oy = 4 + 580 * s;
           const P = (x, y) => [r1(ox + x * s), r1(oy + y * s)];
           const out = [];
           const trou = [[-150, 0], [-142, 70], [-114, 140], [-58, 182], [0, 190], [58, 182], [114, 140], [142, 70], [150, 0]];
@@ -176,11 +213,13 @@ module.exports = (h) => {
           return out.join('\n');
         },
         renvois: z => {
-          const s = Math.min((z.h - 6) / 700, (z.l - 10) / 640);
-          const ox = z.l * 0.46, oy = 4 + 470 * s;
+          const s = Math.min((z.h - 6) / 790, (z.l - 10) / 640);
+          const ox = z.l * 0.46, oy = 4 + 580 * s;
           const P = (x, y) => [r1(ox + x * s), r1(oy + y * s)];
+          const acc = []; plante(P, [0, -212], 150, acc);
+          const v = acc.reduce((m, q) => (q[0] - q[1] > m[0] - m[1] ? q : m));
           return [
-            { n: 1, rond: [z.l - 14, 14], cible: P(150, -380) },
+            { n: 1, rond: [z.l - 14, 14], cible: v },
             { n: 2, rond: [14, z.h * 0.62], cible: P(-66, -150), texte: 'les nodules, collés aux racines' },
           ].map((r, i) => ({ texte: 'vesce jargeau : feuilles à vrilles', ...r }));
         },
@@ -190,8 +229,8 @@ module.exports = (h) => {
       rincer: {
         titre: 'Rincer les racines',
         dessin: z => {
-          const s = Math.min((z.h - 6) / 600, (z.l - 10) / 470);
-          const ox = z.l * 0.52, oy = 4 + 262 * s;
+          const s = Math.min((z.h - 6) / 680, (z.l - 10) / 470);    // la plante entière dans la vue (elle mordait sur le titre)
+          const ox = z.l * 0.52, oy = 4 + 342 * s;
           const P = (x, y) => [r1(ox + x * s), r1(oy + y * s)];
           const out = [];
           // le seau en coupe, l'eau
@@ -213,20 +252,21 @@ module.exports = (h) => {
           const hautTiges = tiges.map(t => h.path(lisse(t.map(p => P(...p))), A.arete)).join('\n');
           const feuilles = [];
           tiges.forEach((t, k) => {
-            for (let i = 2; i < t.length; i++) {
+            for (const i of [[3], [2, 4], [3]][k]) {
               const tg = uni(sub(t[Math.min(i + 1, t.length - 1)], t[i - 1]));
               const cote = (i + k) % 2 ? 1 : -1;
-              feuilles.push(feuille(P, t[i], Math.atan2(tg[1], tg[0]) / RAD + cote * 52, i === t.length - 1 ? 52 : 64, 8, -cote));
+              feuilles.push(feuille(P, t[i], Math.atan2(tg[1], tg[0]) / RAD + cote * 52, 120, 8, -cote, null, (i + k) % 2 ? 3 : 2));
             }
           });
-          const m = F.main({ x: P(0, 0)[0], y: P(0, 0)[1], pose: 'prise', vue: 'dos', diametre: 14 * s, echelle: s, bras: 40 });
-          out.push(hautTiges, feuilles.join('\n'), m);
+          // le poing sur la poignée de tiges (une douzaine de mm) : les tiges traversent le poing, derrière
+          // les doigts ; les feuilles par-dessus
+          out.push(poing(z, P(0, 0)[0], P(0, 0)[1], s, 12, hautTiges), feuilles.join('\n'));
           out.push(doubleFleche(`M ${pt(P(196, -60))} L ${pt(P(196, 70))}`));
           return out.join('\n');
         },
         renvois: z => {
-          const s = Math.min((z.h - 6) / 600, (z.l - 10) / 470);
-          const ox = z.l * 0.52, oy = 4 + 262 * s;
+          const s = Math.min((z.h - 6) / 680, (z.l - 10) / 470);
+          const ox = z.l * 0.52, oy = 4 + 342 * s;
           const P = (x, y) => [r1(ox + x * s), r1(oy + y * s)];
           return [{ n: 3, rond: [z.l - 14, z.h * 0.72], cible: P(56, 138), texte: 'la terre part, les nodules restent' }];
         },
@@ -262,30 +302,34 @@ module.exports = (h) => {
           out.push(h.path(`M ${pt(D2(...haut[haut.length - 1]))} Q ${pt(D2(-2.5, yR(-3)))} ${pt(D2(...bas[0]))}`, A.detail));
           // à droite, en perspective : un nodule détaché, couché sur la planche, pointé vers l'œil ;
           // le couteau posé en travers, au milieu (plan z = 0)
-          const xn = 8, rn = 1.3, zB = 4, zF = -4, xl = (z.l - Q(0, 0, 0)[0]) / k - 0.5;
+          const xn = 13, rn = 1.6, zB = 4.5, zF = -4.5, xl = (z.l - Q(0, 0, 0)[0]) / k - 0.5;
           // la planche : son arête avant et son arête gauche qui fuit
-          out.push(h.ligne(...Q(1.5, rn, -8), ...Q(xl, rn, -8), A.arete));
-          out.push(h.ligne(...Q(1.5, rn, -8), ...Q(1.5, rn, 5), A.arete));
-          for (const [zz, x0, x1] of [[-5.5, 16, 27], [2.5, 13, 23]]) out.push(h.ligne(...Q(x0, rn, zz), ...Q(x1, rn, zz), A.fin));
+          // la planche à découper a son épaisseur : chant avant et chant gauche, en bois
+          const ep = 2.6;
+          const xf = xl + AX * 8;   // le chant avant file jusqu'au bord de la vue, comme le dessus
+          out.push(h.chemin([Q(4, rn, -8), Q(xf, rn, -8), Q(xf, rn + ep, -8), Q(4, rn + ep, -8)], A.hachure('bois', 'aucun'), true));
+          out.push(h.chemin([Q(xf, rn, -8), Q(4, rn, -8), Q(4, rn + ep, -8), Q(xf, rn + ep, -8)], A.arete));
+          out.push(h.ligne(...Q(4, rn, -8), ...Q(4, rn, 5), A.arete), h.ligne(...Q(4, rn, 5), ...Q(xl, rn, 5), A.detail));
+          for (const [zz, x0, x1] of [[-6, 21, 32], [2.5, 22, 30]]) out.push(h.ligne(...Q(x0, rn, zz), ...Q(x1, rn, zz), A.fin));
           // le nodule entier, couché ; un anneau tireté marque la coupe, au milieu
           out.push(union([capsule(Q(xn, 0, zB), Q(xn, 0, zF), rn * 0.85 * k, rn * k * 0.94)], 2.4));
           out.push(h.cercle(...Q(xn, 0, 0), rn * k, A.cache));
           // la lame, levée juste au-dessus, le tranchant en travers
           const yT = -rn - 2.2;
-          const dos = [[3, yT], [5, yT - 2.8], [9, yT - 6.2], [15, yT - 8.8], [25, yT - 10.4], [xl, yT - 10.8]];
+          const dos = [[6, yT], [5, yT - 2.8], [9, yT - 6.2], [15, yT - 8.8], [25, yT - 10.4], [xl, yT - 10.8]];
           out.push(h.path(lisse(dos.map(p => Q(p[0], p[1], 0))) + ` L ${pt(Q(xl, yT, 0))} Z`, 'fill="#fff" stroke="none"'));
           out.push(h.path(lisse(dos.map(p => Q(p[0], p[1], 0))), A.contour));
-          out.push(h.ligne(...Q(3, yT, 0), ...Q(xl, yT, 0), A.contour));
-          out.push(h.path(lisse([[7.5, yT - 1.7], [16, yT - 2.6], [xl, yT - 2.9]].map(p => Q(p[0], p[1], 0))), A.fin));
+          out.push(h.ligne(...Q(6, yT, 0), ...Q(xl, yT, 0), A.contour));
+          out.push(h.path(lisse([[10.5, yT - 1.7], [19, yT - 2.6], [xl, yT - 2.9]].map(p => Q(p[0], p[1], 0))), A.fin));
           // le geste : appuyer
-          out.push(h.fleche(`M ${pt(Q(13, yT - 15, 0))} L ${pt(Q(13, yT - 9.8, 0))}`, A.arete));
+          out.push(h.geste(`M ${pt(Q(16, yT - 15, 0))} L ${pt(Q(16, yT - 9.8, 0))}`));      // le geste (charte : le rouge)
           return out.join('\n');
         },
         renvois: z => {
           const { Q, D2 } = repereC(z);
           return [
             { n: 4, rond: [14, z.h - 12], cible: D2(-19.2, 3.6), texte: 'nodule : un doigt, souvent ramifié' },
-            { n: 5, rond: [z.l * 0.62, z.h - 12], cible: Q(8, 1.3, 0), texte: 'en travers, par le milieu' },
+            { n: 5, rond: [z.l * 0.62, z.h - 12], cible: Q(13, 1.6, 0), texte: 'en travers, par le milieu' },
           ];
         },
       },
@@ -302,8 +346,30 @@ module.exports = (h) => {
             const rr = 0.9, rn = 1.3, zc = -3.5;
             out.push(h.path(`M ${pt(Q(-3.6, -rr))} L ${pt(Q(3.6, -rr))} Q ${pt(Q(3.9, 0))} ${pt(Q(3.6, rr))} L ${pt(Q(-3.6, rr))} Q ${pt(Q(-3.9, 0))} ${pt(Q(-3.6, -rr))} Z`, tr(1.4, '#fff')));
             out.push(union([capsule(Q(0, 0, -0.5), Q(0, 0, zc), rn * 0.8 * k, rn * k)], 2.4));
-            const f = Q(0, 0, zc);
-            out.push(h.cercle(f[0], f[1], rn * k, A.hachure('neige', 'arete')));
+            const f = Q(0, 0, zc), R = rn * k;
+            const corps = capsule(Q(0, 0, -0.5), Q(0, 0, zc), rn * 0.8 * k, rn * k);
+            out.push(h.cercle(f[0], f[1], R, tr(1.4, '#fff')));
+            if (i === 0) {
+              // rose ou rouge : un pointillé serré qui remplit la face
+              const e = R / 6.5;
+              for (let gx = -R; gx <= R; gx += e) for (let gy = -R; gy <= R; gy += e * 0.87) {
+                const x = gx + ((Math.round((gy + R) / (e * 0.87)) % 2) ? e / 2 : 0);
+                if (Math.hypot(x, gy) < R - 2.2) out.push(h.cercle(r1(f[0] + x), r1(f[1] + gy), 0.85, A.plein));
+              }
+            } else if (i === 1) {
+              // beige : presque blanc, quelques points
+              for (const [x, y] of [[-0.35, -0.3], [0.3, -0.42], [0.05, 0.1], [-0.4, 0.38], [0.42, 0.3]])
+                out.push(h.cercle(r1(f[0] + x * R), r1(f[1] + y * R), 0.85, A.plein));
+            } else {
+              // vert dans tout le nodule : une hachure fine sur la face et sur toute la longueur
+              const id = 'hv96-08';
+              out.push(`<clipPath id="${id}"><path d="${corps}" fill="none"/><circle cx="${f[0]}" cy="${f[1]}" r="${r1(R)}"/></clipPath>`);
+              const traits = [];
+              for (let d = -4 * R; d <= 4 * R; d += 2.6) traits.push(`M ${r1(f[0] + d - 3 * R)} ${r1(f[1] + 3 * R)} L ${r1(f[0] + d + 3 * R)} ${r1(f[1] - 3 * R)}`);
+              out.push(`<g clip-path="url(#${id})">` + h.path(traits.join(' '), tr(0.5)) + '</g>');
+              out.push(h.path(corps, tr(2.4)));
+            }
+            out.push(h.cercle(f[0], f[1], R, A.arete));
           }
           return out.join('\n');
         },
@@ -332,11 +398,11 @@ module.exports = (h) => {
           out.push(union(nod.map(([a, b]) => capsule(P(...a), P(...b), 2 * s, 2.4 * s)), 1.4));
           for (const [x, y] of [[-20, -9], [-14, -11], [16, -9], [12, -12], [-8, -8], [8, -8]]) out.push(h.cercle(...P(x, y), 1.2, A.plein));
           out.push(bol(P));
-          // le pilon, tenu au poing
-          const pil = `M ${pt(P(-15, -224))} L ${pt(P(-15, -27))} A ${r1(15 * s)} ${r1(15 * s)} 0 0 0 ${pt(P(15, -27))} L ${pt(P(15, -224))} A ${r1(15 * s)} ${r1(15 * s)} 0 0 0 ${pt(P(-15, -224))} Z`;
-          out.push(h.path(pil, A.hachure('bois', 'contour')));
-          out.push(F.main({ x: P(0, -165)[0], y: P(0, -165)[1], pose: 'prise', vue: 'dos', diametre: 30 * s, echelle: s, bras: 40 }));
-          out.push(h.fleche(`M ${pt(P(100, -225))} L ${pt(P(100, -135))}`, A.arete));
+          // le pilon, tenu au poing (au diamètre du poing du modèle)
+          const pil = `M ${pt(P(-12.5, -224))} L ${pt(P(-12.5, -27))} A ${r1(12.5 * s)} ${r1(12.5 * s)} 0 0 0 ${pt(P(12.5, -27))} L ${pt(P(12.5, -224))} A ${r1(12.5 * s)} ${r1(12.5 * s)} 0 0 0 ${pt(P(-12.5, -224))} Z`;
+          // le poing sur le pilon (25 mm) : le pilon entre par le haut du poing et ressort par le bas
+          out.push(poing(z, P(0, -165)[0], P(0, -165)[1], s, 25, h.path(pil, A.hachure('bois', 'contour'))));
+          out.push(h.geste(`M ${pt(P(100, -225))} L ${pt(P(100, -135))}`));      // le geste (charte : le rouge)
           return out.join('\n');
         },
         renvois: z => {
@@ -370,7 +436,7 @@ module.exports = (h) => {
           // le geste : faire tourner le bol pour rouler les pois dans le jus
           const el = [];
           for (let i = 0; i <= 40; i++) { const t = (120 + 300 * i / 40) * RAD; el.push(P(Math.cos(t) * 66, -94 + Math.sin(t) * 11)); }
-          out.push(h.fleche(lisse(el), A.arete));
+          out.push(h.geste(lisse(el)));      // le geste (charte : le rouge)
           return out.join('\n');
         },
         renvois: z => {

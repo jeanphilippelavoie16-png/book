@@ -5,13 +5,16 @@
 // Quatre temps : la bande de peau à plat et ses deux plis ; le carré plié, fendu, lacé, vu de
 // face (le côté qui va au sol) ; la coupe A–A au lacet du haut, à plus grande échelle, pour lire
 // les trois épaisseurs et le lacet qui les traverse ; la genouillère nouée sur la jambe debout
-// (vue de côté, à la loupe), et en usage, un genou au sol.
+// et en usage, un genou au sol (le corps simple, de profil) ; ce genou à la loupe, deux mains qui
+// serrent le nœud du haut : les mains restent hors de la loupe, on ne voit que les deux bouts du lacet
+// tendus, qui en sortent (les pinces de la bibliothèque, à cette échelle, faisaient des pinces de robot).
+// Rouge : les deux bouts qui se rabattent, le geste du pliage ; à la loupe, le tirage de chaque bout.
 //
 // Aucune cote : le chapitre ne donne aucune mesure. La peau est dessinée carrée une fois pliée
 // (une bande trois fois plus longue que large), comme le dit le chapitre.
 //
 // Unités de la coupe et des vues portées : millimètres (côté du carré S = 200, épaisseur d'une
-// peau t = 4,5) ; le personnage de la bibliothèque est en millimètres d'adulte.
+// peau t = 4,5) ; le corps simple est en millimètres d'adulte.
 
 module.exports = (h) => {
   const F = h.formes;
@@ -49,8 +52,8 @@ module.exports = (h) => {
     o.push(h.path(`M${f1(x0 + 3)} ${Y0} L${f1(x0 + 3 * P - 3)} ${Y0} Q${f1(x0 + 3 * P)} ${Y0} ${f1(x0 + 3 * P)} ${Y0 + 3} L${f1(x0 + 3 * P)} ${f1(Y0 + P - 3)} Q${f1(x0 + 3 * P)} ${f1(Y0 + P)} ${f1(x0 + 3 * P - 3)} ${f1(Y0 + P)} L${f1(x0 + 3)} ${f1(Y0 + P)} Q${f1(x0)} ${f1(Y0 + P)} ${f1(x0)} ${f1(Y0 + P - 3)} L${f1(x0)} ${Y0 + 3} Q${f1(x0)} ${Y0} ${f1(x0 + 3)} ${Y0} Z`, `fill="#fff" ${h.a.contour.replace('fill="none" ', '')}`));
     for (const k of [1, 2]) o.push(h.ligne(x0 + k * P, Y0 - 5, x0 + k * P, Y0 + P + 5, pli));
     // les deux bouts qui se rabattent sur le milieu
-    o.push(h.fleche(`M${f1(x0 + 0.5 * P)} ${Y0 - 4} Q${f1(x0 + 0.95 * P)} ${Y0 - 34} ${f1(x0 + 1.4 * P)} ${Y0 - 6}`));
-    o.push(h.fleche(`M${f1(x0 + 2.5 * P)} ${Y0 - 4} Q${f1(x0 + 2.05 * P)} ${Y0 - 34} ${f1(x0 + 1.6 * P)} ${Y0 - 6}`));
+    o.push(h.geste(`M${f1(x0 + 0.5 * P)} ${Y0 - 4} Q${f1(x0 + 0.95 * P)} ${Y0 - 34} ${f1(x0 + 1.4 * P)} ${Y0 - 6}`));
+    o.push(h.geste(`M${f1(x0 + 2.5 * P)} ${Y0 - 4} Q${f1(x0 + 2.05 * P)} ${Y0 - 34} ${f1(x0 + 1.6 * P)} ${Y0 - 6}`));
     return o.join('\n');
   };
   const platR = z => {
@@ -144,6 +147,37 @@ module.exports = (h) => {
   const yM0 = (yH + yB) / 2;
 
   // ═══ Vues 4 et 5 : un genou au sol, et ce genou à la loupe ═══
+  // ── La loupe : le genou au sol en gros plan, dessiné pour lui-même (millimètres, sol en y = 0,
+  // le devant vers +x). Repère local : le centre du genou en KC ; le passage au repère du
+  // personnage est (x − 58, y + 18). La cuisse monte presque droite, le tibia remonte vers le pied
+  // en arrière ; la peau pliée enveloppe la rotule, de l'avant de la cuisse au dessous du tibia.
+  // Deux mains serrent le nœud du haut, derrière la cuisse, au-dessus du creux du genou.
+  const KC = [0, -76];
+  const add = (a, b) => [a[0] + b[0], a[1] + b[1]], mul = (a, k) => [a[0] * k, a[1] * k];
+  const tC = [-0.035, -0.999], fC = [0.999, -0.035];     // la cuisse : vers la hanche ; vers le devant
+  const uT = [-0.985, -0.174], bT = [-0.174, 0.985];     // le tibia : vers le pied ; vers le dessous
+  const cuisseAv = s => add(add(KC, mul(fC, 72 + s * 0.03)), mul(tC, s));
+  const cuisseAr = s => add(add(KC, mul(fC, -72 - s * 0.03)), mul(tC, s));
+  const tibiaDes = s => add(add(KC, mul(bT, 55)), mul(uT, s));
+  const mollet = s => add(add(KC, mul(bT, -(62 + 14 * Math.exp(-(((s - 150) / 120) ** 2))))), mul(uT, s));
+  // le contour de la jambe, du haut de la cuisse (devant) au haut de la cuisse (derrière)
+  const JAMBE = [cuisseAv(420), cuisseAv(250), cuisseAv(110), [72, -60], [58, -30], [32, -15], [0, -14], [-30, -19],
+    tibiaDes(60), tibiaDes(200), tibiaDes(420),
+    mollet(420), mollet(260), mollet(160), [-104, -180], [-86, -190], cuisseAr(170), cuisseAr(270), cuisseAr(420)];
+  // la peau : sa face dehors (14 mm d'épaisseur sur la jambe) et son bord sur le côté du genou
+  const PEAU_DEHORS = [[86, -140], [85, -80], [74, -36], [48, -4], [10, 0], [-30, -4], [-62, -16], [-76, -20]];
+  const PEAU_BORD = [[-62, -56], [-34, -52], [-4, -52], [24, -60], [40, -84], [44, -112], [44, -140]];
+  // les lacets : la fente, le nœud, et les points par où ils font le tour de la jambe
+  const N1 = [-94, -250], N2 = [-120, -180];
+  const LAC1 = [[46, -130], [0, -180], [-52, -222], N1];
+  const LAC2 = [[-56, -48], [-80, -110], [-104, -155], N2];
+  // les deux bouts du nœud du haut, que les deux mains tirent : leur sortie du nœud, un point de passage, et
+  // où ils filent tout droit hors de la loupe
+  const MAINS = [
+    { P: [-140, -392], sort: [-3, -6], mi: [-118, -322] },
+    { P: [-238, -262], sort: [-8, -2], mi: [-168, -256] },
+  ];
+  const LCENTRE = [-120, -210], LRAYON = 290, LACET = 5;
   // Le genou au sol est la jambe « loin » de la posture 'genou' du personnage : genou (−58, −58),
   // le devant de la cuisse vers +x, le tibia qui remonte vers la cheville en arrière, le creux du
   // genou en (−160, −150). Le personnage est levé de LEVE mm : l'épaisseur de la peau sous le genou.
@@ -155,63 +189,75 @@ module.exports = (h) => {
   const genouDehors = decale(genouContour, EP);
   const uni = (a, b) => { const dx = b[0] - a[0], dy = b[1] - a[1], L = Math.hypot(dx, dy); return [dx / L, dy / L]; };
   const pas = (p, u, t) => [p[0] + u[0] * t, p[1] + u[1] * t];
-  // lacet : nœud N (derrière), fente Fe (près du bord plié), il ressort sur la face jusqu'au devant
-  const LACETS = [
-    { N: [-166, -164], Fe: [-28, -120], lat: 10.5, face: 29 },
-    { N: [-182, -163], Fe: [-108, -41], lat: 14, face: 38 },
-  ];
-  const CENTRE = [-100, -105], RAYON = 190, LACET = 5;
+  const CENTRE = [-150, -150], RAYON = 200;   // le cercle de la loupe, dans le repère du personnage
   const SOUS = CENTRE[1] + RAYON - LEVE;   // ce que le cercle descend sous le sol
+  // Un genou au sol : le corps simple, posture « genou », de profil ; le genou au sol est le genou
+  // proche (la genouillère dessus, vers l'œil), la main loin posée sur le genou levé. Le corps est
+  // levé de l'épaisseur de la peau pliée sous le genou, pour que son genou tombe sur celui de la
+  // loupe (le centre du genou à 76 mm du sol).
+  // la main loin posée à plat sur le genou levé (angles cherchés une fois : le poignet juste derrière
+  // le haut du genou, la main qui descend dessus)
+  const ANGLES_G = { brasL: 2.5, avantbrasL: 70, mainL: 112 };
+  const G1 = F.corps({ x: 0, y: 0, pose: 'genou', echelle: 1, angles: ANGLES_G });
+  const LEVE_G = -KC[1] + G1.articulations.genouP[1];
   const gPlace = z => {
-    const e = Math.min((z.l - 16) / 940, (z.h - 22) / (1340 + SOUS)), sol = z.h - 6 - SOUS * e;
-    const ox = 10 + 540 * e, oy = sol - LEVE * e;
-    return { e, sol, V: (x, y) => [ox + e * x, oy + e * y], ox, oy };
+    const e = Math.min((z.l - 12) / 1380, (z.h - 22) / 1340), sol = z.h - 6 - (LCENTRE[1] - KC[1] + LRAYON) * e + 61 * e;
+    const xK = 6 - G1.boite.x0 * e + 20 * e;            // le genou au sol (la jambe couchée et le pied derrière lui)
+    const K = [xK + G1.articulations.genouP[0] * e, sol + KC[1] * e];
+    return { e, sol, xK, K, V: (x, y) => [K[0] + e * x, sol + e * y] };
   };
   const place = z => {
-    const { e, sol, V, ox, oy } = gPlace(z), o = [];
+    const { e, sol, V, xK } = gPlace(z), o = [];
     o.push(h.rect(6, sol, z.l - 12, 8, h.a.hachure('terre', 'aucun')), h.ligne(6, sol, z.l - 6, sol, h.a.arete));
-    o.push(F.personnage({ x: ox, y: oy, pose: 'genou', echelle: e }));
-    // la peau, en noir : trop mince à cette échelle pour montrer autre chose que sa place
-    o.push(h.path(courbe(genouContour.map(q => V(...q))) + ' ' + courbe(genouDehors.slice().reverse().map(q => V(...q))).replace(/^M/, 'L') + ' Z', h.a.plein));
+    o.push(F.corps({ x: xK, y: sol - LEVE_G * e, pose: 'genou', echelle: e, angles: ANGLES_G, trait: 'fort' }).svg);
+    // la peau, en noir, de l'avant de la cuisse au-dessous du genou : à cette échelle, sa place
+    o.push(h.path(courbe(PEAU_DEHORS.map(q => V(...q))), `fill="none" stroke="${NOIR}" stroke-width="${f1(14 * e + 1)}" stroke-linecap="round"`));
     // le cercle de la loupe
-    o.push(h.cercle(...V(...CENTRE), RAYON * e, h.a.detail));
+    o.push(h.cercle(...V(...LCENTRE), LRAYON * e, h.a.detail));
     return o.join('\n');
   };
   const gLoupe = z => {
-    const R = Math.min(z.l, z.h) / 2 - 3, e = R / RAYON, C = [z.l / 2, z.h / 2];
-    const ox = C[0] - CENTRE[0] * e, oy = C[1] - CENTRE[1] * e - LEVE * e;
-    return { R, e, C, V: (x, y) => [ox + e * x, oy + e * y], ox, oy, sol: oy + LEVE * e };
+    const R = Math.min(z.l, z.h) / 2 - 3, e = R / LRAYON, C = [z.l / 2, z.h / 2];
+    const ox = C[0] - LCENTRE[0] * e, oy = C[1] - LCENTRE[1] * e;
+    return { R, e, C, V: (x, y) => [ox + e * x, oy + e * y], sol: oy };
   };
   const loupe = z => {
-    const { R, e, C, V, ox, oy, sol } = gLoupe(z), o = [];
+    const { R, e, C, V, sol } = gLoupe(z), o = [];
     const bl = a => `fill="#fff" ${a.replace('fill="none" ', '')}`;
+    const W = pts => pts.map(q => V(...q));
+    const corde = (pts, fin) => F.corde(W(pts), { ep: LACET * e, debut: 'ouvert', fin });
     o.push(`<clipPath id="g1616-loupe"><circle cx="${f1(C[0])}" cy="${f1(C[1])}" r="${f1(R)}"/></clipPath>`);
     o.push(`<g clip-path="url(#g1616-loupe)">`);
-    o.push(h.rect(0, sol, z.l, 12, h.a.hachure('terre', 'aucun')), h.ligne(0, sol, z.l, sol, h.a.arete));
-    o.push(F.personnage({ x: ox, y: oy, pose: 'genou', echelle: e }));
-    // les lacets sur le côté de la jambe, du bord de la peau jusqu'au nœud (avant la peau)
-    for (const L of LACETS) {
-      const u = uni(L.N, L.Fe), Lb = pas(L.Fe, u, -L.lat);
-      o.push(F.corde([V(...Lb), V(...pas(L.N, u, 3))], { ep: LACET * e, debut: 'ouvert', fin: 'ouvert' }));
+    o.push(h.rect(0, sol, z.l, 14, h.a.hachure('terre', 'aucun')), h.ligne(0, sol, z.l, sol, h.a.arete));
+    // la jambe
+    o.push(h.path(courbe(W(JAMBE)), bl(h.a.contour)));
+    // la peau : de sa face dehors, autour de la rotule, jusqu'à son bord sur le côté du genou
+    o.push(h.path(courbe(W(PEAU_DEHORS)) + ' ' + courbe(W(PEAU_BORD)).replace(/^M/, 'L') + ' Z', bl(h.a.arete)));
+    o.push(h.path(courbe(W(decale(PEAU_DEHORS, -5).slice(1, -1))), h.a.fin));
+    // les lacets, de la fente au nœud, autour de la jambe
+    o.push(corde(LAC1, 'ouvert'), corde(LAC2, 'ouvert'));
+    for (const [p, q] of [[LAC1[0], LAC1[1]], [LAC2[0], LAC2[1]]]) {
+      const dx = q[0] - p[0], dy = q[1] - p[1], L = Math.hypot(dx, dy), n = [-dy / L, dx / L];
+      const a = V(p[0] + n[0] * 5, p[1] + n[1] * 5), b = V(p[0] - n[0] * 5, p[1] - n[1] * 5);
+      o.push(h.ligne(...a, ...b, h.a.contour));
     }
-    // la peau vue de côté : du bord plié, sur le côté du genou, jusqu'à sa face dehors
-    o.push(h.path(courbe(genouLateral.map(q => V(...q))) + ' ' + courbe(genouDehors.slice().reverse().map(q => V(...q))).replace(/^M/, 'L') + ' Z', bl(h.a.arete)));
-    o.push(h.path(courbe(decale(genouLateral, 3.5).slice(1, -1).map(q => V(...q))), h.a.fin));
-    for (const L of LACETS) {
-      const u = uni(L.N, L.Fe), Lb = pas(L.Fe, u, -L.lat);
-      // sous la marge de la peau : caché
-      o.push(h.ligne(...V(...Lb), ...V(...L.Fe), h.a.cache));
-      // sur la face, de la fente jusqu'au devant
-      o.push(F.corde([V(...L.Fe), V(...pas(L.Fe, u, L.face))], { ep: LACET * e, debut: 'ouvert', fin: 'ouvert' }));
-      // la fente, en travers du lacet
-      const n = [-u[1], u[0]], a = pas(L.Fe, n, -4.5), b = pas(L.Fe, n, 4.5), w = 0.8;
-      o.push(h.path(`M${V(...pas(a, u, -w)).map(f1).join(' ')} L${V(...pas(b, u, -w)).map(f1).join(' ')} L${V(...pas(b, u, w)).map(f1).join(' ')} L${V(...pas(a, u, w)).map(f1).join(' ')} Z`, h.a.plein));
-      // le nœud et ses deux bouts qui pendent
-      const [nx, ny] = L.N;
-      o.push(F.corde([V(nx - 3, ny + 4), V(nx - 7, ny + 18), V(nx - 7, ny + 36)], { ep: LACET * e, debut: 'ouvert', fin: 'coupe' }));
-      o.push(F.corde([V(nx + 3, ny + 4), V(nx + 5, ny + 17), V(nx + 4, ny + 31)], { ep: LACET * e, debut: 'ouvert', fin: 'coupe' }));
-      o.push(h.ellipse(...V(nx, ny), 9 * e, 7.5 * e, bl(h.a.detail)));
-      o.push(h.path(`M${V(nx - 5, ny - 3).map(f1).join(' ')} Q${V(nx, ny + 2.5).map(f1).join(' ')} ${V(nx + 5, ny - 3).map(f1).join(' ')}`, h.a.fin));
+    // le nœud du bas, fait : deux bouts qui pendent
+    o.push(corde([[N2[0] - 4, N2[1] + 3], [N2[0] - 14, N2[1] + 20], [N2[0] - 16, N2[1] + 40]], 'coupe'));
+    o.push(corde([[N2[0] + 2, N2[1] + 5], [N2[0] - 2, N2[1] + 22], [N2[0] - 1, N2[1] + 36]], 'coupe'));
+    o.push(h.ellipse(...V(...N2), 9 * e, 7.5 * e, bl(h.a.detail)));
+    // le nœud du haut : ses deux bouts tendus, qui sortent de la loupe là où les deux mains les tirent (les mains
+    // restent hors du cercle ; le renvoi dit « serré à deux mains »), une flèche rouge le long de chacun
+    for (const M of MAINS) {
+      const d = [M.P[0] - M.mi[0], M.P[1] - M.mi[1]], L = Math.hypot(d[0], d[1]), u = [d[0] / L, d[1] / L];
+      o.push(corde([add(N1, M.sort), M.mi, M.P, add(M.P, mul(u, 220))], 'ouvert'));
+    }
+    o.push(h.ellipse(...V(...N1), 9 * e, 7.5 * e, bl(h.a.detail)));
+    for (const M of MAINS) {
+      const d = [M.P[0] - M.mi[0], M.P[1] - M.mi[1]], L = Math.hypot(d[0], d[1]), u = [d[0] / L, d[1] / L];
+      let n = [u[1], -u[0]];
+      if (n[0] + n[1] * 0.2 > 0) n = mul(n, -1);                 // du côté loin de la cuisse (à gauche, en haut)
+      const a0 = add(M.P, mul(n, 24)), a1 = add(a0, mul(u, 56));
+      o.push(h.geste(`M${V(...a0).map(f1).join(' ')} L${V(...a1).map(f1).join(' ')}`));
     }
     o.push('</g>');
     o.push(h.cercle(C[0], C[1], R, h.a.detail));
@@ -220,16 +266,16 @@ module.exports = (h) => {
   const loupeR = z => {
     const { V, R, C } = gLoupe(z);
     return [
-      { n: 8, rond: [C[0] - R * 0.62, C[1] - R * 0.86], cible: V(-166, -170), texte: 'nœud du haut, derrière' },
-      { n: 9, rond: [C[0] - R * 0.93, C[1] - R * 0.2], cible: V(-186, -150), texte: 'nœud du bas, derrière' },
-      { n: 10, rond: [C[0] + R * 0.78, C[1] + R * 0.12], cible: V(-18, -60), texte: 'la peau entre genou et sol' },
+      { n: 8, rond: [C[0] + R * 0.3, C[1] - R * 0.8], cible: V(N1[0] + 4, N1[1] - 4), texte: 'nœud du haut, serré à deux mains' },
+      { n: 9, rond: [C[0] - R * 0.5, C[1] + R * 0.55], cible: V(N2[0] - 6, N2[1] + 12), texte: 'nœud du bas, derrière le genou' },
+      { n: 10, rond: [C[0] + R * 0.78, C[1] + R * 0.12], cible: V(62, -30), texte: 'la peau entre genou et sol' },
     ];
   };
 
   return {
     ref: '24-16',
     titre: 'La genouillère de peau nouée',
-    desc: 'Une bande de peau d’orignal pliée en trois en un carré, fendue près des bords, tenue par deux lacets noués derrière la jambe, l’un au-dessus du pli du genou, l’autre dessous. À plat avec ses deux plis ; pliée, fendue et lacée, vue du côté qui va au sol ; en coupe au lacet du haut, les trois épaisseurs traversées par le lacet ; nouée sur la jambe, vue de côté ; et un genou au sol, la peau entre le genou et le sol.',
+    desc: 'Une bande de peau d’orignal pliée en trois en un carré, fendue près des bords, tenue par deux lacets noués derrière la jambe, l’un au-dessus du pli du genou, l’autre dessous. À plat avec ses deux plis ; pliée, fendue et lacée, vue du côté qui va au sol ; en coupe au lacet du haut, les trois épaisseurs traversées par le lacet ; un genou au sol, la peau entre le genou et le sol ; et ce genou à la loupe : les deux bouts du nœud du haut, derrière la cuisse, tirés chacun de son côté par les deux mains, hors du cercle ; le nœud du bas déjà fait au creux du genou.',
     format: 'pleine',
     disposition: [['plat', 'plie'], ['coupe'], ['place', 'loupe']],
     hauteurs: [1.1, 0.72, 2.4],

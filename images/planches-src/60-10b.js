@@ -10,6 +10,10 @@
 // Le ramendage, en trois temps : le trou ; recoupé jusqu'à un contour de mailles entières (les
 // mailles enlevées, en tireté, sont celles qu'il faudra refaire, ni plus ni moins) ; renoué rang
 // par rang à l'aiguille, le fil neuf en trait fort. Aucune cote : le chapitre ne donne aucune mesure.
+//
+// Redessin du 14 octobre 2026 (le ramendage restait trop dense) : de grandes mailles, deux rangs
+// au-dessus du moule, le trou au milieu de sa vue ; la loupe du nœud renoué est enlevée (illisible,
+// et le nœud est celui de la 60-10a) ; plus de bouts de brin dans les coins.
 
 'use strict';
 
@@ -26,12 +30,12 @@ module.exports = (h) => {
 
   // ── Vue 1 : un rang sur le moule, et le moule en coupe ────────────────────────────────────
   const gR = z => {
-    const gw = Math.min(40, z.h * 0.18), a = gw * 1.3;
+    const gw = Math.min(56, z.h * 0.22), a = gw * 1.3;     // redessin du 14 octobre 2026 : de grandes mailles, deux rangs
     const tm = 10, xs = z.l - 34;                     // la coupe du moule, à droite
     const xf = xs - 44;                               // bout droit du moule vu de face
     const yg = z.h - gw - 28;
     const xL = 8, xR = xf - 8;
-    const kc = 5;                                     // dernier nœud fait
+    const kc = 4;                                     // dernier nœud fait
     return { gw, a, tm, xs, xf, yg, kc, xL, xR, X: k => xL + a * 0.5 + k * a };
   };
   const vueRang = z => {
@@ -97,7 +101,13 @@ module.exports = (h) => {
     caches.push(h.ligne(xL, yg + gw * 0.62, X(0) - 1, yg + 1, h.a.cache));
     // le fil remonte dans la maille suivante, par derrière, jusqu'à l'aiguille
     const xn = X(kc + 1);
-    const fil = F.corde([[xn - 1, yg + 3], [xn, yg - 6], [xn + 3, yg - gw * 0.5], [xn + 8, yg - gw * 0.9]], VIEUX);
+    // il passe derrière le fond de la boucle qui pend, et sort devant, dans la boucle
+    caches.push(h.ligne(xn, yg + 1, xn + 1, yg - 8, h.a.cache));
+    const fil = F.corde([[xn + 1, yg - 8], [xn + 3, yg - gw * 0.5], [xn + 8, yg - gw * 0.9]], VIEUX);
+    // le sens du fil : il descend devant, remonte derrière
+    const xk = X(kc);
+    caches.push(h.fleche(`M ${P(xk + 9, yg + 5)} L ${P(xk + a / 2 + 4, yg + gw - 9)}`, h.a.fin),
+      h.fleche(`M ${P(xn - a / 2 + 9, yg + gw - 6)} L ${P(xn - 6, yg + 9)}`, h.a.fin));
     out.push(...net, fil);
     out.push(F.moule({ x: (xL - 4 + xf) / 2, y: yg, longueur: xf - xL + 4, largeur: gw }));
     out.push(...dessus, ...caches);
@@ -111,8 +121,10 @@ module.exports = (h) => {
       [xs - 3.4, yg + 3], [cx - 1.5, yg - 3.5]], VIEUX));
     out.push(h.rect(xs, yg, tm, gw, h.a.hachure('bois', 'contour')));
     out.push(noeud(cx, yg - 3.5, 3));
-    // le sens du travail
-    out.push(h.fleche(`M ${P(X(kc + 1.6), yg + gw * 0.5)} L ${P(X(kc + 2.8), yg + gw * 0.5)}`, h.a.arete));
+    // la charte : le sens du travail, le geste, en rouge ; le point à contrôler, le nœud assis sur
+    // le bord du haut du moule (c'est le moule qui fait la maille)
+    out.push(h.geste(`M ${P(X(kc + 1.5), yg + gw * 0.5)} L ${P(X(kc + 2.4), yg + gw * 0.5)}`));
+    out.push(h.controle(X(kc - 1), yg, 10));
     return out.join('\n');
   };
   const vueRangR = z => {
@@ -120,7 +132,7 @@ module.exports = (h) => {
     return [
       { n: 1, rond: [X(kc - 1) - a * 0.5, yg - gw * 1.5], cible: [X(kc - 1), yg], texte: 'un nœud par maille' },
       { n: 2, rond: [X(kc - 3) + a * 0.3, yg + gw + 15], cible: [X(kc - 3) + a * 0.3, yg + gw * 0.6], texte: 'devant, dessous, derrière' },
-      { n: 3, rond: [X(kc + 2), yg - gw * 1.5], cible: [X(kc + 1) + 2, yg - gw * 0.35], texte: 'la maille suivante' },
+      { n: 3, rond: [X(kc + 2), yg - gw * 1.5], cible: [X(kc + 1) + 2.5, yg - gw * 0.42], texte: 'la maille suivante' },
       { n: 4, rond: [xs + tm / 2, yg + gw + 16], cible: [xs + tm / 2 + 2, yg + gw * 0.5], texte: 'latte à la largeur de maille' },
     ];
   };
@@ -133,7 +145,7 @@ module.exports = (h) => {
   // déchirés au départ (le reste des mailles de K tient encore, entamé)
   const DECHIRES = new Set(['-1,3|0,4', '1,3|0,4', '-1,5|0,4', '1,5|0,4', '1,3|2,4', '-1,5|-2,6', '1,5|2,4', '1,5|0,6', '-1,3|-2,4']);
   const gT = z => {
-    const a = Math.min(40, z.l / 5.2), v = a * 0.8;
+    const a = Math.min(56, z.l / 3.6), v = a * 0.8;   // redessin : de grandes mailles, le trou au milieu de la vue
     const cx = z.l / 2, cy = z.h / 2;
     return { a, v, X: i => cx + i * a / 2, Y: j => cy + (j - 4.5) * v };
   };
@@ -177,7 +189,7 @@ module.exports = (h) => {
     const fait = b => Math.min(b.p[1], b.q[1]) <= 3 || (Math.min(b.p[1], b.q[1]) === 4 && Math.max(b.P[0], b.Q[0]) <= X(0) + 0.1);
     for (const b of L) {
       const s = couper(b.P, b.Q, z.l, z.h);
-      if (!s) continue;
+      if (!s || Math.hypot(s[1][0] - s[0][0], s[1][1] - s[0][1]) < 8) continue;   // pas de bout de brin dans un coin
       if (!b.trou) { out.push(F.corde(s, VIEUX)); continue; }
       if (etat === 'dechire') {
         if (!b.dechire) { out.push(F.corde(s, VIEUX)); continue; }
@@ -206,22 +218,38 @@ module.exports = (h) => {
       // le fil part du dernier nœud fait, descend vers la maille suivante, remonte à l'aiguille
       const A = [X(0), Y(4)], B = [X(1), Y(5)], C = [X(2) - 2, Y(4) + 4];
       out.push(F.corde([A, [A[0] + (B[0] - A[0]) * 0.5, A[1] + (B[1] - A[1]) * 0.5], B, [B[0] + 4, B[1] - 6], C], NEUF));
-      out.push(aiguilleTalon(C[0], C[1], -58, gT(z).a * 1.7));
+      out.push(aiguilleTalon(C[0], C[1], -58, gT(z).a * 1.3));
+      // le chemin du fil : rang 2-3 de gauche à droite, rang 3-4 de droite à gauche, rang 4-5 de gauche à droite
+      const fl = [];
+      for (const b of L) {
+        if (!b.trou || !fait(b)) continue;
+        const m = Math.min(b.p[1], b.q[1]);
+        let [A2, B2] = b.P[0] < b.Q[0] ? [b.P, b.Q] : [b.Q, b.P];
+        if (m % 2) [A2, B2] = [B2, A2];
+        const d = [B2[0] - A2[0], B2[1] - A2[1]], l = Math.hypot(...d), u = [d[0] / l, d[1] / l], nn = [u[1], -u[0]];
+        const o = 6, M = [(A2[0] + B2[0]) / 2 + nn[0] * o, (A2[1] + B2[1]) / 2 + nn[1] * o];
+        fl.push(h.fleche(`M ${P(M[0] - u[0] * 6, M[1] - u[1] * 6)} L ${P(M[0] + u[0] * 6, M[1] + u[1] * 6)}`, h.a.fin));
+      }
+      // les demi-tours aux bords
+      const a2 = gT(z).a, v2 = gT(z).v;
+      // (le demi-tour de droite est sous l'aiguille : celui de gauche suffit à dire l'aller-retour)
+      fl.push(h.fleche(`M ${P(X(-3) + 2, Y(3.6))} Q ${P(X(-3) - a2 * 0.45, Y(4))} ${P(X(-3) + 2, Y(4.4))}`, h.a.fin));
+      out.push(...fl);
     }
     return out.join('\n');
   };
   const vueTrouR = etat => z => {
-    const { a, v, X, Y } = gT(z);
+    const { X, Y } = gT(z);
     if (etat === 'dechire') return [
-      { n: 5, rond: [X(-3.5), Y(8.4)], cible: [X(0.6), Y(4.7)], texte: 'mailles déchirées' },
+      { n: 5, rond: [14, Y(8)], cible: [X(0.6), Y(4.7)], texte: 'mailles déchirées' },
     ];
     if (etat === 'recoupe') return [
-      { n: 6, rond: [X(-3.5), Y(1.2)], cible: [X(-2), Y(2)], texte: 'recoupé : mailles entières' },
-      { n: 7, rond: [X(-3.5), Y(8.4)], cible: [X(-0.5), Y(5.5)], texte: 'les mailles enlevées, à compter' },
+      { n: 6, rond: [14, Y(1.5)], cible: [X(-2), Y(2)], texte: 'recoupé : mailles entières' },
+      { n: 7, rond: [14, Y(8)], cible: [X(-0.5), Y(5.5)], texte: 'les mailles enlevées, à compter' },
     ];
     return [
-      { n: 8, rond: [X(-3.5), Y(1.2)], cible: [X(-1.5), Y(2.5)], texte: 'renoué rang par rang' },
-      { n: 9, rond: [X(-3.5), Y(8.4)], cible: [X(-0.5), Y(5.5)], texte: 'autant de mailles qu’on en a enlevé' },
+      { n: 8, rond: [14, Y(1.5)], cible: [X(-1.5), Y(2.5)], texte: 'renoué rang par rang' },
+      { n: 9, rond: [14, Y(8)], cible: [X(-0.5), Y(5.5)], texte: 'autant de mailles qu’on en a enlevé' },
     ];
   };
 

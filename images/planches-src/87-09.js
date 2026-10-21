@@ -9,6 +9,11 @@
 // part du haut de la serpentine et ne fait que monter jusqu'au réservoir, où il entre dans le
 // haut de la paroi, sous le niveau de l'eau. Tout le réservoir est plus haut que le dernier tour.
 // Aucun point haut où l'air resterait pris : une bulle monte toujours vers le réservoir ouvert.
+//
+// La charte : la serpentine grossie au contour fort ; les tours de derrière en gris loin (on voit
+// lesquels passent derrière le tuyau) ; le flanc droit du tuyau de poêle à l'ombre. Le rouge : sur
+// le raté, le bouchon vissé (ce qui fait céder le circuit). Pas de geste à faire ; les flèches
+// d'eau et de fumée restent noires.
 module.exports = (h) => {
   const NOIR = '#1A1A1A';
   const W = t => t.replace('fill="none"', 'fill="#ffffff"');
@@ -54,17 +59,28 @@ module.exports = (h) => {
   };
   // la serpentine en tube : décalée d'un seul tenant (pas de cassure aux coutures), puis
   // coupée en morceaux de devant ou de derrière
-  const spire = (hel, w, devant, tr = h.a.arete) => {
+  // Derrière : le tube entier d'un seul trait (les bouts arrondis dépassent du tuyau, sans
+  // aucun trait dans le tube). Devant : seulement les brins entre les deux bords du tuyau
+  // (xp ± lim), qui s'arrêtent net au bord.
+  const spire = (hel, w, devant, tr = h.a.arete, xp = 0, lim = 0) => {
+    if (!devant) {
+      // tube en deux traits épais superposés : noir, puis blanc dedans ; les bouts arrondis
+      // restent propres, sans pointe ni crochet dans le tube
+      const ep = parseFloat((String(tr).match(/stroke-width="([\d.]+)"/) || [0, 1.4])[1]);
+      const dd = 'M ' + hel.pts.map(q => f(q[0]) + ' ' + f(q[1])).join(' L ');
+      // l'intérieur en gris loin : ce sont les tours qui passent derrière le tuyau
+      return `<path d="${dd}" fill="none" stroke="#1a1a1a" stroke-width="${f(w + ep)}" stroke-linejoin="round" stroke-linecap="butt"/>` + String.fromCharCode(10) +
+        `<path d="${dd}" fill="none" stroke="#E6E6E6" stroke-width="${f(Math.max(w - ep, 0.5))}" stroke-linejoin="round" stroke-linecap="butt"/>`;
+    }
     const A = decale(hel.pts, w / 2), B = decale(hel.pts, -w / 2), out = [];
-    let i = 0;
-    while (i < hel.pts.length) {
+    const ok = k => hel.dev[k] && Math.abs(hel.pts[k][0] - xp) <= lim;
+    for (let i = 0; i < hel.pts.length; i++) {
+      if (!ok(i)) continue;
       let j = i;
-      while (j + 1 < hel.pts.length && hel.dev[j + 1] === hel.dev[i]) j++;
-      if (hel.dev[i] === devant) {
-        const i0 = Math.max(i - 1, 0), a = A.slice(i0, j + 2), b = B.slice(i0, j + 2);
-        out.push(h.chemin([...a, ...[...b].reverse()], h.a.blanc, true), h.chemin(a, tr), h.chemin(b, tr));
-      }
-      i = j + 1;
+      while (j + 1 < hel.pts.length && ok(j + 1)) j++;
+      const a = A.slice(i, j + 1), b = B.slice(i, j + 1);
+      if (a.length > 1) out.push(h.chemin([...a, ...[...b].reverse()], h.a.blanc, true), h.chemin(a, tr), h.chemin(b, tr));
+      i = j;
     }
     return out.join(String.fromCharCode(10));
   };
@@ -113,11 +129,13 @@ module.exports = (h) => {
     const yF = hel.yFin;
     const chaud = [[xp, yF], [xp + R + 8 * s, yF - 2 * s], [xr0 - 16 * s, Y(L.yHot)], [xr0 + 14 * s, Y(L.yHot)]];
     out.push(tube(echant(chaud, 10 * s), d, tr));
-    // le tuyau de poêle, qui passe devant ce qui est derrière lui
-    out.push(h.rect(xp - rp, Y(24), 2 * rp, Y(L.g - 102) - Y(24), W(h.a.arete)));
+    // le tuyau de poêle, qui passe devant ce qui est derrière lui ; son flanc droit à l'ombre
+    out.push(h.rect(xp - rp, Y(24), 2 * rp, Y(L.g - 102) - Y(24), h.a.blanc));
+    out.push(h.rect(xp + rp * 0.35, Y(24), rp * 0.65, Y(L.g - 102) - Y(24), h.a.ombre));
+    out.push(h.rect(xp - rp, Y(24), 2 * rp, Y(L.g - 102) - Y(24), h.a.arete));
     out.push(h.chemin(brisure(xp - rp - 3, xp + rp + 3, Y(24), 2.5 * s), h.a.detail));
     for (const y of [L.g - 250, L.g - 320]) out.push(h.ligne(xp - rp, Y(y), xp + rp, Y(y), h.a.detail));
-    out.push(spire(hel, d, true, tr));
+    out.push(spire(hel, d, true, tr, xp, rp));
     // départ froid : pris au fond du réservoir, descend, arrive par-devant au bas de la serpentine
     const froid = [[xr0 + 4 * s, Y(L.yCold)], [X(L.xL), Y(L.yCold)], [X(L.xL), Y(L.yc0 - 8)], [xp, Y(L.yc0)]];
     out.push(tube(echant(froid, 10 * s), d, tr));
@@ -133,6 +151,8 @@ module.exports = (h) => {
       out.push(h.path(`M ${f(xr0)} ${f(yt + rr)} Q ${f(xr0)} ${f(yt)} ${f(xr0 + rr)} ${f(yt)} L ${f(xr1 - rr)} ${f(yt)} Q ${f(xr1)} ${f(yt)} ${f(xr1)} ${f(yt + rr)} L ${f(xr1)} ${f(yb)} L ${f(xr0)} ${f(yb)} Z`, h.a.hachure('eau', 'contour')));
       const xc = (xr0 + xr1) / 2;
       out.push(h.rect(xc - 9 * s, yt - 9 * s, 18 * s, 9 * s, h.a.plein));
+      // l'endroit où ça casse : le bouchon vissé, sans évent
+      out.push(h.controle(xc, yt - 4 * s, Math.max(16 * s, 11)));
     }
     // les raccords à travers la paroi : un écrou de chaque côté
     for (const y of [Y(L.yCold), Y(L.yHot)]) {
@@ -203,15 +223,18 @@ module.exports = (h) => {
           const q = DET(z), out = [];
           const hel = helice(q.xp, q.R, q.y0, q.p, q.n);
           const yA = 14, yZ = z.h - 10;
-          out.push(spire(hel, q.d, false));
+          // la serpentine, sujet de la vue : contour fort
+          out.push(spire(hel, q.d, false, h.a.contour));
           const sortie = [[q.xp, q.yF], [q.xp + q.R + 14, q.yF - 3], [z.l - 14, q.yF - 20]];
-          out.push(tube(echant(sortie, 12), q.d));
-          out.push(h.rect(q.xp - q.rp, yA, 2 * q.rp, yZ - yA, W(h.a.arete)));
+          out.push(tube(echant(sortie, 12), q.d, h.a.contour));
+          out.push(h.rect(q.xp - q.rp, yA, 2 * q.rp, yZ - yA, h.a.blanc));
+          out.push(h.rect(q.xp + q.rp * 0.35, yA, q.rp * 0.65, yZ - yA, h.a.ombre));
+          out.push(h.rect(q.xp - q.rp, yA, 2 * q.rp, yZ - yA, h.a.arete));
           out.push(h.chemin(brisure(q.xp - q.rp - 4, q.xp + q.rp + 4, yA, 3), h.a.detail));
           out.push(h.chemin(brisure(q.xp - q.rp - 4, q.xp + q.rp + 4, yZ, 3), h.a.detail));
-          out.push(spire(hel, q.d, true));
+          out.push(spire(hel, q.d, true, h.a.contour, q.xp, q.rp));
           const entree = [[z.l - 14, q.y0 - 6], [q.xp + q.R + 20, q.y0 - 1], [q.xp, q.y0]];
-          out.push(tube(echant(entree, 12), q.d));
+          out.push(tube(echant(entree, 12), q.d, h.a.contour));
           // l'eau froide entre, la chaude sort ; la fumée monte dans le tuyau
           out.push(h.fleche(`M ${z.l - 24} ${f(q.y0 - 22)} L ${f(q.xp + q.R + 34)} ${f(q.y0 - 17)}`));
           out.push(h.fleche(`M ${f(q.xp + q.R + 40)} ${f(q.yF + 12)} L ${z.l - 30} ${f(q.yF - 4)}`));

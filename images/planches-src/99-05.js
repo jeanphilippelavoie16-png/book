@@ -1,6 +1,11 @@
 // Planche 99-05 — Faucher à la faux, et aiguiser à la pierre.
 // Chapitre 99, étapes 54 et 55. Aucune cote : le chapitre ne donne aucune mesure de fabrication
 // (le manche est « à la taille du faucheur ») ; 75 cm et 175 cm sont dans la légende.
+// Le faucheur est le corps simple de la bibliothèque (pose « faucher »). La charte : la faux pèse
+// (contour 2,4) ; le fauché en gris loin ; la face à l'ombre du manche, de l'anneau et du biseau ;
+// le rouge (quatre marques) sur le coup (dessus), la pointe de la lame qui touche le sol (profil), la
+// pierre qui descend du dos au fil et la zone du fil, là où la pierre dérape (debout, étape 55). Dans
+// « La pierre, debout », la main gauche est la main simple (mains/moteur.js), en crochet sur le dos de la lame.
 module.exports = (h) => {
   const F = h.formes;
   const f = v => (+v).toFixed(1);
@@ -46,36 +51,62 @@ module.exports = (h) => {
   };
   const alea = s => () => (s = (s * 16807) % 2147483647) / 2147483647;
 
-  // ─── De profil : le faucheur réglé, en milieu de coup ───────────────────────────────
-  // mm : x vers l'avant depuis les pieds, y vers le haut depuis le sol
+  // ─── De profil : le faucheur réglé, en début de coup ────────────────────────────────
+  // mm : x vers l'avant depuis les chevilles, y vers le haut depuis le sol.
+  // Le corps simple (pose « faucher » de la bibliothèque) ; ses deux poings donnent la place et
+  // l'axe des deux poignées. Chaque poignée est une cheville plantée dans le manche : elle sort du
+  // poing par-dessus et par-dessous, et descend au manche. Le long manche passe sous les deux
+  // poignées et descend en une seule courbe jusqu'au talon ; la lame part du talon, couchée à plat
+  // sur le sol, la pointe vers l'avant (en début de coup, la lame est à droite et pointe devant).
   const geoP = z => {
-    const e = Math.min((z.h - 10) / 1790, (z.l - 8) / 1250);
-    const x0 = 6 + 170 * e, g = z.h - 4;
+    const e = Math.min((z.h - 10) / 1700, (z.l - 34) / 1700);
+    const x0 = 4 + 200 * e, g = z.h - 4;
     const P = (x, y) => [x0 + x * e, g - y * e];
-    const pers = F.personnage({ x: x0, y: g, pose: 'debout', echelle: e, penche: 20, regard: 24,
-      mains: { proche: P(470, 790), loin: P(300, 880) } });
-    const num = a => a.map(Number);
-    // chaque poignée traverse le poing, en travers de la main : elle sort du manche derrière et
-    // sous le poing, et dépasse de l'autre côté
-    const poignee = (k, long) => {
-      const w = num(pers.poignets[k]), m = num(pers.mains[k]);
-      const a = [m[0] - w[0], m[1] - w[1]], la = Math.hypot(...a), u = [a[0] / la, a[1] / la];
-      const c = [w[0] + 0.6 * a[0], w[1] + 0.6 * a[1]], v = [u[1], -u[0]];   // v : en travers, vers l'avant
-      return { c, pied: [c[0] - long * e * v[0], c[1] - long * e * v[1]], bout: [c[0] + 38 * e * v[0], c[1] + 38 * e * v[1]] };
+    const mm = q => [(q[0] - x0) / e, (g - q[1]) / e];
+    // une poignée : l'axe du poing (degrés écran), son pied sur le manche, son bout au-dessus du poing
+    const nib = (m, lPied, lBout) => {
+      const u = [Math.cos(m.angle * RAD), Math.sin(m.angle * RAD)];     // vers le bas et l'arrière
+      return { c: [m.x, m.y], u, pied: [m.x + u[0] * lPied * e, m.y + u[1] * lPied * e], bout: [m.x - u[0] * lBout * e, m.y - u[1] * lBout * e] };
     };
-    const gL = poignee('loin', 110), gP = poignee('proche', 130);
-    const bL = gL.pied, bP = gP.pied, pP = gP.c;
-    const dh = [bL[0] - bP[0], bL[1] - bP[1]], nh = Math.hypot(...dh);
-    const T = [bL[0] + dh[0] / nh * 22 * e, bL[1] + dh[1] / nh * 22 * e];   // bout du manche
-    const K = P(800, 38);                                          // talon de la lame
-    const snath = [T, bL, bP, P(560, 560), P(700, 300), K];
-    return { e, P, pers, gL, gP, pP, bL, bP, T, K, snath, g, x0 };
+    const cheville = n => h.path(bande([n.pied, n.bout], 30 * e), BL('arete'));
+    // la faux tirée des deux poings du corps
+    const faux = c => {
+      const gL = nib(c.mainL, 100, 50), gP = nib(c.mainP, 170, 50);
+      const pL = mm(gL.pied), pP = mm(gP.pied);
+      const dh = [pL[0] - pP[0], pL[1] - pP[1]], nh = Math.hypot(...dh);
+      const T = P(pL[0] + dh[0] / nh * 85, pL[1] + dh[1] / nh * 85);   // le bout du manche, dans la courbe
+      const Km = [1052, 80], K = P(...Km);                                // le bout du manche, sur le talon
+      const snath = [T, gL.pied, gP.pied, P(pP[0] + 98, pP[1] - 34), P(828, 630), P(912, 505), P(975, 350), P(1022, 200), K];
+      return { gL, gP, T, K, Km, snath };
+    };
+    // l'anneau : un manchon autour du bout du manche, qui serre la queue de la lame
+    const anneau = F_ => {
+      const n = F_.snath.length, a = F_.snath[n - 2], b = F_.snath[n - 1];
+      const d = [b[0] - a[0], b[1] - a[1]], l = Math.hypot(...d), u = [d[0] / l, d[1] / l], v = [-u[1], u[0]];
+      const q = (s_, t) => [b[0] + u[0] * s_ * e + v[0] * t * e, b[1] + u[1] * s_ * e + v[1] * t * e];
+      return h.chemin([q(-62, -24), q(-62, 24), q(6, 24), q(6, -24)], BL('arete'), true);
+    };
+    // ce qui est devant le bras loin et derrière le bras proche : la poignée du bas (le poing proche
+    // la serre), le manche, l'anneau, la lame couchée à plat sur le sol
+    const devant = c => {
+      const F_ = faux(c);
+      return [
+        // la lame : le dos (et sa côte) au ras du sol, le fil de l'autre côté, la pointe qui touche
+        h.path(`M${pt(P(1000, 0))} L${pt(P(1500, 0))} ${lisse([P(1500, 0), P(1450, 22), P(1370, 44), P(1250, 60), P(1120, 66), P(1012, 62)], false)} Q${pt(P(997, 60))} ${pt(P(997, 36))} Z`, BL('contour')),
+        h.path(lisse([P(1018, 12), P(1200, 13), P(1380, 9)]), h.a.detail),
+        cheville(F_.gP),
+        h.path(bande(F_.snath, 36 * e), BL('contour')),
+        anneau(F_),
+      ].join('\n');
+    };
+    // les poignets un peu cassés vers le haut : les poignées se tiennent plus droites dans les poings
+    const pers = F.corps({ x: x0, y: g, pose: 'faucher', echelle: e, angles: { mainP: 72, mainL: 62 }, objetP: devant });
+    return { e, P, pers, g, x0, cheville, ...faux(pers) };
   };
-
   // ─── Vu de dessus : le coup et l'andain ─────────────────────────────────────────────
   // mm : x vers la droite du faucheur, y vers l'avant ; les pieds en 0 0
   const geoD = z => {
-    const e = Math.min((z.l - 6) / 2700, (z.h - 6) / 2120);
+    const e = Math.min((z.l - 6) / 2300, (z.h - 6) / 2120);
     const D = (x, y) => [z.l / 2 + (x + 110) * e, z.h / 2 - (y - 215) * e];
     const C = [-125, 100], xL = -1000, xR = 750, Ra = 930, Rs = 1010;
     const H = [400, 730], Tp = [-290, 900];                        // talon et pointe, en milieu de coup
@@ -102,11 +133,34 @@ module.exports = (h) => {
   // mm : origine au bout du manche (où la lame s'attache), x vers la pointe, y vers le haut
   const geoA = z => {
     const e = Math.min((z.l - 10) / 870, (z.h - 8) / 418);
-    const ox = 6 + 75 * e, oy = 4 + 140 * e;
+    const ox = 6 + 75 * e, oy = z.h - 4 - 278 * e;   // la lame en bas de la vue : la place au-dessus est pour la main
     const A = (x, y) => [ox + x * e, oy - y * e];
     const dos = [[24, 70], [120, 84], [260, 92], [420, 90], [580, 76], [700, 50], [776, 12]];
     const fil = [[40, 10], [120, 20], [260, 30], [420, 34], [580, 30], [700, 20], [776, 12]];
     return { e, A, dos, fil, sol: -272 };
+  };
+  // l'angle d'une main simple qui met l'axe de sa prise sur axe (degrés écran) et son avant-bras vers vers [x, y]
+  const poser = (o, axe, vers) => {
+    const base = Object.assign({}, o, { angle: 0, avantbras: { longueur: 100 } }); delete base.objet;
+    const e0 = F.mainSimple(base); let best = null;
+    for (const k of [0, 180]) {
+      const a = axe - e0.prise.angle + k, m = F.mainSimple(Object.assign({}, base, { angle: a }));
+      const d = [m.coude[0] - m.poignet[0], m.coude[1] - m.poignet[1]], v = [vers[0] - m.poignet[0], vers[1] - m.poignet[1]];
+      const c = (d[0] * v[0] + d[1] * v[1]) / ((Math.hypot(d[0], d[1]) * Math.hypot(v[0], v[1])) || 1);
+      if (!best || c > best.c) best = { a, c };
+    }
+    return best.a;
+  };
+  // la main gauche qui tient la lame par le dos, juste derrière la pierre : la main simple en crochet, vue du
+  // dos de la main, qui vient d'en haut. Les doigts passent par-dessus le dos et s'y referment, le pouce libre ;
+  // toute la main reste au-dessus de la lame, loin du fil. L'avant-bras monte et sort par le haut de la vue.
+  // La main est à l'échelle de la vue (en mm).
+  const mainPierre = z => {
+    const { e, A } = geoA(z);
+    const PM = A(240, 84), aD = Math.atan2(A(300, 90)[1] - A(180, 86)[1], A(300, 90)[0] - A(180, 86)[0]) / RAD;
+    const oM = { x: PM[0], y: PM[1], pose: 'crochet', vue: 'dos', cote: 'gauche', echelle: e, diametre: 12 };
+    const vM = A(100, 400), aM = poser(oM, aD, vM);
+    return F.mainSimple({ ...oM, angle: aM, avantbras: { vers: vM, bord: { x0: 0, y0: 0, x1: z.l, y1: z.h }, bras: { pli: 0 } } });
   };
 
   // ─── En coupe : la lame tranchée, le dos en haut, le fil en bas, deux temps ─────────
@@ -122,34 +176,32 @@ module.exports = (h) => {
   return {
     ref: '99-05',
     titre: 'Faucher à la faux, et aiguiser à la pierre',
-    desc: 'De profil, le faucheur réglé sur sa faux : bras tendus, les deux mains à peu près à la même hauteur sur les poignées, la lame à plat sur le sol. Vu de dessus : les pieds, la lame en milieu de coup, le demi-cercle de droite à gauche vers l’herbe déjà fauchée, la marche en ligne droite et l’andain laissé derrière. Debout, le manche posé par terre et la pointe à droite : la main gauche tient la lame par le dos, derrière la pierre, qui descend du dos vers le fil à petits coups du talon vers la pointe. En coupe : la pierre sur le dessus, puis sur le dessous.',
+    desc: 'De profil, en début de coup, le faucheur réglé sur sa faux : bras tendus, chaque poing sur sa poignée, les deux mains à peu près à la même hauteur ; le long manche descend jusqu’au talon et la lame part de là, couchée à plat sur le sol, la pointe qui touche cerclée de rouge. Vu de dessus : les pieds, la lame en milieu de coup, le demi-cercle rouge de droite à gauche vers l’herbe déjà fauchée (en gris), la marche en ligne droite et l’andain laissé derrière. Debout, le manche posé par terre et la pointe à droite : la main gauche tient la lame par le dos, derrière la pierre, qui descend du dos vers le fil (flèche rouge) à petits coups du talon vers la pointe ; un tireté rouge longe le fil, là où la pierre dérape. En coupe : la pierre sur le dessus, puis sur le dessous.',
     format: 'pleine',
     disposition: [['profil', 'dessus'], ['pierre', 'coupe']],
-    hauteurs: [1.45, 1],
-    largeurs: [[0.66, 1], [2.05, 1]],
+    hauteurs: [1.3, 1.15],
+    largeurs: [[1.15, 1], [2.05, 1]],
     vues: {
       profil: {
         titre: 'Réglée sur soi',
         dessin: z => {
           const G = geoP(z), { e, P } = G, out = [];
           out.push(h.ligne(2, G.g, z.l - 2, G.g, h.a.arete));
-          // la lame, couchée à plat sur le sol, la pointe vers l'autre côté du faucheur
-          out.push(h.path(`M${pt(P(790, 36))} ${lisse([P(790, 36), P(900, 44), P(1000, 40), P(1066, 22)], false)} L${pt(P(1066, 16))} ${lisse([P(1066, 16), P(1000, 14), P(900, 16), P(790, 18)], false)} Z`, BL('arete')));
-          // le manche et ses deux poignées
-          out.push(h.path(bande(G.snath, 34 * e), BL('arete')));
-          out.push(h.path(bande([G.gL.pied, G.gL.bout], 26 * e), BL('arete')));
-          out.push(h.path(bande([G.gP.pied, G.gP.bout], 26 * e), BL('arete')));
-          // l'anneau au talon
-          out.push(h.path(`M${pt(P(760, 70))} L${pt(P(800, 92))} L${pt(P(830, 40))} L${pt(P(790, 20))} Z`, BL('detail')));
+          // la poignée du haut, sous le corps : le poing loin, peint par-dessus, la serre ; le
+          // manche (dans le corps, objetP) passe ensuite sur son pied
+          out.push(G.cheville(G.gL));
           out.push(String(G.pers));
+          // le point à contrôler : la lame couchée à plat, talon et pointe au sol
+          out.push(h.controle(...P(1478, 6), 11));
           return out.join('\n');
         },
         renvois: z => {
           const G = geoP(z), { P } = G;
+          const m = G.pers.mainP;
           return [
-            { n: 1, rond: [z.l - 14, P(0, 700)[1]], cible: P(640, 380), texte: 'le manche, une perche de bois dur' },
-            { n: 2, rond: [z.l - 14, P(0, 1150)[1]], cible: [G.pP[0] + 4, G.pP[1] - 2], texte: 'bras tendus, mains presque à même hauteur' },
-            { n: 3, rond: [z.l - 14, P(0, 230)[1]], cible: P(960, 30), texte: 'la lame à plat, parallèle au sol' },
+            { n: 1, rond: [z.l - 14, P(0, 640)[1]], cible: P(966, 440), texte: 'le manche, une perche de bois dur' },
+            { n: 2, rond: [z.l - 14, P(0, 1080)[1]], cible: [m.x + 5.5, m.y - 4], texte: 'bras tendus, mains presque à même hauteur' },
+            { n: 3, rond: [z.l - 14, P(0, 260)[1]], cible: P(1250, 60), texte: 'la lame à plat, parallèle au sol' },
           ];
         },
       },
@@ -160,9 +212,13 @@ module.exports = (h) => {
           const G = geoD(z), { e, D, C, xL, xR, Ra, Rs } = G, out = [];
           const bas = G.bas, haut = G.haut;
           const poly = pts => pts.map(p => D(...p));
-          // le passage d'avant, déjà fauché ; l'andain de ce passage-ci, derrière le faucheur
-          out.push(h.chemin(poly([[G.gauche, bas], [xL, bas], [xL, haut], [G.gauche, haut]]), h.a.hachure('paille', 'aucun'), true));
-          out.push(h.chemin(poly([[xL, bas], [xR, bas], [xR, -210], [xL, -210]]), h.a.hachure('paille', 'aucun'), true));
+          // le passage d'avant, déjà fauché ; l'andain de ce passage-ci, derrière le faucheur : le
+          // fauché en gris (le plan d'arrière), l'herbe debout en blanc
+          out.push(h.chemin(poly([[G.gauche, bas], [xL, bas], [xL, haut], [G.gauche, haut]]), h.a.loin, true));
+          // le passage de ce coup-ci : fauché jusqu'au bord de l'herbe debout, l'arc de rayon Rs
+          const tA = Math.acos((xR - C[0]) / Rs) / RAD, tB = Math.acos((xL - C[0]) / Rs) / RAD, arcRs = [];
+          for (let i = 0; i <= 24; i++) { const t = (tA + (tB - tA) * i / 24) * RAD; arcRs.push([C[0] + Rs * Math.cos(t), C[1] + Rs * Math.sin(t)]); }
+          out.push(h.chemin(poly([[xL, bas], [xR, bas], ...arcRs]), h.a.loin, true));
           out.push(h.ligne(...D(xL, bas), ...D(xL, haut), h.a.detail));
           out.push(h.ligne(...D(xR, bas), ...D(xR, 640), h.a.detail));
           // l'herbe debout : à droite du passage, et devant le coup
@@ -200,7 +256,11 @@ module.exports = (h) => {
           // le coup : un demi-cercle, de droite à gauche
           const a0 = 14 * RAD, a1 = 166 * RAD;
           const p0 = D(C[0] + Ra * Math.cos(a0), C[1] + Ra * Math.sin(a0)), p1 = D(C[0] + Ra * Math.cos(a1), C[1] + Ra * Math.sin(a1));
-          out.push(h.fleche(`M${pt(p0)} A${f(Ra * e)} ${f(Ra * e)} 0 0 0 ${pt(p1)}`, h.a.arete));
+          out.push(h.geste(`M${pt(p0)} A${f(Ra * e)} ${f(Ra * e)} 0 0 0 ${pt(p1)}`));
+          // au bout du coup, l'herbe coupée tombe en rang contre l'herbe déjà fauchée
+          const q0 = D(C[0] + (Ra - 60) * Math.cos(160 * RAD), C[1] + (Ra - 60) * Math.sin(160 * RAD));
+          const q1 = D(xL + 60, C[1] - 260);
+          out.push(h.fleche(`M${pt(q0)} Q${pt(D(xL + 150, C[1] - 40))} ${pt(q1)}`, h.a.detail));
           return out.join('\n');
         },
         renvois: z => {
@@ -221,17 +281,32 @@ module.exports = (h) => {
           // le sol et le bout du manche posé dessus ; le manche coupé d'un arrachement
           out.push(h.ligne(...A(-70, G.sol), ...A(90, G.sol), h.a.arete));
           const zz = y => [[-18, y], [-8, y + 7], [2, y - 5], [12, y + 6], [18, y]];
-          out.push(h.chemin([[-18, -2], [-18, -196], ...zz(-196).slice(1), [18, -2]].map(p => A(...p)), BL('arete'), true));
-          out.push(h.chemin([...zz(-226), [18, G.sol], [-18, G.sol]].map(p => A(...p)), BL('arete'), true));
-          out.push(h.ligne(...A(-6, -60), ...A(-7, -180), h.a.fin), h.ligne(...A(7, -30), ...A(8, -160), h.a.fin));
+          // chaque morceau : le blanc, la face à l'ombre (le tiers de droite), puis le trait
+          const morceau = (pts, ombre) => [h.chemin(pts.map(p => A(...p)), h.a.blanc, true),
+            h.chemin(ombre.map(p => A(...p)), h.a.ombre, true), h.chemin(pts.map(p => A(...p)), h.a.arete, true)].join('\n');
+          out.push(morceau([[-18, -2], [-18, -196], ...zz(-196).slice(1), [18, -2]], [[7, -2], [7, -195.5], [12, -190], [18, -196], [18, -2]]));
+          out.push(morceau([...zz(-226), [18, G.sol], [-18, G.sol]], [[7, -225.5], [12, -220], [18, -226], [18, G.sol], [7, G.sol]]));
+          out.push(h.ligne(...A(-6, -60), ...A(-7, -180), h.a.detail));
           // la lame : dos en haut, fil en bas, pointe à droite ; le talon descend dans l'anneau
           const bord = lisse(G.dos.map(p => A(...p)).reverse()) + ` L${pt(A(12, 52))} L${pt(A(4, -20))} L${pt(A(17, -20))} L${pt(A(24, 2))} L${pt(A(40, 10))}` + lisse(G.fil.map(p => A(...p)), false) + ' Z';
-          out.push(h.path(bord, BL('contour')));
-          // la côte du dos, le biseau du fil
+          // le biseau du fil : la face qui descend vers le tranchant, à l'ombre
+          const biseau = [[46, 22], [120, 32], [260, 42], [420, 46], [580, 42], [700, 31], [758, 18]];
+          const ombreFil = lisse(biseau.map(p => A(...p))) + ` L${pt(A(776, 12))}` + lisse(G.fil.slice().reverse().map(p => A(...p)), false) + ' Z';
+          // la zone dangereuse : sous le fil, de talon à pointe, là où la pierre dérape
+          const fs_ = echant(G.fil, 8), zpts = [];
+          fs_.forEach((p, i) => {
+            const a = fs_[Math.max(i - 1, 0)], b = fs_[Math.min(i + 1, fs_.length - 1)], t = [b[0] - a[0], b[1] - a[1]], l = Math.hypot(...t) || 1;
+            if (p[0] > 56 && p[0] < 748) zpts.push([p[0] + t[1] / l * 20, p[1] - t[0] / l * 20]);
+          });
+          const zone = 'M' + zpts.map(p => pt(A(...p))).join(' L');
+          out.push(h.path(zone, h.a.zone));
+          out.push(h.path(bord, h.a.blanc), h.path(ombreFil, h.a.ombre), h.path(bord, h.a.contour));
+          // la côte du dos, le haut du biseau
           out.push(h.path(lisse([[40, 61], [120, 75], [260, 83], [420, 81], [580, 67], [640, 58]].map(p => A(...p))), h.a.detail));
-          out.push(h.path(lisse([[46, 15], [120, 25], [260, 35], [420, 39], [580, 35], [700, 25], [760, 16]].map(p => A(...p))), h.a.fin));
-          // l'anneau qui serre le talon sur le manche
-          out.push(h.rect(...A(-21, -16), 42 * e, 38 * e, BL('arete')));
+          out.push(h.path(lisse(biseau.map(p => A(...p))), h.a.detail));
+          // l'anneau qui serre le talon sur le manche : le blanc, sa face de droite à l'ombre, le trait
+          out.push(h.rect(...A(-21, -16), 42 * e, 38 * e, h.a.blanc), h.rect(...A(8, -16), 13 * e, 38 * e, h.a.ombre),
+            h.rect(...A(-21, -16), 42 * e, 38 * e, h.a.arete));
           // la pierre : en haut du coup (pleine), en bas (tiretée), et le geste
           const pierre = (cx, cy, ang, at) => {
             const P = [[-100, 0], [-60, -19], [60, -19], [100, 0], [60, 19], [-60, 19]];
@@ -241,19 +316,20 @@ module.exports = (h) => {
           };
           out.push(pierre(440, 30, -4, h.a.cache));
           out.push(pierre(440, 78, -4, h.a.hachure('pierre', 'arete')));
-          out.push(h.fleche(`M${pt(A(556, 92))} L${pt(A(560, 18))}`, h.a.arete));
+          // le geste : la pierre descend du dos vers le fil, en travers, jamais le long du fil
+          out.push(h.geste(`M${pt(A(556, 96))} L${pt(A(560, 14))}`));
           // la main et la pierre avancent ensemble, du talon vers la pointe
           out.push(h.fleche(`M${pt(A(330, 128))} L${pt(A(640, 104))}`, h.a.arete));
-          // la main gauche, par le dos, juste derrière la pierre
-          out.push(String(F.main({ x: A(250, 88)[0], y: A(250, 88)[1], pose: 'prise', vue: 'dos', cote: 'gauche', angle: 90, echelle: e, diametre: 16 * e, bras: 90 })));
+          // la main gauche, par le dos, juste derrière la pierre : peinte devant la lame
+          out.push(mainPierre(z).svg);
           return out.join('\n');
         },
         renvois: z => {
           const G = geoA(z), { A } = G;
           return [
             { n: 7, rond: A(-52, -150), cible: A(-4, G.sol + 16), texte: 'le bout du manche posé par terre' },
-            { n: 8, rond: A(160, -70), cible: A(238, 40), texte: 'main gauche au dos, juste derrière la pierre' },
-            { n: 9, rond: A(610, -40), cible: A(520, 50), texte: 'pierre mouillée, du dos au fil, en travers' },
+            { n: 8, rond: A(330, -120), cible: mainPierre(z).doigts.annulaire, texte: 'main gauche au dos, juste derrière la pierre' },
+            { n: 9, rond: A(468, -52), cible: A(500, 61), texte: 'pierre mouillée, du dos au fil, en travers' },
             { n: 10, rond: A(745, 118), cible: A(650, 104), texte: 'petits coups, du talon vers la pointe' },
           ];
         },
@@ -276,8 +352,8 @@ module.exports = (h) => {
         renvois: z => {
           const G = geoC(z), { C } = G;
           return [
-            { n: 11, rond: C(-44, 60), cible: C(-34, 20), texte: 'le dessus d’abord' },
-            { n: 12, rond: C(50, 60), cible: C(40, 20), texte: 'puis le dessous' },
+            { n: 11, rond: C(-44, 60), cible: C(-36, 30.6), texte: 'le dessus d’abord' },
+            { n: 12, rond: C(50, 60), cible: C(42, 30.6), texte: 'puis le dessous' },
           ];
         },
       },

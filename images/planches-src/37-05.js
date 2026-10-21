@@ -1,9 +1,13 @@
 // Planche 37-05 — Le sauna à fumée : le poêle de pierres sèches
 // (ch. 37, « Le sauna à fumée, quand il n'y a pas de tuyau », et 5-A étapes 2 à 5, 5-B étapes 13 et 15)
-// Cote : la taille des pierres de sauna, 100 à 150 mm (étape 13). Aucune autre : le chapitre ne donne ni la
+// Cote : la taille des pierres de sauna, « 100 à 150 » comme en 37-01b (étape 13). Aucune autre : le chapitre ne donne ni la
 // largeur du foyer, ni l'épaisseur des murets, ni celle de la dalle, ni la taille de la cabane. Proportions seulement.
 // La voûte sans mortier n'est pas dessinée : le chapitre dit qu'il ne l'enseigne pas. La dalle-linteau et les
 // deux dalles en toit, qu'il décrit, le sont.
+// La charte : le creux du foyer, vu par la coupe, en gris loin (sous la dalle, sous les deux dalles en
+// toit, dans la cabane et par la bouche vidée). Pas de gris sur les murets et la dalle : la hachure
+// dit déjà la pierre. Le rouge : la couche de fumée au niveau du banc du haut (le point à
+// contrôler pendant la chauffe) et le charbon sorti à la pelle jusqu'au contenant (le geste).
 module.exports = (h) => {
   const A = h.a;
   const W = at => at.replace('fill="none"', 'fill="#FFFFFF"');
@@ -101,7 +105,7 @@ module.exports = (h) => {
   const poeleCoupe = (ox, yG, s, k) => {
     const X = v => ox + v * s, Y = v => yG - v * s;
     const p = pile(ox, Y(HM + D), s, 172, k + 100);
-    return { P: p.P, svg: [feu(ox, yG, s), murets(ox, yG, s, k),
+    return { P: p.P, svg: [h.rect(X(-F / 2 - 2), Y(HM), (F + 4) * s, HM * s, A.loin), feu(ox, yG, s), murets(ox, yG, s, k),
       bloc(X(-F / 2 - T), Y(HM + D), (2 * T + F) * s, D * s, k + 60, A.hachure('pierre', 'contour')), p.svg].join('\n') };
   };
 
@@ -116,7 +120,8 @@ module.exports = (h) => {
     const top = pc.P[pc.P.length - 1];
     B = { s, yG, ox, X, Y, P: pc.P };
     return [sol(z, yG), pc.svg,
-      h.cote(top.x - top.rx, top.y - top.ry - 7, top.x + top.rx, top.y - top.ry - 7, '100 à 150 mm'),
+      h.cote(top.x - top.rx, top.y - top.ry - 7, top.x + top.rx, top.y - top.ry - 7, '100 à 150'),
+      h.ligne(top.x - top.rx, top.y - top.ry - 7, top.x - top.rx, top.y, A.fin), h.ligne(top.x + top.rx, top.y - top.ry - 7, top.x + top.rx, top.y, A.fin),
     ].join('\n');
   };
 
@@ -124,6 +129,8 @@ module.exports = (h) => {
   const vueToit = z => {
     const s = sRang1(z), yG = z.h - 12, ox = z.l / 2;
     const X = v => ox + v * s, Y = v => yG - v * s, o = [sol(z, yG)];
+    // le creux du foyer, sous les deux dalles : gris loin
+    o.push(h.chemin([[-F / 2 - 2, 0], [-F / 2 - 2, HM], [-190, HM], [0, HM + 230], [190, HM], [F / 2 + 2, HM], [F / 2 + 2, 0]].map(([x, y]) => [X(x), Y(y)]), A.loin, true));
     o.push(feu(ox, yG, s), murets(ox, yG, s, 41));
     // les deux dalles : le pied à plat sur le muret, les têtes l'une contre l'autre
     const dalle = sd => h.chemin([[X(sd * 300), Y(HM)], [X(sd * 190), Y(HM)], [X(0), Y(HM + 230)], [X(0), Y(HM + 350)]], A.hachure('pierre', 'contour'), true);
@@ -189,33 +196,26 @@ module.exports = (h) => {
     o.push(fl(`M${f(xRi - 70)} ${f(Y(HW - 180))} Q${f(xRi - 20)} ${f(yT)} ${f(xRo + 22)} ${f(yT + 4)} Q${f(xRo + deb + 14)} ${f(yT + 2)} ${f(xRo + deb + 14)} ${f(yEb - tR - 20)}`, A.cache));
     // l'air du feu entre par le bas de la porte
     o.push(fl(`M${f(xLo - 22)} ${f(Y(230))} L${f(ox - (F / 2 + T) * s - 6)} ${f(Y(230))}`, A.detail));
+    // le point à contrôler : le bas de la couche de fumée, au niveau du banc du haut
+    o.push(h.controle(xRi - 120 * s, yL - 4, 11));
     K = { s, yG, Y, xLo, xRo, xLi, xRi, xp1, xp2, yL, yW, yt, a, ox };
     return o.join('\n');
   };
 
-  // ── 4. de côté, le foyer vidé ─────────────────────────────────────────────────────
+  // ── 4. par la bouche du foyer, vidé ───────────────────────────────────────────────
   let V = null;
   const vueVidange = z => {
-    const o = [], yG = z.h - 10, xCut = 420, L = 800;
-    const s = Math.min((z.h - 30) / 1000, (z.l - 26) / 820);
-    const x0 = 14 - xCut * s;
-    const X = v => x0 + v * s, Y = v => yG - v * s;
+    const o = [], yG = z.h - 10;
+    const s = Math.min((z.h - 30) / 1000, (z.l - 30) / 1440);
+    const ox = 14 + (F / 2 + T) * s;
+    const X = v => ox + v * s, Y = v => yG - v * s;
     o.push(sol(z, yG));
-    // le bout du poêle seulement, vue interrompue : muret de devant à joints croisés, dalle, tas
-    const zig = [];
-    for (let y = yG, i = 0; y > Y(975); y -= 8, i++) zig.push([X(xCut) + (i % 2 ? 2.5 : -2.5), y]);
-    const zd = zig.map(p => `${f(p[0])} ${f(p[1])}`).join(' L');
-    o.push(`<defs><clipPath id="cp-37-05-v"><path fill="#FFFFFF" stroke="none" d="M${zd} L${f(X(xCut))} 0 L${f(z.l)} 0 L${f(z.l)} ${f(yG)} Z"/></clipPath></defs>`);
-    const st = [];
-    const J = [[[0, 290], [290, 560], [560, 800]], [[0, 150], [150, 430], [430, 700], [700, 800]], [[0, 320], [320, 600], [600, 800]]];
-    let z0 = 0;
-    C.forEach((hc, c) => { J[c].forEach(([a, b], i) => st.push(bloc(X(a + 4), Y(z0 + hc), (b - a - 8) * s, (hc - 5) * s, 300 + c * 7 + i, W(A.arete)))); z0 += hc; });
-    st.push(bloc(X(0), Y(HM + D), L * s, D * s, 340, W(A.contour)));
-    st.push(pile(X(L / 2), Y(HM + D), s, 160, 400).svg);
-    o.push('<g clip-path="url(#cp-37-05-v)">', ...st, '</g>');
-    o.push(h.path('M' + zd, A.detail));                                   // trait de coupure
+    // le poêle comme la première vue, mais la bouche vide : sol nu, ni flamme ni bûche
+    o.push(h.rect(X(-F / 2 - 2), Y(HM), (F + 4) * s, HM * s, A.loin));       // le creux du foyer, vidé
+    o.push(murets(ox, yG, s, 23), bloc(X(-F / 2 - T), Y(HM + D), (2 * T + F) * s, D * s, 63, A.hachure('pierre', 'contour')));
+    o.push(pile(ox, Y(HM + D), s, 172, 400).svg);
     // le contenant métallique
-    const xc = 1010, rT = 150, rB = 128, Hp = 300, ey = 32;
+    const xc = 770, rT = 150, rB = 128, Hp = 300, ey = 32;
     o.push(h.path(`M${f(X(xc - rT))} ${f(Y(Hp))} L${f(X(xc - rB))} ${f(Y(ey * 0.7))} A${f(rB * s)} ${f(ey * 0.7 * s)} 0 0 0 ${f(X(xc + rB))} ${f(Y(ey * 0.7))} L${f(X(xc + rT))} ${f(Y(Hp))} Z`, W(A.arete)));
     for (const [yy, rr] of [[100, 135], [200, 142]]) o.push(h.path(`M${f(X(xc - rr))} ${f(Y(yy))} A${f(rr * s)} ${f(ey * s)} 0 0 0 ${f(X(xc + rr))} ${f(Y(yy))}`, A.fin));
     o.push(h.ellipse(X(xc), Y(Hp), rT * s, ey * s, W(A.arete)), h.ellipse(X(xc), Y(Hp), (rT - 12) * s, (ey - 7) * s, A.fin));
@@ -228,20 +228,21 @@ module.exports = (h) => {
     }
     o.push(h.path(lisse(Pl), W(A.arete)));
     o.push(h.path(`M${f(lx + 18 * s)} ${f(ly - 30 * s)} C${f(lx + 52 * s)} ${f(ly - 36 * s)} ${f(lx + 56 * s)} ${f(ly + 18 * s)} ${f(lx + 22 * s)} ${f(ly + 24 * s)}`, A.arete));
-    // la pelle, au-dessus du contenant, qui verse
-    const ux = Math.cos(0.6), uy = -Math.sin(0.6), nx = uy, ny = -ux;       // u : vers le manche ; n : le dessus de la lame
-    const tx = X(xc - 55), ty = Y(Hp + 70);
+    // la pelle qui sort de la bouche, chargée de charbon : la lame à plat sur le sol du foyer, le manche vers le dehors
+    const ux = 1, uy = 0, nx = 0, ny = -1;
+    const tx = X(-90), ty = Y(8);
     const P = (a, b) => [tx + (a * ux + b * nx) * s, ty + (a * uy + b * ny) * s];
-    const vx = Math.cos(1.35), vy = -Math.sin(1.35), wx = vy, wy = -vx;
-    const [bx, by] = P(245, 30), Lm = 300, em = 18;
+    const vx = Math.cos(0.55), vy = -Math.sin(0.55), wx = vy, wy = -vx;
+    const [bx, by] = P(250, 30), Lm = 420, em = 18;
     const M = (a, b) => [bx + (a * vx + b * wx) * s, by + (a * vy + b * wy) * s];
     o.push(h.chemin([M(0, -em), M(Lm, -em), M(Lm + 14, 0), M(Lm, em), M(0, em)], W(A.arete), true));   // le manche
-    o.push(h.chemin([P(215, 14), M(45, -em - 5), M(45, em + 5), P(250, 52)], W(A.arete), true));       // la douille
-    o.push(h.chemin([P(0, 0), P(240, 0), P(255, 58), P(0, 6)], W(A.contour), true));                    // la lame
-    [[45, 22], [85, 32], [125, 40], [170, 48], [105, 56], [60, 44], [148, 64]].forEach(([a, b], i) => { const [x, y] = P(a, b); o.push(galet(x, y, 17 * s, 11 * s, 520 + i, A.plein)); });
-    [[-6, 22], [2, 44]].forEach(([dx, dy], i) => o.push(galet(tx + dx * s, ty + dy * s, 11 * s, 8 * s, 540 + i, A.plein)));
-    // le trajet : de la bouche du foyer, au bout du poêle, jusqu'au contenant
-    o.push(fl(`M${f(X(L + 15))} ${f(Y(40))} C${f(X(L + 80))} ${f(Y(260))} ${f(X(xc - 170))} ${f(Y(420))} ${f(X(xc - 110))} ${f(Y(400))}`, A.cache));
+    o.push(h.chemin([P(215, 8), M(45, -em - 5), M(45, em + 5), P(250, 52)], W(A.arete), true));        // la douille
+    o.push(h.chemin([P(0, 0), P(240, 0), P(255, 58), P(0, 50)], W(A.contour), true));                   // la lame
+    [[30, 14], [70, 16], [110, 15], [150, 16], [190, 14], [50, 34], [95, 36], [140, 35], [180, 32], [120, 52]].forEach(([a, b], i) => { const [x, y] = P(a, b); o.push(galet(x, y, 18 * s, 11 * s, 520 + i, A.plein)); });
+    // le trajet : de la bouche du foyer jusqu'au contenant
+    // le geste : le charbon sorti à la pelle, de la bouche du foyer jusqu'au contenant
+    const dG = `M${f(X(F / 2 + T + 20))} ${f(Y(330))} C${f(X(F / 2 + T + 90))} ${f(Y(520))} ${f(X(xc - 200))} ${f(Y(520))} ${f(X(xc - 70))} ${f(Y(Hp + 70))}`;
+    o.push(h.path(dG, HALO), h.geste(dG));
     V = { s, X, Y, xc, P };
     return o.join('\n');
   };
@@ -249,7 +250,7 @@ module.exports = (h) => {
   return {
     ref: '37-05',
     titre: 'Le sauna à fumée : le poêle de pierres sèches',
-    desc: 'Le poêle du sauna à fumée coupé en travers de son foyer étroit : deux murets de grosses pierres sèches, une dalle plate posée à plat sur toute leur épaisseur, le tas de pierres de sauna par-dessus, grosses en bas et petites en haut, de l’air entre toutes, et le feu de bûches refendues dessous. À côté, à la même échelle, la variante à deux dalles appuyées en toit. En bas, la cabane en coupe pendant la chauffe, porte ouverte vers le dehors et trappe haute ouverte en face : la fumée monte, s’étale sous le plafond bas jusqu’au niveau du banc du haut, sort par le haut de la porte et par la trappe, et l’air du feu entre par le bas de la porte. Enfin le poêle vu de côté, charbon et cendre sortis à la pelle dans un contenant métallique à couvercle avant de fermer. L’encadré danger dit pourquoi : ce sont les braises laissées au foyer qui font le monoxyde.',
+    desc: 'Le poêle du sauna à fumée coupé en travers de son foyer étroit : deux murets de grosses pierres sèches, une dalle plate posée à plat sur toute leur épaisseur, le tas de pierres de sauna par-dessus, grosses en bas et petites en haut, de l’air entre toutes, et le feu de bûches refendues dessous. À côté, à la même échelle, la variante à deux dalles appuyées en toit. En bas, la cabane en coupe pendant la chauffe, porte ouverte vers le dehors et trappe haute ouverte en face : la fumée monte, s’étale sous le plafond bas jusqu’au niveau du banc du haut, sort par le haut de la porte et par la trappe, et l’air du feu entre par le bas de la porte. Enfin le poêle vu par la bouche du foyer, vide, charbon et cendre sortis à la pelle dans un contenant métallique à couvercle avant de fermer. L’encadré danger dit pourquoi : ce sont les braises laissées au foyer qui font le monoxyde.',
     format: 'pleine',
     disposition: [['coupe', 'toit'], ['cabane', 'vidange']],
     hauteurs: [1.25, 1],
@@ -263,12 +264,12 @@ module.exports = (h) => {
           const r3 = P.filter(p => p.r === 3), r0 = P.filter(p => p.r === 0);
           const d = r3[1], g1 = r0[3], g2 = r0[4];
           return [
-            { n: 1, rond: [z.l - 16, Y(900)], cible: [d.x + d.rx * 0.4, d.y - d.ry * 0.3], texte: 'Petites pierres en haut' },
-            { n: 2, rond: [z.l - 16, Y(640)], cible: [(g1.x + g1.rx + g2.x - g2.rx) / 2, g1.y - 2], texte: 'Grosses en bas, de l’air entre toutes' },
-            { n: 3, rond: [16, Y(560)], cible: [X(-F / 2 - T + 70), Y(HM + D / 2)], texte: 'Dalle plate, épaisse et dense' },
-            { n: 4, rond: [z.l - 16, Y(380)], cible: [X(F / 2 + T - 12), Y(HM) - 1], texte: 'La dalle porte sur tout le muret' },
-            { n: 5, rond: [16, Y(230)], cible: [X(-F / 2 - T + 90), Y(215)], texte: 'Muret de grosses pierres sèches' },
-            { n: 6, rond: [z.l - 16, Y(110)], cible: [X(95), Y(50)], texte: 'Foyer étroit : les bûches refendues' },
+            { n: 1, rond: [z.l - 16, Y(900)], cible: [d.x + d.rx * 0.4, d.y - d.ry * 0.3], texte: 'petites pierres en haut' },
+            { n: 2, rond: [z.l - 16, Y(640)], cible: [(g1.x + g1.rx + g2.x - g2.rx) / 2, g1.y - 2], texte: 'grosses en bas, de l’air entre toutes' },
+            { n: 3, rond: [16, Y(560)], cible: [X(-F / 2 - T + 70), Y(HM + D / 2)], texte: 'dalle plate, épaisse et dense' },
+            { n: 4, rond: [z.l - 16, Y(380)], cible: [X(F / 2 + T - 12), Y(HM) - 1], texte: 'la dalle porte sur tout le muret' },
+            { n: 5, rond: [16, Y(230)], cible: [X(-F / 2 - T + 90), Y(215)], texte: 'muret de grosses pierres sèches' },
+            { n: 6, rond: [z.l - 16, Y(110)], cible: [X(95), Y(50)], texte: 'foyer étroit : les bûches refendues' },
           ];
         },
       },
@@ -277,7 +278,7 @@ module.exports = (h) => {
         dessin: vueToit,
         renvois: z => {
           const s = sRang1(z), yG = z.h - 12, ox = z.l / 2;
-          return [{ n: 7, rond: [14, yG - 880 * s], cible: [ox - 150 * s, yG - (HM + 110) * s], texte: 'Ou deux dalles appuyées en toit' }];
+          return [{ n: 7, rond: [14, yG - 880 * s], cible: [ox - 150 * s, yG - (HM + 110) * s], texte: 'ou deux dalles appuyées en toit' }];
         },
       },
       cabane: {
@@ -286,9 +287,9 @@ module.exports = (h) => {
         renvois: z => {
           vueCabane(z); const { Y, xRo, xRi, xp1, xp2, yL, yt, a, s } = K;
           return [
-            { n: 8, rond: [xp1 - 22, Y(1050)], cible: [(xp1 + xp2) / 2 - 6, Y(1050)], texte: 'Porte ouverte : fumée en haut, air dessous' },
-            { n: 9, rond: [z.l - 14, Y(1400)], cible: [xRo + 150 * s * Math.sin(a), yt + 150 * s * Math.cos(a)], texte: 'Trappe haute, en face de la porte' },
-            { n: 10, rond: [z.l - 14, Y(1060)], cible: [xRi - 120 * s, yL - 4], texte: 'Fumée : pas plus bas que le banc' },
+            { n: 8, rond: [xp1 - 22, Y(1050)], cible: [(xp1 + xp2) / 2 - 6, Y(1050)], texte: 'porte ouverte : fumée en haut, air dessous' },
+            { n: 9, rond: [z.l - 14, Y(1400)], cible: [xRo + 150 * s * Math.sin(a), yt + 150 * s * Math.cos(a)], texte: 'trappe haute, en face de la porte' },
+            { n: 10, rond: [z.l - 14, Y(1060)], cible: [xRi - 120 * s, yL - 4], texte: 'fumée : pas plus bas que le banc' },
           ];
         },
       },
@@ -299,8 +300,8 @@ module.exports = (h) => {
           vueVidange(z); const { X, Y, xc, P } = V;
           const [cx, cy] = P(115, 45);
           return [
-            { n: 11, rond: [X(xc - 70), Y(800)], cible: [cx, cy], texte: 'Charbon et cendre, à la pelle' },
-            { n: 12, rond: [z.l - 12, Y(560)], cible: [X(xc + 20), Y(190)], texte: 'Contenant métallique à couvercle' },
+            { n: 11, rond: [X(xc - 120), Y(820)], cible: [cx, cy], texte: 'charbon et cendre, à la pelle' },
+            { n: 12, rond: [z.l - 12, Y(560)], cible: [X(xc + 20), Y(190)], texte: 'contenant métallique à couvercle' },
           ];
         },
       },

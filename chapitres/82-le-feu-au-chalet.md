@@ -462,7 +462,7 @@ l'isolant, et c'est la partie qu'on est tenté de sauter parce qu'elle prend du 
 couché sur la neige nue perd sa chaleur beaucoup plus vite que le même corps dans l'air froid.
 Un feu long, allumé le long du côté ouvert, avec un mur de billes vertes ou de neige tassée
 derrière lui pour renvoyer la chaleur. L'ordre des gestes, l'appentis, le lit et le feu de toute
-la nuit sont au ch. 12 (§9) ; sans bois sec, c'est la tranchée bâchée du même §9, sans flamme.
+la nuit sont au ch. 12 (étapes 1 à 14) ; sans bois sec, c'est la tranchée bâchée du ch. 12 (section 7), sans flamme.
 
 **Les roches chaudes**, pour réchauffer deux enfants tout de suite. Des roches prises **au sec**,
 jamais dans le lit d'un ruisseau ni au bord du lac, chauffées dans le feu, roulées à la pelle hors
@@ -480,7 +480,7 @@ ne touche pas le métal, le chaudron surchauffe et le fond brûle (ch. 10).
 le plus cher au monde à ce moment-là, et personne n'y pense parce qu'on regarde ce qui est perdu.
 Le poêle, d'abord : la fonte et l'acier passent au travers d'un feu de bâtiment et le poêle se
 déterre, se nettoie et se remonte dans l'abri de repli, ou sous une toile de coton s'il n'y a pas
-d'abri (ch. 12 §9). Les sections de tuyau droites. La tôle de
+d'abri (ch. 12, section 7). Les sections de tuyau droites. La tôle de
 la toiture, qui fait un toit, des collerettes et des tuyaux roulés. Les têtes de hache et les
 lames sans manche — le manche se refait, l'acier se retrempe (ch. 111). Les clous, qu'on tamise
 dans les cendres avec un aimant de haut-parleur. La fonte de cuisine. Le seul avertissement qui

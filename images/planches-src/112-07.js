@@ -67,7 +67,7 @@ module.exports = (h) => {
             h.path(`M ${cx - 11} 63 Q ${cx - 2} 66 ${cx + 5} 76`, h.a.detail),
             h.path(`M ${cx - 6} 61 Q ${cx + 4} 63 ${cx + 10} 70`, h.a.detail),
             meche([[cx, 79], [cx, z.h - 6]], 8, 7),
-            h.fleche(`M ${cx - 13} ${z.h - 30} A 13 5 0 0 0 ${cx + 13} ${z.h - 30}`),
+            h.geste(`M ${cx - 13} ${z.h - 30} A 13 5 0 0 0 ${cx + 13} ${z.h - 30}`),   // la charte : tordre, le geste en rouge
           ].join('\n');
         },
         renvois: z => {
@@ -95,7 +95,7 @@ module.exports = (h) => {
             meche([[cx0 + 30, yb - 5], [cx1 - 60, yb - 5], [cx1 - 8, yr + 2], [tx, ty]], 7, 7),
             flamme(tx - 3, yr + 1, 48),
             h.cercle(tx - 2.5, ty, 3, h.a.plein),
-            h.fleche(`M ${cx1 - 60} ${yb - 22} L ${cx1 - 26} ${yb - 43}`),
+            h.geste(`M ${cx1 - 60} ${yb - 22} L ${cx1 - 26} ${yb - 43}`),   // la charte : tirer la mèche, le geste en rouge
           ].join('\n');
         },
         renvois: z => {
@@ -123,6 +123,15 @@ module.exports = (h) => {
             h.path(plaque, blancTrait('arete')),
             h.ellipse(cx, pb, R, Ry, h.a.hachure('metal', 'arete')),
             h.path(corps, blancTrait('contour')),
+            // la charte : le flanc droit à l'ombre (lumière en haut à gauche), la paroi du fond au gris loin
+            (() => {
+              const xs = cx + 0.45 * rx, ys = (x, y0) => y0 + ry * Math.sqrt(Math.max(0, 1 - ((x - cx) / rx) ** 2));
+              const haut = [], bas = [];
+              for (let i = 0; i <= 16; i++) { const x = xs + (cx + rx - xs) * i / 16; haut.push([x, ys(x, cy)]); bas.push([x, ys(x, cy + hc)]); }
+              return h.chemin([...haut, ...bas.reverse()], h.a.ombre, true);
+            })(),
+            h.path(`M ${cx - rx + 4} ${cy} A ${rx - 4} ${ry - 2} 0 0 1 ${cx + rx - 4} ${cy} L ${cx + rx - 5} ${cy + 5} A ${rx - 5} ${ry - 4} 0 0 0 ${cx - rx + 5} ${cy + 5} Z`, h.a.loin),
+            h.path(corps, h.a.contour),
             nervure(cy + 12), nervure(cy + 16),
             h.ellipse(cx, cy, rx, ry, h.a.contour),
             h.ellipse(cx, cy, rx - 4, ry - 2, h.a.detail),

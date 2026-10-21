@@ -26,10 +26,33 @@ const seg = (a, b) => `M${a[0].toFixed(1)},${a[1].toFixed(1)} L${b[0].toFixed(1)
 
 // ── Les pièces, en unités locales (1 unité ≈ 1 mm ; le pied tracé fait environ 235) ──────────
 // Tracé du pied et pièce de dessous : les mêmes que le mocassin (planche 100-04).
-const PIED = [[0, 2], [4, -16], [18, -27], [45, -30], [90, -27], [130, -34], [165, -42], [192, -43], [212, -41],
-  [226, -36], [234, -26], [235, -16], [231, -8], [224, -4], [218, -2], [224, 2], [224, 8], [218, 11], [213, 11],
-  [217, 16], [215, 21], [210, 23], [205, 22], [208, 27], [204, 32], [198, 33], [194, 32], [195, 37], [190, 42],
-  [180, 46], [168, 48], [130, 44], [80, 36], [40, 31], [14, 24]];
+// Le tracé du pied : le crayon passé autour d'un pied droit posé à plat, vu de dessus (talon à
+// x = 0, gros orteil vers y négatif ; longueur 233, largeur aux orteils 95). Les cinq orteils se
+// lisent : le gros, large et rond, puis quatre de plus en plus courts, séparés par le creux où le
+// crayon descend entre deux orteils. Points denses, tracés tels quels.
+function tracePied() {
+  const corps = [[180, 47.5], [160, 49], [130, 45], [96, 38], [62, 34], [34, 31], [12, 25], [0, 6], [2, -12],
+    [13, -25], [34, -31], [62, -30], [92, -27], [120, -31], [146, -41], [166, -46], [180, -47.2], [188, -47]];
+  // les creux entre les orteils (où le crayon descend), du bord intérieur au bord extérieur
+  const N = [[188, -47], [205, -14], [202, 2], [195, 17.5], [186, 32], [180, 47.5]];
+  const bouts = [233, 227, 219, 209, 197];
+  const L = (a, b, t) => a + (b - a) * t;
+  let out = cr(corps, false, 10);
+  for (let i = 0; i < 5; i++) {
+    const [xa, ya0] = N[i], [xb, yb] = N[i + 1], t = bouts[i];
+    const ya = i === 0 ? -42.5 : ya0, w = (yb - ya) / 2, cy = (ya + yb) / 2;   // le gros orteil rentre un peu
+    // un côté presque droit depuis le creux, un bout arrondi, l'autre côté jusqu'au creux suivant
+    const e0 = i === 0 ? 0 : 0.1, e1 = i === 4 ? 0 : 0.1, ry = w * (1 - (e0 + e1) / 2), yc = cy + w * (e0 - e1) / 2;
+    const r = Math.min(w * 1.05, t - Math.max(xa, xb) - 2), xc = t - r;
+    out.push(i === 0 ? [L(xa, xc, 0.55), -45.2] : [L(xa, xc, 0.5), ya + w * e0 * 0.6]);
+    for (let k = 0; k <= 16; k++) {
+      const a = -Math.PI / 2 + Math.PI * k / 16;
+      out.push([xc + r * Math.cos(a), yc + ry * Math.sin(a)]);
+    }
+    out.push([L(xb, xc, 0.5), yb - w * e1 * 0.6], [xb, yb]);
+  }
+  return out;
+}
 const DESSOUS = [[-16, -84], [40, -88], [92, -92], [140, -97], [196, -98], [244, -80], [274, -46], [285, -2],
   [276, 42], [250, 78], [204, 100], [140, 104], [82, 98], [26, 92], [-16, 88]];
 const EMPEIGNE = [[0, -42], [40, -44], [78, -38], [104, -22], [116, 0], [104, 22], [78, 38], [40, 44], [0, 42]];
@@ -49,6 +72,7 @@ const COTE = [[0, -250], [4, -200], [6, -140], [4, -90], [-4, -50], [-10, -24], 
 const I_BAS0 = 7, I_BAS1 = 12;                      // le bord bas du côté, cousu autour de la semelle
 
 // ── Vue 1 : la botte à plat ─────────────────────────────────────────────────────────────────
+const f1 = v => v.toFixed(1);
 function botte(z) {
   const s = Math.min((z.l - 34) / (301 + 396), (z.h - 44) / (216 + 88 + 22));
   const ox = 8 + 16 * s, oy = z.h / 2 + 6;                      // talon de la pièce de dessous
@@ -66,7 +90,7 @@ function botte(z) {
   const ex = cx - 58 * s, ey = yBasTige + 16 + 44 * s;
   const E = ([x, y]) => [ex + x * s, ey + y * s];
   return { s, T, E, A, tige, trousHaut, trousCou, reperes, cx, ty, yBasTige,
-    dessous: cr(DESSOUS, false, 14).map(T), pied: cr(PIED, true, 10).map(T), emp: cr(EMPEIGNE, false, 14).map(E) };
+    dessous: cr(DESSOUS, false, 14).map(T), pied: tracePied().map(T), emp: cr(EMPEIGNE, false, 14).map(E) };
 }
 
 // ── Vue 2 : la doublure à plat ──────────────────────────────────────────────────────────────
@@ -82,7 +106,7 @@ function doublure(z) {
   const cote = cr(COTE, true, 10);
   const bas = cr(COTE.slice(I_BAS0, I_BAS1 + 1), false, 10);
   return { s, A, B, S, coteA: cote.map(A), coteB: cote.map(B), basA: bas.map(A),
-    semelle: cr(SEMELLE, true, 10).map(S), pied: cr(PIED, true, 10).map(S) };
+    semelle: cr(SEMELLE, true, 10).map(S), pied: tracePied().map(([x, y]) => [3 + x * 0.965, 1 + y * 0.93]).map(S) };   // un peu en retrait : la semelle laisse sa marge de couture
 }
 
 module.exports = (h) => ({
@@ -105,7 +129,7 @@ module.exports = (h) => ({
         const g = botte(z), out = [];
         out.push(h.chemin(g.dessous, h.a.contour));
         out.push(h.chemin([g.dessous[g.dessous.length - 1], g.dessous[0]], h.a.contour));
-        out.push(h.chemin(g.pied, h.a.cache, true));
+        out.push(h.chemin(g.pied, h.a.detail, true));
         out.push(h.chemin(g.emp, h.a.contour, true));
         out.push(h.chemin(g.tige, h.a.contour, true));
         for (const t of [...g.trousHaut, ...g.trousCou]) out.push(h.cercle(t[0], t[1], 2.4, h.a.arete));
@@ -113,6 +137,14 @@ module.exports = (h) => ({
         // les mêmes repères sur la pièce de dessous : là où tombent les coins de l'empeigne
         const rd = [3, 11].map(i => { const [x, y] = DESSOUS[i], sy = Math.sign(y); return seg(g.T([x, y - sy * 9]), g.T([x, y + sy * 9])); });
         out.push(h.path(rd.join(' '), h.a.arete));
+        // second renvoi (6) sur le repère du bas de la pièce de dessous, dessiné comme les pastilles
+        const [xb, yb] = DESSOUS[11], cb = g.T([xb, yb + Math.sign(yb) * 9]), pb = [cb[0] + 34, cb[1] + 26];
+        const db = Math.hypot(cb[0] - pb[0], cb[1] - pb[1]), sb = [pb[0] + 9 * (cb[0] - pb[0]) / db, pb[1] + 9 * (cb[1] - pb[1]) / db];
+        out.push(`<line x1="${f1(sb[0])}" y1="${f1(sb[1])}" x2="${f1(cb[0])}" y2="${f1(cb[1])}" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>`);
+        out.push(`<line x1="${f1(sb[0])}" y1="${f1(sb[1])}" x2="${f1(cb[0])}" y2="${f1(cb[1])}" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>`);
+        out.push(`<circle cx="${f1(cb[0])}" cy="${f1(cb[1])}" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>`);
+        out.push(`<circle cx="${f1(pb[0])}" cy="${f1(pb[1])}" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4"/>`);
+        out.push(h.texte(pb[0], pb[1] + 4, '6', { ancre: 'middle', corps: 12 }));
         return out.join('\n');
       },
       renvois: z => {
@@ -136,7 +168,7 @@ module.exports = (h) => ({
         out.push(h.chemin(g.coteA, h.a.contour, true));
         out.push(h.chemin(g.coteB, h.a.contour, true));
         out.push(h.chemin(g.semelle, h.a.contour, true));
-        out.push(h.chemin(g.pied, h.a.cache, true));
+        out.push(h.chemin(g.pied, h.a.detail, true));
         // marque gauche ou droite : une croix de fil au talon de la semelle
         const m = g.S([22, 0]), r = 5;
         out.push(h.path(`${seg([m[0] - r, m[1] - r], [m[0] + r, m[1] + r])} ${seg([m[0] - r, m[1] + r], [m[0] + r, m[1] - r])}`, h.a.arete));

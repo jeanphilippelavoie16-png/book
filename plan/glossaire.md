@@ -1,4 +1,4 @@
-# Glossaire — Le Grand Livre du Chalet
+# Glossaire — Le Manuel du Nord
 
 **187 termes · 88 espèces nommées · 25 arbitrages · relevé du 21 septembre 2026**
 Relevé sur les 89 chapitres rédigés (478 000 mots utiles, 587 322 mots bruts), à l'état RÉD,

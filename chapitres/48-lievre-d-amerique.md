@@ -94,7 +94,7 @@ qu'en terrain ouvert, où l'animal contourne (ch. 42).
 
 **4. Poser le collet selon la géométrie de l'animal, pas selon une mesure recopiée.** La boucle
 doit laisser passer la tête et les épaules sans laisser passer le corps : elle fait **environ
-10 cm de diamètre, pas plus**. Son bas dégage la neige d'à peu près la hauteur du menton de
+10 cm de diamètre, pas plus** (planche 48-10). Son bas dégage la neige d'à peu près la hauteur du menton de
 l'animal au-dessus de sa piste. Les deux se calibrent en une saison sur les bêtes du territoire : mesurer la tête et le garrot des trois premières prises et
 ajuster. Un collet mal calibré ne rate pas, il **manque** — il glisse sur le corps et l'animal
 part avec le fil.
@@ -394,7 +394,7 @@ tronc vivant de la grosseur du poignet, ou à un piquet enfoncé jusqu'au dur.
 Un jeune bouleau ou une épinette souple, plié vers le sentier et retenu par un déclencheur : un
 crochet taillé dans un piquet fiché à côté de la piste, et un bâtonnet en travers qui porte la
 tension. La bête entre dans la boucle, tire, le bâtonnet lâche, l'arbre se redresse et lève
-l'animal de terre.
+l'animal de terre (planche 48-09).
 
 Ce que ça donne : la bête ne ronge ni le fil ni sa patte, la mort est plus rapide, et la prise
 passe hors d'atteinte du renard, de la martre et de la corneille. C'est la seule réponse connue

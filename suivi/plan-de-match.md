@@ -16,6 +16,430 @@ Coût indicatif en tokens : un chapitre neuf complet ≈ 1 M ; une planche dessi
 - Plus de loi, de municipalité, de relecteur, de numéro de téléphone ni de service qui répond
   (exceptions dans CLAUDE.md).
 
+## Décisions de JP du 19 octobre, en cours de journée
+
+- **Le ch. 39 s'appelle « Les jeunes enfants »** (JP : « oui pour les enfants ») : titre du chapitre, sommaire des
+  couvertures (`build_couvertures_6.py`), `plan/tomes-6-proposition.md`. Le nom de fichier ne change pas. À la grande
+  passe des tomes 2 à 6 : les « enfants de 4 et 6 ans » d'une trentaine de chapitres deviennent « de jeunes enfants »,
+  sauf là où l'âge change le geste (une dose, un seuil) (CLAUDE.md, « Un livre ouvert »).
+- **Réponses de JP aux points du vérificateur** : le vent du ch. 13 (20 km/h, sourcé SOPFEU) **reste** ; la balance au
+  gramme va **au chalet**, avec le sel ; « **une famille de quatre** », comme exemple, vaut pour tout le livre (grande
+  passe des tomes 2 à 6 ; règle dans le skill `ecriture` et le cadre).
+- **Les encadrés verts JAMAIS au travers du texte** (JP : « c'est du remplissage quand il reste de la place dans la
+  page ») : `chapitre.js` ne les pose plus que dans les trous, à la fin du texte de la page ; une note sans trou près
+  de son étape ne s'imprime pas (ch. 04 : une note sur quatre). Règle dans CLAUDE.md et le cadre.
+- **Le mur du tome 2 en planches** (texture_mur.py), et **le dos des couvertures : les éléments dans les trous**
+  (JP montre le tome 3 : « ça j'aime ça le style ») : les modules `essais-ia/tome-N/dos.py`, à finir pour les tomes 2
+  et 6, puis les six couvertures à refaire.
+
+- **Couvertures, fin de journée** : dos 2 et 6 gardés (JP : « j'aime le tome 2 et 6 à date ») ; au tome 2, la corde
+  de bois deux fois plus longue (objets-bas/corde_dos.py) posée sur le filet ; au tome 1, les étoiles entre les lignes
+  (nettoyer(serre=True)) ; dos 4 et 5 en reprise (`dos-tomes-4-5-ame`, « ils manquent d'âme ») ; l'image du tome 1
+  retouchée zone par zone (`tome1-image-titre-rigueur`, JP : « reprends exactement la même image mais applique la même
+  rigueur de qualité que les autres tomes ») ; original gardé : essais-ia/tome-1/titre-tome-1-original.jpg.
+
+## ▶ LANCÉ le 19 octobre : le tome 1 final (JP : « monte le reste du tome 1 final »)
+
+Trois phases, une à la suite de l'autre (≈ 18 à 20 M au total) :
+1. **Texte** (en cours) : les ch. 01, 02, 03, 05 à 09, 11, 13 à 18 refaits au gabarit final comme les ch. 04 et 12
+   (sept sections, pictogrammes de danger dans les étapes, séries orange en tête, logigramme, planches appelées, 4 à 8
+   notes En plus) ; le ch. 10 reçoit ses notes En plus ; le ch. 00b, la passe d'écriture. Chaîne par chapitre :
+   rédacteur, vérificateur technique (le nouveau et ce qui change de sens seulement : JP, « on a pas déjà fait ce
+   travail-là ? »), corrections ; puis un éditeur par lot. Six lots en parallèle (01-02-03, 05-06-07, 08-09-00b,
+   11-13-14, 15-16-17, 18-10), un workflow chacun : `_reprise/scratchpad/tome1-final/tome1-lot.js`, args = la liste des
+   chapitres du lot. Les agents ne touchent pas aux fichiers communs ; un intégrateur applique à la fin les ancres,
+   l'inventaire des dangers, les crédits et les renvois entre chapitres, à partir de ce que les lots rendent.
+   Fiches : section « Refonte au gabarit final, 19 octobre 2026 » de chaque suivi/NN-redaction.md.
+1b. **Texte fini le 19 octobre** (les six lots ; sorties dans `_reprise/scratchpad/tome1-final/lot-*.json`). En cours :
+   trancher les points soulevés (un rédacteur par lot) puis intégrer les fichiers communs (`trancher-integrer.js`).
+   Il en sortira une seule liste de questions pour JP.
+1c. **Décisions de JP** (19 octobre, ses 12 réponses) : FAITES (rédacteur, vérificateur du nouveau, corrections,
+   éditeur ; `_reprise/scratchpad/tome1-final/decisions-jp.js`). Fiches : « Décisions de JP, 19 octobre 2026 » des
+   suivi/NN-redaction.md et suivi/NN-edition.md. Les logigrammes 02, 03, 14, 16 et 17 sont refaits (le 17 avec « Un
+   seul adulte doit parler » et « Emmener tout le monde dans la pièce du fond »). Reste à JP : une ligne au 00b pour
+   les baguettes de brasage sans cadmium et les disques de meuleuse (ch. 107).
+2. **Planches** (en cours depuis le 19 octobre : `planches-nouvelles.js` pour 01-02, 06-01, 18-01, 18-02 et les 13-40
+   et 13-09 refaites ; `planches-corrections.js` pour les corrections de `planches-t1.txt` et l'eau en bleu sur toutes
+   les planches du tome 1, JP : « oublie pas de mettre toute l'eau en bleu »). Les changements de texte qu'elles rendent
+   (appels, repères des 03-10 et 11-04, légende de la photo 05) s'appliquent après, avec les ancres. (dont 18-01, la crémaillère, et 18-02, l'auge de neige : oui de JP, appelées dans le texte) : celles
+   que les rédacteurs disent manquantes ou décalées, plus les priorités de
+   `images/audit-planches/` pour le tome 1 ; les 28 planches du tome 1 dans `images/a-valider/` attendent JP.
+3. **Montage** : chaque chapitre monté et regardé page par page (notes posées, rien qui déborde, planches près de
+   leur appel), puis le tome 1 entier (`design/outils/assembler-tome.py 1 --hors-ligne`), avec les pages du début
+   (titre, dédicace, sommaire, comment le livre fonctionne, dangers).
+
+## ⏸ PAUSE du 15 octobre (JP : « à 96 % d'utilisation, pause ; on reprend samedi ») : COMMENT REPRENDRE
+
+Deux chantiers tournaient, lancés le 15 octobre. Les briefs sont copiés dans `_reprise/scratchpad/` (le
+scratchpad de la session ne survit pas au conteneur). Tout ce qui était sur le disque est poussé.
+
+1. **Planches manquantes (priorités haute et moyenne, et les 14 à refaire)** : la liste est dans
+   `images/audit-planches/` (LISEZMOI.md pour le résumé, `tomes-*.md` pour le détail). Neuf lots par
+   chapitres : t1 tome 1, t2 tome 2, t3a et t3b tome 3, t4 tome 4, t5 tome 5, t6a tome 6 sauf 109 à 112,
+   t6b ch. 109 et 112, t6c ch. 110 et 111. Brief commun : `_reprise/scratchpad/planches-lot/brief.md`, avec
+   en fin **« Le niveau de qualité »** (JP sur la 04-42 : « c'est butcher, ça. Faisons les choses comme il
+   faut »). Ce qui reste = les lignes de l'inventaire qui n'ont pas de PNG dans `images/a-valider/`.
+   Chaque lot range ses ancrages dans `ancrages-<lot>.json` du scratchpad, copiés à la pause dans
+   `_reprise/scratchpad/planches-lot/` (à fusionner dans `design/epreuves-livre/placements-tome-N.json`). **Corrections demandées et pas encore faites au moment de la pause** (à
+   vérifier dans le PNG) :
+   - 04-42 : le test du boudin sans les mains (le boudin d'argile seul, plié ; le sable qui s'émiette) ;
+   - 05-01 : souris propres décalquées ou pas de souris ; l'ombre du flanc qui déborde sous le fond ;
+   - 07-01 : un vrai marteau ; le chiffon visible en coupe entre le bouchon et le drain ;
+   - 43-04 : vraies empreintes de cervidé au trait ; les trois ovales sans renvoi ; la dernière empreinte ;
+   - 77-01 : le poisson dans son papier (paquet) ; une ligne d'eau nette au-dessus ;
+   - 70-13 : vrais crochets (pas des cercles barrés) ; des pièces qui se reconnaissent.
+2. **Passe d'écriture du tome 1** (skill `ecriture`, modèles ch. 10 et ch. 4) : brief
+   `_reprise/scratchpad/passe-t1/brief.md`. Texte d'avant la passe : commit `ef62be7`
+   (`git show ef62be7:chapitres/NN-….md`, pour `controle.py --avant`). Lots : p1 (00b, 01, 02), p2 (08, 09,
+   10 à vérifier, 16), p3 (17, 18), lancés ; p4 (03, 05, 06), p5 (07, 11, 12), p6 (13, 14, 15) **pas lancés** (JP, 15 oct. : « ceux qui sont pas lancés, lance-les pas ») : à lancer à la reprise, avec le même brief, une fois le lot de planches t1 fini sur ces chapitres.
+   Les ancrages proposés par la passe : `_reprise/scratchpad/passe-t1/ancrages-<lot>.json`. Un chapitre est fait quand `controle.py` passe sans tiret ni mot banni et sans invariant disparu, que
+   sa série orange est en place si l'inventaire `plan/premieres-minutes-inventaire.md` en demande une, que
+   son logigramme est rendu si l'urgence se décide en branches, et que chaque planche est appelée.
+   **Fini** : p3 (17, 18), ancrages fusionnés. À regarder à la relecture : ch. 17 étape 13 (la consigne de ne
+   pas résister vient d'une page de la GRC sur le vol qualifié, transposée à la porte forcée) ; boire en
+   hypothermie seulement si la personne est consciente et avale bien (Québec.ca fait boire, le ch. 25 dit
+   rien par la bouche) ; le tableau du refroidissement éolien n'a pas pu être revérifié (canada.ca bloque).
+3. **Ensuite** : fusionner les ancrages, remonter le tome 1 (`design/outils/assembler-tome.py 1 --hors-ligne`),
+   republier le tome 1 dans le lecteur (`_reprise/memoire/lecteur-relecture.md`) pour la relecture de
+   validation de JP, et marquer ses anciennes notes. Puis : recomposer toutes les planches avec la légende
+   sans tiret ; l'incohérence du fil de l'électroscope (ch. 4) ; la contradiction sur l'iode après 40 ans
+   (ch. 4).
+
+État au moment de la pause : voir la ligne « Arrêté » ci-dessous, mise à jour en arrêtant.
+
+**Samedi, dans cet ordre** (JP, 15 octobre : « samedi pour les deux, pis les recommandations, je veux que tu
+les analyses et que tu les appliques à ta logique de refonte ») :
+
+1. **« § » devient « section »** partout : 1 599 signes dans 109 chapitres, 43 dans les logigrammes, plus les
+   légendes de planches s'il y en a (JP : « §8, c'est quoi l'affaire avant le 8 ? »). Par script, avant toute
+   passe, puisque les passes touchent le même texte. `controle.py` les liste.
+2. **Ch. 16 à l'année** : la sortie d'un blessé est écrite pour la neige seulement (traîneau). Chercher et
+   sourcer l'été (canot, VTT, toile ou travois dans le sentier, l'abriter sur place et aller chercher de l'aide ;
+   une première recherche n'a rien donné de solide), l'écrire dans le chapitre, puis refaire le logigramme du 16.
+   ≈ 0,3 à 0,5 M.
+3. **La refonte du tome 1 avec la méthode corrigée** : la section « Ce que la relecture du 15 octobre change à
+   la passe » du skill `ecriture` analyse les remarques de JP et en fait des vérifications de la passe (règle 0
+   à voix haute, jouer la scène des gestes orange, un chiffre qui s'applique à cette famille, chaque consigne de
+   sécurité confrontée aux autres dangers du scénario, pas d'avertissement redit dans le logigramme, l'objet
+   préparé expliqué là où il sert, la saison et le moment, « section » et pas « § »). Elle s'applique à tous les
+   chapitres du tome 1, ceux déjà passés compris, et à leurs logigrammes.
+
+4. **Dans les 56 chapitres qui l'ont, la liste « C'est la mauvaise procédure quand » de la section 2 sort**
+   (JP, 15 octobre : « quand l'utiliser, c'est juste quand l'utiliser, pas besoin de donner des exemples
+   bidon »). La section 2 ne garde que quand on ouvre le chapitre, sans sous-titre. Un fait qui retourne un
+   réflexe va dans l'étape ou dans l'encadré danger. Le gabarit est corrigé. Le ch. 11 est fait.
+5. **Les mots que personne n'emploie** : « un change » devient « des vêtements de rechange » (fait aux ch. 2
+   et 11) ; « seuil » devient « une raison de partir » (fait au ch. 11). En urgence, ne pas s'appuyer sur une
+   préparation que la famille n'a peut-être pas faite (JP, sur « ce que la famille a écrit avant la saison »).
+
+**Le monteur, depuis le 15 octobre au soir** (`design/directions/1-manuel-de-terrain/outils/chapitre.js` et
+`chapitre.css`) : un paragraphe ne se coupe plus de part et d'autre d'une planche pleine page (il passe entier
+après la planche, sauf s'il laisserait plus du tiers de la colonne vide) ; chaque « planche NN-NN » du texte
+devient un appel rouge avec une flèche qui pointe vers la planche (à droite si elle est en face ou plus loin, à
+gauche si elle est plus haut). JP : « faut les intégrer intelligemment, là on l'insère pis ça coupe le texte en
+deux ; une flèche rouge stylée qui pointe quand on en parle au dessin ». **À surveiller au remontage des six
+tomes** : un peu plus de blanc en bas des pages qui précèdent une planche ; le tome 5 était à 438 pages sur 440.
+
+6. **Les maximes sortent** (JP, 16 octobre : « Une décision qui n'a pas été reprise depuis douze heures ne
+   vaut plus » : « inutile, c'est une sorte de tournure que je veux plus dans mon livre » ; « Le deuxième
+   chargement se fait pendant que le chemin se ferme » : « je comprends pas ça, sois plus clair quand tu dis
+   des affaires de même »). La règle redite en proverbe sort ; le fait caché derrière une formule s'écrit en
+   clair (ce qu'on fait, et ce qui arrive sinon). `controle.py` liste les « Un X qui… ne… plus » : 113 dans le
+   livre le 16 octobre, à juger une par une dans la grande passe. Les trois du ch. 11 sont faites.
+
+7. **La répétition se cherche par idée** (JP, 16 octobre : la vitesse du feu redite six fois au ch. 11 ; « je
+   croyais te l'avoir dit »). Pour chaque chapitre : l'inventaire de ses faits et l'endroit où chacun est dit ;
+   un fait garde une seule place, la plus utile ; « le détail » et la section 9 n'expliquent que ce qui n'est
+   dit nulle part ailleurs (skill `ecriture`, section « La répétition »). Fait au ch. 11 le 16 octobre :
+   8 374 → 7 869 mots. Et les tournures au présent qui décrivent au lieu de dire quoi faire (« Les enfants
+   finissent la nuit habillés, dans la pièce la mieux fermée, et l'auto est chargée ») se disent comme une
+   consigne.
+8. **La note de lieu sous le titre sort** (JP, 16 octobre, sur le ch. 3 : « useless comme passage » ; « pour la
+   refonte des autres chapitres aussi »). C'est le paragraphe qui suit `*Tome N — …*` : « **Maison.** Au chalet,
+   la panne vient de… : les parties sur… s'appliquent. Quand la panne s'étire… L'été, seules les parties…
+   servent. Ce qui change la nuit est marqué « La nuit ». » La pastille MAISON / CHALET / LES DEUX dit déjà le
+   lieu ; ce qui change d'un lieu à l'autre se dit dans l'étape qui change. 37 chapitres sur 113 en ont une, le
+   ch. 11 modèle compris.
+9. **Ch. 3 en deux chapitres : la panne d'électricité l'hiver et l'été** (JP, 16 octobre : « ça peut arriver
+   dans les deux cas et la façon de le gérer est différente » ; « l'été, moins de stock c'est sûr, mais
+   conservation de la viande et sécurité »). Le ch. 3 devient « Panne d'électricité en hiver » ; un chapitre neuf,
+   « Panne d'électricité en été », numéroté 03b comme le 00b pour ne rien renuméroter. Il se bâtit sur le
+   modèle ch. 3 et ch. 11 : séries orange, logigramme, planches, sources (le congélateur et la viande à 25 °C,
+   l'eau, la chaleur dans une maison fermée, la génératrice, l'orage). Les parties du ch. 3 qui valent l'été
+   (génératrice, aliments, eau) y sont dites une fois, et l'autre chapitre y renvoie.
+10. **Le titre de la section 3, « Pourquoi ça marche », change partout** (JP, 16 octobre : « c'est une tournure
+    de phrase qui marche pas »). Proposition : « Comment ça marche ». À changer d'un coup, par script : les 111
+    chapitres (113 titres), `gabarit-chapitre.md`, CLAUDE.md (le paragraphe « Pas d'inventaire éparpillé »), le
+    skill `ecriture`, les libellés de la table de section dans `design/directions/1-manuel-de-terrain/outils/`
+    (chapitre.js et le gabarit), l'index et le glossaire. Puis remonter les six tomes.
+11. **La section 3 n'est plus un paragraphe en paraboles** (JP, 16 octobre, sur le ch. 3 : « on dirait que tu
+    parles en paraboles, arrête ça » ; puis : « les mots, proportion et tout, c'est bon, c'est la façon que le
+    paragraphe est organisé. Moins poétique, plus informatif, en gardant un bon français professionnel »). Le
+    défaut : des vérités générales posées l'une après l'autre, sans lien entre elles ni avec la procédure, et
+    une chute au bout. La correction : chaque mécanisme, puis ce qu'il change dans la procédure et l'étape où
+    ça se fait ; le registre reste professionnel. Ligne au tableau du skill `ecriture`, avec l'exemple. Toutes
+    les sections 3, puis tout paragraphe d'explication bâti de la même façon.
+12. **« Un message texte passe là où un appel ne passe pas »** (JP, 16 octobre, ch. 3, détail de l'étape 10 : « on
+    en avait déjà parlé ; explique pourquoi ; "là où un appel ne passe pas", ça veut rien dire »). La phrase
+    avait été corrigée au ch. 11 (détail de l'étape 16) sans que la correction entre au skill : c'est fait
+    maintenant (tableau du skill `ecriture`, avec la règle « toute phrase que JP corrige entre au tableau le
+    jour même »). Samedi :
+    - ch. 3 : dire le mécanisme, comme au ch. 11 ;
+    - **la source** : la page de Québec.ca enregistrée (`sources/10-quebec-feu-de-foret-consignes.md`) dit
+      seulement « de préférence par message texte », sans la raison. La note de la fiche, « C'est la raison
+      donnée par la page », est fausse et se corrige. Trouver une source officielle pour le mécanisme (signal
+      faible, renvoi automatique, tour saturée), ou mettre `[À VÉRIFIER]` aux ch. 3 et 11 ;
+    - chercher la même formule ailleurs (« passe là où », « tient là où ») : ch. 71, l. 35, à juger.
+13. **Les procédures tassées dans une étape se découpent** (JP, 16 octobre, ch. 3, étape 23, la vidange : « c'est
+    vraiment pas clair comment faire ; quand on a des passages comme ça, il faut que ça soit mieux expliqué,
+    surtout qu'une planche est reliée ; faut pousser la chose plus loin »). Une étape qui a plusieurs gestes se
+    fait en sous-étapes : le geste, où est la pièce et comment la reconnaître, ce qu'on voit quand c'est fait ;
+    chaque sous-étape renvoie au repère de la planche, dans l'ordre des repères. Au ch. 3, d'abord : la vidange
+    (étapes 23 et 24, planche 03-10), le dégel d'un tuyau, la réparation d'un tuyau fendu (planche 03-11), la
+    couverture de fenêtre (planche 03-12) et la marmite norvégienne (planche 03-08). Puis partout où une planche
+    est appelée. Et le possessif qui oblige à chercher (« son robinet », « son disjoncteur ») nomme la chose :
+    « le robinet de vidange du chauffe-eau ». Ligne au tableau du skill `ecriture`.
+14. **Planche 03-10 et texte du siphon** (JP, 16 octobre) :
+    - **le siphon se vide aussi par son bouchon de nettoyage**, le bouchon qui se dévisse au bas du coude, sous
+      l'évier (seau dessous). C'est la façon la plus simple quand il y en a un ; la poire reste pour les
+      siphons sans bouchon, la toilette et la baignoire. À ajouter au texte (étape 24 et section 9, « Vidanger
+      sans antigel ») et à la planche 03-10, vignette « Vider le siphon » ;
+    - **l'huile est une autre façon, pas l'étape suivante** : la vignette « Ou à l'huile » se marque comme
+      variante (règle 10, nouvelle, de `images/recommandations-planches.md`). À vérifier dans toutes les
+      planches qui montrent une variante, à la passe finale.
+15. **« Carter »** (JP, 16 octobre, ch. 3, section 6 : « c'est quoi ça, "carter" ? »). C'est le boîtier de métal au
+    bas du moteur, qui contient l'huile ; personne ne dit ça. Au ch. 3 : « Le moteur est encore chaud quand on pose
+    la main dessus après l'heure : attendre plus longtemps. » Ailleurs (59 fois dans 34 chapitres) : là où on
+    touche seulement le moteur, « le moteur » ; là où on ouvre vraiment la pièce (vidange d'huile, réparation,
+    tome 6), le mot reste, expliqué en quelques mots la première fois dans le chapitre. Même traitement pour le
+    vocabulaire de mécanicien en général : le mot de tous les jours d'abord, le mot du métier seulement quand
+    on en a besoin pour faire le geste. **Et la règle « 1 h d'arrêt toutes les 8 h » (ch. 3, étape 20 et
+    section 6) n'a pas de provenance dans `suivi/03-redaction.md`** : la sourcer (manuel de génératrice) ou
+    mettre `[À VÉRIFIER]`.
+16. **La consigne au pronominal** (JP, 16 octobre, ch. 3 : « il se cuit tout de suite ou se jette » ; « on doit le
+    cuire, pas il se cuit ; très important pour le livre »). Quand quelqu'un fait le geste, on dit qui le fait :
+    l'infinitif dans une étape, « on doit », « il faut », « on le fait bouillir ». « Se » reste quand la chose le
+    fait toute seule (« le puisard se remplit »). Environ 3 000 « se + verbe » dans les 113 chapitres, à juger :
+    ajouter un repérage au script `controle.py` (catégorie « pronominal », à juger), puis le passer chapitre
+    par chapitre avec la refonte. Règle ajoutée à CLAUDE.md (« la tournure bizarre ») et au tableau du skill.
+17. **Pas de début de section coupé en bas de page** (JP, 16 octobre, ch. 3, p. 03-18 : « La génératrice qui ne
+    part pas » commence au bas de la colonne, deux lignes d'amorce, et la liste reprend deux pages plus loin
+    après la planche ; « je veux pas en voir, laisser un vide et passer à l'autre page quand c'est de même »).
+    Moteur `design/directions/1-manuel-de-terrain/outils/chapitre.js`, fonction de remplissage (vers la ligne
+    114, « pas de titre ni d'amorce seule en bas de page ») : aujourd'hui, seul un titre tout seul remonte. À
+    faire : quand un titre H3 ou H4 est suivi, dans la colonne, de moins de 6 lignes de sa section (ou d'une
+    seule amorce qui annonce une liste, finie par « : » ou « . » avant la liste), le titre et ce qui le suit
+    passent à la colonne suivante, et la colonne reste avec son vide. Remonter les six tomes ensuite, et
+    surveiller le tome 5 (438 pages sur 440).
+18. **Ce qui est en rouge sur une planche s'explique** (JP, 16 octobre : « y a des affaires entourées en rouge qu'on
+    sait pas c'est quoi »). Règle 11, nouvelle, de `images/recommandations-planches.md` : chaque marque rouge a
+    son repère, et la légende dit ce qu'on doit y voir. Ch. 3 d'abord (03-08, 03-10, 03-11, 03-12), puis toutes
+    les planches à la passe finale ; le vérificateur des planches peut compter les marques rouges sans repère
+    voisin.
+19. **Le numéro et le nom de la planche en évidence** (JP, 16 octobre : « là, ils sont comme tout cachés »).
+    Aujourd'hui, « Planche 03-10. Vidanger la maison dans le bon ordre. » est une ligne de texte dans le SVG, en
+    Georgia, au-dessus des repères, sans plus de poids que la légende. Proposition : le moteur
+    (`chapitre.js`, page de planche) pose en haut de la page une étiquette rouge « PLANCHE 03-10 » (même rouge
+    et même police que l'appel fléché du texte, pour qu'on fasse le lien d'un coup d'œil) et le titre en gras,
+    à la taille d'un titre de section ; la ligne du SVG ne s'imprime plus (masquée au montage, ou retirée du
+    générateur). Les repères numérotés restent sous le dessin. Montrer une page modèle à JP avant de remonter
+    les six tomes. Vérifier l'effet sur la hauteur utile des planches et sur le tome 5 (438 pages sur 440).
+20. **La loi en formule** (JP, 16 octobre, ch. 13, section 3 : « Une braise devient flamme quand l'air lui arrive
+    sans arrêt, d'où le souffle continu » ; « on avait dit plus de phrases de même ; arrête les tournures de phrase
+    de même »). La correction du point 11 (l'organisation du paragraphe) ne suffit pas : chaque phrase part de ce
+    qu'on fait et de ce qu'on voit, garde ses articles, et ne lie jamais par « d'où ». Ligne au tableau du skill ;
+    le script la repère (« d'où », « devient flamme », « part à + verbe »). Au ch. 13, toute la section 3 est à
+    refaire ainsi (« la chaleur part à évaporer l'eau », « une étincelle ne donne qu'un peu de chaleur, assez
+    pour… »).
+21. **« Comment ça marche » sort de tous les chapitres ; le Matériel prend la section 3** (JP, 16 octobre :
+    « Comment ça marche, on les enlève toutes finalement. Matériel vient prendre la place, pour tous les chapitres.
+    C'est important de savoir c'est quoi le matériel avant d'avoir le logigramme »). Le gabarit passe à huit
+    sections : 1 En une ligne, 2 Quand l'utiliser, 3 Matériel, 4 Procédure, 5 Points de contrôle, 6 Signes
+    d'échec, 7 Danger, 8 Variante d'urgence. Remplace le point 10 (le renommage devient une coupe). À faire :
+    - **le contenu de l'ancienne section 3** : ce qui apprend quelque chose (un mécanisme qui change le geste)
+      passe dans l'étape qu'il explique ; le reste sort. Chapitre par chapitre, avec la refonte ;
+    - **les renvois**, dans le même script que le point 1 (« § » devient « section ») : « section 4 » à « section 9 »
+      descendent de un (4 → 3, …, 9 → 8), dans le chapitre et vers les autres chapitres (« ch. 11, section 9 ») ;
+      « section 3 » (138 renvois aujourd'hui) pointait vers l'ancienne section : chaque renvoi pointe vers l'étape
+      où le mécanisme a été déplacé, ou sort. Environ 2 300 renvois « section 3 à 9 » dans les chapitres, plus les
+      logigrammes. Vérifier par un compte avant et après ;
+    - **le moteur** (`build_chapitre.py`, `chapitre.js`, `chapitre.css`) : la Danger est la section 7 et la
+      variante d'urgence la 8 (aujourd'hui `n == 8`, `n == 9`, les titres posés en dur dans `region()`, le sommaire
+      d'ouverture `SECNAMES`, les classes `s8`, `s9`) ; les épreuves de `design/directions/` suivent ;
+    - **le logigramme** se place juste après la section 3, Matériel, avant la Procédure (ancrage `apres` sur le
+      dernier item du Matériel) ;
+    - `gabarit-chapitre.md`, le skill `ecriture` (exemples « section 9 »), `roles.md` et les fiches qui citent les
+      numéros de section ;
+    - remonter les six tomes et revérifier les pages (tome 5 à 438 sur 440 : une section de moins devrait en
+      rendre).
+22. **Tout dans l'encadré orange** (JP, 16 octobre, ch. 13 : « le texte en orange et ses explications, c'est comme
+    doublé, surtout qu'on vient de le dire dans le logigramme ; il faut mettre les deux ensemble et que tout soit
+    dans l'encadré orange » ; puis : « pas en quelques mots, j'aime ça la version détaillée ; la version compacte,
+    on l'a déjà dans l'arbre de décision ; c'est la place pour creuser et mettre de l'information »). La version
+    courte est le logigramme ; l'encadré orange est la version détaillée : les parties « … : le détail » entrent
+    au complet dans l'étape orange qu'elles expliquent, et disparaissent. La longueur ne suit plus la pastille.
+23. **Planche 13-40 à refaire depuis zéro** (JP, 16 octobre : « les mains, l'amadou, le tipi, c'est laid en
+    câlisse ; je comprends pas qu'elle ait passé »). Elle était déjà signalée (« Tabarnak, ouff ») et a été retouchée
+    au lieu d'être refaite. Règle 12, nouvelle, de `images/recommandations-planches.md` : une planche signalée se
+    refait au complet ; aucune planche n'est jugée par l'agent qui l'a dessinée ; une planche retouchée retourne
+    dans `a-valider/`. Les planches du ch. 13 retouchées aujourd'hui (13-01, 13-07, 13-08, 13-09, 13-40) sont
+    revenues dans `a-valider/` : JP ne les a pas validées. Revoir les autres planches du tableau des signalées
+    (13-09, 60-10, 112-10, 45-01a, 29-08, 89-05b, 50-10) avec la même règle.
+24. **Pas de trou blanc dans une colonne à cause d'une photo** (JP, 16 octobre, ch. 13, p. 13-14 : « gros câlisse de
+    trou ici, blanc vide »). La colonne de gauche s'arrête au tiers après « L'amadou qu'on ramasse », parce que
+    la photo de l'écorce de bouleau ne tient pas dans le reste de la colonne et saute en haut de la colonne de
+    droite ; le moteur ne voit pas ce saut (ce n'est pas un débordement du cadre, seulement un changement de
+    colonne). À faire dans `chapitre.js`, fonction de remplissage : après avoir posé une figure (`.fig`), si son
+    haut est dans une autre colonne que la fin du bloc d'avant et que la colonne d'avant garde plus d'un quart
+    de vide, la retirer, poser d'abord le ou les paragraphes suivants, puis la figure, au haut de la colonne
+    suivante (comme les figures différées de fin de page). Vérifier ensuite tous les chapitres qui ont des
+    photos en quart ou en demi : un compte des colonnes à plus d'un quart de vide, avant et après.
+25. **Les petites planches** (JP, 16 octobre : « une option qu'on mette aussi des petites planches qui pourraient
+    aller dans des paragraphes, pour celles qu'on avait sorties qui étaient pas importantes » ; « on pourrait en
+    mettre un peu partout quand c'est d'actualité »). Une colonne de large (format `quart` du composeur), dans le
+    paragraphe qui l'appelle. Candidates : 46 écartées par l'audit parce qu'elles « tiennent en une phrase », plus
+    les 25 de priorité basse qui restent ; liste dans `images/audit-planches/petites-planches.md`. À faire d'abord :
+    le moteur (taille « petite » dans `build_chapitre.py`, place en colonne dans `chapitre.css`, petit bandeau de
+    titre), puis une petite planche d'essai montrée à JP, puis les autres au fil de la refonte, chapitre par
+    chapitre. Environ 60 à 100 k chacune.
+26. **Une passe de fouille pour d'autres petites planches** (JP, 16 octobre : « ajoute une autre passe pour voir si
+    on aurait d'autres candidats pour les mini-planches »). Relire les 113 chapitres (procédure, variante d'urgence,
+    encadré danger) avec un seul critère : un geste ou un objet que l'œil comprend plus vite que la phrase, et qui
+    ne mérite pas une page entière. Pour chaque candidate : le chapitre, le paragraphe exact (début du texte), ce
+    que la petite planche montre, pourquoi la phrase seule ne suffit pas. Écarter les données, ce que JP fait déjà,
+    ce qui est déjà dessiné, la décoration. Résultat ajouté à `images/audit-planches/petites-planches.md`, section
+    3, classé par chapitre, pour que JP choisisse. Par lots de tomes, en parallèle ; à faire après la refonte d'un
+    tome (le texte change), ou pendant, chapitre par chapitre. Environ 30 à 50 k par tome de lecture.
+27. **Trois tailles de planche, choisies selon le besoin** (JP, 16 octobre : « on pourrait aussi en faire des moitiés
+    de page, les planches, si besoin »). Le composeur et le moteur savent déjà faire la demi-page (format `demi`,
+    680 × 413, sur la largeur des deux colonnes, dans le fil du texte). La règle devient : pleine page quand la
+    planche a plusieurs vues ou une séquence longue ; demi-page quand une ou deux vues suffisent ; petite planche
+    (une colonne, point 25) pour un geste simple. À la passe finale des planches, chaque pleine page à une ou
+    deux vues se juge pour la demi-page : elle se lit mieux près de son texte et rend des pages (tome 5 à 438
+    sur 440). Les petites et demi-pages ont aussi leur bandeau numéro et titre. Ajouter la règle au skill
+    `planches` et à `images/recommandations-planches.md`.
+28. **La chose qui pense** (JP, 16 octobre : « les phrases genre "la braise ne sait pas" pis des affaires de
+    même »). Un objet, une matière, le froid ou le corps sujet d'un verbe de l'esprit. Ligne au tableau du skill,
+    ligne au cadre des agents, repérage au script (catégorie « tournure ») : 97 cas à juger dans les 113 chapitres
+    aujourd'hui. Chacun se refait avec la refonte.
+29. **La bibliothèque de mains est à refaire** (JP, 16 octobre, devant la palette des 23 prises de `mainSimple` :
+    « ouff, mets ça sur notre liste à refaire, les mains, c'est pas beau en criss » ; sur les corps : « les corps sont
+    beaux »). La palette : `images/planches-src/_palette-mains.js` (aperçu `livre/apercus-palette/palette-mains.png`) ;
+    celle des corps : `_palette-corps.js` (`PALETTE_PAGE=1..3`). Les corps (`corps/moteur.js`) restent tels quels.
+    Refaire `mains/moteur.js` (le contour, les doigts, les prises), feuille d'essai à l'appui, et montrer la nouvelle
+    palette à JP avant de recomposer les planches qui ont des mains en gros plan (inventaire : `mains/inventaire.md`,
+    68 planches). **Base choisie le 16 octobre** : le jeu Shutterstock 2244726515 (32 mains, JP : « c'est lui qu'on
+    prend, et on adaptera les planches au besoin »), converti en SVG couleur et au trait dans
+    `images/bibliotheque-mains/shutterstock-2244726515/` (aperçus `livre/apercus-palette/shutterstock-*.png`). Reste à
+    faire : découper les 32 mains en pièces posables (position, échelle, rotation, miroir) dans le moteur, adapter
+    les prises qui manquent (main de trois quarts qui serre, deux mains), puis refaire les planches. **Le 18 octobre,
+    JP choisit une autre planche, « les bonnes mains »** : Adobe Stock 116570613, le .ai reçu et converti dans
+    `images/bibliotheque-mains/adobe-116570613/` (128 silhouettes, dont une trentaine de prises sur un objet, et des
+    mains à deux ; `au-trait.svg` au style du livre). C'est elle, la base des prises des planches. En attendant, une planche neuve évite le gros plan de main : la main coupée par le bord, l'objet seul,
+    ou le corps entier de profil. CLAUDE.md (« Les premières minutes ») et le skill sont à jour. À refaire : les chapitres qui
+    ont des séries orange, les modèles 11, 3, 4 et 13 compris (`grep -l "{.orange" chapitres/*.md`).
+30. **Une image sur la page d'ouverture de chaque tome** (JP, 16 octobre). Une scène qui représente le tome, dans
+    le style de `images/references/style-pages-de-tome.jpg` : des bonshommes pictogrammes en noir plein, sans visage,
+    en file, chacun avec ce qu'il porte ou ce qu'il fait. L'image de référence est une photo d'écran Shutterstock avec
+    filigrane : elle donne le style, on ne la copie pas ; les bonshommes se dessinent avec `h.formes.corps` en noir
+    plein. Tome 1 (Tenir) : la famille serrée ensemble, un feu, et derrière, un champignon nucléaire et d'autres
+    catastrophes (feu de forêt, tempête, ligne électrique tombée). Pour les autres tomes, à proposer à JP selon le
+    contenu : tome 2 (Le corps) les soins et le poêle ; tome 3 (Prélever) la file qui revient de la chasse, de la
+    pêche et de la cueillette ; tome 4 (De la bête au garde-manger) l'orignal, le fumoir, le caveau ; tome 5 (La
+    forêt, le jardin et le chalet) le bois de chauffage, le jardin, le chalet ; tome 6 (L'atelier) la soudure,
+    la forge, le moteur. Montrer un essai du tome 1 à JP avant de faire les autres. Essai du tome 1 fait le 16 octobre :
+    `images/tomes/_frise-tome-1.js` → `images/tomes/tome-1.svg`, posée par l'assembleur dans la bande blanche de la
+    page de titre (`.tp-frise`, dès que `images/tomes/tome-N.svg` existe) ; aperçu `livre/apercus-tomes/`. Pictogrammes
+    `h.formes.personnage` en `rendu: 'plein'`, catastrophes en gris, flammes en orange du livre. **Refusé par JP le
+    16 octobre** : « c'est laid en câlisse, je veux de quoi de beau visuellement ; on dirait un dessin de Pierre-Alexis ».
+    Une scène d'ambiance ne se dessine pas avec nos formes simples. La voie : un jeu vectoriel professionnel acheté
+    (le style de la référence est celui de l'illustrateur « pixeoo » sur Shutterstock, qui vend des centaines de
+    pictogrammes : familles, catastrophes, feu, chasse, atelier), converti comme les mains et composé ; ou une image
+    faite par JP avec un générateur d'images, à partir du brief `images/tomes/brief-images-tomes.md`. **La
+    couverture aussi** reçoit son image, dans le même style. La frise d'essai et `.tp-frise` restent comme
+    emplacement ; `images/tomes/tome-1.svg` se remplace. Deuxième essai le 16 octobre : la frise composée avec des
+    pictogrammes professionnels libres (`images/tomes/frise.py`, crédits dans `images/tomes/LISEZMOI.md`). **Retenu le 18
+    octobre** : l'image générée A (`images/tomes/essais-ia/tome-1-qwen-a.png`, AI Horde, Qwen-Image), vectorisée en
+    aplats par `images/tomes/vectoriser.py` → `images/tomes/tome-1.svg`. Les autres tomes et la couverture : même
+    chemin (le texte de chaque tome dans `images/tomes/brief-images-tomes.md`, `essais-ia/horde.py`). **18 octobre, la page de titre
+    entière est refusée** (« pas beau pentoute ») : l'image, la mise en page et les couleurs, tout est à repenser. JP
+    envoie un exemple de page qu'il aime ; la page se refait en maquette dans Claude Design (un canevas avec des
+    versions côte à côte), puis se reporte dans l'assembleur.
+
+    **18 octobre (soir)** : JP, « pars sans exemple, fais-moi 3 directions ». Canevas Claude Design
+    https://claude.ai/artifact/BArarHtfudkPTnjmKWaGoG : A, la carte du territoire (courbes de niveau, gros 1, la
+    série des six tomes) ; B, l'affiche du Nord (fond foncé, crêtes et épinettes en aplats, le chalet à la fenêtre
+    orange) ; C, la table du tome (gros 1 coupé, la liste des 19 chapitres). Aucune image d'IA. Attend le choix de JP.
+    JP choisit B (« celle du milieu, mais mieux faite, dans ce style-là ») : B refaite en deux ambiances sur le même
+    canevas (la nuit d'hiver ; l'aube), épinettes à étages, crêtes, fleuve, neige au premier plan, chalet aux fenêtres
+    orange, la série des six tomes avec leurs noms complets. JP choisit **la nuit d'hiver**. Posée dans l'assembleur
+    (`annexe_html`, scène `images/tomes/titre-tome-1.svg`, texte en Barlow Condensed, sous-titre dans `SOUS_TITRES`) ;
+    elle remplace l'ancienne page de titre et sa frise. Reste : une scène et un sous-titre pour chacun des tomes 2
+    à 6 (d'ici là, ils prennent la scène du tome 1). Puis, même jour : la scène dessinée « manque d'âme » ; JP la veut
+    repeinte par un générateur, en linogravure, ciel ouvert et collines basses, et choisit la variante 4
+    (`images/tomes/essais-ia/titre-nuit-pistes-2.png`) : agrandie ×4 (3072 × 3840), elle est
+    `images/tomes/titre-tome-1.jpg`, que l'assembleur pose sur toute la page sous le texte. Les étoiles derrière et
+    autour du texte sont retirées (JP). **Le livre change de nom** (JP, 18 octobre 2026 : « enlève le Grand Livre du
+    Chalet et trouve un autre nom ») : **Le Manuel du Nord**, choisi parmi quatre propositions. Remplacé dans les
+    outils (assembleur, chapitres, logigrammes, couvertures, formulaires, index), CLAUDE.md, les skills et les plans ;
+    les archives gardent l'ancien nom.
+31. **Les dangers en pictogrammes ; la section Danger sort des chapitres** (JP, 18 octobre 2026). Un pictogramme
+    par danger ; chaque danger est expliqué une fois, à fond, dans la section qui explique les symboles et les
+    pictogrammes du livre ; dans un chapitre, le pictogramme s'affiche là où le danger est présent, et la section 7
+    « Danger » disparaît. À faire : l'inventaire des dangers des 113 chapitres, les pictogrammes (jeux libres
+    professionnels, montrés à JP), les pages qui les expliquent, la migration des chapitres et le moteur. Tranché par
+    JP : les pages qui expliquent les dangers vont **dans chaque tome**, avec « Comment le livre fonctionne » ; ce qui
+    est propre au chapitre (la génératrice à 6 m, l'épaisseur de glace…) va **dans l'étape où il sert**, à côté du
+    pictogramme. Inventaire : `plan/dangers-inventaire.md`. **Tranché par JP le 18 octobre (suite)** : l'ours et
+    l'orignal ont chacun leur pictogramme (`ours`, `orignal` : 36 en tout) ; cadmium, prion et vitamine A restent
+    ensemble sous `abats` ; le botulisme des conserves et le type E sous `botulisme` ; les chiffres qui diffèrent
+    d'un chapitre à l'autre se corrigent à la source pendant la migration ; le cordon des vêtements d'enfant et la
+    corde à portée des enfants (ch. 103, 104) sont coupés. **On fait le tome 1 seulement, les tomes 2 à 6 ensuite.**
+    Avant le tome 1 au complet, JP veut voir les pictogrammes et un chapitre refait (le ch. 10, l'eau). Sources acceptées par JP le 18 octobre : le manuel Drolet (feu de cheminée) et le manuel Merck (brûlure par une base). Ours noir : **les deux cas** (ours surpris qui se défend : faire le mort au contact ; ours qui suit, chasse ou entre au campement : se battre).
+
+Le **ch. 11 (feu de forêt)** est **le chapitre modèle de la refonte, approuvé par JP** (15 octobre au soir :
+« c'est parfait, on se garde ça pour samedi ») : texte, trois séries orange à la longueur de leur temps (1 h,
+15 min, 1 min) suivies de leur détail hors de l'orange, section 2 sans « mauvaise procédure », logigramme,
+planches 11-03 à 11-05, deux photos. Aperçus en double page et PDF : `livre/apercus-ch11/`. Les figures du ch. 11 tombent
+chacune sur la page qui suit leur appel (11-03 p. 11 → 12, 11-04 p. 14 → 15, photos p. 21 → 22, 11-05
+p. 23 → 24) : chaque planche est appelée là où son geste arrive, et les deux photos de colonnes sont montées
+en une image. Après chaque montage de la refonte, vérifier la page de chaque appel et de chaque figure.
+Samedi, chaque
+chapitre de la refonte se compare à lui, et le brief des agents le donne comme modèle à la place des ch. 4
+et 10.
+
+**Arrêté le 15 octobre vers 15 h** (JP : « mets en pause le reste, on règle les points qu'on est en train de
+parler »). Tous les agents arrêtés, leurs fichiers et leurs ancrages poussés.
+
+- **Planches livrées dans `images/a-valider/`** au moment de l'arrêt : 03-11, 04-40, 04-41, 04-42, 05-01, 07-01,
+  109-41 à 109-44, 11-04, 112-42, 15-02, 43-04, 48-09, 48-10, 61-03, 70-13, 77-01, 78-41, 80-41. Les lots t6b
+  (109, 112) est fini ; ses ancrages sont dans `_reprise/scratchpad/planches-lot/ancrages-t6b.json`, pas encore
+  fusionnés. Les autres lots sont à relancer sur ce qui manque. « Remonter quelqu'un d'un trou » (ch. 109) n'a
+  pas de planche : le texte ne dit pas comment faire le harnais, il faut l'écrire d'abord.
+- **Passe du tome 1** : finis, 08, 09, 10 (vérifié), 16, 17, 18 et 02 ; le 01 arrêté au milieu ; le 00b pas
+  commencé. Ancrages p1, p2, p3 fusionnés. À corriger hors du tome : ch. 38 (« ch. 16, étape 5 » ×5 devient
+  étape 17, « étape 18 » devient 30) et ch. 44 (« ch. 16, étape 19 » devient 31) : la passe a ajouté 12 étapes
+  au ch. 16.
+- **Ch. 3, deuxième chapitre modèle (16 octobre)** : texte réécrit, séries orange 15 min, 6 h et 1 min,
+  logigramme, planches 03-08 à 03-12 (03-12 neuve), aperçus dans `livre/apercus-ch03/`. Pas de photo : rien de
+  libre de droits ne montre un mât arraché ; une photo de JP de son propre mât irait au détail de l'étape 1.
+  Renvois à corriger hors du chapitre : ch. 8, l. 71 (« étapes 20 à 23 » devient 21 à 24), ch. 8, l. 109
+  (« 22 et 23 » devient 23 et 24), ch. 84, l. 93 (« étape 22 » devient 37). Moteur : la parenthèse qui ouvre un
+  appel de planche ne reste plus seule en fin de ligne.
+- **Nouvelle règle, à repasser sur tout le tome 1, chapitres déjà passés compris** : la règle 0 du skill
+  `ecriture`, « on écrit comme on l'expliquerait à voix haute » (JP : « personne parle comme ça, c'est fucking
+  pas clair » ; « c'est pas juste les logigrammes, c'est la façon de dire les choses »). Les passes du 15 octobre
+  ont compressé le texte en code : noms sans verbe, participes en chaîne, étiquettes en raccourci. Les quatre
+  logigrammes (02, 04, 16, 17) sont refaits selon cette règle ; les chapitres, non. Points précis de JP :
+  - ch. 17, étape 5 : lire le thermomètre et le vent dans les dix premières minutes ne tient pas (« on est en
+    pleine nuit, on se fait réveiller, oublie ça le thermomètre ») : sort de la série orange ;
+  - ch. 17, étapes 6 et 26 : le poteau reste (JP : « je comprends le poteau, c'est en préparation, ça fait
+    du sens »), mais il s'explique là où il apparaît : planté d'avance à quelques pas de la porte, pour dire
+    au visiteur où s'arrêter. « Restez au poteau » tout seul ne se comprend pas ;
+  - ch. 4, étape 9 : « Couche du dessus enlevée en arrivant » (participe en chaîne) ;
+  - le logigramme ne redit pas les avertissements (JP, sur l'encadré du réchaud du ch. 17 : « on l'a dit 1000
+    fois »).
+
 ## ⏸ PAUSE du 28 septembre (JP : « met ça sur pause, token manquant ») — COMMENT REPRENDRE
 
 1. **Corrections des planches : 19 sur 50 faites.** Les 31 restantes : `scratchpad/args-corrections-reste.json`.

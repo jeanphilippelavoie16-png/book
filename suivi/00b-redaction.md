@@ -379,3 +379,325 @@ ne suffisaient pas à cette règle-là. Renvoi 24 ajouté.
 - Contraception (palier 2) et réserve d'alcool conditionnelle (palier 1) : **gardées**.
 - Arbustes et vivaces fruitiers : **descendus au palier 4**.
 - Tableau G : **quatre lignes ajoutées** (acétaminophène enfant, soufre précipité contre la gale, semence du champ, deuxième variété de camerisier) ; « douze » devient « seize », « sept » devient « huit ».
+
+## Passe finale, 19 octobre 2026
+
+Passe d'écriture complète du skill `ecriture` (règle 0 à voix haute, tableaux des corrections de JP) et contrôle de
+concordance avec le matériel des chapitres 01 à 18 tels qu'ils sont aujourd'hui (Matériel des ch. 04, 10 et 12,
+déjà refaits, lus au complet ; les autres lus dans leur état du jour, plusieurs en cours de refonte). Numéros de
+chapitre **actuels** dans toute cette section. Copie d'avant : scratchpad de session, `00b-avant.md` (identique au
+commit `7f42d2c`).
+
+**Aucune recherche de source nouvelle** (JP, 19 octobre : « on a pas déjà fait ce travail-là ? »). Chaque chiffre ou
+fait nouveau vient d'un chapitre du livre dont la provenance est déjà notée dans sa fiche ; la colonne de droite le
+dit. Aucun `[À VÉRIFIER]` au chapitre. Aucun fichier nouveau dans `sources/`.
+
+### Compte
+
+- Mots : 16 743 avant, 17 007 après (contrôle.py). Les cinq lignes ajoutées font environ 430 mots ; le reste de la
+  hausse vient des phrases remises en français complet (règle 0) et de la concordance avec les ch. 4, 10, 11, 12,
+  15, 30, 32, 61, 67 et 69. Les phrases sur le livre, les chutes, les redites et la fin « Si on n'achète qu'une
+  chose » (ramenée à deux lignes) sont sorties.
+- Tirets : 76 avant, 4 après. Les 4 qui restent sont les séparateurs des titres « Palier N — … » : le moteur
+  `design/directions/1-manuel-de-terrain/outils/ancrage.py` (`PALIER_RE = r"^Palier\s+(\d)\s+—\s+(.*)$"`) s'en sert
+  pour couper le numéro du titre, et le tiret ne s'imprime pas (`<small>Palier N</small>` + titre). Les enlever
+  casserait les bandeaux de palier ; à changer seulement avec le moteur (fichier commun, pas touché).
+- « § » : 18 avant, 0 après (« ch. 27, section 9 », « ch. 45, section 5 »… : numérotation actuelle de ces chapitres,
+  qui ont encore neuf sections ; le script de migration du point 21 les décalera avec les autres renvois).
+- Mots bannis : 4 avant (« village » ×3, « Baie-Comeau »), 0 après. Âges des enfants : 5 « de 4 ans » sortis
+  (« un jeune enfant », « des enfants ») ; restent « 3 à 6 ans » (dose de dentifrice), « moins de 6 ans » (plomb),
+  « 4 à 8 ans » (vitamines C et D) : des faits.
+- Rendu d'essai (`build_chapitre.build('00b')`, sortie dans le scratchpad, rien d'écrit dans `design/`) :
+  WARN vide, 4 bandeaux de palier, 15 sous-titres numérotés et 7 lettrés, 17 tableaux d'achat, la phrase en gros
+  de la fin.
+
+### Ce qui sort
+
+- **Sous le titre** : les deux paragraphes « C'est le seul chapitre du livre qui vise les deux endroits » et « C'est
+  aussi le seul inventaire du livre » (phrases sur le livre ; cadre : rien sous le titre que la ligne de lieu).
+- **« Comment lire une ligne »** : « La dernière section. C'est la même liste lue à l'envers… », « Les prix. Ce
+  chapitre n'en imprime aucun… », « Les quantités… (chapitre 108) » (phrases sur le chapitre). Reste la légende des
+  lieux, le format des réserves « Maison → chalet », une phrase par colonne et un renvoi vers la dernière partie.
+- **Citations de source** entre guillemets : « Toujours porter des gants à usage unique… » (gants), « Arrosez
+  abondamment votre terrain et votre toit » (boyau), « Un feu de forêt peut restreindre ou bloquer la circulation »
+  (clés de l'auto), « Le seul luxe du chapitre qui change vraiment la vie » (abreuvoir), « Quelques secondes
+  d'exposition… », « plusieurs heures après » (soudure), « négociable, et c'est une erreur » (ch. 36), « un qui
+  marche » (ch. 35). Chaque fois, le fait reste, dit sans guillemets.
+- **Phrases sur le livre et superlatifs** : « c'est la seule ligne du livre qui transforme un blessé en survivant »,
+  « l'objet le moins cher du livre », « le geste le plus rentable du livre », « le seul poste du livre qui produit de
+  l'outillage », « l'erreur la plus répandue de toutes les trousses », « Le chapitre 2 le dit sans détour… »,
+  l'introduction de 2.E, l'introduction de 1.G, « Huit des seize sont au palier 1, et ce n'est pas un hasard… ».
+- **Chutes, maximes et images** : « Une trousse sans garrot est une trousse pour les ampoules », « il n'y a pas de
+  deuxième essai : il y a une sortie », « un appareil de onze ans est un boîtier vide », « Un pourcentage de sel sans
+  masse n'existe pas », « Une échelle sous un banc de neige n'existe pas », « Le gras n'est pas un luxe du stock,
+  c'est une assurance-vie », « pas pour la cuisse », « et cette nuit-là arrive », « liste de regrets », « C'est la
+  seule chose qu'on ne peut pas se débrouiller pour avoir », « Ce n'est pas l'essence qui brûle, c'est sa vapeur »
+  (loi en formule relevée par JP le 18 octobre ; le mécanisme est à la page `vapeurs`), « D'où la règle… »,
+  « le sifflet parle à sa place », « c'est le poêle qui décide », « la suie visible signale le CO invisible »
+  (réécrit en clair).
+- **Ce qui redisait les pages des dangers** : les 7 jours des cendres (page `incendie`) ; la fin « Si on n'achète
+  qu'une chose », qui redisait la ligne 1.A, la page `co` (30 jours à 30 ppm, mauvaise humeur des enfants) et le
+  tableau G ; la scène « 25 ppm toutes les nuits depuis trois semaines ». La phrase de la génératrice sous un toit
+  ne reste qu'une fois (ligne de la génératrice, 2.A).
+- **Noms latins** (*Alces americanus* ×2 : cadre, « pas de nom latin »), « (calcul) » ×5 (marque de provenance,
+  notée ici), « la Cote air santé va de 1 à 10+ » (le ch. 11 ne s'en sert plus), « la Garde côtière » et « trois
+  milles » (service qui répond ; mesure impériale), « pas de service d'incendie au bout du chemin ».
+- **L'appel « (planche 15-01) »** de la partie F : la planche est au ch. 15 ; un appel dans le 00b ferait une flèche
+  rouge vers une planche absente du chapitre. Remplacé par « ch. 15, section 7 ».
+- **Paragraphes en double avec le tableau G** : « Rien ne remplace le verre de lampe » (B) et « Le VFI ne se
+  remplace par rien » (F) ; leur fait est dans la ligne du tableau G.
+
+### Concordance avec les chapitres (corrigé)
+
+| Ligne du 00b | Avant | Après | Provenance |
+| --- | --- | --- | --- |
+| 1.B, seringue | « 2 gouttes (0,2 mL) par litre, 30 minutes d'attente » | 0,2 mL par litre ; compte-gouttes seulement si on a compté ses gouttes par mL ; seringue réservée à la javel | ch. 10, Matériel et étape 20 |
+| 1.B, javel | « 4 L, renouvelée à l'année », « datée au marqueur » | remplacée avant un an ; on écrit la date de fabrication ; l'eau chlorée se garde plus longtemps | ch. 10, étapes 18 et 25 |
+| 1.B, marmite ; A | « 1 minute… cinq sur un bassin à castors, à cause des kystes » ; « le couvercle divise le bois par deux » | 1 min puits ou robinet, 5 min toute eau de surface ; couvercle : moins d'eau et moins de bois (le « par deux » n'avait pas de provenance) | ch. 10, étapes 14 et 15 |
+| 2.A, filtre | « arrête… la plupart des bactéries » | une partie des bactéries et les virus (0,03 µm) passent | ch. 10, étape 11 |
+| 2.D, bac de la pharmacie ; A | les seringues graduées dosent « la javel » | les seringues de la pharmacie dosent les enfants et le sel de la réhydratation ; la javel a sa seringue à elle | ch. 10, étape 20 ; ch. 32, Matériel |
+| A, javel sans seringue | « 30 minutes d'attente » | 30 min au-dessus de 20 °C, plus longtemps dans l'eau froide | ch. 10, étape 21 |
+| A, ébullition | arsenic, manganèse, hydrocarbures | + le plomb ; renvoi à l'alambic | ch. 10, section 7 |
+| 1.E, N95 | « ne se met pas à un enfant de moins de 2 ans » | pas faits pour le visage d'un enfant, ne le protègent pas | ch. 11, étape 33 (EPA, `suivi/11-redaction.md`) |
+| 1.E, SRO ; E ; tableau G | « ne s'improvisent pas », « acheter d'avance, point », ligne au tableau G | recette mesurée (360 mL de jus d'orange non sucré, 600 mL d'eau bouillie, 2,5 mL de sel ; ou 1 L d'eau, 30 mL de sucre, 2,5 mL de sel) ; la ligne sort du tableau G ; le jus d'orange en conserve entre dans la ligne (le ch. 32 dit qu'il est « au stock du ch. 00b ») | ch. 30, étape 20 ; ch. 32, section 9 |
+| Palier 3, iodure de potassium | « 1 boîte par personne, remplacée à l'expiration », « il se périme », « iode 131 » | une boîte dans la trousse qui part avec la famille, gardée entre 15 et 30 °C ; intact dans sa plaquette, bon après sa date ; délais 2 h, 24 h ; lieu Maison → chalet | ch. 4, étapes 12 à 14, 33, section 6 |
+| Palier 3, polythène | « La mise à l'abri de 24 à 48 h suppose qu'on puisse fermer une pièce » | bouchage de quelques heures seulement ; chicane, poncho, filtres de fournaise ; lieu Les deux | ch. 4, étapes 18 et 25, section 7 |
+| Palier 4, dosimètre | « il ne change la conduite dans aucun des scénarios du chapitre 4 » | il montre la pièce qui protège et le moment de sortir ; sans lui, la radio et l'électroscope ; lieu Maison → chalet | ch. 4, Matériel et section 7 |
+| 1.F, radio | « à piles » | « à piles ou à manivelle » | ch. 4, Matériel |
+| 2.F, tarière | « les 10 et les 12 cm de glace » | 15 cm à pied, 25 cm en motoneige | ch. 15, étape 40 |
+| 1.I, glace | corde sans longueur | corde qui flotte d'au moins 15 m | ch. 15, Matériel |
+| F, pics à glace | « deux gros clous ou deux tournevis… cordon d'environ un mètre (ch. 58) » | deux bouts de manche à balai, deux gros clous, un cordon (ch. 15, section 7) | ch. 15, section 7 |
+| 2.B, gambrel | « Sept degrés en 24 heures » | le centre du cuissot à 7 °C dans les 24 heures | ch. 61 |
+| C, balance | nitrite : « la balance graduée au gramme reste obligatoire » | balance au 0,1 g | ch. 67 et 69, Matériel |
+| C, thermomètre | « ne se remplace par rien » | rien ne mesure 74 °C ; sans thermomètre, le bouilli (sans rôti, ours ni haché) | ch. 18, section 7 |
+| 2.A, chaufferette | « Toute autre source de chaleur d'appoint dans une pièce fermée produit du CO » (sous-entendu : pas celle-ci) | elle n'a pas de tuyau non plus ; avertisseur dans la pièce ; jamais sous une tente | ch. 12, étape 49 ; ch. 1, étape 2 |
+| 1.C, bâche | « la couche qui va sous la personne » | pare-vapeur : garde l'isolant sec | ch. 25, Matériel |
+| 2.D, papier hygiénique | « Le × 1,5 existe parce qu'une gastro à quatre consomme en trois jours… » | 1,5 par prudence | ch. 9, étape 4 |
+| 2.E, grillage | « pendant que le feu est encore à un kilomètre » | « pendant que le front est encore loin » (la page `feu-de-foret` dit 2 km) | page `feu-de-foret` |
+| Palier 4, fumoir | « le thermomètre de chambre… ne se bricole pas, et il est au palier 2 » | il faut un thermomètre dans la chambre de fumage (le ch. 70 lui donne un substitut, la graisse témoin) | ch. 70, Matériel |
+| Palier 4, poste à souder | « deux batteries de 12 V montées en série soudent » | « des batteries d'auto montées en série » (la partie D préfère trois) | levée du 24 septembre |
+| 1.A, avertisseur de CO | sans durée de vie | remplacé à la date du fabricant, 7 à 10 ans selon le modèle | `sources/09-avertisseurs-co-duree-de-vie.md` (ch. 1, ch. 9 étape 22) |
+| 1.A, fumée | — | sa cellule vieillit sans signe, même s'il sonne au bouton | ch. 9, étape 21 |
+| 1.D, matelas | « rend la moitié de ce qu'il annonce » | « garde beaucoup moins chaud que sa cote » : la moitié n'a pas de provenance dans cette fiche | — |
+| B, allumage | « coton carbonisé » | « amadou carbonisé », pour le briquet à pierre et les étincelles faibles (le ferrocérium allume l'ouate sèche) | ch. 13, étapes 25 à 28, section 7 |
+
+### Lignes ajoutées (matériel indispensable d'un chapitre qui n'avait pas de ligne)
+
+- **2.A, tente d'hiver** (tente de toile de coton, poêle de tôle, tuyau plus haut que le faîte, collerette,
+  pare-étincelles aux mailles d'au plus 1 cm, pelle à neige, rangés hors du chalet) : ch. 12, section 3 Matériel.
+  Palier 2 (un appentis de bâche ou un abri de neige la remplace, ch. 12) : **à confirmer par JP**.
+- **1.G, trousse d'hiver de l'auto** (pelle, balai et grattoir, une couverture de laine par personne, eau en
+  contenants souples, nourriture qui se mange gelée) : ch. 6, étapes 29 et 30 (« Les quantités : ch. 00b ») ;
+  ch. 11, Matériel, étape 19 et section 6 (couverture de laine) ; ch. 15, Matériel (pelle). Palier 1 : **à confirmer
+  par JP**.
+- **2.E, réserve d'eau de 200 L, râteau à feu, pelle** : ch. 11, Matériel et étape 26 ; 200 L sourcés à la fiche du
+  ch. 11 (`16b-quebec-proteger-maison-biens.md`).
+- **2.C, sel nitrité** et **balance au 0,1 g** : ch. 67 et 69, Matériel ; ch. 68, Matériel ; ch. 5, étape 18 (« Les
+  quantités sont au ch. 00b »). Hors du tome 1, mais le 00b n'en avait pas, et sa partie C exigeait déjà la mesure.
+- **1.E, jus d'orange non sucré en conserve** (dans la ligne des sachets de réhydratation) : ch. 32, section 9.
+- **Précisions** : min-max aussi dans la pièce où on vit (ch. 2, Matériel) ; réveil mécanique qui compte les heures
+  de la panne (ch. 1, Matériel) ; thermomètre médical sous 35 °C (ch. 2, Matériel) ; tisane de sapin ou d'épinette,
+  jamais de cèdre, dans la ligne de la vitamine C (rappel de sécurité de CLAUDE.md ; ch. 20, ch. 12 étape 13) ;
+  souris par une fente de 10 ¢ (ch. 5, étape 51) ; radios « une par foyer du groupe » (ch. 16, Matériel) ; rallonge
+  d'un seul tenant pour poser la génératrice à 6 m (ch. 7, Matériel ; page `generatrice`) ; trousse d'évacuation :
+  un sac à dos par personne et le bac 1 sorti en moins de 2 minutes (ch. 6, Matériel et étape 1) ; ordonnances
+  renouvelées d'avance (ch. 6, étape 22).
+
+### Déplacé
+
+- **L'armoire des armes et de la pharmacie** passe de 1.G (le feu) à 1.E (le corps), avec la raison du ch. 36 (la règle
+  des clés convenue par écrit : chaque minute entre l'intention et l'arme compte) en plus du deuxième jeu de clés.
+- **Tableau G** : la réhydratation sort (recette mesurée aux ch. 30 et 32), l'iodure de potassium entre (ch. 4 : « Ce
+  qui ne se remplace pas : les comprimés d'iode »). Le tableau garde seize lignes ; la phrase sur le compte sort.
+
+### Couverture du matériel des chapitres 01 à 18
+
+| Ch. | Item du Matériel | Au 00b |
+| --- | --- | --- |
+| 1 | Avertisseur de CO, sonde, thermomètre médical | Oui (1.A, 1.D, 1.E) |
+| 1 | Montre à pile (compter les heures de la panne) | Le réveil mécanique de 2.D, sans pile, avec la précision ; pas de ligne « montre » : à trancher |
+| 2 | Radio, messagerie satellite ou VHF, thermomètres | Oui (1.F, palier 4, 2.A, 1.E) |
+| 2 | Fiche de décision remplie d'avance | Ne s'achète pas |
+| 3 | Poêle à bois raccordé à une cheminée ramonée | **Absent** : le 00b suppose le poêle ; à trancher par JP |
+| 3, 7 | Thermomètres de frigo et de congélateur, sonde, CO, contenant à cendres | Oui |
+| 4 | Iode, radio, eau, CO, compteur | Oui, corrigés (voir plus haut) |
+| 5 | Contenants, min-max, balance, deux sondes, CO | Oui (contenants passés à « Les deux ») |
+| 6 | Deux bacs, un sac par personne, boîte étanche ; l'auto (étape 29) | Oui ; trousse de l'auto ajoutée |
+| 7 | Rallonge de gros calibre | Oui (2.A) |
+| 7 | Obturateur de drain de plancher | **Absent** : à ajouter si JP veut (Maison, palier 3), avec la source du ch. 7 |
+| 8, 9 | Eau, javel, CO, ordonnances, sonde, bois, balance | Oui |
+| 9, étape 26 | Lunettes de rechange en double | **Absent** : à trancher |
+| 10 | Javel, seringue, bandelettes, filtre | Oui, corrigés |
+| 11 | 200 L, plein, couverture de laine, N95, HEPA, râteau | Oui (200 L, laine et râteau ajoutés ; N95 corrigé) |
+| 12 | Tente, poêle, collerette, pare-étincelles, CO, pelle, sac | Oui (tente ajoutée) |
+| 13 | Ferrocérium, amadou, petit bois, eau | Oui (1.F) ; le reste se ramasse |
+| 14 | Récepteur AM, satellite, CO, VHF | Oui |
+| 15 | Pics, corde 15 m, tarière, pelle, CO, bidons, allumage | Oui (corde précisée, pelle dans la trousse de l'auto) |
+| 16 | Radio par foyer, sonde, dossard, traîneau | Oui |
+| 17 | Judas, lampe puissante, thermomètre extérieur, trousse de seuil (thermos), barre de porte | **Absents** (ch. 17 pas encore refait) : à trancher |
+| 18 | CO à affichage, sonde | Oui |
+| 18 | Louche réservée à l'eau potable | Absente : ce qui traîne dans toute cuisine |
+
+### Questions pour JP
+
+1. **Où vit la réserve de fond ?** Le 00b la met à la **Maison** (réserve sèche), le gras et le sel en **Maison →
+   chalet** ; le ch. 5, refait, bâtit au chalet une réserve de trois mois qui y reste toute l'année, et le ch. 65
+   dit que le sel « porte la mention Chalet ». CLAUDE.md dit « Chalet : le minimum ». Le Lieu n'a pas été changé ; la
+   phrase « elle vit à la maison parce que c'est là qu'il y a des tablettes » est sortie.
+2. **Les sachets de réhydratation** restent au palier 1 (la nuit, l'erreur de mesure) alors que la recette mesurée
+   ne perd rien : les garder là, ou les descendre ? Ils sont sortis du tableau G, l'iode y est entré.
+3. **Paliers des lignes ajoutées** : trousse d'hiver de l'auto (1), tente d'hiver (2), réserve de 200 L et râteau
+   (2), sel nitrité et balance au 0,1 g (2).
+4. **Les armes nommées** (« .308 Winchester, 7 mm Remington Magnum, .303 British », « deux des carabines tirent la
+   .308 ») et les calculs « pour quatre personnes » : ce sont les armes et la famille de JP (décision du 24 septembre),
+   alors que la règle du 15 octobre veut un livre « pas centré sur JP ». Garder, ou généraliser au ch. 45 et ici ?
+5. **La chaufferette faite pour l'intérieur** (2.A) : les ch. 1 et 3 permettent un appareil fait pour l'intérieur ;
+   le ch. 2, étape 10 (en refonte), dit de ne rentrer aucune « chaufferette d'appoint ». Garder la ligne ou la couper ?
+6. **Les absents du tableau de couverture** : poêle à bois (ch. 3), obturateur de drain (ch. 7), lunettes de
+   rechange (ch. 9), matériel du ch. 17, montre à pile (ch. 1).
+7. **La cartouche de carabine au tableau G** (question ouverte du 24 septembre, toujours ouverte).
+
+### À corriger ailleurs (pas touché : fichiers d'autres chapitres)
+
+- ch. 105, l. 588 : les limes sont « au premier palier du chapitre d'achat » ; elles sont au palier 2 (2.B).
+- ch. 65, l. 297 : le sel « porte la mention **Chalet** » ; au 00b, il porte « Maison → chalet » (voir question 1).
+  Même chapitre, l. 294 : « village ».
+- ch. 9, étape 16 (javel périmée « un an après sa date d'achat ») contre ch. 10, étape 18 (un an après la date de
+  fabrication) : le 00b suit le ch. 10.
+
+## Corrections après la vérification technique, 19 octobre 2026
+
+Sept signalements du vérificateur technique sur la passe finale. Chacun a été relu dans le chapitre qu'il cite avant
+d'être appliqué. **Tous appliqués, aucun écarté.** Aucune source nouvelle : chaque fait vient d'un chapitre dont la
+provenance est notée dans sa fiche, ou de la fiche de source déjà enregistrée. Mots : 17 007 avant, 17 121 après.
+Contrôle (`controle.py --avant`, contre le commit `de8aac6`) : 4 tirets, ceux des titres « Palier N — » que le moteur
+lit (voir plus haut) ; 0 « § » ; 0 mot banni.
+
+| Ligne du 00b | Avant | Après | Vérifié dans |
+| --- | --- | --- | --- |
+| A, javel sans seringue de 1 mL | 4 mL pour 20 L ; « 30 minutes… et plus longtemps dans une eau froide (ch. 10, étape 21) » | 4 mL, ou 8 mL si l'eau est froide, un peu trouble ou un peu colorée ; 30 min au-dessus de 20 °C, au moins 1 h dans une eau plus froide, 2 h ou plus sous 10 °C (ch. 10, étapes 20 et 21). Au chalet, l'eau d'un bidon est presque toujours sous 20 °C : avec l'ancien texte, on la dosait à moitié | ch. 10, étape 20 (« Pour une eau un peu trouble, un peu colorée ou froide, mettre le double : 0,4 mL par litre ») et étape 21 |
+| A, même paragraphe | « Une mesure de 4 mL se lit mieux… que vingt gouttes comptées » | « Une seule mesure à la seringue se lit mieux… que des dizaines de gouttes comptées ». Le « vingt » n'avait plus de base depuis que les « 2 gouttes (0,2 mL) » sont sorties de 1.B (4 mL font 40 à 80 gouttes selon la goutte). « Une seule mesure à la seringue » plutôt que « de 4 mL » du vérificateur : la dose peut maintenant être de 8 mL | ch. 10, Matériel et étape 20 |
+| C, thermomètre à sonde | « coupée mince dans un liquide qui bout à gros bouillons, la viande dépasse 74 °C » | on coupe la viande mince, on la met dans un liquide qui bout à gros bouillons, on attend après le dernier morceau que le liquide bouille de nouveau franchement, puis on cuit jusqu'à ce que le centre soit brûlant. La phrase du vérificateur est coupée en trois (règle 1 du skill : une phrase, une information). Le contrôle des invariants signale 74 °C : 5 → 4 ; le « dépasse 74 °C » sorti disait une conclusion fausse sans sa condition, et les 74 °C à cœur restent deux fois dans le paragraphe, en 1.D et au tableau G | ch. 18, section 7 (« Après le dernier morceau ajouté, on attend que le liquide recommence à bouillir franchement ») ; ch. 1, section 7 (« assez longtemps pour être brûlante au centre ») |
+| 1.E, sachets de réhydratation | « le sel à 2,5 mL près » (marge de 100 % sur une dose de 2,5 mL : le contraire du sens voulu) | « et le sel, 2,5 mL, à la seringue graduée » | ch. 30, étape 20 et section 9 (« la seule mesure délicate est le sel : 2,5 mL ») ; ch. 32, section 9 (« le sel en dernier, à la graduation ») |
+| 2.C, sel nitrité, Quantité | « à la dose de l'emballage » (la cuillerée de l'emballage est ce que le ch. 67 écarte) | « multiplié par la dose par kilogramme que donne la formule du ch. 67 (étape 21) à partir de la teneur écrite sur l'emballage ». « Par kilogramme » ajouté à la phrase du vérificateur : la formule donne une masse de mélange par kilogramme de viande (20 ÷ T) | ch. 67, étapes 19 à 22 (« jamais par une cuillerée trouvée ailleurs » ; 20 × M ÷ T) ; ch. 69, étape 5 |
+| 1.A, avertisseur de CO, Quantité ; et la phrase de la fin | « 1 près du poêle » | « 1 dans la pièce du poêle, à au moins 2 m de lui », aux deux endroits | ch. 1, étape 2 ; ch. 3, étape 5 (« à au moins 2 m du poêle et de tout appareil de cuisson ») ; ch. 5, étape 34 ; ch. 12, étape 50 |
+| 1.A, avertisseur de CO, Item | « (7 à 10 ans selon le modèle) » | « (7 à 10 ans après la date de fabrication inscrite au dos, selon le modèle, ou 7 ans quand on ne connaît pas le modèle) » : un appareil de 8 ans dont on ignore le modèle recevait deux consignes | ch. 9, étape 22 ; `sources/09-avertisseurs-co-duree-de-vie.md` (INSPQ : 84 mois ; Kidde : « seven to ten years, depending on the model type ») ; ch. 1, étape 2 et ch. 3 (« plus de 7 ans ») |
+
+### Vu en vérifiant, hors de ce chapitre (non touché)
+
+- **Ch. 1, section 7, contre ch. 18, section 7.** Le ch. 1 dit : « Pour l'ours et le phoque, le bain d'eau bouillante
+  est la seule méthode sans thermomètre. » Le ch. 18 dit : « Sans thermomètre, on ne sert ni ours (étape 14) ni gibier
+  haché. » Le 00b (partie C) suit le ch. 18. Question pour JP.
+- **Renvois au 00b qui ne tombent sur rien** : ch. 3, l. 219-220 (« le clapet antiretour et la batterie de secours de
+  la pompe… (ch. 00b) ») ; ch. 9, l. 214 (« Le godendard fait donc partie du stock du ch. 00b ») ; ch. 107, l. 56
+  (« Les électrodes, baguettes, gaz et disques… : le chapitre d'achat (00b) »). Aucune de ces lignes n'est au 00b.
+  Pas ajoutées ici : une ligne nouvelle demande sa provenance et une vérification. Question pour JP.
+- **Renvois au 00b qui disent autre chose que lui** : ch. 105, l. 588 (limes « au premier palier » ; elles sont en
+  2.B) ; ch. 65, l. 297 (sel « Chalet » ; au 00b, « Maison → chalet ») et l. 294 (« village ») ; ch. 78, l. 429
+  (la soupape à masse « décide de l'achat (ch. 00b) » ; la ligne 2.C dit « avec manomètre ou soupape calibrée », sans
+  préférence) ; ch. 80, l. 458 (bandelettes de pH « en double au stock » ; la ligne 2.C dit « 1 rouleau par saison »).
+
+## Points réglés après l'édition, 19 octobre 2026
+
+Les faits que l'éditeur a signalés sans les changer (`suivi/00b-edition.md`) et les questions du rédacteur qu'une règle
+ou un autre chapitre tranche. Aucune source nouvelle ouverte : chaque correction s'appuie sur une source déjà au
+dossier, sur un autre chapitre qui porte sa provenance, ou sur une règle de `CLAUDE.md`.
+
+| Où | Avant | Après | Ce qui tranche |
+| --- | --- | --- | --- |
+| 1.A et la phrase de la fin, avertisseur de CO | « 1 par étage habité » | « 1 par étage, sous-sol compris » | `sources/08-quebec-avertisseurs-monoxyde-carbone.md` (« à chaque étage, y compris le sous-sol ») ; ch. 9, étape 22. Les ch. 8 et 9 sont alignés sur la même formule |
+| 1.D, contenants | « elle gâte trois mois de farine en une semaine » | « on doit jeter tout ce qu'elle a touché (ch. 5) » | Ni ce délai ni celui du palier 3 (« en une saison ») n'avaient de source, et ils se contredisaient. Ch. 5, étape 51 |
+| Palier 3, laine d'acier | « … (ch. 5) et gâte trois mois de réserve en une saison. On bouche… » | « … (ch. 5) : on bouche le trou dès qu'on le voit » | Même raison |
+| 1.D, ouvre-boîte | « sans lui on n'ouvre plus aucune conserve » | « Sans ouvre-boîte, on ouvre une boîte en usant son serti sur une pierre plate (ch. 8) » ; renvoi 8 ajouté | Ch. 8, section 7, « Manger dans l'ordre, et ouvrir les boîtes sans ouvre-boîte ». Palier inchangé |
+| 1.F, piles | « d'un seul format pour tout le bâtiment » ; « Une réserve pour une saison » | « aux formats des appareils qui comptent ; on choisit ces appareils au même format autant que possible » ; « … par format » | La ligne se contredisait (sa propre pile CR2032) et le ch. 9 disait « trois plutôt que six » : aucun chiffre n'a de source, la consigne tient sans lui |
+| 2.C, autoclave | « avec manomètre ou soupape calibrée » | « à soupape à masse », et la raison dans « Sans ça » | Ch. 78, « Quand le manomètre ment » (« C'est l'argument qui décide de l'achat (ch. 00b) ») : question 8 du rédacteur réglée |
+| 2.C, bandelettes de pH | « 1 rouleau par saison » | « 2 rouleaux rangés au sec, un qui sert et un de rechange : ils durent des années (ch. 80) » | Ch. 80, l. 458 (« durent des années… en avoir en double au stock (ch. 00b) ») |
+| 2.C, sel iodé | « Un peu plus de 2 kg par an pour quatre personnes : environ 6 g par jour » | « Pour couvrir l'iode de chacun : environ 0,7 kg par an par personne de 14 ans et plus, 0,6 kg de 9 à 13 ans, 0,4 kg de 1 à 8 ans » | `CLAUDE.md`, « Un livre ouvert » (JP, 15 octobre) : le total supposait deux adultes et deux enfants de 4 et 6 ans. Calcul sur `sources/00b-sante-canada-sel-iode-teneur-et-besoins.md` (76 µg d'iode par gramme de sel) : 150 µg ÷ 76 × 365 = 720 g ; 120 µg, 576 g ; 90 µg, 432 g. Les invariants « 2 kg » et « 6 g » sortent : voulu |
+| 2.D, guide de la flore | « Aucune application ne marche sans réseau, et on cueille loin du réseau » | « Sur papier, il marche sans pile ni réseau, là où on cueille » | Phrase sans source et trop forte (des applications marchent hors ligne) : coupée, la raison d'acheter tient |
+| B, bois sec | « … pas s'il est à 20 %. Pour la salaison et le caveau, où le chiffre compte, ils ne suffisent pas. » | « … pas s'il est à 20 %. » | La salaison et le caveau demandent l'humidité de l'air, pas celle du bois : la phrase mêlait deux mesures |
+| C, sel du fleuve | « On ne connaît pas le rendement : il dépend du sel que contient l'eau puisée. » | « Le rendement dépend de l'eau puisée : on le mesure la première fois, en pesant le sel obtenu (ch. 67). » | Ch. 67 (« Le vrai rendement se mesure la première fois ») ; le ch. 9 donne la salinité, et suit maintenant le « arrêter avant la fin » d'ici |
+| E, garrot improvisé | « Une corde, un fil ou une ceinture ne serrent pas assez et coupent la peau sans arrêter le sang. » | « …, jamais une corde, un fil ou une ceinture étroite (ch. 26). » | Ch. 26, « Le garrot ». « Ne serrent pas assez » n'avait pas de source ; le « Ce qu'on perd » dit déjà ce que fait une bande étroite. Le ch. 8 est aligné |
+| F, écumoire | « Sans écumoire, on prend une louche percée, ou une boîte… » (l'écumoire n'est sur aucune ligne) | « L'écumoire, on la fait avec une boîte de conserve trouée au clou et clouée sur un manche (ch. 58), ou on prend une louche percée. » | Ch. 58, l. 402 ; règle du 27 septembre : ce qui se fabrique ne s'achète pas |
+
+**Questions du rédacteur réglées sans JP**
+
+- **5, la chaufferette faite pour l'intérieur** : plus de contradiction. Le ch. 2 refait dit à l'étape 10 « Ne rentrer
+  aucun appareil fait pour l'extérieur ou le camping : … chaufferette de camping », comme la ligne 2.A.
+- **8, l'autoclave** : le ch. 78 tranche (tableau plus haut).
+- **9, l'ours sans thermomètre** : les pages des dangers tranchent pour le ch. 18 (`cuisson` : « Seulement avec un
+  thermomètre » ; `trichine` : « à 74 °C au cœur, mesurés au thermomètre »). Le 00b suit déjà le ch. 18 ; la phrase du
+  ch. 1, section 7, est rendue à l'agent suivant.
+- **4, en partie** : les calculs « pour quatre personnes » restent quand ils sont des exemples d'une famille (l'eau,
+  le gras du ch. 19, la vitamine D). Le sel iodé, dont le total cachait l'âge des enfants, passe par personne.
+
+**Restent pour JP**, en quatre questions : où vit la réserve de fond (ancienne 1) ; les paliers à confirmer (anciennes
+2 et 3) ; les cartouches de carabine, calibres nommés et tableau G (anciennes 4 et 6) ; les lignes que d'autres
+chapitres disent acheter (ancienne 7 ; le godendard du ch. 9 en fait partie).
+
+**Gardé** : les renvois vers les tomes 2 à 6 (« ch. 27, section 8 », « section 9 ») suivent la numérotation actuelle de
+ces chapitres ; le script de migration (plan de match, point 21) les décalera avec les autres.
+
+**controle.py --avant** (contre `HEAD`) : 17 104 mots avant, 17 171 après ; 4 tirets (titres « Palier N — », lus par
+`ancrage.py`) ; 0 « § », 0 mot banni ; « moins de 6 ans » (plomb) est un fait ; la redite « on les fait sécher près
+du » porte sur deux objets ; invariants « 2 kg » et « 6 g » sortis (sel iodé, voulu). Pas d'ancre (clé « 00b » vide).
+Fins de ligne LF.
+
+## Décisions de JP, 19 octobre 2026
+
+Rédacteur de la passe « décisions de JP » (les douze réponses de JP du 19 octobre ; le libellé des décisions est dans
+`_reprise/scratchpad/tome1-final/decisions-jp.js`). Aucune recherche refaite sur ce qui était déjà vérifié ; texte d'avant
+cette passe : commit `f515e01`.
+
+| Décision | Où | Ce qui a changé | Source ou règle |
+| --- | --- | --- | --- |
+| 4. La réserve de trois mois est au chalet, comme le ch. 5 | 1.D : sel sans additif, gras acheté, réserve sèche | Lieu : « Maison → chalet » (sel, gras) et « Maison » (réserve sèche) deviennent « Chalet ». La réserve sèche dit : « C'est la réserve de fond, au chalet comme le stock du ch. 5 ; à la maison, il y a la trousse de 72 heures (ch. 6) et le congélateur. » L'exemple de l'introduction (« quatre chaudières de 5 kg de sel plutôt qu'un sac de 20 kg ») ne parle plus du sel, qui n'est plus « Maison → chalet » : « des chaudières et des caisses qu'on soulève seul, plutôt qu'un sac de 20 kg posé sur une palette au sous-sol » | Décision 4 ; ch. 5 (« Bâtir au chalet une réserve… on vise trois mois ») ; CLAUDE.md, « Les deux lieux », mis à jour le même jour |
+| 5. Les calibres de la famille sortent | 2.B, ligne des cartouches de carabine ; tableau G | « .308 Winchester, 7 mm Remington Magnum, .303 British » devient « au calibre de chaque carabine ». Le gros du stock va « dans le calibre que plusieurs carabines partagent, s'il y en a un » ; l'avertissement reste, en général : une cartouche d'un autre calibre peut entrer dans la chambre, et sa balle, plus grosse que l'intérieur du canon, fait céder l'arme (ch. 45, étape 39). Nouvelle ligne au tableau G, palier 2 : les cartouches de carabine ne se refont pas au chalet, rien ne remplace la balle sur le gros gibier, et une cartouche d'un autre calibre ne remplace pas la bonne | Décision 5 ; `sources/35b-calibres-de-jp-saami-et-cartouches.md` (SAAMI, combinaisons dangereuses) pour le mécanisme, déjà au dossier ; ch. 45, section 9 |
+| 5. « Pour quatre personnes » | 1.B (eau embouteillée, bidons de 20 L), 1.D (gras), 2.D (vitamine D) | « pour quatre personnes », « à quatre » deviennent « pour une famille de quatre », donné comme exemple. Les chiffres ne changent pas (48 L, 120 L, 370 g par jour, 55 kg pour 150 jours, 600 gouttes) | Décision 5 ; les calculs et leurs sources sont plus haut dans cette fiche |
+| 6. Ce que d'autres chapitres disent d'acheter | 1.E, après les médicaments d'ordonnance | Nouvelle ligne : **lunettes de rechange** faites à l'ordonnance à jour, et l'ordonnance écrite ; une paire de rechange par personne, à l'autre endroit ; « On ne fabrique pas de verre correcteur » | Ch. 9, étape 26 (en double, un à chaque endroit : l'ordonnance écrite, les lunettes de rechange) |
+| 6. | Palier 3 | Nouvelle ligne, **Maison** : **clapet antiretour** sur l'égout du sous-sol et **batterie de secours** de la pompe de puisard ; le mécanisme du refoulement, le puisard qui se remplit au redoux, et l'achat avant la panne | Ch. 7, étape 22 ; ch. 3, étape 26 (les deux déjà sourcés) |
+| 6. | Palier 4 | Nouvelle ligne, **Chalet** : **godendard**, lime tiers-point et avoyeuse ; il double la scie à chaîne quand la dernière chaîne est morte ou que l'essence a vieilli ; il coûte du temps et du gras ; il se lime au tiers-point et sa voie se refait à l'avoyeuse ; sans lui, la hache (ligne 2.B) | Ch. 9 (« La chaîne finie, le godendard » ; « Ce qu'on perd »), ch. 105 (tableau des outils, l. 70), ch. 24 |
+| 6. | Palier 4, ligne du poste à souder | « Poste à souder à l'arc **et ses électrodes** » ; quantité « 1 poste, et les électrodes du travail prévu » ; « On garde les électrodes au sec : un enrobage humide donne un cordon criblé de petits trous (ch. 107). » La suite commence par « On peut se passer du poste » | Ch. 107, section 6 (porosité : enrobage humide ; sécher les électrodes) |
+| 6. Pas de ligne pour le poêle | — | Rien | Décision 6 |
+
+Paliers ajoutés plus tôt le 19 octobre, gardés tels quels : sachets de réhydratation (1.E), trousse d'hiver de l'auto (1.G),
+tente d'hiver (2.A), réserve de 200 L et râteau à feu (2.E), sel nitrité et balance au 0,1 g (2.C).
+
+Renvois des autres chapitres vers le 00b, vérifiés : ch. 3, étape 26 (« On doit acheter le clapet antiretour et la batterie
+de secours de la pompe avant la panne (ch. 00b) ») trouve sa ligne au palier 3 ; ch. 9, « Ce qui ne se remplace pas » (« Le
+godendard fait donc partie du stock du ch. 00b ») trouve la sienne au palier 4 ; ch. 78 (« C'est l'argument qui décide de
+l'achat (ch. 00b) ») pointe vers l'autoclave à soupape à masse de la ligne 2.C, qui existait ; ch. 107, l. 56, disait « Les
+électrodes, baguettes, gaz et disques à acheter » : les baguettes et les disques n'ont pas de ligne ici, et la décision ne
+les ajoute pas ; le renvoi dit maintenant « Le poste, ses électrodes et le chalumeau à acheter : le chapitre d'achat (00b) ».
+**À trancher par JP, si on veut** : une ligne pour les baguettes de brasage « sans cadmium » et le fondant (ch. 107,
+Matériel), et pour les disques de la meuleuse (ligne du touret).
+
+Ch. 65 (l. 297) : le renvoi dit maintenant « la ligne du sel sans additif, au chapitre d'achat (ch. 00b, section 1.D), porte
+la mention **Chalet** », ce qui est vrai depuis la décision 4.
+
+`controle.py --avant` (f515e01) : 17 173 → 17 561 mots ; 4 tirets, ceux d'avant (titres « Palier N — … » lus par
+l'assembleur) ; 0 « § », 0 mot banni, 0 tournure, 0 maxime, 0 pronominal ; vocabulaire d'IA, âge et mises en relief :
+ceux d'avant ; 57 mots vides et 1 redite, ceux d'avant ; invariants disparus, tous voulus : « 303 », « 308 », « 7 mm »
+(décision 5) et un « 5 kg » (l'exemple de l'introduction). Pas d'ancre (clé « 00b » vide). Fins de ligne LF.
+
+### Après la vérification technique (19 octobre 2026)
+
+Corrections du rédacteur sur les points du vérificateur de la passe « décisions de JP ».
+
+| Point | Où | Ce qui a changé | Source ou raison |
+| --- | --- | --- | --- |
+| Décision 5, mécanisme de la cartouche d'un autre calibre trop généralisé | 2.B, ligne des cartouches de carabine | « et sa balle, plus grosse que l'intérieur du canon, fait céder l'arme » devient « et si on la tire, la pression peut faire céder l'arme (ch. 45, étape 39) ». La ligne du tableau G (« elle peut entrer dans la chambre et faire céder l'arme ») est juste : gardée | `35b-calibres-de-jp-saami-et-cartouches.md` : « excessive build-up and/or release of high-pressure gas […] beyond which the firearm is designed to withstand » ; ses exemples comptent des balles plus petites ou de même diamètre (7.62x39 et .300 Savage dans une .308, 30-30 dans une .303) |
+| Décision 4, conséquence oubliée : la balance au gramme | 1.D, balance de cuisine de 0 à 5 kg | Lieu : « Maison → chalet » devient « **Chalet**, avec le sel » ; quantité gardée (1, et 1 de rechange) | Le sel est au chalet depuis la décision 4 ; le ch. 5 (stock du chalet) met la balance au gramme dans son Matériel, et les ch. 67 et 68 salent au chalet ; la balance de 0 à 50 kg (2.B) n'a pas la précision du sel. **À faire trancher par JP** : l'autre choix est « **Les deux**, 1 à chaque endroit » |
+| Décision 6, fait trop fort : la batterie de secours de la pompe de puisard | Palier 3, ligne du clapet antiretour | « la fait tourner pendant la panne (ch. 3, étape 26). On les achète avant : pendant la panne, on vide le puisard à la chaudière » devient « la fait tourner tant qu'elle a de la charge (ch. 3, étape 26). Sans elle, ou quand elle est vide, on vide le puisard à la chaudière » | Aucune durée sourcée ; ch. 3, étape 26 |
+| Décision 4, hors décision : CLAUDE.md | Tableau « Les deux lieux », case Réserves de la maison | La case remise au texte de JP d'avant la passe : « Le rangement et le congélateur ». La décision ne visait que la case du chalet ; la ligne datée sous le tableau (« la maison garde la trousse de 72 h et le congélateur ») reste | Correction proposée par le vérificateur (« Le rangement de ce qui monte au chalet, la trousse de 72 h et le congélateur ») non écrite : un agent ne met pas de nouveau texte dans CLAUDE.md ; on remet celui de JP. À lui de dire s'il veut la formule longue |
+
+Contrôle : `controle.py --avant` (HEAD) : 17 561 → 17 563 mots ; 4 tirets, ceux d'avant (titres des paliers) ; rien n'a disparu. Fins de ligne LF.
+
+## Baguettes de brasage et disques (JP, 19 octobre 2026 : « oui »)
+
+- Palier 4, nouvelle ligne après le poste à souder : baguettes de brasage sans cadmium et leur fondant (Chalet). Faits
+  repris du ch. 107 (fumées de cadmium mortelles, premiers signes 4 à 10 h après, comme une grippe ; laiton et borax
+  quand on n'a pas de baguettes), sources du ch. 107.
+- Palier 4, ligne du touret et de la meuleuse : les disques à meuler et à tronçonner, gardés au sec (ch. 108, l. 113 :
+  le disque qui a bu d'un côté tourne déséquilibré et éclate). Renvois 107 et 108 ajoutés.
+- À régler à la grande passe : le ch. 105 dit que le touret et la meuleuse restent à la maison (Hydro), la ligne du 00b
+  dit Chalet.

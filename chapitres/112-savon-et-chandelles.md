@@ -472,8 +472,9 @@ repasser dans un lit de cendres neuves, deux ou trois fois — chaque passe le f
 aussi au chaudron de fonte, à feu doux, sans couvercle ; à gros bouillon, il projette, et ce qu'il
 projette est corrosif.
 
-**Mesurer sa force.** Le vieux test : la lessive est assez forte quand un œuf frais y flotte. Il
-ne dit que «assez fort » ou «pas assez fort ». Le test qui vaut vraiment quelque chose est la **fournée
+**Mesurer sa force.** Le vieux test : la lessive est assez forte quand un œuf frais y flotte. S'il
+coule sous la surface, la lessive est trop faible ; s'il flotte à moitié hors de la lessive, elle est trop forte, et
+le savon brûlera la peau. Le test qui vaut vraiment quelque chose est la **fournée
 d'essai à la cuillerée** : une cuillerée de gras fondu dans une boîte de conserve, quelques gouttes
 de lessive, brassées au bâton sur le coin du poêle. Si ça épaissit et vient en pâte, la lessive
 travaille ; si ça reste deux liquides côte à côte, elle est trop faible et elle retourne aux
@@ -579,7 +580,7 @@ Et la chandelle de jonc, qui est la lumière la moins chère qui existe. Le **jo
 (*Juncus effusus*), qui pousse sur la Côte-Nord dans les fossés humides, les marécages et les
 bords de ruisseau, cueilli en été, les plus longs d'abord ; jeté à l'eau dès qu'il est coupé,
 sinon l'écorce ne se pèle plus. On pèle l'écorce verte en laissant **une seule bande sur toute
-la longueur** pour tenir la moelle droite. Sécher, puis tremper la moelle dans le gras fondu : la moelle est une mèche toute faite, elle boit le gras et le garde. Ça se brûle presque couché, pincé dans un bâton fendu. Un jonc de 70 cm brûle près d'une heure, d'une lumière claire — à condition de ne laisser qu'**une** bande d'écorce : deux bandes font durer, mais éclairent mal. Ce qu'on perd : une veillée en prend une poignée, un jonc sec boit environ six fois son poids en gras, et ça
+la longueur** pour tenir la moelle droite. Sécher, puis tremper la moelle dans le gras fondu : la moelle est une mèche toute faite, elle boit le gras et le garde. Ça se brûle presque couché, pincé dans un bâton fendu (planche 112-42). Un jonc de 70 cm brûle près d'une heure, d'une lumière claire — à condition de ne laisser qu'**une** bande d'écorce : deux bandes font durer, mais éclairent mal. Ce qu'on perd : une veillée en prend une poignée, un jonc sec boit environ six fois son poids en gras, et ça
 ne se pose pas sur une table sans support. Ce qu'on gagne : de la lumière pour une trempette de
 gras au lieu d'une chandelle entière.
 

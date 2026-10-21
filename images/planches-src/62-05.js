@@ -82,7 +82,7 @@ module.exports = (h) => {
       `<g clip-path="url(#${id}-v)">`,
       // le module découpé au quartier et à la silhouette : la patte opposée n'existe pas sur un quartier
       `<g clip-path="url(#${id}-q)"><g clip-path="url(#${id}-s)">`,
-      C.dessiner(h, p, { id, os, osForts, loin: 'fin' }),
+      C.dessiner(h, p, { id, os, osForts, loin: 'gris' }),
       '</g>',
       `<path d="${dD(sil, true)}" ${trait(2.4)}/>`,
       '</g>',
@@ -221,7 +221,8 @@ module.exports = (h) => {
             `<path d="${dD(T(COUTURE), false)}" ${halo(3.4)}/>`,
             `<path d="${dD(T(COUTURE), false)}" ${trait(1.4, POINTILLE)}/>`,
             `<path d="${dD(T(lame), false)}" ${halo(4)}/>`,
-            h.fleche(dD(T(lame), false), trait(1.4)),
+            // la charte : le chemin du couteau est le geste de la vue, en rouge
+            h.geste(dD(T(lame), false)),
             // le chapeau soulevé, rabattu sur son bord avant
             `<path d="${dD(T(volet), true)}" fill="${BLANC}" stroke="${NOIR}" stroke-width="1.4" stroke-linejoin="round"/>`,
             `<path d="${dD(T(CHARNIERE), false)}" ${trait(0.7)}/>`,

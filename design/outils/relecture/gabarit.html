@@ -1,0 +1,556 @@
+<title>Relecture du Grand Livre</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+/* Table lumineuse : la barre d'outils en haut, la page du livre au centre, les notes en tiroir à droite. */
+:root{
+  --table:#D9DEE2; --barre:#F6F7F8; --encre:#1A2228; --doux:#5A6670; --filet:#C2CAD0; --survol:#E8ECEF;
+  --bleu:#2E5873; --rouge:#9B2C1E; --ok:#2F7D4F; --ombre:rgba(20,32,44,.22);
+  --sans:"IBM Plex Sans Condensed","Arial Narrow",system-ui,sans-serif;
+  --serif:"IBM Plex Serif",Georgia,"Times New Roman",serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --table:#12171B; --barre:#1C2328; --encre:#E4E9ED; --doux:#97A3AC; --filet:#34414B; --survol:#263037;
+  --bleu:#86AECB; --rouge:#E07A6A; --ok:#62C08A; --ombre:rgba(0,0,0,.55); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --table:#12171B; --barre:#1C2328; --encre:#E4E9ED; --doux:#97A3AC; --filet:#34414B; --survol:#263037;
+  --bleu:#86AECB; --rouge:#E07A6A; --ok:#62C08A; --ombre:rgba(0,0,0,.55); color-scheme:dark}
+html,body{height:100%}
+body{background:var(--table);color:var(--encre);font-family:var(--sans);font-size:15px;overflow:hidden;display:flex;flex-direction:column}
+button,select,input,textarea{font:inherit;color:inherit}
+select,input,textarea{font-size:16px}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--bleu);outline-offset:2px}
+
+.barre{display:flex;flex-wrap:wrap;align-items:center;gap:7px 10px;background:var(--barre);border-bottom:1px solid var(--filet);
+  padding-block:8px;padding-left:max(12px,env(safe-area-inset-left,0px));padding-right:max(12px,env(safe-area-inset-right,0px));
+  position:relative;z-index:3}
+.groupe{display:flex;align-items:center;gap:6px;min-width:0}
+.pousse{margin-left:auto}
+select{background:var(--barre);border:1px solid var(--filet);border-radius:6px;padding:7px 8px;max-width:100%;min-width:0}
+#tome{font-weight:600}
+#chapitre{max-width:min(320px,52vw)}
+.btn{background:transparent;border:1px solid var(--filet);border-radius:6px;padding:7px 9px;min-height:38px;display:inline-flex;align-items:center;gap:7px;white-space:nowrap}
+.btn:hover{background:var(--survol)}
+.btn[aria-pressed="true"]{background:var(--encre);color:var(--barre);border-color:var(--encre)}
+.btn:disabled{opacity:.4;cursor:default}
+.fleche{font-size:20px;line-height:1;padding:7px 12px}
+.compteur{display:flex;align-items:center;gap:4px;font-variant-numeric:tabular-nums;color:var(--doux)}
+#numero{width:3.6em;text-align:center;border:1px solid var(--filet);border-radius:6px;padding:7px 4px;background:var(--barre);font-weight:600;color:var(--encre)}
+.outils{display:flex;gap:4px}
+.pastille{width:13px;height:13px;border-radius:50%;flex:none;border:1px solid rgba(0,0,0,.15)}
+.pastille.sur{width:18px;height:9px;border-radius:2px}
+#statut{font-size:13px;color:var(--doux);white-space:nowrap}
+#statut.erreur{color:var(--rouge);font-weight:600}
+.nb{background:var(--rouge);color:#fff;border-radius:9px;font-size:12px;font-weight:700;padding:1px 7px;font-variant-numeric:tabular-nums}
+.nb[hidden]{display:none}
+
+.scene{flex:1;min-height:0;overflow:auto;position:relative;touch-action:none;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;overscroll-behavior:contain}
+.plateau{display:flex;min-width:100%;min-height:100%;width:max-content;padding:12px;box-sizing:border-box}
+.page{margin:auto;position:relative;overflow:hidden;background:#fff;box-shadow:0 2px 14px var(--ombre);flex:none}
+.page img{position:absolute;left:0;width:100%;height:500%;pointer-events:none;-webkit-user-drag:none}
+.page canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;mix-blend-mode:multiply}
+.attente{position:absolute;inset:0;display:grid;place-items:center;color:#8a949b;font-family:var(--sans);font-size:15px;background:#fff}
+.marque{position:absolute;top:8px;right:8px;background:var(--ok);color:#fff;font-size:12px;font-weight:600;padding:3px 8px;border-radius:4px;pointer-events:none;mix-blend-mode:normal}
+
+.feuillet{position:absolute;top:calc(100% + 6px);right:max(12px,env(safe-area-inset-right,0px));width:min(420px,calc(100vw - 24px));background:var(--barre);border:1px solid var(--filet);border-radius:8px;box-shadow:0 8px 28px var(--ombre);padding:12px;display:flex;flex-direction:column;gap:8px}
+.feuillet label{font-weight:600}
+.feuillet p{margin:0;color:var(--doux);font-size:13px}
+#note{min-height:130px;resize:vertical;border:1px solid var(--filet);border-radius:6px;padding:9px;background:var(--table);font-family:var(--serif);font-size:15px;line-height:1.45}
+
+.tiroir{position:fixed;top:0;right:0;bottom:0;width:min(400px,94vw);background:var(--barre);border-left:1px solid var(--filet);box-shadow:-8px 0 30px var(--ombre);z-index:5;display:flex;flex-direction:column;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);padding-right:env(safe-area-inset-right,0px)}
+.tiroir header{display:flex;align-items:center;gap:10px;padding:12px 14px;border-bottom:1px solid var(--filet)}
+.tiroir h2{font-size:19px;margin:0;font-weight:700;letter-spacing:.02em;text-transform:uppercase}
+.segment{display:flex;border:1px solid var(--filet);border-radius:7px;overflow:hidden;margin:12px 14px 4px}
+.segment button{flex:1;border:0;background:transparent;padding:8px 6px}
+.segment button[aria-pressed="true"]{background:var(--encre);color:var(--barre);font-weight:600}
+.liste{flex:1;overflow:auto;padding:6px 8px 10px;display:flex;flex-direction:column;gap:2px}
+.entree{display:grid;grid-template-columns:auto 1fr auto;gap:2px 10px;align-items:baseline;text-align:left;background:transparent;border:0;border-radius:6px;padding:9px 8px;width:100%}
+.entree:hover{background:var(--survol)}
+.entree .ou{font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
+.entree .ch{color:var(--doux);font-size:13px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.entree .extrait{grid-column:1/-1;font-family:var(--serif);font-size:13.5px;color:var(--encre);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.puce{font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;padding:2px 7px;border-radius:4px;white-space:nowrap}
+.puce.afaire{color:#fff;background:var(--rouge)}
+.puce.fait{color:#fff;background:var(--ok)}
+.vide-liste{color:var(--doux);padding:18px 10px;font-size:14.5px;line-height:1.5}
+.reglages{border-top:1px solid var(--filet);padding:12px 14px;display:flex;flex-direction:column;gap:10px;font-size:14px}
+.reglages label{display:flex;gap:9px;align-items:center}
+.reglages input{width:18px;height:18px;accent-color:var(--bleu)}
+.marche{background:var(--table);border-radius:6px;padding:10px 12px;line-height:1.45;color:var(--encre)}
+.marche b{font-weight:700}
+.voile{position:fixed;inset:0;background:rgba(0,0,0,.18);z-index:4}
+
+@media (max-width:1200px){.btn .etroit{display:none}}
+@media (max-width:640px){
+  .barre{gap:6px 8px}
+  .btn .mot{display:none}
+  #chapitre{max-width:46vw}
+}
+</style>
+
+<div class="barre" id="barre">
+  <div class="groupe">
+    <select id="tome" aria-label="Tome"></select>
+    <select id="chapitre" aria-label="Chapitre"></select>
+  </div>
+  <div class="groupe">
+    <button class="btn fleche" id="prec" aria-label="Page précédente">‹</button>
+    <span class="compteur"><span>p.</span><input id="numero" inputmode="numeric" aria-label="Numéro de page"><span id="total">/ 334</span></span>
+    <button class="btn fleche" id="suiv" aria-label="Page suivante">›</button>
+  </div>
+  <div class="groupe outils" role="group" aria-label="Outils">
+    <button class="btn" data-outil="rouge" aria-pressed="true"><span class="pastille" style="background:#E0201B"></span><span class="mot etroit">Rouge</span></button>
+    <button class="btn" data-outil="bleu" aria-pressed="false"><span class="pastille" style="background:#1F5FD6"></span><span class="mot etroit">Bleu</span></button>
+    <button class="btn" data-outil="surligneur" aria-pressed="false"><span class="pastille sur" style="background:#FFE45C"></span><span class="mot">Surligneur</span></button>
+    <button class="btn" data-outil="gomme" aria-pressed="false">Gomme</button>
+    <button class="btn" data-outil="lire" aria-pressed="false">Lire</button>
+  </div>
+  <div class="groupe">
+    <button class="btn" id="annuler" aria-label="Annuler le dernier trait">↶ <span class="mot etroit">Annuler</span></button>
+    <button class="btn" id="btn-note" aria-expanded="false">✎ <span class="mot">Note écrite</span></button>
+    <button class="btn" id="moins" aria-label="Rapetisser">−</button>
+    <button class="btn" id="plus" aria-label="Agrandir">+</button>
+  </div>
+  <div class="groupe pousse">
+    <span id="statut" role="status"></span>
+    <button class="btn" id="btn-notes" aria-expanded="false">Mes notes <span class="nb" id="nb" hidden>0</span></button>
+  </div>
+  <div class="feuillet" id="feuillet" hidden>
+    <label for="note" id="titre-note">Note sur la page</label>
+    <textarea id="note" placeholder="Écrire ici au crayon ou au clavier : ce qui cloche, ce qu'il faut changer."></textarea>
+    <p>La note reste attachée à cette page. Elle part avec les traits quand tu demandes à Claude d'appliquer.</p>
+    <div style="display:flex;justify-content:flex-end"><button class="btn" id="fermer-note">Fermer</button></div>
+  </div>
+</div>
+
+<div class="scene" id="scene">
+  <div class="plateau">
+    <div class="page" id="page">
+      <img id="feuille" alt="" draggable="false">
+      <div class="attente" id="attente">Chargement de la page…</div>
+      <canvas id="toile"></canvas>
+      <canvas id="encours"></canvas>
+      <div class="marque" id="marque" hidden>Appliqué par Claude</div>
+    </div>
+  </div>
+</div>
+
+<div class="voile" id="voile" hidden></div>
+<aside class="tiroir" id="tiroir" hidden aria-label="Mes notes">
+  <header><h2>Mes notes</h2><button class="btn pousse" id="fermer-tiroir">Fermer</button></header>
+  <div class="segment" role="group" aria-label="Portée">
+    <button data-filtre="tome" aria-pressed="true">Ce tome</button>
+    <button data-filtre="tous" aria-pressed="false">Tous les tomes</button>
+  </div>
+  <div class="liste" id="liste"></div>
+  <div class="reglages">
+    <div class="marche">Quand t'as fini, écris à Claude : <b id="phrase-tome">« applique mes notes du tome 1 »</b> ou <b>« applique toutes mes notes »</b>. Ce qui est appliqué passe au vert.</div>
+    <label><input type="checkbox" id="voir-faits"> Montrer les traits déjà appliqués</label>
+    <label><input type="checkbox" id="doigt"> Dessiner au doigt (sans crayon)</label>
+  </div>
+</aside>
+
+<script>
+const TOMES = /*TOMES*/{};
+const DISPO = /*DISPO*/[1];
+const EDITION = "/*EDITION*/";
+const PAR = 5, LARG = 1000, HAUT = 1250;
+const COULEURS = { rouge:"#E0201B", bleu:"#1F5FD6", surligneur:"#FFE45C" };
+const LARGEURS = { rouge:2.4, bleu:2.4, surligneur:16 };
+
+const $ = s => document.querySelector(s);
+const scene = $("#scene"), page = $("#page"), img = $("#feuille"), toile = $("#toile"), encours = $("#encours");
+const ctx = toile.getContext("2d"), ctx2 = encours.getContext("2d");
+
+function lire(cle, defaut){ try { const v = localStorage.getItem(cle); return v ? JSON.parse(v) : defaut } catch { return defaut } }
+function ecrireLocal(cle, v){ try { localStorage.setItem(cle, JSON.stringify(v)) } catch {} }
+
+const memo = lire("relecture.position", {});
+const etat = {
+  tome: DISPO.includes(memo.tome) ? memo.tome : DISPO[0],
+  page: memo.page || 1, zoom: 1, outil: "rouge", filtre: "tome",
+  voirFaits: false, doigt: !!memo.doigt
+};
+let docs = {};                 // id de page -> document d'annotations
+const enAttente = new Set();   // pages modifiées ici, pas encore écrites
+const historique = {};         // id -> pile d'annulation
+let db = null, dbPret = false;
+
+const idPage = (t, p) => `t${t}-p${String(p).padStart(3, "0")}`;
+const T = () => TOMES[etat.tome];
+const idCourant = () => idPage(etat.tome, etat.page);
+
+/* ---------- Barre ---------- */
+function remplirTomes(){
+  const s = $("#tome"); s.innerHTML = "";
+  for (const n of Object.keys(TOMES)) {
+    const o = document.createElement("option");
+    o.value = n; o.textContent = `Tome ${n} · ${TOMES[n].titre}` + (DISPO.includes(+n) ? "" : " (à venir)");
+    o.disabled = !DISPO.includes(+n); s.append(o);
+  }
+}
+function remplirChapitres(){
+  const s = $("#chapitre"); s.innerHTML = "";
+  const o0 = document.createElement("option"); o0.value = ""; o0.textContent = "Pages hors chapitre"; o0.disabled = true; s.append(o0);
+  for (const [a, b, num, nom] of T().chapitres) {
+    const o = document.createElement("option"); o.value = a; o.textContent = `${num} · ${nom}`; s.append(o);
+  }
+}
+function chapitreDe(t, p){ return TOMES[t].chapitres.find(([a, b]) => p >= a && p <= b) }
+
+/* ---------- Page ---------- */
+const prechargees = new Map();
+function cheminFeuille(t, k){ return `pages/t${t}/${String(k).padStart(3, "0")}.webp` }
+function precharger(t, k){
+  if (k < 0 || k * PAR >= TOMES[t].pages) return;
+  const src = cheminFeuille(t, k);
+  if (prechargees.has(src)) return;
+  const i = new Image(); i.src = src; prechargees.set(src, i);
+  if (prechargees.size > 8) prechargees.delete(prechargees.keys().next().value);
+}
+function afficher(){
+  const n = T().pages;
+  etat.page = Math.min(Math.max(1, etat.page), n);
+  const k = Math.floor((etat.page - 1) / PAR), j = (etat.page - 1) % PAR;
+  const src = cheminFeuille(etat.tome, k);
+  if (img.dataset.src !== src) {
+    img.dataset.src = src; img.style.visibility = "hidden"; $("#attente").hidden = false;
+    img.onload = () => { if (img.dataset.src === src) { img.style.visibility = "visible"; $("#attente").hidden = true } };
+    img.onerror = () => { $("#attente").textContent = "Cette page n'a pas pu se charger." };
+    img.src = src;
+  }
+  img.style.top = (-j * 100) + "%";
+  precharger(etat.tome, k + 1); precharger(etat.tome, k - 1);
+  $("#tome").value = etat.tome;
+  $("#numero").value = etat.page; $("#total").textContent = "/ " + n;
+  const c = chapitreDe(etat.tome, etat.page); $("#chapitre").value = c ? c[0] : "";
+  $("#prec").disabled = etat.page <= 1; $("#suiv").disabled = etat.page >= n;
+  $("#titre-note").textContent = `Note sur la page ${etat.page} du tome ${etat.tome}`;
+  $("#note").value = docs[idCourant()]?.note || "";
+  ecrireLocal("relecture.position", { tome: etat.tome, page: etat.page, doigt: etat.doigt });
+  dessiner(); majListe();
+}
+function aller(t, p){
+  if (t !== etat.tome) { etat.tome = t; remplirChapitres() }
+  etat.page = p; afficher();
+}
+function tourner(d){ aller(etat.tome, etat.page + d) }
+
+function dimensionner(){
+  const r = scene.getBoundingClientRect();
+  const base = Math.max(180, Math.min(r.width - 24, (r.height - 24) * 0.8));
+  const w = Math.round(base * etat.zoom), h = Math.round(w * 1.25);
+  page.style.width = w + "px"; page.style.height = h + "px";
+  const dpr = window.devicePixelRatio || 1;
+  let s = dpr; if (w * h * s * s > 12e6) s = Math.sqrt(12e6 / (w * h));
+  for (const c of [toile, encours]) { c.width = Math.round(w * s); c.height = Math.round(h * s) }
+  dessiner();
+}
+function zoomer(z, mx, my){
+  z = Math.min(3, Math.max(1, z));
+  if (Math.abs(z - etat.zoom) < .001) return;
+  const r = scene.getBoundingClientRect();
+  if (mx == null) { mx = r.width / 2; my = r.height / 2 }
+  const fx = (scene.scrollLeft + mx) / scene.scrollWidth, fy = (scene.scrollTop + my) / scene.scrollHeight;
+  etat.zoom = z; dimensionner();
+  scene.scrollLeft = fx * scene.scrollWidth - mx; scene.scrollTop = fy * scene.scrollHeight - my;
+}
+
+/* ---------- Traits ---------- */
+const decodes = new WeakMap();
+function points(t){
+  let P = decodes.get(t);
+  if (!P) { P = t.p ? t.p.split(" ").map(c => c.split(",").map(v => v / 10)) : []; decodes.set(t, P) }
+  return P;
+}
+function encoder(P){ return P.map(([x, y]) => Math.round(x * 10) + "," + Math.round(y * 10)).join(" ") }
+function tracer(c, P, couleur, largeur, surligne){
+  if (!P.length) return;
+  c.save(); c.strokeStyle = couleur; c.fillStyle = couleur; c.lineWidth = largeur;
+  c.lineJoin = "round"; c.lineCap = surligne ? "square" : "round";
+  if (P.length === 1) { c.beginPath(); c.arc(P[0][0], P[0][1], largeur / 2, 0, 7); c.fill(); c.restore(); return }
+  c.beginPath(); c.moveTo(P[0][0], P[0][1]);
+  for (let i = 1; i < P.length - 1; i++) {
+    const mx = (P[i][0] + P[i + 1][0]) / 2, my = (P[i][1] + P[i + 1][1]) / 2;
+    c.quadraticCurveTo(P[i][0], P[i][1], mx, my);
+  }
+  const d = P[P.length - 1]; c.lineTo(d[0], d[1]); c.stroke(); c.restore();
+}
+function couleurTrait(t){ return t.f ? (t.o === "h" ? "#D9F2DF" : "#7BBF92") : t.c }
+function dessiner(){
+  ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.clearRect(0, 0, toile.width, toile.height);
+  const s = toile.width / LARG; ctx.setTransform(s, 0, 0, s, 0, 0);
+  const d = docs[idCourant()], traits = d?.traits || [];
+  for (const t of traits) if (t.o === "h" && (!t.f || etat.voirFaits)) tracer(ctx, points(t), couleurTrait(t), t.w, true);
+  for (const t of traits) if (t.o !== "h" && (!t.f || etat.voirFaits)) tracer(ctx, points(t), couleurTrait(t), t.w, false);
+  const faits = traits.filter(t => t.f).length + (d?.note && d?.noteFaite ? 1 : 0);
+  $("#marque").hidden = !(faits && !aFaire(d));
+}
+function aFaire(d){ return !!d && (d.traits?.some(t => !t.f) || (!!d.note && !d.noteFaite)) }
+
+function docModifiable(){
+  const id = idCourant();
+  if (!docs[id]) docs[id] = { tome: etat.tome, page: etat.page, traits: [], note: "", noteFaite: false, maj: 0 };
+  else docs[id] = JSON.parse(JSON.stringify(docs[id]));
+  return docs[id];
+}
+function pile(id){ return historique[id] || (historique[id] = []) }
+
+/* ---------- Saisie : crayon, souris, doigts ---------- */
+let trace = null;                 // trait en cours
+const doigts = new Map();         // pointeurs tactiles actifs
+let geste = null, dernierCrayon = 0;
+
+function posPage(e){
+  const r = page.getBoundingClientRect();
+  return [(e.clientX - r.left) / r.width * LARG, (e.clientY - r.top) / r.height * HAUT];
+}
+function dessine(e){
+  if (etat.outil === "lire") return false;
+  if (e.pointerType === "pen" || e.pointerType === "mouse") return true;
+  return etat.doigt && doigts.size === 0;
+}
+scene.addEventListener("pointerdown", e => {
+  if (e.pointerType === "pen") dernierCrayon = Date.now();
+  if (e.pointerType === "touch" && (trace || Date.now() - dernierCrayon < 700)) return; // la paume pendant qu'on écrit
+  if (dessine(e) && !trace) {
+    const [x, y] = posPage(e);
+    if (x < 0 || y < 0 || x > LARG || y > HAUT) return;
+    e.preventDefault(); scene.setPointerCapture(e.pointerId);
+    trace = { id: e.pointerId, P: [[x, y]], gomme: etat.outil === "gomme", efface: [] };
+    if (trace.gomme) gommer(x, y); else dessinerEncours();
+    return;
+  }
+  if (e.pointerType === "mouse") return;
+  doigts.set(e.pointerId, { x: e.clientX, y: e.clientY, x0: e.clientX, y0: e.clientY, t0: Date.now() });
+  scene.setPointerCapture(e.pointerId);
+  debutGeste();
+});
+scene.addEventListener("pointermove", e => {
+  if (trace && e.pointerId === trace.id) {
+    if (e.pointerType === "pen") dernierCrayon = Date.now();
+    const evs = e.getCoalescedEvents ? e.getCoalescedEvents() : [e];
+    for (const ev of (evs.length ? evs : [e])) {
+      const [x, y] = posPage(ev);
+      if (trace.gomme) { gommer(x, y); continue }
+      const d = trace.P[trace.P.length - 1];
+      if (Math.hypot(x - d[0], y - d[1]) >= 0.9) trace.P.push([x, y]);
+    }
+    if (!trace.gomme) demanderEncours();
+    return;
+  }
+  const f = doigts.get(e.pointerId); if (!f) return;
+  const px = f.x, py = f.y; f.x = e.clientX; f.y = e.clientY;
+  if (doigts.size === 1 && etat.zoom > 1) { scene.scrollLeft -= f.x - px; scene.scrollTop -= f.y - py }
+  else if (doigts.size === 2 && geste) {
+    const [a, b] = [...doigts.values()];
+    const dist = Math.hypot(a.x - b.x, a.y - b.y), r = scene.getBoundingClientRect();
+    zoomer(geste.z0 * dist / geste.d0, (a.x + b.x) / 2 - r.left, (a.y + b.y) / 2 - r.top);
+  }
+});
+function finPointeur(e){
+  if (trace && e.pointerId === trace.id) { terminerTrait(e.type === "pointercancel"); return }
+  const f = doigts.get(e.pointerId); if (!f) return;
+  doigts.delete(e.pointerId);
+  if (doigts.size === 0 && geste && !geste.pince && etat.zoom <= 1.01 && e.type === "pointerup") {
+    const dx = f.x - f.x0, dy = f.y - f.y0;
+    if (Math.abs(dx) > 60 && Math.abs(dy) < Math.abs(dx) * 0.6 && Date.now() - f.t0 < 900) tourner(dx < 0 ? 1 : -1);
+  }
+  if (doigts.size === 0) geste = null; else debutGeste();
+}
+scene.addEventListener("pointerup", finPointeur);
+scene.addEventListener("pointercancel", finPointeur);
+function debutGeste(){
+  const v = [...doigts.values()];
+  if (v.length === 2) geste = { pince: true, z0: etat.zoom, d0: Math.max(10, Math.hypot(v[0].x - v[1].x, v[0].y - v[1].y)) };
+  else if (v.length === 1 && !geste) geste = { pince: false };
+}
+
+let rafEncours = 0;
+function demanderEncours(){ if (!rafEncours) rafEncours = requestAnimationFrame(() => { rafEncours = 0; dessinerEncours() }) }
+function dessinerEncours(){
+  ctx2.setTransform(1, 0, 0, 1, 0, 0); ctx2.clearRect(0, 0, encours.width, encours.height);
+  if (!trace || trace.gomme) return;
+  const s = encours.width / LARG; ctx2.setTransform(s, 0, 0, s, 0, 0);
+  tracer(ctx2, trace.P, COULEURS[etat.outil], LARGEURS[etat.outil], etat.outil === "surligneur");
+}
+function terminerTrait(annule){
+  const t = trace; trace = null;
+  ctx2.setTransform(1, 0, 0, 1, 0, 0); ctx2.clearRect(0, 0, encours.width, encours.height);
+  if (t.gomme) {
+    if (t.efface.length) { pile(idCourant()).push({ efface: t.efface }); marquer(idCourant()) }
+    return;
+  }
+  if (annule && t.P.length < 3) return;
+  const d = docModifiable();
+  const nouveau = { i: Math.random().toString(36).slice(2, 9), o: etat.outil === "surligneur" ? "h" : "s",
+    c: COULEURS[etat.outil], w: LARGEURS[etat.outil], p: encoder(t.P), e: EDITION };
+  d.traits.push(nouveau);
+  pile(idCourant()).push({ ajout: nouveau.i });
+  marquer(idCourant()); dessiner();
+}
+function distSeg(p, a, b){
+  const dx = b[0] - a[0], dy = b[1] - a[1], l = dx * dx + dy * dy;
+  let u = l ? ((p[0] - a[0]) * dx + (p[1] - a[1]) * dy) / l : 0; u = Math.max(0, Math.min(1, u));
+  return Math.hypot(p[0] - a[0] - u * dx, p[1] - a[1] - u * dy);
+}
+function gommer(x, y){
+  const d = docs[idCourant()]; if (!d?.traits?.length) return;
+  const touches = d.traits.filter(t => {
+    if (t.f && !etat.voirFaits) return false;
+    const P = points(t), r = 9 + t.w / 2;
+    if (P.length === 1) return Math.hypot(P[0][0] - x, P[0][1] - y) < r;
+    for (let i = 1; i < P.length; i++) if (distSeg([x, y], P[i - 1], P[i]) < r) return true;
+    return false;
+  });
+  if (!touches.length) return;
+  const m = docModifiable(), ids = new Set(touches.map(t => t.i));
+  trace.efface.push(...m.traits.filter(t => ids.has(t.i)));
+  m.traits = m.traits.filter(t => !ids.has(t.i));
+  dessiner();
+}
+function annuler(){
+  const id = idCourant(), p = historique[id]; if (!p?.length) return;
+  const a = p.pop(), d = docModifiable();
+  if (a.ajout) d.traits = d.traits.filter(t => t.i !== a.ajout);
+  if (a.efface) d.traits.push(...a.efface);
+  marquer(id); dessiner();
+}
+
+/* ---------- Sauvegarde ---------- */
+const minuteries = {}, chaines = {};
+function statut(txt, erreur){ const s = $("#statut"); s.textContent = txt; s.classList.toggle("erreur", !!erreur) }
+function brouillons(){ return lire("relecture.brouillons", {}) }
+function marquer(id, delai = 700){
+  docs[id].maj = Date.now(); enAttente.add(id);
+  const b = brouillons(); b[id] = docs[id]; ecrireLocal("relecture.brouillons", b);
+  clearTimeout(minuteries[id]); minuteries[id] = setTimeout(() => pousser(id), delai);
+  statut(db ? "Enregistrement…" : "Gardé sur cette tablette"); majListe();
+}
+function vide(d){ return !d.traits.length && !(d.note || "").trim() }
+function pousser(id){
+  chaines[id] = (chaines[id] || Promise.resolve()).then(async () => {
+    if (!db) { statut("Sur cette tablette seulement", true); return }
+    const d = docs[id]; if (!d) return;
+    const corps = JSON.parse(JSON.stringify(d));
+    const ecrire = () => vide(corps) ? db.collection("annotations").doc(id).delete() : db.collection("annotations").doc(id).set(corps);
+    try {
+      try { await ecrire() } catch (e) { if (e?.code === "unavailable") { await new Promise(r => setTimeout(r, 1500)); await ecrire() } else throw e }
+      if (docs[id]?.maj === corps.maj) {
+        enAttente.delete(id);
+        const b = brouillons(); delete b[id]; ecrireLocal("relecture.brouillons", b);
+        if (vide(corps)) delete docs[id];
+      }
+      if (!enAttente.size) statut("Enregistré");
+    } catch (e) {
+      const m = { quota_exceeded: "Plus de place pour les notes.", invalid_argument: "Cette note n'a pas pu s'enregistrer (lecture seule ?)." };
+      statut(m[e?.code] || "Pas enregistré : gardé sur cette tablette, réessai plus tard.", true);
+    }
+  });
+}
+
+/* ---------- Mes notes ---------- */
+function majListe(){
+  const tous = Object.values(docs).filter(d => d.traits?.length || (d.note || "").trim());
+  const nAFaire = tous.filter(aFaire).length;
+  const nb = $("#nb"); nb.hidden = !nAFaire; nb.textContent = nAFaire;
+  $("#phrase-tome").textContent = `« applique mes notes du tome ${etat.tome} »`;
+  if ($("#tiroir").hidden) return;
+  const l = $("#liste"); l.innerHTML = "";
+  const choix = tous.filter(d => etat.filtre === "tous" || d.tome === etat.tome)
+    .sort((a, b) => a.tome - b.tome || a.page - b.page);
+  if (!choix.length) {
+    const p = document.createElement("div"); p.className = "vide-liste";
+    p.textContent = etat.filtre === "tous"
+      ? "Aucune note encore. Écris sur une page avec le crayon : elle apparaît ici."
+      : `Aucune note dans le tome ${etat.tome}. Écris sur une page avec le crayon : elle apparaît ici.`;
+    l.append(p); return;
+  }
+  for (const d of choix) {
+    const b = document.createElement("button"); b.className = "entree";
+    const c = chapitreDe(d.tome, d.page);
+    const ouv = document.createElement("span"); ouv.className = "ou"; ouv.textContent = `T${d.tome} · p. ${d.page}`;
+    const ch = document.createElement("span"); ch.className = "ch"; ch.textContent = c ? `ch. ${c[2]} · ${c[3]}` : "";
+    const pu = document.createElement("span"); const af = aFaire(d);
+    pu.className = "puce " + (af ? "afaire" : "fait"); pu.textContent = af ? "À faire" : "Appliqué";
+    b.append(ouv, ch, pu);
+    const n = d.traits.filter(t => !t.f).length, note = (d.note || "").trim();
+    const ex = document.createElement("span"); ex.className = "extrait";
+    ex.textContent = (note ? "« " + note.replace(/\s+/g, " ") + " »" : "") + (n ? (note ? " · " : "") + n + (n > 1 ? " traits" : " trait") : "");
+    if (ex.textContent) b.append(ex);
+    b.addEventListener("click", () => { aller(d.tome, d.page); if (innerWidth < 900) fermerTiroir() });
+    l.append(b);
+  }
+}
+function ouvrirTiroir(){ $("#tiroir").hidden = false; $("#voile").hidden = innerWidth >= 900; $("#btn-notes").setAttribute("aria-expanded", "true"); majListe() }
+function fermerTiroir(){ $("#tiroir").hidden = true; $("#voile").hidden = true; $("#btn-notes").setAttribute("aria-expanded", "false") }
+
+/* ---------- Branchements ---------- */
+$("#tome").addEventListener("change", e => aller(+e.target.value, 1));
+$("#chapitre").addEventListener("change", e => { if (e.target.value) aller(etat.tome, +e.target.value) });
+$("#prec").addEventListener("click", () => tourner(-1));
+$("#suiv").addEventListener("click", () => tourner(1));
+$("#numero").addEventListener("change", e => { const v = parseInt(e.target.value, 10); if (v) aller(etat.tome, v); else afficher() });
+$("#numero").addEventListener("keydown", e => { if (e.key === "Enter") e.target.blur() });
+for (const b of document.querySelectorAll("[data-outil]")) b.addEventListener("click", () => {
+  etat.outil = b.dataset.outil;
+  for (const x of document.querySelectorAll("[data-outil]")) x.setAttribute("aria-pressed", x === b ? "true" : "false");
+});
+$("#annuler").addEventListener("click", annuler);
+$("#moins").addEventListener("click", () => zoomer(etat.zoom <= 1.5 ? 1 : etat.zoom - 0.5));
+$("#plus").addEventListener("click", () => zoomer(etat.zoom + 0.5));
+$("#btn-note").addEventListener("click", () => {
+  const f = $("#feuillet"); f.hidden = !f.hidden; $("#btn-note").setAttribute("aria-expanded", String(!f.hidden));
+  if (!f.hidden) $("#note").focus();
+});
+$("#fermer-note").addEventListener("click", () => { $("#feuillet").hidden = true; $("#btn-note").setAttribute("aria-expanded", "false") });
+$("#note").addEventListener("input", e => {
+  const d = docModifiable(); d.note = e.target.value; d.noteFaite = false; marquer(idCourant(), 1200);
+});
+$("#btn-notes").addEventListener("click", () => $("#tiroir").hidden ? ouvrirTiroir() : fermerTiroir());
+$("#fermer-tiroir").addEventListener("click", fermerTiroir);
+$("#voile").addEventListener("click", fermerTiroir);
+for (const b of document.querySelectorAll("[data-filtre]")) b.addEventListener("click", () => {
+  etat.filtre = b.dataset.filtre;
+  for (const x of document.querySelectorAll("[data-filtre]")) x.setAttribute("aria-pressed", x === b ? "true" : "false");
+  majListe();
+});
+$("#voir-faits").addEventListener("change", e => { etat.voirFaits = e.target.checked; dessiner() });
+$("#doigt").checked = etat.doigt;
+$("#doigt").addEventListener("change", e => { etat.doigt = e.target.checked; ecrireLocal("relecture.position", { tome: etat.tome, page: etat.page, doigt: etat.doigt }) });
+document.addEventListener("keydown", e => {
+  if (e.target.matches("input,textarea,select")) return;
+  if (e.key === "ArrowRight" || e.key === "PageDown") tourner(1);
+  if (e.key === "ArrowLeft" || e.key === "PageUp") tourner(-1);
+  if ((e.metaKey || e.ctrlKey) && e.key === "z") { e.preventDefault(); annuler() }
+});
+new ResizeObserver(() => dimensionner()).observe(scene);
+
+/* ---------- Démarrage ---------- */
+remplirTomes(); remplirChapitres();
+for (const [id, d] of Object.entries(brouillons())) { docs[id] = d; enAttente.add(id) }
+afficher(); dimensionner();
+statut("Connexion…");
+(async () => {
+  try { db = window.claude?.use ? await window.claude.use("db") : null } catch { db = null }
+  if (!db) { statut("Pas de connexion : les notes restent sur cette tablette", true); return }
+  db.collection("annotations").onSnapshot(snap => {
+    for (const ch of snap.docChanges()) {
+      const id = ch.doc.id;
+      if (enAttente.has(id)) continue;
+      if (ch.type === "removed") delete docs[id];
+      else docs[id] = JSON.parse(JSON.stringify(ch.doc.data()));
+    }
+    if (!dbPret) {
+      dbPret = true;
+      for (const id of enAttente) pousser(id);
+      if (!enAttente.size) statut("Enregistré");
+    }
+    if (!trace) { dessiner(); if (document.activeElement !== $("#note")) $("#note").value = docs[idCourant()]?.note || "" }
+    majListe();
+  }, () => statut("Connexion perdue : les notes restent sur cette tablette", true));
+})();
+</script>

@@ -215,8 +215,22 @@ module.exports = (h) => {
             // le chapeau rabattu, par-dessus le contour
             `<path d="${dd(rab, true)}" fill="${BLANC}" stroke="none"/>`,
             `<path d="${dd(rab, true)}" fill="url(#${id}-chapeau)" stroke="${NOIR}" stroke-width="1.4" stroke-linejoin="round"/>`,
-            // le couteau
-            `<path d="${dd(L(COUTEAU_CHAPEAU), false)}" ${trait(1.4, POINTILLE)} marker-end="url(#fl)"/>`,
+            // le couteau. La charte : le chemin du couteau sur le chapeau est le geste de la vue, en
+            // rouge, à côté de la couture (qui reste en pointillé), sur un liseré blanc
+            `<path d="${dd(L(COUTEAU_CHAPEAU), false)}" ${trait(1.4, POINTILLE)}/>`,
+            (() => {
+              const c = p.T([1370, 590]), q = L(COUTEAU_CHAPEAU), n = q.length;
+              const dec = q.map((r, i) => {
+                const t = unit(q[Math.max(0, i - 1)], q[Math.min(n - 1, i + 1)]);
+                let nx = -t[1], ny = t[0];
+                if ((c[0] - r[0]) * nx + (c[1] - r[1]) * ny < 0) { nx = -nx; ny = -ny; }
+                return [r[0] + nx * 6, r[1] + ny * 6];
+              });
+              const long = [0];
+              for (let i = 1; i < n; i++) long.push(long[i - 1] + Math.hypot(dec[i][0] - dec[i - 1][0], dec[i][1] - dec[i - 1][1]));
+              const fl = dec.filter((r, i) => long[i] > 6 && long[i] < long[n - 1] - 8);
+              return `<path d="${dd(fl)}" fill="none" stroke="${BLANC}" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>\n` + h.geste(dd(fl));
+            })(),
             `<path d="${dd(L(COUTEAU_MOU), false)}" ${trait(1.4, POINTILLE)} marker-end="url(#fl)"/>`,
             `<path d="${dd(L(LEVER), false)}" ${trait(1.4)} marker-end="url(#fl)"/>`,
             f.fin,

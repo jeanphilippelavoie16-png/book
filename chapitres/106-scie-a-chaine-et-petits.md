@@ -454,7 +454,7 @@ remonte en scie à cadre. Deux montants de bois franc de la longueur de l'avant-
 traverse encochée à mi-hauteur entre les deux, la lame goupillée avec deux clous en travers
 des extrémités basses des montants, et une **corde en plusieurs tours** passée au-dessus de la
 traverse, entre les têtes des montants. Un bâton glissé dans les tours, qu'on tourne : chaque
-tour raccourcit la corde, écarte les têtes, et les pieds des montants se rapprochent en tendant
+tour raccourcit la corde, rapproche les têtes, et les pieds des montants s'écartent en tendant
 la lame. Le bâton se bloque contre la traverse. Une lame tendue coupe droit et ne flambe pas ;
 une lame molle serpente et chauffe. Le bouleau à papier (*Betula papyrifera*) fait le cadre, la
 babiche ou le cordage font le tourniquet (ch. 103, ch. 109).

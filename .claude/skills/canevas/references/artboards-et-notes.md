@@ -8,7 +8,7 @@ Référence. À lire avant le premier montage, puis en cas de doute.
 {
   "v": 3,
   "createdOnFiles": { "v": 1, "at": "2026-09-23T12:00:00Z" },
-  "title": "Planches — Le Grand Livre du Chalet",
+  "title": "Planches — Le Manuel du Nord",
   "launch": { "view": "canvas" },
   "pages": [{ "id": "tome1", "name": "Tome 1 — Tenir" }],
   "boards": {

@@ -1,0 +1,32 @@
+{'id': 'e74bea9a-4fce-4452-96e4-3e48f4eaab1d', 'kudos': 14.0}
+2 284 163 False
+17 275 159 False
+33 265 153 False
+48 235 142 False
+63 224 138 False
+79 208 131 False
+95 187 122 False
+110 185 118 False
+126 165 111 False
+142 145 103 False
+157 133 99 False
+173 110 86 False
+189 99 80 False
+204 86 74 False
+219 73 66 False
+235 64 61 False
+250 65 57 False
+266 54 49 False
+281 51 46 False
+296 46 41 False
+312 40 31 False
+327 56 28 False
+343 40 20 False
+358 27 13 False
+374 23 10 False
+389 20 7 False
+404 4 0 False
+420 0 0 True
+ok t4-jugg-i2i-sechoir-75 0 Juggernaut XL
+ok t4-jugg-i2i-sechoir-75 1 Juggernaut XL
+FIN

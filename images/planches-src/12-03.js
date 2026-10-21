@@ -9,7 +9,7 @@
 // le sapinage du milieu vers chaque porte, le rond de neige nue, l'entrée d'air basse au vent.
 // Cotes : seulement celles du chapitre, en mm (≥ 1000 de neige, Ø ≥ 80, 75 à 80°, 300–400
 // entre les perches, portée sur la vue de dessus). Le reste des proportions est dessiné, pas coté.
-// Passe qualité (28 sept.) : cotes en mm avec rappels et flèches, personnage de face, pieux
+// Passe qualité (28 sept.) : cotes en mm avec rappels et flèches, personnage de profil (13 oct.), pieux
 // distincts des perches, la ligature en tours de corde, la porte montée sur la vue de dessus.
 
 module.exports = (h) => {
@@ -65,7 +65,7 @@ module.exports = (h) => {
   };
 
   // ─── La charpente, en mètres ; y vers le haut, 0 au plancher foulé.
-  const b = 1.5, OEIL = 1.6, RP = 0.05, RB = 0.075, YB = 2.6, A78 = rad(78);
+  const b = 1.5, OEIL = 1.7, RP = 0.05, RB = 0.075, YB = 2.6, A78 = rad(78);
   const u1 = [Math.cos(A78), Math.sin(A78)], n1 = [-u1[1], u1[0]];      // n1 : vers le dehors (gauche)
   const C = [-b + OEIL / Math.tan(A78), OEIL];                           // cassure de la perche de gauche
   const PB = [-RB, YB];                                                  // épinette gauche de la poutre
@@ -168,7 +168,7 @@ module.exports = (h) => {
   return {
     ref: '12-03',
     titre: 'Le shaputuan',
-    desc: 'En travers : des épinettes plantées tout autour de l’aire foulée, penchées vers l’intérieur à 75 ou 80°, cassées à la hauteur des yeux et appuyées sur une poutre faite de deux épinettes liées, posée dans une épinette fourchue en Y ; la toile des côtés fixée aux perches, la neige pelletée contre elle jusqu’aux cassures, la toile du dessus passée par-dessus la poutre et tenue par une épinette couchée de chaque côté ; au moins 1000 mm de neige sous l’aire ; un adulte debout de face sur les peaux, les yeux à la hauteur des cassures. La cassure : on entaille la perche, on la casse vers la poutre en gardant des fibres entre les deux parties, on la lie au point de contact par trois tours de corde qui passent par-dessus la perche et sous les deux billes de la poutre, et on coupe l’excédent ; perches de Ø 80 mm au moins. En long : trois fourches dans l’axe, les épinettes des bouts liées en haut, des pieux courts plantés en dedans contre la toile entre les perches, un poêle sur quatre pieux près de chaque porte, son tuyau qui traverse la toile du dessus dans sa collerette et sort plus haut que le faîte. Vue de dessus : l’ellipse, les perches espacées de 300 à 400 mm, une porte à chaque bout, une allée au milieu, les peaux de chaque côté, le sapinage posé du milieu vers chaque porte, un rond de neige nue autour de chaque poêle, une entrée d’air basse près de chaque poêle, du côté du vent, jamais renchaussée.',
+    desc: 'En travers : des épinettes plantées tout autour de l’aire foulée, penchées vers l’intérieur à 75 ou 80°, cassées à la hauteur des yeux et appuyées sur une poutre faite de deux épinettes liées, posée dans une épinette fourchue en Y ; la toile des côtés fixée aux perches, la neige pelletée contre elle jusqu’aux cassures, la toile du dessus passée par-dessus la poutre et tenue par une épinette couchée de chaque côté ; au moins 1000 mm de neige sous l’aire ; une adulte debout de profil sur les peaux, les yeux à la hauteur des cassures. La cassure : on entaille la perche, on la casse vers la poutre en gardant des fibres entre les deux parties, on la lie au point de contact par trois tours de corde qui passent par-dessus la perche et sous les deux billes de la poutre, et on coupe l’excédent ; perches de Ø 80 mm au moins. En long : trois fourches dans l’axe, les épinettes des bouts liées en haut, des pieux courts plantés en dedans contre la toile entre les perches, un poêle sur quatre pieux près de chaque porte, son tuyau qui traverse la toile du dessus dans sa collerette et sort plus haut que le faîte. Vue de dessus : l’ellipse, les perches espacées de 300 à 400 mm, une porte à chaque bout, une allée au milieu, les peaux de chaque côté, le sapinage posé du milieu vers chaque porte, un rond de neige nue autour de chaque poêle, une entrée d’air basse près de chaque poêle, du côté du vent, jamais renchaussée.',
     format: 'pleine',
     disposition: [['travers', 'cassure'], ['long'], ['dessus']],
     hauteurs: [1.35, 0.78, 1.0],
@@ -206,30 +206,14 @@ module.exports = (h) => {
           out.push(poly(T, [...td, ...td.slice(0, -1).reverse().map(mir)], h.a.contour, false));
           // les épinettes couchées qui tiennent la toile du dessus
           for (const sg of [-1, 1]) out.push(h.cercle(...T([sg * 1.33, OEIL + 0.085]), 0.07 * s, h.a.hachure('bois', 'arete')));
-          // un adulte debout sur les peaux, de face : ses yeux à la hauteur des cassures. Tête d'un
-          // septième de la taille, épaules de deux têtes, bras le long du corps, jambes séparées.
-          const X = 0.72, Y0 = 0.165, Pm = p => T([X + p[0], Y0 + p[1]]), mr = p => [-p[0], p[1]];
-          const bras = [[0.04, 1.37], [0.046, 1.3], [0.12, 1.272], [0.19, 1.25], [0.226, 1.205], [0.245, 1.1], [0.252, 0.97],
-            [0.266, 0.85], [0.27, 0.75], [0.284, 0.67], [0.278, 0.605], [0.255, 0.582], [0.235, 0.595], [0.226, 0.64],
-            [0.222, 0.7], [0.214, 0.75], [0.2, 0.86], [0.178, 0.97], [0.162, 1.07], [0.152, 1.13]];
-          const flanc = [[0.152, 1.13], [0.147, 1.06], [0.128, 0.96], [0.152, 0.85], [0.158, 0.77], [0.14, 0.6], [0.118, 0.44],
-            [0.112, 0.32], [0.085, 0.1], [0.08, 0.06], [0.1, 0.035], [0.108, 0.01], [0.09, 0], [0.035, 0], [0.03, 0.02],
-            [0.038, 0.07], [0.044, 0.2], [0.046, 0.32], [0.04, 0.44], [0.036, 0.6], [0.018, 0.715], [0, 0.735]];
-          const vv = pts => pts.map(Pm);
-          const corps = `M ${f(Pm(bras[0])[0])} ${f(Pm(bras[0])[1])}` + lisse(vv(bras)) + lisse(vv(flanc))
-            + lisse(vv(flanc.map(mr).reverse())) + lisse(vv(bras.map(mr).reverse())) + ' Z';
-          out.push(h.path(corps, blanc(h.a.arete)));
-          const tete = [[0, 1.545], [0.052, 1.532], [0.076, 1.49], [0.078, 1.435], [0.07, 1.378], [0.048, 1.338], [0, 1.325]];
-          const tt = [...tete, ...tete.slice(1, -1).map(mr).reverse(), tete[0]];
-          const ttv = vv([tt[tt.length - 2], ...tt, tt[1]]);
-          let dT = `M ${f(ttv[1][0])} ${f(ttv[1][1])}`;
-          for (let i = 1; i < ttv.length - 2; i++) {
-            const p0 = ttv[i - 1], p1 = ttv[i], p2 = ttv[i + 1], p3 = ttv[i + 2];
-            dT += ` C ${f(p1[0] + (p2[0] - p0[0]) / 6)} ${f(p1[1] + (p2[1] - p0[1]) / 6)} ${f(p2[0] - (p3[0] - p1[0]) / 6)} ${f(p2[1] - (p3[1] - p1[1]) / 6)} ${f(p2[0])} ${f(p2[1])}`;
-          }
-          out.push(h.path(dT + ' Z', blanc(h.a.arete)));
-          // la hauteur des yeux (mi-hauteur de la tête), reportée jusqu'à la cassure
-          out.push(h.chemin([Pm([0.095, OEIL - Y0]), T([1.1, OEIL])], rappel));
+          // une adulte debout sur les peaux, de profil (le corps simple, 1630 mm, à l'échelle de la vue),
+          // tournée vers la perche de droite : ses yeux à la hauteur des cassures. La cassure se fait à la
+          // hauteur des yeux de qui bâtit : OEIL = 0,165 (les peaux) + 1,54 (ses yeux) ≈ 1,7 m.
+          const Y0 = 0.165, [xP, yP] = T([0.72, Y0]);
+          const pers = h.formes.corps({ pose: 'debout', age: 'femme', x: xP, y: yP, echelle: s / 1000 });
+          out.push(pers.toString());
+          // la hauteur des yeux, reportée jusqu'à la cassure
+          out.push(h.chemin([[pers.tete.x + 0.09 * s, T([0, OEIL])[1]], T([1.1, OEIL])], rappel));
           // la cote d'angle, au pied de la perche de gauche
           const V = T([-b, 0]), ra = 0.55 * s, a1 = T(add([-b, 0], u1, 0.55));
           out.push(h.path(`M ${f(V[0] + ra)} ${f(V[1])} A ${f(ra)} ${f(ra)} 0 0 0 ${f(a1[0])} ${f(a1[1])}`, h.a.detail));
@@ -248,7 +232,7 @@ module.exports = (h) => {
             R(1, [-0.83, 1.32], [-1.2, 1.1], 'perche plantée, penchée'),
             R(2, [-0.62, 1.78], [-0.06, 1.55], 'fourche en Y'),
             R(3, [-0.34, 2.2], [-0.14, 2.61], 'poutre de deux épinettes'),
-            R(4, [2.05, 1.18], [1.19, 1.6], 'cassée à hauteur des yeux'),
+            R(4, [2.05, 1.18], [1.17, OEIL], 'cassée à hauteur des yeux'),
             R(5, [-2.15, 1.58], [-1.87, 1.07], 'neige pelletée aux cassures'),
             R(6, [1.95, 2.18], [1.38, 1.73], 'épinette couchée sur la toile'),
           ];
@@ -279,8 +263,8 @@ module.exports = (h) => {
             out.push(poly(Dc, [p0, p1, p2], h.a.fin, false));
           }
           // le geste : on casse vers la poutre
-          const rg = 0.17, g0 = Dc(add(C, u1, rg)), g1 = Dc(add(C, [Math.cos(rad(61)), Math.sin(rad(61))], rg));
-          out.push(h.fleche(`M ${f(g0[0])} ${f(g0[1])} A ${f(rg * s)} ${f(rg * s)} 0 0 1 ${f(g1[0])} ${f(g1[1])}`));
+          const rg = 0.26, g0 = Dc(add(C, [Math.cos(rad(98)), Math.sin(rad(98))], rg)), g1 = Dc(add(C, [Math.cos(rad(63)), Math.sin(rad(63))], rg));
+          out.push(h.geste(`M ${f(g0[0])} ${f(g0[1])} A ${f(rg * s)} ${f(rg * s)} 0 0 1 ${f(g1[0])} ${f(g1[1])}`));
           // le diamètre, sur le tronçon du bas : les rappels prolongent les deux bords sous la cassure
           const r0 = Lb + 0.012, r1 = Lb + 0.13, rk = Lb + 0.105;
           out.push(traitRappel(Dc(add(Co, u1, -r0)), Dc(add(Co, u1, -r1))), traitRappel(Dc(add(Ci, u1, -r0)), Dc(add(Ci, u1, -r1))));

@@ -7,6 +7,10 @@
 //   x : de l'arrière de la tranchée (0) vers le feu ; le mur de billes s'appuie à x = 380
 //   coupe : y vers le haut, sol à 0, dessus de la neige à 100
 //   plan  : y le long du feu, la tranchée de 0 à 300 (plus large que longue)
+//
+// La charte : en coupe, le bout de la tranchée, vu par la coupe, en gris loin : les sacs, les
+// billes et le plancher restent blancs devant. Le plan reste sans gris. Pas de rouge : aucun geste
+// ni point à contrôler (les flèches de chaleur restent noires).
 
 const ECH = 1.1;   // px par cm de modèle, commun à la coupe et au plan
 
@@ -119,6 +123,8 @@ module.exports = (h) => {
             // le fond de la tranchée taillé en pente : les billes s'y couchent au lieu de rouler au feu
             h.chemin([[X(380), Y(0)], [X(440), Y(0)], [X(440), Y(100)], [X(394), Y(100)]],
               h.a.hachure('neige', 'aucun'), true),
+            // le bout de la tranchée, la neige d'en face, vu par la coupe
+            h.chemin([[X(0), Y(0)], [X(380), Y(0)], [X(394), Y(100)], [X(0), Y(100)]], h.a.loin, true),
           ];
           // le plancher de branches, posé de l'avant vers l'arrière
           for (let xb = 190; xb >= 0; xb -= 19) {

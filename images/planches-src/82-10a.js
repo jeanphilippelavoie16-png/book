@@ -6,6 +6,11 @@
 //
 // Chaque vue a son repère de modèle (unités arbitraires, jamais imprimées), mis à l'échelle
 // par cadre() pour remplir la vue en gardant les proportions.
+//
+// La charte : de côté, le dessous de la tôle roulée et le dessous des bouts de bille à l'ombre ;
+// la clé en coupe, l'intérieur du tuyau en gris loin. Le rouge : le coup de marteau qui rabat le
+// joint (deux vues), et le jour entre le disque et la paroi, le point qui décide du tirage. La
+// fumée reste noire.
 
 module.exports = (h) => {
   const f = v => +v.toFixed(1);
@@ -42,17 +47,25 @@ module.exports = (h) => {
     // le sol
     o.push(g.R(0, 185, 600, 11, h.a.hachure('terre', 'aucun')), g.L(0, 185, 600, 185, h.a.arete));
     // la bille de côté, coupée à la scie aux deux bouts
-    o.push(g.P(g.D(['M', 12, cy - r], ['L', 390, cy - r], ['L', 393, cy - 20], ['L', 390, cy + r],
-      ['L', 12, cy + r], ['L', 9, cy + 15], ['Z']), W('arete')));
+    const dBille = g.D(['M', 12, cy - r], ['L', 390, cy - r], ['L', 393, cy - 20], ['L', 390, cy + r],
+      ['L', 12, cy + r], ['L', 9, cy + 15], ['Z']);
+    o.push(g.P(dBille, h.a.blanc));
+    // le dessous des deux bouts de bille, à l'ombre
+    o.push(g.P(g.D(['M', 11, cy + 46], ['L', 60, cy + 46], ['L', 60, cy + r], ['L', 12, cy + r], ['Z']), h.a.ombre));
+    o.push(g.P(g.D(['M', 330, cy + 46], ['L', 390.6, cy + 46], ['L', 390, cy + r], ['L', 330, cy + r], ['Z']), h.a.ombre));
+    o.push(g.P(dBille, h.a.arete));
     [[16, 70, 44], [22, 96, 50], [14, 150, 40], [26, 168, 52], [336, 72, 384], [344, 100, 380],
       [334, 142, 378], [348, 166, 386]].forEach(([x1, y, x2]) => o.push(g.L(x1, y, x2, y, h.a.fin)));
     // la tôle roulée dessus, et le joint agrafé sur toute la longueur, en haut
-    o.push(g.R(60, cy - r - 3, 270, 2 * r + 6, W('contour')));
+    o.push(g.R(60, cy - r - 3, 270, 2 * r + 6, h.a.blanc));
+    o.push(g.R(60, cy + r - 16, 270, 19, h.a.ombre));   // le dessous de la tôle roulée, à l'ombre
+    o.push(g.R(60, cy - r - 3, 270, 2 * r + 6, h.a.contour));
+    [cy + r - 14, cy + r - 8, cy + r - 3].forEach(y => o.push(g.L(64, y, 326, y, h.a.fin)));
     o.push(g.R(60, cy - r - 10, 270, 7, W('arete')), g.L(60, cy - r - 6.5, 330, cy - r - 6.5, h.a.fin));
     // le marteau qui rabat le joint
     o.push(g.P(g.D(['M', 214, 11], ['L', 322, 3], ['L', 324, 11], ['L', 214, 20], ['Z']), W('arete')));
     o.push(g.R(186, 2, 28, 28, W('arete')));
-    o.push(g.F(g.D(['M', 176, 6], ['L', 176, 40])));
+    o.push(h.geste(g.D(['M', 176, 6], ['L', 176, 40])));
     // du bout : les cernes, la tôle autour, le joint en haut
     const bx = 515;
     o.push(g.C(bx, cy, r, W('arete')));
@@ -94,11 +107,13 @@ module.exports = (h) => {
       return r;
     };
     ox = 300;
-    o.push(g.R(ox + 4, bas + 2, 142, 34, h.a.hachure('bois', 'arete')));
+    // le dessus de la bille en coupe : grand arc bombé, cernes fins, sans hachure
+    o.push(g.P(g.D(['M', ox + 4, 116], ['L', ox + 4, bas + 7], ['Q', ox + 75, bas - 3, ox + 146, bas + 7], ['L', ox + 146, 116]), W('arete')));
+    [9, 18, 27].forEach(d => o.push(g.P(g.D(['M', ox + 4 + d, bas + 7 + d], ['Q', ox + 75, bas - 3 + d, ox + 146 - d, bas + 7 + d]), h.a.fin)));
     o.push(...rabattu(ox));
     o.push(g.P(g.D(['M', ox + 92, 22], ['L', ox + 136, 18], ['L', ox + 137, 25], ['L', ox + 92, 29], ['Z']), W('arete')));
     o.push(g.R(ox + 64, 12, 28, 30, W('arete')));
-    o.push(g.F(g.D(['M', ox + 54, 10], ['L', ox + 54, 44])));
+    o.push(h.geste(g.D(['M', ox + 54, 10], ['L', ox + 54, 44])));
 
     // 4. river, la bille sortie : le rivet traverse les quatre épaisseurs
     ox = 450;
@@ -115,6 +130,8 @@ module.exports = (h) => {
   const cx = 120, R = 80, jeu = 12, yd = 150;
   const cle = z => {
     const g = cadre(z, ...MC), o = [];
+    // l'intérieur du tuyau, vu par la coupe
+    o.push(g.R(cx - R, 6, 2 * R, 288, h.a.loin));
     // la fumée monte, se partage au disque et passe par le tour
     [1, -1].forEach(k => {
       const a = cx - k * 20, b = cx - k * (R - jeu / 2);
@@ -128,6 +145,8 @@ module.exports = (h) => {
     o.push(g.P(g.D(['M', cx - 6, yd + 1.5], ['C', cx - 7, yd - 14, cx + 7, yd - 14, cx + 6, yd + 1.5]), h.a.contour));
     // ouvert : le même disque tourné sur la tige, de chant
     o.push(g.R(cx + 1, yd - 4 - (R - jeu), 3, 2 * (R - jeu), h.a.cache));
+    // le point qui décide : le jour entre le disque et la paroi
+    o.push(g.C(cx - R + jeu / 2, yd + 1.5, 15, h.a.controle));
     return o.join('\n');
   };
 
@@ -189,7 +208,7 @@ module.exports = (h) => {
           return [
             { n: 3, rond: g.p(20, 22), cible: g.p(48, 53), texte: 'un crochet plié dessus, l’autre dessous' },
             { n: 4, rond: g.p(172, 22), cible: g.p(222, 58), texte: 'la tôle roulée, les crochets accrochés' },
-            { n: 5, rond: g.p(290, 100), cible: g.p(330, 94), texte: 'rabattus à plat au marteau, sur la bille' },
+            { n: 5, rond: g.p(290, 100), cible: g.p(382, 67), texte: 'rabattus à plat au marteau, sur la bille' },
             { n: 6, rond: g.p(582, 30), cible: g.p(532, 55), texte: 'rivet ou vis, la bille sortie' },
           ];
         },

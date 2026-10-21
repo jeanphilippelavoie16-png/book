@@ -24,7 +24,7 @@ const S = {
   required: ['chapitres'],
 }
 
-const P = (g) => `Tu travailles sur « Le Grand Livre du Chalet », un manuel de survie pour une famille de la Côte-Nord. Projet : C:\\Users\\jeanp\\New folder. **CLAUDE.md est dans ton contexte et prime sur tout.**
+const P = (g) => `Tu travailles sur « Le Manuel du Nord », un manuel de survie pour une famille de la Côte-Nord. Projet : C:\\Users\\jeanp\\New folder. **CLAUDE.md est dans ton contexte et prime sur tout.**
 
 **JP a tranché : aucun service qui répond, dans tout le livre.** Les numéros de téléphone sont déjà partis. Il reste à couper tout service qu'on attend ou qu'on consulte : les sites (Info-pannes, Québec 511, la carte de la SOPFEU, Urgence Québec), « joindre la santé publique », « signaler aux autorités », « c'est le pharmacien qui tranche », « attendre les pompiers », et tout ce qui suppose que quelqu'un de l'extérieur répond, vient ou décide. **Hydro-Québec reste** quand c'est un fait sur le réseau ou la panne (« le réseau d'Hydro-Québec », « le camion qui ne viendra pas ») et saute quand c'est un service à joindre.
 

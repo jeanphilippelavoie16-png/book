@@ -2,679 +2,561 @@
 
 *Tome 1 — Tenir*
 
----
-
 **Maison**
+
+---
 
 ## 1. En une ligne
 
-Convertir la fenêtre d'avertissement — habituellement de 6 à 24 heures avant l'événement
-— en trois à sept jours d'autonomie
-supplémentaire, en dépensant l'électricité, l'aqueduc et le carburant de la maison pendant
-qu'ils existent encore.
+Se servir du temps entre l'alerte et l'événement, habituellement 6 à 24 heures, pour ajouter trois à sept jours
+d'autonomie à la maison : faire des réserves d'eau, remplir le congélateur et les réservoirs, tout charger, préparer
+la génératrice, et décider tout de suite si on monte au chalet.
 
 ---
 
 ## 2. Quand l'utiliser
 
-### C'est le bon choix
-
-- Un **avertissement** d'ECCC vient de sortir pour le secteur : tempête hivernale, pluie
- verglaçante, vents violents, blizzard. L'avertissement veut dire «agissez maintenant ».
-- Une **veille** est en vigueur : les conditions sont favorables au temps violent, sans
- certitude. C'est le moment de faire les gestes réversibles — remplir, charger, rentrer du
- bois — et de retarder les gestes coûteux.
-- Hydro-Québec annonce une **interruption planifiée**, ou une panne en cours s'étend vers
- le secteur.
-- Un feu de forêt est déclaré à proximité.
-- Un **avis d'ébullition** ou de non-consommation tombe sur le réseau du village. La maison
- boit l'aqueduc : l'avis vise directement le robinet de la cuisine, et il change ce qu'il
- faut remplir.
-- Une **pluie forte, une crue ou une fonte rapide** est annoncée. C'est la seule famille de
- préavis où le geste utile n'est pas de remplir mais d'obturer — voir le palier 2.
-- Un événement prévisible sans météo : chirurgie, accouchement, absence prolongée d'un
- adulte, grève d'un service, fermeture annoncée de la route 138.
-- **La fenêtre sert à décider de monter au chalet, pas seulement à remplir la maison.** Si
- l'événement annoncé s'étire au-delà de quelques jours, le déplacement se fait maintenant,
- pendant que la route est ouverte et les pleins faisables. C'est le chapitre 2 qui tranche.
-
-### C'est un mauvais choix
-
-- **Quand la manœuvre demande de reprendre la route** alors que la fenêtre est presque
- fermée. Un déplacement de 90 minutes entrepris à H-2 est une décision qui se prend seule :
- elle vous met dehors pendant que ça frappe.
-- **Quand il n'y a rien à convertir.** Le préavis amplifie ce qui est déjà là ; il ne le crée
- pas. Douze heures et une carte de crédit ne remplacent pas un stock : au village, le
- commerce est ouvert mais il sera vidé des mêmes six articles que tout le monde cherche, et
- au chalet il n'y a pas de commerce du tout. Le chapitre 00b dit quoi acheter et dans quel
- ordre, le chapitre 9 explique pourquoi c'est toujours la même chose qui manque.
-- **Quand le signal est un bulletin météorologique spécial.** Un bulletin spécial est
- diffusé à titre indicatif seulement ; ce n'est pas une alerte. Il se lit, il ne se mobilise pas. Une famille qui vide sa
- réserve trois fois par hiver sur des bulletins spéciaux ne la remplira plus la quatrième
- fois.
+- **Un avertissement météo est émis pour le secteur** : tempête hivernale, pluie verglaçante, vents violents, blizzard
+ (étapes 1 à 38).
+- **Une veille ou un avis météo est en vigueur, ou un bulletin météorologique spécial vient de sortir** (étape 1).
+- **Hydro-Québec annonce une interruption de service planifiée**, ou une panne s'étend vers le secteur (étapes 1 à
+ 38).
+- **Un feu de forêt est déclaré dans le secteur** (étapes 1 à 5 ; ch. 11).
+- **Un avis d'ébullition ou de non-consommation est émis pour l'aqueduc** (étape 8).
+- **Une pluie forte, une crue ou une fonte rapide est annoncée** (étape 22).
+- **Une évacuation est annoncée** (étapes 39 à 41).
+- **Un événement prévu sans lien avec la météo** : une chirurgie, un accouchement, l'absence d'un adulte pendant
+ plusieurs jours, la fermeture annoncée de la route (étapes 1 à 25).
+- **L'événement est passé**, et il faut remettre la maison en marche et refaire la réserve (étapes 42 à 44).
+- **Une deuxième tempête s'annonce sur une maison déjà en panne**, ou il manque la génératrice, l'eau courante,
+ l'égout ou l'obturateur (section 7).
 
 ---
 
-## 3. Pourquoi ça marche
+## 3. Matériel
 
-Un préavis, c'est du temps pendant lequel les services fonctionnent encore : un geste qui
-coûte quelques minutes maintenant coûtera après du carburant, du risque et de la chaleur.
-Trois ressources se stockent, et ce sont celles qui manquent en premier : le froid dans une
-masse (de la glace vaut de la viande), l'eau dans des contenants tant que l'aqueduc a ses
-pompes, l'énergie dans des batteries, des bidons et du bois sec. Le préavis multiplie ce
-qu'on a déjà ; il ne remplace pas le stock permanent. Au chalet, sans réseau à dépenser, la
-fenêtre sert à rentrer le bois, à puiser et à décider si on monte maintenant : la route du
-chalet se ferme avant la 138.
+- **Thermomètres de réfrigérateur et de congélateur** : ils montrent si le froid a tenu pendant la panne, et ils servent au tri des aliments (étape 11).
+- **Thermomètre à sonde** : il mesure les 74 °C à cœur du gibier qu'on cuit d'avance (étape 13). On ne peut pas le fabriquer.
+- **Rallonge de gros calibre, d'un seul tenant** : elle doit être assez longue pour garder la génératrice à 6 m du bâtiment ; un fil trop fin chauffe (étape 18).
+- **Avertisseur de CO à pile de secours, à affichage** : il est le seul moyen de détecter le monoxyde, et son écran affiche un chiffre avant que l'alarme sonne (étape 21).
+- **Obturateur de drain de plancher** : il bouche le drain par où l'égout refoule au sous-sol pendant une crue (étape 22 ; sans obturateur : section 7).
 
 ---
 
-## 4. Matériel
+## 4. Procédure
 
-- **Thermomètres de frigo et de congélateur** — disent si la masse a tenu (→ §9 : pièce de monnaie sur glace).
-- **Thermomètre à sonde** — porte les 74 °C à cœur du gibier ; la couleur ne dit rien. Ne se fabrique pas.
-- **Rallonge de gros calibre, d'un seul tenant** — assez longue pour 6 m du bâtiment ; un fil trop fin chauffe.
-- **Avertisseur de CO à pile de secours** — seul détecteur d'un gaz sans odeur ni couleur. Ne se fabrique pas.
-- **Obturateur de drain de plancher** — sans clapet antiretour, bloque l'égout qui refoule au sous-sol (→ §9 : bouchon de bois étayé).
+### Une alerte est émise pour le secteur {.orange 30 min}
 
----
+1. **Lire l'alerte au complet et noter son type** : chaque type demande des gestes différents.
+ - Un **avertissement** annonce du temps violent qui s'en vient : faire toutes les étapes qui suivent. Il sort
+ habituellement 6 à 24 heures avant l'événement, parfois plus tôt. Pour un orage violent, il peut arriver moins
+ d'une demi-heure avant : ne pas prendre la route ni sortir, faire tout de suite les réserves d'eau
+ (étapes 6 à 8), remplir le congélateur (étapes 10 et 11) et préparer l'avertisseur de CO (étape 21).
+ - Une **veille** annonce des conditions qui peuvent tourner au temps violent. Faire les gestes qu'on peut défaire
+ sans rien perdre (faire les réserves d'eau, charger, rentrer du bois), et attendre l'avertissement pour les gestes
+ qui dépensent la réserve, comme cuire la viande du congélateur.
+ - Un **avis** demande d'agir tout de suite contre un phénomène important, moins grave que le temps violent d'un
+ avertissement : faire comme pour une veille.
+ - Un **bulletin météorologique spécial** donne de l'information ; ce n'est pas une alerte. Le lire, et ne pas
+ toucher à la réserve.
+2. **Écrire l'heure prévue de l'événement sur une feuille collée sur la porte.** On compte toute la suite à partir
+ de cette heure : il reste plus de 6 heures (étapes 6 à 25), moins de 6 heures (étapes 26 à 34), ou une heure
+ (étapes 35 à 38).
+3. **Décider tout de suite si on reste à la maison ou si on monte au chalet** (ch. 2, étape 32).
+ - Rester à la maison pour un événement de trois jours ; monter au chalet pour un événement qui va durer plus
+ longtemps.
+ - Pour monter, partir pendant que la route est ouverte : le chemin du chalet ferme avant la grand-route, et on ne
+ peut pas rester à la maison les premiers jours et monter au chalet au sixième jour. Faire les pleins avant de
+ partir (étape 17), et vérifier qu'il y a du bois fendu là-haut. Fermer la maison comme pour une évacuation
+ (étapes 39 à 41).
+ - Si l'alerte arrive pendant qu'on est au chalet, remplir les contenants au lac ou au puits (ch. 10) et rentrer le
+ bois (étape 16).
+4. **Mettre à charger tout ce qui se charge** : les téléphones, les blocs-piles, les outils sans fil, la radio
+ rechargeable et les appareils médicaux.
+5. **Prévenir les proches et les voisins par message texte** (ch. 14, ch. 16). Un message texte encombre moins le
+ réseau qu'un appel : il peut passer quand les appels saturent le réseau, ou quand le service téléphonique est interrompu.
 
-## 5. Procédure
+### Il reste plus de 6 heures
 
-Les paliers 1 à 4 se lisent à rebours, à partir du temps qui reste, et non à partir de l'heure
-qu'il est. Un avertissement donne habituellement de 6 à 24 heures ; parfois plus,
-parfois moins. Le palier 5 ne se lit que si le préavis devient un départ. Le palier 6 se lit
-après, et c'est celui qui décide de ce que vaudra le préavis suivant.
+#### L'eau
 
-### Palier 1 — La première demi-heure
+6. **Faire la réserve d'eau à boire : 2 L par personne et par jour.** Pour une famille de quatre, pendant sept jours, il
+ faut 56 L. Le minimum est de 6 L par personne, soit trois jours. Prendre des contenants propres qui ferment et qui n'ont
+ jamais contenu de produit chimique : un bidon de lave-glace garde du produit même rincé.
+7. **Faire une réserve d'eau de service à part : au moins 6 L de plus par personne**, pour la cuisine et pour se
+ laver. Pour une famille de quatre, pendant trois jours, il faut donc au moins 48 L en tout, eau à boire comprise.
+ - Mettre l'eau de service dans des contenants d'une autre couleur que ceux de l'eau à boire, et écrire « boisson »
+ ou « service » au feutre sur chacun avant de le remplir.
+ - Pour la vaisselle et la chasse d'eau, remplir en plus la baignoire, après l'avoir tapissée d'un sac à ordures neuf
+ et épais : sans sac, elle se vide autour du bouchon en deux jours. Remplir aussi les marmites et les chaudières de
+ 20 L.
+8. **Si un avis touche l'eau du robinet, lire lequel avant de remplir** : les deux avis demandent des gestes
+ contraires.
+ - **Avis d'ébullition** : remplir, puis faire bouillir l'eau 1 minute à gros bouillons avant de la boire (ch. 10,
+ étapes 42 et 44). Sans moyen de la faire bouillir, verser 0,2 mL de javel à 5,25 % non parfumée par litre,
+ mesurés à la seringue (ch. 10, étape 20). Brasser, puis attendre 30 minutes dans une eau à plus de 20 °C, au moins
+ 1 heure dans une eau plus froide, et 2 heures ou plus sous 10 °C (ch. 10, étape 21).
+ - **Avis de non-consommation** : ne pas faire bouillir. Le contaminant visé n'est pas un microbe et il ne s'évapore
+ pas : l'eau part en vapeur, et il reste dans le chaudron, plus concentré. Boire l'eau en bouteille ou la réserve,
+ et garder l'eau du robinet pour la chasse d'eau (ch. 10, étape 43).
+9. **Écrire la date au feutre sur chaque contenant d'eau bouillie.** Dans un contenant fermé, l'eau bouillie se garde
+ 3 jours au réfrigérateur et 24 heures à la température de la pièce : avec la date, on sait quand refaire la
+ réserve.
 
-1. **Lire l'alerte au complet et noter son type.** Bulletin spécial, veille, avis ou
- avertissement : ce ne sont pas des synonymes. Un avertissement dit «agissez maintenant
- pour vous protéger du temps violent ». Un bulletin spécial ne dit rien de tel.
-2. **Écrire au crayon-feutre, sur la fiche affichée près de la porte, l'heure d'arrivée
- prévue du phénomène.** Toute la suite se calcule à partir de ce chiffre. Une fenêtre qu'on
- garde dans sa tête rétrécit toute seule.
-3. **Décider : rester à la maison, ou monter au chalet.** La décision se prend maintenant,
- pendant que la route est ouverte, et elle oriente tout le reste. La règle courte : un
- événement de trois jours se vit à la maison, qui a l'aqueduc, l'égout et les voisins ; un
- événement qui s'étire au-delà finit au chalet, qui a le bois, l'eau et le territoire. Ce
- qu'on ne peut pas faire, c'est commencer à la maison et monter au jour six — la route de
- chalet sera fermée. Voir le chapitre 2.
-4. **Charger tout ce qui se charge, dès l'annonce.** Téléphones, blocs-piles, outils sans fil, radio rechargeable, appareils médicaux.
-5. **Prévenir les proches et le voisinage par message texte, pas par appel.** Un texte passe sur un signal trop faible pour un appel et il retente tout
- seul. Voir les chapitres 14 et 16.
+#### Le congélateur et la viande
 
-### Palier 2 — De H-24 à H-6
+10. **Remplir le congélateur.** Combler les vides avec des bidons d'eau remplis aux quatre cinquièmes : l'eau prend du
+ volume en gelant, et un contenant plein à ras bord éclate. Plein, un congélateur garde les aliments deux fois plus
+ longtemps qu'à moitié plein (étape 38).
+11. **Poser un thermomètre dans le réfrigérateur et un dans le congélateur, et mettre les deux thermostats au plus
+ froid.** Viser de 0 à 4 °C au réfrigérateur, et −18 °C ou moins au congélateur. Chaque degré gagné avant la panne
+ retarde le dégel.
+12. **Regrouper les aliments.** Mettre au congélateur ce qu'on peut congeler. Mettre ce qu'on mangera les deux
+ premiers jours sur une seule tablette du réfrigérateur, à hauteur de main : on ouvre la porte une fois au lieu de
+ six. Serrer les paquets les uns contre les autres : une masse compacte se réchauffe plus lentement.
+13. {!cuisson} {!abats} **Cuire d'avance la viande qui ne tiendra pas si le congélateur dégèle, les abats et la viande
+ hachée en premier.** Cuire le gibier à 74 °C à cœur, mesurés au thermomètre à sonde : l'orignal, le lièvre, les
+ oiseaux en morceaux ; un oiseau entier, à 82 °C. On peut manger froide une viande cuite, et elle ne demande plus de
+ feu pendant la panne. Ne pas cuire le foie ni les reins d'un cervidé (orignal, caribou, cerf) ni de l'ours, et les
+ jeter : ils accumulent le cadmium, et la cuisson ne l'enlève pas (ch. 22).
+14. {!trichine} **Cuire l'ours et le phoque à 74 °C à cœur, au lieu de les saler ou de les fumer pour sauver la
+ viande.** Ni le sel, ni le fumage, ni le gel domestique ne tuent la trichine : une cuisse d'ours salée parce que le
+ congélateur a lâché reste dangereuse (ch. 52, ch. 56).
+15. {!botulisme} **Cuire à 70 °C le poisson qui sort du congélateur et le manger, ou le jeter.** Ne pas le garder de
+ côté pour le fumer le lendemain : le botulisme de type E fait sa toxine dès 3 °C, à la température du réfrigérateur
+ et de la glacière, sans rien changer à l'odeur, au goût ni à l'apparence du poisson (ch. 75, ch. 77).
 
-6. **Remplir l'eau de boisson.** Base de calcul : 2 litres par personne par jour. Quatre personnes pour sept jours, c'est 56 litres de boisson, sans compter le
- service. Le plancher est de 6 litres de boisson par personne, soit
- les trois premiers jours seulement.
-7. **Remplir l'eau de service séparément.** Il faut 6 litres additionnels par
- personne pour la préparation des aliments et l'hygiène personnelle — c'est un deuxième
- 6 litres, pas le même. Une famille de quatre part donc de 48 litres pour trois jours, et
- non de 24. Baignoire tapissée d'un sac à ordures neuf et épais — nue, elle se vide toute
- seule autour du bouchon en deux jours —, chaudières, marmites, seaux de 20 litres. L'eau de
- service sert à la vaisselle, à la toilette et à la chasse d'eau ; elle n'a pas besoin d'être
- potable et elle ne doit jamais être rangée avec l'eau de boisson. Deux contenants de
- couleurs différentes,
- étiquetés au feutre. Les contenants n'ont jamais contenu de produit chimique :
- un bidon de lave-glace rincé reste un bidon de lave-glace.
-8. **Si un avis est en vigueur, savoir lequel avant de remplir.** Les deux avis ne se
- traitent pas pareil et c'est l'inverse du réflexe. **Avis d'ébullition :** l'eau du robinet
- redevient bonne après «au moins 1 minute à gros bouillons » — on remplit et on
- fait bouillir. **Avis de non-consommation :** bouillir ne règle rien, parce que le
- contaminant visé n'est pas microbiologique : l'eau s'évapore, le contaminant reste, et
- l'ébullition le concentre au lieu de l'enlever. Seule l'eau embouteillée convient, et
- l'aqueduc de la maison ne sert plus qu'à la chasse d'eau. C'est la distinction
- la plus coûteuse du chapitre à manquer : les deux avis se ressemblent et ne demandent
- pas du tout le même geste. À défaut d'ébullition :
- «environ 2 gouttes (0,2 millilitre) d'eau de Javel 5,25 % non parfumée à 1 litre
- (4 tasses) d'eau, remuez et laissez reposer pendant 30 minutes ». Voir le
- chapitre 10.
-9. **Dater les contenants au feutre.** L'eau bouillie mise en réserve se garde «jusqu'à
- 3 jours au réfrigérateur ou 24 heures à la température ambiante » en contenant fermé. C'est le chiffre qui décide si on remplit une fois ou si on refait la ronde au
- troisième jour. Un bidon sans date est un bidon dont personne n'osera boire au jour quatre,
- et une réserve dont on n'ose pas boire ne compte pas.
-10. **Remplir le congélateur.** Les espaces vides se comblent avec des bidons d'eau remplis
- aux quatre cinquièmes — l'eau prend du volume en gelant et fait éclater un contenant
- rempli à ras bord. Passer d'à moitié plein à plein fait passer la tenue de 24 à
- 48 heures. C'est le geste du préavis qui a le meilleur rendement : il
- double une autonomie sans ajouter une calorie.
-11. **Poser un thermomètre dans le réfrigérateur et un dans le congélateur**.
- Cibles : de 0 à 4 °C au réfrigérateur, -18 °C ou moins au congélateur. Baisser les deux thermostats au réglage le plus froid dès maintenant : chaque
- degré gagné avant la panne est du temps gagné pendant.
-12. **Regrouper et redistribuer.** Ce qui est au réfrigérateur et qui se congèle descend au
- congélateur. Ce qui se mange dans les deux premiers jours monte dans une seule tablette
- du réfrigérateur, à hauteur de main, pour ouvrir une fois au lieu de six. Serrer les
- paquets : une masse compacte se réchauffe plus lentement qu'une masse éparpillée.
-13. **Cuire d'avance ce qui ne survivra pas au dégel.** Les abats et la viande hachée partent
- en premier. Gibier sauvage — orignal (*Alces americanus*), ours noir (*Ursus
- americanus*), lièvre d'Amérique (*Lepus americanus*), oiseaux : **74 °C à cœur**, mesurés
- au thermomètre à sonde, dans la partie la plus charnue, sans toucher l'os ni une couche
- de gras. Poisson — omble de fontaine (*Salvelinus fontinalis*) : 70 °C.
- Une viande cuite se conserve mieux, se mange froide et ne demandera pas de feu au pire
- moment.
-14. **Rentrer trois jours de bois sec** à l'intérieur ou sous abri sec et déneigé, si la
- maison a un poêle. Le bois qu'on va chercher sous 40 cm de neige fondante à la frontale
- est du bois qu'on ne brûle pas. Voir le chapitre 83.
-15. **Faire les pleins.** Véhicules, motoneige, bidons, bouteilles de propane. Les pompes à
- essence fonctionnent à l'électricité : une station sans courant ne vend rien, même avec
- ses réservoirs pleins. C'est la ressource dont la fenêtre se ferme en premier, parce
- qu'elle se ferme pour tout le village en même temps. Voir les chapitres 87 et 15.
-16. **Essayer la génératrice en charge, maintenant.** Démarrage, montée en régime, branchement
- de la charge réelle qu'elle devra porter. Régime d'utilisation : «Utilisez la génératrice
- selon sa capacité, en vous assurant de l'éteindre pendant 1 heure toutes les 8 heures ». Le plein se fait «seulement quand la génératrice est arrêtée et refroidie »: l'essence versée sur un collecteur chaud s'enflamme sans étincelle.
-17. **Mesurer la consommation, et en tirer le nombre de jours.** Remplir le réservoir à ras,
- faire tourner la génératrice une heure sous la charge réelle, puis le remplir de nouveau
- en mesurant ce qu'il a fallu : c'est la consommation en litres à l'heure, et elle n'a rien
- à voir avec la fiche du fabricant, qui suppose une charge de référence. Noter le chiffre
- au feutre sur le boîtier. Ensuite :
+#### Le bois, le carburant et la génératrice
 
- **Jours d'autonomie = litres en réserve ÷ (consommation en L/h × heures de marche par
- jour).**
+16. **Rentrer trois jours de bois sec** dans la maison ou sous un abri sec et déneigé, si la maison a un poêle
+ (ch. 83). Le bois laissé dehors sera enterré sous la neige et mouillé par la tempête.
+17. **Faire les pleins dès le début du préavis** : les autos, la motoneige, les bidons et les bouteilles de propane
+ (ch. 15, ch. 87). Les pompes à essence marchent à l'électricité : quand le courant manque, toutes les stations du
+ secteur arrêtent de vendre en même temps.
+18. {!generatrice} {!electrocution} **Préparer l'emplacement de la génératrice pendant qu'il fait clair.**
+ - Choisir l'endroit dehors, à découvert, à au moins 6 m du bâtiment, et tourner l'échappement à l'opposé des
+ portes et des fenêtres. Mesurer les 6 m depuis le mur le plus proche, pas depuis la porte. Ne jamais mettre la
+ génératrice dans un bâtiment, un garage ou sous un auvent, même porte ouverte. Ces 6 m sont plus loin que là où on
+ la pose d'habitude, et plus loin que la longueur d'une rallonge ordinaire : prendre une rallonge assez longue pour
+ couvrir toute la distance.
+ - Dégager l'endroit à la pelle, le marquer d'un piquet et y monter une base surélevée avant que la neige tombe : la
+ nuit de la tempête, on ne peut plus dégager un passage de 6 m dans la neige.
+ - Dérouler la rallonge au complet jusqu'à la maison : enroulée, elle chauffe.
+ - Mettre le disjoncteur principal de la maison à OFF avant de brancher quoi que ce soit, et brancher les appareils
+ directement dans les prises de la génératrice. Si la génératrice est raccordée à la maison, elle renvoie son
+ courant dans la ligne de la rue ; et quand le courant revient, le courant du réseau entre dans la génératrice en
+ marche et l'abîme.
+19. {!vapeurs} **Essayer la génératrice à son emplacement, avec la charge qu'elle devra porter** : la démarrer, la
+ laisser monter en régime, puis brancher les appareils qu'elle fera marcher pendant la panne. Ne pas lui demander
+ plus que sa puissance, et l'arrêter 1 heure toutes les 8 heures. Faire le plein seulement quand elle est arrêtée et
+ refroidie : l'essence versée sur un tuyau d'échappement chaud s'enflamme sans étincelle.
+20. **Mesurer ce que la génératrice consomme, et en tirer le nombre de jours.**
+ - Remplir le réservoir à ras, faire tourner la génératrice une heure sous la charge réelle, puis mesurer ce qu'il
+ faut pour remplir le réservoir de nouveau : c'est sa consommation en litres à l'heure. La fiche du fabricant donne
+ un autre chiffre, calculé pour une autre charge. Écrire la consommation mesurée au feutre sur la génératrice.
+ - Pendant l'essai, arrêter la génératrice et noter en combien de temps le thermomètre du congélateur remonte
+ jusqu'à −18 °C : c'est le temps d'arrêt. La redémarrer, et noter en combien de temps le thermomètre redescend à sa
+ température de départ : c'est le temps de marche. La génératrice sert à refroidir le congélateur et à recharger :
+ elle n'a pas besoin de tourner sans arrêt.
+ - Calculer : **heures de marche par jour = 24 × temps de marche ÷ (temps de marche + temps d'arrêt)**, puis
+ **jours d'autonomie = litres en réserve ÷ (litres à l'heure × heures de marche par jour)**.
+ - Si le résultat est plus court que l'événement annoncé, réduire les heures de marche : à quelques heures de
+ l'événement, on ne trouve plus d'essence à acheter.
 
- Les heures de marche par jour ne sont pas 24. Une génératrice sert à remonter le
- congélateur et à recharger, pas à vivre, et la consigne d'arrêt «pendant 1 heure toutes
- les 8 heures » interdit de toute façon la marche continue. Le nombre d'heures
- à retenir ne se devine pas : il se lit au thermomètre du congélateur pendant l'essai. On
- coupe, on regarde en combien de temps la température remonte vers -18 °C,
- et on repart avant. C'est ce cycle-là, mesuré chez soi, qui entre dans la formule. Le
- résultat se compare à la durée annoncée de l'événement : s'il est plus petit, ce sont les
- heures de marche qu'on coupe, pas la réserve qu'on gonfle — l'essence achetée à H-2 n'a
- jamais existé.
-18. **Préparer l'emplacement de la génératrice pendant qu'il fait clair.** Dehors, jamais dans
- le garage, sur une base surélevée, dans un endroit ventilé. Distance : «au moins 6 mètres
- (20 pieds) entre toute habitation ou tout bâtiment et une génératrice en marche » — c'est 6 m du **bâtiment**, pas de la porte. Orienter en plus «le tuyau
- d'évacuation dans le sens opposé de toute porte ou fenêtre ouverte », et fermer les
- fenêtres et les portes les plus proches ou celles vers lesquelles l'échappement pourrait
- se diriger. Dégager et marquer l'emplacement à la pelle avant que la neige
- tombe : six mètres de neige vierge à 2 h du matin, ça ne se dégage pas. Prévoir la
- longueur de rallonge en conséquence. L'interrupteur principal de la résidence se met à la
- position fermée (off) avant tout raccordement, et les appareils se branchent directement
- dans les prises de la génératrice : une génératrice raccordée sur une maison
- encore liée au réseau renvoie du courant dans la ligne, et le retour du réseau sur une
- génératrice en marche détruit les deux. Les rallonges se déroulent au complet — un rouleau
- chauffe dans son rouleau.
-19. **Piles neuves dans l'avertisseur de monoxyde de carbone, et essai au bouton.** C'est le
- seul instrument qui détecte un gaz que le corps ne détecte pas. Il en faut au
- moins un, avec pile de secours, et les couloirs menant aux chambres sont les endroits où il
- est le plus important d'en installer un — parce que l'intoxication se termine dans le sommeil, pas dans la cuisine.
- Un modèle «à affichage numérique qui montre la présence de faibles concentrations »
- vaut nettement mieux : il dit qu'il y a un problème avant le seuil d'alarme,
- et c'est ce qui permet de corriger l'emplacement de la génératrice au lieu d'évacuer.
-20. **Si le préavis est une pluie forte ou une crue, obturer au lieu de remplir.** Obturer
- les conduites d'égout du sous-sol s'il n'y a pas de clapet antiretour, et obturer le drain
- de plancher. Le mécanisme : quand le
- réseau d'égout du village déborde, la maison la plus basse de la rue devient l'endroit par
- où le réseau se vide, et ça remonte par le drain de plancher. Monter à l'étage ce qui est
- au sous-sol, en commençant par les bidons — essence, huile usée, antigel, solvants. Un
- bidon flotte, se couche et se vide : l'eau ne les emporte pas, elle les répand sur tout ce
- qu'elle touche, et un sous-sol inondé qui a pris l'essence ne se lave plus.
- Si une digue de sacs de sable est montée, «insérer une membrane de polyéthylène souple
- entre les sacs de sable exposés à l'eau » : des sacs empilés à sec laissent
- passer l'eau entre les sacs, et la digue a l'air faite sans rien faire.
-21. **Regarder dans la cheminée avant de chauffer fort.** Une lampe et un miroir par la
- trappe de ramonage, ou un coup d'œil par le haut : ce qu'on cherche, c'est l'épaisseur du
- dépôt et surtout son aspect. Une suie sèche et floconneuse se brosse. Un dépôt noir,
- luisant et dur comme du verni est de la créosote cuite, elle ne se brosse plus, et c'est
- elle qui prend feu quand on pousse le poêle. Un préavis pousse toujours le poêle : c'est
- maintenant qu'on brosse, avec une brosse sur tiges ou une chaîne lestée dans un sac
- descendue du toit à la corde. Voir les chapitres 83 et 82.
-22. **Sortir la pharmacie et les médicaments sur ordonnance**, vérifier les quantités
- restantes, remplacer les piles des appareils médicaux. Voir le chapitre 32.
-23. **Dire aux enfants ce qui s'en vient, en une phrase chacun.** À 4 et à 6 ans, ce qui fait
- peur n'est pas la tempête, c'est de voir les adultes s'agiter sans explication. Sortir
- maintenant les lampes frontales personnelles et les jeux qui n'ont pas besoin de courant.
- Voir les chapitres 39 et 40.
+#### La maison
 
-### Palier 3 — De H-6 à H-1
+21. {!co} **Mettre des piles neuves dans chaque avertisseur de CO et l'essayer au bouton.** En poser au moins un dans
+ le couloir des chambres, pour qu'il réveille les gens qui dorment, et un dans chaque pièce où il y a un poêle, une
+ fournaise ou un appareil au gaz, à au moins 2 m de l'appareil. Un modèle à affichage montre les faibles
+ concentrations : quand un chiffre apparaît, éloigner la génératrice ou éteindre l'appareil avant que l'alarme
+ sonne.
+22. **Si une pluie forte ou une crue est annoncée, boucher les entrées d'égout du sous-sol.**
+ - S'il n'y a pas de clapet antiretour, boucher le drain de plancher et les autres conduites d'égout du sous-sol avec
+ l'obturateur (sans obturateur : section 7). Quand l'égout de la rue déborde, il se vide par les maisons les plus
+ basses, et l'eau remonte par le drain de plancher.
+ - {!vapeurs} Sortir d'abord du sous-sol les bidons d'essence, d'huile usée, d'antigel et de solvant, et les attacher
+ dehors, en hauteur, jamais à l'étage : dans l'eau, un bidon flotte, se couche et se vide, et l'eau répand le
+ produit sur tout ce qu'elle touche. L'essence imbibe le béton et le bois du sous-sol, et on ne peut plus l'enlever.
+ - Monter ensuite le reste de ce qui est au sous-sol à l'étage.
+ - Fermer les valves des bouteilles et du réservoir de propane.
+ - Pour une digue de sacs de sable, glisser une membrane de polyéthylène souple entre les sacs du côté de l'eau :
+ sans elle, l'eau passe entre les sacs.
+23. {!incendie} **Regarder dans la cheminée avant de chauffer fort.**
+ - Regarder par la trappe de ramonage avec une lampe et un miroir, ou par le haut de la cheminée.
+ - Une suie sèche, en flocons, part à la brosse. Un dépôt noir, luisant et dur comme du vernis est de la créosote
+ cuite : la brosse ne l'enlève plus, et il prend feu quand on pousse le poêle.
+ - Pendant un préavis, on va chauffer fort : brosser la cheminée maintenant, avec une brosse sur tiges ou une chaîne
+ lestée dans un sac, descendue du toit au bout d'une corde (ch. 82, ch. 83).
+24. **Sortir la pharmacie et les médicaments sur ordonnance**, compter ce qui reste, et mettre des piles neuves dans
+ les appareils médicaux (ch. 32).
+25. **Dire aux enfants ce qui s'en vient, en une phrase chacun.** Un jeune enfant a surtout peur quand il voit les
+ adultes s'agiter et qu'il ne sait pas pourquoi. Sortir la lampe frontale de chacun et les jeux qui marchent sans
+ courant (ch. 39, ch. 40).
 
-24. **Arrêter les déplacements.** Passé ce point, toute sortie se justifie par une urgence,
- pas par un oubli.
-25. **Remplir tout contenant encore vide** pendant que l'aqueduc est encore sous pression.
- Le réseau du village garde une pression résiduelle après la panne, le temps que le
- château d'eau se vide : c'est une réserve qui s'écoule pendant qu'on hésite, et elle ne
- revient pas.
-26. **Débrancher les appareils électroniques** — «Débranchez tous les appareils
- électroniques » : c'est la surtension au retour du courant qui les tue, pas la
- panne.
-27. **Mettre à l'arrêt les gros appareils qui étaient en marche** : cuisinière, bouilloire,
- lave-vaisselle, sécheuse, laveuse. Une cuisinière restée en position marche
- redémarre seule au retour du courant, dans une maison vide ou endormie.
-28. **Laisser une lumière allumée à chaque étage**. C'est le seul moyen de savoir
- que le courant est revenu sans se lever.
-29. **Attacher ou rentrer tout ce qui vole** : canot, bâches, échelle, poubelles, tôles,
- chaises, panneaux solaires mal fixés. Un objet qui vole à 100 km/h casse une fenêtre, et
- une fenêtre cassée à -35 °C transforme une panne en évacuation.
-30. **Mettre les animaux à l'abri** et sortir leur nourriture et leur eau pour trois jours.
-31. **Protéger la plomberie contre le gel.** Les conduites à risque sont celles qui longent
- un mur extérieur, celles du vide sanitaire et celles du garage non chauffé — pas celles
- du centre de la maison. Une maison sans chauffage perd ses premiers degrés vite, puis de
- plus en plus lentement : le béton, le gypse et la terre autour du sous-sol rendent leur
- chaleur. Par un froid modéré, elle met des jours à passer sous zéro ; par -35 °C, moins,
- et les conduites des murs extérieurs gèlent bien avant la pièce. On laisse couler un
- mince filet d'eau aux robinets les plus exposés — l'eau qui circule ne gèle pas —, à
- condition que le drain évacue ; et on ouvre les portes d'armoires sous les éviers de mur
- extérieur pour que la chaleur de la pièce atteigne le tuyau.
+### Il reste moins de 6 heures
 
-### Palier 4 — La dernière heure
+26. **Si l'alerte arrive à moins de 6 heures de l'événement, faire d'abord quatre choses** : les réserves d'eau
+ (étapes 6 à 8), le congélateur (étapes 10 et 11), l'emplacement de la génératrice (étape 18) et l'avertisseur de CO
+ (étape 21). Continuer ensuite ici.
+27. {!froid} **Arrêter les déplacements.** Ne plus sortir que pour une urgence, jamais pour aller chercher un oubli. Un
+ aller-retour pendant les dernières heures met la famille sur la route au moment où la visibilité tombe. Si l'auto
+ reste prise, elle refroidit beaucoup plus vite qu'une maison : elle n'a ni masse ni isolant, et elle perd sa chaleur
+ par les vitres (ch. 15, ch. 25).
+28. **Remplir tous les contenants encore vides** pendant que l'aqueduc a de la pression. Après le début de la panne, le
+ réseau garde un peu de pression le temps que le château d'eau se vide ; ensuite, le robinet ne donne plus rien.
+29. **Débrancher les appareils électroniques** : la surtension du retour du courant peut les griller.
+30. **Éteindre les appareils qui étaient en marche** : la cuisinière, la bouilloire, le lave-vaisselle, la sécheuse
+ et la laveuse. Une cuisinière restée allumée se remet à chauffer au retour du courant, dans une maison vide ou
+ endormie.
+31. **Laisser une lampe allumée à chaque étage** : la nuit, on voit que le courant est revenu sans avoir à se lever.
+32. **Attacher ou rentrer ce que le vent ou l'eau peut emporter** : le canot, les bâches, l'échelle, les poubelles,
+ les tôles, les chaises, les panneaux solaires mal fixés. Un objet lancé par le vent casse une fenêtre, et à
+ −35 °C, une fenêtre cassée peut obliger à quitter la maison.
+33. **Mettre les animaux à l'abri** avec de la nourriture et de l'eau pour trois jours, en comptant leur eau en plus de
+ celle de la famille.
+34. **L'hiver, protéger la plomberie contre le gel.**
+ - Les conduites qui longent un mur extérieur, ou qui passent dans le vide sanitaire ou dans le garage non
+ chauffé, gèlent les premières, bien avant la pièce. Une maison sans chauffage perd ses premiers degrés en
+ quelques heures, puis refroidit beaucoup plus lentement, parce que le béton, le gypse, les meubles et la terre
+ autour du sous-sol rendent leur chaleur : par un froid modéré, elle met des jours à passer sous zéro ; par
+ −35 °C, moins.
+ - Laisser couler un mince filet d'eau aux robinets les plus exposés, si le drain évacue.
+ - Ouvrir les portes d'armoires sous les éviers des murs extérieurs, pour que la chaleur de la pièce atteigne le
+ tuyau.
 
-32. **Manger chaud.** Le dernier repas cuit à l'électricité est gratuit ; tous les suivants
- coûtent du bois ou du propane.
-33. **Mettre chaque chose à sa position finale** : lampes frontales sur les crochets, radio
- et piles sur la table, eau de boisson à la cuisine, eau de service à la salle de bain,
- bois près du poêle, trousse de premiers soins visible, thermomètres en place.
-34. **Écrire l'heure exacte du début de la panne sur la porte du congélateur** dès qu'elle
- survient. Sans cette heure, les
- comptes de 4 heures et de 48 heures ne veulent rien dire et le tri des aliments devient
- une devinette.
-35. **Ne plus ouvrir le réfrigérateur ni le congélateur.** Réfrigérateur fermé : environ
- 4 heures. Congélateur plein :
- 48 heures. Congélateur à moitié plein : 24 heures. Chaque ouverture retranche du temps à
- ces chiffres, et personne ne sait combien.
+### La dernière heure
 
-### Palier 5 — Quand le préavis est un préavis d'évacuation
+35. **Manger chaud.** Après le début de la panne, chaque repas chaud coûte du bois ou du propane.
+36. **Mettre chaque chose à sa place pour la panne** : les lampes frontales sur les crochets, la radio et les piles sur
+ la table, l'eau à boire à la cuisine, l'eau de service à la salle de bain, le bois près du poêle, la trousse de
+ premiers soins en vue et les thermomètres en place.
+37. {!zone-de-danger} **Écrire l'heure exacte du début de la panne sur la porte du congélateur**, dès qu'elle arrive.
+ Sans elle, on ne peut pas compter les 4 heures du réfrigérateur ni les 48 heures du congélateur, et on trie les
+ aliments à l'aveugle.
+38. **Ne plus ouvrir le réfrigérateur ni le congélateur.** Fermé, le réfrigérateur garde les aliments froids 4 à
+ 6 heures : compter 4 heures. Fermé, le congélateur plein les garde congelés 48 heures, et à moitié plein,
+ 24 heures. Chaque ouverture raccourcit ces durées.
 
-La trousse elle-même est au **chapitre 00b**. Ce palier ne la réénumère pas : il donne les
-gestes qui se posent sur le bâtiment qu'on laisse derrière, et ceux-là ne sont écrits nulle
-part ailleurs.
+### Quand il faut évacuer
 
-36. **Charger la trousse d'urgence du chapitre 00b, et y ajouter ce qui ne s'entrepose pas** :
- médicaments sur ordonnance, pièces d'identité, clés, argent comptant. Ces quatre-là vivent
- en usage courant, pas dans la trousse, et ce sont les quatre qu'on oublie.
-37. **En hiver, mettre le bâtiment hors gel avant de partir** : couper l'entrée électrique
- principale, fermer le système de chauffage, «Fermez l'entrée d'eau; vidangez la
- tuyauterie; versez de l'antigel dans les toilettes (cuvette et réservoir) et dans les
- renvois d'éviers et de lavabos; évitez de laisser à l'intérieur des contenants qui peuvent
- éclater sous l'effet du gel ». Les renvois comptent autant que les cuvettes :
- un siphon d'évier est un tuyau plein d'eau en U, et c'est lui qui fend en premier.
-38. **Vidanger aussi le chauffe-eau si l'absence dépasse la durée de l'événement**, et noter
- au feutre sur la trappe électrique qu'il est vide. Un élément chauffant alimenté à sec
- grille en quelques minutes ; c'est pour ça qu'on s'assure que le chauffe-eau est
- plein avant de rétablir le courant. La note sur la trappe existe parce
- que celui qui rouvre au retour n'est pas toujours celui qui a fermé.
-39. **En feu de forêt, arroser abondamment le terrain et les toitures** avant de partir, sans
- mettre sa sécurité en jeu, et repérer plusieurs itinéraires d'évacuation parce qu'un feu
- peut couper la route.
-40. **Dire aux proches où on se réfugie et par quel chemin**, par message texte de
- préférence. Si le véhicule reste pris en route, c'est ce message qui dit où chercher.
+39. **Faire la série « On part : la première heure » du ch. 2 (étapes 16 à 24)**, avec la trousse du ch. 6. Y ajouter
+ les clés et l'argent comptant de tous les jours : ils ne sont pas dans la trousse, et on les oublie.
+40. **L'hiver, en plus de la vidange (ch. 2, étape 20), couper le disjoncteur principal, arrêter le chauffage et
+ sortir de la maison ce qui peut éclater en gelant**, comme les bouteilles et les bidons pleins. Verser l'antigel dans
+ les siphons d'évier et de lavabo comme dans la toilette : un siphon est un tuyau en U qui reste plein d'eau, et il
+ fend le premier.
+41. **Si l'absence doit durer plus longtemps que l'événement, vider aussi le chauffe-eau** (section 7, « L'eau qui reste
+ dans la maison »).
 
-### Palier 6 — Après, pendant que c'est encore frais
+### Après l'événement
 
-Le palier que tout le monde saute. Un préavis dépense une réserve ; sans ce palier, le préavis
-suivant part d'un stock vide et personne ne s'en aperçoit avant H-12.
-
-41. **Remettre les services en marche dans l'ordre, et pas tous ensemble.** «Assurez-vous que
- le chauffe-eau est plein avant de rétablir le courant », puis l'entrée principale
- d'électricité à la position marche, puis «Ouvrez l'entrée d'eau et les robinets pour
- laisser l'air s'échapper », puis «Remettez graduellement en marche les appareils qui
- servent au chauffage ». Attendre que la température de la maison soit revenue
- à la normale avant de rebrancher l'électronique : de la condensation sur une
- carte froide qu'on met sous tension, c'est un court-circuit.
-42. **Rouvrir le gaz dans l'ordre, jamais d'un coup.** Le danger n'est pas la valve
- principale, c'est ce qu'il y a derrière : rouvrir l'entrée pousse du gaz vers tous les
- appareils en même temps, et le premier dont la veilleuse s'est éteinte remplit la pièce
- sans que personne le voie. L'ordre : fermer d'abord la valve de chaque appareil, un par
- un ; rouvrir l'entrée lentement, fenêtres ouvertes ; attendre et sentir, parce que
- l'odeur ajoutée au propane se sent à une concentration cinq fois plus faible que celle
- qui s'enflamme ; puis rallumer un seul appareil à la fois, en vérifiant sa veilleuse avant de passer au suivant.
- Tant que ça sent le gaz : aucune flamme, aucun interrupteur, aucun ventilateur — un
- interrupteur fait une étincelle en s'ouvrant comme en se fermant, et un ventilateur brasse
- au lieu de sortir. C'est la seule asymétrie du palier : fermer est instantané et sans
- conséquence, rouvrir se fait appareil par appareil.
-43. **Remplacer les articles utilisés dans la trousse**, refaire les pleins de
- bidons, recharger les blocs-piles, remettre les bidons d'eau au congélateur. Tant que ce
- n'est pas fait, le chiffre d'autonomie du chapitre 00b est faux.
+42. **Remettre les services en marche dans l'ordre, un à la fois.**
+ - Couper le disjoncteur du chauffe-eau au panneau, puis remettre le disjoncteur principal à ON.
+ - Remettre le chauffage en marche, un appareil à la fois, et attendre que les pièces où passent les tuyaux soient à
+ au moins 18 °C (ch. 2, étape 20).
+ - Ouvrir l'entrée d'eau et les robinets pour laisser sortir l'air.
+ - Remettre le disjoncteur du chauffe-eau quand l'eau coule au robinet d'eau chaude : le chauffe-eau est alors plein.
+ - Attendre que la maison soit revenue à sa température normale avant de rebrancher l'électronique : de l'eau
+ condense sur un appareil froid, et sous tension, elle fait un court-circuit.
+43. {!vapeurs} **Rouvrir le gaz appareil par appareil.** Quand on rouvre l'entrée du gaz, le gaz part vers tous les
+ appareils en même temps, et celui dont la veilleuse s'est éteinte remplit la pièce.
+ - Fermer d'abord la valve de chaque appareil.
+ - Ouvrir les fenêtres, puis rouvrir l'entrée du gaz lentement.
+ - Attendre, et sentir l'air près des appareils et du plancher. Si ça sent le gaz, refermer l'entrée du gaz, ne rien
+ allumer ni éteindre, et laisser aérer avant de recommencer.
+ - Rallumer un seul appareil à la fois, et vérifier qu'il a sa flamme avant de passer au suivant.
+44. **Refaire la réserve dans la semaine** : remplacer ce qui a servi dans la trousse, refaire les pleins des bidons,
+ recharger les blocs-piles, remettre des bidons d'eau au congélateur (ch. 6, ch. 9), et acheter ce qui manque dans
+ l'ordre du ch. 00b. Sinon, au prochain préavis, on part d'une réserve vide.
 
 ---
 
-## 6. Points de contrôle
+## 5. Points de contrôle
 
 | Moment | Ce qu'on vérifie | Cible chiffrée | Si c'est hors cible |
 | --- | --- | --- | --- |
-| Réception de l'alerte | Type d'alerte | Avertissement = 6 à 24 h de fenêtre | Bulletin spécial : lire, ne pas mobiliser. Veille : gestes réversibles seulement |
-| H-24 | Appareils en charge | 100 % sur les téléphones et les blocs-piles | Prioriser un téléphone complet plutôt que quatre à moitié |
-| H-12 | Eau de boisson stockée | 2 L par personne par jour × jours visés ; 6 L par personne au minimum | Remplir la baignoire et les chaudières pour le service et récupérer les contenants pour la boisson |
-| H-12 | Eau de service stockée | 6 L additionnels par personne, minimum, en contenants distincts et de couleur différente | La baignoire compte pour le service, jamais pour la boisson |
-| H-12 | Contenants d'eau | Datés au feutre | L'eau bouillie tient 3 jours au réfrigérateur, 24 h à température ambiante. Sans date, refaire la ronde au jour 3 |
-| H-12 | Autonomie de la génératrice | Litres en réserve ÷ (L/h mesurés × heures de marche par jour) ≥ durée annoncée | Couper les heures de marche, pas gonfler la réserve : l'essence achetée à H-2 n'existe pas |
-| H-12 | Emplacement de la génératrice | 6 m (20 pi) du bâtiment, dégagé et marqué, échappement dos aux ouvertures | Aucune marche avant que les 6 m existent. Un tapis de neige non dégagé n'est pas un emplacement |
-| H-12 | Congélateur | Plein, -18 °C ou moins | Combler l'espace vide avec des bidons remplis aux 4/5. À moitié plein, la tenue tombe à 24 h |
-| H-12 | Réfrigérateur | 0 à 4 °C | Thermostat au plus froid, descendre au congélateur ce qui se congèle |
-| H-12 | Viande cuite d'avance | 74 °C à cœur (gibier), 70 °C (poisson), au thermomètre | Prolonger la cuisson. La couleur et le jus ne sont pas des critères |
-| H-12 | Carburant | Pleins faits, consommation de la génératrice notée en L/h sur le boîtier | Réviser à la baisse les heures de génératrice prévues, pas la réserve d'essence |
-| H-12 | Génératrice | Démarre et prend la charge réelle | La réparer maintenant, ou la retirer du plan et replanifier sans elle |
-| H-12 | Avertisseur de CO | Le bouton d'essai sonne | Piles neuves. Sans avertisseur fonctionnel : aucune combustion dans l'espace de vie, aucune exception |
-| H-6 | Déplacements | Zéro sortie prévue | Une sortie ne se justifie plus que par une urgence |
-| H-1 | Électronique | Débranché | Accepter la perte au retour du courant |
-| H-1 | Lumière témoin | Une allumée par étage | Sinon, le retour du courant passe inaperçu la nuit |
-| Début de panne | Heure écrite sur la porte du congélateur | À la minute | Sans l'heure, les comptes de 4 h, 24 h et 48 h ne servent à rien |
-| Panne > 6 h | Tri des aliments au retour du courant | Aliment cru décongelé resté à 4 °C ou moins : cuire immédiatement ou recongeler après cuisson | Exposé à plus de 4 °C : jeter |
-| Panne > 6 h | État des surgelés | Cristaux de glace présents, centre encore dur : recongelable | Givre disparu et centre mou : voir la section 7 |
-| Retour du courant | Chauffe-eau | Plein avant la remise sous tension | Élément grillé. Remplir d'abord, mettre sous tension ensuite |
-| Après, dans la semaine | Trousse et bidons reconstitués | Tout ce qui a servi est remplacé | Le chiffre d'autonomie du chapitre 00b est faux tant que ce n'est pas fait |
+| À l'alerte | Type d'alerte | Avertissement : 6 à 24 h avant l'événement | Bulletin spécial : le lire et garder la réserve. Veille ou avis : faire seulement les gestes qu'on peut défaire (étape 1) |
+| 24 h avant | Appareils en charge | 100 % sur les téléphones et les blocs-piles | Charger un téléphone au complet plutôt que quatre à moitié |
+| 12 h avant | Eau à boire | 2 L par personne et par jour visé ; au moins 6 L par personne | Garder les contenants propres pour l'eau à boire, et remplir la baignoire et les chaudières pour le service |
+| 12 h avant | Eau de service | 6 L de plus par personne, dans des contenants d'une autre couleur | Ne jamais boire l'eau de la baignoire |
+| 12 h avant | Contenants d'eau bouillie | Datés au feutre | Sans date, refaire la réserve tout de suite et la dater : on garde l'eau bouillie 24 h à la température de la pièce, 3 jours au réfrigérateur |
+| 12 h avant | Autonomie de la génératrice | Litres en réserve ÷ (L/h mesurés × heures de marche par jour) égal ou plus long que l'événement | Réduire les heures de marche (étape 20) |
+| 12 h avant | Emplacement de la génératrice | À 6 m du bâtiment, dégagé, marqué, la rallonge déroulée | Le dégager avant que la neige tombe |
+| 12 h avant | Congélateur | Plein, à −18 °C ou moins | Combler avec des bidons remplis aux quatre cinquièmes |
+| 12 h avant | Réfrigérateur | 0 à 4 °C | Mettre le thermostat au plus froid ; mettre au congélateur ce qu'on peut congeler |
+| 12 h avant | Viande cuite d'avance | 74 °C à cœur le gibier, 82 °C l'oiseau entier, 70 °C le poisson, au thermomètre | Remettre à cuire ; la couleur et le jus ne prouvent rien |
+| 12 h avant | Carburant | Pleins faits, consommation de la génératrice écrite sur elle en L/h | Réduire les heures de marche prévues |
+| 12 h avant | Génératrice | Elle démarre et porte la charge réelle | La réparer maintenant (section 7), ou faire le plan sans elle |
+| 12 h avant | Avertisseur de CO | Le bouton d'essai fait sonner l'alarme | Changer les piles. S'il reste muet, rien ne le remplace (section 7) : ne faire marcher dans la maison aucune chaufferette d'appoint, même conçue pour l'intérieur |
+| 6 h avant | Déplacements | Aucune sortie prévue | Sortir seulement pour une urgence |
+| 1 h avant | Électronique | Débranchée | Accepter de la perdre au retour du courant |
+| 1 h avant | Lampe témoin | Une lampe allumée par étage | En allumer une à chaque étage |
+| Début de la panne | Heure écrite sur la porte du congélateur | À la minute | L'écrire tout de suite : sans elle, on ne peut pas compter les 4 h, 24 h et 48 h |
+| Panne de plus de 6 h | Tri des aliments au retour du courant | Viande crue dégelée restée à 4 °C ou moins : la cuire tout de suite, ou la recongeler une fois cuite | Restée au-dessus de 4 °C : la jeter |
+| Panne de plus de 6 h | Surgelés | Cristaux de glace, centre encore dur : on peut les recongeler | Sans givre, centre mou : section 6 |
+| Retour du courant | Chauffe-eau | Plein avant d'être remis sous tension | Le remplir d'abord, le remettre sous tension ensuite |
+| Dans la semaine | Trousse et bidons | Tout ce qui a servi est remplacé | Le faire avant le prochain préavis (étape 44) |
 
 ---
 
-## 7. Signes d'échec
+## 6. Signes d'échec
 
 | Observation | Diagnostic | Action |
 | --- | --- | --- |
-| Le congélateur est à moitié vide au début de la panne | La tenue est de 24 h, pas de 48 h | Recalculer l'échéance à partir de 24 h. Ne pas ouvrir pour vérifier : l'ouverture est ce qui coûte le plus |
-| Emballage sans givre, centre de l'aliment mou | Décongélation complète | S'il est resté à 4 °C ou moins : cuire immédiatement, ou recongeler après cuisson. Exposé à plus de 4 °C : jeter |
-| Cristaux de glace encore visibles, centre dur | Décongélation partielle | Recongelable tel quel |
-| Lait, crème, fromage à pâte molle, œufs, pâtes cuites, salades contenant viande, volaille ou poisson, desserts à la crème, mayonnaise maison, après exposition | Aliments du réfrigérateur à jeter, sans examen | Jeter. «En cas de doute, jetez les aliments » |
-| Mal de tête, fatigue, nausée, vomissement ou étourdissement chez **plusieurs personnes en même temps**, ou chez les enfants d'abord | Intoxication au monoxyde de carbone jusqu'à preuve du contraire. Les symptômes apparaissent en quelques minutes d'exposition | Sortir tout le monde immédiatement. Quelqu'un qui se sent mieux dehors n'est pas remis : voir la section 8 |
-| L'avertisseur de CO sonne | Présence de CO | Tout le monde dehors immédiatement, sans s'arrêter pour ouvrir des fenêtres. Personne ne rentre avant que la source soit coupée et l'air renouvelé, et celui qui rentre la couper n'est jamais celui qui avait mal à la tête |
-| Le robinet ne donne plus rien | Poste de pompage du village sans courant, ou conduite gelée | Basculer sur la réserve. Ne pas chauffer une conduite gelée à la flamme nue. Voir les chapitres 10 et 82 |
-| Le robinet donne un filet qui faiblit d'heure en heure | Pression résiduelle du réseau qui s'épuise. Il reste des minutes, pas des heures | Remplir tout ce qui est encore vide immédiatement, service compris |
-| Eau trouble, colorée ou à odeur nouvelle au retour du service | Le réseau a perdu sa pression pendant la panne : une conduite sans pression aspire l'eau du sol par ses fuites et ses joints au lieu de refouler | La traiter comme de l'eau de surface, qu'elle soit redevenue claire ou non, pendant tout le retour du service : 1 minute à gros bouillons, ou 2 gouttes (0,2 mL) de Javel 5,25 % non parfumée par litre et 30 minutes. L'eau de puits est déjà déconseillée pendant une panne. Voir le chapitre 10 |
-| Le cellulaire n'affiche aucune barre | Aucune alerte Québec En Alerte ne sera reçue : le système exige un appareil compatible et une connexion LTE active | Radio à piles. Voir le chapitre 14 |
-| Le sous-sol sent l'égout pendant une pluie forte | Le réseau d'égout refoule ; le drain de plancher est la voie d'entrée | Obturer le drain maintenant. Monter ce qui est au sol. Voir le palier 2 |
-| On cherche le matériel à la frontale à deux heures du matin | Le palier 4 n'a pas été fait | Le faire au premier moment de calme, avant de dormir |
-| La réserve a déjà été entamée deux fois cet hiver sur des bulletins spéciaux | Le préavis est déclenché trop bas | Relever le seuil : veille et avertissement seulement. Voir le chapitre 8 |
-| Au troisième jour, personne ne veut boire l'eau des bidons | Les contenants n'ont pas été datés ; la réserve existe sans compter | Refaire la ronde, dater. L'eau bouillie tient 3 jours au frigo, 24 h à l'air |
-| Au préavis suivant, il manque exactement ce qui manquait au précédent | Le palier 6 n'a pas été fait | Reconstituer maintenant, pas au prochain avertissement. Voir les chapitres 00b et 9 |
+| Le congélateur est à moitié vide au début de la panne | Il tient 24 h, pas 48 h | Compter 24 heures à partir de l'heure écrite sur la porte. Ne pas l'ouvrir pour vérifier : chaque ouverture raccourcit la durée |
+| Emballage sans givre, centre de l'aliment mou | Décongélation complète | Resté à 4 °C ou moins : le cuire tout de suite, ou le recongeler une fois cuit. Au-dessus de 4 °C : le jeter |
+| Cristaux de glace encore visibles, centre dur | Décongélation partielle | On peut le recongeler tel quel |
+| Lait, crème, fromage à pâte molle, œufs, pâtes cuites, salades avec viande, volaille ou poisson, desserts à la crème, mayonnaise maison, qui ont dépassé 4 °C | Aliments du réfrigérateur à jeter sans les examiner | Les jeter. Dans le doute, jeter |
+| L'avertisseur de CO sonne, ou plusieurs personnes ont mal à la tête, la nausée ou des étourdissements en même temps | Du monoxyde entre dans la maison : une génératrice ou une auto trop près d'une ouverture, ou un appareil qui brûle à l'intérieur | Sortir tout le monde à l'air libre, puis arrêter la source si on peut l'atteindre sans rester à l'intérieur. Éloigner la génératrice ou l'auto à 6 m du bâtiment, l'échappement tourné à l'opposé des portes et des fenêtres (étape 18) |
+| Le robinet ne donne plus rien | Station de pompage sans courant, ou conduite gelée | Passer à la réserve. Dégeler la conduite à l'eau chaude, jamais à la flamme (ch. 3) |
+| Le filet du robinet faiblit d'heure en heure | La pression du réseau s'épuise ; il reste des minutes | Remplir tout de suite ce qui est encore vide, eau de service comprise. Faire bouillir ou javelliser cette eau avant de la boire (étape 8) |
+| Eau trouble, colorée ou avec une odeur nouvelle au retour du service | Le réseau a perdu sa pression pendant la panne : une conduite sans pression aspire l'eau du sol par ses fuites et ses joints | Faire bouillir ou javelliser l'eau comme à l'étape 8 pendant tout le retour du service, même quand elle est redevenue claire |
+| Le téléphone n'affiche aucune barre | Les alertes d'urgence n'arrivent plus au téléphone | Écouter la radio à piles (ch. 14) |
+| Le sous-sol sent l'égout pendant une pluie forte | L'égout refoule par le drain de plancher | Boucher le drain tout de suite (étape 22 ; section 7) et monter ce qui est au sol |
+| On cherche le matériel à la lampe frontale en pleine nuit | La dernière heure n'a pas été faite | La faire au premier moment de calme, avant de dormir (étapes 35 à 38) |
+| La réserve a été entamée deux fois cet hiver pour des bulletins spéciaux | La réserve est trop basse au début du préavis | Ne la dépenser que pour un avertissement ; pour une veille ou un avis, faire seulement les gestes qu'on peut défaire (étape 1 ; ch. 8) |
+| Au troisième jour, personne ne veut boire l'eau des bidons | Les contenants n'ont pas été datés | Refaire la réserve et la dater (étape 9) |
+| Au préavis suivant, il manque ce qui manquait au précédent | La réserve n'a pas été refaite | La refaire maintenant (étape 44 ; ch. 9) |
 
 ---
 
-## 8. Danger
+## 7. Variante d'urgence
 
-> ### ⚠ DANGER — Un préavis tue de trois façons
->
-> **1. Le monoxyde de carbone.** C'est le risque principal de ce chapitre, parce que le
-> préavis est exactement le moment où l'on rentre une génératrice, un réchaud ou un
-> barbecue à l'abri de la neige. Le CO est «un gaz incolore, inodore, insipide et sans
-> propriétés irritatives » : aucun sens humain ne le détecte. Son affinité pour
-> l'hémoglobine est **de 200 à 250 fois plus importante que celle de l'oxygène**. Il
-> se lie à l'hémoglobine pour former de la carboxyhémoglobine, «une hémoglobine anormale
-> qui ne peut servir au transport de l'oxygène », et il déplace en plus la courbe de
-> dissociation vers la gauche, ce qui retient l'oxygène restant au lieu de le livrer aux
-> tissus. Autrement dit : le sang se remplit d'un gaz qu'on ne sent pas, et ce qui
-> reste d'oxygène ne se rend plus. La victime ne suffoque pas, elle a mal à la tête, puis
-> elle s'endort.
->
-> **La génératrice va dehors, à 6 mètres du bâtiment. Jamais dans un bâtiment, jamais dans le
-> garage, jamais sous un auvent, porte ouverte ou non.** Le chiffre : au
-> moins 6 mètres (20 pieds) entre toute habitation ou tout bâtiment et une génératrice en
-> marche. Six mètres du **bâtiment**, pas de la porte — c'est plus loin que
-> l'endroit où la plupart des gens la posent, et c'est plus loin que la longueur d'une
-> rallonge ordinaire, ce qui est précisément pourquoi la rallonge s'achète en fonction de la
-> distance et non l'inverse. Deux consignes s'ajoutent à la distance et règlent le cas du vent
-> et de la porte sous le vent : «dirigez le tuyau d'évacuation dans le sens opposé de toute
-> porte ou fenêtre ouverte », et «fermez toutes les fenêtres et les portes les plus près de
-> la génératrice ou vers lesquelles les gaz d'échappement de la génératrice pourraient se
-> diriger ». Même règle pour
-> les réchauds de camping, les barbecues au charbon, les chaufferettes au propane et les
-> lampes à l'huile : «N'utilisez pas les appareils ou véhicules pouvant dégager du monoxyde
-> de carbone à l'intérieur d'une pièce, d'un abri ou d'un véhicule ». Un véhicule
-> ou une motoneige qui tourne au ralenti près d'une porte compte comme une source. Un
-> avertisseur de CO à pile de secours, testé, dans chaque zone où il y a une source, et en
-> priorité «dans les couloirs menant aux chambres », parce que l'intoxication
-> se termine dans le sommeil. **Et un avertisseur silencieux ne prouve rien** : il est fait
-> pour sonner sur une concentration forte et courte, pas sur une concentration faible tenue
-> toute la nuit : à 400 ppm il sonne en 4 à 15 minutes, à 70 ppm il peut attendre quatre
-> heures, et à 30 ppm il ne doit pas sonner avant 30 jours. C'est exactement le profil d'une génératrice mal placée sous le vent. C'est pour ça qu'un
-> modèle à affichage numérique vaut mieux : il donne un chiffre pendant qu'il est encore temps
-> de déplacer la génératrice, au lieu d'un silence qu'on prend pour une réponse.
-> Symptômes : maux de tête, fatigue, nausées, vomissements, étourdissements, en quelques
-> minutes. Chez un enfant, ça ressemble à de la fatigue ou à du mauvais caractère,
-> et c'est la lecture qu'un parent fait naturellement. Si l'avertisseur sonne ou si plusieurs
-> personnes ont les mêmes symptômes en même temps : tout le monde dehors, sans s'arrêter pour
-> ouvrir des fenêtres. Personne ne rentre avant que la
-> source soit coupée et l'air renouvelé, et celui qui rentre la couper n'est jamais celui qui
-> avait mal à la tête : le sauveteur qui retourne à l'intérieur est la victime suivante, parce
-> qu'il entre en courant et qu'il respire plus vite. Le sang met des heures à se débarrasser
-> du CO — à l'air libre, il en reste encore la moitié trois à cinq heures plus tard ;
-> quelqu'un qui se sent mieux dehors au bout de quelques minutes n'est pas remis.
->
-> **2. La route pendant la fenêtre.** Un avertissement donne habituellement de 6 à
-> 24 heures, et la fenêtre se referme par le mauvais bout : le dernier tiers est
-> toujours le pire. Un aller-retour entrepris à H-2 pour un oubli met une famille dehors au
-> moment précis où la visibilité tombe, où les remorqueuses ne sortent plus et où une
-> panne mécanique devient une exposition au froid. À -35 °C, un véhicule immobilisé n'est
-> pas un abri : c'est une boîte de métal qui refroidit plus vite qu'une maison, parce qu'elle
-> n'a ni masse ni isolant et qu'elle perd sa chaleur par les vitres. Le chapitre 25 traite de
-> l'exposition elle-même.
->
-> **3. La cuisine de dernière minute.** Vider un congélateur qui dégèle pousse à cuire vite
-> et à improviser des conservations.
-> - **Gibier sauvage : 74 °C à cœur**, au thermomètre, dans la partie la plus charnue, sans
-> toucher l'os ni le gras. Orignal, ours noir, lièvre, oiseaux, phoque. Pas
-> d'estimation à la couleur.
-> - **Trichinellose, chez l'ours noir et le phoque : ni le sel, ni le fumage, ni la
-> congélation domestique ne la détruisent.** Seule la cuisson à 74 °C à cœur le fait. Une
-> cuisse d'ours qu'on décide de saler parce que le congélateur a lâché reste dangereuse
-> après la salaison. Voir les chapitres 52 et 56.
-> - **Jamais le foie ni les reins d'un cervidé.** Le cadmium s'accumule dans ces deux organes
-> tout au long de la vie de l'animal ; la cuisson ne le détruit pas, parce que c'est un
-> métal. Voir le chapitre 22.
-> - **Botulisme de type E : la bactérie produit sa toxine dès 3 °C**, donc à la température
-> d'un réfrigérateur et à celle d'une glacière. Elle est présente dans les sédiments et sur
-> les poissons du fleuve et des lacs. **La toxine ne change ni l'odeur, ni le goût, ni
-> l'apparence de l'aliment** : un poisson fumé ou mal refroidi qui semble parfait peut
-> tuer. Le poisson sorti d'un congélateur qui dégèle se cuit à 70 °C et se mange, ou se
-> jette. Il ne se met pas de côté «pour le fumer demain ». Voir les chapitres 75 et 77.
+### Une deuxième tempête sur une maison déjà en panne
+
+La maison est en panne depuis deux jours, et une deuxième tempête s'annonce. Décider tout de suite si on monte au
+chalet, sans attendre le cinquième jour. Avant de monter, vérifier trois choses : assez de carburant pour l'aller sans
+faire le plein en route, du bois fendu là-haut, et une route encore ouverte. S'il en manque une, rester et fermer les
+pièces qu'on ne chauffe pas (ch. 2). Pour la suite, on n'a que ce qu'il y a dans la maison : les commerces sont
+fermés ou vides.
+
+### L'eau qui reste dans la maison
+
+La station de pompage est arrêtée et le robinet ne donne plus rien. Il reste quatre réserves d'eau dans la maison.
+
+**Le chauffe-eau** est la plus grosse : de 180 à 280 L selon qu'il fait 40 ou 60 gallons, ce qu'on lit sur l'étiquette
+du réservoir. C'est de l'eau potable qui a chauffé.
+
+- Couper d'abord le disjoncteur du chauffe-eau au panneau : un élément chauffant sous tension à sec grille en quelques
+ minutes.
+- Ouvrir un robinet d'eau chaude à l'étage : sans entrée d'air, le réservoir fait le vide et rien ne sort en bas.
+- Brancher un boyau d'arrosage sur le robinet de vidange, au bas du réservoir, et l'ouvrir. Ce robinet est souvent en
+ plastique et n'a jamais servi : il tourne dur, et une fois ouvert, il referme rarement bien. Il coulera un peu
+ jusqu'à ce qu'on le change.
+- Quand l'eau arrête au bout de quelques litres, passer un bout de broche raide dans l'ouverture : le fond d'un
+ chauffe-eau est couvert d'un dépôt qui bouche le robinet, et la broche le défait. Les premiers litres sortent
+ brunâtres : c'est du calcaire et de la rouille ; les garder pour le service.
+- Écrire au feutre sur le chauffe-eau qu'il est vide : la personne qui rétablira le courant n'est pas toujours celle
+ qui l'a vidé, et il faut le remplir avant (étape 42).
+
+**La tuyauterie** : ouvrir d'abord le robinet le plus haut de l'étage pour laisser entrer l'air, puis vider la
+tuyauterie par le robinet le plus bas du sous-sol. Elle donne peu, mais c'est de l'eau propre.
+
+**Le réservoir de la toilette**, pas la cuvette, donne de l'eau de service, sauf si une pastille de javel y trempe.
+
+**Les bidons du congélateur** (étape 10) ont gardé le froid deux jours ; en dégelant, ils redeviennent de l'eau à
+boire.
+
+### Des contenants faits de sacs à ordures
+
+Un sac à ordures neuf et épais, déplié dans un bac à linge, une poubelle propre ou une baignoire, tient plusieurs
+dizaines de litres s'il est soutenu de tous les côtés : sans paroi autour, il se déchire à sa couture. **Ce qu'on
+perd :** ce n'est pas du plastique alimentaire ; l'eau qu'il garde sert au service, pas à boire.
+
+### L'eau du dehors
+
+Faire bouillir l'eau d'un lac, d'un ruisseau ou de la neige 5 minutes à gros bouillons (ch. 10, étape 14). Pour la
+javelliser comme à l'étape 8, la passer d'abord au filtre à 1 µm : la javel ne tue presque pas certains parasites de
+cette eau (ch. 10, étape 19). Avant l'un ou l'autre, laisser reposer l'eau trouble et la passer dans un linge serré :
+les particules abritent les microbes, et une eau brune javellisée reste mal désinfectée.
+
+La neige fondue coûte le plus de bois : la neige fraîche contient 4 à 10 % d'eau, soit 10 à 25 L de neige pour 1 L
+d'eau. Mettre toujours un fond d'eau dans le chaudron, ajouter la neige par poignées et ne jamais laisser le chaudron
+se vider : quand on jette la neige dans un chaudron sec, le fond brûle avant que la neige fonde, parce qu'elle ne
+touche le métal qu'en quelques points. La glace de lac donne beaucoup plus d'eau que le même volume de neige, pour le
+même bois, et une chaudière d'eau puisée au lac en coûte encore moins (ch. 10).
+
+### La toilette quand l'égout ne pompe plus
+
+L'égout de la ville coule par gravité jusqu'aux stations de pompage ; quand elles s'arrêtent, il se remplit.
+
+- Pour tirer la chasse, verser d'un coup une chaudière d'eau de service dans la cuvette : la vitesse de l'eau amorce
+ le siphon de la toilette, et un filet versé lentement ne fait que remplir la cuvette. Chaque chasse remplit un peu
+ plus l'égout, qui ne pompe plus.
+- Si le sous-sol sent l'égout, l'égout refoule : arrêter d'y envoyer quoi que ce soit, et boucher le drain de plancher
+ (plus bas).
+- Ensuite, se servir d'une chaudière doublée d'un sac, avec un couvercle, et jeter de la cendre de poêle ou du bran
+ de scie par-dessus après chaque usage. La cendre absorbe l'eau libre, qui fait l'odeur, et une matière sèche arrête
+ la fermentation. Avec deux chaudières, garder l'urine à part : le mélange des deux sent le plus (ch. 31).
+
+### Boucher le drain de plancher sans obturateur
+
+On fabrique l'obturateur avec un bouchon de bois et un 2 × 4 coincé contre la solive du plafond (planche 07-01).
+
+- Enlever la grille du drain. Tailler un bouchon de bois en pointe, un peu plus gros que l'ouverture, l'envelopper
+ d'un chiffon et l'enfoncer au marteau dans le renvoi jusqu'à ce qu'il serre. Il doit dépasser un peu du plancher
+ (repères 1 et 2).
+- Le refoulement pousse le bouchon par en dessous, avec la hauteur d'eau de toute la rue derrière lui (repère 3) : un
+ bouchon seul ressort, et un sac de sable posé dessus ne le retient pas.
+- Couper un 2 × 4 à peine plus long que la hauteur entre le dessus du bouchon et le dessous de la solive (repère 4).
+- Poser le bas du 2 × 4 sur le bouchon, appuyer le haut en biais contre la solive, et frapper le haut au marteau
+ vers l'aplomb (repère 5).
+- Une fois d'aplomb, le 2 × 4 est coincé entre le bouchon et la solive, et il tient le bouchon en place (repère 6).
+
+### Faire de la glace dehors
+
+Quand il gèle dehors, on peut garder froid le congélateur arrêté. Remplir aux quatre cinquièmes tout ce qui ferme (des
+bidons, des bouteilles, des chaudières, des sacs doublés), le sortir pour la nuit et rentrer les blocs au matin dans
+le congélateur, qui sert alors de glacière. Un bloc entier fond beaucoup plus lentement que la même masse en morceaux,
+parce qu'il a moins de surface : faire geler l'eau en gros contenants. Avec deux jeux de bidons, un dehors et un
+dedans, on garde un congélateur fermé froid aussi longtemps qu'il gèle dehors.
+
+### La caisse froide dehors
+
+Quand il gèle jour et nuit, sortir la nourriture dans une caisse placée au nord, à l'ombre toute la journée,
+surélevée du sol et fermée contre les bêtes. L'isoler avec ce qu'on a : de la neige tassée sur les côtés et le
+dessus, du bran de scie, des feuilles sèches, de vieux manteaux, du carton double. La neige garde le soleil de midi et
+le vent doux loin de la caisse : l'ombre compte plus que la température de l'air. En ville, mettre la caisse sur le
+balcon arrière ou dans le cabanon, pas en avant, à la vue des passants (ch. 17). Le froid naturel et ses limites :
+ch. 73 ; le congélateur plein qui dégèle : ch. 74.
+
+**Ce qu'on perd :** le contrôle de la température. Un redoux à +5 °C en février peut tout dégeler en une journée.
+Mettre un thermomètre d'extérieur dans la caisse, ou, à défaut, un verre d'eau gelée avec une pièce de monnaie posée
+sur la glace (ch. 1, planche 01-02) : si on retrouve la pièce au fond du verre, la caisse a dégelé puis regelé pendant la nuit.
+
+### La batterie de l'auto à la place de la génératrice
+
+Sans génératrice, il reste l'auto.
+
+- Couper la fiche d'un adaptateur USB d'allume-cigare, et sertir une pince crocodile sur chacun de ses deux fils.
+ Branché sur la batterie, il recharge les téléphones, les lampes frontales et les blocs-piles sans faire tourner le
+ moteur.
+- {!vapeurs} Mettre la pince rouge sur la borne positive et la noire sur la négative. Quand la batterie est dans
+ l'auto, mettre la pince noire sur le bloc moteur plutôt que sur la borne : une pince qui glisse sur le positif
+ pendant qu'on serre le négatif fait un arc, et une batterie dégage de l'hydrogène.
+- {!generatrice} Ne faire tourner le moteur que pour recharger, l'auto dehors, jamais dans le garage, même porte
+ ouverte. Monter un peu le régime : au ralenti, l'alternateur charge peu.
+- Garder la batterie de l'auto pour démarrer. Brancher ce qui consomme sur une deuxième batterie, celle de la
+ motoneige, du bateau ou du tracteur à gazon, et la recharger ensuite en la reliant à celle de l'auto, moteur en
+ marche, avec des câbles d'appoint.
+- Par grand froid, une batterie donne la moitié de sa charge à −18 °C, et moins encore plus bas, parce que sa réaction
+ chimique ralentit : la rentrer au chaud avant d'essayer de démarrer.
+- Garder la batterie chargée. Pleine, elle gèle vers −69 °C ; à 40 % de sa charge, vers −15 °C, et une batterie gelée
+ est perdue.
+
+**Ce qu'on perd :** tout ce qui demande du 120 V : le congélateur, les pompes, les outils. Le 12 V fait la lumière et
+les communications, pas le froid ni le chauffage : une résistance chauffante vide une batterie d'auto vite, sans
+réchauffer la pièce. La caisse dehors prend le relais du congélateur.
+
+### La génératrice qui ne part pas
+
+Une génératrice passe presque toute l'année arrêtée. Quand elle ne part pas, c'est souvent pour une de ces quatre
+raisons, qu'on règle sans pièce neuve (ch. 106).
+
+- **Elle tourne au lanceur, mais ne part pas** : c'est souvent l'essence. L'essence restée tout l'été dans le
+ réservoir a laissé une gomme dans la cuve du carburateur. Fermer la valve d'essence, dévisser le bouchon de vidange
+ sous la cuve et vider la cuve dans un pot. Si ce qui sort est verni, orangé ou plein de dépôt, le gicleur est bouché
+ aussi. Le déboucher avec un brin de cuivre tiré d'un fil multibrins, jamais avec une mèche ni une broche d'acier : le
+ gicleur est en laiton tendre, et un gicleur agrandi change le mélange pour de bon. Remplir avec de l'essence fraîche,
+ pas avec celle qu'on vient de vider.
+- **Elle part et s'arrête aussitôt** : c'est souvent le coupe-circuit d'huile. Beaucoup de petits moteurs ont un
+ flotteur qui coupe l'allumage quand l'huile manque. Sur un banc de neige ou une pente, le flotteur penche et coupe
+ l'allumage même quand l'huile est là. Mettre la génératrice de niveau sur une planche, vérifier l'huile à la jauge,
+ puis la redémarrer.
+- {!vapeurs} **Elle ne fait pas d'étincelle** : sortir la bougie, la rebrancher sur son fil, coucher son corps de
+ métal contre le bloc moteur et tirer le lanceur : on doit voir une étincelle bleue et franche. Tenir le trou de la
+ bougie tourné vers l'extérieur : le cylindre souffle un brouillard d'essence à chaque coup. Nettoyer une bougie
+ noire et humide au papier sablé fin, et la faire sécher ; une bougie aux électrodes arrondies est finie. Régler
+ l'écart entre les électrodes d'après l'étiquette du moteur.
+- **Elle tourne bien, mais ne donne pas de courant** : pendant les mois d'arrêt, l'alternateur a perdu le reste
+ d'aimantation dont il a besoin pour produire. Pendant que la génératrice tourne, sans rien d'autre de branché,
+ brancher une perceuse à fil dans sa prise, tenir la gâchette enfoncée et faire tourner le mandrin à la main, dans le
+ sens contraire de sa rotation : la perceuse devient une petite génératrice et renvoie assez de courant dans les
+ bobines pour les réaimanter. Ça ne marche pas sur une génératrice à onduleur ; sur les autres, quand ça marche, c'est
+ en quelques secondes.
+
+Quand la corde du lanceur casse, la remplacer par une corde de même grosseur, avec un nœud simple au bout et un nœud
+dans la poignée. Réarmer le ressort en tournant la poulie à la main de quelques tours avant de passer la corde dans
+l'œillet.
+
+### Les nouvelles sans réseau cellulaire
+
+Sans réseau cellulaire, les alertes d'urgence n'arrivent plus au téléphone, et la radio à piles devient la seule
+source de nouvelles (ch. 14). **Ce qu'on perd :** l'alerte ciblée sur le secteur. La radio donne les nouvelles de la
+région, et il faut juger soi-même si ce qu'elle annonce touche la maison.
+
+### Chauffer une seule pièce
+
+Sans propane ni génératrice, il reste le poêle à bois, et on ne chauffe plus qu'une seule pièce (ch. 83, ch. 87).
+
+- Fermer d'abord la cage d'escalier : l'air chaud y monte et se refroidit contre les fenêtres de l'étage, pendant que
+ la pièce du poêle tire l'air froid par le plancher. Une couverture clouée en haut de l'escalier garde plus de
+ chaleur que toutes les portes de chambre fermées.
+- Tendre ensuite une couverture dans chaque cadre de porte de la pièce, et couvrir les fenêtres de la pièce pour la
+ nuit : la vitre, même double, est le point le plus froid du mur.
+- {!co} Faire dormir tout le monde dans cette pièce : quatre personnes dans une pièce fermée la réchauffent. Y apporter
+ l'avertisseur de CO du couloir des chambres (étape 21) : dans un couloir qu'on ne chauffe plus, la température peut
+ descendre sous 4,4 °C, et on ne peut plus se fier à l'avertisseur.
+
+### La plomberie hors gel sans antigel
+
+Quand la pièce du poêle est la seule chaude, le reste de la maison refroidit, et les tuyaux de l'étape 34 gèlent les
+premiers et fendent.
+
+- Fermer l'entrée d'eau. Ouvrir le robinet le plus haut pour laisser entrer l'air, puis le plus bas pour vider, puis
+ tous les autres, et les laisser ouverts.
+- Tirer la chasse des toilettes pour vider les réservoirs.
+- Vider chaque siphon d'évier et de lavabo (étape 40). S'il a un bouchon de nettoyage au bas du coude, mettre une
+ chaudière dessous et dévisser le bouchon ; sinon, aspirer l'eau à la poire à jus ou à l'aspirateur à eau, ou
+ dévisser l'écrou du siphon au-dessus d'une chaudière. Bourrer ensuite le renvoi d'un chiffon : sans son eau, le
+ siphon ne bloque plus les gaz d'égout.
+- La cuvette de la toilette ne se vide pas. À la maison, sur l'égout de la ville, y verser un peu de lave-glace au
+ méthanol : il abaisse le point de congélation. Au chalet, le méthanol tue les bactéries de la fosse septique :
+ écoper la cuvette à la tasse et finir à l'éponge.
+
+### Ce qu'on perd
+
+- **La recharge** : les piles des lampes, des téléphones et des radios se vident, et on ne peut plus les recharger.
+- **Les pleins** : on ne peut plus faire le plein, et la réserve de carburant ne fait que baisser.
+- **Une partie du préavis** : reçu en pleine panne, il sert seulement à rentrer du bois, à remplir des contenants
+ d'eau, à mettre des bidons à geler dehors et à regrouper la famille dans une seule pièce.
+
+### Ce qui ne se remplace pas
+
+- **L'avertisseur de CO** : aucun sens et aucun montage ne détectent le gaz (étape 21).
+- **Le thermomètre à sonde** : on ne peut pas deviner les 74 °C à cœur à l'œil, et quand un congélateur dégèle, on
+ cuit de la viande sauvage à la hâte (étape 13).
+- **Les médicaments sur ordonnance** : il n'existe pas de version bricolée d'un anticonvulsivant ou d'une insuline ; la
+ seule marge est de les faire renouveler tôt (ch. 32).
+- **Le carburant** : rien dans la maison ne remplace un bidon d'essence plein.
 
 ---
 
-## 9. Variante d'urgence
+## En plus
 
-Le cas réel : la maison est en panne depuis deux jours et un deuxième système s'en vient. Pas
-de courant au village, commerces fermés ou vidés, pas de produit spécialisé. Ce qui suit se
-fait à la main.
+### L'alerte à la radio et au téléphone
 
-**L'eau — les quatre réserves déjà dans la maison.** Le poste de pompage municipal est arrêté et le robinet ne donne plus rien. Quatre réserves existent déjà entre les murs et personne n'y
-pense.
+Au Québec, seuls le ministère de la Sécurité publique et Environnement Canada peuvent lancer une alerte par le système
+d'alerte au public. Les stations de radio et de télévision et les fournisseurs de cellulaire sont branchés sur ce
+système et diffusent ses messages, en français d'abord, puis en anglais (étape 1).
 
-Le **chauffe-eau** est la plus grosse : de 180 à 280 litres selon qu'il fait 40 ou 60 gallons
-— c'est écrit sur l'étiquette du réservoir. C'est de l'eau potable, elle a juste chauffé. Couper d'abord son
-alimentation au panneau — un élément alimenté à sec grille en quelques minutes. Ensuite,
-ouvrir un robinet d'eau chaude à l'étage : sans cette entrée d'air, le réservoir fait le vide et rien ne sort, peu importe combien on ouvre en bas. Puis brancher un boyau d'arrosage sur le
-robinet de vidange au bas du réservoir. Deux choses vont mal se passer, et elles se prévoient.
-La première : le robinet de vidange est en plastique, il n'a jamais servi, il se tourne dur et
-une fois ouvert il referme rarement d'aplomb — on accepte qu'il coulera un peu jusqu'au jour
-où on le changera. La deuxième : il se bouche au bout de quelques litres, parce que le fond
-d'un chauffe-eau est une couche de sédiment. On passe un bout de broche raide dans l'ouverture
-pour crever le bouchon de dépôt, et l'eau repart. Les premiers litres sortent brunâtres :
-c'est du calcaire et de la rouille, pas une contamination, et ils se gardent pour le service.
-Écrire ensuite au feutre sur la trappe électrique que le réservoir est vide, parce que celui
-qui rétablira le courant n'est pas forcément celui qui l'a vidé : «Assurez-vous que le
-chauffe-eau est plein avant de rétablir le courant ».
+### Une courte panne peut contaminer l'aqueduc
 
-La **tuyauterie de la maison** se draine par le robinet le plus bas du sous-sol, une fois
-l'air entré par le plus haut de l'étage. Ça donne peu, mais c'est de l'eau propre et c'est
-autant de tuyau qui ne fendra pas au gel. Le **réservoir de la toilette** — le réservoir, pas
-la cuvette — donne de l'eau de service, à moins qu'une pastille de javel y trempe, auquel cas
-elle ne sert plus à rien. Et le **congélateur** : les bidons de 4 L mis à geler au palier 2
-sont de l'eau de boisson qui a travaillé deux jours comme réserve de froid avant de redevenir
-de l'eau. C'est le seul stock du chapitre qui sert deux fois.
+Dans les réseaux d'aqueduc où on a suivi la pression, chaque fois qu'elle est tombée sous zéro, c'était pendant une
+panne de courant ou l'arrêt d'une pompe. Lors d'une panne à une station de pompage, elle est restée sous zéro
+24 secondes. Tant que la pression est sous zéro, l'eau du sol autour des conduites, où on a trouvé des bactéries venues
+des selles et des virus humains, peut entrer par leurs fuites (étape 42).
 
-**Fabriquer les contenants qui manquent.** Un sac à ordures neuf et épais, déplié dans un bac
-à linge, une poubelle propre ou une baignoire, tient plusieurs dizaines de litres — à condition
-qu'il soit soutenu de tous les côtés. Un sac rempli sans paroi autour se déchire à sa propre
-couture. Ce qu'on perd : ce n'est pas du plastique alimentaire, donc ça fait de l'eau de
-service et pas de l'eau de boisson. La baignoire nue, elle, n'est pas un contenant : le bouchon
-suinte et il n'en reste rien au matin du troisième jour. Étiqueter chaque contenant au feutre,
-boisson ou service, avant de le remplir et non après.
+### La cache de pierres des Inuits de la Koksoak
 
-**Ensuite seulement, l'eau de dehors.** Faire bouillir une minute à gros bouillons avant de
-boire. À défaut de feu, la désinfection chimique reste possible : 2 gouttes
-(0,2 mL) d'eau de Javel 5,25 % non parfumée par litre, 30 minutes de repos.
-Dans les deux cas, l'eau trouble se laisse décanter et se passe dans un linge serré **avant**
-le traitement : les particules en suspension abritent les micro-organismes, et une eau brune
-javellisée reste une eau brune mal désinfectée. La neige fondue est la solution la plus
-coûteuse en bois : la neige fraîche ne contient que 4 à 10 % d'eau, soit de 10 à 25 litres
-de neige pour un litre d'eau — et elle se fait mal : de la neige jetée dans
-un chaudron sec brûle le fond avant de fondre, parce qu'elle ne touche le métal qu'en quelques
-points. On met toujours un fond d'eau liquide dans le chaudron, on ajoute la neige par
-poignées, et on ne laisse jamais le chaudron se vider. De la glace de lac fond en donnant
-beaucoup plus d'eau que le même volume de neige, pour le même bois. Et puiser un seau d'eau
-liquide vaut toujours mieux que fondre l'équivalent. Voir le chapitre 10.
+Les Inuits de la rivière Koksoak, en Ungava, gardaient pour l'hiver le caribou tué à l'automne : ils posaient la bête
+sur des pierres et montaient un mur de pierres par-dessus contre les corbeaux, les renards, les loups et le carcajou.
+Ils marquaient l'endroit pour le retrouver sous la neige, et souvent ne le retrouvaient pas. Le froid garde la
+viande ; les premières bêtes, tuées par temps chaud, se gâtaient et allaient aux chiens (section 7, « La caisse
+froide dehors »).
 
-**L'égout.** C'est le service qu'on oublie parce qu'il marche par gravité — jusqu'à ce que la
-station de pompage municipale s'arrête. Une chasse d'eau reste possible en versant d'un coup
-un seau d'eau de service dans la cuvette : c'est le débit qui amorce le siphon, pas le volume, et un filet versé lentement ne fait que remplir la cuvette. Mais chaque chasse envoie ses
-litres dans un réseau qui ne pompe plus.
+### Lire la charge d'une batterie au voltmètre
 
-Si le sous-sol commence à sentir l'égout, le réseau refoule : on cesse d'y envoyer quoi que ce
-soit et on obture le drain de plancher. L'obturateur se fabrique — un bouchon de bois enveloppé
-d'un chiffon, enfoncé dans le renvoi, et une pièce de bois coupée juste trop longue, coincée en
-force entre le bouchon et la solive du plafond. Le refoulement pousse vers le haut avec la
-hauteur d'eau de toute la rue derrière lui : sans l'étai, n'importe quel bouchon ressort, et un
-sac de sable posé dessus n'obture rien du tout.
-
-À partir de là, on sort du réseau : un seau doublé d'un sac, à couvercle, et de la cendre de
-poêle ou du bran de scie jeté par-dessus après chaque usage. La cendre n'est pas là pour
-l'odeur mais pour l'humidité — c'est l'eau libre qui fait sentir un seau, et une matière sèche
-qui l'absorbe arrête la fermentation. Les urines et le reste se séparent si on a deux seaux, et ça change tout : c'est le mélange des deux qui pue. Voir le chapitre 31.
-
-**Le froid — fabriquer de la glace au lieu d'en acheter.** Sans électricité, le congélateur ne
-se recharge plus en froid : il ne fait que perdre celui qu'il a. Mais dehors, il gèle, et c'est
-une puissance frigorifique gratuite que personne n'utilise. Le geste : remplir tout ce qui
-ferme — bidons, bouteilles, chaudières, sacs doubles — aux quatre cinquièmes, les sortir
-pour la nuit, et rentrer les blocs au matin dans le congélateur devenu simple glacière. Un
-bloc entier fond beaucoup plus lentement que la même masse en morceaux, parce que c'est la
-surface qui échange et qu'un bloc en a peu : on gèle donc en gros contenants, jamais en petits.
-Deux jeux de bidons qui alternent, un dehors et un dedans, tiennent un congélateur fermé aussi
-longtemps que dure le froid.
-
-Quand le froid dehors suffit, on déménage carrément. En bas de 0 °C, une caisse isolée placée
-au nord, à l'ombre toute la journée, surélevée du sol et protégée des animaux remplace le
-congélateur. L'isolant se trouve sur place : neige tassée sur les côtés et sur le dessus,
-bran de scie, feuilles sèches, vieux manteaux, carton double. La neige n'est pas là pour
-refroidir, elle est là pour empêcher le soleil de midi et le vent doux d'atteindre la caisse — et c'est pour ça que l'ombre compte plus que le thermomètre. En village, la caisse se met sur
-le balcon arrière ou dans le cabanon, pas devant : un congélateur improvisé bien visible est
-une invitation, et c'est le chapitre 17 qui traite de ce qui cogne à la porte. Le chapitre 73
-traite du froid naturel et de ses limites, le chapitre 74 du congélateur plein qui dégèle.
-
-Ce qu'on perd : la régulation, et c'est une grosse perte. Un redoux à +5 °C en février annule
-tout en une journée, sans avertissement. Le correctif se bricole : un thermomètre d'extérieur
-dans la caisse, ou à défaut un verre d'eau gelé avec une pièce de monnaie posée sur la glace :
-la pièce retrouvée au fond dit que ça a dégelé puis regelé pendant qu'on dormait.
-
-**L'électricité — la batterie du char est la génératrice.** Sans génératrice, il reste le
-véhicule, et il fait plus que ce qu'on lui demande d'habitude. Un adaptateur USB
-d'allume-cigarette dont on coupe la fiche et sur lequel on sertit deux pinces crocodile se
-branche directement sur les bornes d'une batterie : c'est une station de recharge pour téléphones,
-frontales et blocs-piles, sans moteur qui tourne et sans une goutte d'essence. Rouge sur
-positif, noir sur négatif, et la pince noire sur le bloc moteur plutôt que sur la borne
-négative quand la batterie est en place — une pince qui glisse sur le positif pendant qu'on
-serre le négatif fait un arc, et une batterie dégage de l'hydrogène.
-
-Le moteur ne se démarre que pour recharger, **dehors, jamais dans le garage**, pour la raison
-donnée dans l'encadré : le garage attenant est justement l'endroit où la tentation est la plus
-forte quand il vente, et une porte de garage ouverte n'y change rien. Un moteur au ralenti
-recharge lentement ; un peu de régime aide. Et la batterie de démarrage ne se vide pas : elle
-sert à démarrer, un point. Tout ce qui consomme se branche sur une deuxième batterie — celle
-de la motoneige, du bateau, d'un tracteur à gazon — qu'on recharge ensuite en la reliant à
-celle du véhicule, moteur en marche, avec des câbles d'appoint.
-
-Deux choses que le froid impose. Par grand froid, une batterie donne une fraction de ce qu'elle
-donne au chaud — la moitié à -18 °C, moins encore plus bas —, parce que la réaction chimique
-ralentit : une batterie qu'on rentre se réchauffer dans la maison avant d'essayer
-démarre, et la même batterie laissée dehors ne démarre pas. Et une batterie déchargée
-gèle, alors qu'une batterie chargée ne gèle pas — l'acide d'une batterie pleine ne prend pas
-aux températures d'ici, celui d'une batterie à plat est presque de l'eau. Une batterie qu'on
-laisse se vider dehors est une batterie qu'on ne récupère pas.
-
-Ce qu'on perd : tout ce qui demande du 120 V. Le congélateur, les pompes, les outils. Le 12 V
-fait la lumière et les communications, pas le froid ni le chauffage — une résistance chauffante
-vide une batterie d'auto en un rien de temps et ne réchauffe rien. L'horloge du froid
-recommence donc à courir, et c'est la caisse dehors qui prend le relais.
-
-**La génératrice qui refuse de partir.** C'est l'objet qui lâche le plus souvent, parce qu'il
-dort presque toute l'année. Quatre pannes couvrent presque tout, et les quatre se règlent sans
-pièce.
-
-1. **Elle tourne au démarreur mais ne prend pas.** C'est l'essence, la plupart du temps. Celle
- qui a passé l'été dans le réservoir a laissé une gomme dans la cuve du carburateur. On ferme
- la valve d'essence, on dévisse le bouchon de vidange sous la cuve, on laisse tout couler dans
- un pot, et on regarde : si ce qui sort est vernis, orangé ou plein de dépôt, le gicleur est
- bouché lui aussi. Le gicleur se débouche avec un brin de cuivre tiré d'un fil multibrins —
- jamais avec une mèche, jamais avec une broche d'acier : le laiton du gicleur est tendre, et
- un gicleur agrandi change le mélange pour toujours et ne se répare plus. On remplit
- ensuite avec de l'essence fraîche, pas avec ce qu'on vient de vidanger.
-2. **Elle part et meurt aussitôt.** Souvent le coupe-circuit de niveau d'huile. Beaucoup
- de petits moteurs en portent un : un flotteur lit le niveau et coupe l'allumage. Une
- génératrice posée de travers sur un banc de neige ou sur une pente lui fait lire «vide »
- alors que l'huile est là. On la met de niveau sur une planche et on vérifie le niveau à la
- jauge avant de conclure quoi que ce soit.
-3. **Pas d'étincelle.** On sort la bougie, on rebranche le fil dessus, on couche le corps de la
- bougie en métal contre le bloc moteur et on tire le lanceur : une étincelle bleue et franche,
- ou rien. Tenir le trou de bougie tourné vers l'extérieur — le cylindre souffle un brouillard
- d'essence à chaque coup. Une bougie noire et humide se nettoie au papier sablé fin et se
- sèche ; une bougie dont les électrodes sont rondes est finie. L'écartement ne s'invente pas :
- il est sur l'étiquette du moteur.
-4. **Elle tourne bien mais ne sort pas de courant.** L'alternateur a perdu son magnétisme
- résiduel pendant qu'il dormait, et sans ce reste d'aimantation il n'amorce plus. Le vieux
- truc : la génératrice en marche, rien d'autre de branché, on branche une perceuse **à fil**
- dans la prise, on tient la gâchette enfoncée et on fait tourner le mandrin à la main dans le
- sens inverse. La perceuse devient une petite génératrice et renvoie assez de courant dans les
- bobines pour les réaimanter. Ça ne marche pas sur toutes les machines — les modèles à
- onduleur ne fonctionnent pas comme ça — mais quand ça marche, ça marche en quelques secondes.
-
-Et la corde du lanceur qui casse se remplace par n'importe quelle corde de même grosseur, avec
-un nœud simple au bout et un nœud dans la poignée. Le ressort du lanceur, lui, se réarme en
-enroulant le tambour à la main de quelques tours avant de repasser la corde par l'œillet.
-
-**L'information.** Sans réseau LTE, Québec En Alerte n'atteint pas le téléphone : le système
-diffuse par radio, par télévision et par les cellulaires compatibles raccordés au LTE. La
-radio à piles devient le seul canal. Ce qu'on perd : l'alerte ciblée par zone. La radio
-généraliste donne la région, pas le secteur ; il faut interpréter soi-même, et on interprète
-mal quand on est fatigué. Voir le chapitre 14.
-
-**La chaleur.** Sans propane et sans génératrice, il reste le poêle à bois, avec la contrainte
-que la maison se chauffe désormais par une seule pièce. Ce qui se ferme en premier n'est pas
-la porte des chambres, c'est la **cage d'escalier** : un escalier ouvert est la cheminée de la
-maison, l'air chaud y monte et va refroidir contre les fenêtres de l'étage pendant que la
-pièce du poêle tire de l'air froid par le plancher. Une couverture clouée en haut de l'escalier
-fait plus que toutes les portes de chambre fermées ensemble. Ensuite, une couverture dans
-chaque cadre de porte de la pièce occupée, et les fenêtres de cette pièce couvertes pour la
-nuit — une vitre, même double, est le point le plus froid du mur, et ce qu'on met devant
-travaille toute la nuit. Tout le
-monde dort au même étage et dans la même pièce : quatre corps dans une pièce fermée la
-chauffent. Voir les chapitres 87 et 83.
-
-**Mettre la plomberie hors gel sans antigel acheté.** Dès que la pièce du poêle devient la
-seule pièce chaude, le reste de la maison descend, et ce sont les tuyaux des murs extérieurs,
-du vide sanitaire et du garage qui fendent — jamais ceux du centre. L'ordre, sans un litre
-d'antigel : fermer l'entrée d'eau, ouvrir le robinet le plus haut pour laisser entrer l'air,
-ouvrir le plus bas pour vider, puis ouvrir tous les autres et les laisser ouverts. Rincer les
-toilettes pour vider les réservoirs. Reste l'eau piégée : chaque siphon d'évier est un tuyau
-plein d'eau en forme de U, et c'est lui qui fend en premier parce qu'il ne se draine pas tout
-seul. Il se vide à la poire à jus, à l'aspirateur à eau, ou en dévissant le collet du siphon
-au-dessus d'une chaudière. Un siphon vide ne fend pas, et ce qu'on perd en le vidant, c'est le
-bouchon d'eau qui bloque les odeurs d'égout — on bourre alors le renvoi d'un chiffon. Pour le
-fond de cuvette, qui ne se vide pas, un peu de lave-glace au méthanol abaisse le point de
-congélation, mais il tue les bactéries d'une fosse septique : à la maison sur l'égout
-municipal, oui ; au chalet, on écope la cuvette à la tasse et on finit à l'éponge.
-
-**Ce qu'on perd globalement en choisissant cette variante.** On perd la recharge : l'autonomie
-des lampes et des communications se met à décroître au lieu de se renouveler, et chaque soir
-coûte quelque chose qu'on ne remet pas. On perd les pleins, parce qu'une pompe à essence sans
-courant ne vend rien : la réserve devient un compte à rebours au lieu d'une ressource. Et on
-perd le froid dès qu'il fait doux — tant qu'il gèle dehors, la caisse remplace le congélateur, mais un redoux annule le stock au complet en une journée, ce qu'un congélateur électrique
-n'aurait jamais fait. Un préavis reçu en pleine panne convertit donc beaucoup moins qu'un
-préavis reçu en fonctionnement normal : concrètement, il sert à rentrer du bois, à remplir des
-contenants d'eau, à sortir des bidons geler dehors et à regrouper la famille dans une seule
-pièce. C'est peu, et c'est déjà ce qui fait la différence entre trois jours et une semaine.
-
-**Ce qui ne se remplace vraiment pas.** Quatre choses, et il vaut mieux le savoir d'avance que
-de le chercher à la frontale. **L'avertisseur de monoxyde de carbone** : aucun sens, aucun
-montage et aucune prudence ne détectent le CO, et c'est le seul risque du chapitre qui tue des
-gens qui dormaient. **Le thermomètre à sonde** : les 74 °C à cœur ne s'estiment pas, et
-c'est justement quand un congélateur dégèle qu'on se met à cuire vite de la viande sauvage.
-**Les médicaments sur ordonnance** : il n'existe pas de version bricolée d'un anticonvulsivant ou d'une insuline, et la seule marge se prend avant, en renouvelant tôt. **Le carburant
-liquide** : rien de ce qui se trouve dans la maison ne remplace un bidon d'essence plein.
-Tout le reste de ce chapitre se bricole ; ces quatre-là, non.
-
-**Et si le deuxième préavis arrive pendant qu'on est encore à la maison, il faut décider.**
-C'est la seule décision de ce chapitre qui ne se rattrape pas. Un deuxième système annoncé
-sur une maison déjà en panne depuis deux jours, c'est le moment où le calcul bascule : la
-maison n'a plus ni eau courante, ni égout fiable, ni recharge, et elle a cessé d'être un
-endroit avec des services pour devenir un endroit sans services au milieu d'un village sans
-services. Le chalet, lui, n'a rien perdu — il n'avait rien à perdre. Ce qu'il faut vérifier
-avant de monter : du carburant pour l'aller sans espoir de faire le plein en route, le bois
-déjà fendu là-haut, et une route encore ouverte. Si l'un des trois manque, on reste et on
-ferme les pièces. Le chapitre 2 porte cette bascule au complet ; ce chapitre-ci dit seulement
-qu'elle se décide au deuxième préavis, pas au cinquième jour.
+On lit la charge d'une batterie au plomb de 12 V au voltmètre, après au moins 6 heures de repos : environ 12,7 V quand
+elle est pleine, 12,5 V aux quatre cinquièmes, 12,1 V à moitié, un peu moins de 12 V à 40 %. Sous 12,4 V, la recharger
+avant de la laisser au froid (section 7, « La batterie de l'auto à la place de la génératrice »).

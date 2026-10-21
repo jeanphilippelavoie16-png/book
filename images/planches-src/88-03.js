@@ -6,6 +6,9 @@
 // (coupe) ; la cloche de chaudière renversée sur une plaque de fonte posée sur trois écrous,
 // sur la zone tiède (coupe).
 // Aucune cote : le chapitre dit « quelques millimètres » et « un doigt », sans chiffre.
+// La charte : le creux du chaudron et de la cloche, vu par la coupe, en gris loin (le four, où
+// la miche se détache) ; pas de gris sur la vue de dessus. Le rouge : le quart de tour (le geste,
+// vu de dessus) et le jour sous le fond, sur un écrou (le point qui empêche de brûler la croûte).
 
 module.exports = (h) => {
   const f = v => Math.round(v * 10) / 10;
@@ -105,9 +108,12 @@ module.exports = (h) => {
     const yPoignee = yr - 5 - d + 1;
     // les oreilles : deux anses fondues sous le rebord, vues de face
     const oreille = s => `M ${f(cx + s * W / 2)} ${f(yr + 9)} C ${f(cx + s * (W / 2 + 15))} ${f(yr + 9)} ${f(cx + s * (W / 2 + 15))} ${f(yr + 25)} ${f(cx + s * W / 2)} ${f(yr + 25)}`;
+    // le creux, vu par la coupe : gris loin, sous la fonte et le couvercle
+    const creux = `M ${f(xl + e)} ${f(yr)} L ${f(xl + e)} ${f(yf - ri)} Q ${f(xl + e)} ${f(yf)} ${f(xl + e + ri)} ${f(yf)} L ${f(xr - e - ri)} ${f(yf)} Q ${f(xr - e)} ${f(yf)} ${f(xr - e)} ${f(yf - ri)} L ${f(xr - e)} ${f(yr)} Q ${f(cx)} ${f(yr - 2 * d)} ${f(xl + e)} ${f(yr)} Z`;
     return {
       xl, xr, yr, yf, yHaut: yPoignee - 13,
       svg: [
+        h.path(creux, h.a.loin),
         h.path(oreille(-1), epais(3.6)), h.path(oreille(1), epais(3.6)),
         h.path(corps, h.a.plein),
         h.path(couv, h.a.plein),
@@ -151,6 +157,8 @@ module.exports = (h) => {
 
   // Une flèche de chaleur ou d'air : tiretée, sur un liseré blanc.
   const chaleur = d => [h.path(d, halo), h.fleche(d, h.a.cache)].join('\n');
+  // la même, sur le gris loin d'un creux : le liseré prend le gris du fond
+  const chaleurGris = d => [h.path(d, halo.replace('#ffffff', '#E6E6E6')), h.fleche(d, h.a.cache)].join('\n');
 
   // ─── Géométrie des vues ──────────────────────────────────────────────────────────────
   const gA = z => {
@@ -160,7 +168,7 @@ module.exports = (h) => {
     return { p, W, cx, hn, yb, H, e, yf, rw, ym, wm, hm, dome, r0: W * 0.38, rAnneau: wm * 0.36 };
   };
   const gB = z => {
-    const cx = z.l * 0.46, p = poele(z, cx);
+    const cx = z.l * 0.445, p = poele(z, cx);
     const W2 = Math.min(z.l * 0.84, 262), H2 = 56, e2 = 5, yb2 = p.yT, yf2 = yb2 - e2, eS = 17, yS = yf2 - eS;
     const W1 = W2 - 62, H1 = Math.round(W1 * 0.56), yb1 = yS + 3;
     return { p, cx, W2, H2, e2, yb2, yf2, eS, yS, W1, H1, yb1 };
@@ -185,6 +193,18 @@ module.exports = (h) => {
       return d + ` L ${f(pt(1)[0])} ${f(pt(1)[1])}`;
     };
     const xFond = s => cx + s * (Wt / 2 + (Wb - Wt) / 2 * (6 / Hb));
+    // le creux de la cloche : les mêmes parois échantillonnées, du dessus de la plaque au fond
+    const paroiPts = s => {
+      const pt = t => [cx + s * (Wb / 2 + (Wt - Wb) / 2 * t), yP - 3 - (Hb - 3) * t];
+      const pts = [pt(0)];
+      [0.36, 0.64].forEach(t => {
+        const a = pt(t - 0.04), b = [pt(t)[0] + s * 7, pt(t)[1]], c = pt(t + 0.04);
+        pts.push(a);
+        for (let i = 1; i <= 10; i++) { const u = i / 10, v = 1 - u; pts.push([v * v * a[0] + 2 * u * v * b[0] + u * u * c[0], v * v * a[1] + 2 * u * v * b[1] + u * u * c[1]]); }
+      });
+      return pts.filter(p => p[1] >= yTop + 6);
+    };
+    const creux = [[cx - Wb / 2, yP], ...paroiPts(-1), [xFond(-1), yTop + 6], [xFond(1), yTop + 6], ...paroiPts(1).reverse(), [cx + Wb / 2, yP]];
     const oreille = s => {
       const x = cx + s * (Wb / 2 - 0.4), y = yP - 24;
       const pts = [[x, y - 8], [x + s * 7, y - 6], [x + s * 7, y + 6], [x, y + 8]];
@@ -192,6 +212,7 @@ module.exports = (h) => {
     };
     return {
       yTop,
+      creux: h.chemin(creux, h.a.loin, true),
       xParoi: (s, y) => cx + s * (Wb / 2 + (Wt - Wb) / 2 * ((yP - 3 - y) / (Hb - 3))),
       svg: [
         oreille(-1), oreille(1),
@@ -218,6 +239,8 @@ module.exports = (h) => {
           const g = gA(z), c = chaudron(g.cx, g.yb, g.W, g.H, g.e), out = [g.p.svg];
           out.push(troisEcrous(g.cx, g.p.yT, g.r0));
           out.push(c.svg);
+          // le point à vérifier : le jour sous le fond, sur un écrou
+          out.push(h.controle(g.cx + g.r0 * 0.87, g.yb + g.hn / 2, 14));
           // le rond de broche, à plat : les deux bouts coupés, la moitié du fond vue par la tranche
           out.push(h.rect(g.cx - g.rAnneau, g.yf - 2 * g.rw, 2 * g.rAnneau, 2 * g.rw, blancDetail));
           out.push(h.cercle(g.cx - g.rAnneau, g.yf - g.rw, g.rw, h.a.plein), h.cercle(g.cx + g.rAnneau, g.yf - g.rw, g.rw, h.a.plein));
@@ -231,9 +254,9 @@ module.exports = (h) => {
           return [
             { n: 1, rond: [xr, c.yHaut - 2], cible: [c.xr - 26, c.yr - 7], texte: 'couvercle de fonte, mis' },
             { n: 2, rond: [xr, m.yDome - 2], cible: [g.cx + m.wt / 2 - 8, m.yh - 12], texte: 'miche, moule plus petit' },
-            { n: 3, rond: [xr, g.yb - 50], cible: [c.xr - 3, g.yb - 50], texte: 'chaudron chauffé vide' },
-            { n: 4, rond: [xr, g.yb - 22], cible: [g.cx + g.rAnneau, g.yf - g.rw], texte: 'rond de broche' },
-            { n: 5, rond: [xr, g.yb + 4], cible: [g.cx + g.r0 * 0.87 + 7, g.yb + 4.5], texte: 'écrous ou anneau de broche' },
+            { n: 3, rond: [xr, g.yb - 56], cible: [c.xr - 3, g.yb - 56], texte: 'chaudron chauffé vide' },
+            { n: 4, rond: [xr, g.yb - 32], cible: [g.cx + g.rAnneau, g.yf - g.rw], texte: 'rond de broche' },
+            { n: 5, rond: [xr, g.yb - 7], cible: [g.cx + g.r0 * 0.87 + 9, g.yb + 2], texte: 'écrous ou anneau de broche' },
             { n: 6, rond: [xr, g.p.yT + 30], cible: [z.l - 40, g.p.yT + 6], texte: 'zone chaude du poêle' },
           ];
         },
@@ -257,7 +280,7 @@ module.exports = (h) => {
           out.push(h.rect(cx - 16, cy - 3.5, 32, 7, blancArete));
           // le quart de tour
           const Ra = R + 26, a1 = -100 * Math.PI / 180, a2 = -12 * Math.PI / 180;
-          out.push(h.fleche(`M ${f(cx + Ra * Math.cos(a1))} ${f(cy + Ra * Math.sin(a1))} A ${f(Ra)} ${f(Ra)} 0 0 1 ${f(cx + Ra * Math.cos(a2))} ${f(cy + Ra * Math.sin(a2))}`, h.a.contour));
+          out.push(h.geste(`M ${f(cx + Ra * Math.cos(a1))} ${f(cy + Ra * Math.sin(a1))} A ${f(Ra)} ${f(Ra)} 0 0 1 ${f(cx + Ra * Math.cos(a2))} ${f(cy + Ra * Math.sin(a2))}`));
           return out.join('\n');
         },
         renvois: z => {
@@ -297,8 +320,8 @@ module.exports = (h) => {
           const wl = g.W1 * 0.64, hl = g.H1 * 0.56;
           return [
             { n: 9, rond: [xr, c.yf - hl - 4], cible: [g.cx + wl * 0.36, c.yf - hl * 0.7], texte: 'miche sur le fond fariné' },
-            { n: 10, rond: [xr, g.yS - 22], cible: [xr2 - 16, g.yS + 8], texte: 'un doigt de sable sec' },
-            { n: 11, rond: [xr, g.yb2 + 4], cible: [xr2 - 1, g.yb2 - 20], texte: 'chaudron plus large' },
+            { n: 10, rond: [xr, g.yb2 - g.H2 - 6], cible: [xr2 - 22, g.yS + 7], texte: 'un doigt de sable sec' },
+            { n: 11, rond: [xr, g.yb2 - 30], cible: [xr2 - 3, g.yb2 - 3], texte: 'chaudron plus large' },
           ];
         },
       },
@@ -310,13 +333,14 @@ module.exports = (h) => {
           out.push(troisEcrous(g.cx, g.p.yT, g.r0));
           out.push(h.rect(g.cx - g.Wp / 2, g.yP, g.Wp, g.eP, h.a.hachure('metal', 'arete')));
           const m = moule(g.cx, g.yP, g.wm, g.hm, g.dome);
-          out.push(m.svg);
           const cl = cloche(g.cx, g.yP, g.Wb, g.Wt, g.Hb);
+          out.push(cl.creux);
+          out.push(m.svg);
           out.push(cl.svg);
           // l'air chaud qui monte de la plaque autour du pain et reste sous la cloche
           [-1, 1].forEach(s => {
             const x0 = g.cx + s * (m.wt / 2 + 12), yA = g.yP - 6;
-            out.push(chaleur(`M ${f(x0)} ${f(yA)} C ${f(x0 + s * 4)} ${f(m.yDome + 4)} ${f(g.cx + s * m.wt * 0.4)} ${f(m.yDome - 16)} ${f(g.cx + s * 12)} ${f(m.yDome - 17)}`));
+            out.push(chaleurGris(`M ${f(x0)} ${f(yA)} C ${f(x0 + s * 4)} ${f(m.yDome + 4)} ${f(g.cx + s * m.wt * 0.4)} ${f(m.yDome - 16)} ${f(g.cx + s * 12)} ${f(m.yDome - 17)}`));
           });
           return out.join('\n');
         },

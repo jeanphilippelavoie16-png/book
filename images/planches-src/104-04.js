@@ -40,10 +40,25 @@ const trait = (a, b) => `M${a[0].toFixed(1)},${a[1].toFixed(1)} L${b[0].toFixed(
 
 // ── Vue 1 : le patron à plat ───────────────────────────────────────────────────────────────
 // Repère local : talon à l'origine, bout vers la droite, gros orteil vers le haut.
-const PIED = [[0, 2], [4, -16], [18, -27], [45, -30], [90, -27], [130, -34], [165, -42], [192, -43], [212, -41],
-  [226, -36], [234, -26], [235, -16], [231, -8], [224, -4], [218, -2], [224, 2], [224, 8], [218, 11], [213, 11],
-  [217, 16], [215, 21], [210, 23], [205, 22], [208, 27], [204, 32], [198, 33], [194, 32], [195, 37], [190, 42],
-  [180, 46], [168, 48], [130, 44], [80, 36], [40, 31], [14, 24]];
+// Le pied tracé debout, vu de dessus : talon étroit et rond, voûte à peine creusée côté gros
+// orteil, avant-pied large, le gros orteil long et large, puis quatre orteils qui raccourcissent
+// et rétrécissent jusqu'au petit, chacun séparé du suivant par un creux où le crayon rentre.
+// Le corps du pied, du bord extérieur (sous le petit orteil) au bord intérieur (sous le gros), par le talon.
+const PIED = [[193, 46], [176, 47.5], [150, 47], [130, 45], [96, 41], [62, 35], [34, 29], [16, 22], [5, 12], [1, 0],
+  [4, -11], [13, -19], [28, -24], [54, -26], [84, -24], [112, -29], [142, -38], [168, -44], [190, -46], [205, -45]];
+// Les orteils, du gros au petit : un cercle chacun [cx, cy, r], l'arc pris de a1 à a2 (degrés) par le bout.
+const ORTEILS = [[224, -27, 17, -100, 95], [224, -1.5, 8.5, -115, 105], [217, 13.5, 7, -115, 105],
+  [208, 26.5, 6.3, -115, 105], [197, 38.5, 6, -115, 100]];
+function piedD(T, s) {
+  const f = ([x, y]) => `${x.toFixed(1)},${y.toFixed(1)}`;
+  const corps = cr(PIED, false, 10).map(T);
+  let d = 'M' + corps.map(f).join(' L');
+  for (const [cx, cy, r, a1, a2] of ORTEILS) {
+    const P = a => T([cx + r * Math.cos(a * Math.PI / 180), cy + r * Math.sin(a * Math.PI / 180)]);
+    d += ` L${f(P(a1))} A${(r * s).toFixed(1)},${(r * s).toFixed(1)} 0 1 1 ${f(P(a2))}`;
+  }
+  return d + ' Z';
+}
 // Pièce de dessous : de l'angle haut du talon, autour du bout, jusqu'à l'angle bas ; le talon est coupé droit.
 const DESSOUS = [[-16, -84], [40, -88], [92, -92], [140, -97], [196, -98], [244, -80], [274, -46], [285, -2],
   [276, 42], [250, 78], [204, 100], [140, 104], [82, 98], [26, 92], [-16, 88]];
@@ -61,7 +76,7 @@ function patron(z) {
   const n = 14;
   const dessous = cr(DESSOUS, false, n).map(T);
   const bordLong = dessous.slice(I_A * n, I_B * n + 1);
-  const pied = cr(PIED, true, 10).map(T);
+  const pied = piedD(T, s);
   const emp = cr(EMPEIGNE, false, n).map(E);
   return { s, ox, oy, ex, ey, T, E, dessous, bordLong, pied, emp,
     repL: equi(bordLong, NSEG), repC: equi(emp, NSEG) };
@@ -74,12 +89,14 @@ const MUR = [[-84, 100], [-86, 36], [-80, -18], [-56, -70], [0, -92], [56, -70],
 const NPLI = 26, COUSU = 19; // plis sur toute la ligne visible ; les 19 premiers sont cousus
 
 function fronces(z) {
-  const ox = z.l / 2, oy = z.h / 2 - 2;
-  const T = ([x, y]) => [ox + x, oy + y];
+  const ox = z.l * 0.27, oy = z.h / 2 - 2;
+  const S = 0.82, T = ([x, y]) => [ox + x * S, oy + y * S];
   const u = cr(U, false, 16).map(T);
   const mur = cr(MUR, false, 16).map(T);
   const pts = equi(u, NPLI);      // marche de gauche à droite en passant par le bout : la droite de la marche est dehors
-  return { ox, oy, T, u, mur, pts };
+  const zc = pts[COUSU - 1].p, zr = 17;                // le petit cercle sur trois points du côté droit
+  const L = { x: z.l * 0.75, y: oy - 6, r: Math.min(z.l * 0.22, z.h * 0.3) }; // la loupe
+  return { ox, oy, T, u, mur, pts, zc, zr, L };
 }
 
 // ── Vue 3 : monté, vu de côté ───────────────────────────────────────────────────────────────
@@ -104,6 +121,62 @@ function monte(z) {
   return { s, ox, oy, T, talon: talon.map(T), silhouette, couture, trous };
 }
 
+// Aiguille de sellier, dessinée comme en 104-02 : corps creux, chas en rectangle ; chas en (ex, ey), pointe en (tx, ty).
+function aiguille(h, ex, ey, tx, ty) {
+  const L = Math.hypot(tx - ex, ty - ey), ux = (tx - ex) / L, uy = (ty - ey) / L;
+  const nx = -uy, ny = ux, hw = 3;
+  const P = (s, k) => [ex + ux * s + nx * k, ey + uy * s + ny * k];
+  const f = ([x, y]) => `${x.toFixed(1)} ${y.toFixed(1)}`;
+  const d = `M ${f(P(0, hw))} L ${f(P(L - 20, hw))} L ${f(P(L - 2, 1.2))} Q ${f(P(L + 1, 0))} ${f(P(L - 2, -1.2))} `
+    + `L ${f(P(L - 20, -hw))} L ${f(P(0, -hw))} Q ${f(P(-4, 0))} ${f(P(0, hw))} Z`;
+  const chas = `M ${f(P(5, 0.9))} L ${f(P(14, 0.9))} L ${f(P(14, -0.9))} L ${f(P(5, -0.9))} Z`;
+  return [h.path(d, h.a.blanc), h.path(d, h.a.arete), h.path(chas, 'fill="#FFFFFF" stroke="#1A1A1A" stroke-width="0.7"')].join('\n');
+}
+
+// Gros plan cerclé, environ ×3, sur trois points du côté droit : empeigne à plat à gauche,
+// pièce de dessous à droite pincée en un pli à chaque point, surjet par-dessus les deux bords.
+function loupe(h, g) {
+  const { x, y, r } = g.L, e = r * 0.34;      // e : écart entre deux points
+  const out = [];
+  // trait de rappel du petit cercle à la loupe
+  const dx = x - g.zc[0], dy = y - g.zc[1], m = Math.hypot(dx, dy);
+  out.push(h.ligne(g.zc[0] + dx / m * g.zr, g.zc[1] + dy / m * g.zr, x - dx / m * r, y - dy / m * r, h.a.detail));
+  out.push(`<defs><clipPath id="loupe-104-04"><circle cx="${x}" cy="${y}" r="${r - 1}"/></clipPath></defs>`);
+  out.push(h.cercle(x, y, r, h.a.blanc));
+  const c = [];
+  const xs = x - 3, xd = x + 3;                 // bord de l'empeigne, bord de la pièce de dessous
+  c.push(h.ligne(xs, y - r, xs, y + r, h.a.contour));
+  // le bord de la pièce de dessous, coupé à chaque pli
+  const ys = [-1, 0, 1].map(k => y + k * e);
+  let bord = `M${xd},${y - r}`;
+  ys.forEach(yk => { bord += ` L${xd},${yk - e * 0.3} M${xd},${yk + e * 0.3}`; });
+  bord += ` L${xd},${y + r}`;
+  c.push(h.path(bord, h.a.contour));
+  ys.forEach(yk => {
+    // le pli : deux épaisseurs rabattues l'une sur l'autre, la pliure vers le dehors
+    const a = e * 0.3, lp = r * 0.55;
+    c.push(h.path(`M${xd},${yk - a} C${xd + lp * 0.5},${yk - a} ${xd + lp * 0.8},${yk - a * 0.4} ${xd + lp},${yk} `
+      + `C${xd + lp * 0.8},${yk + a * 0.4} ${xd + lp * 0.5},${yk + a} ${xd},${yk + a}`, h.a.arete));
+    c.push(h.path(`M${xd},${yk - a * 0.25} C${xd + lp * 0.45},${yk - a * 0.2} ${xd + lp * 0.75},${yk - a * 0.08} ${xd + lp - 3},${yk}`, h.a.detail));
+  });
+  // le fil : par-dessus les deux bords (en biais), puis dessous (caché) pour ressortir du même côté au point suivant
+  const fx = e * 0.75;
+  ys.forEach((yk, i) => {
+    const A = [x + fx, yk - e * 0.12], B = [x - fx, yk + e * 0.42];
+    c.push(h.cercle(A[0], A[1], 2.2, h.a.plein));
+    c.push(h.cercle(B[0], B[1], 2.2, h.a.plein));
+    if (i < 2) c.push(h.ligne(B[0], B[1], x + fx, ys[i + 1] - e * 0.12, h.a.cache));
+    // halo blanc là où le fil croise les deux bords
+    c.push(h.ligne(A[0], A[1], B[0], B[1], 'fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="butt"'));
+    c.push(h.ligne(A[0], A[1], B[0], B[1], 'fill="none" stroke="#1A1A1A" stroke-width="2.6" stroke-linecap="round"'));
+  });
+  // le fil qui repart vers l'aiguille, plus bas
+  c.push(h.path(`M${x + fx},${ys[2] - e * 0.12} q${e * 0.2},${e * 0.6} ${-e * 0.1},${r}`, 'fill="none" stroke="#1A1A1A" stroke-width="2.6"'));
+  out.push(`<g clip-path="url(#loupe-104-04)">${c.join('\n')}</g>`);
+  out.push(h.cercle(x, y, r, h.a.arete));
+  return out.join('\n');
+}
+
 module.exports = (h) => ({
   ref: '104-04',
   titre: 'Le patron du mocassin d’une pièce',
@@ -116,7 +189,7 @@ module.exports = (h) => ({
   format: 'pleine',
   disposition: [['patron'], ['fronces', 'monte']],
   hauteurs: [5, 4],
-  largeurs: [[1], [4, 5]],
+  largeurs: [[1], [11, 8]],
   vues: {
     patron: {
       titre: 'Le patron, à plat',
@@ -124,7 +197,7 @@ module.exports = (h) => ({
         const g = patron(z);
         const out = [];
         out.push(h.chemin(g.dessous, h.a.contour, true));
-        out.push(h.chemin(g.pied, h.a.cache, true));
+        out.push(h.path(g.pied, h.a.detail));
         out.push(h.chemin(g.emp, h.a.contour, true));
         // repères : même nombre d'intervalles sur le bord long et sur le bord de l'empeigne
         // Aux deux coins de l'empeigne, un repère perpendiculaire se confondrait avec le bord
@@ -143,7 +216,7 @@ module.exports = (h) => ({
       },
       renvois: z => {
         const g = patron(z);
-        const pied = g.T([45, -30]);
+        const pied = g.T([54, -27]);
         const dessous = g.T([60, 91]);
         const empB = g.E([60, 42]);
         const long = g.repL[2].p;
@@ -190,29 +263,32 @@ module.exports = (h) => ({
           lache.push(pl(P.p, P.t, 0, 9 + ((i - COUSU) % 2 ? 3 : 0)));
         }
         out.push(h.chemin(cr(lache, false, 8), h.a.arete));
-        // l'aiguille, pointe dans le bord de l'empeigne, et le fil qui revient du dernier point
+        // l'aiguille : entre par la pièce de dessous, traverse les deux bords au point suivant, pointe dans l'empeigne
         const P = pts[COUSU + 1];
-        const pointe = pl(P.p, P.t, 0, -4), queue = pl(P.p, P.t, 22, 52);
-        const dx = queue[0] - pointe[0], dy = queue[1] - pointe[1], m = Math.hypot(dx, dy);
-        const nx = -dy / m * 1.6, ny = dx / m * 1.6;
-        out.push(h.path(`M${pointe[0]},${pointe[1]} L${queue[0] + nx},${queue[1] + ny} L${queue[0] - nx},${queue[1] - ny} Z`, h.a.detail));
-        const oeil = [pointe[0] + dx * 0.9, pointe[1] + dy * 0.9];
+        const pointe = pl(P.p, P.t, -2, -9), chas = pl(P.p, P.t, -16, 48);
         const dernier = pl(pts[COUSU].p, pts[COUSU].t, 3.5, 8);
-        const c1 = pl(pts[COUSU].p, pts[COUSU].t, 6, 34);
-        out.push(h.path(`M${dernier[0]},${dernier[1]} Q${c1[0]},${c1[1]} ${oeil[0]},${oeil[1]}`, h.a.detail));
+        const c1 = pl(pts[COUSU].p, pts[COUSU].t, -14, 40);
+        out.push(h.path(`M${dernier[0].toFixed(1)},${dernier[1].toFixed(1)} Q${c1[0].toFixed(1)},${c1[1].toFixed(1)} ${chas[0].toFixed(1)},${chas[1].toFixed(1)}`, h.a.detail));
+        out.push(aiguille(h, ...chas, ...pointe));
+        // le petit cercle du gros plan, relié à la loupe
+        out.push(h.cercle(g.zc[0], g.zc[1], g.zr, h.a.detail));
+        out.push(loupe(h, g));
+        // charte : le point à vérifier, un pli pris à chaque point (un pli sauté fait une bosse)
+        { const e = g.L.r * 0.34; out.push(h.controle(g.L.x + e * 0.55, g.L.y - e * 0.95, 17)); }
         // trait de rupture en bas
-        const yb = g.oy + 100;
-        out.push(h.path(`M${g.ox - 90},${yb} q10,-5 20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0`, h.a.detail));
+        const yb = g.oy + 82;
+        out.push(h.path(`M${g.ox - 76},${yb} q8,-4 16.9,0 t16.9,0 t16.9,0 t16.9,0 t16.9,0 t16.9,0 t16.9,0 t16.9,0 t16.9,0`, h.a.detail));
         return out.join('\n');
       },
       renvois: z => {
         const g = fronces(z);
-        const pli = g.pts[5], pt = g.pts[11];
-        const f = pl(pli.p, pli.t, 0, 12);
-        const st = pl(pt.p, pt.t, 0, -4);
+        const L = g.L, e = L.r * 0.34;
+        const mur = g.T([-83, 20]), emp = g.T([0, 40]);
         return [
-          { n: 6, rond: [f[0] - 42, f[1] - 12], cible: [f[0] - 1, f[1]], texte: 'un pli pris à chaque point' },
-          { n: 7, rond: [g.ox + 6, g.oy + 10], cible: [st[0] - 2, st[1] + 3], texte: 'surjet par-dessus les deux bords' },
+          { n: 6, rond: [L.x + L.r * 0.55, L.y - L.r - 16], cible: [L.x + e * 0.9, L.y - e * 1.0], texte: 'un pli pris à chaque point' },
+          { n: 7, rond: [L.x - L.r * 0.7, L.y + L.r + 14], cible: [L.x - 4, L.y + e * 0.55], texte: 'surjet par-dessus les deux bords' },
+          { n: 8, rond: [mur[0] + 4, mur[1] + 62], cible: [mur[0] + 2, mur[1] + 8], texte: 'pièce de dessous, relevée' },
+          { n: 9, rond: [emp[0], emp[1] + 10], cible: [emp[0], emp[1] - 24], texte: 'empeigne, posée dedans' },
         ];
       },
     },
@@ -251,8 +327,8 @@ module.exports = (h) => ({
         const talon = g.T([3, -32]);
         const trou = g.trous[1];
         return [
-          { n: 8, rond: [talon[0] - 18, talon[1] - 34], cible: [talon[0] - 5, talon[1] - 2], texte: 'talon fermé d’une couture droite' },
-          { n: 9, rond: [trou[0] + 4, trou[1] - 44], cible: [trou[0] + 0.5, trou[1] - 4], texte: 'trou de cordon percé au poinçon' },
+          { n: 10, rond: [talon[0] - 18, talon[1] - 34], cible: [talon[0] - 5, talon[1] - 2], texte: 'talon fermé d’une couture droite' },
+          { n: 11, rond: [trou[0] + 4, trou[1] - 44], cible: [trou[0] + 0.5, trou[1] - 4], texte: 'trou de cordon percé au poinçon' },
         ];
       },
     },

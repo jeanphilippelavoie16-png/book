@@ -8,464 +8,382 @@
 
 ## 1. En une ligne
 
-Regrouper deux ou trois ménages sous le toit du chalet divise le bois, les gardes de nuit et les
-angles morts de compétence, et ça tient aussi longtemps que tiennent l'eau, la cuisine commune et une chaîne de décision écrite — c'est-à-dire beaucoup moins longtemps que les vivres.
+Loger deux ou trois familles dans le chalet pour chauffer un seul bâtiment, se partager les gardes de nuit et mettre
+les compétences ensemble, et tenir des semaines sans manquer d'eau, sans que la marmite commune rende tout le groupe
+malade et sans que chaque famille continue de décider de son côté.
+
+---
 
 ## 2. Quand l'utiliser
 
-Au village, une panne de trois jours ne se règle pas en déménageant : l'aqueduc coule, l'égout
-part, le voisin est de l'autre bord de la haie et on soupe chez lui sans rien réorganiser. Le
-regroupement de ce chapitre commence quand la chose s'étire et que les ménages remontent au
-chalet, où il n'y a ni robinet, ni égout, ni troisième bâtiment chauffé — et où personne ne
-repart chez lui le soir. Les gens qui se présentent sans être attendus, eux, sont au
-chapitre 17.
+- La crise s'étire, et une ou deux familles proches doivent monter au chalet pour y rester (ch. 2).
+- Le bois ne suffira pas à chauffer deux ou trois bâtiments tout l'hiver (ch. 83).
+- Un adulte se retrouve seul avec des enfants, un blessé ou un malade, et doit veiller toutes les nuits.
+- Une famille a besoin d'une compétence qu'une autre famille a : souder, soigner, saler une cuisse.
+- Une famille a des vivres et pas de chauffage, une autre a du chauffage et pas de vivres.
+- Un orignal est abattu, et il faut plus de bras qu'une famille n'en a pour le refroidir, le dépouiller et le débiter
+ à temps (ch. 61, ch. 62).
 
-**C'est le bon choix quand :**
+---
 
-- Trois bâtiments chauffés deviennent un seul bâtiment chauffé. C'est le gain le plus net du
- regroupement, et il se mesure en cordes (ch. 83).
-- Un adulte seul se retrouve avec des enfants, un blessé ou un malade sur les bras. Une garde de
- nuit à deux personnes se tient des semaines ; à une personne, trois jours.
-- Les compétences se complètent au lieu de se répéter : quelqu'un qui soude, quelqu'un qui
- soigne, quelqu'un qui a déjà salé une cuisse. Additionner deux fois la même compétence
- n'apporte rien ; couvrir un trou change l'issue de l'hiver.
-- Un ménage a du stock et pas de chauffage, l'autre l'inverse. Ce n'est alors pas un geste de
- solidarité mais un calcul, et il se fait sur papier avant de se faire en camion.
-- Il y a du gros gibier à traiter dans une fenêtre courte. Un orignal (*Alces americanus*)
- refroidi, dépouillé, débité et mis au froid dans les délais demande plus de bras qu'un ménage
- n'en a (ch. 61, ch. 62).
+## 3. Matériel
 
-**C'est un mauvais choix quand :**
+- **Avertisseur de CO à pile, à affichage en ppm** : l'écran montre le monoxyde à faible dose, qui donne mal à la tête sans faire sonner l'avertisseur.
+- **Thermomètre à sonde** : le cuisinier du jour s'en sert pour vérifier que le gibier et les restes atteignent 74 °C à cœur ; sans lui, on cuit tout au bouilli (section 7).
+- **Louche à long manche, réservée à l'eau potable** : on ne plonge qu'elle dans la chaudière d'eau potable, jamais la main ni un gobelet.
 
-- L'eau ne suit pas. Un puits de surface en fin d'hiver, un trou dans la glace, une source au
- goutte-à-goutte : le débit ne se négocie pas et il ne double pas parce qu'on est douze.
- Mesurer le débit avant d'inviter, pas après (ch. 10).
-- Un ménage relève d'une gastro et se croit tiré d'affaire. La contagiosité dure tant qu'il y a
- des symptômes **et jusqu'à deux semaines après leur disparition** :
- la semaine où tout le monde va bien est la pire pour se mettre à douze dans une pièce unique,
- parce que c'est celle où les règles relâchent (ch. 30).
-- Le stock d'un seul ménage doit nourrir tout le monde et personne n'a fait l'addition. Des
- réserves calculées pour quatre personnes pendant huit semaines nourrissent douze personnes
- pendant moins de trois (ch. 5, ch. 8).
-- Une personne refuse par principe toute consigne commune. Ce n'est pas un problème de
- caractère mais de sécurité : la cuisine commune et le poêle commun ne supportent pas une
- exception, et une seule suffit à rouvrir la chaîne que les onze autres tiennent fermée.
-- Le regroupement se fait pour ne pas être seul et rien d'autre n'a été calculé. Deux bâtiments
- qui se visitent tous les jours gardent l'eau, la latrine et la contagion à l'échelle d'avant ;
- ça coûte le chauffage d'un deuxième bâtiment, et c'est parfois le bon prix (ch. 83).
+---
 
-## 3. Pourquoi ça marche
+## 4. Procédure
 
-La chaleur est une propriété du bâtiment : un chalet pour douze brûle moins de bois que
-trois chalets pour quatre, et la garde de nuit se partage. L'eau se multiplie par le nombre de
-corps ; la latrine, le plancher et le débit de la source, eux, ne grandissent pas. Les chemins de
-contamination suivent les paires, pas les personnes : quatre personnes en forment 6,
-douze en forment 66. Tout ce qui devient commun, la marmite d'abord, devient un point de panne
-unique : une seule erreur couche le camp entier, soignants compris. Deux ménages gardent chacun
-leur façon de décider : ce qui n'a pas un seul nom, écrit au mur, se décide deux fois ou jamais.
+### Avant l'arrivée, à distance
 
-## 4. Matériel
+On règle les quatre questions qui suivent au téléphone tant qu'il fonctionne, sinon à la radio (ch. 14), pendant
+que l'autre famille est encore chez elle et peut décider de ne pas partir. Une fois ses bagages déchargés au chalet, il
+est trop tard pour dire non.
 
-- **Avertisseur de CO à pile, affichage en ppm** — le chiffre montre le taux bas, qui donne mal à la tête sans faire sonner.
-- **Thermomètre à sonde** — porte le gibier et les restes à 74 °C à cœur. Ne se fabrique pas (→ §9 : tout au bouilli).
-- **Louche à long manche, réservée à l'eau potable** — seule chose qui entre dans le seau : ni main, ni gobelet commun.
+1. **Compter l'eau avant de compter les lits.** Multiplier le nombre de personnes par 4 L par jour : 2 L pour boire et
+ 2 L pour la cuisine et l'hygiène, soit 48 L par jour pour douze personnes.
+ - Mesurer avant d'inviter combien de litres la source donne par jour. Sous le filet d'une source, chronométrer le
+ temps qu'il met à remplir une chaudière. Dans un puits, mesurer la colonne d'eau (ch. 10, étape 30), tirer ce qu'il
+ faut au groupe pour une journée, et mesurer de nouveau le lendemain matin : l'eau doit être revenue à son niveau.
+ Un puits de surface en fin d'hiver, un trou dans la glace ou une source qui coule au goutte-à-goutte donnent la même
+ quantité d'eau à douze qu'à quatre, et la latrine se remplit plus vite.
+ - Si la source ne suffit pas, rester dans deux bâtiments voisins et se visiter tous les jours, ou se relayer au
+ chalet. Chaque famille garde alors son eau, sa latrine et sa cuisine, et une gastro a moins de chemins pour passer
+ d'une famille à l'autre ; en retour, il faut chauffer deux bâtiments (ch. 83).
+2. **Demander à chaque famille ce qu'elle apporte, en quantités** : vivres, carburant, piles, médicaments, munitions,
+ outils. Chaque famille doit compter ce qu'elle a en lisant ses tablettes, pas de mémoire (ch. 5). Faire ensuite
+ l'addition pour tout le groupe : des réserves prévues pour une famille de quatre pendant huit semaines nourrissent douze
+ personnes moins de trois semaines (ch. 8).
+3. **Fixer la durée prévue, ce qui mettra fin au regroupement et les règles communes.**
+ - Dire en une phrase ce qui mettra fin au regroupement : « jusqu'à ce que la route rouvre », « quatre semaines,
+ puis on fait le point ». Sans date pour faire le point, le regroupement finit en chicane au lieu de finir par une
+ décision (étape 21).
+ - Dire les règles communes avant le départ : celles de la cuisine, de l'eau, du lavage des mains et des armes
+ (étape 12). Une seule personne qui ne se lave pas les mains, ou qui boit à même la chaudière d'eau potable, peut
+ rendre malades les onze autres. Si quelqu'un refuse ces règles, ne pas faire le regroupement avec lui.
+4. **Poser la question de santé avant le départ, sans gêne** : quelqu'un a-t-il vomi, eu la diarrhée, de la
+ fièvre ou de la toux ces derniers jours ? Au chalet, tout le monde prépare à manger pour les autres : une personne
+ qui a eu la gastro doit attendre 48 heures après la fin de ses signes avant de toucher à la cuisine commune.
 
-## 5. Procédure
+### À l'arrivée
 
-**Avant l'arrivée — la conversation qui se fait à distance, pas dans l'entrée du chalet**
+5. {!arme} **Rendre les armes inutilisables avant de décharger le camion.** Pendant le déchargement, tout le monde est
+ occupé dehors, et chaque adulte pense qu'un autre s'occupe des armes. Il y a plus d'armes que d'habitude, dans des
+ étuis que les autres familles ne connaissent pas, et des enfants qui n'ont jamais couché dans ce chalet.
+ - Décharger chaque arme et retirer ou bloquer sa pièce mobile (le verrou, la culasse ou le percuteur) avant de la
+ faire entrer : sans cette pièce, l'arme ne tire pas.
+ - Ranger les armes dans un seul contenant fermé, dont une seule personne a la responsabilité, et mettre les
+ munitions dans une autre pièce.
+ - Écrire le nombre d'armes sur le couvercle du contenant et le dire à voix haute. Refaire le compte à voix haute
+ chaque soir : on voit si une arme est restée dans le camion, ou si une arme sortie pour la chasse est rentrée sans
+ qu'on le dise.
+6. {!co} {!generatrice} **Faire la liste des appareils à combustion que chaque famille apporte** : génératrice,
+ chaufferette d'appoint, réchaud, barbecue, poêle de tente. Chaque famille arrive avec ses appareils et les installe
+ là où il reste de la place : les laisser dehors jusqu'à ce qu'on ait décidé de leur place.
+ - Garder dehors le barbecue, le réchaud de camping, la chaufferette au gaz et tous les moteurs, même pour une heure,
+ même la porte ouverte. Ne pas allumer la cuisinière au gaz pour chauffer.
+ - Choisir la place de chaque génératrice, dehors, à 6 m ou plus de tout bâtiment, l'échappement tourné à
+ l'opposé des portes et des fenêtres, et l'écrire au mur (étape 12) : quand deux familles arrivent avec deux
+ génératrices, la deuxième finit sous l'appentis parce que la bonne place est prise. Ne jamais faire tourner une
+ génératrice dans un bâtiment, un garage ou un cabanon, ni sous l'appentis, sous un auvent ou dans un abri de toile.
+7. **Compter les endroits où quelqu'un dort porte fermée, et poser un avertisseur de CO dans chacun**, plus un par
+ étage, à plus de 2 m de tout appareil de cuisson ou de combustion. Le jour où le groupe arrive, il faut plus
+ d'avertisseurs, parce que des gens dorment alors au salon, sur la mezzanine ou dans un bâtiment voisin.
+ - Dans une pièce unique, poser l'avertisseur près des lits, le plus loin possible du poêle.
+ - Appuyer sur le bouton d'essai de chaque avertisseur devant un autre adulte, à l'arrivée, puis chaque mois.
+ - Si le chalet ne peut pas coucher tout le monde, monter une longue tente à deux poêles, une famille à chaque bout
+ (ch. 12, étapes 56 à 64), avec un avertisseur près des dormeurs de chaque famille (ch. 12, étape 50).
 
-Au téléphone tant qu'il fonctionne, sinon à la radio (ch. 14). Elle se tient pendant que l'autre
-ménage est encore chez lui et peut encore décider de ne pas partir : une fois le camion vidé
-dans la neige devant le chalet, plus rien de ce qui suit n'est une question.
+### Les premières heures
 
-1. **Compter l'eau avant de compter les lits.** Nombre de personnes × 4 L par jour : 2 pour la
- boisson, 2 pour la cuisine et l'hygiène. Si la source ne fournit pas, la
- discussion se poursuit sur le mode «deux bâtiments » ou «on se relaie ».
-2. **Chaque ménage annonce ce qu'il apporte, par quantité** : vivres, carburant,
- piles, médicaments, munitions, outils. On lit les tablettes, on ne s'en souvient pas (ch. 5).
-3. **Fixer la durée prévue et la condition de sortie** : «jusqu'à ce que la 138 rouvre »,
- «quatre semaines et on réévalue ». Un regroupement sans date de révision se termine par une
- chicane, jamais par une décision.
-4. **Poser la question de santé avant le départ, sans gêne.** Vomissements, diarrhée, fièvre,
- toux dans les derniers jours ? La règle pour les gens qui préparent à manger
- pour d'autres est d'attendre **48 heures après la disparition des symptômes**. Dans un camp, tout le monde prépare à manger pour d'autres.
+8. **Écrire au mur cinq domaines et un nom pour chacun** : l'eau, le feu et le bois, la cuisine, la santé et
+ l'hygiène, le stock et le comptage. Nommer pour chaque domaine un responsable et un remplaçant, qui décident sans
+ avoir à demander aux autres. Chaque responsable décide seulement pour son domaine. Sans ces noms, chaque famille
+ continue de décider à sa façon, et trois personnes règlent la même chose de trois façons dans la même journée.
+9. {!selles} **Séparer les trois eaux** : la chaudière d'eau potable, avec la louche à long manche qui ne sert qu'à
+ elle, la chaudière de lavage et la chaudière d'eaux grises. Les marquer, ne jamais les interchanger, et ne laisser
+ personne les déplacer pour faire du rangement. Traiter l'eau à boire : la faire bouillir, ou la passer au filtre
+ avant de la chlorer (ch. 10, étapes 11, 14 et 19).
+10. {!selles} **Installer un poste de lavage des mains qui marche l'hiver, entre la latrine et la cuisine** : de l'eau
+ tiède, du savon ordinaire et un linge propre.
+ - Se laver les mains au moins 20 secondes avant, pendant et après la préparation des aliments, avant de manger,
+ après être allé à la latrine, et après avoir touché une bête ou du gibier.
+ - À quatre personnes, il y a 6 paires de personnes entre qui un microbe peut passer ; à douze, il y en a 66, onze
+ fois plus.
+ - La solution hydroalcoolique à 60 % ou plus dépanne quand les mains ne sont pas visiblement sales. Au chalet,
+ elles le sont la plupart du temps : prendre alors l'eau et le savon.
+11. {!incendie} **Dégager le poêle avant que les bagages s'empilent : rien à moins de 1 m.** Dans un chalet plein, on
+ pose les sacs, le linge et le bois près du poêle, parce qu'il y fait chaud. Tracer une ligne au sol à 1 m du poêle,
+ une fois pour toutes. Nommer une personne pour les cendres. Elle doit les retirer à la pelle de métal et les sortir
+ dehors dans un contenant de métal à couvercle, le fond décollé du sol, où elles restent au moins 7 jours.
 
-**Heure 0 — la porte**
+### Le premier soir
 
-5. **Immobiliser les armes avant de décharger le camion.** Chaque arme entre déchargée, sa
- pièce mobile — verrou, culasse ou percuteur — retirée ou bloquée, dans un seul contenant
- fermé dont une seule personne répond ; les munitions dans une autre pièce. Le nombre d'armes
- entrées s'écrit sur le couvercle du contenant et se dit à voix haute. Ça passe avant le déchargement et non après,
- parce que le déchargement est exactement le moment où plus personne ne sait où est quoi.
-6. **Recenser les appareils à combustion apportés** : génératrice, chaufferette d'appoint,
- réchaud, barbecue, poêle de tente. Ils restent dehors jusqu'à ce que leur emplacement soit
- décidé, et la plupart n'entreront jamais (section 8).
-7. **Compter les lieux de couchage porte fermée** et placer un avertisseur de CO dans chacun,
- plus un par étage, jamais **à moins de 2 mètres** d'un appareil de cuisson ou de combustion. Bouton d'essai enfoncé devant témoin. Dans une pièce unique, on
- place l'appareil du côté couchage, le plus loin possible du poêle, à hauteur de tête de
- personne couchée.
+12. **Écrire les règles au mur, à hauteur d'adulte et à hauteur d'enfant** : les cinq noms, l'horaire des repas, qui
+ va à l'eau, qui ouvre le congélateur, la règle des mains, la règle de la marmite, la place de chaque génératrice, où
+ sont les armes et qui en a la clé, et le point de rassemblement dehors si l'avertisseur de CO sonne. Après quelques
+ jours de fatigue, on oublie ce qui a été dit de vive voix, et les jeunes enfants suivent une routine qu'ils voient,
+ pas une explication (ch. 39, ch. 40).
+13. **Nommer le cuisinier du jour, un seul.** Quand la cuisine tourne sans responsable, chacun croit qu'un autre a
+ vérifié la cuisson. Le cuisinier du jour garde le thermomètre.
 
-**Heure 1 à 4 — mesurer la capacité réelle, pas celle qu'on espère**
+### Les jours suivants
 
-8. **Cinq domaines, cinq noms écrits au mur** : eau, feu et bois, cuisine, santé et hygiène,
- stock et comptage. Un titulaire et un suppléant par domaine, qui décident sans revenir
- demander. Ce n'est pas un grade, c'est ce qui empêche trois personnes de décider de la même
- chose de trois façons dans la même journée.
-9. **Séparer physiquement les trois eaux** : le seau d'eau potable avec sa louche à long manche
- qui ne sert qu'à ça, le seau de lavage, le seau d'eaux grises. Marqués, jamais interchangés,
- jamais déplacés par quelqu'un qui «fait juste ranger ». L'eau de consommation se traite
- selon le chapitre 10 ; en dépannage, **2 gouttes (0,2 mL) d'eau de Javel 5,25 % non parfumée
- par litre, remuer, laisser reposer 30 minutes**.
-10. **Ouvrir un point de lavage des mains qui fonctionne l'hiver** : eau tiède, savon ordinaire,
- linge propre, entre la latrine et la cuisine, pas à l'autre bout. **Au moins 20 secondes**,
- avant, pendant et après la préparation des aliments, avant de manger, après la toilette,
- après avoir touché un animal ou manipulé du gibier. La solution
- hydroalcoolique à **60 %** ou plus est un dépannage : sur des mains visiblement sales — la
- plupart du temps, au chalet — elle ne fonctionne pas.
-11. **Vérifier le dégagement du poêle avant que les bagages s'empilent** : **au moins 1 m de
- tout objet**. C'est la première règle qui saute dans un camp
- bondé, parce que tout migre vers la chaleur. Marquer le mètre au sol, une fois pour toutes.
+14. {!cuisson} {!trichine} **Cuire au thermomètre.** Cuire le gibier sauvage, orignal compris, jusqu'à 74 °C à cœur,
+ en pièce comme haché, en plantant la sonde dans la partie la plus épaisse, sans toucher l'os ni le gras. Réchauffer
+ les restes jusqu'à 74 °C, mesurés au thermomètre. Les 71 °C qui suffisent pour le bœuf et le porc ne suffisent
+ jamais pour le gibier. Ne pas servir d'ours au groupe sans thermomètre à sonde : il peut porter la trichine, que ni
+ le sel, ni le fumage, ni le gel domestique ne détruisent ; seule la cuisson à cœur la tue (ch. 52 ; pour le phoque,
+ ch. 56).
+15. {!zone-de-danger} **Sortir les restes de la marmite avant qu'ils refroidissent.** Tout le monde mange la même
+ marmite le même soir : une erreur rend malade tout le groupe en même temps, y compris les adultes qui devaient
+ soigner les autres.
+ - Répartir le contenu d'une marmite de 20 L dans plusieurs plats peu profonds, laissés découverts ou couverts sans
+ serrer.
+ - Les mettre au froid dès que la vapeur cesse, ou dans un bain d'eau froide ou de neige, pour que la nourriture
+ descende le plus vite possible à 4 °C ou moins.
+ - Ne rien laisser plus de 2 heures hors du froid. Le matin, jeter la marmite oubliée sur le comptoir pendant la
+ nuit, quelle que soit son odeur.
+16. **Confier le congélateur à une seule personne, qui l'ouvre une fois par jour, avec la liste de ce qu'il faut en
+ sortir.** Il tourne sur la génératrice, ou pas du tout. Une fois arrêté, un congélateur plein garde les aliments gelés 48 heures, et un
+ congélateur à demi plein 24 heures, si on n'ouvre pas la porte ; un réfrigérateur les garde froids 4 à 6 heures.
+ Dans un groupe, chacun y cherche quelque chose et personne ne se sent responsable d'un appareil qui n'est pas le
+ sien : on ouvre la porte souvent, et chaque ouverture raccourcit les 48 heures pour tout le groupe.
+ - Mettre dehors au froid ou au caveau ce qui doit tenir plus longtemps, pendant que c'est encore gelé (ch. 73,
+ ch. 79).
+ - {!botulisme} Garder le poisson gelé. Le botulisme de type E fabrique sa toxine dès 3 °C, à la température d'un
+ réfrigérateur qui marche, et il ne change ni l'odeur, ni le goût, ni l'apparence du poisson : le faire sentir à
+ plusieurs personnes ne prouve rien (ch. 77).
+17. {!abats} {!mal-de-caribou} **Refroidir la carcasse d'abord, partager ensuite.** Faire descendre la température de
+ la carcasse à 7 °C dans les 24 premières heures, avant de discuter de qui prend quoi. Garder ensuite la viande
+ fraîche entre 0 et 4 °C, et la viande congelée à −18 °C ou moins (ch. 62).
+ - Au partage, dire à voix haute qu'on ne mange ni le foie ni les reins d'un cervidé (orignal, caribou, cerf) : ils
+ accumulent le cadmium (ch. 22).
+ - Partager le gras avant la viande : la viande maigre seule mène au mal de caribou, mortel en quelques semaines
+ (ch. 19).
+ - Le jour même, écrire au feutre le nom de la famille sur chaque paquet qu'elle prend. Sans nom sur les paquets,
+ on rediscute le partage quand le stock baisse.
+18. {!tularemie} {!coupure} **Confier chaque tâche à risque à une personne nommée, pas au premier volontaire.**
+ - Ramasser et dépouiller le lièvre avec des gants : on attrape la tularémie en manipulant la bête (ch. 48).
+ - Ne jamais bûcher seul à la scie à chaîne : un deuxième adulte doit rester à portée de voix (ch. 106).
+19. **Tenir une réunion courte chaque soir, debout, à heure fixe.** On y dit qui est malade, ce qui manque et qui fait
+ quoi le lendemain, et on jette un coup d'œil à la corde de bois et aux tablettes. On reste debout pour que la
+ réunion reste courte, et on la tient à heure fixe pour qu'elle ait lieu tous les soirs. On y voit si on consomme
+ comme prévu ou plus vite (ch. 9).
+20. {!selles} **Quand quelqu'un vomit ou a la diarrhée, l'isoler et protéger la cuisine.**
+ - Retirer de la cuisine tous les malades et les personnes qui ont été proches d'eux, et nommer un seul soignant
+ (ch. 30, étape 18).
+ - Désinfecter la cuvette et les surfaces souillées, et faire bouillir toute l'eau à boire (ch. 10).
+ - Garder les règles des mains et de la louche jusqu'à deux semaines après la fin des signes du dernier malade :
+ pendant ces deux semaines, les gens qui vont mieux peuvent encore transmettre la gastro.
+ - Surveiller la déshydratation[^1] des jeunes enfants, même quand les adultes qui s'en occupent sont malades eux
+ aussi : chez un jeune enfant, elle peut tuer (ch. 30, étape 20 ; ch. 26).
+21. **Décider, à partir des chiffres, si on reste ensemble ou si on se sépare.** Au rythme de consommation mesuré à
+ la réunion du soir, calculer jusqu'à quelle date tiendront les vivres et le bois sec. Si cette date arrive avant la
+ fin du regroupement prévue à l'étape 3, choisir tout de suite entre réduire le groupe, réduire les rations ou aller
+ chercher ce qui manque (ch. 2, ch. 15).
 
-**Le premier soir — écrire ce qui sera oublié demain**
+[^1]: Chez un jeune enfant : bouche et lèvres sèches, pas de larmes quand il pleure, yeux qui paraissent enfoncés,
+    urine rare ou foncée. Plus de 8 heures sans uriner, une peau froide qui reste plissée quand on la pince
+    doucement, une respiration rapide, un enfant somnolent ou confus : la déshydratation est avancée.
 
-12. **Écrire les règles au mur, à hauteur d'adulte et à hauteur d'enfant** : les cinq noms,
- l'horaire des repas, qui va à l'eau, qui ouvre le congélateur, la règle des mains, la règle
- de la marmite, où sont les armes et leur clé, le point de rassemblement dehors si
- l'avertisseur de CO sonne. Ce qui se discute oralement ne survit pas à trois jours de
- fatigue, et les enfants de 4 et 6 ans tiennent une routine visible, pas une explication
- (ch. 39, ch. 40).
-13. **Nommer le cuisinier du jour, et un seul.** La cuisine tournante sans titulaire est la
- source la plus fiable d'erreurs de cuisson : chacun croit que l'autre a vérifié. Le
- cuisinier du jour tient le thermomètre.
+---
 
-**Jour 1 et suivants — les routines qui empêchent le camp de dériver**
-
-14. **La cuisine se fait au thermomètre.** Gibier sauvage, orignal compris : **74 °C** à cœur,
- en coupe entière comme en viande hachée, sonde dans la partie la plus charnue, sans toucher
- l'os ni le gras. Volaille entière 82 °C, poisson 70 °C, bœuf et porc en pièce 71 °C.
- **Le 71 °C ne s'applique jamais au gibier.** Restes réchauffés jusqu'à **74 °C**, mesurés,
- pas estimés.
-15. **Les restes sortent de la marmite avant de refroidir** : contenants peu profonds,
- découverts ou couverts lâchement, au froid dès que la vapeur cesse, ou bain d'eau froide ou de
- neige, pour descendre **le plus rapidement possible à 4 °C ou moins**. Un chaudron de vingt
- litres se sépare en plusieurs plats avant de refroidir. Rien
- ne traîne plus de **2 heures** hors du froid — un chaudron de vingt litres
- laissé sur le comptoir pour la nuit se jette au matin, quelle que soit son odeur.
-16. **Une seule personne ouvre le congélateur, une fois par jour, avec la liste.** Au chalet, il
- tourne sur la génératrice ou il ne tourne pas : ses **48 heures** plein et ses **24 heures**
- à demi plein se comptent **porte fermée** à partir de l'arrêt, et un réfrigérateur
- tient 4 à 6 heures. Dans un groupe, la porte s'ouvre dix fois par jour parce que personne ne
- se sent responsable d'un appareil qui n'est pas le sien, et chaque ouverture se prend sur les
- 48 heures des douze. Ce qui doit tenir plus longtemps descend au froid naturel pendant qu'il
- est encore gelé, pas une fois mou (ch. 73, ch. 79).
-17. **Refroidir d'abord, partager ensuite.** La carcasse descend à **7 °C dans
- les 24 premières heures** avant qu'on discute de qui prend quoi ; la viande fraîche se tient
- **entre 0 °C et 4 °C**, la congelée à **-18 °C ou moins**. Une carcasse qui attend
- la fin de la discussion perd plus que ce que la discussion vaut. Chaque paquet porte au
- feutre, le jour même, le nom du ménage qui le prend : un partage qui ne se lit pas sur les
- paquets se rediscute tout l'hiver, et il se rediscute au moment où le stock baisse, c'est-à-dire au pire moment
- (ch. 62).
-18. **Les tâches à risque ont un titulaire, pas un volontaire.** Le lièvre d'Amérique se
- dépouille avec des gants : la tularémie se contracte à la manipulation (ch. 48). La scie à
- chaîne ne s'utilise pas hors de portée de voix — une coupe à la cuisse vide un homme avant
- qu'on pense à le chercher, et un groupe ne sert à rien si personne ne sait où il est
- (ch. 106). Les cendres se retirent **à la pelle de métal, jamais à l'aspirateur**, et vont
- dehors dans un contenant métallique à couvercle, fond décollé du sol, où elles reposent
- **au moins 7 jours**.
-19. **Une réunion courte chaque soir, debout, à heure fixe.** Qui est malade, ce qui manque,
- qui fait quoi demain, et un coup d'œil à la corde de bois et aux tablettes. Une réunion assise
- s'étire, une réunion improvisée n'a jamais lieu. C'est là qu'on voit si la consommation suit
- le plan ou si elle en est au double (ch. 9).
-20. **La décision de dissoudre se prend sur des chiffres, pas sur l'humeur.** Au rythme mesuré,
- les vivres tiennent jusqu'à quelle date ? Le bois sec ? Si la date arrive avant la condition
- de sortie fixée à l'étape 3, il faut réduire le groupe, réduire les rations ou aller
- chercher (ch. 2, ch. 15). Attendre ne produit aucune des trois.
-
-## 6. Points de contrôle
+## 5. Points de contrôle
 
 | Moment | Ce qu'on vérifie | Cible chiffrée | Si c'est hors cible |
 | --- | --- | --- | --- |
-| Avant d'accepter le regroupement | Eau disponible par jour contre besoin | Au moins **4 L par personne par jour** : 2 L de boisson, 2 L de cuisine et d'hygiène — 48 L pour douze | Refuser le regroupement, ou le limiter au nombre que la source soutient |
-| À l'arrivée, puis chaque mois | Avertisseurs de CO : présence, essai, emplacement | 1 par lieu de couchage porte fermée et par étage, jamais à moins de **2 m** d'un appareil de combustion | Personne ne dort dans un espace sans avertisseur fonctionnel. Regrouper les couchages plutôt que de les disperser |
-| À l'arrivée, puis chaque jour tant qu'il y a des enfants | Armes déchargées, pièce mobile retirée ou bloquée, munitions dans une autre pièce | 100 % des armes entrées, contre le nombre écrit sur le couvercle | Arrêt de toute autre activité jusqu'à ce que le compte soit bon. C'est le compte, pas le rangement, qui attrape l'arme restée dans le camion et rentrée le soir sans le dire |
-| Chaque cuisson de gibier, chaque réchauffage de restes | Température à cœur, sonde dans la partie charnue, loin de l'os et du gras | **74 °C** | Remettre au feu. Un gibier «presque » cuit n'est pas cuit |
-| Chaque fin de repas | Délai avant que les restes soient au froid | Refroidis **le plus vite possible à 4 °C ou moins**, en contenants peu profonds à demi couverts. Rien ne traîne plus de **2 h** | Jeter. Ne pas goûter pour décider |
-| Une fois par jour | Réfrigérateur, congélateur | **0 à 4 °C** et **-18 °C ou moins** | Transférer dehors ou au caveau (ch. 73, ch. 79), cuire en priorité le plus périssable |
-| Chaque passage à la cuisine ou à la latrine | Lavage des mains | **20 secondes** minimum, savon ordinaire | Reprendre. Sur des mains sales, l'hydroalcoolique ne remplace pas l'eau et le savon |
-| Chaque jour | Qui a des symptômes digestifs, qui en a eu | **48 h** sans symptômes avant de retoucher à la cuisine commune. Contagiosité possible **jusqu'à 2 semaines** après | Retirer de la cuisine, désinfecter la latrine et les surfaces touchées, maintenir un seul soignant (ch. 30) |
-| Chaque jour | Dégagement autour du poêle | **1 m de tout objet** | Vider, et redire pourquoi. La règle ne se rappelle pas toute seule |
-| Chaque retrait de cendres | Contenant métallique, fond surélevé, couvercle, dehors | **7 jours** avant de transvider | Ne pas transvider. Une braise vit plusieurs jours dans la cendre |
-| Selon la quantité brûlée | Créosote dans la cheminée | **Au moins une fois par année**, et davantage selon la qualité et la quantité du bois brûlé | Ramoner avant, pas après. La créosote est le goudron du bois qui condense dans un tuyau froid : un camp de douze brûle plus, et un poêle qu'on étouffe la nuit pour économiser en dépose beaucoup plus qu'un poêle qui tire |
-| Chaque jour | Température de la pièce commune | Repère de **18 à 24 °C** | Réduire le volume chauffé avant d'augmenter le feu (ch. 25, ch. 3) |
-| Chaque soir | Le bois rentré contre le bois brûlé, à l'œil sur la corde | L'avance de bois ne recule pas d'un jour à l'autre | Si l'avance recule, réduire le volume chauffé et réaffecter des bras au bois (ch. 83) |
+| Avant d'accepter le regroupement | L'eau que la source donne par jour, contre le besoin | Au moins **4 L par personne par jour** : 2 L pour boire, 2 L pour la cuisine et l'hygiène, soit 48 L pour douze personnes | Refuser le regroupement, le limiter au nombre de personnes pour qui la source donne assez d'eau, ou rester dans deux bâtiments (étape 1) |
+| À l'arrivée, puis chaque mois | Avertisseurs de CO : où ils sont, et le bouton d'essai | Un par endroit où quelqu'un dort porte fermée et un par étage, à plus de **2 m** de tout appareil de combustion | Ne laisser personne dormir dans un endroit sans avertisseur qui marche. Regrouper les lits plutôt que de les disperser |
+| À l'arrivée, puis chaque soir tant qu'il y a des enfants | Armes déchargées, pièce mobile retirée ou bloquée, munitions dans une autre pièce | Le compte des armes donne le nombre écrit sur le couvercle | Tout arrêter jusqu'à ce que le compte soit bon (étape 5) |
+| Chaque cuisson de gibier, chaque réchauffage de restes | Température à cœur, la sonde dans la partie la plus épaisse, loin de l'os et du gras | **74 °C** | Remettre au feu |
+| Chaque fin de repas | Le temps avant que les restes soient au froid | **4 °C ou moins**, le plus vite possible, dans des plats peu profonds ; rien plus de **2 h** hors du froid | Jeter, sans goûter pour décider |
+| Une fois par jour | Réfrigérateur, congélateur | **0 à 4 °C** ; **−18 °C ou moins** | Mettre les aliments dehors ou au caveau (ch. 73, ch. 79), et cuire d'abord le plus périssable |
+| Chaque passage à la cuisine ou à la latrine | Lavage des mains | Au moins **20 secondes**, au savon ordinaire | Recommencer |
+| Chaque jour | Qui a vomi ou eu la diarrhée, et quand | **48 h** sans signe avant de retoucher à la cuisine commune | Retirer la personne de la cuisine (étape 20) |
+| Chaque jour | Dégagement autour du poêle | Rien à moins de **1 m** | Dégager, et réexpliquer pourquoi (étape 11) |
+| Chaque retrait de cendres | Contenant de métal, couvercle, fond décollé du sol, dehors | **7 jours** avant de le vider | Laisser les cendres dans le contenant fermé jusqu'au bout des 7 jours |
+| Pendant la saison de chauffage | Créosote dans la cheminée | Un ramonage **au moins une fois par année**, plus souvent selon la qualité et la quantité du bois brûlé : à douze, on brûle plus de bois, et un poêle qu'on étouffe la nuit pour économiser dépose beaucoup plus de créosote | Ramoner (ch. 83) |
+| Chaque jour | Température de la pièce commune | Repère de **18 à 24 °C** | Réduire le volume chauffé avant d'augmenter le feu (section 7 ; ch. 25, ch. 3) |
+| Chaque soir | Bois rentré contre bois brûlé, à l'œil sur la corde | L'avance de bois ne recule pas d'un jour à l'autre | Réduire le volume chauffé et mettre des bras au bois (ch. 83) |
 
-## 7. Signes d'échec
+---
+
+## 6. Signes d'échec
 
 | Observation | Diagnostic | Action |
 | --- | --- | --- |
-| Deux personnes ou plus ont mal à la tête, la nausée ou des étourdissements en même temps, et ça passe dehors | Monoxyde de carbone. Ce sont exactement les symptômes du CO, et un camp bondé les attribue spontanément à la promiscuité | Sortir tout le monde immédiatement. Ouvrir. Couper toute combustion. Ne pas rentrer avant que la source soit trouvée et l'air renouvelé |
-| Un enfant est anormalement somnolent ou vomit sans fièvre | Idem, tant que le CO n'est pas éliminé. Un petit corps encaisse la même concentration plus vite | Sortir. Même procédure. Ne pas conclure à une gastro avant d'avoir éliminé le CO |
-| Deux personnes vomissent le même jour dans un camp qui allait bien | Gastro-entérite en chaîne, ou toxi-infection alimentaire partie de la marmite commune. Les deux se traitent pareil les 24 premières heures | Isoler, un seul soignant, désinfecter la cuvette et les surfaces, retirer de la cuisine tous les cas et leurs contacts proches, passer à l'eau bouillie (ch. 30, ch. 10) |
-| Le gros chaudron du souper est encore tiède au matin | Il a traversé lentement la zone 4 à 60 °C, où les bactéries se multiplient et produisent des toxines | Jeter. Ne pas faire rebouillir. Une toxine déjà produite ne se défait pas à la cuisson |
-| La louche du seau d'eau potable se retrouve dans l'évier, ou le seau de lavage sert à boire | La chaîne des selles à la bouche est rétablie | Vider et désinfecter les trois seaux, refaire le marquage, redire le mécanisme. Ce n'est pas une étourderie mineure |
-| Un enfant est trouvé seul près du coffre d'armes, ou un verrou manque au compte | Le contenant n'est plus une barrière | Tout arrêter, recompter, reverrouiller devant témoin. Un compte «probablement bon » ne compte pas |
-| Deux personnes donnent des consignes contradictoires dans la même journée | Les deux ménages ont gardé leur chaîne de décision. C'est le mode de panne le plus fréquent d'un regroupement | Revenir aux cinq noms écrits au mur. Trancher qui décide, pas qui a raison |
-| Quelqu'un mange à part, ne parle plus, dort à des heures décalées ; un enfant redevient plus jeune qu'il ne l'est, pipi au lit, colères, cauchemars | Charge normale d'un milieu bondé et bruyant. Chez l'adulte, le retrait précède la rupture d'une règle commune | S'asseoir avec la personne avant de corriger le comportement (ch. 36). Pour l'enfant : routine visible, place à lui, mêmes heures qu'avant (ch. 39, ch. 40) |
-| Une odeur ou un écoulement apparaît entre la latrine et le point d'eau | La capacité de la latrine a été dépassée par le nombre d'usagers | Fermer, déplacer en aval du point d'eau, traiter selon le ch. 31. Passer toute l'eau de consommation à l'ébullition en attendant |
-| Le poisson gardé au froid a l'air et l'odeur normale après plusieurs jours | Ça ne prouve rien : le botulisme ne change ni l'odeur, ni le goût, ni l'apparence | Règle de temps et de température, jamais le jugement du nez (section 8, ch. 77) |
+| Deux personnes ou plus ont mal à la tête, mal au cœur ou des étourdissements en même temps, et ça passe dehors | Monoxyde de carbone. Dans un chalet plein, on met ces signes sur le compte de la fatigue, du manque de sommeil ou d'un microbe rapporté par les enfants | Faire sortir tout le monde et compter les personnes. Ouvrir grand les portes et les fenêtres en restant dehors, arrêter la source si on l'atteint sans rester à l'intérieur, et ne rien rallumer avant d'avoir trouvé la cause |
+| Un enfant est anormalement somnolent, ou il vomit sans fièvre | Monoxyde de carbone, tant qu'on ne l'a pas écarté | Même chose. Ne pas conclure à une gastro avant d'avoir écarté le monoxyde |
+| Deux personnes vomissent le même jour, alors que tout le monde allait bien | Une gastro qui passe d'une personne à l'autre, ou une intoxication partie de la marmite commune ; on les traite de la même façon pendant les 24 premières heures | Faire l'étape 20 pour tous les malades et les personnes qui ont été proches d'eux |
+| La marmite du souper est encore tiède au matin | Elle est restée des heures entre 4 et 60 °C (étape 15) | La jeter, sans la faire rebouillir |
+| La louche de la chaudière d'eau potable est dans l'évier, ou quelqu'un boit l'eau de la chaudière de lavage | Les microbes des selles peuvent passer dans l'eau qu'on boit | Vider et désinfecter les trois chaudières, refaire le marquage, et réexpliquer au groupe pourquoi (étape 9) |
+| Un enfant est trouvé seul près du contenant des armes, ou une pièce mobile manque au compte | Le contenant ne protège plus | Tout arrêter, recompter et refermer le contenant devant un autre adulte |
+| Deux personnes donnent des consignes contraires le même jour | Les familles ont gardé chacune leur façon de décider | Revenir aux cinq noms écrits au mur (étape 8) : la personne nommée pour ce domaine tranche |
+| Un adulte mange à part, ne parle plus, dort à des heures décalées ; un enfant recommence à faire pipi au lit, fait des colères ou des cauchemars | La charge normale d'un endroit plein et bruyant. L'adulte s'isole avant de cesser de suivre les règles communes | S'asseoir avec la personne avant de corriger ce qu'elle fait (ch. 36). Pour l'enfant : lui donner une routine qu'il voit et une place à lui, et garder les mêmes heures qu'avant (ch. 39, ch. 40) |
+| Une odeur ou un écoulement apparaît entre la latrine et le point d'eau | La latrine est trop petite pour le nombre de personnes | Fermer la latrine, en creuser une autre plus bas que le point d'eau (ch. 31), et faire bouillir toute l'eau à boire en attendant |
 
-## 8. Danger
+---
 
-> ### ⚠ DANGER — CE QUI TUE DANS CE CHAPITRE
->
-> **1. La marmite commune**
->
-> **Le mécanisme.** Les bactéries se développent rapidement entre **4 °C et 60 °C** et y
-> produisent des toxines dangereuses. Un grand volume traverse cette zone lentement en
-> refroidissant, parce qu'il offre moins de surface par litre pour évacuer sa chaleur. D'où la
-> règle : **refroidir le plus rapidement possible à 4 °C ou moins**, en petits
-> contenants à demi couverts ou au bain d'eau glacée ; ce qui reste **plus de 2 heures**
-> hors du froid se jette. Une toxine déjà produite ne se défait pas en faisant
-> rebouillir : réchauffer tue des bactéries, pas ce qu'elles ont laissé.
->
-> **Ce qui est propre au groupe.** Tout le monde mange la même marmite le même soir. Une erreur
-> couche donc le camp au complet en même temps, y compris les deux adultes qui devaient soigner
-> les autres : le regroupement avait été fait pour créer de la redondance, un seul repas la
-> supprime.
->
-> **Les cibles, sans exception.** Gibier sauvage, orignal compris, en coupe entière comme en
-> viande hachée : **74 °C** à cœur. Restes réchauffés : **74 °C**. **Le 71 °C du bœuf
-> et du porc ne s'applique pas au gibier** : c'est l'erreur exacte à ne pas faire.
->
-> **Jamais le foie ni les reins de cervidés.** «Ne mangez pas le foie ni les reins de cervidés
-> car ils peuvent contenir un taux de cadmium élevé » ; un repas de rognons contaminés peut en
-> contenir **jusqu'à cent fois la quantité tolérable**. Le cadmium s'accumule dans le corps, il ne s'élimine pas d'un repas à l'autre. Dans
-> un groupe, celui qui propose de faire frire le foie de l'orignal n'est pas forcément celui
-> qui a lu le chapitre 22 : la règle se dit à voix haute au moment du partage.
->
-> **Deux choses ne se règlent pas au jugement.** La trichinellose de l'ours et du phoque n'est
-> détruite **ni par le sel, ni par le fumage, ni par la congélation domestique** — seulement par
-> la cuisson complète (ch. 52, ch. 56) : servir de l'ours à douze personnes sans thermomètre à
-> sonde n'est pas un risque acceptable. Et **le botulisme ne change ni l'odeur, ni le goût, ni
-> l'apparence** ; le type E produit sa toxine dès **3 °C**, soit aux
-> températures normales d'un réfrigérateur qui fonctionne, et il vise tout le poisson, surtout
-> fumé. Le nez d'un groupe n'est pas meilleur que celui d'une personne seule.
->
-> **2. Le monoxyde de carbone multiplié par le nombre de familles**
->
-> **Le mécanisme.** Toute combustion produit du monoxyde de carbone dès que l'air manque. Le CO
-> est inodore, il se mélange à l'air au lieu de monter ou de descendre, et dans le sang il prend
-> la place de l'oxygène : le corps ne réclame pas d'air, il s'endort. **«Seul un avertisseur de
-> monoxyde de carbone peut détecter la présence de ce gaz »**.
->
-> **Ce qui est propre au groupe, et qui tue ici.** Les symptômes — «maux de tête;
-> fatigue; nausées; vomissements; étourdissements » — sont exactement
-> ce qu'un camp de douze personnes attribue à autre chose : on est tassés, on dort mal, les
-> enfants nous ont passé quelque chose. Dans une famille, deux maux de tête simultanés se
-> remarquent ; dans un camp fatigué, ils disparaissent dans le bruit de fond. Et chaque famille
-> arrive avec ses propres appareils à combustion, qu'elle installe là où il reste de la place.
->
-> **Ce qui ne rentre jamais dans un bâtiment, même une heure, même porte ouverte :** barbecue,
-> réchaud de camping, chaufferette d'appoint ou de camping au gaz, cuisinière au gaz utilisée
-> pour chauffer, moteur de tout genre.
->
-> **La génératrice va dehors, point.** «Installez-la à l'extérieur de votre maison ou de votre
-> garage, que celui-ci soit intégré à votre maison ou situé à côté; le plus loin possible des
-> portes et des fenêtres ». Un garage, un abri de toile, un cabanon ou
-> un auvent retiennent les gaz exactement comme une pièce. Quand deux familles arrivent avec
-> deux génératrices, la deuxième finit sous l'appentis parce que la bonne place est prise :
-> c'est le scénario à interdire d'avance, par écrit, au mur.
->
-> **Un avertisseur par lieu où quelqu'un dort porte fermée**, plus un par étage, jamais à moins
-> de **2 mètres** d'un appareil de combustion, essai mensuel. Le nombre
-> d'avertisseurs nécessaires n'est pas une propriété du bâtiment mais du nombre d'endroits où
-> l'on dort — et ce nombre change le jour où le groupe se forme.
->
-> **3. L'eau et les selles de plusieurs ménages**
->
-> **Le mécanisme.** La gastro-entérite se transmet «par l'eau ou des aliments contaminés; par
-> contact direct avec une personne infectée; par contact indirect avec des personnes ou des
-> objets contaminés; [et] en respirant des gouttelettes projetées dans l'air ».
-> Les cinq chemins passent par les mains, la louche, la poignée de porte, le linge à
-> vaisselle. Et la contagiosité dure **tant qu'il y a des symptômes et jusqu'à deux semaines
-> après leur disparition** : le camp est encore contagieux au moment
-> exact où il se croit tiré d'affaire et relâche ses règles.
->
-> **Ce qui est propre au groupe.** Ce n'est pas la maladie qui tue, c'est la déshydratation[^1] d'un
-> enfant de 4 ans pendant que les deux adultes capables de s'en occuper sont eux-mêmes couchés,
-> à des heures d'un service de santé (ch. 30, ch. 26).
->
-> **Ce qui tient la chaîne fermée :** trois seaux marqués et jamais interchangés, une louche
-> réservée à l'eau potable, la latrine en aval du point d'eau et pas à côté (ch. 31), le lavage
-> des mains **20 secondes** au savon ordinaire, la désinfection de la cuvette et des surfaces
-> souillées, et **48 heures sans symptômes** avant de retoucher à la cuisine commune.
-> En dépannage, **2 gouttes (0,2 mL) d'eau de Javel 5,25 % non
-> parfumée par litre, 30 minutes de repos**, ou l'ébullition (ch. 10).
->
-> **4. Les armes, dans un chalet que les enfants ne connaissent pas**
->
-> **Le mécanisme.** Au quotidien, les armes d'un chalet sont rangées selon une habitude, dans un
-> bâtiment que ses enfants connaissent, sous l'œil d'adultes qui savent où tout est. Le jour du
-> regroupement, les trois termes changent en même temps : plus d'armes, arrivées dans des étuis
-> que personne d'autre ne connaît, des enfants qui n'ont jamais couché là, et plus aucun adulte
-> qui a la carte complète du bâtiment. Ce n'est pas une aggravation graduelle, c'est un
-> changement d'état, et il se produit pendant le déchargement, quand tout le monde est occupé
-> dehors et que chacun suppose que l'autre s'en occupe.
->
-> **Ce qui ferme le trou.** Une arme sans son verrou, sa culasse ou son percuteur ne tire pas :
-> la pièce mobile part avec une seule personne, les munitions dans une autre pièce, et
-> le compte des armes entrées se refait à voix haute à l'arrivée et au départ. C'est le
-> compte, pas le rangement, qui attrape l'arme qu'un ménage a laissée dans le camion et rentrée
-> le soir sans le dire. Un compte «probablement bon » ne vaut rien.
+## 7. Variante d'urgence
 
-[^1]: Chez un enfant de 4 ou 6 ans : bouche et lèvres sèches, pas de larmes quand il pleure, yeux
-    qui paraissent enfoncés, urine rare ou foncée. Plus de 8 heures sans uriner, une peau froide
-    qui reste plissée quand on la pince doucement, une respiration rapide, un enfant somnolent
-    ou confus : la déshydratation est avancée.
+### Cuire dehors, sans avertisseur
 
-## 9. Variante d'urgence
+{!co} Sans avertisseur qui marche, on ne fait du feu à l'intérieur que dans le poêle raccordé à sa cheminée. Seule
+exception : la lampe à graisse, qu'on allume seulement dans la pièce du poêle et qu'on éteint avant de dormir (ch. 3,
+section 7, « L'éclairage »). On cuisine dehors, sur un feu bas et des braises (planche 18-01, repère 1), derrière
+un mur de neige tassée du côté du vent (repère 2). À douze, les marmites sont lourdes : on plante deux branches
+fourchues (repère 3), on pose une barre dans les fourches (repère 4) et on y pend des crochets de branche à
+différentes hauteurs (repère 5). On monte ou on descend la marmite d'un cran au lieu de la soulever (repère 6). Une personne nommée doit aérer le chalet par deux ouvertures opposées, quelques
+minutes, à heures fixes (étape 8).
 
-Sans électricité, sans thermomètre à sonde, sans avertisseur de CO fonctionnel, sans savon
-acheté, sans contenant verrouillable et sans deuxième bâtiment. C'est la version qui marche à
-douze, et elle se paie en bois, en temps et en bras.
+### Cuire au bouilli, sans thermomètre
 
-**Toute combustion sort du bâtiment.** Sans avertisseur, il ne reste aucun moyen de détecter le
-CO : la seule défense est de n'en produire aucun à l'intérieur, à part le poêle raccordé à sa
-cheminée. La cuisine se fait dehors, sur un feu bas et des braises, derrière un mur de neige
-tassée du côté du vent. À douze, les chaudrons sont lourds : une barre posée sur deux fourches
-plantées, avec des crochets de branche à hauteurs différentes, vaut mieux qu'un homme qui tient
-une anse — on monte ou on descend la marmite d'un cran au lieu de la déplacer. Ventilation par
-deux ouvertures opposées, quelques minutes, à heures fixes, par une personne nommée : dans un groupe, une tâche que tout le monde peut faire est une tâche que personne
-ne fait.
+Un liquide qui bout à gros bouillons est à 100 °C : on lit cette température à l'œil, et elle dépasse les 74 °C à
+cœur du gibier. On cuit tout ce qui est douteux en bouilli ou en ragoût, coupé mince, dans un liquide qui bout.
+Après le dernier morceau ajouté, on attend que le liquide recommence à bouillir franchement : une pièce froide fait
+redescendre la température de toute la marmite. On ne fait plus de rôti, de grillé ni de saisi : la surface cuit
+avant le centre, et on ne voit pas le centre. Sans thermomètre, on ne sert ni ours (étape 14) ni gibier haché : le
+hachage mêle les microbes de la surface à toute la viande.
 
-**L'ébullition est le seul thermomètre gratuit.** Un liquide à gros bouillon est à 100 °C, et
-c'est la seule température qu'on peut lire à l'œil, sans instrument, dans le noir, par quelqu'un
-d'épuisé. Elle est au-dessus des **74 °C** à cœur que demande le gibier sauvage. D'où le
-menu de la variante : tout ce qui est douteux passe en bouilli ou en ragoût, coupé mince, dans
-un liquide qui bouillonne visiblement et qui recommence à bouillonner franchement après le
-dernier morceau ajouté — une pièce froide jetée dans la marmite fait redescendre le tout, et
-c'est à ce moment-là que la cuisson se perd. Le rôti, le grillé et le saisi sortent du
-répertoire : ce sont les cuissons où la surface ment sur le centre. **Le gibier haché et l'ours
-sortent du menu** : pour l'un, la contamination de surface a été mélangée dans toute la masse ;
-pour l'autre, la trichinellose n'est détruite ni par le sel, ni par le fumage, ni par la
-congélation domestique, seulement par la cuisson complète (ch. 52, ch. 56). Quand il n'y a rien
-pour mesurer, on ne sert pas ce qui exige de mesurer.
+### Cuire pour un seul repas
 
-**On cuit une fois, on mange une fois.** Sans froid fiable et sans sonde, la chaîne «cuire,
-refroidir, garder, réchauffer » compte trois étapes qu'on ne peut plus vérifier. On la
-supprime : portions calculées pour être finies au repas, rien qui traîne, rien qui se garde. Ça
-brûle du bois et ça prend du temps, et c'est exactement ce qui remplace le thermomètre.
+Sans endroit froid sûr et sans thermomètre, on ne peut plus vérifier que les restes ont été refroidis, gardés et
+réchauffés comme il faut. On ne fait donc plus de restes : on calcule les portions pour que tout soit mangé au repas,
+et on ne garde rien.
 
-**Refroidir vingt litres sans réfrigérateur.** Quand il reste de la marmite malgré tout, le
-réflexe — sortir le chaudron sur la galerie — est le mauvais : un grand volume garde sa chaleur
-au centre pendant des heures et traverse lentement la zone où les bactéries produisent leurs
-toxines. Ce qui refroidit, c'est l'épaisseur de la couche, pas la température de l'air.
-On creuse une auge dans la neige tassée, on y couche ce qu'on a de plus large et de plus plat —
-plats à rôtir, tôles, couvercles de chaudières, gamelles —, on y verse une couche mince, on
-brasse deux ou trois fois, et on remplace la neige mouillée par de la neige sèche à mesure
-qu'elle fond : de la neige fondue autour d'un plat, c'est un bain tiède, c'est-à-dire le
-contraire de ce qu'on cherche. Un panneau lesté par-dessus, parce que ce qui refroidit dehors
-attire tout ce qui a faim. Rien ne traîne plus de **2 heures** hors du froid, et
-la règle vaut sur la galerie comme sur le comptoir.
+### Refroidir vingt litres sans réfrigérateur
 
-**Le froid vient de dehors, mais il se surveille.** Caisse de bois doublée de neige tassée, au
-nord du bâtiment, à l'ombre, surélevée, lestée contre les animaux, avec un thermomètre dedans.
-Un redoux de trois jours en janvier n'annonce rien et ne se sent pas de l'intérieur : sans
-thermomètre dans la caisse, ce n'est plus un garde-manger, c'est une boîte dehors, et la règle
-des 2 heures s'y applique comme sur le comptoir (ch. 73).
+Quand il reste de la marmite malgré tout, on la refroidit en couche mince : sur la galerie, une marmite pleine garde
+sa chaleur au centre pendant des heures. On creuse une auge dans la neige tassée et on y couche ce qu'on a de plus
+large et de plus plat : plats à rôtir, tôles, couvercles de chaudières, gamelles. On y verse une couche mince, on
+brasse deux ou trois fois, et on remplace la neige mouillée par de la neige sèche à mesure qu'elle fond : de la neige
+fondue autour d'un plat fait un bain tiède. On pose un panneau lesté par-dessus, contre les animaux (planche 18-02). La règle des
+2 heures hors du froid (étape 15) vaut sur la galerie comme sur le comptoir. L'été, sans neige ni glace, on cuit pour
+un seul repas.
 
-**Fondre la neige est la façon la plus chère d'avoir de l'eau.** La neige est surtout de l'air :
-il faut de **10 à 25 litres de neige fraîche pour un litre d'eau**, et ce volume se paie en
-bois, tous les jours, pour douze personnes. Trois règles tiennent. Ne jamais mettre de la neige sèche dans un
-chaudron sec — on garde toujours un fond d'eau, sinon le métal chauffe à vide, brûle et donne
-un goût de fer à tout ce qui suivra. La glace vaut mieux que la neige à volume égal, parce
-qu'elle est de l'eau et pas de l'air. Et l'eau liquide, sous la glace d'un lac ou d'un ruisseau,
-vaut mieux que les deux : deux personnes avec des chaudières et un traîneau rapportent en un
-voyage ce que le poêle mettrait la journée à fondre. Le trou de puisage se retaille au même
-endroit tous les jours, il se marque d'une branche plantée bien visible et il se couvre — un
-trou perdu sous la neige fraîche, à douze, c'est une journée d'eau perdue. L'eau se traite
-ensuite selon le ch. 10.
+### La caisse de froid, l'hiver
 
-**Douze personnes font de l'eau.** Douze corps qui respirent, des mitaines et des bas qui sèchent
-au-dessus du poêle, un chaudron de neige qui fond en permanence : toute cette eau part dans
-l'air et va se condenser sur la première surface froide venue — têtes de clous, têtes de vis,
-intérieur des murs, dessous du toit. Une famille seule ne voit pas le phénomène, trois familles
-le voient en une semaine : givre sur la clouterie, cernes bruns au plafond, isolant qui
-s'affaisse et qui cesse d'isoler. La ventilation à heures fixes n'est donc pas qu'une affaire de
-CO. Le séchage se fait sur une corde à bonne distance du poêle, jamais posé dessus ni dans son
-mètre de dégagement : un bas oublié sur une tôle chaude est la façon la plus
-bête de perdre le bâtiment.
+On garde les aliments au froid dans une caisse de bois doublée de neige tassée, posée au nord du bâtiment, à l'ombre,
+surélevée et lestée contre les animaux, avec un thermomètre dedans. De l'intérieur du chalet, on ne sent pas un
+redoux : sans thermomètre dans la caisse, la règle des 2 heures s'y applique comme sur le comptoir (ch. 73).
 
-**Chauffer un volume, pas un bâtiment.** Quand le bois manque, on rétrécit le chalet de
-l'intérieur : cloison de couvertures, de bâches ou de plastique agrafé sur une corde tendue, qui
-ferme la pièce du poêle et laisse le reste geler. On garde le mètre de dégagement du poêle,
-et on laisse un jeu au bas de la cloison pour que l'air revienne vers le feu.
-Le couchage se monte en hauteur — plateforme de perches et de planches le long du mur, à hauteur
-d'épaule, chargée de branches de sapin sous les matelas —, parce que l'air chaud est en haut et
-que le plancher d'un chalet sur pilotis est la surface la plus froide du bâtiment. Douze
-personnes qui dorment au sol brûlent plus de bois que douze personnes qui dorment en hauteur,
-pour le même confort. La plateforme se construit en une journée avec une hache, une scie et de
-la corde (ch. 110).
+### L'eau pour douze, l'hiver
 
-**Le dessus du poêle est une file d'attente.** Un seul poêle, douze personnes, et une surface
-qui n'est pas chaude partout : bouillante au-dessus du foyer, tiède aux extrémités. L'ordre se
-fixe une fois pour toutes et s'écrit au mur : l'eau à bouillir au centre pendant que le feu est
-jeune, la marmite ensuite, le pain et les galettes quand le feu descend, les mitaines et les
-bottes en dernier, sur la partie tiède et à l'écart. Sans cet ordre, chacun tasse le chaudron du
-précédent, la marmite passe l'après-midi sur le bord tiède — c'est-à-dire en plein dans la zone
-où les bactéries travaillent — et personne ne sait dire depuis quand elle y est.
+Faire fondre de la neige pour les 48 L d'eau par jour de l'étape 1 coûte du bois tous les jours. {!glace} On prend
+d'abord l'eau sous la glace d'un lac ou d'un ruisseau, puis la glace, et la neige en dernier (ch. 10, étapes 36 à 39 ;
+ch. 10, section 7, « Fondre sans gaspiller de bois »). On envoie deux personnes avec des chaudières et un
+traîneau : elles rapportent en un voyage ce que le poêle mettrait la journée à fondre. On retaille le trou de puisage
+au même endroit tous les jours, on le couvre, et on le marque d'une branche plantée haute : après une bordée, on le
+retrouve sans avoir à repercer la glace.
 
-**La relève de nuit se compte en recharges de poêle.** Sans horloge ni pile, un quart se mesure
-au bois : une recharge complète, c'est un quart. Celui qui recharge réveille le suivant et se
-couche ; le suivant recharge à son tour. Ça règle du même coup le feu, la garde et la chicane
-sur «ça fait plus longtemps que toi ». La durée varie avec le bois et le tirage, et c'est
-correct : ce qu'on cherche, ce n'est pas des quarts égaux, c'est que personne ne dorme pendant
-que le poêle s'éteint.
+### L'humidité de douze personnes
 
-**La latrine se déplace au lieu de se vider.** Tranchée étroite, en aval du point d'eau et de
-tout ruissellement, une pelletée de terre ou de cendre après chaque usage, déplacée avant
-saturation. L'hiver, ce qui tombe gèle sur place et monte en cône sous le siège bien avant que
-le trou soit plein : le cône se casse au bâton, ce n'est pas un signe de trou plein, et à douze
-il monte vite. Le trou suivant se creuse pendant que le sol est encore ouvrable, pas le jour où
-le premier déborde (ch. 31).
+Douze personnes qui respirent, les mitaines et les bas qui sèchent et une marmite de neige qui fond sans arrêt mettent
+beaucoup d'eau dans l'air. Cette eau se condense sur la première surface froide : les têtes de clous et de vis,
+l'intérieur des murs, le dessous du toit. On voit alors du givre sur les clous, des cernes bruns au plafond, et
+l'isolant qui s'affaisse et n'isole plus. L'aération à heures fixes (« Cuire dehors, sans avertisseur ») sert aussi
+contre l'humidité. {!incendie} On fait sécher le linge sur une corde, à plus de 1 m du poêle, jamais sur le poêle :
+un bas oublié sur une tôle chaude peut mettre le feu au chalet.
 
-**Le savon sort du poêle.** L'eau de cendre — cendre franche de bois dur trempée dans l'eau
-chaude, laissée à décanter, et seulement le liquide clair du dessus — est alcaline et dégraisse.
-Elle lave la vaisselle et, allongée, les mains. Elle est dure pour la peau, et douze paires de
-mains crevassées au milieu de l'hiver, ça finit en infections : on la garde pour la vaisselle et
-les mains les plus sales, et on fait du vrai savon dès qu'il y a du gras à y mettre (ch. 112).
-Sans rien du tout : eau chaude, brosse, ongles courts et **20 secondes** de frottement
-— ça enlève, ça ne tue pas, c'est nettement moins bon, et ça se dit comme tel
-au groupe plutôt que de laisser croire que la chaîne est fermée (ch. 31).
+### Chauffer une seule pièce
 
-**Les armes sans contenant fermé.** On désarme au lieu de verrouiller : verrou, culasse ou
-percuteur retiré de chaque arme et gardé sur une seule personne, dans une poche qu'elle ne
-quitte pas ; munitions dans une autre pièce ou un autre bâtiment, hors de vue. Une arme sans sa
-pièce mobile n'est plus une arme, et c'est la seule barrière qui ne dépende pas d'un cadenas.
-Le compte se refait à voix haute quand même, à l'arrivée et au départ.
+Quand le bois manque, on ferme la pièce du poêle avec une cloison de couvertures, de bâches ou de plastique agrafé
+sur une corde tendue, et on laisse geler le reste du chalet. On garde le mètre de dégagement autour du poêle
+(étape 11), et on laisse un espace au bas de la cloison pour que l'air revienne vers le feu. On monte les lits en
+hauteur, sur une plateforme de perches et de planches le long du mur, à hauteur d'épaule, chargée de branches de
+sapin sous les matelas : l'air chaud est en haut, et le plancher d'un chalet sur pilotis est la surface la plus
+froide du bâtiment. Quand les douze dorment en hauteur, on brûle moins de bois pour le même confort. On construit la
+plateforme en une journée avec une hache, une scie et de la corde (ch. 110).
 
-**Les règles au mur, sans papier.** L'horaire et les cinq noms s'écrivent au charbon de bois
-sur une planche rabotée ou au revers d'une porte d'armoire ; le charbon s'efface au chiffon
-humide et se réécrit.
+### L'ordre sur le dessus du poêle
 
-**Ce qu'on perd, honnêtement :**
+Avec un seul poêle pour douze personnes, il faut partager le dessus, qui est bouillant au-dessus du foyer et tiède aux
+bouts. On fixe l'ordre une fois et on l'écrit au mur : l'eau à bouillir au centre pendant que le feu est vif, la
+marmite ensuite, le pain et les galettes quand le feu baisse. Sans cet ordre, chacun tasse la marmite du précédent :
+elle passe l'après-midi sur le bord tiède, entre 4 et 60 °C, et personne ne sait depuis quand elle y est.
 
-- **La mesure.** Sans sonde, aucune garantie sur le gibier ; sans thermomètre, aucune garantie
- sur le froid. C'est la perte la plus grave, et c'est elle qui impose le bouilli, le repas
- unique et le retrait de l'ours et du haché.
-- **Les restes.** Cuire pour un seul repas brûle plus de bois et prend plus de temps que cuire
- d'avance. Sur un mois, ça se compte en journées de bûchage (ch. 83).
-- **La variété.** Ours et gibier haché retirés, poisson fumé traité avec méfiance, conserves
- faites au chalet écartées tant que le ch. 78 n'est pas suivi à la lettre. Un menu qui
- rétrécit sur des semaines devient un problème de nutrition : la viande maigre seule mène au
- mal de caribou, mortel en quelques semaines (ch. 19, ch. 21).
-- **Les mains.** L'eau de cendre et le frottement à sec usent la peau, et une peau fendue, à
- douze dans une pièce, est une porte d'entrée de plus.
+### La relève de nuit, sans horloge
 
-**Ce qui ne se remplace pas :** la détection du monoxyde de carbone. Il n'existe pas de
-substitut d'atelier, pas de test de flamme, pas d'animal sentinelle qui avertisse à temps dans
-un bâtiment fermé. Le CO n'a ni odeur ni couleur, il prend la place de l'oxygène dans le sang, et le corps ne réclame pas d'air : il s'endort. Tant qu'il n'y a pas d'avertisseur qui
-fonctionne, la seule mesure disponible est de ne rien brûler à l'intérieur en dehors du poêle
-raccordé à sa cheminée, et de sortir les douze dehors dès que deux personnes ont mal à la tête
-en même temps. Ça ne se compense pas par de la vigilance, parce que la vigilance est exactement
-ce que le gaz enlève.
+Sans horloge ni pile, on mesure les quarts de garde avec le poêle : un quart dure le temps d'une recharge complète.
+La personne de garde qui recharge le poêle doit réveiller la suivante, puis aller se coucher ; la suivante recharge à
+son tour. Ça règle du même coup le feu, la garde et la chicane sur qui a veillé le plus longtemps. La durée d'une
+recharge change avec le bois et le tirage : les quarts n'ont pas à être égaux, il faut seulement que personne ne dorme
+pendant que le poêle s'éteint.
+
+### La latrine en tranchée
+
+On creuse une tranchée étroite, plus bas que le point d'eau et que tout ruissellement qui y descend, on jette une
+pelletée de terre ou de cendre après chaque usage, et on déplace la latrine avant que la tranchée soit pleine.
+L'hiver, ce qui tombe gèle sur place et monte en cône sous le siège bien avant que le trou soit plein ; à douze, le
+cône monte vite. On casse le cône au bâton. On creuse le trou suivant d'avance, tant que le sol n'est pas gelé
+(ch. 31).
+
+### L'eau de cendre à la place du savon
+
+On fait tremper de la cendre tamisée d'un feu de bois franc dans l'eau chaude, on la laisse déposer et on ne garde
+que le liquide clair du dessus : il est alcalin, et il dégraisse. Il lave la vaisselle et, allongé d'eau, les mains. Il est
+dur pour la peau, et à douze au milieu de l'hiver, des mains crevassées finissent en infections : on le garde pour
+la vaisselle et les mains les plus sales, et on fait du vrai savon dès qu'on a du gras à y mettre (ch. 112). Sans
+rien du tout, on se lave les mains à l'eau chaude et à la brosse, les ongles courts, en frottant 20 secondes. Le
+frottement enlève des microbes sans les tuer : on le dit au groupe, pour que personne ne se croie protégé (ch. 31).
+
+### Les armes sans contenant fermé
+
+On rend les armes inutilisables au lieu de les enfermer : on retire la pièce mobile de chaque arme, et une seule
+personne doit garder ces pièces dans une poche qu'elle ne quitte pas. On garde les munitions à part, hors de vue, et
+on refait quand même le compte à voix haute (étape 5).
+
+### Les règles au mur, sans papier
+
+On écrit l'horaire et les cinq noms au charbon de bois sur une planche rabotée ou au revers d'une porte d'armoire.
+On efface au chiffon humide, et on réécrit.
+
+### Ce qu'on perd
+
+- **La mesure.** Sans thermomètre à sonde, on ne peut pas être sûr que le gibier est cuit à cœur ; sans thermomètre
+ dans la caisse, on ne peut pas être sûr que les aliments restent froids.
+- **Les restes.** Cuire pour un seul repas brûle plus de bois et prend plus de temps que cuire d'avance ; sur un
+ mois, il faut des journées de bûchage de plus (ch. 83).
+- **La variété.** On se méfie du poisson fumé, et on écarte les conserves du chalet qui n'ont pas été faites en
+ suivant le ch. 78 à la lettre. Manger les mêmes quelques aliments pendant des semaines devient un problème de
+ nutrition (étape 17 ; ch. 19, ch. 21).
+- **Les mains.** L'eau de cendre et le frottement sans savon usent la peau (« L'eau de cendre à la place du
+ savon »).
+
+### Ce qui ne se remplace pas
+
+L'avertisseur de CO : on ne peut pas le fabriquer. Sans lui, on suit « Cuire dehors, sans avertisseur » et la première
+ligne de la section 6.
+
+---
+
+## En plus
+
+### La place de chacun dans la tente innue
+
+Dans la tente des Innus, au campement d'automne, la place des aînés était à l'entrée, près du poêle : ils
+entretenaient le feu. Le visiteur avait sa place, là où le sapinage était épais, et une jeune fille rangeait ses
+affaires : il savait où il dormirait. Au chalet, la personne qui dort près du poêle pour le garder doit tenir son
+matelas et ses couvertures à au moins 1 m du poêle (étape 11).
+
+### Les enfants ont leurs tâches
+
+Au campement innu, les enfants avaient leur part du travail : s'occuper des plus jeunes, aller chercher le sapinage
+et le bois de chauffage, et faire la distribution de la viande au partage. Au chalet, on écrit au mur une tâche pour
+chaque enfant, avec celles des adultes (étape 12 ; ch. 40).
+
+### Prendre ce que le groupe peut préparer
+
+Chez les Cris de Chisasibi, le trappeur prend ce dont la famille a besoin et ce qui peut être préparé : autant de
+bêtes que de peaux qu'on peut nettoyer et de viande qu'on peut manger, pour que rien ne se perde. À plusieurs
+familles, il y a plus de chasseurs : on règle la chasse sur ce que le groupe peut refroidir et débiter à temps
+(étape 17).
+
+### Quatre ou cinq familles sous la même tente
+
+Les Innus logeaient plusieurs familles sous le shaputuan, la longue tente d'hiver qui a une porte à chaque bout :
+quatre ou cinq familles partageaient la même tente, avec plusieurs feux en ligne entre les deux portes. La tente à
+deux poêles de l'étape 7 en reprend la forme, avec un poêle à chaque bout.

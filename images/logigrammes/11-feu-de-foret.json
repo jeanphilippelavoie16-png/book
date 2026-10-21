@@ -1,0 +1,396 @@
+{
+  "_note": "Logigramme du chapitre 11 (le feu de forêt), double page, fait le 15 octobre 2026, repris le même jour quand les séries orange ont pris leur temps (JP : « sois plus logique dans la gestion des temps »), puis le 19 octobre 2026 à la refonte du chapitre au gabarit à sept sections (le détail des séries est entré dans l'orange ; les numéros d'étapes n'ont pas changé). Les pastilles suivent celles du chapitre : 1 h pour « Un feu est déclaré dans le secteur » (étapes 1 à 10), 15 min pour « Il faut partir » (étapes 11 à 17), 1 min pour « Le feu arrive et on ne peut plus partir » (étapes 18 à 25). L'étape 26 (après le passage du front) n'est pas orange : la boîte du bas est un geste. Page de gauche : le feu déclaré, les deux raisons de partir, la nuit et le départ. Page de droite : le feu en vue, la route et les gestes des gens pris par le feu ; colonnes de 8,9 à 15,5 po, le couloir du lien de page à 8,7 po. Aucun avertissement redit. Rendu : env -u TMPDIR python3 design/outils/logigramme.py images/logigrammes/11-feu-de-foret.json ; version du livre : --sans-entete --svg. « source » : les étapes du chapitre d'où vient chaque geste (ignoré au rendu).",
+  "format": "double",
+  "tome": 1,
+  "urgent": true,
+  "entete": {
+    "chapitre": "11 · Le feu de forêt",
+    "tome": "Tome 1 · Tenir",
+    "onglet": "11",
+    "folios": [
+      null,
+      null
+    ]
+  },
+  "colonnes": {
+    "large": [
+      0.5,
+      7.375
+    ],
+    "tronc": [
+      0.5,
+      3.55
+    ],
+    "cote": [
+      4.25,
+      7.375
+    ],
+    "dB": [
+      10.8953,
+      15.5
+    ],
+    "qr": [
+      8.9,
+      12.8395
+    ],
+    "q6": [
+      8.9,
+      15.5
+    ],
+    "c1": [
+      8.9,
+      10.9977
+    ],
+    "c2": [
+      11.1512,
+      13.2488
+    ],
+    "c3": [
+      13.4023,
+      15.5
+    ],
+    "large2": [
+      8.9,
+      15.5
+    ]
+  },
+  "rangs": {
+    "g1": 0.85,
+    "g2": 1.6,
+    "g3": 2.4,
+    "g4": 3.14,
+    "g6": 4.7,
+    "g7": 6.3,
+    "g8": 7.4,
+    "d1": 0.85,
+    "d2": 1.75,
+    "d3": 2.75,
+    "d4": 4.15,
+    "d5": 5.3,
+    "d6": 7.2
+  },
+  "noeuds": [
+    {
+      "id": "depA",
+      "type": "depart",
+      "col": "large",
+      "rang": "g1",
+      "ancre": "haut",
+      "taille": 15,
+      "texte": "Un feu est déclaré dans le secteur",
+      "source": "section 2 ; étape 1"
+    },
+    {
+      "id": "u1",
+      "type": "urgent",
+      "col": "large",
+      "rang": "g2",
+      "ancre": "haut",
+      "temps": "1 h",
+      "taille": 10,
+      "texte": "**Sortir regarder où est la fumée et de quel côté elle penche.** Si le vent souffle du feu vers nous, un feu à 10 km peut arriver en moins de trois heures.",
+      "renvoi": "ch. 11, étape 1",
+      "source": "étape 1"
+    },
+    {
+      "id": "u2",
+      "type": "urgent",
+      "col": "large",
+      "rang": "g3",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**Faire le plein et charger l'auto tout de suite** : les médicaments, les papiers, des vêtements de rechange pour chacun, de l'eau et de quoi manger pour trois jours, et une couverture de laine par personne.",
+      "renvoi": "ch. 11, étapes 2 et 3",
+      "source": "étapes 2 et 3"
+    },
+    {
+      "id": "u3",
+      "type": "urgent",
+      "col": "large",
+      "rang": "g4",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**Au chalet, mettre le canot à l'eau.** Décider quel adulte prend quel enfant.",
+      "renvoi": "ch. 11, étapes 4 et 5",
+      "source": "étapes 4 et 5"
+    },
+    {
+      "id": "q3",
+      "type": "question",
+      "col": "tronc",
+      "rang": "g6",
+      "texte": "Il ne reste qu'un chemin pour sortir, ou la fumée entre dans la maison ?",
+      "precision": "La fumée compte si les enfants n'ont pas de pièce d'air propre",
+      "source": "étape 6"
+    },
+    {
+      "id": "reprendre",
+      "type": "geste",
+      "col": "cote",
+      "rang": "g6",
+      "taille": 10,
+      "texte": "**En restant prêt à partir, remplir tout ce qui tient l'eau, vider les gouttières, et porter le bois et le propane à plus de 10 m.** Fixer l'heure du prochain contact. Reprendre la décision deux fois par jour et chaque fois que le vent tourne ; la nuit, un adulte veille.",
+      "renvoi": "ch. 11, étapes 7 à 10, 27 à 29",
+      "source": "étapes 7 à 10 ; 27 à 29"
+    },
+    {
+      "id": "q4",
+      "type": "question",
+      "col": "tronc",
+      "rang": "g7",
+      "texte": "C'est la nuit, et on sent seulement l'odeur de la fumée ?",
+      "precision": "On ne voit ni lueur ni braises, et on ne sent pas de chaleur",
+      "source": "étape 11"
+    },
+    {
+      "id": "nuit",
+      "type": "urgent",
+      "col": "cote",
+      "rang": "g7",
+      "taille": 10,
+      "texte": "**Habiller les enfants, finir de charger l'auto et partir à la première clarté.** Quand on sent la fumée la nuit, le feu n'approche pas forcément.",
+      "renvoi": "ch. 11, étape 11",
+      "source": "étape 11"
+    },
+    {
+      "id": "depart",
+      "type": "urgent",
+      "col": "large",
+      "rang": "g8",
+      "ancre": "haut",
+      "temps": "15 min",
+      "taille": 10,
+      "texte": "**Un adulte habille les enfants de coton ou de laine et les attache dans l'auto. L'autre ferme le bâtiment** : les portes, les fenêtres et le propane, et il décroche les rideaux. S'il reste du temps, arroser le toit, puis fermer l'eau. En sortant, couper le courant et afficher PARTIS sur la porte.",
+      "renvoi": "ch. 11, étapes 12 à 15",
+      "source": "étapes 12 à 15"
+    },
+    {
+      "id": "depB",
+      "type": "depart",
+      "col": "dB",
+      "rang": "d1",
+      "ancre": "haut",
+      "taille": 12,
+      "texte": "Le feu est en vue : on voit les flammes, des braises tombent ou on sent sa chaleur",
+      "source": "chapeau de la série des étapes 1 à 10 ; chapeau de l'étape 11 ; section 2"
+    },
+    {
+      "id": "qroute",
+      "type": "question",
+      "col": "qr",
+      "rang": "d2",
+      "ancre": "haut",
+      "texte": "On peut rouler loin du feu sans entrer dans la fumée ?",
+      "source": "étapes 11 et 17"
+    },
+    {
+      "id": "rouler",
+      "type": "urgent",
+      "col": "qr",
+      "rang": "d3",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**Monter dans l'auto et rouler loin du feu, jamais vers lui.** Fermer les vitres, mettre l'air en recirculation et allumer les phares de croisement. Prévenir par message texte. Si la fumée cache la route, faire demi-tour.",
+      "renvoi": "ch. 11, étapes 16 et 17",
+      "source": "étapes 16 et 17"
+    },
+    {
+      "id": "q6",
+      "type": "question",
+      "col": "q6",
+      "rang": "d4",
+      "ancre": "haut",
+      "texte": "Où est-on quand le feu arrive ?",
+      "source": "étapes 18 à 25"
+    },
+    {
+      "id": "auto",
+      "type": "urgent",
+      "col": "c1",
+      "rang": "d5",
+      "ancre": "haut",
+      "temps": "1 min",
+      "taille": 10,
+      "texte": "**S'arrêter là où rien ne brûle**, le devant tourné vers le feu. Fermer les vitres et les entrées d'air, et se coucher au plancher sous une couverture de laine sèche. Couper le moteur quand le feu est proche.",
+      "renvoi": "ch. 11, étapes 18 et 19",
+      "source": "étapes 18 et 19"
+    },
+    {
+      "id": "bat",
+      "type": "urgent",
+      "col": "c2",
+      "rang": "d5",
+      "ancre": "haut",
+      "temps": "1 min",
+      "taille": 10,
+      "texte": "**Rester dedans** : remplir les éviers et le bain, arrêter le climatiseur. Se tenir dans une pièce qui a deux sorties, loin des vitres, et éteindre les braises qui entrent.",
+      "renvoi": "ch. 11, étapes 21 à 23",
+      "source": "étapes 21 à 23"
+    },
+    {
+      "id": "pied",
+      "type": "urgent",
+      "col": "c3",
+      "rang": "d5",
+      "ancre": "haut",
+      "temps": "1 min",
+      "taille": 10,
+      "texte": "**Aller là où rien ne brûle**, à 100 m au moins de tout arbre debout, et se coucher face contre terre. Au lac, rester au bord et se remouiller.",
+      "renvoi": "ch. 11, étapes 24 et 25",
+      "source": "étapes 24 et 25"
+    },
+    {
+      "id": "apres",
+      "type": "geste",
+      "col": "large2",
+      "rang": "d6",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**Quand le front est passé, rester sous la laine jusqu'à ce que l'air refroidisse.** Ensuite, aller sur le terrain brûlé et éteindre ce qui brûle encore : gratter jusqu'à la terre, retourner et noyer.",
+      "renvoi": "ch. 11, étapes 20 et 26",
+      "source": "étapes 20 et 26"
+    }
+  ],
+  "liens": [
+    {
+      "de": "depA",
+      "vers": "u1"
+    },
+    {
+      "de": "u1",
+      "vers": "u2"
+    },
+    {
+      "de": "u2",
+      "vers": "u3"
+    },
+    {
+      "de": "u3",
+      "vers": "q3",
+      "sx": 2.025,
+      "ex": 2.025
+    },
+    {
+      "de": "q3",
+      "vers": "reprendre",
+      "etiquette": "Non",
+      "sortie": "droite",
+      "entree": "gauche"
+    },
+    {
+      "de": "q3",
+      "vers": "q4",
+      "etiquette": "Oui"
+    },
+    {
+      "de": "q4",
+      "vers": "nuit",
+      "etiquette": "Oui",
+      "sortie": "droite",
+      "entree": "gauche"
+    },
+    {
+      "de": "q4",
+      "vers": "depart",
+      "etiquette": "Non",
+      "sx": 2.025,
+      "ex": 2.025
+    },
+    {
+      "de": "nuit",
+      "vers": "depart",
+      "sx": 5.8125,
+      "ex": 5.8125
+    },
+    {
+      "de": "depart",
+      "vers": "qroute",
+      "sortie": "bas",
+      "entree": "gauche",
+      "sx": 3.94,
+      "via": [
+        [
+          3.94,
+          9.05
+        ],
+        [
+          8.7,
+          9.05
+        ],
+        [
+          8.7,
+          2.08
+        ]
+      ]
+    },
+    {
+      "de": "depB",
+      "vers": "qroute",
+      "sx": 11.9186,
+      "ex": 11.9186
+    },
+    {
+      "de": "qroute",
+      "vers": "rouler",
+      "etiquette": "Oui",
+      "sx": 10.3837,
+      "ex": 10.3837
+    },
+    {
+      "de": "qroute",
+      "vers": "q6",
+      "etiquette": "Non",
+      "sortie": "droite",
+      "entree": "haut",
+      "ex": 14.2721,
+      "pos": "debut"
+    },
+    {
+      "de": "rouler",
+      "vers": "q6",
+      "etiquette": "Si la route se ferme devant et derrière",
+      "sx": 10.3837,
+      "ex": 10.3837,
+      "pos": "milieu"
+    },
+    {
+      "de": "q6",
+      "vers": "auto",
+      "etiquette": "Dans l'auto",
+      "coude": 4.85,
+      "pos": "palier",
+      "sx": 11.9698
+    },
+    {
+      "de": "q6",
+      "vers": "bat",
+      "etiquette": "Dans un bâtiment",
+      "coude": 4.85,
+      "pos": "palier",
+      "sx": 11.9698
+    },
+    {
+      "de": "q6",
+      "vers": "pied",
+      "etiquette": "À pied",
+      "coude": 4.85,
+      "pos": "palier",
+      "sx": 11.9698
+    },
+    {
+      "de": "auto",
+      "vers": "apres",
+      "ex": 9.9488
+    },
+    {
+      "de": "bat",
+      "vers": "apres",
+      "ex": 12.2
+    },
+    {
+      "de": "pied",
+      "vers": "apres",
+      "ex": 14.4512
+    }
+  ]
+}

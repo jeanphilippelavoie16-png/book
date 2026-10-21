@@ -2,14 +2,20 @@
 // à au-dessus de la cheville, rembourrées là où elles touchent l'os, trois liens, la rotule libre.
 // Ch. 24, section 9, « L'attelle de genou » ; les orteils sous l'attelle, tableau des signes.
 //
-// Jambe gauche, blessé couché sur le dos. Vue de côté prise du dehors (au-dessus) et vue de dessus
-// (au-dessous), à la même échelle et alignées ; deux coupes, regardées vers le pied, au genou (A)
-// et au lien sous le genou (B). Dans la vue de dessus, le dehors de la jambe est en haut ; dans les
-// coupes, à gauche.
+// Un blessé couché sur le dos, vu de côté, du dehors : la jambe proche est le corps simple de la
+// bibliothèque (h.formes.corps, couche-dos) avec le pied nu simple à orteils de _pieds.js, à grande
+// échelle, la cuisse coupée par le bord de la vue (redessin du 14 octobre : la jambe et le pied dessinés à la main sont partis, et avec
+// eux la vue de dessus — un corps ne se montre que de profil). Les deux coupes, regardées vers le
+// pied, au genou (A) et au lien sous le genou (B), sont marquées sur la vue de côté ; dans les
+// coupes, le dehors est à gauche. Elles montrent les deux perches que la vue de côté ne montre pas.
 //
-// Unités : millimètres de jambe d'adulte. x le long de la jambe (0 au milieu de la rotule, vers le
-// pied positif) ; h la hauteur au-dessus du sol ; v vers le dehors (vue de dessus) ; u vers le
-// dedans (coupes). Aucune cote : le chapitre ne donne aucune mesure.
+// Unités : millimètres de jambe d'adulte. u le long de la jambe (0 au milieu du genou, vers le
+// pied positif) ; hh la hauteur au-dessus du sol ; u vers le dedans dans les coupes. Aucune cote :
+// le chapitre ne donne aucune mesure.
+//
+// La charte : les perches sont l'objet, contour fort et face du dessous à l'ombre (lumière en haut
+// à gauche) ; rien de gris sur la jambe, ni sur les coupes hachurées. Deux cercles de contrôle dans
+// la vue de côté : la rotule libre, et les orteils qu'on surveille.
 module.exports = (h) => {
   const f = v => Math.round(v * 10) / 10;
   const blanc = at => at.replace('fill="none"', 'fill="#FFFFFF"');
@@ -36,30 +42,33 @@ module.exports = (h) => {
     return T[T.length - 1][1];
   };
 
-  // ─── La jambe ─────────────────────────────────────────────────────────────────────────
-  // Demi-largeurs vues de dessus, dehors et dedans : le dedans du genou et du mollet plus plein,
-  // la malléole du dehors plus basse, le pied qui s'évase jusqu'aux orteils.
-  const WL = [[-300, 80], [-220, 75], [-150, 69], [-80, 61], [-35, 55], [0, 53], [35, 50], [70, 51], [120, 55], [170, 54], [230, 48], [290, 40], [340, 33], [385, 32], [418, 37], [445, 37], [470, 44], [495, 50], [512, 51]];
-  const WM = [[-300, 80], [-220, 76], [-150, 71], [-80, 64], [-35, 58], [0, 55], [35, 51], [70, 52], [120, 57], [170, 55], [230, 48], [290, 39], [340, 33], [380, 33], [402, 38], [440, 37], [470, 47], [495, 53], [515, 54]];
-  // Hauteurs vues de côté : le devant et l'arrière. La cuisse et le mollet portent au sol, le
-  // creux du genou et le tendon d'Achille en l'air.
-  const TOP = [[-300, 158], [-220, 152], [-150, 145], [-80, 135], [-35, 127], [-12, 131], [12, 131], [40, 121], [68, 122], [100, 118], [160, 113], [240, 108], [320, 103], [390, 100], [415, 100]];
-  const BAS = [[-300, 2], [-200, 0], [-120, 3], [-60, 16], [-20, 28], [20, 30], [60, 18], [100, 4], [150, 0], [220, 2], [290, 14], [350, 28], [380, 33], [410, 36]];
+  // ─── La jambe : le corps simple, couché sur le dos, à grande échelle ────────────────────
+  // h.formes.corps (couche-dos), la jambe proche seule : les bras et la jambe loin sont masqués, et la
+  // vue coupe la cuisse à gauche. On lit son contour dans le SVG du moteur (le blanc du corps proche),
+  // en millimètres, pour poser la perche et les liens dessus. Le pied : le pied nu simple avec ses
+  // orteils (_pieds.js), repris sur la jambe au-dessus de la cheville, un peu tendu comme au repos.
+  const { jambeEtPied } = require('./_pieds');
+  const MASQUE = ['brasP', 'brasL', 'jambeL'];
+  const OPT = { pose: 'couche-dos', masquer: MASQUE };
+  const PIED_OPT = { pied: 'nu', H: 70, angle: 6 };
+  const J1 = jambeEtPied(h, Object.assign({ x: 0, y: 0, echelle: 1 }, OPT), Object.assign({ id: 'p2408-mm' }, PIED_OPT));
+  const KX = J1.corps.articulations.genouP[0];               // le genou ; u = 0 au milieu du genou
+  // le talon du pied simple pose au sol : la jambe se lève d'autant s'il descend plus bas que celui du moteur
+  const LEVE = Math.max(0, ...J1.contour.map(p => p[1]));
+  const polys = J1.polys.map(q => q.map(p => [p[0] - KX, -p[1] + LEVE]));
+  // la hauteur du dessus et du dessous de la jambe à la distance u du genou (mm au-dessus du sol)
+  const coupeV = u => {
+    const ys = [];
+    polys.forEach(q => q.forEach((a, i) => { const b = q[(i + 1) % q.length]; if ((a[0] - u) * (b[0] - u) <= 0 && a[0] !== b[0]) ys.push(a[1] + (b[1] - a[1]) * (u - a[0]) / (b[0] - a[0])); }));
+    return [Math.max(...ys), Math.min(...ys)];
+  };
+  const TOP = u => coupeV(u)[0], BAS = u => coupeV(u)[1];
+  const PIED = { pointe: [J1.pointe[0] - KX, -J1.pointe[1] + LEVE] };
 
   // ─── Les perches ──────────────────────────────────────────────────────────────────────
   const X0 = -220, X1 = 370, R = 20;            // de la mi-cuisse à au-dessus de la cheville
-  // Chaque perche, droite, porte sur la cuisse et sur le mollet : sa face intérieure est la droite
-  // qui part de la cuisse et effleure le mollet. Au genou et au bas de la jambe, elle passe à un
-  // doigt de l'os : c'est là qu'elle est rembourrée.
-  const faceInt = W => {
-    const w0 = interp(W, X0);
-    let b = -Infinity;
-    for (let x = X0 + 10; x <= X1; x += 5) b = Math.max(b, (interp(W, x) - w0) / (x - X0));
-    return x => w0 + b * (x - X0);
-  };
-  const EL = faceInt(WL), EM = faceInt(WM);
-  // hauteur du centre des perches, vue de côté : à mi-épaisseur de la jambe, aux deux bouts
-  const mi = x => (interp(TOP, x) + interp(BAS, x)) / 2;
+  // hauteur du centre de la perche, vue de côté : à mi-épaisseur de la jambe, aux deux bouts
+  const mi = x => (TOP(x) + BAS(x)) / 2;
   const PC = x => mi(X0) + (mi(X1) - mi(X0)) * (x - X0) / (X1 - X0);
 
   const LIENS = [-178, 100, 330];               // trois liens ; aucun sur la rotule
@@ -67,151 +76,94 @@ module.exports = (h) => {
   const MANCHONS = [[-75, 65], [250, 378]];     // le rembourrage roulé sur la perche : genou, cheville
   const EP = 12;                                // épaisseur du rembourrage
 
-  // ─── Vue de côté et vue de dessus : même échelle, mêmes x ─────────────────────────────
-  const echelle = z => (z.l - 16) / 900;
-  const Xv = z => { const s = echelle(z); return x => 8 + (x + 320) * s; };
+  // ─── Vue de côté : la jambe coupée à gauche par le bord de la vue ─────────────────────
+  const U0 = -262, U1 = 532;                    // ce que la vue montre, du haut de la cuisse au bout du pied
+  const geo = z => {
+    const s = (z.l - 4) / (U1 - U0), sol = z.h - 14;
+    const X = u => (u - U0) * s, Y = hh => sol - hh * s;
+    return { s, sol, X, Y, P: (u, hh) => [X(u), Y(hh)] };
+  };
 
   const cote = {
     titre: 'De côté, jambe allongée',
     dessin: z => {
-      const s = echelle(z), X = Xv(z), sol = z.h - 16, Y = hh => sol - hh * s;
-      const P = (x, hh) => [X(x), Y(hh)];
+      const { s, sol, X, Y, P } = geo(z);
       const out = [];
       out.push(h.rect(0, sol, z.l, 10, h.a.hachure('terre', 'aucun')), h.ligne(0, sol, z.l, sol, h.a.arete));
-      // la jambe : le devant, le pied, la plante, l'arrière ; coupée en haut de la cuisse
-      const devant = [...TOP, [430, 110], [450, 140], [478, 180], [505, 215], [530, 238], [550, 248], [563, 245], [566, 237]];
-      const plante = [[562, 228], [548, 200], [536, 175], [515, 125], [495, 72], [482, 30], [470, 8], [452, 0], [435, 8], [425, 25], ...BAS.slice().reverse()];
-      const tour = lisse([...devant, ...plante]).map(([x, hh]) => P(x, hh));
-      const casse = [[X(-300) - 7, Y(55)], [X(-300) + 7, Y(105)], P(-300, 158)];
-      out.push(h.path(`${d(tour)} ${d(casse).replace('M', 'L')} Z`, blanc(h.a.contour)));
-      // la rotule sous la peau, la malléole, le petit orteil
-      out.push(h.chemin(lisse([[-26, 124], [-8, 117], [12, 117], [28, 122]]).map(([x, y]) => P(x, y)), h.a.fin));
-      out.push(h.chemin(lisse([[404, 50], [410, 62], [421, 66], [431, 59]]).map(([x, y]) => P(x, y)), h.a.detail));
-      out.push(h.chemin(lisse([[533, 238], [546, 228], [560, 229]]).map(([x, y]) => P(x, y)), h.a.fin));
+      // la jambe : le corps simple, coupé par le bord de la vue
+      const jambe = jambeEtPied(h, Object.assign({ x: X(-KX), y: sol - LEVE * s, echelle: s }, OPT), Object.assign({ id: 'p2408' }, PIED_OPT));
+      out.push(`<clipPath id="jambe-2408"><rect x="0" y="0" width="${f(z.l)}" height="${f(sol + 1)}"/></clipPath>`,
+        `<g clip-path="url(#jambe-2408)">`, String(jambe), '</g>');
+      // la rotule sous la peau, un trait fin
+      out.push(h.chemin(lisse([[-22, TOP(-22) - 12], [-9, TOP(-9) - 7], [9, TOP(9) - 7], [22, TOP(22) - 12]]).map(([u, hh]) => P(u, hh)), h.a.detail));
       // la perche du dehors (celle du dedans est cachée derrière la jambe), son écorce
-      out.push(h.chemin([P(X0, PC(X0) + R), P(X1, PC(X1) + R), P(X1, PC(X1) - R), P(X0, PC(X0) - R)], blanc(h.a.contour), true));
+      const perche = [P(X0, PC(X0) + R), P(X1, PC(X1) + R), P(X1, PC(X1) - R), P(X0, PC(X0) - R)];
+      out.push(h.chemin(perche, h.a.blanc, true));
+      out.push(h.chemin([P(X0, PC(X0) - 0.3 * R), P(X1, PC(X1) - 0.3 * R), P(X1, PC(X1) - R), P(X0, PC(X0) - R)], h.a.ombre, true));   // le dessous, à l'ombre
+      out.push(h.chemin(perche, h.a.contour, true));
       [[-200, -80, 0.4], [80, 240, -0.35], [-60, 20, 0.3]].forEach(([a, b, k]) =>
         out.push(h.chemin([P(a, PC(a) + k * R), P((a + b) / 2, PC((a + b) / 2) + k * R - 1.2), P(b, PC(b) + k * R)], h.a.fin)));
-      out.push(h.ellipse(X(-120), Y(PC(-120) + 5), 6, 4, h.a.detail), h.ellipse(X(200), Y(PC(200) - 6), 6, 4, h.a.detail));
+      out.push(h.ellipse(X(-120), Y(PC(-120) + 5), 6 * s, 4 * s, h.a.detail), h.ellipse(X(200), Y(PC(200) - 6), 6 * s, 4 * s, h.a.detail));
       // le rembourrage roulé autour de la perche, au genou et au bas de la jambe
       MANCHONS.forEach(([a, b]) => {
-        const r = (R + EP) * s;
         const [x1, x2] = [X(a), X(b)], [yh1, yh2] = [Y(PC(a) + R + EP), Y(PC(b) + R + EP)], [yb1, yb2] = [Y(PC(a) - R - EP), Y(PC(b) - R - EP)];
-        const k = r * 0.55;
+        const k = (R + EP) * s * 0.55;
         out.push(h.path(`M${f(x1 + k)} ${f(yh1)} L${f(x2 - k)} ${f(yh2)} C${f(x2 + 2)} ${f(yh2)} ${f(x2 + 2)} ${f(yb2)} ${f(x2 - k)} ${f(yb2)} L${f(x1 + k)} ${f(yb1)} C${f(x1 - 2)} ${f(yb1)} ${f(x1 - 2)} ${f(yh1)} ${f(x1 + k)} ${f(yh1)} Z`, blanc(h.a.arete)));
         for (let x = a + 12; x <= b - 18; x += 13) out.push(h.ligne(X(x), Y(PC(x) - R - EP + 3), X(x + 9), Y(PC(x) + R + EP - 3), h.a.fin));
       });
-      // les trois liens, par-dessus, et le nœud plat sur la face du dehors de la perche
+      // les trois liens, par-dessus : une bande qui épouse la jambe, et le nœud plat sur la perche
       LIENS.forEach(xl => {
         const pts = [];
-        for (let x = xl - DL; x <= xl + DL + 0.1; x += 5) pts.push(P(x, interp(TOP, x) + 2));
-        for (let x = xl + DL; x >= xl - DL - 0.1; x -= 5) pts.push(P(x, interp(BAS, x) - 1.5));
+        for (let x = xl - DL; x <= xl + DL + 0.1; x += 5) pts.push(P(x, TOP(x) + 2));
+        for (let x = xl + DL; x >= xl - DL - 0.1; x -= 5) pts.push(P(x, BAS(x) - 1));
         out.push(h.chemin(pts, blanc(h.a.arete), true));
-        out.push(h.ligne(X(xl - 11), Y(interp(TOP, xl - 11) + 1), X(xl - 11), Y(PC(xl) + 14), h.a.fin));
-        out.push(h.ligne(X(xl + 12), Y(PC(xl) - 10), X(xl + 12), Y(interp(BAS, xl + 12) + 1), h.a.fin));
-        // le nœud plat vu de face : deux boucles prises l'une dans l'autre, les bouts couchés
-        // sur le lien, un vers le haut, un vers le bas
-        const cx = X(xl), cy = Y(PC(xl)), k = s;
-        const Q = (pts) => pts.map(([a, b]) => [cx + a * k, cy - b * k]);
-        out.push(h.chemin(Q([[-15, 6], [-7, 26], [3, 26], [-3, 6]]), blanc(h.a.arete), true));
-        out.push(h.chemin(Q([[15, -6], [7, -26], [-3, -26], [3, -6]]), blanc(h.a.arete), true));
-        out.push(h.path(`M${d(Q([[-2, 10]])).slice(1)} C${d(Q([[-22, 10]])).slice(1)} ${d(Q([[-22, -10]])).slice(1)} ${d(Q([[4, -10]])).slice(1)}`, blanc(h.a.arete)));
-        out.push(h.path(`M${d(Q([[2, -10]])).slice(1)} C${d(Q([[22, -10]])).slice(1)} ${d(Q([[22, 10]])).slice(1)} ${d(Q([[-4, 10]])).slice(1)}`, blanc(h.a.arete)));
+        out.push(h.ligne(X(xl - 11), Y(TOP(xl - 11) + 1), X(xl - 11), Y(PC(xl) + 14), h.a.fin));
+        out.push(h.ligne(X(xl + 12), Y(PC(xl) - 10), X(xl + 12), Y(BAS(xl + 12)), h.a.fin));
+        const kx = X(xl), ky = Y(PC(xl) + 4);
+        out.push(h.ellipse(kx, ky, 7 * s, 9 * s, h.a.plein));
+        const bout = (dx, lg) => `<path d="M${f(kx - 3 * s)} ${f(ky + 5 * s)} Q${f(kx + dx * 0.4 * s)} ${f(ky + lg * 0.5 * s)} ${f(kx + dx * s)} ${f(ky + lg * s)} L${f(kx + (dx + 6) * s)} ${f(ky + (lg - 1) * s)} Q${f(kx + (dx * 0.4 + 6) * s)} ${f(ky + lg * 0.5 * s)} ${f(kx + 3 * s)} ${f(ky + 5 * s)} Z" fill="#1A1A1A" stroke="none"/>`;
+        out.push(bout(-14, 30), bout(-2, 34));
       });
+      // où sont prises les coupes : trait mixte, bout épais en haut, flèche vers le pied
+      [[0, 'A'], [LIENS[1], 'B']].forEach(([uc, lettre]) => {
+        const xa = X(uc), yh = Y(TOP(uc) + 70);
+        out.push(h.ligne(xa, yh, xa, sol, h.a.fin.replace('stroke-linecap="round"', 'stroke-dasharray="9 3 2 3"')));
+        out.push(h.ligne(xa, yh, xa, yh + 9, h.a.contour));
+        out.push(h.fleche(`M${f(xa)} ${f(yh)} L${f(xa + 16)} ${f(yh)}`, h.a.detail));
+        out.push(h.texte(xa + 24, yh + 4, lettre, { ancre: 'start' }));
+      });
+      // ce qu'on vérifie : la rotule, libre de tout lien ; les orteils, à découvert
+      out.push(h.controle(X(0), Y(TOP(0) - 4), 15), h.controle(X(PIED.pointe[0] - 4), Y(PIED.pointe[1] - 14), 17));
       return out.join('\n');
     },
     renvois: z => {
-      const s = echelle(z), X = Xv(z), sol = z.h - 16, Y = hh => sol - hh * s;
+      const { X, Y } = geo(z);
       return [
-        { n: 1, rond: [X(-150), Y(232)], cible: [X(-128), Y(PC(-128) + 8)], texte: 'perche droite : de la mi-cuisse à au-dessus de la cheville' },
-        { n: 2, rond: [X(40), Y(222)], cible: [X(2), Y(130)], texte: 'rotule libre : jamais de lien dessus' },
-        { n: 3, rond: [X(438), Y(205)], cible: [X(545), Y(234)], texte: 'orteils froids, pâles ou qui picotent : desserrer' },
-      ];
-    },
-  };
-
-  const dessus = {
-    titre: 'De dessus',
-    dessin: z => {
-      const s = echelle(z), X = Xv(z), cy = z.h / 2, V = v => cy - v * s;
-      const P = (x, v) => [X(x), V(v)];
-      const out = [];
-      // la jambe, le dehors en haut ; le pied pointe vers le haut, on le voit par-dessus
-      // [bord dehors, bord dedans, bout] de chaque orteil, du petit au gros
-      const orteils = [[51, 36, 530], [36, 20, 540], [20, 3, 548], [3, -16, 556], [-18, -54, 566]];
-      const haut = lisse(WL).map(([x, w]) => P(x, w));
-      let chemin = d(haut);
-      orteils.forEach(([v1, v2, tip]) => {
-        const b = tip - (v1 - v2 > 20 ? 18 : 12), m = (v1 + v2) / 2, k = (v1 - v2) * 0.3;
-        const [a1, a2] = P(b, v1), [c1, c2] = P(tip, m), [e1, e2] = P(b, v2);
-        chemin += ` L${f(a1)} ${f(a2)} C${f(X(tip - 2))} ${f(V(v1 - 0.5))} ${f(c1)} ${f(V(m + k))} ${f(c1)} ${f(c2)} C${f(c1)} ${f(V(m - k))} ${f(X(tip - 2))} ${f(V(v2 + 0.5))} ${f(e1)} ${f(e2)}`;
-      });
-      const bas = lisse(WM.map(([x, w]) => [x, -w]).reverse()).map(([x, v]) => P(x, v));
-      chemin += ` ${d(bas).replace('M', 'L')} ${d([[X(-300) - 7, V(-30)], [X(-300) + 7, V(30)], P(-300, 80)]).replace('M', 'L')} Z`;
-      out.push(h.path(chemin, blanc(h.a.contour)));
-      // les ongles, les plis entre les orteils
-      orteils.forEach(([v1, v2, tip], i) => {
-        const m = (v1 + v2) / 2, w = (v1 - v2) * 0.28, lg = i === 4 ? 13 : 7;
-        out.push(h.chemin(lisse([[tip - 3 - lg, m + w], [tip - 4, m + w * 0.9], [tip - 2.5, m], [tip - 4, m - w * 0.9], [tip - 3 - lg, m - w]]).map(([x, v]) => P(x, v)), h.a.fin));
-        if (i < 4) out.push(h.ligne(X(tip - 10), V(v2 - (i === 3 ? 1 : 0)), X(tip - 18), V(v2 - 0.5), h.a.fin));
-      });
-      // la rotule, pointe vers le pied, et son tendon ; l'arête du tibia
-      out.push(h.chemin(lisse([[-24, -15], [-26, 0], [-24, 15], [-12, 21], [4, 17], [18, 8], [25, 0], [18, -8], [4, -17], [-12, -21]], true).map(([x, v]) => P(x, v)), h.a.detail, true));
-      out.push(h.chemin(lisse([[24, 5], [44, 7], [64, 7]]).map(([x, v]) => P(x, v)), h.a.fin));
-      out.push(h.chemin(lisse([[24, -5], [44, -7], [64, -6]]).map(([x, v]) => P(x, v)), h.a.fin));
-      out.push(h.chemin(lisse([[140, -3], [250, -6], [370, -8]]).map(([x, v]) => P(x, v)), h.a.fin));
-      // les deux perches et leur écorce
-      [[EL, 1], [EM, -1]].forEach(([E, sg]) => {
-        const c = x => sg * (E(x) + R);
-        out.push(h.chemin([P(X0, c(X0) + R), P(X1, c(X1) + R), P(X1, c(X1) - R), P(X0, c(X0) - R)], blanc(h.a.contour), true));
-        [[-200, -90, 0.4], [80, 240, -0.3]].forEach(([a, b, k]) =>
-          out.push(h.chemin([P(a, c(a) + k * R), P((a + b) / 2, c((a + b) / 2) + k * R + 1), P(b, c(b) + k * R)], h.a.fin)));
-        out.push(h.ellipse(X(sg > 0 ? -120 : 180), V(c(sg > 0 ? -120 : 180) - 5), 6, 4, h.a.detail));
-      });
-      // le rembourrage roulé autour de chaque perche : il déborde vers l'os et s'écrase dessus
-      MANCHONS.forEach(([a, b]) => {
-        [[WL, EL, 1], [WM, EM, -1]].forEach(([W, E, sg]) => {
-          const c = x => E(Math.min(x, X1)) + R;
-          const dehors = [], dedans = [];
-          for (let x = a; x <= b + 0.1; x += 8) { dehors.push([x, c(x) + R + EP]); dedans.push([x, Math.max(c(x) - R - EP, interp(W, x) + 0.8)]); }
-          const bout1 = [a - 8, c(a)], bout2 = [b + 8, c(b)];
-          const poly = lisse([bout1, ...dehors, bout2, ...dedans.reverse()], true, 4).map(([x, v]) => P(x, sg * v));
-          out.push(h.chemin(poly, blanc(h.a.arete), true));
-          for (let x = a + 10; x <= b - 16; x += 13) out.push(h.ligne(X(x), V(sg * (c(x) + R + EP - 3)), X(x + 9), V(sg * Math.max(c(x) - R - EP + 3, interp(W, x) + 3)), h.a.fin));
-        });
-      });
-      // les liens, d'une perche à l'autre, et le nœud sur la face du dehors
-      LIENS.forEach(xl => {
-        const vh = EL(xl) + 2 * R + 2, vb = -(EM(xl) + 2 * R + 2);
-        const [x1, x2] = [X(xl - DL), X(xl + DL)], [y1, y2] = [V(vh), V(vb)], r = 6 * s;
-        out.push(h.path(`M${f(x1)} ${f(y1 + r)} Q${f(x1)} ${f(y1)} ${f(x1 + r)} ${f(y1)} L${f(x2 - r)} ${f(y1)} Q${f(x2)} ${f(y1)} ${f(x2)} ${f(y1 + r)} L${f(x2)} ${f(y2 - r)} Q${f(x2)} ${f(y2)} ${f(x2 - r)} ${f(y2)} L${f(x1 + r)} ${f(y2)} Q${f(x1)} ${f(y2)} ${f(x1)} ${f(y2 - r)} Z`, blanc(h.a.arete)));
-        out.push(h.ligne(X(xl - 11), V(vh - 8), X(xl - 11), V(20), h.a.fin), h.ligne(X(xl + 12), V(-25), X(xl + 12), V(vb + 6), h.a.fin));
-        const cx = X(xl), cyk = V(vh + 3);
-        out.push(h.path(`M${f(cx - 7)} ${f(cyk + 3)} Q${f(cx - 7)} ${f(cyk - 5)} ${f(cx)} ${f(cyk - 5)} Q${f(cx + 7)} ${f(cyk - 5)} ${f(cx + 7)} ${f(cyk + 3)} Z`, blanc(h.a.arete)));
-        out.push(h.ligne(cx - 2, cyk - 4, cx + 1, cyk + 2, h.a.fin));
-      });
-      // où sont prises les coupes : trait mixte, bouts épais, flèches vers le pied
-      [[0, 'A'], [LIENS[1], 'B']].forEach(([xc, lettre]) => {
-        const xa = X(xc), yh = V(EL(xc) + 2 * R + 26), yb = V(-(EM(xc) + 2 * R + 26));
-        out.push(h.ligne(xa, yh, xa, yb, h.a.fin.replace('stroke-linecap="round"', 'stroke-dasharray="9 3 2 3"')));
-        [yh, yb].forEach(y => {
-          out.push(h.ligne(xa, y, xa, y + (y === yh ? 9 : -9), h.a.contour));
-          out.push(h.fleche(`M${f(xa)} ${f(y)} L${f(xa + 16)} ${f(y)}`, h.a.detail));
-        });
-        out.push(h.texte(xa + 24, yh + 4, lettre, { ancre: 'start' }), h.texte(xa + 24, yb + 4, lettre, { ancre: 'start' }));
-      });
-      return out.join('\n');
-    },
-    renvois: z => {
-      const s = echelle(z), X = Xv(z), cy = z.h / 2, V = v => cy - v * s;
-      return [
-        { n: 4, rond: [X(-110), V(128)], cible: [X(-178), V(40)], texte: 'trois liens au moins, autour des deux perches' },
-        { n: 5, rond: [X(-150), V(-128)], cible: [X(-55), V(-(EM(-55) + 2 * R + EP - 5))], texte: 'rembourrage là où la perche touche l’os' },
+        { n: 1, rond: [X(-150), Y(TOP(-150) + 60)], cible: [X(-128), Y(PC(-128) + 8)], texte: 'perche droite : de la mi-cuisse à au-dessus de la cheville' },
+        { n: 2, rond: [X(-60), Y(TOP(0) + 62)], cible: [X(-4), Y(TOP(0) - 2)], texte: 'rotule libre : jamais de lien dessus' },
+        { n: 3, rond: [X(400), Y(PIED.pointe[1] - 10)], cible: [X(PIED.pointe[0] - 14), Y(PIED.pointe[1] - 14)], texte: 'orteils froids, pâles ou qui picotent : desserrer' },
+        { n: 4, rond: [X(230), Y(TOP(230) + 62)], cible: [X(LIENS[2] - 8), Y(TOP(LIENS[2] - 8) - 4)], texte: 'trois liens au moins, autour des deux perches' },
       ];
     },
   };
 
   // ─── Les coupes, regardées vers le pied : le dehors à gauche ──────────────────────────
+  // Leur géométrie est celle d'avant (validée) : les demi-largeurs de la jambe vue de dessus, dehors
+  // et dedans, placent les deux perches ; les hauteurs de côté placent leur centre.
+  const WL = [[-300, 80], [-220, 75], [-150, 69], [-80, 61], [-35, 55], [0, 53], [35, 50], [70, 51], [120, 55], [170, 54], [230, 48], [290, 40], [340, 33], [385, 32]];
+  const WM = [[-300, 80], [-220, 76], [-150, 71], [-80, 64], [-35, 58], [0, 55], [35, 51], [70, 52], [120, 57], [170, 55], [230, 48], [290, 39], [340, 33], [380, 33]];
+  const TOP0 = [[-300, 158], [-220, 152], [-150, 145], [-80, 135], [-35, 127], [-12, 131], [12, 131], [40, 121], [68, 122], [100, 118], [160, 113], [240, 108], [320, 103], [390, 100], [415, 100]];
+  const BAS0 = [[-300, 2], [-200, 0], [-120, 3], [-60, 9], [-20, 13], [20, 14], [60, 10], [100, 4], [150, 0], [220, 2], [290, 14], [350, 28], [380, 33], [410, 36]];
+  // la face intérieure de chaque perche : la droite qui part de la cuisse et effleure le mollet
+  const faceInt = W => {
+    const w0 = interp(W, X0);
+    let b = -Infinity;
+    for (let x = X0 + 10; x <= X1; x += 5) b = Math.max(b, (interp(W, x) - w0) / (x - X0));
+    return x => w0 + b * (x - X0);
+  };
+  const EL = faceInt(WL), EM = faceInt(WM);
+  const mi0 = x => (interp(TOP0, x) + interp(BAS0, x)) / 2;
+  const PC0 = x => mi0(X0) + (mi0(X1) - mi0(X0)) * (x - X0) / (X1 - X0);
   // Au genou, à la rotule : l'os du genou à un doigt de la peau sur les côtés, la rotule devant,
   // le creux du genou en l'air.
   const GENOU = [[0, 131], [-20, 129], [-37, 121], [-48, 104], [-53, 82], [-50, 60], [-42, 44], [-28, 34], [-12, 30], [0, 32], [12, 30], [28, 34], [44, 44], [52, 60], [55, 82], [51, 104], [39, 121], [21, 129]];
@@ -222,12 +174,19 @@ module.exports = (h) => {
   const TIBIA = [[1, 110], [12, 103], [24, 93], [30, 86], [25, 78], [12, 74], [-4, 75], [-16, 80], [-22, 88], [-15, 99], [-6, 106]];
   const PERONE = [[-38, 71], [-30, 64], [-32, 54], [-41, 52], [-46, 61]];
 
-  const coupe = (x, jambe, os, avecLien) => ({
+  // l'échelle des coupes, et leur sol : le dessin centré dans sa vue
+  // (le dessin d'une coupe fait 232 mm de large ; B, avec son nœud, est décalée vers le dehors)
+  const geoCoupe = (z, uc = 0) => {
+    const s = Math.min((z.l - 12) / 232, (z.h - 34) / 142), cx = z.l / 2 - uc * s, sol = Math.min(z.h - 18, (z.h + 125 * s) / 2 - 10);
+    return { s, cx, sol, P: (u, hh) => [cx + u * s, sol - hh * s] };
+  };
+  const coupe = (x, jambe0, os0, avecLien, dh = 0, uc = 0) => {
+  const jambe = jambe0.map(([u, hh]) => [u, hh + dh]), os = os0.map(o => o.map(([u, hh]) => [u, hh + dh]));
+  return {
     dessin: z => {
-      const s = Math.min((z.l - 20) / 250, (z.h - 34) / 142), cx = z.l / 2, sol = z.h - 18;
-      const P = (u, hh) => [cx + u * s, sol - hh * s];
+      const { s, cx, sol, P } = geoCoupe(z, uc);
       const out = [];
-      const pc = PC(x), cl = -(EL(x) + R), cm = EM(x) + R;
+      const pc = PC0(x) + dh, cl = -(EL(x) + R), cm = EM(x) + R;
       out.push(h.rect(0, sol, z.l, 10, h.a.hachure('terre', 'aucun')), h.ligne(0, sol, z.l, sol, h.a.arete));
       const peau = lisse(jambe, true);
       // la peau d'un côté, à une hauteur donnée (pour écraser le rembourrage dessus)
@@ -245,7 +204,7 @@ module.exports = (h) => {
       // le lien, en coupe : une bande qui fait le tour des deux perches et de la jambe
       if (avecLien) {
         const coque = off => {
-          const pts = peau.map(([u, hh]) => { const dx = u, dy = hh - 64, l = Math.hypot(dx, dy); return [u + dx / l * off, hh + dy / l * off]; });
+          const pts = peau.map(([u, hh]) => { const dx = u, dy = hh - 64 - dh, l = Math.hypot(dx, dy); return [u + dx / l * off, hh + dy / l * off]; });
           for (let a = 0; a < 360; a += 6) { const c = Math.cos(a * Math.PI / 180), sn = Math.sin(a * Math.PI / 180); pts.push([cl + c * (R + off), pc + sn * (R + off)], [cm + c * (R + off), pc + sn * (R + off)]); }
           pts.sort((a, b) => a[0] - b[0] || a[1] - b[1]);
           const cr = (o, a, b) => (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0]);
@@ -285,18 +244,27 @@ module.exports = (h) => {
       }
       return out.join('\n');
     },
-  });
+  };
+  };
 
-  const coupeA = Object.assign(coupe(0, GENOU, [FEMUR, ROTULE], false), { titre: 'Coupe A, au genou' });
-  const coupeB = Object.assign(coupe(LIENS[1], MOLLET, [TIBIA, PERONE], true), { titre: 'Coupe B, au lien sous le genou' });
+  const coupeA = Object.assign(coupe(0, GENOU, [FEMUR, ROTULE], false, -17), {
+    titre: 'Coupe A, au genou',
+    // le rembourrage entre la perche du dehors et l'os du genou
+    renvois: z => {
+      const { P } = geoCoupe(z);
+      const cl = -(EL(0) + R), pc = PC0(0) - 17;
+      return [{ n: 5, rond: P(cl - 10, pc + R + EP + 34), cible: P(cl - 0.62 * (R + EP / 2), pc + 0.78 * (R + EP / 2)), texte: 'rembourrage là où la perche touche l’os' }];
+    },
+  });
+  const coupeB = Object.assign(coupe(LIENS[1], MOLLET, [TIBIA, PERONE], true, 0, -10.5), { titre: 'Coupe B, au lien sous le genou' });
 
   return {
     ref: '24-08',
     titre: 'L’attelle de genou : deux perches, trois liens, la rotule libre',
-    desc: 'Jambe gauche d’un blessé couché sur le dos, vue de côté et de dessus à la même échelle. Deux perches droites, une de chaque côté, vont de la mi-cuisse à au-dessus de la cheville ; droites, elles portent sur la cuisse et sur le mollet et passent à un doigt de l’os au genou et au bas de la jambe : là, elles sont rembourrées d’un linge roulé autour, qui s’écrase contre l’os. Trois liens font le tour des deux perches et de la jambe, noués sur la perche du dehors : un sur la cuisse, un sous le genou, un au-dessus de la cheville ; aucun sur la rotule. Les orteils restent à découvert. Coupe au genou : l’os à un doigt de la peau sur les côtés, le rembourrage entre lui et chaque perche, la rotule libre. Coupe au lien sous le genou : le lien fait le tour des perches et passe sous la jambe.',
+    desc: 'Jambe d’un blessé couché sur le dos, vue de côté, du dehors : la cuisse coupée par le bord de la vue, le pied nu. Deux perches droites, une de chaque côté, vont de la mi-cuisse à au-dessus de la cheville ; droites, elles portent sur la cuisse et sur le mollet et passent à un doigt de l’os au genou et au bas de la jambe : là, elles sont rembourrées d’un linge roulé autour, qui s’écrase contre l’os. Trois liens font le tour des deux perches et de la jambe, noués sur la perche du dehors : un sur la cuisse, un sous le genou, un au-dessus de la cheville ; aucun sur la rotule. Les orteils restent à découvert. Coupe au genou : l’os à un doigt de la peau sur les côtés, le rembourrage entre lui et chaque perche, la rotule libre. Coupe au lien sous le genou : le lien fait le tour des deux perches et passe sous la jambe.',
     format: 'pleine',
-    disposition: [['cote'], ['dessus'], ['coupeA', 'coupeB']],
-    hauteurs: [1.06, 1.1, 0.9],
-    vues: { cote, dessus, coupeA, coupeB },
+    disposition: [['cote'], ['coupeA', 'coupeB']],
+    hauteurs: [1, 1],
+    vues: { cote, coupeA, coupeB },
   };
 };

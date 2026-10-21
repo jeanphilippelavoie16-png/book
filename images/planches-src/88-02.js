@@ -11,6 +11,11 @@
 // couvercle bombé est à sa place sur le rebord, sa lèvre entre dans le chaudron ; la tôle plate
 // repose sur le sommet du dôme et porte la braise, qui glisserait sur le dôme nu. Le couvercle
 // se soulève à plat, tôle et braise dessus : rien ne tombe dans le chaudron.
+//
+// La charte : le creux du chaudron, vu par la coupe, en gris loin (la miche s'y détache) ; de
+// trois quarts, l'intérieur du chaudron ouvert en gris loin et son flanc droit à l'ombre. Pas de
+// gris sur les vues d'en haut. Le rouge : les deux quarts de tour, en sens contraire (c'est le
+// geste, et l'opposition est ce qu'il faut voir) ; les flèches qui soulèvent restent noires.
 
 module.exports = (h) => {
   const f = v => Math.round(v * 10) / 10;
@@ -91,6 +96,14 @@ module.exports = (h) => {
     // la couronne de braise, coupée : une braise de chaque côté, sous le bord ; rien au centre
     [-1, 1].forEach(s => out.push(braise(cx + s * rCouronne * R, yG - g.ry * 0.9, g.rx, g.ry, s * 0.08)));
 
+    // le creux du chaudron, vu par la coupe : gris loin, peint avant la fonte et le couvercle
+    {
+      const lx0 = R - t - 5, ep0 = Math.max(5, Math.round(t * 0.8));
+      out.push(h.path([
+        `M ${f(cx - R + t)} ${f(yB - t)} L ${f(cx - R + t)} ${f(yR + 7)} L ${f(cx - lx0)} ${f(yR + 7)} L ${f(cx - lx0)} ${f(yR)}`,
+        `C ${f(cx - lx0 * 0.72)} ${f(yR - (dh - ep0) * 4 / 3)} ${f(cx + lx0 * 0.72)} ${f(yR - (dh - ep0) * 4 / 3)} ${f(cx + lx0)} ${f(yR)}`,
+        `L ${f(cx + lx0)} ${f(yR + 7)} L ${f(cx + R - t)} ${f(yR + 7)} L ${f(cx + R - t)} ${f(yB - t)} Z`].join(' '), h.a.loin));
+    }
     // le chaudron, coupé : un U de fonte épaisse
     const rc = Math.round(R * 0.12), ri = rc - t * 0.6;
     const pot = [
@@ -168,12 +181,12 @@ module.exports = (h) => {
   // chaudron : chacun a sa flèche d'un quart de tour, sur le devant, en sens contraire.
   const k = 0.28;                                                     // aplatissement des ellipses
   const gT = z => {
-    const Rr = Math.round(Math.min((z.l - 74) / 2, (z.h - 80) / 1.62));
+    const Rr = Math.round(Math.min((z.l - 74) / 2, (z.h - 112) / 1.62));
     const cx = z.l / 2 - 4, yGr = z.h - 14 - Math.round(rCouronne * Rr * k);
-    const Hb = Math.round(Rr * 0.78), dh = Math.round(Rr * 0.17);
-    const yBot = yGr - 13;                                              // soulevé au-dessus de sa couronne
+    const Hb = Math.round(Rr * 0.78), dh = Math.round(Rr * 0.24);
+    const yBot = yGr - 33;                                              // soulevé au-dessus de sa couronne
     const yR = yBot - Hb;
-    const gL = 28, yLr = yR - gL;                                       // le couvercle, soulevé à plat
+    const gL = 40, yLr = yR - gL;                                       // le couvercle, soulevé à plat
     return { Rr, cx, yGr, Hb, dh, yBot, yR, yLr };
   };
   const arcEllipse = (cx, cy, a, b, t0, t1) => {
@@ -194,13 +207,19 @@ module.exports = (h) => {
 
     // le chaudron : le corps, les oreilles, le rebord et l'épaisseur de sa paroi
     const corps = `M ${f(cx - Rr)} ${f(yR)} L ${f(cx - Rr)} ${f(yBot)} A ${f(Rr)} ${f(Rr * k)} 0 0 0 ${f(cx + Rr)} ${f(yBot)} L ${f(cx + Rr)} ${f(yR)} Z`;
-    out.push(h.path(corps, blancContour));
+    // le flanc droit à l'ombre : de x = cx + 0,55 R au bord, jusqu'au bas arrondi
+    const xo = cx + Rr * 0.55, yo = yBot + Rr * k * Math.sqrt(1 - 0.55 * 0.55);
+    out.push(h.path(corps, h.a.blanc));
+    out.push(h.path(`M ${f(xo)} ${f(yR)} L ${f(xo)} ${f(yo)} A ${f(Rr)} ${f(Rr * k)} 0 0 0 ${f(cx + Rr)} ${f(yBot)} L ${f(cx + Rr)} ${f(yR)} Z`, h.a.ombre));
+    out.push(h.path(corps, h.a.contour));
     [-1, 1].forEach(sg => out.push(h.path(`M ${f(cx + sg * Rr)} ${f(yR + 3)} L ${f(cx + sg * (Rr + 7))} ${f(yR + 5)} Q ${f(cx + sg * (Rr + 10))} ${f(yR + 8)} ${f(cx + sg * (Rr + 7))} ${f(yR + 11)} L ${f(cx + sg * Rr)} ${f(yR + 13)} Z`, blancArete)));
     out.push(h.ellipse(cx, yR, Rr, Rr * k, blancArete));
+    // l'intérieur, vu par l'ouverture : gris loin
+    out.push(h.ellipse(cx, yR, Rr - 5, (Rr - 5) * k, h.a.loin));
     out.push(h.ellipse(cx, yR, Rr - 5, (Rr - 5) * k, h.a.detail));
 
     // le couvercle, soulevé à plat : sa tranche, son dôme (silhouette calculée, h = dh·(1 − r²))
-    out.push(h.path(`M ${f(cx - Rr)} ${f(yLr)} L ${f(cx - Rr)} ${f(yLr + 4)} A ${f(Rr)} ${f(Rr * k)} 0 0 0 ${f(cx + Rr)} ${f(yLr + 4)} L ${f(cx + Rr)} ${f(yLr)} Z`, blancArete));
+    out.push(h.path(`M ${f(cx - Rr)} ${f(yLr)} L ${f(cx - Rr)} ${f(yLr + 8)} A ${f(Rr)} ${f(Rr * k)} 0 0 0 ${f(cx + Rr)} ${f(yLr + 8)} L ${f(cx + Rr)} ${f(yLr)} Z`, blancArete));
     const sil = [];
     for (let i = 0; i <= 40; i++) {
       const X = -1 + 2 * i / 40, lim = Math.sqrt(Math.max(0, 1 - X * X));
@@ -213,6 +232,10 @@ module.exports = (h) => {
     }
     const dome = 'M ' + sil.map(p => `${f(p[0])} ${f(p[1])}`).join(' L ') + ` A ${f(Rr)} ${f(Rr * k)} 0 0 1 ${f(cx - Rr)} ${f(yLr)} Z`;
     out.push(h.path(dome, blancArete));
+    // le bombé : la section du dôme dans le plan du devant
+    const mer = [];
+    for (let i = 0; i <= 40; i++) { const X = -0.96 + 1.92 * i / 40; mer.push([cx + X * Rr, yLr + 2 - dh * (1 - X * X) * 0.92]); }
+    out.push(h.chemin(mer, h.a.detail));
     // la tôle, à plat sur le sommet du dôme ; elle tourne avec le couvercle : de biais en plan
     const yTo = yLr - dh, eT = 2;
     const th = 30 * Math.PI / 180, ct = Math.cos(th), st = Math.sin(th);
@@ -233,17 +256,18 @@ module.exports = (h) => {
     couronne.filter(([, v]) => v >= 0).forEach(p => out.push(braiseSol(p)));
 
     const fl = d => [h.path(d, halo), h.fleche(d, h.a.arete)].join('\n');
+    const geste = d => h.geste(d);
     // on soulève : le chaudron au-dessus de sa couronne, le couvercle à plat
     const xs = cx + Rr + 18;
     out.push(fl(`M ${f(xs)} ${f(yBot + 2)} L ${f(xs)} ${f(yBot - 22)}`));
     out.push(fl(`M ${f(xs)} ${f(yLr + 6)} L ${f(xs)} ${f(yLr - 16)}`));
     // le chaudron : un quart de tour, l'avant va de gauche à droite
     const yM = yR + Hb * 0.62, aC = Rr + 10;
-    out.push(fl(arcEllipse(cx, yM, aC, aC * k, 135, 45)));
+    out.push(geste(arcEllipse(cx, yM, aC, aC * k, 135, 45)));
     // le couvercle : un quart de tour dans l'autre sens, l'avant va de droite à gauche ; la
     // flèche passe dans le jour entre le couvercle soulevé et le chaudron
-    const yL = yLr + 14, aL = Rr + 10;
-    out.push(fl(arcEllipse(cx, yL, aL, aL * k, 45, 135)));
+    const yL = yLr + 2, aL = Rr + 8;
+    out.push(geste(arcEllipse(cx, yL, aL, aL * k, 60, 125)));
     return out.join('\n');
   };
 
@@ -253,7 +277,7 @@ module.exports = (h) => {
     desc: 'Le chaudron de fonte cuit le pain dehors, sur un lit de braise de bouleau abrité du vent par un mur de neige tassée. En coupe : le chaudron posé sur une couronne de braise, sous son bord, le centre vide ; la miche sur le fond fariné ; le couvercle bombé ; une tôle plate posée sur le dôme, qui porte la braise étalée en damier. Vus d’en haut : la couronne dessous, huit braises ; le damier sur la tôle, vingt-quatre, trois fois plus. De trois quarts, toutes les 10 à 15 minutes : le chaudron, soulevé au-dessus de sa couronne, fait un quart de tour ; puis le couvercle, soulevé à plat avec sa tôle et sa braise, fait un quart de tour dans l’autre sens.',
     format: 'pleine',
     disposition: [['coupe'], ['dessous', 'dessus', 'tours']],
-    hauteurs: [8, 8],
+    hauteurs: [8, 6],
     largeurs: [[1], [1, 1, 1.35]],
     vues: {
       coupe: {
@@ -293,11 +317,11 @@ module.exports = (h) => {
         titre: 'Toutes les 10 à 15 minutes',
         dessin: tours,
         renvois: z => {
-          const g = gT(z), aC = g.Rr + 10, yM = g.yR + g.Hb * 0.62, aL = g.Rr + 10, yL = g.yLr + 14;
+          const g = gT(z), aC = g.Rr + 10, yM = g.yR + g.Hb * 0.62, aL = g.Rr + 8, yL = g.yLr + 2;
           const c = Math.cos(Math.PI / 4), sn = Math.sin(Math.PI / 4);
           return [
             { n: 9, rond: [14, yM + aC * k + 20], cible: [g.cx - aC * c - 2, yM + aC * k * sn + 3], texte: 'soulever le chaudron, un quart de tour' },
-            { n: 10, rond: [14, g.yLr + 14], cible: [g.cx - aL * c - 3, yL + aL * k * sn - 1], texte: 'puis le couvercle, à plat, en sens inverse' },
+            { n: 10, rond: [14, g.yLr + 40], cible: [g.cx + aL * Math.cos(Math.PI*0.62), yL + aL * k * Math.sin(Math.PI*0.62) + 1], texte: 'puis le couvercle, à plat, en sens inverse' },
           ];
         },
       },

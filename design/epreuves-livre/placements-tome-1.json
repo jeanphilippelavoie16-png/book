@@ -9,74 +9,131 @@
     "photos": []
   },
   "01": {
-    "planches": [],
+    "planches": [
+      {
+        "id": "01-02",
+        "apres": "15. **S'il faut quitter la maison, même une nuit, poser un témoin de dégel"
+      }
+    ],
     "photos": [],
     "_planches": "01-01 (fiche des quatre horloges) non posée : c'est un formulaire (images/formulaires/01-01.pdf), le chapitre ne demande plus de feuille à remplir, et la bande du haut porte un numéro de téléphone. Si JP la garde : après « 1. **Écrire l'heure sur la porte du congélateur.** »."
   },
   "02": {
     "planches": [],
-    "photos": []
+    "photos": [],
+    "logigramme": {
+      "fichier": "images/logigrammes/02-rester-ou-partir-livre.svg",
+      "apres": "**Fiche de décision remplie d'avance**",
+      "orange": true
+    }
   },
   "03": {
     "planches": [
       {
         "id": "03-08",
-        "apres": "Trois conditions, et elles ne se négocient pas."
+        "apres": "**La marmite norvégienne.**"
       },
       {
         "id": "03-09",
-        "apres": "Ce qui se tend au-dessus vaut moins que ce qui se glisse dessous."
+        "apres": "10. **Avant la nuit, monter un abri dans la pièce**"
       },
       {
         "id": "03-10",
-        "apres": "Deux substituts remettent le joint d'eau sans antigel du commerce."
+        "apres": "23. **Vidanger dans l'ordre**"
+      },
+      {
+        "id": "03-11",
+        "apres": "**Dégeler un tuyau sans flamme.**"
+      },
+      {
+        "id": "03-12",
+        "apres": "**Fermer les fenêtres.**"
       }
     ],
-    "photos": []
+    "photos": [],
+    "logigramme": {
+      "fichier": "images/logigrammes/03-panne-hydro-livre.svg",
+      "apres": "**Thermomètre à sonde**",
+      "orange": true
+    }
   },
   "04": {
+    "logigramme": {
+      "fichier": "images/logigrammes/04-retombees-livre.svg",
+      "apres": "**Compteur Geiger ou dosimètre à affichage**",
+      "orange": true
+    },
     "planches": [
       {
         "id": "04-01a",
-        "apres": "*Le toit est le côté faible.*"
+        "apres": "Si l'alerte tombe au chalet, ou si la route vers la ville est coupée"
       },
       {
         "id": "04-01b",
-        "apres": "*Ventiler quand même.*"
+        "apres": "**La pompe à volets** : on la pend dans le haut de la porte de la pièce d'abri"
       },
       {
         "id": "04-40",
-        "apres": "Le sas se monte avec deux bâches ou deux couvertures accrochées en chicane"
+        "apres": "Monter l'entrée avec deux bâches ou deux couvertures accrochées en chicane"
+      },
+      {
+        "id": "04-41",
+        "apres": "Sans compteur, on ne sait pas si la poussière reçue est négligeable ou grave"
+      },
+      {
+        "id": "04-42",
+        "apres": "*Le filtre de terre* (planche 04-42)."
       }
     ],
     "photos": [
       {
         "fichier": "images/photos/tri/04-lichen-caribous-tapis.jpg",
-        "apres": "20. **Traiter le gibier par ordre décroissant de risque :**",
+        "apres": "**Trier le gibier, du plus exposé au moins exposé.**",
         "taille": "quart",
-        "legende": "Lichen des caribous en tapis. Il prend le césium du sol, et le caribou qui s'en nourrit l'hiver passe en tête du tri."
+        "legende": "Lichen des caribous en tapis. Il prend directement la poussière radioactive qui tombe dessus, et le caribou qui s'en nourrit l'hiver passe en tête du tri."
       }
     ]
   },
   "05": {
-    "planches": [],
+    "planches": [
+      {
+        "id": "05-01",
+        "apres": "**La chaudière à bascule** (planche 05-01)."
+      }
+    ],
     "photos": [
       {
         "fichier": "images/photos/tri/05-boite-bombee.jpg",
-        "apres": "Toute boîte bombée, rouillée ou bosselée sur le serti se jette",
+        "apres": "23. {!botulisme} **Manger les conserves maison dans l'année qui suit la mise en conserve.**",
         "taille": "quart",
-        "legende": "Boîte bombée : le gaz formé dedans pousse le couvercle. Elle se jette sans être ouverte et sans être goûtée."
+        "legende": "Boîte bombée : le gaz formé dedans pousse le couvercle."
       }
     ],
-    "_photos": "La photo va sous l'encadré du botulisme (section 8) et non sous le tableau de la section 7, qui la demandait : le constructeur ne peut pas ancrer sur un tableau (source vide dans render()), et la section 7 n'a que ce tableau. L'étiquette de la boîte (hareng fermenté suédois, bombé exprès) se voit : à recadrer sur le couvercle ou à remplacer par une boîte ordinaire. 05-boites-rouillees-serti (images/photos/manquantes/, 29 septembre 2026) n'est pas posée : une palette de boîtes rouillées de partout, marques lisibles ; la rouille se reconnaît sans photo et l'image n'apprend rien que « rouillée » ne dise déjà."
+    "_photos": "La photo va sous l'étape 23 (les conserves maison, la boîte bombée) depuis la refonte du 19 octobre 2026 ; le constructeur ne peut pas ancrer sur un tableau (source vide dans render()). La photo est recadrée sur le couvercle bombé le 19 octobre 2026 (1740 × 890 ; l'original 1920 × 1920 est dans git, f9026fe) : aucun texte de l'étiquette ne se lit ; restent le code de lot embouti dans le couvercle et deux traits rouges du décor, illisibles. 05-boites-rouillees-serti (images/photos/manquantes/, 29 septembre 2026) n'est pas posée : une palette de boîtes rouillées de partout, marques lisibles ; la rouille se reconnaît sans photo et l'image n'apprend rien que « rouillée » ne dise déjà."
   },
   "06": {
-    "planches": [],
-    "photos": []
+    "planches": [
+      {
+        "id": "06-01",
+        "apres": "**Traîner au lieu de porter.**"
+      }
+    ],
+    "photos": [],
+    "_planches": "06-01 (traîner au lieu de porter) est appelée dans le texte (section 7) mais n'est pas encore dessinée : l'ancre attend la planche, le constructeur ne pose que les planches qui existent."
   },
   "07": {
-    "planches": [],
-    "photos": []
+    "planches": [
+      {
+        "id": "07-01",
+        "apres": "On fabrique l'obturateur avec un bouchon de bois"
+      }
+    ],
+    "photos": [],
+    "logigramme": {
+      "fichier": "images/logigrammes/07-preavis-livre.svg",
+      "apres": "**Obturateur de drain de plancher**",
+      "orange": true
+    }
   },
   "08": {
     "planches": [],
@@ -86,7 +143,7 @@
     "planches": [
       {
         "id": "09-08",
-        "apres": "**Ce qu'on perd :** tout le reste. Le cuir durcit au froid"
+        "apres": "**Les joints, dans le cuir gras.**"
       }
     ],
     "photos": []
@@ -95,161 +152,251 @@
     "planches": [
       {
         "id": "10-01",
-        "apres": "**La chaîne complète, version dégradée.**"
+        "apres": "8. **Laisser reposer l'eau dans une chaudière, sans y toucher"
+      },
+      {
+        "id": "10-08",
+        "apres": "**Amorcer le siphon sans la bouche**"
       },
       {
         "id": "10-02",
-        "apres": "**Puiser un puits quand la pompe est morte.**"
+        "apres": "Dans un tubage de 150 mm, on puise avec une buse"
       },
       {
         "id": "10-07",
-        "apres": "**Le filtre à sable.**"
+        "apres": "Un baril debout, rempli de sable"
       },
       {
         "id": "10-03",
-        "apres": "**L'alambic de fortune.**"
+        "apres": "L'alambic fait de l'eau douce avec l'eau du fleuve"
       }
     ],
     "photos": [
       {
         "fichier": "images/photos/manquantes/10-hutte-castor.jpg",
-        "apres": "1. Puiser **en amont** de tout ce qui vit",
+        "apres": "2. **Puiser en amont de tout ce qui peut salir l'eau**",
         "taille": "quart",
-        "legende": "Hutte de castor en hiver : un dôme de branches sous la neige. Toute eau prise en aval, glace comprise, bout cinq minutes."
+        "legende": "Hutte de castor en hiver : un dôme de branches sous la neige."
       }
     ],
-    "_photos": "Photos de images/photos/manquantes/ (29 septembre 2026). Posée : 10-hutte-castor, à l'étape 1 qui la nomme ; en hiver, sous la neige, la hutte n'a l'air que d'un tas de branches. Non posées : 10-barrage-castor (le chapitre ne parle pas de barrage ; le registre la destine aussi aux ch. 43 et 50), 10-gros-bouillons (une marmite qui bout sur une cuisinière : rien que « la surface roule » ne dise), 10-trou-puisage-glace (un trou ouvert et une chaudière, sans le couvercle ni la neige de l'étape 33, que la planche 58-10 dessine). Les fichiers 13-* de images/photos/58 et /60 sont l'image n° 13 des anciens chapitres 58 (salicorne) et 60 (chaudière galvanisée « celle-ci, jamais »), pas des photos de ce chapitre."
+    "_photos": "Photos de images/photos/manquantes/ (29 septembre 2026). Posée : 10-hutte-castor, à l'étape 2 qui la nomme (étape 1 avant la refonte du 18 octobre 2026) ; en hiver, sous la neige, la hutte n'a l'air que d'un tas de branches. Non posées : 10-barrage-castor (le chapitre ne parle pas de barrage ; le registre la destine aussi aux ch. 43 et 50), 10-gros-bouillons (une marmite qui bout sur une cuisinière : rien que « la surface roule » ne dise), 10-trou-puisage-glace (un trou ouvert et une chaudière, sans le couvercle ni la neige de l'étape 37, que la planche 58-10 dessine). Les fichiers 13-* de images/photos/58 et /60 sont l'image n° 13 des anciens chapitres 58 (salicorne) et 60 (chaudière galvanisée « celle-ci, jamais »), pas des photos de ce chapitre.",
+    "logigramme": {
+      "fichier": "images/logigrammes/10-eau-livre.svg",
+      "apres": "**Filtre à 1 µm ou moins**"
+    }
   },
   "11": {
     "planches": [
       {
         "id": "11-03",
-        "apres": "**Les vitres cassent par le rayonnement avant que la flamme n'arrive**"
-      }
-    ],
-    "photos": []
-  },
-  "12": {
-    "planches": [
-      {
-        "id": "12-01a",
-        "apres": "7. **Dehors, le tuyau monte plus haut que le faîte**"
+        "apres": "7. **Remplir tout ce qui tient l'eau**"
       },
       {
-        "id": "12-01b",
-        "apres": "8. **La première flambée se fait vive"
+        "id": "11-04",
+        "apres": "35. **Au chalet, l'été, faire une pièce d'air propre"
       },
       {
-        "id": "12-02",
-        "apres": "6. **Rien autour du poêle**"
-      },
-      {
-        "id": "12-03",
-        "apres": "10. **Dedans :**"
-      },
-      {
-        "id": "12-04",
-        "apres": "11. **Le feu reste petit.**"
-      },
-      {
-        "id": "12-05a",
-        "apres": "6. **Colmater tous les joints**"
-      },
-      {
-        "id": "12-05b",
-        "apres": "9. **Percer le trou d'aération**"
-      },
-      {
-        "id": "12-06a",
-        "apres": "11. **Sur le banc :**"
-      },
-      {
-        "id": "12-06b",
-        "apres": "Il n'y a pas de bois sec, ou le vent tourne et rabat la fumée dans l'appentis."
-      }
-    ],
-    "photos": []
-  },
-  "13": {
-    "planches": [
-      {
-        "id": "13-01",
-        "apres": "Le palier du dessus est l'autre pièce qu'on fabrique"
-      },
-      {
-        "id": "13-07",
-        "apres": "**L'amadou carbonisé sans boîte à couvercle.**"
-      },
-      {
-        "id": "13-08",
-        "apres": "**La boîte à braise, pour se déplacer.**"
-      },
-      {
-        "id": "13-09",
-        "apres": "La pierre, c'est un caillou de grève assez dur pour rayer le verre"
-      },
-      {
-        "id": "13-40",
-        "apres": "12. Déposer le nid en flammes sous le tas fin déjà monté"
+        "id": "11-05",
+        "apres": "**Le râteau à feu.**"
       }
     ],
     "photos": [
       {
-        "fichier": "images/photos/tri/13-gomme-epinette.jpg",
-        "apres": "Ce qui reçoit l'étincelle se ramasse toute l'année et se garde au sec",
-        "taille": "quart",
-        "legende": "Gomme d'épinette sur une blessure du tronc. Pour le feu, on prend celle qui a figé."
+        "fichier": "images/photos/manquantes/11-colonnes-de-fumee.jpg",
+        "apres": "**Une colonne qui monte droit et s'élargit en chou-fleur**",
+        "taille": "demi",
+        "legende": "À gauche, une colonne couchée par le vent : la fumée part en biais, et le feu avance de ce côté. Elle est sombre parce que des résineux brûlent à plein. À droite, une colonne qui monte droit et finit en chou-fleur blanc : il n'y a pas de vent au sol, et le feu fait son propre tirage."
+      }
+    ],
+    "logigramme": {
+      "fichier": "images/logigrammes/11-feu-de-foret-livre.svg",
+      "apres": "**Râteau à feu**",
+      "orange": true
+    }
+  },
+  "12": {
+    "planches": [
+      {
+        "id": "12-01b",
+        "apres": "17. **Tourner la porte de la tente sous le vent dominant"
       },
       {
-        "fichier": "images/photos/tri/13-bouleau-ecorce-rubans.jpg",
-        "apres": "Ce qui reçoit l'étincelle se ramasse toute l'année et se garde au sec",
-        "taille": "quart",
-        "legende": "Écorce externe de bouleau à papier qui pèle en rubans. Elle brûle mouillée."
+        "id": "12-01a",
+        "apres": "32. **Placer le poêle près de la porte, dans l'allée, avec le lit de neige au fond**"
+      },
+      {
+        "id": "12-02",
+        "apres": "41. **Poser le premier rang contre le mur du fond**"
+      },
+      {
+        "id": "12-03",
+        "apres": "56. **Choisir la place (étapes 15 à 18) et fouler l'aire en ellipse allongée**"
+      },
+      {
+        "id": "12-04",
+        "apres": "67. **Poser la bâche du bas en premier**"
+      },
+      {
+        "id": "12-06a",
+        "apres": "80. **Planter au centre une perche droite"
+      },
+      {
+        "id": "12-05a",
+        "apres": "94. **Tailler les blocs**"
+      },
+      {
+        "id": "12-05b",
+        "apres": "99. **Faire la porte sous le premier rang**"
+      },
+      {
+        "id": "12-06b",
+        "apres": "Quand le feu est impossible (étape 5), la chaleur vient des corps"
       }
-    ]
+    ],
+    "photos": [],
+    "logigramme": {
+      "fichier": "images/logigrammes/12-tente-d-hiver-livre.svg",
+      "apres": "**Sac de couchage d'hiver**",
+      "orange": true
+    }
+  },
+  "13": {
+    "planches": [
+      {
+        "id": "13-40",
+        "apres": "10. **Trier le bois en quatre tas, au complet, avant la première étincelle**"
+      },
+      {
+        "id": "13-10",
+        "apres": "18. **Préparer la laine d'acier.**"
+      },
+      {
+        "id": "13-07",
+        "apres": "25. **Charger la boîte** (planche 13-07)."
+      },
+      {
+        "id": "13-08",
+        "apres": "**La boîte à braise, pour se déplacer** (planche 13-08)."
+      },
+      {
+        "id": "13-09",
+        "apres": "Il faut de l'acier au carbone et un caillou de grève (planche 13-09)."
+      },
+      {
+        "id": "13-01",
+        "apres": "L'arc à feu demande plus de pratique que toutes les autres méthodes (planche 13-01)."
+      },
+      {
+        "id": "13-11",
+        "apres": "**Une lentille de glace.** Prendre de la glace de lac claire, sans bulles."
+      }
+    ],
+    "photos": [
+      {
+        "fichier": "images/photos/tri/13-amadou-ecorce-et-gomme.jpg",
+        "apres": "On ramasse ce qui reçoit l'étincelle toute l'année",
+        "taille": "demi",
+        "legende": "À gauche, l'écorce extérieure du bouleau à papier, qui pèle en rubans. À droite, la gomme d'épinette sur une blessure du tronc : on prend celle qui a figé."
+      }
+    ],
+    "logigramme": {
+      "fichier": "images/logigrammes/13-feu-sans-allumettes-livre.svg",
+      "apres": "**Eau, sable ou terre**",
+      "orange": true
+    }
   },
   "14": {
     "planches": [
       {
         "id": "14-01",
-        "apres": "Côté terre, la règle qui surprend"
+        "apres": "Le poste à galène n'a besoin d'aucune pile"
       }
     ],
-    "photos": []
+    "photos": [],
+    "logigramme": {
+      "fichier": "images/logigrammes/14-communiquer-livre.svg",
+      "apres": "**Radio VHF maritime portative, sur le fleuve**",
+      "orange": true
+    }
   },
   "15": {
     "planches": [
       {
         "id": "15-01",
-        "apres": "34. Si on tombe à travers la glace, appliquer le budget 1-10-1"
+        "apres": "3. **Prendre les pics à glace, s'il y en a au cou**"
+      },
+      {
+        "id": "15-03",
+        "apres": "8. {!glace} **Ne pas courir jusqu'au trou"
+      },
+      {
+        "id": "15-05",
+        "apres": "40. {!glace} **Mesurer la glace avant d'y engager une machine, le jour même.**"
+      },
+      {
+        "id": "15-02",
+        "apres": "{!poison} **Amorcer le siphon sans la bouche**"
+      },
+      {
+        "id": "15-04",
+        "apres": "Il faut deux bouts de manche à balai, deux gros clous et un cordon"
+      },
+      {
+        "id": "15-06",
+        "apres": "**Ski ou patin cassé.**"
       }
     ],
-    "photos": []
+    "photos": [],
+    "logigramme": {
+      "fichier": "images/logigrammes/15-se-deplacer-livre.svg",
+      "apres": "**Trousse d'allumage, sur soi**",
+      "orange": true
+    }
   },
   "16": {
     "planches": [
       {
         "id": "16-07",
-        "apres": "**Où se prend le fil.**"
+        "apres": "Deux haut-parleurs et deux fils font un téléphone qui ne demande aucune source de courant"
       },
       {
         "id": "16-08",
-        "apres": "*Deux brancards rigides valent mieux qu'une corde.*"
+        "apres": "6. **L'emballer avant de partir.**"
       }
     ],
-    "photos": []
+    "photos": [],
+    "logigramme": {
+      "fichier": "images/logigrammes/16-sortir-un-blesse-livre.svg",
+      "apres": "**Toboggan ou traîneau**",
+      "orange": true
+    }
   },
   "17": {
     "planches": [
       {
         "id": "17-06",
-        "apres": "Si la porte ouvre vers l'extérieur, ses pentures sont dehors"
+        "apres": "Une porte cède au chambranle, presque jamais au pêne"
       }
     ],
-    "photos": []
+    "photos": [],
+    "logigramme": {
+      "fichier": "images/logigrammes/17-qui-cogne-livre.svg",
+      "apres": "**Barre de porte**",
+      "orange": true
+    }
   },
   "18": {
-    "planches": [],
-    "photos": []
+    "planches": [
+      {
+        "id": "18-01",
+        "apres": "{!co} Sans avertisseur qui marche, on ne fait du feu à l'intérieur"
+      },
+      {
+        "id": "18-02",
+        "apres": "Quand il reste de la marmite malgré tout"
+      }
+    ],
+    "photos": [],
+    "_planches": "18-01 (la crémaillère pour cuire dehors) et 18-02 (l'auge de neige pour refroidir la marmite) sont dessinées (images/a-valider/, 19 octobre 2026) ; leurs ancres n'ont pas changé."
   }
 }

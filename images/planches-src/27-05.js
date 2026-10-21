@@ -1,7 +1,10 @@
 // Planche 27-05 — La brosse de branche (chapitre 27, « La brosse qui s'use, et celle qu'on fait »).
 // La pousse de bouleau à papier (écorce foncée, pas blanche), le rameau cassé qu'on sent avant
-// de mâcher, le bout mâché, et la brosse finie : un bout en brosse, l'autre taillé en pointe.
+// de mâcher (un buste qui tient le rameau au poing, h.formes), le bout mâché, et la brosse finie : un bout en brosse, l'autre taillé en pointe.
 // Aucune cote : le chapitre ne donne ni longueur ni diamètre.
+// Lot 3 (13 octobre) : les deux bustes passent au corps simple de profil (buste-main-bouche), la
+// petite main du moteur au poing sur le rameau. Rouge : un seul cercle, sur la cassure sous la
+// narine — « casser et sentir avant de mâcher, chaque fois ».
 module.exports = (h) => {
   const A = h.a, F = h.formes;
   const NOIR = '#1A1A1A', BLANC = '#FFFFFF';
@@ -44,7 +47,65 @@ module.exports = (h) => {
     const T = (u, v) => [x + u * c - v * s, y + u * s + v * c];
     return h.path(`M${P(T(0, -ep))} Q${P(T(lg * 0.55, -ep * 1.1))} ${P(T(lg, 0))} Q${P(T(lg * 0.55, ep * 1.1))} ${P(T(0, ep))} Z`, sombre);
   };
-  const TE = 0.56;   // l'échelle des deux têtes et de la main
+  // Les deux bustes : le corps simple de profil (buste-main-bouche), même échelle, recadré par la
+  // vue sous la taille. Les angles du bras viennent d'une recherche faite une fois (Nelder-Mead sur
+  // corps(), lot 3, 13 oct.) : le poing devant le menton, l'axe du rameau qui passe sous la narine
+  // (sentir) ou entre les lèvres (mâcher), penché vers l'avant de 20° ou 24°. Le rameau se pose
+  // ensuite sur la géométrie rendue : du point du visage au centre du poing. Avec la tête simple (14 oct.),
+  // le point du visage descend ; la recherche refaite garde le poing au même endroit par rapport à lui.
+  const EB = 0.43;
+  const BRAS = {
+    sentir: { brasP: 58.2, avantbrasP: -154.7, mainP: -200 },
+    macher: { brasP: 46.5, avantbrasP: -166.1, mainP: -204 },
+  };
+  // le visage : la tête simple de la bibliothèque (corps({ visage }), 14 octobre). Sentir : la bouche
+  // fermée, la cassure sous la narine, entre le bout du nez et la bouche ; mâcher : les lèvres serrées
+  // sur la pousse (8 mm), le bout coupé entre elles.
+  const VISAGE = { sentir: true, macher: { bouche: 'serre', epaisseur: 8 } };
+  const pointVisage = (cle, v) => cle === 'sentir'
+    ? [v.nez[0] + (v.bouche[0] - v.nez[0]) * 0.4 + 1.5, v.nez[1] + (v.bouche[1] - v.nez[1]) * 0.4]
+    : v.bouche;
+  const plus = (p, u, k) => [p[0] + u[0] * k, p[1] + u[1] * k];
+  // le rameau tenu : droit, d'un bout B à l'autre bout Q, un peu cambré
+  const rameauDroit = (Q, B, r0, r1, n = 14) => {
+    const nx = -(B[1] - Q[1]), ny = B[0] - Q[0], L = Math.hypot(nx, ny);
+    return Array.from({ length: n + 1 }, (_, i) => {
+      const t = i / n, k = Math.sin(t * Math.PI) * 1.2 / L;
+      return [Q[0] + (B[0] - Q[0]) * t + nx * k, Q[1] + (B[1] - Q[1]) * t + ny * k];
+    });
+  };
+  const memo = {};
+  const Y_SOL = 8 + 1773 * EB;                           // le sommet du crâne à 8 du haut de la vue
+  const buste = (cle, X, z) => {
+    const k = [cle, X, z.l, z.h].join(',');
+    if (!memo[k]) memo[k] = F.corps({ x: X, y: Y_SOL, pose: 'buste-main-bouche', echelle: EB, angles: BRAS[cle], visage: VISAGE[cle] });
+    return memo[k];
+  };
+  // la géométrie d'une vue : le point du visage A, le poing M, la direction u du visage vers l'avant
+  const geoBuste = (cle, z) => {
+    const X = z.l * 0.27;
+    const c = buste(cle, X, z);
+    const A = pointVisage(cle, c.visage), M = [c.mainP.x, c.mainP.y];
+    const L = Math.hypot(M[0] - A[0], M[1] - A[1]), u = [(M[0] - A[0]) / L, (M[1] - A[1]) / L];
+    return { X, c, A, M, u, k: L };
+  };
+  // le corps et son objet (le rameau, derrière le poing vu du dos, devant le visage), coupé au
+  // bord de la vue : un buste
+  const rendre = (cle, X, z, objet) => {
+    const id = `rogne-27-05-${cle}`;
+    const c = F.corps({ x: X, y: Y_SOL, pose: 'buste-main-bouche', echelle: EB, angles: BRAS[cle], objetP: objet, visage: VISAGE[cle] });
+    return `<clipPath id="${id}"><rect x="0" y="0" width="${f1(z.l)}" height="${f1(z.h)}"/></clipPath>\n<g clip-path="url(#${id})">\n${c}\n</g>`;
+  };
+  // la vue « sentir » : la cassure sous la narine, le rameau tenu au poing devant le menton
+  const SENT = { queue: 58 };
+  const geoSentir = z => { const g = geoBuste('sentir', z); return { ...g, B: g.A, bout: plus(g.A, g.u, g.k + SENT.queue - 12) }; };
+  // la vue « mâcher » : le bout coupé entre les lèvres, la pousse tenue au poing
+  const geoMacher = z => {
+    const g = geoBuste('macher', z), C = g.A;
+    // le bout mince : aussi loin que la vue le permet
+    const lg = Math.min(150, (z.l - 8 - C[0]) / g.u[0], (z.h * 0.75 - C[1]) / Math.max(0.01, g.u[1]));
+    return { ...g, C, D: plus(C, g.u, lg) };
+  };
   // pseudo-hasard stable
   let graine = 7;
   const hasard = () => { graine = (graine * 9301 + 49297) % 233280; return graine / 233280; };
@@ -53,13 +114,14 @@ module.exports = (h) => {
     ref: '27-05',
     titre: 'La brosse de branche',
     desc: 'Une tige de bouleau à papier à l’écorce blanche, d’où sort une jeune pousse à l’écorce foncée, presque noire, avec le trait où la couper. '
-      + 'Une tête de profil qui sent un rameau cassé tenu entre le pouce et l’index, puis la même qui mâche le bout coupé de la pousse, tenu entre les lèvres. '
+      + 'Une personne de profil, en buste, tient au poing un rameau cassé et en porte la cassure sous la narine pour la sentir ; '
+      + 'puis, de même, elle tient la pousse au poing et en mâche le bout coupé, entre les lèvres. '
       + 'En bas, la brosse finie, couchée : un bout mâché jusqu’à ce que les fibres s’écartent en brosse, le trait où on le recoupe quand il est usé, '
       + 'et l’autre bout taillé en pointe au couteau pour passer entre les dents.',
     format: 'pleine',
     disposition: [['pousse', 'sentir', 'macher'], ['brosse']],
-    hauteurs: [1.4, 0.8],
-    largeurs: [[0.64, 1.1, 1], [1]],
+    hauteurs: [1.75, 0.6],
+    largeurs: [[0.62, 1.05, 1.05], [1]],
     vues: {
       // ── la pousse, sur le bouleau ─────────────────────────────────────────────────────
       pousse: {
@@ -132,65 +194,45 @@ module.exports = (h) => {
       sentir: {
         titre: 'Casser, sentir',
         dessin: z => {
-          const e = TE, E = [z.l * 0.26, z.h * 0.34];
-          const T = (p) => [E[0] + p[0] * e, E[1] + p[1] * e];
-          const out = [F.tete({ x: E[0], y: E[1], echelle: e })];
-          // le rameau cassé : le bout cassé sous la narine, l'autre bout dans la main
-          const th = 66, c = Math.cos(th * Math.PI / 180), s = Math.sin(th * Math.PI / 180);
-          const u = [-(0.952 * c - 0.305 * s), -(0.952 * s + 0.305 * c)];   // du pincé vers le nez
-          const B = T([138, 50]);
-          const Pp = [B[0] - u[0] * 30, B[1] - u[1] * 30];
-          const Q = [Pp[0] - u[0] * 26, Pp[1] - u[1] * 26];
-          const nx = -u[1], ny = u[0];
-          const pts = Array.from({ length: 13 }, (_, i) => {
-            const t = i / 12;
-            return [Q[0] + (B[0] - Q[0]) * t + nx * Math.sin(t * Math.PI) * 1.5, Q[1] + (B[1] - Q[1]) * t + ny * Math.sin(t * Math.PI) * 1.5];
-          });
-          const r = 2.8;
-          const rameau = [tige(pts, t => r + 0.4 * (1 - t), { refletDe: 0.55, refletA: 0.9 })];
-          // un bourgeon sur le bout qu'on tient
-          rameau.push(bourgeon(pts[3][0] + nx * 2, pts[3][1] + ny * 2, Math.atan2(u[1], u[0]) * 180 / Math.PI + 30, 6, 1.8));
-          // la cassure : des éclats de bois clair qui dépassent de l'écorce déchirée
-          const Pt = (a, b) => [B[0] + u[0] * a + nx * b, B[1] + u[1] * a + ny * b];
-          // le bois vert ne casse pas net : de longs éclats de fibres dépassent de l'écorce déchirée
-          [[-1, -0.3, 9, -1.1], [0.2, 1, 12, 1.2], [-0.6, 0.2, 16, -0.2], [-0.1, 0.6, 7, 0.5]].forEach(([b0, b1, lg, bt]) =>
+          const g = geoSentir(z), r = 2.6;
+          const pts = rameauDroit(g.bout, g.B, r + 0.5, r);
+          const nx = -g.u[1], ny = g.u[0];
+          const rameau = [tige(pts, t => r + 0.5 * (1 - t), { refletDe: 0.1, refletA: 0.85 })];
+          rameau.push(bourgeon(pts[3][0] + nx * 2.2, pts[3][1] + ny * 2.2, Math.atan2(g.u[1], g.u[0]) * 180 / Math.PI + 180 - 30, 6, 1.8));
+          // la cassure : le bois vert ne casse pas net, de longs éclats de fibres dépassent de l'écorce déchirée
+          const v = [-g.u[0], -g.u[1]];
+          const Pt = (a, b) => [g.B[0] + v[0] * a + nx * b, g.B[1] + v[1] * a + ny * b];
+          [[-1, -0.3, 7, -1.1], [0.2, 1, 9, 1.2], [-0.6, 0.2, 11, -0.2], [-0.1, 0.6, 5, 0.5]].forEach(([b0, b1, lg, bt]) =>
             rameau.push(h.path(`M${P(Pt(-0.5, b0 * r))} L${P(Pt(lg, bt * r))} L${P(Pt(-0.5, b1 * r))} Z`, bois)));
           rameau.push(h.path(`M${P(Pt(-1, -r))} L${P(Pt(2.5, -r * 0.7))} L${P(Pt(0.5, -r * 0.2))} L${P(Pt(2, r * 0.4))} L${P(Pt(-0.5, r * 0.8))} L${P(Pt(-3, 0))} Z`, sombre));
-          out.push(F.main({ x: Pp[0], y: Pp[1], pose: 'pince', vue: 'profil', cote: 'gauche', angle: th, echelle: e, bras: 22, objet: rameau.join('\n') }));
-          return out.join('\n');
+          // le point à contrôler : l'odeur de la cassure, sous la narine, chaque fois
+          return [rendre('sentir', g.X, z, rameau.join('\n')), h.controle(g.B[0] - 1, g.B[1] + 1, 9)].join('\n');
         },
         renvois: z => {
-          const E = [z.l * 0.26, z.h * 0.34], B = [E[0] + 138 * TE, E[1] + 50 * TE];
-          return [{ n: 4, rond: [z.l - 16, z.h * 0.12], cible: [B[0] + 6, B[1] - 3], texte: 'casser et sentir, chaque fois' }];
+          const g = geoSentir(z);
+          return [{ n: 4, rond: [z.l - 16, z.h * 0.1], cible: [g.B[0] - 3, g.B[1] - 1], texte: 'casser et sentir, chaque fois' }];
         },
       },
       // ── mâcher un bout ────────────────────────────────────────────────────────────────
       macher: {
         titre: 'Mâcher un bout',
         dessin: z => {
-          const e = TE, E = [z.l * 0.3, z.h * 0.34];
-          const T = (p) => [E[0] + p[0] * e, E[1] + p[1] * e];
-          const out = [F.tete({ x: E[0], y: E[1], echelle: e })];
-          // la pousse entière : le bout coupé entre les lèvres ; le bout mince,
-          // avec ses bourgeons, vers l'avant
-          const C = T([103, 47]), D = [z.l - 6, C[1] + z.h * 0.3];
-          const pts = cub(C, [C[0] + 40, C[1] + 8], [D[0] - 50, D[1] - 34], D, 30);
-          const rP = t => 3.8 - 2.4 * t;
-          out.push(tige(pts, rP, { refletDe: 0.12, refletA: 0.8 }));
+          const g = geoMacher(z);
+          // la pousse entière : le bout coupé entre les lèvres ; le bout mince, avec ses bourgeons, vers l'avant
+          const pts = rameauDroit(g.C, g.D, 3.6, 1.6, 30);
+          const rP = t => 3.6 - 2 * t;
+          const objet = [tige(pts, rP, { refletDe: 0.45, refletA: 0.9 })];
           const angDe = i => { const a = pts[i - 1], b = pts[Math.min(30, i + 1)]; return Math.atan2(b[1] - a[1], b[0] - a[0]) * 180 / Math.PI; };
-          [[11, -1], [18, 1], [24, -1]].forEach(([i, sg]) => {
+          [[16, -1], [21, 1], [26, -1]].forEach(([i, sg]) => {
             const a = angDe(i), rr = rP(i / 30), aR = (a + sg * -90) * Math.PI / 180;
-            out.push(bourgeon(pts[i][0] + Math.cos(aR) * rr * 0.7, pts[i][1] + Math.sin(aR) * rr * 0.7, a + sg * -32, 7, 2.2));
+            objet.push(bourgeon(pts[i][0] + Math.cos(aR) * rr * 0.7, pts[i][1] + Math.sin(aR) * rr * 0.7, a + sg * -32, 7, 2.2));
           });
-          out.push(bourgeon(D[0] - 1, D[1], angDe(30), 7, 1.9));
-          // la fente des lèvres, du coin de la bouche jusqu'à la pousse
-          const K = T([82, 45]);
-          out.push(h.path(`M${P(K)} Q${P(T([92, 48]))} ${P(T([101, 47]))}`, A.detail));
-          return out.join('\n');
+          objet.push(bourgeon(g.D[0] - 1, g.D[1], angDe(30), 7, 1.9));
+          return rendre('macher', g.X, z, objet.join('\n'));
         },
         renvois: z => {
-          const E = [z.l * 0.3, z.h * 0.34], C = [E[0] + 103 * TE, E[1] + 47 * TE];
-          return [{ n: 5, rond: [C[0] + 46, C[1] - 34], cible: [C[0] + 14, C[1] + 1], texte: 'mâcher un bout jusqu’à séparer les fibres' }];
+          const g = geoMacher(z);
+          return [{ n: 5, rond: [z.l - 18, z.h * 0.1], cible: [g.C[0] + 6, g.C[1] + 3], texte: 'mâcher un bout jusqu’à séparer les fibres' }];
         },
       },
       // ── la brosse finie ───────────────────────────────────────────────────────────────

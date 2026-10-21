@@ -1,4 +1,9 @@
 // Planche 26-04 — Le garrot improvisé. Trois temps sur la même cuisse, vue de face.
+//
+// La charte : la bande du garrot pèse (contour fort), comme le bâton ; le deuxième lien reste à
+// l'arête. Pas de gris : la cuisse est un corps, le bâton trop mince pour porter une ombre. Le
+// rouge : la rotation du bâton (les deux arcs d'un même tour), et le cercle sur la plaie qui ne
+// saigne plus, ce qu'on vérifie avant de bloquer.
 module.exports = (h) => {
   const BL = h.a.blanc.split(' ')[0];            // fill="…blanc…"
   const plein = t => t.replace('fill="none"', BL); // trait + fond blanc qui cache ce qui est dessous
@@ -46,16 +51,16 @@ module.exports = (h) => {
   };
 
   // Une bande qui fait le tour du membre à la hauteur yc, demi-hauteur e.
-  const bande = (g, yc, e, pince, tors) => {
+  const bande = (g, yc, e, pince, tors, trait = h.a.contour) => {
     const t = yc - e, b = yc + e, cx = g.cx;
     const xlt = cx - hw(PL, g, t, pince) - 2, xrt = cx + hw(PR, g, t, pince) + 2;
     const xlb = cx - hw(PL, g, b, pince) - 2, xrb = cx + hw(PR, g, b, pince) + 2;
     const xlm = cx - hw(PL, g, yc, pince) - 3, xrm = cx + hw(PR, g, yc, pince) + 3;
     if (!tors) {
-      return h.path(`M${xlt},${t} Q${cx},${t + 6} ${xrt},${t} Q${xrm},${yc} ${xrb},${b} Q${cx},${b + 6} ${xlb},${b} Q${xlm},${yc} ${xlt},${t} Z`, plein(h.a.arete));
+      return h.path(`M${xlt},${t} Q${cx},${t + 6} ${xrt},${t} Q${xrm},${yc} ${xrb},${b} Q${cx},${b + 6} ${xlb},${b} Q${xlm},${yc} ${xlt},${t} Z`, plein(trait));
     }
     // tordue : les deux bords se resserrent vers le nœud
-    return h.path(`M${xlt},${t} Q${cx - 22},${t + 1} ${cx - 9},${yc - 4} L${cx + 9},${yc - 4} Q${cx + 22},${t + 1} ${xrt},${t} Q${xrm},${yc} ${xrb},${b} Q${cx + 22},${b + 1} ${cx + 9},${yc + 4} L${cx - 9},${yc + 4} Q${cx - 22},${b + 1} ${xlb},${b} Q${xlm},${yc} ${xlt},${t} Z`, plein(h.a.arete));
+    return h.path(`M${xlt},${t} Q${cx - 22},${t + 1} ${cx - 9},${yc - 4} L${cx + 9},${yc - 4} Q${cx + 22},${t + 1} ${xrt},${t} Q${xrm},${yc} ${xrb},${b} Q${cx + 22},${b + 1} ${cx + 9},${yc + 4} L${cx - 9},${yc + 4} Q${cx - 22},${b + 1} ${xlb},${b} Q${xlm},${yc} ${xlt},${t} Z`, plein(trait));
   };
 
   // Un bout de bande qui pend, de (x0,y0) à (x1,y1), largeur w, cambré de c.
@@ -82,11 +87,22 @@ module.exports = (h) => {
     ].join('\n');
   };
 
-  const noeud = (x, y) => [
-    h.ellipse(x, y, 12, 10, plein(h.a.arete)),
-    h.path(`M${x - 9},${y - 6} Q${x},${y + 2} ${x + 10},${y + 5}`, h.a.detail),
-    h.path(`M${x - 6},${y + 7} Q${x - 2},${y + 1} ${x + 3},${y - 8}`, h.a.detail),
+  // Nœud plat vu de face, dans la largeur de la bande : deux bouts qui se croisent, l'un passe
+  // par-dessus puis autour de l'autre. k = échelle (1 = bande du garrot, 0.5 = deuxième lien).
+  // dessous() = premier demi-nœud ; dessus() = second demi-nœud, qui croise par-dessus (et le bâton).
+  const ndDessous = (x, y, k) => [
+    bout(x - 14 * k, y - 3 * k, x + 12 * k, y + 5 * k, 7 * k, -2 * k),
+    bout(x + 14 * k, y - 3 * k, x - 12 * k, y + 5 * k, 7 * k, 2 * k),
   ].join('\n');
+  const ndDessus = (x, y, k, ouvert) => {
+    const e = ouvert ? 9 * k : 5 * k; // écart des deux brins de la boucle (laisse passer le bâton)
+    return [
+      bout(x - e, y + 6 * k, x - e - 1 * k, y - 7 * k, 6 * k, -3 * k),
+      bout(x + e, y + 6 * k, x + e + 1 * k, y - 7 * k, 6 * k, 3 * k),
+      bout(x - e - 3 * k, y - 8 * k, x + e + 3 * k, y - 8 * k, 6 * k, -3 * k),
+    ].join('\n');
+  };
+  const noeud = (x, y, k = 1) => ndDessous(x, y, k) + '\n' + ndDessus(x, y, k, false);
 
   const plis = (g, n) => {
     const out = [];
@@ -121,7 +137,7 @@ module.exports = (h) => {
             jambe(g, 0), plaie(g, true), bande(g, g.yb, 9, 0, false),
             bout(g.cx - 5, g.yb + 6, g.cx - 20, g.yb + 46, 8, -3),
             bout(g.cx + 5, g.yb + 6, g.cx + 15, g.yb + 50, 8, 3),
-            noeud(g.cx, g.yb + 1),
+            noeud(g.cx, g.yb + 1, 1.4),
           ].join('\n');
         },
         renvois: z => {
@@ -140,10 +156,11 @@ module.exports = (h) => {
             jambe(g, 2), plaie(g, true), bande(g, g.yb, 9, 2, false), plis(g, 3),
             bout(g.cx - 5, g.yb + 6, g.cx - 20, g.yb + 46, 8, -3),
             bout(g.cx + 5, g.yb + 6, g.cx + 15, g.yb + 50, 8, 3),
+            ndDessous(g.cx, g.yb, 1.4),
             baton(g.cx - 56, g.yb, g.cx + 56, g.yb, 9),
-            noeud(g.cx, g.yb),
-            h.fleche(arc(g, -8, 58)),
-            h.fleche(arc(g, 172, 238)),
+            ndDessus(g.cx, g.yb, 1.4, true),
+            h.geste(arc(g, -8, 58)),
+            h.geste(arc(g, 172, 238)),
           ].join('\n');
         },
         renvois: z => {
@@ -167,12 +184,14 @@ module.exports = (h) => {
             h.path(`M${g.cx + 36},${g.yb - 8} Q${g.cx + 22},${g.yb - 3} ${g.cx + 11},${g.yb + 1}`, h.a.detail),
             bout(g.cx - 5, g.yb + 8, g.cx - 22, g.yb + 40, 8, -4),
             bout(g.cx + 5, g.yb + 8, g.cx + 18, g.yb + 44, 8, 4),
+            ndDessous(g.cx, g.yb, 1.4),
             baton(g.cx, g.yb + 56, g.cx, g.yb - 56, 9),
-            noeud(g.cx, g.yb),
-            bande(g, y2, 5, 0, false),
+            ndDessus(g.cx, g.yb, 1.4, true),
+            bande(g, y2, 5, 0, false, h.a.arete),
             bout(g.cx + 16, y2 + 3, g.cx + 24, y2 + 22, 6, 2),
             bout(g.cx + 18, y2 + 2, g.cx + 34, y2 + 16, 6, -2),
-            h.ellipse(g.cx + 16, y2 + 1, 6, 5, plein(h.a.arete)),
+            noeud(g.cx + 16, y2 + 1, 0.5),
+            h.controle(g.cx + 8, g.yw + 1, 12),   // la plaie ne saigne plus
           ].join('\n');
         },
         renvois: z => {

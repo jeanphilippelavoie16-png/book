@@ -21,7 +21,7 @@ module.exports = (h) => {
     const d = `M ${f(P(0, hw))} L ${f(P(L - 20, hw))} L ${f(P(L - 2, 1.2))} Q ${f(P(L + 1, 0))} ${f(P(L - 2, -1.2))} ` +
       `L ${f(P(L - 20, -hw))} L ${f(P(0, -hw))} Q ${f(P(-4, 0))} ${f(P(0, hw))} Z`;
     const chas = `M ${f(P(5, 0.9))} L ${f(P(14, 0.9))} L ${f(P(14, -0.9))} L ${f(P(5, -0.9))} Z`;
-    return [h.path(d, h.a.blanc), h.path(d, h.a.arete), h.path(chas, `fill="${B}" stroke="${N}" stroke-width="0.7"`)].join('\n');
+    return [h.path(d, h.a.blanc), h.path(d, h.a.arete), h.path(chas, `fill="none" stroke="${N}" stroke-width="0.7"`)].join('\n');
   };
 
   // Une épaisseur de cuir en coupe, avec bords rompus en zigzag si demandé.
@@ -40,7 +40,7 @@ module.exports = (h) => {
     const bornes = (debut) => {
       const seg = [];
       let a = debut;
-      xs.forEach((x) => { seg.push([a, x - w / 2]); a = x + w / 2; });
+      xs.forEach((x, i) => { const wi = typeof w === 'function' ? w(i) : w; seg.push([a, x - wi / 2]); a = x + wi / 2; });
       seg.push([a, xR]);
       return seg;
     };
@@ -68,35 +68,43 @@ module.exports = (h) => {
           const xs = [0, 1, 2, 3, 4, 5, 6].map((i) => x0 + i * p);
           const [, x1, x2, x3, x4] = xs;
           const hy = y0 - 2, by = yb + 2, e = by - hy;
-          const out = [cuir(10, x0 - 28, z.l - 14, xs, w, y0, t, true)];
+          const out = [cuir(10, x0 - 28, z.l - 14, xs, (i) => (i === 0 ? 6 : w), y0, t, true)];
           // Aiguille X (première, passée par le dessus) : pend sous le cuir.
           const eX = [x4 + 24, yb + 66], tX = [x4 + 152, yb + 90];
           // Aiguille Y (seconde) : traverse le trou 4 de bas en haut.
           const eY = [x4 - 8, yb + 80], tY = [x4 + 8, y0 - 110];
-          const queue = (a, e, l = 14) => {
-            const L = Math.hypot(e[0] - a[0], e[1] - a[1]);
-            return [e[0] + (e[0] - a[0]) / L * l, e[1] + (e[1] - a[1]) / L * l];
+          // Centre du chas, et queue courte qui ressort de l'autre côté de l'aiguille.
+          const chasC = (e, t) => { const L = Math.hypot(t[0] - e[0], t[1] - e[1]); return [e[0] + (t[0] - e[0]) / L * 9.5, e[1] + (t[1] - e[1]) / L * 9.5]; };
+          const queue = (a, e, t) => {
+            const c = chasC(e, t), L = Math.hypot(t[0] - e[0], t[1] - e[1]);
+            const ux = (t[0] - e[0]) / L, uy = (t[1] - e[1]) / L;
+            let nx = -uy, ny = ux;
+            if ((a[0] - c[0]) * nx + (a[1] - c[1]) * ny > 0) { nx = -nx; ny = -ny; }
+            return [[c[0] + nx * 2.5, c[1] + ny * 2.5], [c[0] + nx * 16 - ux * 5, c[1] + ny * 16 - uy * 5]];
           };
           // Brin creux Q : descend dans le trou 0, puis alterne ; arrive dessus au trou 4.
           const Q = [[x0, y0 + t], [x0, by], [x1 - d, by], [x1 + d, hy], [x2 - d, hy], [x2 + d, by],
-            [x3 - d, by], [x3 + d, hy], [x4 - d, hy], [x4 + d, by], eX];
-          Q.push(queue(Q[Q.length - 2], eX));
+            [x3 - d, by], [x3 + d, hy], [x4 - d, hy], [x4 + d, by], chasC(eX, tX)];
+          const qQ = queue(Q[Q.length - 2], eX, tX);
           // Brin plein P : monte dans le trou 0, puis alterne ; arrive dessous au trou 4.
           const P = [[x0, y0 + t], [x0, hy], [x1 - d, hy], [x1 + d, by], [x2 - d, by], [x2 + d, hy],
-            [x3 - d, hy], [x3 + d, by], eY];
-          P.push(queue(P[P.length - 2], eY));
+            [x3 - d, hy], [x3 + d, by], chasC(eY, tY)];
+          const qP = queue(P[P.length - 2], eY, tY);
           out.push(creux(Q));
           [x1, x2, x3].forEach((x) => out.push(halo(x - d + 2 * d * 0.28, hy + e * 0.28, x - d + 2 * d * 0.72, hy + e * 0.72)));
           out.push(plein(P));
           out.push(aiguille(...eX, ...tX));
           out.push(aiguille(...eY, ...tY));
+          out.push(creux(qQ), plein(qP));
+          // charte : le point à vérifier, les deux brins croisés dans le trou
+          out.push(h.controle(x2, y0 + t, 15));
           return out.join('\n');
         },
         renvois: (z) => {
           const y0 = Math.round(z.h * 0.44), yb = y0 + 52, x0 = 54, p = 50;
           const x = (i) => x0 + i * p;
           return [
-            { n: 1, rond: [28, y0 - 58], cible: [x0 - 1, y0 - 5], texte: 'milieu du fil, premier trou' },
+            { n: 1, rond: [28, y0 - 58], cible: [x0, y0 + 26], texte: 'milieu du fil, premier trou' },
             { n: 2, rond: [x(5) + 30, y0 - 64], cible: [x(5), y0 + 24], texte: 'percer deux ou trois trous d’avance' },
             { n: 3, rond: [x(4) + 140, yb + 36], cible: [x(4) + 112, yb + 77], texte: 'première aiguille, passée par-dessus' },
             { n: 4, rond: [x(4) + 42, y0 - 88], cible: [x(4) + 10, y0 - 66], texte: 'seconde aiguille, même trou, par-dessous' },
@@ -122,7 +130,7 @@ module.exports = (h) => {
             const nx = s * -uy, ny = s * ux, o = 15;
             const a = [ax + ux * L * 0.45 + nx * o, ay + uy * L * 0.45 + ny * o];
             const b = [ax + ux * L * 0.82 + nx * o, ay + uy * L * 0.82 + ny * o];
-            return h.fleche(`M ${a[0].toFixed(1)} ${a[1].toFixed(1)} L ${b[0].toFixed(1)} ${b[1].toFixed(1)}`);
+            return h.geste(`M ${a[0].toFixed(1)} ${a[1].toFixed(1)} L ${b[0].toFixed(1)} ${b[1].toFixed(1)}`);   // charte : le geste, les deux brins ensemble
           };
           out.push(fl(xh + d, hy, z.l - 14, hy - fin, -1));
           out.push(fl(xh + d, by, z.l - 14, by + fin, 1));
@@ -145,8 +153,9 @@ module.exports = (h) => {
           return [
             h.path(Bd, fil(5.5, N, 'butt')), h.path(Bd, fil(2.3, B, 'butt')),
             h.path(A, fil(4.5, N, 'butt')),
-            h.fleche(`M ${cx - 10} ${cy - 84} L ${cx - 10} ${cy - 44}`),
-            h.fleche(`M ${cx - 10} ${cy + 84} L ${cx - 10} ${cy + 44}`),
+            // charte : le geste, aplatir les deux crochets l'un contre l'autre
+            h.geste(`M ${cx - 10} ${cy - 84} L ${cx - 10} ${cy - 44}`),
+            h.geste(`M ${cx - 10} ${cy + 84} L ${cx - 10} ${cy + 44}`),
           ].join('\n');
         },
         renvois: (z) => {

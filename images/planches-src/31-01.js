@@ -1,5 +1,9 @@
 // Planche 31-01 — La bécosse à fosse sèche. Chapitre 28, section C (étapes 13 à 20, 23)
 // et variante d'urgence « La bécosse devient un trou et une planche » (siège, couvercle, colonne).
+//
+// La charte : les coupes gardent leurs hachures, sans gris. Le gris loin va sur la paroi du fond
+// de la fosse, vue derrière le plan de coupe, et sur le fond de la fosse vu de dessus. Le rouge :
+// le cercle sur l'encoche du niveau plein, ce qu'on surveille.
 module.exports = (h) => {
   const blanc = (t) => t.replace('fill="none"', 'fill="#ffffff"');
   const zigzag = (x, y1, y2) => {
@@ -11,7 +15,7 @@ module.exports = (h) => {
   return {
     ref: '31-01',
     titre: 'La bécosse à fosse sèche',
-    desc: 'Bécosse à fosse sèche. En coupe : fosse de 1,2 m garnie de planches ajourées en bas et serrées en haut, fond à 60 cm au-dessus du roc, soubassement posé sur le sol ferme hors du bord, plancher étanche, siège fermé, tertre qui rechausse le bas de l’abri, encoche du niveau plein à 40 cm, colonne qui part de la fosse et dépasse le toit de 60 cm. Vu de dessus : fosse de 1,2 × 1 m dans son cadre de soubassement. La colonne : caisson de quatre planches clouées, joints calfeutrés, moustiquaire ficelée au sommet. Le siège : planche de 5 cm percée d’une couronne de trous, arête cassée, couvercle à charnière de cuir.',
+    desc: 'Bécosse à fosse sèche. En coupe : fosse de 1200 mm garnie de planches ajourées en bas et serrées en haut, fond à 600 mm au-dessus du roc, soubassement posé sur le sol ferme hors du bord, plancher étanche, moustiquaires sous le toit, siège fermé, tertre qui rechausse le bas de l’abri, encoche du niveau plein à 400 mm, colonne qui part de la fosse et dépasse le toit de 600 mm. Vu de dessus : fosse de 1200 × 1000 mm dans son cadre de soubassement. La colonne : caisson de quatre planches clouées, joints calfeutrés, moustiquaire ficelée au sommet. Le siège : planche de 50 mm percée d’une couronne de trous, arête cassée (grossie à la loupe), couvercle à charnière de cuir.',
     format: 'pleine',
     disposition: [['coupe', 'colonne'], ['plan', 'siege']],
     hauteurs: [2, 1],
@@ -45,10 +49,13 @@ module.exports = (h) => {
           out.push(h.ligne(55, yRoc, 272, yRoc, h.a.arete));
           // la fosse vide
           out.push(h.rect(pxL, yg, pxR - pxL, yF - yg, h.a.blanc));
+          out.push(h.rect(pxL + 3, yg, pxR - pxL - 6, yMid - yg, h.a.loin));   // la paroi du fond, derrière la coupe
           // paroi du fond, vue en élévation : serrée en haut, ajourée en bas
           for (let y = yg + 11.7; y < yMid; y += 11.7) out.push(h.ligne(pxL + 3, y, pxR - 3, y, h.a.detail));
           out.push(h.ligne(pxL + 3, yMid, pxR - 3, yMid, h.a.detail));
-          const bas = [[yMid, yMid + 9], [yMid + 13, yMid + 22], [yMid + 26, yMid + 35], [yMid + 39, yF]];
+          const pb = (yF - yMid - 21) / 4;      // planches basses, jours de 7 px
+          const bas = [0, 1, 2, 3].map(i => [yMid + i * (pb + 7), i === 3 ? yF : yMid + i * (pb + 7) + pb]);
+          for (const [a, b] of bas) out.push(h.rect(pxL + 3, a, pxR - pxL - 6, b - a, h.a.loin));
           for (let i = 0; i < bas.length - 1; i++) {
             out.push(h.rect(pxL + 3, bas[i][1], pxR - pxL - 6, bas[i + 1][0] - bas[i][1], h.a.hachure('terre', 'detail')));
           }
@@ -64,6 +71,7 @@ module.exports = (h) => {
           out.push(h.path(tas, h.a.blanc), h.path(tas, h.a.hachure('gravier', 'detail')));
           // encoche du niveau plein, à 40 cm
           out.push(h.ligne(pxR - 10, yg + 0.4 * s, pxR, yg + 0.4 * s, h.a.contour));
+          out.push(h.controle(pxR - 5, yg + 0.4 * s, 10));
           // bord de la fosse
           out.push(h.chemin([[pxL, yg], [pxL, yF], [pxR, yF], [pxR, yg]], h.a.contour));
           out.push(h.ligne(wL + 8, yg, pxL, yg, h.a.arete), h.ligne(pxR, yg, wR - 8, yg, h.a.arete));
@@ -82,10 +90,10 @@ module.exports = (h) => {
           // murs, avec la moustiquaire du haut
           out.push(h.rect(wL, yWL + 32, e, plT - yWL - 32, h.a.hachure('bois')));
           out.push(h.rect(wL, toit(wL), e, 12, h.a.hachure('bois')));
-          out.push(h.ligne(wL + 2, toit(wL) + 12, wL + 2, yWL + 32, h.a.cache));
+          out.push(h.rect(wL - 1, toit(wL) + 12, e + 2, yWL + 20 - toit(wL), h.a.hachure('grillage', 'arete')));
           out.push(h.rect(wR - e, yWR + 32, e, plT - yWR - 32, h.a.hachure('bois')));
           out.push(h.rect(wR - e, toit(wR), e, 12, h.a.hachure('bois')));
-          out.push(h.ligne(wR - 2, toit(wR) + 12, wR - 2, yWR + 32, h.a.cache));
+          out.push(h.rect(wR - e - 1, toit(wR) + 12, e + 2, yWR + 20 - toit(wR), h.a.hachure('grillage', 'arete')));
           // toit qui déborde
           out.push(h.chemin([[80, toit(80)], [260, toit(260)], [260, toit(260) - 5], [80, toit(80) - 5]], h.a.hachure('bois', 'contour'), true));
           // siège : caisson, planche percée, couvercle fermé
@@ -104,21 +112,24 @@ module.exports = (h) => {
           out.push(h.ligne(272, yg, 342, yg, h.a.fin));
           out.push(h.ligne(pxR, yF, 342, yF, h.a.fin));
           out.push(h.ligne(272, yRoc, 342, yRoc, h.a.fin));
-          out.push(h.cote(320, yg, 320, yg + 0.4 * s, '40 cm', { cote: 'gauche' }));
-          out.push(h.cote(338, yg, 338, yF, '1,2 m', { cote: 'gauche' }));
-          out.push(h.cote(338, yF, 338, yRoc, '60 cm', { cote: 'gauche' }));
+          out.push(h.cote(320, yg, 320, yg + 0.4 * s, '400', { cote: 'gauche' }));
+          out.push(h.cote(338, yg, 338, yF, '1200', { cote: 'gauche' }));
+          out.push(h.cote(338, yF, 338, yRoc, '600', { cote: 'gauche' }));
           out.push(h.ligne(xc + lc, colHaut, xc + lc + 20, colHaut, h.a.fin));
           out.push(h.ligne(xc + lc, toitCol, xc + lc + 20, toitCol, h.a.fin));
-          out.push(h.cote(xc + lc + 16, colHaut, xc + lc + 16, toitCol, '60 cm', { cote: 'droite' }));
+          out.push(h.cote(xc + lc + 16, colHaut, xc + lc + 16, toitCol, '600', { cote: 'droite' }));
+          out.push(h.cote(wL - 4, sbT, wL - 4, sbT + 8, '', { cote: 'gauche' }));
+          out.push(h.ligne(wL - 4, sbT - 2, 90, sbT - 10, h.a.fin));
+          out.push(h.texte(88, sbT - 20, '100 × 100', { ancre: 'end' }), h.texte(88, sbT - 8, '(4 × 4 po)', { ancre: 'end' }));
           return out.join('\n');
         },
         renvois: z => [
-          { n: 1, rond: [30, 296], cible: [122, 296], texte: 'planches ajourées en bas' },
+          { n: 1, rond: [30, 292], cible: [122, 281], texte: 'planches ajourées en bas' },
           { n: 2, rond: [30, 252], cible: [122, 252], texte: 'planches serrées en haut' },
-          { n: 3, rond: [30, 208], cible: [102, 227], texte: 'soubassement, hors du bord' },
-          { n: 4, rond: [134, 190], cible: [134, 218], texte: 'plancher, fentes bouchées' },
-          { n: 5, rond: [300, 196], cible: [262, 226], texte: 'tertre qui rechausse le bas' },
-          { n: 6, rond: [178, 262], cible: [206, 262], texte: 'encoche du niveau plein' },
+          { n: 3, rond: [134, 190], cible: [134, 218], texte: 'plancher, fentes bouchées' },
+          { n: 4, rond: [300, 196], cible: [262, 226], texte: 'tertre qui rechausse le bas' },
+          { n: 5, rond: [178, 262], cible: [206, 262], texte: 'encoche du niveau plein' },
+          { n: 6, rond: [30, 90], cible: [104, 100], texte: 'moustiquaire sous le toit' },
         ],
       },
 
@@ -162,7 +173,7 @@ module.exports = (h) => {
           for (const [x, y] of [[x0, yS + ep], [x0 + L, yS + ep], [x0, yS + ep + int], [x0 + L, yS + ep + int]]) {
             out.push(h.ellipse(x, y, 3.5, 5.5, h.a.plein));
           }
-          out.push(h.cote(x0 + ep, yS + ep + int / 2, x0 + ep + int, yS + ep + int / 2, '10 cm', { cote: 'dessus' }));
+          out.push(h.cote(x0 + ep, yS + ep + int / 2, x0 + ep + int, yS + ep + int / 2, '100', { cote: 'dessus' }));
           return out.join('\n');
         },
         renvois: z => {
@@ -191,6 +202,7 @@ module.exports = (h) => {
           out.push(h.rect(x0 + W - t, y0 + t, t, H - 2 * t, h.a.hachure('bois')));
           // fosse et sa paroi de planches
           out.push(h.rect(fx, fy, fl, fh, h.a.contour));
+          out.push(h.rect(fx + 3, fy + 3, fl - 6, fh - 6, h.a.loin));   // le fond de la fosse, loin dessous
           out.push(h.rect(fx + 3, fy + 3, fl - 6, fh - 6, h.a.detail));
           // trou du siège au-dessus, et la colonne dans le coin
           out.push(h.cercle(fx + fl - 0.38 * s, fy + fh / 2, 13, h.a.cache));
@@ -199,12 +211,14 @@ module.exports = (h) => {
           out.push(h.rect(cx + 2, cy + 2, t - 4, t - 4, h.a.detail));
           // cotes
           out.push(h.ligne(fx, fy + fh, fx, y0 + H + 20, h.a.fin), h.ligne(fx + fl, fy + fh, fx + fl, y0 + H + 20, h.a.fin));
-          out.push(h.cote(fx, y0 + H + 16, fx + fl, y0 + H + 16, '1,2 m', { cote: 'dessous' }));
+          out.push(h.cote(fx, y0 + H + 16, fx + fl, y0 + H + 16, '1200', { cote: 'dessous' }));
           out.push(h.ligne(fx + fl, fy, x0 + W + 26, fy, h.a.fin), h.ligne(fx + fl, fy + fh, x0 + W + 26, fy + fh, h.a.fin));
-          out.push(h.cote(x0 + W + 22, fy, x0 + W + 22, fy + fh, '1 m', { cote: 'droite' }));
+          out.push(h.cote(x0 + W + 22, fy, x0 + W + 22, fy + fh, '1000', { cote: 'droite' }));
           return out.join('\n');
         },
-        renvois: z => [],
+        renvois: z => [
+          { n: 10, rond: [22, 70], cible: [56, 70], texte: 'soubassement, hors du bord' },
+        ],
       },
 
       // ── Le siège ─────────────────────────────────────────────────────────────────────
@@ -213,17 +227,17 @@ module.exports = (h) => {
         dessin: z => {
           const out = [];
           // planche vue de dessus, percée en couronne
-          out.push(h.rect(10, 34, 124, 110, h.a.hachure('bois', 'arete')));
-          const cx = 72, cy = 89, R = 32, n = 21;
+          out.push(h.rect(10, 40, 100, 90, h.a.hachure('bois', 'arete')));
+          const cx = 60, cy = 85, R = 27, n = 18;
           for (let i = 0; i < n; i++) {
             const a = (i / n) * 2 * Math.PI;
-            out.push(h.cercle(cx + R * Math.cos(a), cy + R * Math.sin(a), 4, blanc(h.a.arete)));
+            out.push(h.cercle(cx + R * Math.cos(a), cy + R * Math.sin(a), 3.5, blanc(h.a.arete)));
           }
           // planche en coupe : 5 cm, arête cassée au bord du trou
           const yS = 120, ep = 16;
-          out.push(h.path(`M 180 ${yS} L 206 ${yS} Q 211 ${yS} 211 ${yS + 5} L 211 ${yS + ep} L 180 ${yS + ep} Z`, h.a.hachure('bois', 'arete')));
-          out.push(h.path(`M 283 ${yS} L 256 ${yS} Q 251 ${yS} 251 ${yS + 5} L 251 ${yS + ep} L 283 ${yS + ep} Z`, h.a.hachure('bois', 'arete')));
-          out.push(h.cote(174, yS, 174, yS + ep, '5 cm', { cote: 'gauche' }));
+          out.push(h.path(`M 180 ${yS} L 204 ${yS} Q 211 ${yS} 211 ${yS + 7} L 211 ${yS + ep} L 180 ${yS + ep} Z`, h.a.hachure('bois', 'arete')));
+          out.push(h.path(`M 283 ${yS} L 258 ${yS} Q 251 ${yS} 251 ${yS + 7} L 251 ${yS + ep} L 283 ${yS + ep} Z`, h.a.hachure('bois', 'arete')));
+          out.push(h.cote(174, yS, 174, yS + ep, '50', { cote: 'gauche' }));
           // couvercle soulevé, pivotant sur sa charnière de cuir
           const px = 262, py = yS - ep;
           const c = Math.cos(28 * Math.PI / 180), sn = Math.sin(28 * Math.PI / 180);
@@ -233,14 +247,21 @@ module.exports = (h) => {
           out.push(h.chemin([[249, py - 3.2], [252, py - 3.2], [252, py - 0.2], [249, py - 0.2]].map(rot), h.a.plein, true));
           out.push(h.path(`M ${px} ${py} C ${px + 5} ${py + 2} ${px + 5} ${yS - 4} ${px + 6} ${yS} L 283 ${yS}`, h.a.contour));
           out.push(h.rect(274, yS - 3.2, 3, 3, h.a.plein));
+          // loupe sur l'arête cassée (grossie à la loupe), côté trou, en haut
+          const lx = 160, ly = 62, lr = 28;
+          out.push(h.cercle(209.5, 121.5, 7, h.a.fin), h.ligne(lx + 21, ly + 19, 204.5, 116.5, h.a.fin));
+          out.push(h.cercle(lx, ly, lr, h.a.blanc));
+          const coin = `M ${lx - 24} ${ly - 12} L ${lx - 6} ${ly - 12} Q ${lx + 12} ${ly - 12} ${lx + 12} ${ly + 6} L ${lx + 12} ${ly + 24} L ${lx - 10} ${ly + 26} L ${lx - 24} ${ly + 14} Z`;
+          out.push(h.path(coin, h.a.hachure('bois', 'arete')));
+          out.push(h.cercle(lx, ly, lr, h.a.arete));
           return out.join('\n');
         },
         renvois: z => [
-          { n: 10, rond: [20, 16], cible: [47, 63], texte: 'couronne de trous de mèche' },
-          { n: 11, rond: [100, 172], cible: [84, 106], texte: 'rond sorti au ciseau' },
-          { n: 12, rond: [226, 168], cible: [209.5, 121.5], texte: 'arête cassée à la lime' },
-          { n: 13, rond: [205, 40], cible: [232, 88], texte: 'couvercle, même planche' },
-          { n: 14, rond: [278, 72], cible: [267, 110], texte: 'charnière de cuir de botte' },
+          { n: 11, rond: [20, 16], cible: [39, 66], texte: 'couronne de trous de mèche' },
+          { n: 12, rond: [90, 172], cible: [70, 100], texte: 'rond sorti au ciseau' },
+          { n: 13, rond: [226, 168], cible: [211, 127], texte: 'arête cassée à la lime' },
+          { n: 14, rond: [218, 30], cible: [232, 88], texte: 'couvercle, même planche' },
+          { n: 15, rond: [278, 72], cible: [267, 110], texte: 'charnière de cuir de botte' },
         ],
       },
     },

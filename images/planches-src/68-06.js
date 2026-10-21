@@ -1,4 +1,6 @@
-// Planche 68-06 — La caisse de sel du caveau (ch. 63, §9.4 et §9.6)
+// Planche 68-06 — La caisse de sel du caveau (ch. 68, §9.4 et §9.6)
+// La charte : coupe hachurée sans gris ; seule la pierre, vue au-dessus de la coupe, a sa face de
+// droite à l'ombre. Un rouge : le sel entre deux morceaux, qui ne doivent pas se toucher.
 module.exports = (h) => {
   // Géométrie commune au dessin et aux renvois
   const G = (z) => {
@@ -105,6 +107,9 @@ module.exports = (h) => {
           const pierre = lisse([[-64, 0], [-70, -14], [-60, -30], [-34, -40], [-6, -46], [30, -41], [56, -30], [66, -12], [60, 0]]
             .map(([u, v]) => [pc + u, pb + v]), 0.3);
           o.push(h.path(pierre, h.a.blanc));
+          // la face de droite de la pierre, à l'ombre : découpée par la pierre elle-même
+          o.push(`<clipPath id="om-68-06-pierre">${h.path(pierre, h.a.blanc)}</clipPath>`);
+          o.push(`<g clip-path="url(#om-68-06-pierre)">${h.chemin([[pc + 22, pb - 20], [pc + 56, pb - 30], [pc + 90, pb - 42], [pc + 90, pb + 2], [pc + 30, pb + 2], [pc + 30, pb]], h.a.ombre, true)}</g>`);
           o.push(h.path(pierre, h.a.arete));
           // arêtes de la pierre et un peu de grain
           o.push(h.path(`M ${pc - 60} ${pb - 30} L ${pc - 30} ${pb - 24} L ${pc - 6} ${pb - 46}`, h.a.detail));
@@ -112,6 +117,8 @@ module.exports = (h) => {
           o.push(h.path(`M ${pc + 22} ${pb - 20} L ${pc + 30} ${pb}`, h.a.detail));
           [[-48, -12], [-20, -10], [4, -6], [40, -10], [-44, -36], [8, -34], [36, -32], [-12, -32]].forEach(([u, v]) =>
             o.push(h.cercle(pc + u, pb + v, 0.8, h.a.plein)));
+          // le point à vérifier : du sel entre deux morceaux, qui ne se touchent pas
+          o.push(h.controle(g.px[0] + g.pw + 8, g.y2t + g.pe / 2, 13));
           return o.join('\n');
         },
         renvois: (z) => {

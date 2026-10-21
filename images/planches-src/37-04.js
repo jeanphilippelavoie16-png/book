@@ -6,7 +6,11 @@
 // monde en arrière, la première eau jetée de loin avec une louche liée au bout d'une perche.
 // Aucune cote : le chapitre ne donne que la taille des pierres (10 à 15 cm), et une pierre qu'on
 // trie se reconnaît, elle ne se construit pas.
+// Lot 3 (13 octobre) : l'homme à la perche passe au corps simple de profil (debout-perche-devant).
+// Rouge : le tireté de la zone où partent les éclats, autour du feu (l'homme est dehors), et le
+// cercle sur la fente de la pierre qui éclate — ce qu'on regarde pour la jeter.
 module.exports = (h) => {
+  const F = h.formes;
   const NOIR = '#1A1A1A';
   const f = v => Math.round(v * 10) / 10;
   const P = p => `${f(p[0])},${f(p[1])}`;
@@ -196,7 +200,7 @@ module.exports = (h) => {
   const S = 0.12, AL = 3 * Math.PI / 180, U = [Math.cos(AL), Math.sin(AL)], V = [-Math.sin(AL), Math.cos(AL)];
   const geo = z => {
     const G = z.h - 16, px = 40;
-    const G1 = [px + 15, G - 113], xf0 = z.l - 112;
+    const G1 = [px + 15, G - 124], xf0 = z.l - 112;
     const LP0 = (xf0 + 2 - S * (40 * U[0] + 135 * V[0]) - G1[0]) / U[0];
     const E = [G1[0] + LP0 * U[0], G1[1] + LP0 * U[1]];
     const Lc = (u, v) => [E[0] + S * (u * U[0] + v * V[0]), E[1] + S * (u * U[1] + v * V[1])];
@@ -205,6 +209,25 @@ module.exports = (h) => {
     const M = Lc(-10, 50);
     const loupe = { c: [z.l - 64, 76], r: 60 }, xc = xf + 2;
     return { G, px, G1, E, Lc, Rb, xf, xc, M, loupe, k: 3.9, LP0 };
+  };
+
+  // L'homme qui tient la perche : le corps simple de profil (debout-perche-devant), à l'échelle du
+  // dessin. Les angles des bras viennent d'une recherche faite une fois (Nelder-Mead sur corps(),
+  // lot 3) : les deux poings sur la perche (Ø 40 mm), le proche à 133 mm du bout tenu à la hanche, le
+  // lointain à 300 mm. La perche passe dans les poings (objetP : devant le tronc, derrière le bras
+  // proche) ; l'homme est glissé pour que le poing proche tombe pile dessus.
+  const BRAS = { brasP: -1.6, avantbrasP: 84.9, mainP: -2.3, brasL: 29.4, avantbrasL: 73.2, mainL: 0.2 };
+  const memoH = {};
+  const homme = (g, objet) => {
+    const o = { y: g.G, pose: 'debout-perche-devant', echelle: S, angles: BRAS, prise: { P: 40, L: 40 } };
+    const k = [g.px, g.G].join(',');
+    if (!memoH[k]) {
+      const c0 = F.corps(Object.assign({ x: g.px }, o));
+      const cP = [g.G1[0] + 16 * U[0], g.G1[1] + 16 * U[1]];
+      memoH[k] = { dx: cP[0] - c0.mainP.x, tete: c0.tete };
+    }
+    const m = memoH[k];
+    return objet === undefined ? m : F.corps(Object.assign({ x: g.px + m.dx, objetP: objet }, o));
   };
 
   // la perche, le manche, les ligatures et le bol, dessinés par une fonction de passage T
@@ -295,20 +318,12 @@ module.exports = (h) => {
     const g = geo(z), G = g.G, o = [], id = p => p;
     o.push(h.rect(0, G, z.l, 7, h.a.hachure('terre', 'aucun')), h.ligne(0, G, z.l, G, h.a.arete));
     o.push(foyer(g, id, 1));
-    // la perche et la louche
-    o.push(louche(g, id, 1, false));
-    // l'homme, loin en arrière, les deux mains sur la perche à la hanche
-    const G1 = g.G1, G2 = [G1[0] + 32 * U[0], G1[1] + 32 * U[1]];
-    let w = { proche: G2.slice(), loin: G1.slice() }, pers;
-    for (let i = 0; i < 10; i++) {
-      pers = h.formes.personnage({ x: g.px, y: G, pose: 'debout', echelle: S, penche: 3, regard: 12, mains: w });
-      for (const k of ['proche', 'loin']) {
-        const Wr = pers.poignets[k], F = pers.mains[k], cible = k === 'proche' ? G2 : G1;
-        const cm = [Wr[0] + (F[0] - Wr[0]) * 0.42, Wr[1] + (F[1] - Wr[1]) * 0.42];
-        w[k] = [w[k][0] + cible[0] - cm[0], w[k][1] + cible[1] - cm[1]];
-      }
-    }
-    o.push(String(pers));
+    // la zone où partent les éclats d'une pierre qui éclate : à hauteur de visage, autour du feu
+    const zx = g.xf, zr = 118, zh = 150;
+    o.push(h.path(`M ${f(zx - zr)},${f(G)} C ${f(zx - zr)},${f(G - zh * 1.05)} ${f(zx + zr)},${f(G - zh * 1.05)} ${f(zx + zr)},${f(G)}`, h.a.zone));
+    // l'homme, loin en arrière, debout de profil : les deux poings fermés sur la perche, le proche à
+    // la hanche, le lointain plus loin ; la perche et la louche passent dans ses poings
+    o.push(homme(g, louche(g, id, 1, false)).toString());
     // loupe sur la louche : le manche lié sous la perche, le bol qui verse
     loupe(o, g.M, g.loupe, g.k, 'k3704-louche', T => louche(g, T, g.k, true));
     return o.join('\n');
@@ -340,13 +355,15 @@ module.exports = (h) => {
     // l'eau qui tombe de la louche, hors du cadre
     const goutte = (x, y, r) => h.path(`M ${f(x)},${f(y - 2.2 * r)} C ${f(x + 1.1 * r)},${f(y - 0.4 * r)} ${f(x + r)},${f(y + r)} ${f(x)},${f(y + r)} C ${f(x - r)},${f(y + r)} ${f(x - 1.1 * r)},${f(y - 0.4 * r)} ${f(x)},${f(y - 2.2 * r)} Z`, W(h.a.detail));
     for (let y = top - 14; y > 8; y -= 30) o.push(goutte(cx + 1, y, 3.6));
+    // le point à contrôler : la fente — ce qui craque, se fend ou s'écaille, on le jette
+    o.push(h.controle(cx, yc - 6, 16));
     return o.join('\n');
   };
 
   return {
     ref: '37-04',
     titre: 'Trier et éprouver les pierres du sauna',
-    desc: 'Six pierres posées au sol, au même cadrage : la bonne, foncée, dense et sans couches, puis les cinq à jeter — feuilletée, pâle et grenue de quartz, piquée de cubes dorés de pyrite, poreuse et friable, et le galet pris dans le ruisseau. En bas, l’épreuve au feu dehors : les pierres dans le feu, l’homme loin en arrière qui jette la première eau avec une louche liée au bout d’une perche, et la pierre douteuse qui éclate.',
+    desc: 'Six pierres posées au sol, au même cadrage : la bonne, foncée, dense et sans couches, puis les cinq à jeter — feuilletée, pâle et grenue de quartz, piquée de cubes dorés de pyrite, poreuse et friable, et le galet pris dans le ruisseau. En bas, l’épreuve au feu dehors : les pierres dans le feu, l’homme loin en arrière, hors du tireté rouge qui marque la zone où partent les éclats, jette la première eau avec une louche liée au bout d’une perche ; et la pierre douteuse qui éclate, sa fente cerclée de rouge.',
     format: 'pleine',
     disposition: [['garder', 'feuillet', 'quartz'], ['pyrite', 'poreuse', 'eau'], ['epreuve', 'eclate']],
     hauteurs: [1, 1, 1.75],
@@ -389,7 +406,7 @@ module.exports = (h) => {
           const g = geo(z), L = g.loupe;
           return [
             { n: 7, rond: [g.xf - 100, g.G - 70], cible: [g.xf - 60, g.G - 14], texte: 'chaque pierre au feu, avant de la monter' },
-            { n: 8, rond: [g.px + 44, 16], cible: [g.px + 12, 44], texte: 'tous en arrière, personne penché dessus' },
+            { n: 8, rond: [g.px + 64, 16], cible: (() => { const m = homme(g), t = m.tete; return [t.x + m.dx + 4, t.y - 10]; })(), texte: 'tous en arrière, personne penché dessus' },
             { n: 9, rond: [L.c[0] - L.r - 18, 18], cible: [L.c[0] - 28, L.c[1] - 14], texte: 'louche liée au bout d’une perche' },
           ];
         },

@@ -1,8 +1,15 @@
 // Planche 89-01a — Le fût de la raquette, fendre et assouplir (ch. 89, étapes 2 à 6 et 9 à 11)
+// La charte : le bâton qu'on assouplit et les deux bouts de l'enture au contour fort ; le flanc
+// droit du chaudron à l'ombre. Pas de gris sur le bout de la bille ni sur la coupe (les cernes
+// disent déjà la matière). Le rouge : le cœur, à laisser hors du fût (le point qui casse), et le
+// va-et-vient (le geste). La flèche de l'éclaté reste noire : c'est la pièce qui se déplace.
+// En passant : le manche de la petite brosse sortait de sa vue et entrait dans celle de la coupe ;
+// il est raccourci. La flèche du va-et-vient touchait le titre de la vue : elle passe sous le bâton.
+// La pastille 11 était assise sur le bâton : elle descend dessous.
 module.exports = (h) => ({
   ref: '89-01a',
   titre: 'Le fût de la raquette, fendre et assouplir',
-  desc: 'En haut à gauche, le bout d’une bille de bouleau fendue en quatre, un coin de bois enfoncé dans la fente du haut ; dans le quart du haut à droite, tout près de l’écorce, la section d’une baguette tracée le long des cernes, sa face qui regarde le cœur marquée d’un trait épais, et en tireté les fentes qui la détachent. En haut à droite, la section du bâton en grand : plus haut qu’épais, la face du cœur à gauche, les cernes qui courent le long des deux grandes faces, une encoche en V sur le dessus, le dessous arrondi et un peu plus large ; cotes 27 mm de haut, 11 à 14 mm d’épais. Au milieu, le bâton tenu au-dessus d’un chaudron qui bout sur le poêle, le milieu du bâton mouillé, une brosse qui le frotte, une double flèche pour le va-et-vient ; à droite, la brosse en grand : un bâton fendu au bout, un chiffon coincé dans la fente. En bas, le fût en deux pièces : à gauche les deux bouts entaillés chacun à mi-épaisseur sur une longue longueur, l’un au-dessus de l’autre, une flèche qui les réunit ; au milieu les deux bouts réunis sous une ligature serrée de babiche ; à droite, une petite raquette vue de dessus, pointe en haut, l’enture marquée sur un côté entre les deux traverses.',
+  desc: 'En haut à gauche, le bout d’une bille de bouleau fendue en quatre, un coin de bois enfoncé dans la fente du haut ; dans le quart du haut à droite, tout près de l’écorce, la section d’une baguette tracée le long des cernes, sa face qui regarde le cœur marquée d’un trait épais, et en tireté les fentes qui la détachent. En haut à droite, la section du bâton en grand : plus haut qu’épais, la face du cœur à gauche, les cernes qui courent le long des deux grandes faces, une encoche en V sur le dessus, le dessous arrondi et un peu plus large ; cotes 27 mm de haut, 11 à 14 mm d’épais. Au milieu, le bâton tenu au-dessus d’un chaudron qui bout sur le poêle (dessus en fonte, caisse du foyer avec sa porte et le feu), le milieu du bâton mouillé, une petite brosse qui le frotte, une double flèche pour le va-et-vient ; à droite, la brosse en grand : les deux mâchoires du bâton fendu montent de part et d’autre du chiffon et le pincent, le chiffon plié passe entre elles et retombe en deux lobes, la fente descend sous le chiffon. En bas, le fût en deux pièces : à gauche les deux bouts entaillés chacun à mi-épaisseur sur une longue longueur, l’un au-dessus de l’autre, une flèche qui les réunit ; au milieu les deux bouts réunis sous une ligature serrée de babiche ; à droite, une petite raquette vue de dessus, pointe en haut, l’enture marquée sur un côté entre les deux traverses.',
   format: 'pleine',
   disposition: [['bille', 'coupe'], ['eponger'], ['enture']],
   hauteurs: [3, 2.1, 1.5],
@@ -30,6 +37,8 @@ module.exports = (h) => ({
         // le coin, dans la fente du haut
         out.push(h.chemin(B.coin, h.a.blanc, true));
         out.push(h.chemin(B.coin, h.a.hachure('bois', 'arete'), true));
+        // le point qui casse : le cœur, qui ne va jamais dans un fût
+        out.push(h.controle(B.cx, B.cy, 13));
         return out.join('\n');
       },
       renvois: z => {
@@ -76,11 +85,16 @@ module.exports = (h) => ({
       dessin: z => {
         const E = eponger(z, h);
         return [
-          // poêle et chaudron
-          h.ligne(E.poele.x0 + 10, E.poele.y + 10, E.poele.x0 + 10, z.h, h.a.arete),
-          h.ligne(E.poele.x1 - 10, E.poele.y + 10, E.poele.x1 - 10, z.h, h.a.arete),
+          // poêle : caisse du foyer avec sa porte, dessus en fonte ; coupé au bas de la vue
+          h.path(`M${E.poele.x0 + 8},${z.h} L${E.poele.x0 + 8},${E.poele.y + 10} L${E.poele.x1 - 8},${E.poele.y + 10} L${E.poele.x1 - 8},${z.h}`, h.a.blanc),
+          h.path(`M${E.poele.x0 + 8},${z.h} L${E.poele.x0 + 8},${E.poele.y + 10} L${E.poele.x1 - 8},${E.poele.y + 10} L${E.poele.x1 - 8},${z.h}`, h.a.contour),
+          h.rect(E.porte.x, E.porte.y, E.porte.l, E.porte.h, h.a.arete),
+          h.rect(E.porte.x + 5, E.porte.y + 5, E.porte.l - 10, E.porte.h - 10, h.a.fin),
+          h.rect(E.porte.x + E.porte.l - 16, E.porte.y + E.porte.h / 2 - 3, 12, 6, h.a.plein),
+          ...E.flammes.map(f => h.path(f, h.a.fin)),
           h.rect(E.poele.x0, E.poele.y, E.poele.x1 - E.poele.x0, 10, h.a.hachure('metal', 'arete')),
           h.path(E.chaudron, h.a.blanc),
+          h.path(E.ombre, h.a.ombre),
           h.path(E.chaudron, h.a.contour),
           h.ligne(E.cx - 62, E.yBord + 5, E.cx + 62, E.yBord + 5, h.a.detail),
           ...E.vapeur.map(v => h.path(v, h.a.fin)),
@@ -88,16 +102,11 @@ module.exports = (h) => ({
           h.path(E.baton, h.a.blanc),
           ...E.fil.map(f => h.ligne(f[0], f[1], f[2], f[1], h.a.fin)),
           h.rect(E.zone[0], E.yB, E.zone[1] - E.zone[0], E.hB, h.a.hachure('eau', 'aucun')),
-          h.path(E.baton, h.a.arete),
+          h.path(E.baton, h.a.contour),
           // la brosse sur le bâton
-          h.chemin(E.manche, h.a.blanc, true),
-          h.chemin(E.manche, h.a.arete, true),
-          h.path(E.chiffon, h.a.blanc),
-          h.path(E.chiffon, h.a.arete),
-          ...E.plis.map(p => h.path(p, h.a.fin)),
-          // le va-et-vient
-          h.fleche(`M${E.fl[0]},${E.fl[2]} L${E.fl[1]},${E.fl[2]}`),
-          h.fleche(`M${E.fl[1]},${E.fl[2]} L${E.fl[0]},${E.fl[2]}`),
+          ...E.petite,
+          // le va-et-vient : le geste
+          h.geste(`M${E.fl[0]},${E.fl[2]} L${E.fl[1]},${E.fl[2]}`, { double: true }),
           // la brosse, en grand
           ...E.brosse.map(b => b),
         ].join('\n');
@@ -107,7 +116,7 @@ module.exports = (h) => ({
         return [
           { n: 9, rond: [E.bx - 62, 18], cible: [E.bx - 20, E.yb - 6], texte: 'bâton fendu, chiffon coincé' },
           { n: 10, rond: [E.poele.x0 - 24, E.yBord + 24], cible: [E.cx - 58, E.yBord + 26], texte: 'eau qui bout, sur le poêle' },
-          { n: 11, rond: [E.cx - 70, 18], cible: [E.cx - 38, E.yB + 4], texte: 'milieu du bâton : la pointe' },
+          { n: 11, rond: [E.cx - 78, E.yB + E.hB + 22], cible: [E.cx - 38, E.yB + 6], texte: 'milieu du bâton : la pointe' },
           { n: 12, rond: [E.cx + 112, E.yB + E.hB + 22], cible: [E.cx + 36, E.yB + E.hB + 3], texte: 'les deux faces, sans arrêt' },
         ];
       },
@@ -120,15 +129,15 @@ module.exports = (h) => ({
         const N = enture(z);
         return [
           // éclaté : le bout de droite au-dessus, le bout de gauche en dessous
-          h.path(N.hautEc, h.a.blanc), ...N.filHautEc.map(f => h.path(f, h.a.fin)), h.path(N.hautEc, h.a.arete),
-          h.path(N.basEc, h.a.blanc), ...N.filBasEc.map(f => h.path(f, h.a.fin)), h.path(N.basEc, h.a.arete),
+          h.path(N.hautEc, h.a.blanc), ...N.filHautEc.map(f => h.path(f, h.a.fin)), h.path(N.hautEc, h.a.contour),
+          h.path(N.basEc, h.a.blanc), ...N.filBasEc.map(f => h.path(f, h.a.fin)), h.path(N.basEc, h.a.contour),
           h.fleche(N.flEc),
           // réuni et ligaturé
           h.path(N.ass, h.a.blanc), ...N.filAss.map(f => h.path(f, h.a.fin)),
           h.path(N.joint, h.a.cache),
           h.path(N.epaulements, h.a.arete),
           ...N.tours.map(t => h.chemin(t, h.a.blanc, true) + '\n' + h.chemin(t, h.a.detail, true)),
-          h.path(N.ass, h.a.arete),
+          h.path(N.ass, h.a.contour),
           // où va l'enture
           h.path(N.mini, h.a.arete),
           ...N.miniTrav.map(t => h.ligne(t[0], t[1], t[2], t[3], h.a.arete)),
@@ -195,10 +204,10 @@ function bille(z) {
     ]);
     return { secteur, cernes, ecorce, stries, moelle: T([cx, cy]).map(r1), T };
   });
-  // la baguette : 27 mm le long des cernes, 11 mm vers le cœur, juste sous l'écorce
+  // la baguette : 27 mm le long des cernes, environ 13 mm vers le cœur, juste sous l'écorce
   const T0 = quarts[0].T;
-  const ro = R - 9, ri = ro - 11 * k, rm = (ro + ri) / 2;
-  const da = (27 * k / 2) / rm * 180 / Math.PI;
+  const ro = R - 9, ri = ro - 13 * k, rm = (ro + ri) / 2;
+  const da = (27 * k / 2) / ro * 180 / Math.PI;   // 27 mm mesurés sur l'arc extérieur : secteur plus court, proportions de la coupe
   const b0 = -45 - da, b1 = -45 + da;
   const baguette = arc(cx, cy, ro, b0, b1, 12).concat(arc(cx, cy, ri, b1, b0, 12)).map(T0);
   const faceCoeur = arc(cx, cy, ri, b0, b1, 12).map(T0);
@@ -238,12 +247,16 @@ function coupe(z) {
 // ─── Assouplir ──────────────────────────────────────────────────────────────────────────
 function eponger(z, h) {
   const cx = 250;                                  // le chaudron, sous le milieu du bâton
-  const yP = z.h - 20;                             // dessus du poêle
+  const yP = z.h - 62;                             // dessus du poêle
   const poele = { x0: cx - 125, x1: cx + 125, y: yP };
+  const porte = { x: cx - 50, y: yP + 20, l: 100, h: 38 };
+  const flammes = [-24, 0, 24].map(o => `M${cx + o - 7},${yP + 54} C${cx + o - 9},${yP + 44} ${cx + o + 2},${yP + 42} ${cx + o},${yP + 31} C${cx + o + 8},${yP + 40} ${cx + o + 9},${yP + 48} ${cx + o + 7},${yP + 54}`);
   const yBord = yP - 58, yFond = yP;
   const chaudron = `M${cx - 64},${yBord} L${cx + 64},${yBord} L${cx + 64},${yBord + 6} L${cx + 60},${yBord + 8} `
     + `L${cx + 58},${yFond - 10} Q${cx + 58},${yFond} ${cx + 48},${yFond} L${cx - 48},${yFond} Q${cx - 58},${yFond} ${cx - 58},${yFond - 10} `
     + `L${cx - 60},${yBord + 8} L${cx - 64},${yBord + 6} Z`;
+  // le flanc droit du chaudron, à l'ombre (lumière en haut à gauche)
+  const ombre = `M${cx + 24},${yBord + 8} L${cx + 60},${yBord + 8} L${cx + 58},${yFond - 10} Q${cx + 58},${yFond} ${cx + 48},${yFond} L${cx + 24},${yFond} Z`;
 
   // le bâton, 27 mm de haut, vu de côté ; ses deux bouts continuent hors du dessin
   const yB = yBord - 44, hB = 15, xB0 = 22, xB1 = 452;
@@ -254,31 +267,42 @@ function eponger(z, h) {
     const x = cx + o, y = yBord - 4;
     return `M${x},${y} C${x - 6},${y - 8} ${x + 6},${y - 14} ${x},${y - 22}`;
   });
-  // la brosse : manche qui vient d'en haut à droite, chiffon contre la face du bâton
+  // la petite brosse : même forme, la tête contre la face du bâton, le manche vers le haut à droite
   const px = cx + 30, py = yB + hB / 2;
-  const ang = rad(-38), ux = Math.cos(ang), uy = Math.sin(ang), nx = -uy, ny = ux;
-  const L = 150, w = 3.2;
-  const m0 = [px + 10 * ux, py + 10 * uy], m1 = [px + L * ux, py + L * uy];
-  const manche = [[m0[0] + nx * w, m0[1] + ny * w], [m1[0] + nx * w, m1[1] + ny * w], [m1[0] - nx * w, m1[1] - ny * w], [m0[0] - nx * w, m0[1] - ny * w]];
-  const chiffon = `M${px - 13},${py - 4} C${px - 14},${py - 13} ${px - 2},${py - 16} ${px + 6},${py - 12} C${px + 15},${py - 16} ${px + 20},${py - 6} ${px + 16},${py} `
-    + `C${px + 20},${py + 7} ${px + 10},${py + 14} ${px + 2},${py + 10} C${px - 6},${py + 15} ${px - 16},${py + 8} ${px - 13},${py - 4} Z`;
-  const plis = [`M${px - 6},${py - 8} Q${px},${py - 2} ${px - 2},${py + 6}`, `M${px + 6},${py - 9} Q${px + 9},${py} ${px + 6},${py + 7}`];
-  const fl = [xB0 + 40, xB0 + 130, yB - 12];
+  const petite = brosseDessin(h, px, py - 2, -128, 0.42, 90);   // le manche reste hors de la vue voisine
+  const fl = [xB0 + 40, xB0 + 130, yB + hB + 12];   // sous le bâton : au-dessus, elle touchait le titre de la vue
   // la brosse en grand, à droite
   const bx = z.l - 60, yb = 36;
-  const brosse = [];
-  // le manche, fendu au bout : les deux moitiés s'écartent un peu, la fente descend sous le chiffon
-  brosse.push(h.path(`M${bx - 6.5},${z.h - 4} L${bx - 6.5},${yb + 70} L${bx - 8.5},${yb + 12} L${bx + 8.5},${yb + 12} L${bx + 6.5},${yb + 70} L${bx + 6.5},${z.h - 4} Z`, h.a.blanc));
-  [-1, 1].forEach(s => brosse.push(h.path(`M${bx + s * 6.5},${z.h - 4} L${bx + s * 6.5},${yb + 70} L${bx + s * 8.5},${yb + 12}`, h.a.arete)));
-  brosse.push(h.path(`M${bx},${yb + 86} L${bx - 1.8},${yb + 12} L${bx + 1.8},${yb + 12} Z`, h.a.plein));
-  // le chiffon, coincé dans la fente et bouchonné autour du bout
-  const ch = `M${bx - 5},${yb + 18} C${bx - 18},${yb + 24} ${bx - 27},${yb + 12} ${bx - 25},${yb} C${bx - 27},${yb - 14} ${bx - 12},${yb - 23} ${bx},${yb - 18} `
-    + `C${bx + 12},${yb - 24} ${bx + 28},${yb - 12} ${bx + 25},${yb + 2} C${bx + 27},${yb + 14} ${bx + 16},${yb + 24} ${bx + 5},${yb + 18} `
-    + `C${bx + 3},${yb + 30} ${bx - 3},${yb + 30} ${bx - 5},${yb + 18} Z`;
-  brosse.push(h.path(ch, h.a.blanc));
-  brosse.push(h.path(ch, h.a.arete));
-  brosse.push(h.path(`M${bx - 14},${yb - 12} Q${bx - 8},${yb} ${bx - 14},${yb + 12} M${bx + 4},${yb - 16} Q${bx + 10},${yb - 2} ${bx + 3},${yb + 10} M${bx + 16},${yb - 8} Q${bx + 20},${yb + 2} ${bx + 15},${yb + 12}`, h.a.fin));
-  return { cx, poele, yBord, chaudron, baton: batonD, yB, hB, fil, zone, vapeur, manche, chiffon, plis, fl, bx, yb, brosse };
+  const brosse = brosseDessin(h, bx, yb, 0, 1, z.h - 4 - yb);
+  return { cx, poele, porte, flammes, yBord, chaudron, ombre, baton: batonD, yB, hB, fil, zone, vapeur, petite, fl, bx, yb, brosse };
+}
+
+// La brosse : un bâton fendu dont les deux mâchoires montent de part et d'autre du chiffon
+// et le pincent ; le chiffon plié passe entre elles et retombe en deux lobes. Repère local :
+// (0,0) au haut des mâchoires, le manche vers +y sur la longueur L ; ang en degrés, s l'échelle.
+function brosseDessin(h, ox, oy, ang, s, L) {
+  const c = Math.cos(rad(ang)), sn = Math.sin(rad(ang));
+  const M = (x, y) => r1(ox + s * (x * c - y * sn)) + ',' + r1(oy + s * (x * sn + y * c));
+  const d = (...seg) => seg.map(t => typeof t === 'string' ? t : M(t[0], t[1])).join(' ');
+  const Ls = L / s;
+  const out = [];
+  // le chiffon, derrière : la boucle du pli au-dessus des mâchoires et les deux lobes qui retombent
+  const chiffon = d('M', [-2, 30], 'L', [-2, -6], 'C', [-6, -22], [-32, -20], [-32, -4],
+    'C', [-34, 12], [-28, 30], [-18, 36], 'C', [-14, 30], [-14, 14], [-13, 6], 'L', [-13, -2],
+    'L', [13, -2], 'L', [13, 6], 'C', [14, 14], [15, 24], [18, 36],
+    'C', [28, 30], [34, 12], [32, -4], 'C', [32, -20], [6, -22], [2, -6], 'L', [2, 30], 'Z');
+  // les deux mâchoires, qui s'écartent un peu vers le haut ; la fente descend jusqu'à y = 74
+  const jaw = sg => d('M', [sg * 1.8, 0], 'L', [sg * 12, 0], 'L', [sg * 9, 58], 'L', [sg * 8, Ls], 'L', [0, Ls], 'L', [0, 74], 'L', [sg * 1.8, 0], 'Z');
+  out.push(h.path(chiffon, h.a.blanc), h.path(chiffon, h.a.arete));
+  out.push(h.path(d('M', [-12, -12], 'Q', [-20, 0], [-18, 16], 'M', [12, -12], 'Q', [20, 0], [18, 16]), h.a.fin));
+  [-1, 1].forEach(sg => {
+    out.push(h.path(jaw(sg), h.a.blanc));
+    out.push(h.path(d('M', [sg * 8, Ls], 'L', [sg * 9, 58], 'L', [sg * 12, 0], 'L', [sg * 1.8, 0]), h.a.arete));
+  });
+  // la fente, et le chiffon qui la traverse entre les mâchoires
+  out.push(h.path(d('M', [0, 80], 'L', [-1.8, 30], 'L', [1.8, 30], 'Z'), h.a.plein));
+  out.push(h.path(d('M', [-1.8, 0], 'L', [-1.8, 30], 'M', [1.8, 0], 'L', [1.8, 30]), h.a.fin));
+  return out;
 }
 
 // ─── L'enture ───────────────────────────────────────────────────────────────────────────

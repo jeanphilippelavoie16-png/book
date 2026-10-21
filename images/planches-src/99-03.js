@@ -154,7 +154,8 @@ module.exports = (h) => {
       h.chemin(foin, h.a.hachure('paille', 'contour'), true),
       h.chemin(vide, `fill="#FFFFFF" stroke="none"`, true),
       // la perche de derrière, vue ; puis celle du plan de coupe, coupée
-      perche(...P(piedB), ...P(bout(piedB)), rp, `fill="#FFFFFF" stroke="${NOIR}" stroke-width="1.4" stroke-linejoin="round"`),
+      // (la charte : la perche de derrière recule en gris loin)
+      perche(...P(piedB), ...P(bout(piedB)), rp, `fill="#E6E6E6" stroke="${NOIR}" stroke-width="1.4" stroke-linejoin="round"`),
       perche(...P(piedA), ...P(bout(piedA)), rp, h.a.hachure('bois', 'arete')),
       h.ellipse(...P(croix), 4.5, 3.5, h.a.plein),
     ];
@@ -180,7 +181,14 @@ module.exports = (h) => {
     const r = alea(4411);
     const out = [sol(z, c), rangeePierres(c, pierreAt)];
     const mur = [...flanc.map(([x, y]) => [-x, y]).reverse(), ...flanc];
-    out.push(h.chemin(mur.map(P), `fill="#FFFFFF" stroke="${NOIR}" stroke-width="2.4" stroke-linejoin="round"`, true));
+    // La charte : le flanc droit de la meule est à l'ombre (lumière en haut à gauche), une bande
+    // franche découpée par le contour ; la coiffe a la même, en pointe jusqu'au sommet
+    const XO = 0.45 * G.Rs;
+    out.push(h.chemin(mur.map(P), h.a.blanc, true));
+    out.push(`<clipPath id="om-9903-mur">${h.chemin(mur.map(P), 'fill="none"', true)}</clipPath>`);
+    { const a = P([XO, G.Hc - 0.02]), b = P([G.Rs + 0.05, G.Hb + 0.02]);
+      out.push(`<g clip-path="url(#om-9903-mur)">${h.rect(a[0], a[1], b[0] - a[0], b[1] - a[1], h.a.ombre)}</g>`); }
+    out.push(h.chemin(mur.map(P), `fill="none" stroke="${NOIR}" stroke-width="2.4" stroke-linejoin="round"`, true));
     // le foin du flanc, peigné vers le bas
     const dans = (x, y) => {
       if (y < G.Hc + 0.03 || y > G.Hb - 0.03) return false;
@@ -198,7 +206,10 @@ module.exports = (h) => {
     const pBas = PIECES[0], pHaut = PIECES[PIECES.length - 1];
     const sil = [QS(pBas.sLo, 0, -1), QS(pBas.sLo, G.t, -1), QS(G.sCap, 2 * G.t, -1), [0, -2 * G.t * kApex],
       QS(G.sCap, 2 * G.t, 1), QS(pBas.sLo, G.t, 1), QS(pBas.sLo, 0, 1)];
-    out.push(h.chemin(sil.map(P), `fill="#FFFFFF" stroke="${NOIR}" stroke-width="2.4" stroke-linejoin="round"`, true));
+    out.push(h.chemin(sil.map(P), h.a.blanc, true));
+    out.push(`<clipPath id="om-9903-coiffe">${h.chemin(sil.map(P), 'fill="none"', true)}</clipPath>`);
+    out.push(`<g clip-path="url(#om-9903-coiffe)">${h.chemin([P([0, -3 * G.t * kApex]), P([G.Rs + 0.06, G.Hc + 0.04]), P([XO, G.Hc + 0.04])], h.a.ombre, true)}</g>`);
+    out.push(h.chemin(sil.map(P), `fill="none" stroke="${NOIR}" stroke-width="2.4" stroke-linejoin="round"`, true));
     const bords = PIECES.map((p) => QL(p.sLo, p.oLo + G.t)).concat([QL(G.sCap, 2 * G.t)]);
     const rJ = alea(77);
     bords.forEach((b, k) => {
@@ -286,14 +297,29 @@ module.exports = (h) => {
     out.push(h.chemin(FOIN.map(P), h.a.hachure('paille', 'contour'), true));
     out.push(h.chemin([piedA, croix, piedB].map(P), `fill="#FFFFFF" stroke="none"`, true));
     const rp = G.rp * Sd;
-    out.push(perche(...P(piedB), ...P(bout(piedB)), rp, `fill="#FFFFFF" stroke="${NOIR}" stroke-width="1.4" stroke-linejoin="round"`));
-    out.push(perche(...P(piedA), ...P(bout(piedA)), rp, h.a.hachure('bois', 'arete')));
-    // la ligature autour du croisement
-    const tours = [-0.02, -0.0067, 0.0067, 0.02].map((dy) => {
-      const y = G.yX + dy;
-      return { pts: [P([-0.028, y + 0.004]), P([0.028, y - 0.004])], ep: 3.6, debut: 'coupe', fin: 'coupe' };
-    });
-    out.push(String(h.formes.cordes(tours, { trait: 'detail' })));
+    // trois perches, bouts sciés net, qui se croisent à la ligature et s'arrêtent juste au-dessus
+    const net = (a, b, at) => {
+      const L = Math.hypot(b[0] - a[0], b[1] - a[1]), nx = -(b[1] - a[1]) / L * rp, ny = (b[0] - a[0]) / L * rp;
+      return h.chemin([[a[0] + nx, a[1] + ny], [b[0] + nx, b[1] + ny], [b[0] - nx, b[1] - ny], [a[0] - nx, a[1] - ny]], at, true);
+    };
+    const bord = `fill="#E6E6E6" stroke="${NOIR}" stroke-width="1.4" stroke-linejoin="round"`;   // la charte : derrière le plan de coupe
+    const piedM = [-G.rt * 0.15, G.Hb];
+    const bout2 = (pd) => { const dx = croix[0] - pd[0], dy = croix[1] - pd[1], l = Math.hypot(dx, dy); return [croix[0] + dx / l * 0.08, croix[1] + dy / l * 0.08]; };
+    out.push(net(P(piedM), P(bout2(piedM)), bord));
+    out.push(net(P(piedB), P(bout2(piedB)), bord));
+    out.push(net(P(piedA), P(bout2(piedA)), h.a.hachure('bois', 'arete')));
+    // la ligature : une corde, départ qui sort sous les tours à gauche, tours serrés qui montent,
+    // arrêt qui pend à droite
+    const C = h.formes, ec = 3.4, w = 0.03, n = 4, y0 = G.yX + 0.022, pas = 0.011;
+    out.push(String(C.corde([P([-w - 0.03, y0 + 0.05]), P([-w - 0.008, y0 + 0.012]), P([-w, y0 + 0.004])], { ep: ec, debut: 'libre', fin: 'ouvert', trait: 'detail' }).svg));
+    const tours = [];
+    for (let j = 0; j < n; j++) {
+      const ya = y0 - j * pas;
+      tours.push({ pts: [P([-w, ya]), P([0, ya - pas * 0.45]), P([w, ya - pas * 0.9])], ep: ec, debut: 'ouvert', fin: 'ouvert' });
+    }
+    out.push(String(C.cordes(tours, { trait: 'detail' }).svg));
+    const yf = y0 - (n - 1) * pas - pas * 0.9;
+    out.push(String(C.corde([P([w, yf]), P([w + 0.012, yf + 0.03]), P([w + 0.016, yf + 0.075])], { ep: ec, debut: 'ouvert', fin: 'libre', trait: 'detail' }).svg));
     // l'écorce du bas vers le haut, puis la pièce pliée sur la pointe
     const ecorce = `fill="#FFFFFF" stroke="${NOIR}" stroke-width="1.4" stroke-linejoin="round"`;
     for (const cote of [-1, 1]) for (const p of PIECES) {

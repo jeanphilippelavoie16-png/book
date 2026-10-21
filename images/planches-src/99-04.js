@@ -4,6 +4,10 @@
 // marche sur le tas sur des planches, parce qu'un foin brûlé en dedans laisse une cavité sous une
 // croûte qui cède ; le tas monté sur un lit de pierres qui laisse passer l'air (étape 60).
 // Aucune autre mesure : le tas, la planche et le diamètre de la tige ne sont pas cotés.
+// 13 oct. : l'homme est le corps simple (pose « sonde »). Rouge : le geste d'enfoncer, la zone de la
+// croûte qui cède. 14 oct. : les deux vues du bas passent aux mains simples (mains/moteur.js), la même
+// main droite : détendue (relachee, de profil), le dos contre la tige, puis le poing (prise-manche vue
+// côté paume) ; toucher-retirer devient la flèche rouge du geste.
 module.exports = (h) => {
   const A = h.a, F = h.formes;
 
@@ -33,15 +37,43 @@ module.exports = (h) => {
     return { s, yg, yb, yt, ypl, ycoeur, ysom };
   };
 
+  // Les mains simples (mains/moteur.js) des deux vues du bas, à une même échelle (0,716 par mm : la main de
+  // l'essai validé, 136 de long). poser : l'angle qui met l'axe de la prise sur `axe` (degrés à l'écran)
+  // et l'avant-bras du côté de `vers`.
+  const EM = 136 / 190;
+  const poser = (o, axe, vers) => {
+    const base = Object.assign({}, o, { angle: 0, avantbras: { longueur: 100 } }); delete base.objet;
+    const e0 = F.mainSimple(base); let best = null;
+    for (const k of [0, 180]) {
+      const a = axe - e0.prise.angle + k, m = F.mainSimple(Object.assign({}, base, { angle: a }));
+      const d = [m.coude[0] - m.poignet[0], m.coude[1] - m.poignet[1]], v = [vers[0] - m.poignet[0], vers[1] - m.poignet[1]];
+      const c = (d[0] * v[0] + d[1] * v[1]) / ((Math.hypot(d[0], d[1]) * Math.hypot(v[0], v[1])) || 1);
+      if (!best || c > best.c) best = { a, c };
+    }
+    return best.a;
+  };
+  // le dos de la main contre la tige : la main détendue (relachee), de profil côté pouce, les doigts en
+  // haut, repliés en cascade vers soi ; le dos de la main, droit, posé contre la tige
+  const mainDos = (z, xL, yh) => {
+    const o = { x: xL - 40, y: yh + 60, ancre: 'poignet', pose: 'relachee', vue: 'pouce', cote: 'droite', echelle: EM, angle: -90,
+      avantbras: { vers: [xL - 40, z.h + 400], bord: { x0: 0, y0: 0, x1: z.l, y1: z.h }, longueur: 'bord' } };
+    const m0 = F.mainSimple(o);
+    const a = m0.articulations['majeur.mcp'];
+    return F.mainSimple({ ...o, x: o.x + (xL - 0.6 - m0.boite.x1), y: o.y + (yh - a[1]) });
+  };
+
   const TIGE = 4;                             // largeur dessinée de la tige dans la coupe
+  // les bras du corps simple, calculés pour des poings à 1,15 et 1,30 m au-dessus de la planche, à
+  // 0,70 m devant les chevilles, l'axe de la prise vertical (la tige)
+  const BRAS = { brasP: 26.8, avantbrasP: 97.6, mainP: 90, brasL: 36.9, avantbrasL: 126.9, mainL: 90 };
 
   return {
     ref: '99-04',
     titre: 'La sonde du fenil',
-    desc: 'Encadré danger : que faire quand la tige est trop chaude pour la main. Coupe d’un tas de foin sur son lit de pierres : debout sur une planche posée en travers du dessus, par-dessus une cavité brûlée, un homme enfonce une tige de fer jusqu’au cœur du tas. À côté, la tige seule, cotée. En bas, la tige retirée, touchée d’abord du dos de la main, puis empoignée.',
+    desc: 'Encadré danger : que faire quand la tige est trop chaude pour la main. Coupe d’un tas de foin sur son lit de pierres : debout sur une planche posée en travers du dessus, par-dessus une cavité brûlée (la croûte qui cède, en tireté rouge), un homme enfonce une tige de fer jusqu’au cœur du tas (flèche rouge). À côté, la tige seule, cotée. En bas, la tige retirée, touchée d’abord du dos de la main, puis empoignée.',
     format: 'pleine',
     disposition: [['coupe', 'tige'], ['dos', 'prise']],
-    hauteurs: [1.8, 1],
+    hauteurs: [2, 1],
     largeurs: [[4.2, 1], [1, 1]],
     vues: {
       coupe: {
@@ -78,22 +110,24 @@ module.exports = (h) => {
           // la planche, posée en travers du dessus, par-dessus la cavité
           const x1 = X(-1.5), x2 = X(-0.07);
           out.push(h.rect(x1, g.ypl, x2 - x1, g.yt - g.ypl, A.hachure('bois', 'contour')));
+          // la zone qui cède : la croûte au-dessus de la cavité, où l'on ne marche que sur la planche
+          out.push(h.path(lisse([[-1.36, 2.5], [-1.34, 2.1], [-1.2, 1.72], [-0.85, 1.66], [-0.5, 1.72], [-0.36, 2.0], [-0.33, 2.5]].map(([x, y]) => [X(x), Yh(y)])), A.zone));
           // la tige, du haut au cœur du tas
-          out.push(h.rect(xc - TIGE / 2, g.ysom, TIGE, g.ycoeur - g.ysom, A.blanc));
-          out.push(h.rect(xc - TIGE / 2, g.ysom, TIGE, g.ycoeur - g.ysom, A.arete));
-          // l'homme debout sur la planche, les deux mains refermées sur la tige (les poignets juste
-          // avant elle : la main passe devant et la cache là où elle la tient)
-          out.push(F.personnage({ x: X(-0.42), y: g.ypl, pose: 'debout', echelle: s / 1000, penche: 22, regard: 30,
-            mains: { proche: [xc - 0.13 * s, g.ypl - 0.95 * s], loin: [xc - 0.13 * s, g.ypl - 1.16 * s] } }));
+          const tige = [h.rect(xc - TIGE / 2, g.ysom, TIGE, g.ycoeur - g.ysom, A.blanc),
+            h.rect(xc - TIGE / 2, g.ysom, TIGE, g.ycoeur - g.ysom, A.arete)].join('\n');
+          // l'homme debout sur la planche, penché sur la tige : le corps simple (pose « sonde »), les
+          // bras recalculés pour que les deux poings se ferment l'un au-dessus de l'autre sur la tige ;
+          // la tige passe devant le poing loin et dans le poing proche
+          out.push(String(F.corps({ x: xc - 0.7 * s, y: g.ypl, pose: 'sonde', echelle: s / 1000, angles: BRAS, objetP: tige })));
           // le geste : enfoncer
-          out.push(h.fleche(`M${xc + 14} ${g.ypl - 1.3 * s} L${xc + 14} ${g.ypl - 0.62 * s}`, A.contour));
+          out.push(h.geste(`M${xc + 14} ${g.ypl - 1.3 * s} L${xc + 14} ${g.ypl - 0.62 * s}`));
           return out.join('\n');
         },
         renvois: z => {
           const g = geo(z), s = g.s, xc = z.l * 0.56;
           const X = m => xc + m * s, Yh = m => g.yb - m * s;
           return [
-            { n: 1, rond: [X(0.75), g.ypl - 1.45 * s], cible: [xc + 2, g.ypl - 1.05 * s] },
+            { n: 1, rond: [X(0.75), g.ypl - 1.55 * s], cible: [xc + 2, g.ypl - 1.38 * s] },
             { n: 2, rond: [X(1.2), Yh(1.25)], cible: [xc + 2, g.ycoeur - 2] },
             { n: 3, rond: [X(-1.95), g.ypl - 0.5 * s], cible: [X(-1.3), g.ypl + 1] },
             { n: 4, rond: [X(-2.25), Yh(1.9)], cible: [X(-1.05), Yh(1.95)] },
@@ -119,19 +153,22 @@ module.exports = (h) => {
       },
       dos: {
         titre: 'Retirée : d’abord le dos de la main',
+        // La main à plat, de profil, tournée doigts en haut : le dos de la main (les jointures) vient
+        // contre la tige.
         dessin: z => {
-          const xr = z.l * 0.4, yh = z.h * 0.46, D = 20;
-          const m = F.main({ x: xr + 34, y: yh, pose: 'appui', vue: 'dos', bras: 56 });
+          const xr = z.l * 0.58, yh = z.h * 0.58, D = 20, xL = xr - D / 2;
           const bas = z.h - 18;
           return [
-            m,
             h.path(`M${xr - D / 2} 2 L${xr - D / 2} ${bas - 3} Q${xr - D / 2} ${bas} ${xr - D / 2 + 3} ${bas} L${xr + D / 2 - 3} ${bas} Q${xr + D / 2} ${bas} ${xr + D / 2} ${bas - 3} L${xr + D / 2} 2`, A.hachure('metal', 'contour')),
+            mainDos(z, xL, yh - 12).svg,
+            // toucher, retirer : perpendiculaire à la tige (le geste, charte : le rouge)
+            h.geste(`M${xL - 100} ${yh + 14} L${xL - 62} ${yh + 14}`, { double: true }),
           ].join('\n');
         },
         renvois: z => {
-          const xr = z.l * 0.4, yh = z.h * 0.46;
+          const xr = z.l * 0.58, yh = z.h * 0.58;
           return [
-            { n: 6, rond: [xr + 62, z.h - 22], cible: [xr + 11, yh + 8], texte: 'dos de la main, brièvement' },
+            { n: 6, rond: [xr + 70, z.h * 0.7], cible: [xr - 11, yh - 12], texte: 'dos de la main, brièvement' },
           ];
         },
       },
@@ -141,7 +178,11 @@ module.exports = (h) => {
           const xr = z.l * 0.58, yh = z.h * 0.46, D = 20;
           const bas = z.h - 18;
           const tige = h.path(`M${xr - D / 2} 2 L${xr - D / 2} ${bas - 3} Q${xr - D / 2} ${bas} ${xr - D / 2 + 3} ${bas} L${xr + D / 2 - 3} ${bas} Q${xr + D / 2} ${bas} ${xr + D / 2} ${bas - 3} L${xr + D / 2} 2`, A.hachure('metal', 'contour'));
-          return [tige, F.main({ x: xr, y: yh, pose: 'prise', vue: 'paume', diametre: D, bras: 44 })].join('\n');
+          // le poing (prise-manche vue côté paume) fermé sur la tige : elle entre par le haut du poing et
+          // ressort par le bas, derrière les doigts ; l'avant-bras sort à gauche
+          const o = { x: xr, y: yh, pose: 'prise-manche', vue: 'paume', cote: 'droite', echelle: EM, diametre: D / EM };
+          const vers = [-60, yh + 6];
+          return F.mainSimple({ ...o, angle: poser(o, 90, vers), objet: tige, avantbras: { vers, bord: { x0: 0, y0: 0, x1: z.l, y1: z.h }, longueur: 'bord' } }).svg;
         },
         renvois: z => {
           const xr = z.l * 0.58, yh = z.h * 0.46;

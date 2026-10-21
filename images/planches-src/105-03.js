@@ -13,8 +13,12 @@ module.exports = (h) => ({
         const rampe = bez3([19, G0], [23, G0], [27, 31], [X0, T0]);
         const surface = [[XG, G0]].concat(rampe, [[XD, T0]]);
         return [
-          h.path(D([[XG, HAUT_BOIS]].concat(surface, [[XD, HAUT_BOIS]]), true), h.a.hachure('bois', 'aucun')),
-          h.path(D(surface), h.a.arete),
+          h.path(D([[XB, HAUT_BOIS]].concat(surface.filter(p => p[0] >= XB), [[XD, HAUT_BOIS]]), true), h.a.hachure('bois', 'aucun')),
+          h.path(D([[XB, G0]].concat(surface.filter(p => p[0] > XB))), h.a.arete),
+          h.path(D([[XG + 0.5, G0], [9, G0]]), h.a.fin),
+          h.path(D([[XG + 0.5, T0], [X0, T0]]), h.a.fin),
+          h.fleche(D([[XG + 3, 30], [XG + 3, T0 - 0.2]]), h.a.fin),
+          h.fleche(D([[XG + 3, 30], [XG + 3, G0 + 0.2]]), h.a.fin),
           chaine(h, P, D, G0, XU0),
           h.path(D(COPEAU, true), h.a.blanc),
           h.path(D(COPEAU, true), h.a.hachure('bois', 'arete')),
@@ -25,7 +29,7 @@ module.exports = (h) => ({
         const { P } = repere(z);
         return [
           { n: 1, rond: P([67, -21]), cible: P([46, 22]), texte: 'gouge neuve : elle dépasse le limiteur' },
-          { n: 2, rond: P([4, 54]), cible: P([21.5, 18.5]), texte: 'marche du limiteur : l’épaisseur du copeau' },
+          { n: 2, rond: P([4, 54]), cible: P([XG + 3, 30]), texte: 'marche du limiteur : l’épaisseur du copeau' },
         ];
       },
     },
@@ -40,6 +44,8 @@ module.exports = (h) => ({
           h.path(D([[XG, hu], [XD, hu]]), h.a.arete),
           chaine(h, P, D, G0, XU),
           h.path(D(fantome), h.a.cache),
+          // charte : là où ça rate, le limiteur resté à sa hauteur d'origine
+          h.controle(...P([7, G0 - 3]), 9 * S(z)),
         ].join('\n');
       },
       renvois: z => {
@@ -74,7 +80,7 @@ module.exports = (h) => ({
           h.path(L.D([L.lime], true), h.a.hachure('metal', 'aucun')),
           h.path(L.D(L.limeBord), h.a.arete),
           h.cercle(...L.c, L.r, h.a.detail),
-          h.fleche(L.roule),
+          h.geste(L.roule),                         // charte : le geste, rouler la lime vers l'avant
         ].join('\n');
       },
       renvois: z => {
@@ -82,6 +88,7 @@ module.exports = (h) => ({
         const L = loupe(z);
         return [
           { n: 4, rond: P([66, 42]), cible: P([66, haut(XU) + 1.6]), texte: 'gabarit posé : on lime ce qui dépasse' },
+          { n: 6, rond: P([48, 60]), cible: L.Q([7.5, G1 + 1.7]), texte: 'lime plate, en bout : la rouler vers l’avant' },
           { n: 5, rond: P([40, 40]), cible: L.Q(POINT_ARRONDI), texte: 'coin avant arrondi ; vif, il accroche' },
         ];
       },
@@ -101,6 +108,7 @@ const XU = 52;                 // front de la gouge après les affûtages
 const HAUT_BOIS = 45;
 const EP_BAS = 19.4;           // dessous de la languette du gabarit
 const XG = -6, XD = 76;        // bords des vues de profil
+const XB = 3;                  // le bois de la vue « Neuve » s'arrête ici, pour laisser voir la marche
 const haut = x => +(T0 - (x - X0) * PENTE).toFixed(2);
 
 function bez3(p0, p1, p2, p3, n = 16) {
@@ -184,7 +192,7 @@ function chaine(h, P, D, g, x, rond = true) {
   const voisinArriere = [[XD, 0], [XD, 12], [59, 12], [56, 9], [56, 0]];
   const m = maillon(g, x, rond);
   return [
-    h.path(D([[XG, 0], [XD, 0], [XD, -13], [XG, -13]], true), h.a.blanc),
+    h.path(D([[XG, 0], [XD, 0], [XD, -13], [XG, -13]], true), h.a.loin),   // charte : le guide-chaîne, derrière la chaîne
     h.path(D([[XG, 0], [XD, 0]]), h.a.contour),
     h.path(D([[XG, -13], [XD, -13]]), h.a.arete),
     h.path(D(voisinAvant, true), h.a.blanc),
@@ -231,11 +239,7 @@ function loupe(z) {
   const dx = c[0] - a[0], dy = c[1] - a[1], dl = Math.hypot(dx, dy);
   const attache = `M${+(a[0] + dx / dl * ra).toFixed(1)},${+(a[1] + dy / dl * ra).toFixed(1)} L${+(c[0] - dx / dl * r).toFixed(1)},${+(c[1] - dy / dl * r).toFixed(1)}`;
   // la lime roule vers l'avant : arc hors du cercle, du dessus vers l'avant
-  const roule = [];
-  for (let i = 0; i <= 16; i++) {
-    const th = (80 + 60 * i / 16) * Math.PI / 180;
-    roule.push(P([CM[0] + (RM + 3) * Math.cos(th), CM[1] + (RM + 3) * Math.sin(th)]));
-  }
+  const roule = bez2([6.6, G1 + 3.9], [3, 25.4], [0.6, 22.6]).map(Q);
   return {
     c, r, Q, D, attache,
     roule: 'M' + roule.map(p => p.join(',')).join(' L'),

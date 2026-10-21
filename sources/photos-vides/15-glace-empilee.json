@@ -1,0 +1,92 @@
+{
+ "fichier": "15-glace-empilee.jpg",
+ "titre": "File:Ice shove on the shore, Quebec City.jpg",
+ "pageid": 163920010,
+ "requete": "https://commons.wikimedia.org/w/api.php?action=query&format=json&prop=imageinfo&iiprop=url%7Csize%7Csha1%7Cmime%7Cextmetadata&titles=File%3AIce+shove+on+the+shore%2C+Quebec+City.jpg&formatversion=2",
+ "lu_le": "2026-10-19",
+ "imageinfo": {
+  "size": 81280695,
+  "width": 8256,
+  "height": 5504,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/d/db/Ice_shove_on_the_shore%2C_Quebec_City.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+  "descriptionurl": "https://commons.wikimedia.org/wiki/File:Ice_shove_on_the_shore,_Quebec_City.jpg",
+  "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=163920010",
+  "sha1": "02987942c2954220c4d1bddf713ed39ceeb8f7e6",
+  "extmetadata": {
+   "DateTime": {
+    "value": "2025-04-21 14:26:21",
+    "source": "mediawiki-metadata",
+    "hidden": ""
+   },
+   "ObjectName": {
+    "value": "Ice shove on the shore, Quebec City",
+    "source": "mediawiki-metadata"
+   },
+   "CommonsMetadataExtension": {
+    "value": 1.2,
+    "source": "extension",
+    "hidden": ""
+   },
+   "Categories": {
+    "value": "Quebec City|CC-Zero|Self-published work|Media created with Nikon Z7ii provided by the Quebec WikiClub|Photographs of Quebec City by Wilfredor",
+    "source": "commons-categories",
+    "hidden": ""
+   },
+   "Assessments": {
+    "value": "",
+    "source": "commons-categories",
+    "hidden": ""
+   },
+   "ImageDescription": {
+    "value": "Slabs of river ice pushed up on the shore and left stranded, the effect known as an ice shove. Quebec City, Quebec, Canada.",
+    "source": "commons-desc-page"
+   },
+   "DateTimeOriginal": {
+    "value": "2025-02-08 14:29:22",
+    "source": "commons-desc-page"
+   },
+   "Credit": {
+    "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+    "source": "commons-desc-page"
+   },
+   "Artist": {
+    "value": "<a href=\"//commons.wikimedia.org/wiki/User:Wilfredor\" class=\"mw-redirect\" title=\"User:Wilfredor\">Wilfredor</a>",
+    "source": "commons-desc-page"
+   },
+   "LicenseShortName": {
+    "value": "CC0",
+    "source": "commons-desc-page",
+    "hidden": ""
+   },
+   "UsageTerms": {
+    "value": "Creative Commons Zero, Public Domain Dedication",
+    "source": "commons-desc-page"
+   },
+   "AttributionRequired": {
+    "value": "false",
+    "source": "commons-desc-page",
+    "hidden": ""
+   },
+   "LicenseUrl": {
+    "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "commons-desc-page"
+   },
+   "Copyrighted": {
+    "value": "True",
+    "source": "commons-desc-page",
+    "hidden": ""
+   },
+   "Restrictions": {
+    "value": "",
+    "source": "commons-desc-page",
+    "hidden": ""
+   },
+   "License": {
+    "value": "cc0",
+    "source": "commons-templates",
+    "hidden": ""
+   }
+  },
+  "mime": "image/jpeg"
+ }
+}

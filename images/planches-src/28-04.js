@@ -3,8 +3,14 @@
 // l'intérieur du poignet ; la bouteille de métal d'eau chaude roulée dans un linge sec ; le malade
 // couché, la compresse sur la cuisse ; la même, coupée par le milieu, couche par couche ; le linge
 // qui a servi part à la casserole. Aucune cote : le chapitre ne donne aucune mesure de la compresse.
+// Lot 3 (13 octobre) : le malade couché passe au corps simple de profil (couche-dos). Rouge : le geste
+// de rouler la bouteille dans le linge.
+// Mains simples (14 octobre) : tordre le linge à deux mains (prises.deuxMains : la droite en haut vue du dos, tournée
+// de 35°, la gauche en bas vue des doigts, le linge qui passe dans les deux poings) ; le poignet, paume en l'air
+// (porte, de profil côté pouce, penchée de 25°). Rouge : les deux sens de la torsion.
 module.exports = (h) => {
-  const A = h.a, F = h.formes;
+  const A = h.a, A_ = h.a, F = h.formes;
+  const PR = require(require('path').join(__dirname, '../../.claude/skills/planches/scripts/mains/prises.js'));
   const f = v => Math.round(v * 10) / 10;
   const pt = p => `${f(p[0])} ${f(p[1])}`;
   const trace = (Q, ferme = false) => 'M' + Q.map(pt).join(' L') + (ferme ? ' Z' : '');
@@ -69,56 +75,72 @@ module.exports = (h) => {
       h.ligne(x0 + L + 20.5, y - rc, x0 + L + 20.5, y + rc, A.fin), h.ligne(x0 + L + 24, y - rc, x0 + L + 24, y + rc, A.fin)].join('\n');
   };
 
-  // ─── 1. Tremper, essorer : les deux poings tordent le linge au-dessus du bol ─────────────
+  // ─── 1. Tremper, essorer : le linge tenu debout au-dessus du bol, tordu à deux mains ─────
+  // Vu du côté droit de celui qui tord : la main droite en haut, vue du dos, le pouce par-dessus ;
+  // la main gauche en bas, vue du côté des doigts qui passent devant le linge. Les deux avant-bras
+  // viennent de la gauche, les deux pouces vers le haut, les poignets qui tournent en sens contraires.
+  const tord = z => ({ xT: z.l * 0.64, y1: 40, y2: 106, e: 0.48, d: 15 });
+  const SM_TORD = 0.46;                         // les poings du modèle s11 : 51 de large, l'un sur l'autre
   const essorer = z => {
-    const yc = 62, xL = 40, xR = z.l - 40, xm = (xL + xR) / 2, e = 0.4;
+    const { xT, y1, y2, e, d } = tord(z);
     const out = [];
-    // le bol d'eau chaude, sous le milieu du linge
-    const yb = z.h - 44, rx = 36;
-    out.push(h.path(`M${xm - rx} ${yb} C${xm - rx + 2} ${yb + 28}, ${xm - 26} ${yb + 38}, ${xm} ${yb + 38} C${xm + 26} ${yb + 38}, ${xm + rx - 2} ${yb + 28}, ${xm + rx} ${yb}`, blanc(A.contour)));
+    // le bol d'eau chaude, sous le bout du linge
+    const yb = z.h - 30, rx = 34, xm = xT;
+    out.push(h.path(`M${xm - rx} ${yb} C${xm - rx + 2} ${yb + 26}, ${xm - 24} ${yb + 36}, ${xm} ${yb + 36} C${xm + 24} ${yb + 36}, ${xm + rx - 2} ${yb + 26}, ${xm + rx} ${yb}`, blanc(A.contour)));
     out.push(h.ellipse(xm, yb, rx, 7, blanc(A.contour)));
     out.push(h.ellipse(xm, yb + 2.5, rx - 5, 4.2, A.hachure('eau', 'detail')));
-    // les gouttes qui retombent dans le bol
-    out.push(goutte(xm - 3, yc + 20), goutte(xm + 4, yc + 39, 0.9), goutte(xm - 2, yc + 57, 0.85));
-    // les bouts du linge qui dépassent des poings, lâches
-    for (const s of [1, -1]) {
-      const x = s > 0 ? xR : xL, X = d => x + s * d;
-      out.push(h.path(`M${X(8)} ${yc - 9} C${X(22)} ${yc - 16}, ${X(30)} ${yc - 12}, ${X(34)} ${yc - 6} C${X(38)} ${yc + 8}, ${X(34)} ${yc + 26}, ${X(30)} ${yc + 36} C${X(24)} ${yc + 30}, ${X(16)} ${yc + 22}, ${X(8)} ${yc + 9} Z`, blanc(A.arete)));
-      out.push(h.path(`M${X(20)} ${yc - 12} C${X(26)} ${yc + 4}, ${X(28)} ${yc + 18}, ${X(30)} ${yc + 34}`, A.fin));
-    }
-    // le linge tordu : plus mince au milieu, les plis en spirale
-    const hw = x => 5.5 + 4 * Math.pow(Math.abs((x - xm) / (xR - xm)), 1.5);
-    const xs = []; for (let x = xL - 8; x <= xR + 8.01; x += 3) xs.push(x);
-    const haut = xs.map(x => [x, yc - hw(x)]), bas = xs.map(x => [x, yc + hw(x)]);
-    out.push(h.path(trace([...haut, ...bas.reverse()], true), blanc(A.arete)));
-    for (let x = xL + 6; x < xR - 10; x += 8) {
-      const a = hw(x), b = hw(x + 7);
-      out.push(h.path(`M${f(x)} ${f(yc - a)} Q${f(x + 1)} ${f(yc)} ${f(x + 7)} ${f(yc + b)}`, A.detail));
-    }
-    // le sens de la torsion : les deux poings tournent en sens contraires
-    const tour = (x, s) => h.fleche(`M${x - 6} ${yc - 14 * s} C${x - 1} ${yc - 22 * s}, ${x + 8} ${yc - 16 * s}, ${x + 8} ${yc - 2 * s} C${x + 8} ${yc + 12 * s}, ${x + 2} ${yc + 20 * s}, ${x - 5} ${yc + 17 * s}`, A.arete);
-    out.push(tour(xL + 28, -1), tour(xR - 36, 1));
-    // les poings, vus du dos de la main, les avant-bras qui descendent vers soi
-    out.push(F.main({ x: xR, y: yc, pose: 'prise', vue: 'dos', angle: -90, diametre: 19, echelle: e, bras: 120 }));
-    out.push(F.main({ x: xL, y: yc, pose: 'prise', vue: 'dos', cote: 'gauche', angle: 90, diametre: 19, echelle: e, bras: 120 }));
+    // le bout du haut, lâche, qui retombe par-dessus le poing
+    const haut = courbe([[xT - 5, y1 - 8], [xT - 7, y1 - 22], [xT - 4, y1 - 34], [xT + 4, y1 - 38], [xT + 10, y1 - 30], [xT + 13, y1 - 18], [xT + 6, y1 - 8]], true, 6);
+    out.push(h.path(trace(haut, true), blanc(A.arete)), h.path(trace(haut, true), sansTrait(A.hachure('eau', 'detail'))));
+    // le bout du bas, qui pend sous le poing et dégoutte
+    const bas = courbe([[xT - 6, y2 + 8], [xT - 8, y2 + 18], [xT - 10, y2 + 27], [xT - 5, y2 + 24], [xT - 1, y2 + 30], [xT + 3, y2 + 25], [xT + 8, y2 + 29], [xT + 9, y2 + 18], [xT + 6, y2 + 8]], true, 6);
+    out.push(h.path(trace(bas, true), blanc(A.arete)), h.path(trace(bas, true), sansTrait(A.hachure('eau', 'detail'))));
+    out.push(goutte(xT - 1, y2 + 39, 0.8), goutte(xT + 2, y2 + 50, 0.7));
+    // le linge tordu entre les deux poings : plus mince au milieu, les plis en spirale (l'objet que les mains tiennent)
+    const iL = out.length;
+    const ym = (y1 + y2) / 2, hw = y => d / 2 - 1.2 + 2.5 * Math.pow(Math.abs((y - ym) / (y2 - ym)), 1.5);
+    const ys = []; for (let y = y1 - 10; y <= y2 + 10.01; y += 2) ys.push(y);
+    out.push(h.path(trace([...ys.map(y => [xT - hw(y), y]), ...ys.slice().reverse().map(y => [xT + hw(y), y])], true), blanc(A.arete)));
+    for (let y = y1 + 10; y < y2 - 12; y += 6) out.push(h.path(`M${f(xT - hw(y))} ${f(y)} Q${f(xT)} ${f(y + 1)} ${f(xT + hw(y + 5))} ${f(y + 5)}`, A.detail));
+    // les deux mains (mains simples, prises.deuxMains) : le linge tordu passe DANS les deux poings, derrière les
+    // doigts. La droite en haut, vue du dos ; la gauche en bas, vue du côté des doigts ; les deux avant-bras viennent
+    // de la gauche et sortent du cadre. Le linge roulé fait 31 mm (d / e).
+    const linge = out.splice(iL).join('\n');
+    const bord = { x0: 0, y0: 0, x1: z.l, y1: z.h };
+    out.push(String(PR.deuxMains(F.mainSimple, { echelle: e, manche: { x0: xT, y0: y1 - 40, x1: xT, y1: y2 + 40, r: d / 2 }, objet: linge,
+      mains: [{ t: (y1 - (y1 - 40)) / (y2 - y1 + 80), vue: 'dos', cote: 'droite', diametre: d / e, rotation: [0, 35, 0], sens: 1, avantbras: { vers: [-200, y1], bord, bras: { pli: 0 } } },
+        { t: (y2 - (y1 - 40)) / (y2 - y1 + 80), vue: 'paume', cote: 'gauche', diametre: d / e, sens: 1, avantbras: { vers: [-200, y2], bord, bras: { pli: 0 } } }] })));
+    // le sens de la torsion : le poing du haut tourne vers soi, celui du bas vers l'autre côté
+    const tour = (y, s) => h.geste(`M${f(xT + 30)} ${f(y - 11 * s)} C${f(xT + 42)} ${f(y - 6 * s)}, ${f(xT + 42)} ${f(y + 7 * s)}, ${f(xT + 30)} ${f(y + 12 * s)}`);
+    out.push(tour(y1, 1), tour(y2, -1));
     return out.join('\n');
   };
 
-  // ─── 2. Tester : le linge plié posé sur l'intérieur du poignet ───────────────────────────
+  // ─── 2. Tester : le linge plié posé sur l'intérieur du poignet, la paume vers le haut ────
+  // L'avant-bras couché, vu du côté du pouce, la main relâchée, paume en l'air.
   const mainTest = z => {
-    const m = F.main({ x: z.l - 42, y: z.h * 0.46, pose: 'prise', vue: 'paume', angle: -28, diametre: 13, echelle: 0.6, bras: 130 });
-    const P = m.poignet, B = m.bras, u = norm([B[0] - P[0], B[1] - P[1]]), n = [-u[1], u[0]];
-    return { m, u, n, c: add(P, mul(u, 12)) };
+    const e = 0.64, x = z.l - 120, y = z.h * 0.52;
+    // la main gauche, paume en l'air, vue du côté du pouce, un peu d'en haut (main simple, porte, penchée de 25°) :
+    // les doigts à droite, l'avant-bras couché qui sort du cadre à gauche ; (x, y) au poignet
+    const m = F.mainSimple({ x, y, ancre: 'poignet', pose: 'porte', vue: 'pouce', cote: 'droite', angle: 0, rotation: [-25, 0, 0], echelle: e,
+      avantbras: { bord: { x0: 0, y0: 0, x1: z.l, y1: z.h }, bras: { pli: 0 } } });
+    // le dessus de l'avant-bras (l'intérieur du poignet, la paume en l'air), lu sur le contour de la main
+    const d0 = (String(m.svg).match(/<path d="([^"]+)" fill="#FFFFFF"/) || [])[1] || '';
+    const pts = d0.split(/[MLZ]/).map(t => t.trim()).filter(Boolean).map(t => t.split(/\s+/).map(Number));
+    const dessus = X => { let best = Infinity; for (let i = 0; i < pts.length; i++) { const a = pts[i], b = pts[(i + 1) % pts.length]; if ((a[0] - X) * (b[0] - X) < 0) best = Math.min(best, a[1] + (X - a[0]) / (b[0] - a[0]) * (b[1] - a[1])); } return best; };
+    const u = [1, 0], n = [0, -1], xc = x - 14;
+    return { m, u, n, P: [x, y], c: [xc, dessus(xc) - 0.5] };
   };
   const tester = z => {
     const { m, u, n, c } = mainTest(z);
-    const L = 15, W = 30;
-    // le linge plié en travers du poignet ; ses bords retombent de part et d'autre de l'avant-bras
+    const L = 16, H = 8;
+    // le linge plié en quatre, posé à plat sur l'intérieur du poignet : une galette mouillée qui
+    // épouse le dessus de l'avant-bras, les plis du bord bien visibles
     const coin = (a, b) => add(c, add(mul(u, a), mul(n, b)));
-    const Q = [coin(-L, -W), coin(-L * 0.2, -W - 3), coin(L, -W), coin(L + 2, 0), coin(L, W), coin(L * 0.2, W + 3), coin(-L, W), coin(-L - 2, 0)];
+    const Q = [coin(-L, 0), coin(-L - 1, H * 0.6), coin(-L + 2, H), coin(0, H + 1), coin(L - 2, H), coin(L + 1, H * 0.6), coin(L, 0), coin(L - 1, -2.5), coin(0, -3), coin(-L + 1, -2.5)];
     const linge = courbe(Q, true, 6);
     return [m.toString(), h.path(trace(linge, true), blanc(A.arete)), h.path(trace(linge, true), sansTrait(A.hachure('eau', 'detail'))),
-      h.path(trace(courbe([coin(-L + 4, -W + 3), coin(-L + 5, 0), coin(-L + 4, W - 3)])), A.fin)].join('\n');
+      h.path(trace(courbe([coin(-L + 3, H * 0.45), coin(0, H * 0.6), coin(L - 3, H * 0.45)])), A.fin)].join('\n');
   };
 
   // ─── 3. Rouler : la bouteille posée au bord du linge sec, puis roulée dedans ─────────────
@@ -132,7 +154,7 @@ module.exports = (h) => {
     out.push(bouteille(x1 + 14, yB, 108, rB));
     // le sens du roulé : le bord proche du linge passe par-dessus la bouteille et file vers le bord loin
     const xa = x1 + 70;
-    out.push(h.fleche(`M${xa - 8} ${yN + 8} C${xa - 34} ${yN - 8}, ${xa - 20} ${yB - 30}, ${xa + 6} ${yF + 20}`, A.arete));
+    out.push(h.geste(`M${xa - 8} ${yN + 8} C${xa - 34} ${yN - 8}, ${xa - 20} ${yB - 30}, ${xa + 6} ${yF + 20}`));
     // après : le rouleau, le fond de la bouteille à gauche, le goulot et le bouchon qui dépassent à droite
     const { yR, rR, xr1, xr2 } = rouleau(z), rb = rR - 5, rn = rb * 0.42, rc = rb * 0.52;
     out.push(h.path(`M${xr1} ${yR - rR} L${xr2} ${yR - rR} Q${xr2 + 4} ${yR} ${xr2} ${yR + rR} L${xr1} ${yR + rR} Z`, blanc(A.contour)));
@@ -148,40 +170,38 @@ module.exports = (h) => {
     return out.join('\n');
   };
 
-  // ─── 4. Couché : le malade sur le dos, la tête sur un oreiller, la compresse sur la cuisse ─
-  const ang = -89, eP = 0.2;
+  // ─── 4. Couché : le malade sur le dos, la compresse sur la cuisse ─────────────────────────
+  // Le corps simple de profil (couche-dos), centré ; la compresse (sous sa serviette) bombée sur le
+  // dessus de la cuisse, à mi-chemin de la hanche au genou, posée sur le contour du corps.
+  const coupesX = (svg, x) => {
+    const ys = [];
+    for (const m of String(svg).matchAll(/ d="([^"]+)"/g)) {
+      const n = m[1].match(/-?\d+(\.\d+)?/g).map(Number);
+      for (let i = 0; i + 3 < n.length; i += 2) {
+        const [x0, y0, x1, y1] = [n[i], n[i + 1], n[i + 2], n[i + 3]];
+        if (x0 !== x1 && (x0 - x) * (x1 - x) <= 0) ys.push(y0 + (y1 - y0) * (x - x0) / (x1 - x0));
+      }
+    }
+    return ys;
+  };
+  const memoC = {};
   const couche = z => {
-    const X0 = z.l / 2 + 190;
-    const a = ang * Math.PI / 180, ca = Math.cos(a), sa = Math.sin(a);
-    const TvY = Y0 => l => [X0 + eP * (l[0] * ca - l[1] * sa), Y0 + eP * (l[0] * sa + l[1] * ca)];
-    const perso = Y0 => {
-      const Tv = TvY(Y0);
-      const p = F.personnage({ x: X0, y: Y0, pose: 'debout', echelle: eP, angle: ang });
-      const s = String(p);
-      const v = [...s.matchAll(/ d="([^"]*)"/g)].map(m => m[1]).join(' ').match(/-?\d+\.?\d*/g).map(Number);
-      const pts = []; for (let i = 0; i + 1 < v.length; i += 2) pts.push([v[i], v[i + 1]]);
-      return { s, pts, Tv };
-    };
-    // premier passage pour mesurer, second pour poser le corps sur le lit, au bas de la vue
-    const essai = perso(0), bas = Math.max(...essai.pts.map(q => q[1]));
-    const Y0 = z.h - 3 - bas, { s, pts, Tv } = perso(Y0);
-    const lit = Math.max(...pts.map(q => q[1]));
-    // repère du personnage debout : x vers l'avant, y vers le haut négatif, en mm
-    const Tl = q => { const d = [(q[0] - X0) / eP, (q[1] - Y0) / eP]; return [d[0] * ca + d[1] * sa, -d[0] * sa + d[1] * ca]; };
-    // le devant de la cuisse, au milieu entre la hanche et le genou
-    const yc = -720, avant = Math.max(...pts.map(Tl).filter(l => Math.abs(l[1] - yc) < 70 && l[0] > 0).map(l => l[0]));
+    const e = 0.28, lit = z.h - 6, cle = [z.l, z.h].join(',');
+    const c = memoC[cle] || (memoC[cle] = F.corps({ x: 0, y: lit, pose: 'couche-dos', echelle: e }));
+    const dx = (z.l - (c.boite.x1 - c.boite.x0)) / 2 - c.boite.x0;
+    const A = c.articulations, dessus = x => Math.min(...coupesX(c, x - dx));
     const out = [];
-    out.push(h.ligne(0, lit, z.l, lit, A.arete));
-    // l'oreiller sous la tête et les épaules
-    const xT = Math.min(...pts.map(q => q[0]));
-    out.push(h.path(`M${f(xT - 10)} ${f(lit)} C${f(xT - 14)} ${f(lit - 18)}, ${f(xT + 28)} ${f(lit - 21)}, ${f(xT + 76)} ${f(lit - 10)} C${f(xT + 90)} ${f(lit - 6)}, ${f(xT + 92)} ${f(lit)}, ${f(xT + 92)} ${f(lit)} Z`, blanc(A.arete)));
-    out.push(s);
-    // la compresse sous sa serviette, bombée sur le devant de la cuisse
-    const c0 = Tv([avant - 4, yc]), c1 = Tv([avant - 4, yc + 150]), c2 = Tv([avant - 4, yc - 150]);
-    const d = norm([c1[0] - c2[0], c1[1] - c2[1]]), nn = [d[1], -d[0]];
-    const P = (t, hgt) => add(add(c0, mul(d, t)), mul(nn, hgt));
-    const bosse = courbe([P(-30, -1), P(-26, 4), P(-16, 11), P(0, 12.5), P(16, 11), P(26, 4), P(30, -1)], false, 8);
-    out.push(h.path(trace(bosse, true), A.hachure('isolant', 'arete')));
+    out.push(h.ligne(0, lit, z.l, lit, A_.arete));
+    out.push(`<g transform="translate(${f(dx)} 0)">\n${c}\n</g>`);
+    // la compresse sous sa serviette : 260 mm de long, 70 mm d'épaisseur, bombée
+    const xc = A.hancheP[0] + 0.5 * (A.genouP[0] - A.hancheP[0]) + dx, L = 130 * e, H = 70 * e;
+    const haut = [], bas = [];
+    for (let k = 0; k <= 24; k++) {
+      const t = -1 + 2 * k / 24, x = xc + t * L, yb = dessus(x);
+      haut.push([x, yb - H * Math.pow(1 - Math.pow(Math.abs(t), 3), 0.6)]);
+      bas.push([x, yb + 0.6]);
+    }
+    out.push(h.path(trace([...haut, ...bas.reverse()], true), A_.hachure('isolant', 'arete')));
     return out.join('\n');
   };
 
@@ -192,18 +212,19 @@ module.exports = (h) => {
     const xm = z.l / 2 - 6, yS = z.h - 46, xa = xm - 14;
     const peau = []; for (let x = 0; x <= z.l + 0.01; x += 3) peau.push([x, yS + 0.00032 * (x - xm) * (x - xm) - 6 * cloche((x - xa) / 22)]);
     // le linge mouillé : sur la peau, par-dessus la bosse
-    const lm = peau.filter(p => p[0] >= xa - 48 && p[0] <= xa + 52);
-    const lmDessus = decale(lm, 6.5);
-    const profil = x => (x >= xa - 48 && x <= xa + 52) ? yA(lmDessus, x) : yA(peau, x);
+    const lg = xm - (176 + 17) / 2 - 4 - 9, ld = lg + 176 + 17;
+    const lm = peau.filter(p => p[0] >= lg && p[0] <= ld);
+    const lmDessus = decale(lm, 9);
+    const profil = x => (x >= lg && x <= ld) ? yA(lmDessus, x) : yA(peau, x);
     // le rouleau : la bouteille couchée dans l'axe de la cuisse, deux tours de linge sec autour
     const L = 176, r = 24, ep = 9, s1 = -7, s2 = L + 6, u0 = xm - (L + 17) / 2 - 4;
     let appuiMin = Infinity;
     for (let s = s1; s <= s2; s += 2) appuiMin = Math.min(appuiMin, profil(u0 + s));
-    const O = [u0, appuiMin - r - ep + 2];
+    const O = [u0, appuiMin - r - ep];
     const T = (s, v) => [O[0] + s, O[1] + v];
     // la serviette : de la peau à la peau, par-dessus le rouleau et le bouchon
-    const xG = u0 + s1 - 34, xD = u0 + L + 17 + 11 + 36, rc = r * 0.52;
-    const servIn = courbe([[xG - 22, yA(peau, xG - 22)], [xG, yA(peau, xG) - 0.5], [xG + 18, yA(peau, xG + 18) - 12], T(s1 - 4, -r - ep - 1),
+    const xG = u0 + s1 - r - ep - 26, xD = u0 + L + 17 + 11 + 36, rc = r * 0.52;
+    const servIn = courbe([[xG - 22, yA(peau, xG - 22)], [xG, yA(peau, xG) - 0.5], [xG + 12, yA(peau, xG + 12) - 12], T(s1 - r - ep - 3, 0), T(s1 - 4, -r - ep - 1),
       T(60, -r - ep - 0.5), T(120, -r - ep - 0.5), T(s2 + 3, -r - ep - 1), T(L + 17 + 14, -rc - 3), [xD - 16, yA(peau, xD - 16) - 4], [xD, yA(peau, xD)], [xD + 22, yA(peau, xD + 22)]], false, 10);
     const serv = decale(servIn, 12);
     return { xa, peau, lm, lmDessus, profil, T, L, r, ep, s1, s2, rc, servIn, serv };
@@ -227,6 +248,12 @@ module.exports = (h) => {
     out.push(h.path(trace([...dessous, ...appui.slice().reverse()], true), A.hachure('grillage', 'arete')));
     out.push(h.path(trace([T(s1, -r - ep), T(s2, -r - ep), T(s2, -r), T(s1, -r)], true), A.hachure('grillage', 'arete')));
     out.push(h.path(trace([T(s1, -r - ep / 2), T(s2, -r - ep / 2)]), A.detail));
+    // le rouleau se referme autour du fond de la bouteille
+    const arc = (R, a0, a1) => { const q = []; for (let k = 0; k <= 16; k++) { const t = a0 + (a1 - a0) * k / 16; q.push(T(s1 + R * Math.cos(t), R * Math.sin(t))); } return q; };
+    out.push(h.path(trace([...arc(r + ep, -Math.PI / 2, -3 * Math.PI / 2), ...arc(r, -3 * Math.PI / 2, -Math.PI / 2)], true), A.hachure('grillage', 'arete')));
+    // second trait du renvoi 5, vers la bande du dessous
+    { const c = T(24, r + ep / 2); out.push(`<line x1="28" y1="74" x2="${f(c[0])}" y2="${f(c[1])}" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/><line x1="28" y1="74" x2="${f(c[0])}" y2="${f(c[1])}" fill="none" stroke="#000000" stroke-width="0.5" stroke-dasharray="3 2.5"/><circle cx="${f(c[0])}" cy="${f(c[1])}" r="1.8" fill="#000000" stroke="#FFFFFF" stroke-width="0.7"/>`);  }
+    out.push(h.path(trace(arc(r + ep / 2, -Math.PI / 2, -3 * Math.PI / 2)), A.detail));
     out.push(h.path(trace(dessous.map(p => [p[0], (p[1] + profil(p[0])) / 2])), A.detail));
     // la bouteille, coupée en long : la paroi de métal en noir, l'eau chaude dedans, le bouchon
     const w = 2.6, rc = g.rc;
@@ -279,12 +306,12 @@ module.exports = (h) => {
       essorer: {
         titre: 'Tremper, essorer',
         dessin: essorer,
-        renvois: z => [{ n: 1, rond: [z.l / 2, 18], cible: [z.l / 2 - 6, 60], texte: 'Linge de coton trempé, essoré' }],
+        renvois: z => { const t = tord(z), ym = (t.y1 + t.y2) / 2; return [{ n: 1, rond: [z.l - 12, ym], cible: [t.xT + 3, ym], texte: 'Linge de coton trempé, essoré' }]; },
       },
       tester: {
         titre: 'Tester sur le poignet',
         dessin: tester,
-        renvois: z => { const t = mainTest(z); return [{ n: 2, rond: [26, 30], cible: add(t.c, mul(t.n, -8)), texte: 'Chaud, jamais brûlant' }]; },
+        renvois: z => { const t = mainTest(z); return [{ n: 2, rond: [26, 30], cible: t.c, texte: 'Chaud, jamais brûlant' }]; },
       },
       rouler: {
         titre: 'Rouler la bouteille',
@@ -302,9 +329,9 @@ module.exports = (h) => {
           const g = geo(z), T = g.T, sv = g.serv[Math.round(g.serv.length * 0.42)];
           return [
             { n: 4, rond: [sv[0] - 60, 18], cible: add(sv, [0, 6]), texte: 'Serviette par-dessus le tout' },
-            { n: 5, rond: [22, 70], cible: T(10, -g.r - g.ep / 2), texte: 'Linge sec roulé autour' },
+            { n: 5, rond: [22, 70], cible: T(10, -g.r - g.ep / 2), texte: 'Linge sec roulé autour, dessus et dessous' },
             { n: 6, rond: [z.l - 22, 64], cible: T(g.L - 50, 8), texte: 'Bouteille d’eau chaude' },
-            { n: 7, rond: [z.l - 70, z.h - 30], cible: [g.xa + 44, g.profil(g.xa + 44) - 3], texte: 'Linge mouillé sur l’abcès' },
+            { n: 7, rond: [z.l - 70, z.h - 30], cible: [g.xa + 44, g.profil(g.xa + 44) + 4], texte: 'Linge mouillé sur l’abcès' },
             { n: 8, rond: [70, z.h - 30], cible: [g.xa - 10, yA(g.peau, g.xa) + 16], texte: 'Abcès' },
           ];
         },

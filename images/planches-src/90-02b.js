@@ -6,6 +6,10 @@
 // cachée ne se lit pas.
 // Le bordé fait les trois quarts de la longueur : il s'arrête à 1,425 m du milieu de chaque
 // côté, le bout sous une membrure.
+//
+// La charte : vu de dessus, l'intérieur de la coque, vu par l'ouverture du plat-bord, en gris
+// loin (le bordé et les membrures s'y détachent en blanc) ; pas de gris sur les coupes. Pas de
+// rouge : aucun geste fléché, et le chapitre ne donne pas ici de point à vérifier.
 
 module.exports = (h) => {
   const f = (v) => Math.round(v * 10) / 10;
@@ -134,11 +138,11 @@ module.exports = (h) => {
     const tour = [];
     for (let x = -DL; x <= DL + 1e-9; x += 0.02) tour.push(P(x, -w(x)));
     for (let x = DL; x >= -DL - 1e-9; x -= 0.02) tour.push(P(x, w(x)));
-    o.push(h.chemin(tour, h.a.blanc, true));
+    o.push(h.chemin(tour, h.a.loin, true));
     // Étraves : du milieu de la pointe vers l'intérieur, dans l'axe.
     [-1, 1].forEach(sx => {
       const [x1, y1] = P(sx > 0 ? 1.21 : -DL, -0.016);
-      o.push(h.rect(x1, y1, 0.69 * s, 0.032 * s, h.a.hachure('bois', 'aucun')), h.rect(x1, y1, 0.69 * s, 0.032 * s, h.a.arete));
+      o.push(h.rect(x1, y1, 0.69 * s, 0.032 * s, h.a.blanc), h.rect(x1, y1, 0.69 * s, 0.032 * s, h.a.hachure('bois', 'aucun')), h.rect(x1, y1, 0.69 * s, 0.032 * s, h.a.arete));
     });
     // Bordé : perches couchées dans la longueur, les trois quarts de la longueur du canot.
     KB.forEach(k => {
@@ -160,11 +164,11 @@ module.exports = (h) => {
         return [x, sy * (w(DL) - ep(DL) / 2) - sy * 0.62 * (Math.abs(x) - DL)];
       });
       const b = bande(pts.map(p => P(...p)), 0.042 * s).map(p => p);
-      o.push(h.chemin(b, h.a.hachure('bois', 'aucun'), true), h.chemin(b, h.a.arete, true));
+      o.push(h.chemin(b, h.a.blanc, true), h.chemin(b, h.a.hachure('bois', 'aucun'), true), h.chemin(b, h.a.arete, true));
     });
     // Traverse du centre, bouts enroulés au plat-bord ; cordes de babiche torse près des bouts.
     const yT = w(0) - ep(0) / 2;
-    o.push(h.rect(...P(-0.03, -yT), 0.06 * s, 2 * yT * s, h.a.hachure('bois', 'aucun')), h.rect(...P(-0.03, -yT), 0.06 * s, 2 * yT * s, h.a.arete));
+    o.push(h.rect(...P(-0.03, -yT), 0.06 * s, 2 * yT * s, h.a.blanc), h.rect(...P(-0.03, -yT), 0.06 * s, 2 * yT * s, h.a.hachure('bois', 'aucun')), h.rect(...P(-0.03, -yT), 0.06 * s, 2 * yT * s, h.a.arete));
     [-1, 1].forEach(sx => {
       const x = sx * 1.16, y0 = -(w(x) - ep(x)), y1 = w(x) - ep(x);
       let dz = '', k = 0;

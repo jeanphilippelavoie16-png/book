@@ -8,6 +8,9 @@
 //     d'enfant ; l'enfant défait celui de la journée, il sent dans sa main la longueur qui reste.
 // Aucune mesure dans le chapitre : aucune cote. Le « nœud double » est dessiné comme deux nœuds
 // simples serrés l'un contre l'autre.
+// La charte : le versant de la rainure à l'ombre, en gris d'ombre (il était en traits fins) ; la
+// porte, en retrait derrière le montant, en gris loin. Les encoches gardent leur versant noir : à
+// cette taille, un gris s'y perdrait. Le rouge : la poussée du caillou du moment (le geste).
 module.exports = (h) => {
   const A = h.a, F = h.formes, I = F._interne;
   const courbe = (pts, attrs, ferme = true) => h.path(I.ser(I.lisse(pts, ferme), p => p), attrs);
@@ -51,7 +54,7 @@ module.exports = (h) => {
       out.push(courbe(pts, A.fin, false));
     });
     // la rainure : bords, fond, et le versant dans l'ombre
-    for (let x = xs + g + 3; x < xe - g - 1; x += 4.5) out.push(h.ligne(x, cy - g + 1.5, x, cy - 1, A.fin));
+    out.push(h.rect(xs + g, cy - g, xe - xs - 2 * g, g, A.ombre));
     out.push(h.path(`M${xs + g} ${cy - g} L${xe - g} ${cy - g} A${g} ${g} 0 0 1 ${xe - g} ${cy + g} L${xs + g} ${cy + g} A${g} ${g} 0 0 1 ${xs + g} ${cy - g} Z`, A.arete));
     out.push(h.ligne(xs + g, cy, xe - g, cy, A.detail));
     // les cailloux
@@ -59,7 +62,7 @@ module.exports = (h) => {
     P.droite.forEach(([n, x]) => out.push(caillou(n, x, cy)));
     out.push(caillou('rond', xm, cy));
     // le geste : le caillou du moment glisse vers les moments passés
-    out.push(h.fleche(`M${xm + 18} ${cy} L${xm + 50} ${cy}`, A.arete));
+    out.push(h.geste(`M${xm + 18} ${cy} L${xm + 50} ${cy}`));
     // le trait de coupe
     const t = 12;
     out.push(h.ligne(xm, cy - bw - 3, xm, cy - bw - 3 - t, A.contour), h.ligne(xm, cy + bw + 3, xm, cy + bw + 3 + t, A.contour));
@@ -98,7 +101,8 @@ module.exports = (h) => {
     const xr = jx + jw;
     // le mur de planches, à gauche
     for (let y = 26; y < yF; y += 26) out.push(h.ligne(4, y, jx, y, A.detail));
-    // la porte, en retrait à droite : planches verticales, poignée
+    // la porte, en retrait à droite : planches verticales, poignée ; elle recule, en gris loin
+    out.push(h.rect(xr + 6, 4, z.l - 4 - xr - 6, yF - 3 - 4, A.loin));
     out.push(h.ligne(xr + 6, 4, xr + 6, yF, A.arete));
     for (let x = xr + 6 + 26; x < z.l - 4; x += 26) out.push(h.ligne(x, 4, x, yF - 3, A.detail));
     out.push(h.ligne(xr + 6, yF - 3, z.l - 4, yF - 3, A.detail));
@@ -188,17 +192,32 @@ module.exports = (h) => {
   };
 
   // ─── le détail : le nœud et le nœud double ─────────────────────────────────────────────
+  // Le détail, en grand : chaque corde est UN seul brin continu (la hachure ne s'interrompt
+  // nulle part) ; la hauteur z de chaque point décide du dessus/dessous aux trois croisements.
+  // Le nœud double : les deux nœuds simples se touchent, sans longueur de corde entre eux.
   const noeuds = z => {
-    const k = 12, ep = 8, xA = 14, xB = Math.round(z.l * 0.5) + 4;
-    const yB1 = z.h / 2 - 3.5 * k, yB2 = z.h / 2 + 3.5 * k;
-    return { k, ep, xA, xB, yA: yB1, yB1, yB2 };
+    const k = 12, ep = 5.5, xA = 14, xB = Math.round(z.l * 0.5) + 4, ecart = 6 * k;
+    const yB1 = z.h / 2 - ecart / 2, yB2 = z.h / 2 + ecart / 2;
+    return { k, ep, xA, xB, yA: z.h / 2, yB1, yB2, ecart };
+  };
+  const brinContinu = (cx, ys, k, haut, bas) => {
+    const pts = [[cx, haut, 0]];
+    ys.forEach((y, j) => {
+      const m = noeud(cx, y, k).flat();
+      // entre deux nœuds serrés : on saute le retour à la verticale
+      const a = j > 0 ? 1 : 0, b = j < ys.length - 1 ? m.length - 1 : m.length;
+      pts.push(...m.slice(a, b));
+    });
+    pts.push([cx, bas, 0]);
+    // points doublés aux raccords des morceaux
+    return pts.filter((p, i) => i === 0 || Math.hypot(p[0] - pts[i - 1][0], p[1] - pts[i - 1][1]) > 0.5);
   };
   const dessinNoeuds = z => {
     const N = noeuds(z), { k, ep, xA, xB } = N;
     const o = { ep, torons: true, debut: 'fixe', fin: 'fixe' };
     return [
-      F.cordes(corde(xA, [[xA, N.yA - 6.5 * k, 0]], [N.yA], k, N.yA + 6.5 * k, o)),
-      F.cordes(corde(xB, [[xB, N.yB1 - 6.5 * k, 0]], [N.yB1, N.yB2], k, N.yB2 + 6.5 * k, o)),
+      F.cordes([{ pts: brinContinu(xA, [N.yA], k, N.yA - 6.5 * k, N.yA + 6.5 * k), ...o }], { jeu: 2 }),
+      F.cordes([{ pts: brinContinu(xB, [N.yB1, N.yB2], k, N.yB1 - 6.5 * k, N.yB2 + 6.5 * k), ...o }], { jeu: 2 }),
     ].join('\n');
   };
 
@@ -262,7 +281,7 @@ module.exports = (h) => {
           const N = noeuds(z), { k, xA, xB } = N;
           return [
             { n: 11, rond: [xA + 5.4 * k, N.yA - 5.4 * k], cible: [xA + 3.2 * k, N.yA - 2.75 * k], texte: 'un nœud par jour' },
-            { n: 12, rond: [z.l - 14, N.yB2 + 6.2 * k], cible: [xB + 4.75 * k, N.yB2 + 1.3 * k], texte: 'un nœud double tous les sept jours' },
+            { n: 12, rond: [z.l - 14, (N.yB1 + N.yB2) / 2 + 3 * k], cible: [xB + 4.2 * k, (N.yB1 + N.yB2) / 2], texte: 'un nœud double tous les sept jours' },
           ];
         },
       },

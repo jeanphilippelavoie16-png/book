@@ -1,292 +1,286 @@
-// Planche 15-01 — sortir d'un trou dans la glace (ch. 20, procédure 35 ; matériel : pics à glace).
+// Planche 15-01. Sortir d'un trou dans la glace (ch. 15, étapes 3 à 6 ; matériel : les pics à glace).
+// Refaite au complet le 18 octobre 2026 : les corps par h.formes.corps (de profil, visage de la bibliothèque des
+// têtes), la main du gros plan par h.formes.mainStock (poing-manche-debout, objet: false, le pic posé sur son axe).
+// Rien n'est dessiné à la main pour un corps, une main ou une tête. Les faits du geste :
+// sources/20-minnesota-dnr-equipement-glace-pics.md, 20-wisconsin-dnr-pics-a-glace.md, 20-lakeice-pics-a-glace.md,
+// 15-ny-dhses-pics-a-glace-au-cou.md, 35-croix-rouge-securite-sur-la-glace.md. Le sens de la tenue (l'angle du pic)
+// n'a pas de source : le pic est dessiné droit, la pointe vers la glace.
 module.exports = (h) => {
-  const INK = '#1A1A1A';
+  const F = h.formes, NOIR = '#1A1A1A';
   const P = (x, y) => `${x.toFixed(1)} ${y.toFixed(1)}`;
+  const S = 0.12;                        // la séquence : unités de vue par mm, la même dans les quatre coupes
   const blanc = a => a.replace('fill="none"', 'fill="#FFFFFF"');
-  const AR = blanc(h.a.arete);
-  // premier passage épais : ce qui dépasse autour de l'union des pièces fait la silhouette
-  const EP = `fill="#FFFFFF" stroke="${INK}" stroke-width="3.4" stroke-linejoin="round" stroke-linecap="round"`;
-  const eauSansTrait = h.a.hachure('eau').replace(/stroke="[^"]*"/, 'stroke="none"').replace(/stroke-width="[^"]*"/, '');
+  const eauFond = h.a.hachure('eau', 'aucun');
+  const trait = (ep) => `fill="none" stroke="${NOIR}" stroke-width="${ep}" stroke-linecap="round" stroke-linejoin="round"`;
 
-  // capsule effilée de a à b (un membre)
-  const cap = (a, b, ra, rb) => {
-    const dx = b[0] - a[0], dy = b[1] - a[1], L = Math.hypot(dx, dy) || 1;
-    const nx = -dy / L, ny = dx / L;
-    return `M ${P(a[0] + nx * ra, a[1] + ny * ra)} L ${P(b[0] + nx * rb, b[1] + ny * rb)} ` +
-      `A ${rb.toFixed(1)} ${rb.toFixed(1)} 0 0 0 ${P(b[0] - nx * rb, b[1] - ny * rb)} ` +
-      `L ${P(a[0] - nx * ra, a[1] - ny * ra)} A ${ra.toFixed(1)} ${ra.toFixed(1)} 0 0 0 ${P(a[0] + nx * ra, a[1] + ny * ra)} Z`;
-  };
-  const rond = (c, r) => `M ${P(c[0] - r, c[1])} A ${r.toFixed(1)} ${r.toFixed(1)} 0 1 0 ${P(c[0] + r, c[1])} A ${r.toFixed(1)} ${r.toFixed(1)} 0 1 0 ${P(c[0] - r, c[1])} Z`;
-  const poly = pts => 'M ' + pts.map(p => P(p[0], p[1])).join(' L ') + ' Z';
-  const silhouette = parts => parts.map(d => h.path(d, EP)).concat(parts.map(d => h.path(d, AR))).join('\n');
-
-  // repère d'une pose : cm → px
-  const rep = (ox, oy, s) => ({ T: p => [ox + p[0] * s, oy + p[1] * s], s });
-
-  // tête de profil ou vue de dessus, avec tuque ; up et face sont des vecteurs unitaires
-  const tete = (R, c, up, face, avecNez) => {
-    const C = R.T(c), s = R.s, r = 11 * s;
-    const loc = (a, b) => [C[0] + face[0] * a * s + up[0] * b * s, C[1] + face[1] * a * s + up[1] * b * s];
-    const dome = [];
-    for (let i = 0; i <= 16; i++) { const t = Math.PI * i / 16; dome.push(loc(12 * Math.cos(t), 1 + 12 * Math.sin(t))); }
-    const parts = [];
-    if (avecNez) parts.push(poly([loc(8, -1), loc(13.5, -3.5), loc(8, -7)]));
-    parts.push(rond(C, r), poly(dome), rond(loc(0, 16), 4 * s));
-    const band = h.path(`M ${P(...loc(-11.8, 5.5))} L ${P(...loc(11.8, 5.5))}`, h.a.detail);
-    return { parts, band };
-  };
-
-  // ── la glace en coupe, même cadrage pour les deux vignettes ─────────────────
-  const cadre = z => {
-    const s = (z.h - 12) / 195;
-    const W = 6 + 42 * s;
-    const xL = Math.max(0.5 * z.l, 122 * s);
-    // assez large pour le corps à l'horizontale de s2, épaules au bord
-    const xR = xL + 140 * s;
-    return { s, W, xL, xR };
-  };
-  const glace = (z, c, morceau) => {
-    const { s, W, xL, xR } = c;
-    const t = W - 2 * s, b = W + 12 * s;
-    const g = [[0, t], [xL, t], [xL - 3 * s, t + 5 * s], [xL + 2 * s, t + 9 * s], [xL - 1 * s, b], [0, b]];
-    const d = [[z.l, t], [xR, t], [xR + 3 * s, t + 4 * s], [xR - 2 * s, t + 8 * s], [xR + 1 * s, b], [z.l, b]];
+  // ── la glace en coupe : l'eau hachurée, la plaque de glace à gauche du trou (bord cassé en x = E), le niveau
+  // de l'eau net dans le trou. La plaque : 9 cm d'épaisseur, 1 cm hors de l'eau.
+  const EP = 90 * S, HORS = 10 * S;
+  const coupe = (z, E, yG, { morceaux = [], fond = z.h } = {}) => {
+    const yW = yG + HORS, yB = yG + EP;
+    const bord = [[E, yG], [E + 2.5, yG + EP * 0.35], [E - 1.5, yG + EP * 0.62], [E + 1.2, yB]];
     const out = [
-      h.rect(0, W, z.l, z.h - W, eauSansTrait),
-      h.path(poly(g), h.a.blanc), h.path(poly(d), h.a.blanc),
-      h.chemin(g, h.a.contour), h.chemin(d, h.a.contour),
-      h.ligne(xL, W, xR, W, h.a.arete),
+      h.rect(0, yW, z.l, fond - yW, eauFond),
+      h.chemin([[0, yG], ...bord, [0, yB]], h.a.blanc, true),
+      h.chemin([[0, yG], ...bord, [0, yB]], h.a.arete),
+      h.ligne(E + 1.2, yW, z.l, yW, h.a.arete),
     ];
-    if (morceau) out.push(h.path(poly([[xR - 30 * s, W - 3 * s], [xR - 10 * s, W - 6 * s], [xR - 8 * s, W + 6 * s], [xR - 29 * s, W + 9 * s]]), AR));
+    for (const [mx, ml] of morceaux) {          // un morceau de la glace qui a cédé, qui flotte dans le trou
+      const m = [[mx, yG + 1.5], [mx + ml * 0.55, yG], [mx + ml, yG + 1], [mx + ml + 1.5, yG + EP * 0.8], [mx + 1, yG + EP * 0.85]];
+      out.push(h.chemin(m, blanc(h.a.arete), true));
+    }
     return out.join('\n');
   };
-  // un pic dans le poing : la tige visible, puis cachée dans la glace
-  // tenu en poignard : le manche dépasse au-dessus du poing, le clou sort dessous
-  const glaceHaut = -2;
-  const pic = (R, f, dir) => {
-    const s = R.s, F = [f[0] + dir[0] * 5.5, f[1] + dir[1] * 5.5];
-    const t = (glaceHaut - F[1]) / dir[1];
-    const B = [F[0] + dir[0] * t, glaceHaut], C = [B[0] + dir[0] * 8, B[1] + dir[1] * 8];
-    const [Fp, Bp, Cp] = [R.T(F), R.T(B), R.T(C)];
-    return {
-      manche: cap(R.T(f), R.T([f[0] - dir[0] * 11, f[1] - dir[1] * 11]), 2.6 * s, 2.6 * s),
-      clou: h.ligne(Fp[0], Fp[1], Bp[0], Bp[1], `stroke="${INK}" stroke-width="2" stroke-linecap="round" fill="none"`) + '\n' +
-        h.ligne(Bp[0], Bp[1], Cp[0], Cp[1], h.a.cache),
-      milieu: [(F[0] + B[0]) / 2, (F[1] + B[1]) / 2],
-    };
-  };
 
-  // ── pose 1 : dans l'eau, face au côté d'où l'on venait ──────────────────────
-  const pose1 = (z, c) => {
-    const R = rep(c.xL, c.W, c.s), T = R.T, s = c.s;
-    const hd = tete(R, [8, -22], [-0.196, -0.981], [-0.981, 0.196], true);
-    // la pointe penche vers le corps, le manche vers l'avant : comme un piquet de tente, la
-    // traction l'enfonce au lieu de la lever
-    const pl = pic(R, [-55, -15], [0.34, 0.94]), pp = pic(R, [-45, -12], [0.34, 0.94]);
-    const parts = [
-      cap(T([14, 0]), T([-12, -11]), 6 * s, 5.5 * s), cap(T([-12, -11]), T([-50, -13]), 5.5 * s, 4.5 * s), pl.manche, rond(T([-55, -15]), 5.5 * s),
-      cap(T([16, 62]), T([34, 100]), 8.5 * s, 7 * s), cap(T([34, 100]), T([34, 138]), 7 * s, 5.5 * s), cap(T([34, 138]), T([20, 142]), 6 * s, 5 * s),
-      cap(T([20, 62]), T([13, 8]), 13 * s, 15 * s),
-      cap(T([20, 64]), T([26, 104]), 8.5 * s, 7 * s), cap(T([26, 104]), T([20, 142]), 7 * s, 5.5 * s), cap(T([20, 142]), T([6, 146]), 6 * s, 5 * s),
-      ...hd.parts,
-      cap(T([10, 0]), T([-15, -8]), 6 * s, 5.5 * s), cap(T([-15, -8]), T([-40, -10]), 5.5 * s, 4.5 * s), pp.manche, rond(T([-45, -12]), 5.5 * s),
-    ];
-    const ourlet = [T([7, 40]), T([33, 44])];
+  // le pic à l'échelle des corps : le manche (10 cm, Ø 3 cm) traverse le poing, le clou sort dessous ; la partie
+  // plantée dans la glace en tireté
+  const picCorps = (m, yG, plante) => {
+    const r = 15 * S, haut = m.y - 55 * S, bas = m.y + 45 * S;
     return [
-      silhouette(parts), hd.band,
-      h.ligne(ourlet[0][0], ourlet[0][1], ourlet[1][0], ourlet[1][1], h.a.detail),
-      pl.clou, pp.clou,
+      h.path(`M ${P(m.x - r, haut)} L ${P(m.x - r, bas)} L ${P(m.x + r, bas)} L ${P(m.x + r, haut)} Z`, blanc(h.a.detail)),
+      h.ligne(m.x, bas, m.x, yG, trait(1.4)),
+      plante ? h.ligne(m.x, yG, m.x, yG + 20 * S, h.a.cache) : '',
     ].join('\n');
   };
 
-  // ── pose 2 : à l'horizontale, coudes sur la glace près du bord, on tire ─────
-  // épaules au bord, coudes pliés, avant-bras à plat : les pics plantés à une longueur
-  // d'avant-bras devant les coudes, comme en s1, et non à bout de bras. Le haut du corps
-  // repose sur les coudes et les pics.
-  const PIC2 = [[-57, -14], [-51, -11]];
-  const pose2 = (z, c) => {
-    const R = rep(c.xL, c.W, c.s), T = R.T, s = c.s;
-    const hd = tete(R, [-12, -29], [-0.7, -0.714], [-0.714, 0.7], true);
-    const pl = pic(R, PIC2[0], [0.34, 0.94]), pp = pic(R, PIC2[1], [0.34, 0.94]);
-    const parts = [
-      cap(T([6, -22]), T([-16, -10]), 6 * s, 5.5 * s), cap(T([-16, -10]), T([-52, -12]), 5.5 * s, 4.5 * s), pl.manche, rond(T(PIC2[0]), 5.5 * s),
-      cap(T([52, 0]), T([88, 8]), 8.5 * s, 7 * s), cap(T([88, 8]), T([118, 14]), 7 * s, 5.5 * s), cap(T([118, 14]), T([121, 27]), 6 * s, 5 * s),
-      cap(T([56, -2]), T([6, -20]), 13 * s, 14 * s),
-      cap(T([56, -3]), T([92, -2]), 8.5 * s, 7 * s), cap(T([92, -2]), T([120, -8]), 7 * s, 5.5 * s), cap(T([120, -8]), T([125, 3]), 6 * s, 5 * s),
-      ...hd.parts,
-      cap(T([2, -19]), T([-20, -7]), 6 * s, 5.5 * s), cap(T([-20, -7]), T([-46, -9]), 5.5 * s, 4.5 * s), pp.manche, rond(T(PIC2[1]), 5.5 * s),
-    ];
-    const o = [T([40, -22]), T([32, 4])];
-    const f = (a, b) => h.fleche(`M ${P(...T(a))} L ${P(...T(b))}`);
-    return [
-      silhouette(parts), hd.band,
-      h.ligne(o[0][0], o[0][1], o[1][0], o[1][1], h.a.detail),
-      pl.clou, pp.clou,
-      f([62, -38], [16, -38]),
-      f([108, -16], [108, -32]), f([102, 21], [102, 37]),
-    ].join('\n');
+  // un corps de la séquence, regardant vers la gauche (le côté d'où l'on vient) ; posé une première fois pour lire
+  // sa géométrie, puis décalé pour qu'un de ses points tombe où on le veut
+  const corps = (pose, o) => F.corps(Object.assign({ pose, cote: 'gauche', echelle: S, visage: false }, o));
+  const dx = (pose, cle, xCible) => xCible - corps(pose, { x: 0, y: 0 }).articulations[cle][0];
+
+  // une flèche du geste qui suit une ellipse (le tour d'un corps qui pivote ou qui roule)
+  const anneau = (cx, cy, rx, ry, a0, a1) => {
+    const pts = [];
+    for (let k = 0; k <= 48; k++) { const a = (a0 + (a1 - a0) * k / 48) * Math.PI / 180; pts.push([cx + rx * Math.cos(a), cy + ry * Math.sin(a)]); }
+    return h.geste('M ' + pts.map(p => P(p[0], p[1])).join(' L '));
   };
 
-  // ── vue de dessus : le trou, les traces, la roulade ─────────────────────────
-  const dessus = z => {
-    const s = (z.h - 12) / 190;
-    const cy = z.h * 0.46;
-    const xF = z.l * 0.42, yH = 6 + 88 * s;
-    const hx = z.l * 0.8;
-    const trou = [[-62, -8], [-48, -34], [-20, -44], [8, -40], [30, -46], [56, -28], [64, 2], [52, 30], [22, 44], [-10, 40], [-40, 42], [-60, 20]]
-      .map(p => [hx + p[0] * s * 1.1, cy + p[1] * s]);
-    const out = [h.path(poly(trou), h.a.hachure('eau', 'contour'))];
-    out.push(h.path(poly([[hx - 20 * s, cy - 14 * s], [hx + 2 * s, cy - 20 * s], [hx + 8 * s, cy - 2 * s], [hx - 16 * s, cy + 4 * s]]), AR));
-    out.push(h.path(poly([[hx + 22 * s, cy + 10 * s], [hx + 40 * s, cy + 6 * s], [hx + 44 * s, cy + 22 * s], [hx + 24 * s, cy + 26 * s]]), AR));
-    // fissures
-    out.push(h.chemin([[hx + 72 * s, cy - 2 * s], [hx + 92 * s, cy - 8 * s], [hx + 104 * s, cy - 4 * s], [hx + 122 * s, cy - 12 * s]], h.a.detail));
-    out.push(h.chemin([[hx + 30 * s, cy + 46 * s], [hx + 38 * s, cy + 62 * s], [hx + 34 * s, cy + 76 * s]], h.a.detail));
-    // traces de bottes, du bord gauche jusqu'au trou : semelle et talon, vers le trou
-    const xG = xF + 78 * s;
-    const pas = [];
-    for (let x = 16, i = 0; x < hx - 76 * s; x += 26 * s, i++) {
-      const y = cy + (i % 2 ? 7 : -7) * s;
-      pas.push([x, y]);
-      if (Math.abs(x - xF) < 40 * s || Math.abs(x - xG) < 34 * s) continue;
-      out.push(h.ellipse(x + 2.5 * s, y, 6 * s, 3.2 * s, h.a.arete), h.ellipse(x - 9 * s, y, 2.4 * s, 2.6 * s, h.a.arete));
-    }
-    // le corps couché en travers des traces, tête en haut, un peu de biais
-    const th = 7 * Math.PI / 180, co = Math.cos(th), si = Math.sin(th);
-    const rot = p => [p[0] * co - p[1] * si, p[0] * si + p[1] * co];
-    const R = { s, T: p => { const q = rot(p); return [xF + q[0] * s, yH + q[1] * s]; } }, T = R.T;
-    // la place d'où il a roulé, en tireté
-    const Tg = p => { const q = rot(p); return [xG + q[0] * s, yH + q[1] * s]; };
-    out.push(h.path(cap(Tg([0, 92]), Tg([0, -48]), 20 * s, 22 * s), h.a.cache), h.path(rond(Tg([0, -70]), 11 * s), h.a.cache));
-    const hd = tete(R, [0, -70], rot([0, -1]), rot([1, 0]), false);
-    const parts = [
-      cap(T([-8, 4]), T([-10, 44]), 8.5 * s, 7 * s), cap(T([-10, 44]), T([-11, 82]), 7 * s, 5.5 * s), cap(T([-11, 82]), T([-11, 96]), 6 * s, 5.5 * s),
-      cap(T([8, 4]), T([10, 44]), 8.5 * s, 7 * s), cap(T([10, 44]), T([11, 82]), 7 * s, 5.5 * s), cap(T([11, 82]), T([11, 96]), 6 * s, 5.5 * s),
-      cap(T([0, 2]), T([0, -48]), 16 * s, 21 * s),
-      ...hd.parts,
-      cap(T([-20, -48]), T([-25, -22]), 6 * s, 5.5 * s), cap(T([-25, -22]), T([-25, 0]), 5.5 * s, 4.5 * s), rond(T([-25, 5]), 5.5 * s),
-      cap(T([20, -48]), T([25, -22]), 6 * s, 5.5 * s), cap(T([25, -22]), T([25, 0]), 5.5 * s, 4.5 * s), rond(T([25, 5]), 5.5 * s),
-    ];
-    out.push(silhouette(parts), hd.band);
-    const ou = [T([-16, -2]), T([16, -2])];
-    out.push(h.ligne(ou[0][0], ou[0][1], ou[1][0], ou[1][1], h.a.detail));
-    // la roulade : deux arcs vers la gauche
-    for (const y of [-30, 40]) {
-      const a = T([58, y]), b = T([-44, y]);
-      out.push(h.fleche(`M ${P(...a)} A ${(64 * s).toFixed(1)} ${(15 * s).toFixed(1)} 7 0 1 ${P(...b)}`));
-    }
-    return { svg: out.join('\n'), cy, xF, yH, s, hx, T, pas };
-  };
+  // ── les poses (angles de profil, avant le miroir : le corps regarde vers +x) ──
+  const prises = { mains: { P: 'prise', L: 'prise' }, prise: { P: 30, L: 30 } };
+  const EAU = Object.assign({ appui: 'avantbras', angles: { tronc: -4, cou: 4, tete: -4, brasP: 70, avantbrasP: 90, mainP: 92,
+    brasL: 68, avantbrasL: 90, mainL: 92, cuisseP: 6, jambeP: -4, piedP: 40, cuisseL: -6, jambeL: -14, piedL: 36 } }, prises);
+  const JAMBES = Object.assign({ appui: 'avantbras', angles: { tronc: 64, cou: 46, tete: 18, brasP: 34, avantbrasP: 90, mainP: 92,
+    brasL: 30, avantbrasL: 90, mainL: 92, cuisseP: -66, jambeP: -74, piedP: -50, cuisseL: -80, jambeL: -88, piedL: -66 } }, prises);
+  const TIRER = Object.assign({ appui: 'avantbras', angles: { tronc: 80, cou: 60, tete: 14, brasP: 60, avantbrasP: 90, mainP: 92,
+    brasL: 74, avantbrasL: 90, mainL: 92, cuisseP: -85, jambeP: -83, piedP: -70, cuisseL: -87, jambeL: -86, piedL: -72 } }, prises);
+  const ROULE = { appui: 'ventre', mains: { P: 'plat', L: 'plat' }, angles: { tronc: 90, cou: 84, tete: 72, brasP: -88, avantbrasP: -88,
+    mainP: -88, brasL: -88, avantbrasL: -88, mainL: -88, cuisseP: -90, jambeP: -90, piedP: -80, cuisseL: -91, jambeL: -91, piedL: -80 } };
 
-  // ── les pics faits maison ───────────────────────────────────────────────────
-  const corde = (d, w = 4.2) =>
-    `<path d="${d}" fill="none" stroke="${INK}" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round"/>\n` +
-    `<path d="${d}" fill="none" stroke="#FFFFFF" stroke-width="${(w - 2.4).toFixed(1)}" stroke-linecap="round" stroke-linejoin="round"/>`;
-  const pics = z => {
-    const q = z.h / 173, bx = 120 * q + 10;
-    const Y = y => y * q, X = x => bx + x * q;
+  // ── 2, 3 : dans l'eau, tourné vers le côté d'où l'on vient, les avant-bras à plat sur la glace ──
+  const vEau = z => {
+    const E = 88, yG = 70;
+    let mP = null;
+    const g = corps(EAU, { x: dx(EAU, 'epauleP', E + 120 * S), y: yG,
+      objetP: gg => { mP = gg.mainP; return picCorps(gg.mainP, yG, false); }, objetL: gg => picCorps(gg.mainL, yG, false) });
+    const t = g.tete, cy = t.haut[1] - 9;
+    return { svg: [coupe(z, E, yG, { morceaux: [[z.l - 64, 24], [z.l - 30, 18]] }), String(g), anneau(t.haut[0], cy, 22, 6, 200, 500)].join('\n'),
+      g, E, yG, mP, anneau: [t.haut[0], cy] };
+  };
+  // ── 5, 6 : les pics plantés près du bord, battre des jambes jusqu'à l'horizontale ──
+  const vJambes = z => {
+    const E = 96, yG = 92;
+    let mP = null;
+    const g = corps(JAMBES, { x: dx(JAMBES, 'epauleP', E + 30 * S), y: yG,
+      objetP: gg => { mP = gg.mainP; return picCorps(gg.mainP, yG, true); }, objetL: gg => picCorps(gg.mainL, yG, true) });
+    const pd = g.pieds.P.bas || g.pieds.P.cheville;
+    return { svg: [coupe(z, E, yG), String(g),
+      h.geste(`M ${P(pd[0] + 14, pd[1] - 20)} L ${P(pd[0] + 14, pd[1] + 14)}`, { double: true }),
+      h.controle(mP.x, yG, 9)].join('\n'), g, E, yG, mP, pd };
+  };
+  // ── 7 : tirer en glissant sur le ventre, replanter plus loin ──
+  const vTirer = z => {
+    const E = 150, yG = 110;
+    const g = corps(TIRER, { x: dx(TIRER, 'hancheP', E + 40 * S), y: yG,
+      objetP: gg => picCorps(gg.mainP, yG, true), objetL: gg => picCorps(gg.mainL, yG, true) });
+    const A = g.articulations, yF = yG - 47;
+    return { svg: [coupe(z, E, yG), String(g),
+      h.geste(`M ${P(A.hancheP[0] + 30, yF)} L ${P(A.epauleP[0] + 22, yF)}`)].join('\n'), g, E, yG, yF };
+  };
+  // ── 8 : vu de dessus, sorti, rouler loin du trou vers ses traces, sans se relever ──
+  // Le trou en haut, plus long que le corps (l'eau, le bord cassé, des fissures qui partent du bord, deux morceaux qui
+  // flottent) ; la personne couchée (le corps simple vu de dessus, pose couche-face, couché par la planche, la tête à
+  // gauche ; pieds 'nu' : à cette taille, la botte vue de dessus fait un crochet) en cinq positions, la première
+  // collée au bord du trou, les quatre plus anciennes en gris, la dernière en blanc. Le corps roule de côté : il avance
+  // en travers de sa longueur, vers le bas, le long des traces de bottes de l'aller qui montent jusqu'au bord du trou.
+  const SD = 0.052;
+  const vDessus = z => {
+    const corpsD = o => F.corps(Object.assign({ pose: 'couche-face', vue: 'face', echelle: SD, visage: false, pieds: 'nu' }, o));
+    const g0 = corpsD({ x: 0, y: 0 });
+    const b = g0.boite, bx = (b.x0 + b.x1) / 2, by = (b.y0 + b.y1) / 2, demiL = (b.y1 - b.y0) / 2, demiW = (b.x1 - b.x0) / 2;
+    const cx = z.l / 2 + 22, hy = 34;
+    // le trou : un peu plus long que le corps, le bord cassé en dents irrégulières
+    const T = [[-66, -8], [-58, -20], [-40, -24], [-30, -19], [-12, -27], [6, -22], [22, -28], [40, -21], [56, -24], [66, -10],
+      [62, 2], [68, 12], [58, 22], [38, 19], [24, 25], [6, 20], [-12, 24], [-28, 18], [-46, 23], [-60, 14], [-68, 4]]
+      .map(([a, c]) => [cx - 22 + a * 1.25, hy + c]);
     const out = [];
-    // manteau
-    const gauche = [[-16, 70], [-22, 76], [-58, 90], [-72, 112], [-78, 173]], droite = gauche.map(p => [-p[0], p[1]]);
-    const manteau = gauche.concat(droite.slice().reverse()).map(p => [X(p[0]), Y(p[1])]);
-    out.push(h.path(poly(manteau), h.a.blanc));
-    out.push(h.chemin(gauche.map(p => [X(p[0]), Y(p[1])]), h.a.contour), h.chemin(droite.map(p => [X(p[0]), Y(p[1])]), h.a.contour));
-    out.push(h.rect(X(-9), Y(62), 18 * q, 20 * q, AR));
-    out.push(h.chemin([[X(-17), Y(70)], [X(0), Y(96)], [X(17), Y(70)]], h.a.arete));
-    out.push(h.ligne(X(0), Y(96), X(0), Y(173), h.a.detail));
-    out.push(h.ligne(X(-60), Y(116), X(-58), Y(173), h.a.detail), h.ligne(X(60), Y(116), X(58), Y(173), h.a.detail));
-    // tête et tuque
-    const dome = [];
-    for (let i = 0; i <= 20; i++) { const t = Math.PI + Math.PI * i / 20; dome.push([X(25.5 * Math.cos(t)), Y(42 + 25.5 * Math.sin(t))]); }
-    out.push(silhouette([rond([X(0), Y(46)], 24 * q), poly(dome), rond([X(0), Y(13)], 6 * q)]));
-    out.push(h.ligne(X(-24.5), Y(35), X(24.5), Y(35), h.a.detail));
-    // la paire emboîtée, en bandoulière : le cordon court passe sur une épaule, par-dessus
-    // la tête, et sous le bras opposé ; la paire est au milieu de la poitrine, un pic à
-    // chaque bout du cordon, les deux faces à clou l'une contre l'autre, l'élastique au joint
-    // le poids de la paire tire le devant de la boucle en V : elle pend au bas du V
-    const S = [-30, 79.1], A = [58.6, 120.8];
-    const M = [6, 118], u = [0.99, -0.139], nn = [-u[1], u[0]];
-    const at = (t, k = 0) => [M[0] + u[0] * t + nn[0] * k, M[1] + u[1] * t + nn[1] * k];
-    const XY = p => [X(p[0]), Y(p[1])];
-    const lp = 26, dp = 4.5;
-    const P1 = at(-lp), P2 = at(lp);
-    out.push(corde(`M ${P(...XY(S))} L ${P(...XY(P1))}`, 3.4), corde(`M ${P(...XY(P2))} L ${P(...XY(A))}`, 3.4));
-    const bloc = (t0, t1, k) => poly([at(t0, -k), at(t1, -k), at(t1, k), at(t0, k)].map(XY));
-    out.push(h.path(bloc(-lp, 0, dp), AR), h.path(bloc(0, lp, dp), AR));
-    out.push(h.path(bloc(-2, 2, dp + 0.9), h.a.plein));
-    const porte = { M: XY(M), cordon: XY([(P2[0] + A[0]) / 2, (P2[1] + A[1]) / 2]) };
-    // un pic en grand
-    const x0 = z.l * 0.55, x1 = z.l * 0.87, cy = z.h * 0.56, r = 20 * q;
-    const cote = x0 + 22 * q;
-    out.push(corde(`M ${P(cote, cy - r)} L ${P(cote, cy - r - 14 * q)} Q ${P(cote, cy - r - 36 * q)} ${P(cote - 50 * q, cy - r - 44 * q)} L ${P(x0 - 60 * q, cy - r - 50 * q)}`));
-    out.push(h.path(`M ${P(x0, cy - r)} L ${P(x1, cy - r)} A ${(8 * q).toFixed(1)} ${r.toFixed(1)} 0 0 1 ${P(x1, cy + r)} L ${P(x0, cy + r)} A ${(8 * q).toFixed(1)} ${r.toFixed(1)} 0 0 1 ${P(x0, cy - r)} Z`, blanc(h.a.contour)));
-    out.push(h.ellipse(x1, cy, 8 * q, r, h.a.arete));
-    for (const dy of [-9, 8]) out.push(h.chemin([[x0 + 40 * q, cy + dy * q], [x0 + 90 * q, cy + (dy + 1.5) * q], [x1 - (dy < 0 ? 58 : 30) * q, cy + dy * q]], h.a.detail));
-    // le trou du cordon, traversant, caché
-    out.push(h.ligne(cote - 3 * q, cy - r, cote - 3 * q, cy + r, h.a.cache), h.ligne(cote + 3 * q, cy - r, cote + 3 * q, cy + r, h.a.cache));
-    // le nœud dessous
-    out.push(corde(`M ${P(cote, cy + r)} L ${P(cote, cy + r + 6 * q)} Q ${P(cote + 4 * q, cy + r + 14 * q)} ${P(cote + 14 * q, cy + r + 16 * q)}`));
-    out.push(h.ellipse(cote, cy + r + 7 * q, 6 * q, 4.5 * q, AR));
-    // le clou : tige cachée dans le manche, pointe sortie
-    const rc = 3.2 * q;
-    out.push(h.ligne(x1 - 80 * q, cy - rc, x1, cy - rc, h.a.cache), h.ligne(x1 - 80 * q, cy + rc, x1, cy + rc, h.a.cache), h.ligne(x1 - 80 * q, cy - rc, x1 - 80 * q, cy + rc, h.a.cache));
-    out.push(h.path(poly([[x1, cy - rc], [x1 + 26 * q, cy - rc], [x1 + 44 * q, cy], [x1 + 26 * q, cy + rc], [x1, cy + rc]]), AR));
-    out.push(h.ligne(x1 + 26 * q, cy - rc, x1 + 26 * q, cy + rc, h.a.detail));
-    // le second trou, à côté du clou, parallèle et moins profond : il loge la pointe de
-    // l'autre pic, assez creux pour la couvrir en entier
-    const yt = cy - 11 * q, pt = 48 * q;
-    out.push(h.ligne(x1 - pt, yt - rc, x1, yt - rc, h.a.cache), h.ligne(x1 - pt, yt + rc, x1, yt + rc, h.a.cache),
-      h.chemin([[x1 - pt, yt - rc], [x1 - pt - 2 * q, yt], [x1 - pt, yt + rc]], h.a.cache));
-    out.push(h.ellipse(x1, yt, 0.4 * rc, rc, h.a.plein));
-    return { svg: out.join('\n'), X, Y, x0, x1, cy, r, cote, q, yt, porte };
+    // les fissures qui partent du bord dans la glace
+    for (const f of [[[-68, 4], [-78, 10], [-86, 6]], [[40, -21], [48, -32], [60, -38]], [[68, 12], [84, 16], [92, 26]],
+      [[-58, -20], [-66, -32], [-78, -36]]])
+      out.push(h.chemin(f.map(([a, c]) => [cx - 22 + a * 1.25, hy + c]), h.a.detail));
+    out.push(h.chemin(T, h.a.hachure('eau', 'contour'), true));
+    out.push(h.chemin([[cx - 70, hy - 10], [cx - 48, hy - 14], [cx - 44, hy + 2], [cx - 66, hy + 6]], blanc(h.a.arete), true));
+    out.push(h.chemin([[cx + 18, hy - 6], [cx + 40, hy - 10], [cx + 44, hy + 6], [cx + 22, hy + 10]], blanc(h.a.arete), true));
+    // cinq positions, un quart de tour chacune, la première collée au bord du trou : à plat ventre (le corps vu de
+    // dos), sur le côté (vu de dessus, c'est le profil : les épaules et les hanches de côté, le bras du dessus le long du
+    // corps), sur le dos (vu de face), sur l'autre côté (le profil retourné), à plat ventre. Toutes couchées par la planche, la tête à gauche.
+    const DROIT = { appui: 'pieds', angles: { tronc: 0, cou: 4, tete: 0, brasP: 2, avantbrasP: 4, brasL: 0, avantbrasL: 2,
+      cuisseP: 0, jambeP: 0, piedP: 90, cuisseL: 0, jambeL: 0, piedL: 90 } };
+    const formes = [
+      o => corpsD(Object.assign({ vue: 'dos', cheveux: false }, o)),
+      o => F.corps(Object.assign({ pose: DROIT, cote: 'droite', echelle: SD, visage: false }, o)),
+      o => corpsD(o),
+      o => F.corps(Object.assign({ pose: DROIT, cote: 'gauche', echelle: SD, visage: false }, o)),
+      o => corpsD(Object.assign({ vue: 'dos', cheveux: false }, o)),
+    ];
+    const poses = formes.map(f => { const q = f({ x: 0, y: 0 }).boite; return { f, cx: (q.x0 + q.x1) / 2, cy: (q.y0 + q.y1) / 2, dw: (q.x1 - q.x0) / 2 }; });
+    const ys = [];
+    let yy = hy + 23;
+    for (const [k, q] of poses.entries()) { yy += q.dw + (k ? 5 : 0); ys.push(yy); yy += q.dw; }
+    for (const [k, q] of poses.entries()) {
+      const g = String(q.f({ x: cx - q.cx, y: ys[k] - q.cy }));
+      const t = `<g transform="rotate(-90 ${P(cx, ys[k])})">${g}</g>`;
+      out.push(k < 4 ? t.replace(/fill="#FFFFFF"/g, 'fill="#E6E6E6"') : t);
+    }
+    // la roulade : sur chacune des quatre premières positions, un arc rouge qui s'enroule autour du tronc
+    // (l'arc passe par-dessus le corps de haut en bas : le dessus du corps part vers le bas, du côté où l'on roule)
+    for (let k = 0; k < 4; k++) out.push(anneau(cx - demiL * 0.3, ys[k], 4.5, poses[k].dw + 2.5, 150, 410));
+    // les traces de bottes de l'aller : semelle ovale plus large devant, talon à part, gauche et droite en quinconce,
+    // dans l'axe de la roulade, du bas de la vue jusqu'au bord du trou, à gauche des têtes
+    const xT = cx - demiL - 34;
+    const gris = h.a.loin.replace('stroke="none"', `stroke="${NOIR}" stroke-width="0.7" stroke-linejoin="round"`);
+    const botte = (x, y, gauche) => {
+      const semelle = `M ${P(x, y - 7)} C ${P(x + 3.6, y - 7)} ${P(x + 3.4, y - 1)} ${P(x + 2.4, y + 1.5)} C ${P(x + 1.6, y + 3)} ${P(x - 1.6, y + 3)} ${P(x - 2.4, y + 1.5)} C ${P(x - 3.4, y - 1)} ${P(x - 3.6, y - 7)} ${P(x, y - 7)} Z`;
+      return `<g transform="rotate(${gauche ? -4 : 4} ${P(x, y)})">` + h.path(semelle, gris) + h.rect(x - 2.2, y + 4.2, 4.4, 3.6, gris) + '</g>';
+    };
+    for (let y = z.h - 10, k = 0; y > hy + 24; y -= 13, k++) out.push(botte(xT + (k % 2 ? 4 : -4), y, k % 2 === 1));
+    // la flèche du geste : le long des traces, du trou vers le bas
+    const xF = xT + 15;
+    out.push(h.geste(`M ${P(xF, ys[0] - 4)} L ${P(xF, ys[4] + 14)}`));
+    return { svg: out.join('\n'), cx, hy, ys, xF };
+  };
+
+  // ── 1 : avant d'aller sur la glace, les pics au cou, par-dessus le manteau, sur la poitrine ──
+  const SB = 0.3;
+  const DEBOUT = { appui: 'pieds', angles: { tronc: 0, cou: 8, tete: 0, brasP: 4, avantbrasP: 8, brasL: 0, avantbrasL: 4,
+    cuisseP: 0, jambeP: 0, piedP: 90, cuisseL: 0, jambeL: 0, piedL: 90 } };
+  // une corde : un trait noir et son âme blanche, qui se lit comme un cordon et pas comme une couture
+  const corde = (d, ep = 3.2) => `<path d="${d}" fill="none" stroke="${NOIR}" stroke-width="${ep}" stroke-linecap="round" stroke-linejoin="round"/>\n`
+    + `<path d="${d}" fill="none" stroke="#FFFFFF" stroke-width="${(ep - 1.4).toFixed(1)}" stroke-linecap="round" stroke-linejoin="round"/>`;
+  const vPorter = z => {
+    const g0 = F.corps({ pose: DEBOUT, cote: 'gauche', echelle: SB, x: 0, y: 0, visage: false });
+    const ox = z.l * 0.56 - g0.tete.x, oy = 6 - g0.tete.haut[1];
+    let pic = null;
+    const pics = gg => {
+      const A = gg.articulations, cou = A.cou, ep = A.epauleP;
+      // La paire, la pointe de l'une rentrée dans l'autre : deux manches bout à bout, debout au milieu de la poitrine,
+      // juste devant elle. Le cordon fait le tour du cou et descend au bout du haut ; son autre brin passe derrière la
+      // paire et entre dans le bout du bas.
+      const x = ep[0] - 146 * SB, y0 = ep[1] + 96 * SB, L = 100 * SB, r = 15 * SB, e = r * 0.35;
+      pic = { x, y: y0, L: 2 * L };
+      const nuque = [cou[0] + 42 * SB, cou[1] - 22 * SB];
+      const manche = (ya, yb) => h.path(`M ${P(x - r, ya)} L ${P(x - r, yb)} L ${P(x + r, yb)} L ${P(x + r, ya)} Z`, blanc(h.a.arete));
+      const yM = y0 + L, yB = y0 + 2 * L;
+      return [
+        // le brin du bas descend derrière la paire, du bout du haut jusqu'au bout du bas, où il entre par-dessous
+        corde(`M ${P(x + r * 0.5, y0 + 6 * SB)} L ${P(x + r * 0.5, yB - 4 * SB)} C ${P(x + r * 0.5, yB + 26 * SB)} ${P(x - r * 0.2, yB + 24 * SB)} ${P(x - r * 0.2, yB)}`, 3),
+        manche(y0, yM), manche(yM, yB),
+        // les deux clous, cachés : chacun entre dans le trou qui l'attend dans l'autre manche
+        h.ligne(x - r * 0.45, yM - 30 * SB, x - r * 0.45, yM + 26 * SB, h.a.cache),
+        h.ligne(x + r * 0.45, yM - 26 * SB, x + r * 0.45, yM + 30 * SB, h.a.cache),
+        h.path(`M ${P(x - r, yB)} A ${P(r, e)} 0 0 0 ${P(x + r, yB)}`, h.a.arete),
+        h.ellipse(x, y0, r, e, blanc(h.a.arete)),
+        // le brin du haut : de la nuque, par-dessus l'épaule, jusqu'au bout du haut
+        corde(`M ${P(...nuque)} C ${P(nuque[0] - 30 * SB, nuque[1] + 60 * SB)} ${P(x + 40 * SB, y0 - 90 * SB)} ${P(x, y0)}`, 3),
+      ].join('\n');
+    };
+    const g = F.corps({ pose: DEBOUT, cote: 'gauche', echelle: SB, x: ox, y: oy, visage: false, objet: pics });
+    const id = 'vue1501-porter';
+    return { svg: [`<clipPath id="${id}"><rect x="0" y="0" width="${z.l}" height="${z.h}"/></clipPath>`,
+      `<g clip-path="url(#${id})">`, String(g), '</g>'].join('\n'), g, pic };
+  };
+
+  // ── 4 : de près, le pic dans le poing, la pointe vers la glace ──
+  // La main : poing-manche-debout, retournée (la main gauche, l'avant-bras vers la droite, vers le coude) ; l'ancre est
+  // un point du dessous de l'avant-bras, posé sur la glace au bord droit de la vue (l'avant-bras sort de la vue, coupé
+  // par elle) ; tournée de 7° pour que le poing monte sur le pic.
+  const vPoing = z => {
+    const yG = z.h - 16;
+    const ancre = [(5364.4 - 5362.7) / 539.9, (638.8 - 197.5) / 448.3];
+    const m = F.mainStock({ id: 'poing-manche-debout', miroir: true, objet: false, taille: 140, ancre, x: z.l + 3, y: yG, angle: 7 });
+    const o = m.objet, a = o.angle * Math.PI / 180, k = m.echelle;
+    const u = [Math.cos(a), Math.sin(a)], n = [-u[1], u[0]];          // l'axe du manche (vers le bas), sa normale
+    const at = (t, q = 0) => [o.x + u[0] * t + n[0] * q, o.y + u[1] * t + n[1] * q];
+    // le manche dépasse du poing d'un peu plus d'un centimètre (le haut du poing est à 300 dans le fichier)
+    const r = o.largeur / 2, t0 = (255 - 327.3) * k, t1 = (600 - 327.3) * k;
+    const rotN = o.angle + 90, arriere = 0;
+    // le clou : du dedans du poing jusque dans la glace ; la partie plantée, en tireté
+    const tG = (yG - o.y) / u[1], rc = 3.2, tPointe = tG + 24;
+    const clouVu = [at(t1, -rc), at(tG, -rc), at(tG, rc), at(t1, rc)];
+    const clouCache = [at(tG, -rc), at(tPointe - 8, -rc), at(tPointe, 0), at(tPointe - 8, rc), at(tG, rc)];
+    const id = 'vue1501-poing';
+    return { svg: [
+      h.rect(0, yG, z.l, z.h - yG, h.a.blanc), h.ligne(0, yG, z.l, yG, h.a.contour),
+      `<clipPath id="${id}"><rect x="0" y="0" width="${z.l}" height="${z.h}"/></clipPath>`, `<g clip-path="url(#${id})">`,
+      h.chemin([at(t0, -r), at(t1, -r), at(t1, r), at(t0, r)], blanc(h.a.contour), true),
+      // le bout du manche, vu un peu de haut : l'ellipse, son bord arrière au trait du contour, le trou du cordon
+      h.path(`M ${P(...at(t0, -r))} A ${P(r, r * 0.32)} ${rotN.toFixed(1)} 0 1 ${P(...at(t0, r))} A ${P(r, r * 0.32)} ${rotN.toFixed(1)} 0 1 ${P(...at(t0, -r))} Z`, blanc(h.a.arete)),
+      h.path(`M ${P(...at(t0, -r))} A ${P(r, r * 0.32)} ${rotN.toFixed(1)} 0 ${arriere} ${P(...at(t0, r))}`, h.a.contour),
+      h.ellipse(...at(t0, 0), 2.6, 1.2, h.a.plein),
+      corde(`M ${P(...at(t0, 0))} C ${P(...at(t0 - 16, 1))} ${P(o.x + 20, at(t0 - 18, 0)[1])} ${P(o.x + 50, at(t0 - 12, 0)[1])} S ${P(o.x + 110, at(t0 + 6, 0)[1])} ${P(z.l + 4, at(t0 + 2, 0)[1])}`, 4),
+      h.chemin(clouVu, blanc(h.a.contour), true),
+      h.chemin(clouCache, h.a.cache),
+      String(m), '</g>'].join('\n'), m, o, yG, at, tG };
   };
 
   return {
     ref: '15-01',
     titre: 'Sortir d’un trou dans la glace',
-    desc: 'En tête, les pics faits d’un gros clou étêté entré dans un bout de manche à balai, emboîtés l’un dans l’autre et portés en bandoulière au milieu de la poitrine. En coupe : dans l’eau, face au côté d’où l’on venait, avant-bras à plat sur la glace ; puis le corps ramené à l’horizontale en battant des jambes, coudes sur la glace et pics plantés près du bord, on tire à plat ventre. Vu de dessus : sorti, on roule sur la glace vers ses traces au lieu de se relever.',
+    desc: 'Six vues, dans l’ordre des gestes. Avant d’aller sur la glace, la paire de pics, la pointe de l’une rentrée dans l’autre, pend au cou par-dessus le manteau, au milieu de la poitrine. Dans l’eau, on se tourne vers le côté d’où l’on vient et on pose les avant-bras à plat sur la glace. De près, le pic tenu au poing, la pointe vers la glace. On plante les pics près du bord, on bat des jambes jusqu’à ce que le corps soit à l’horizontale, on tire en glissant sur le ventre et on replante plus loin. Vu de dessus, sorti, on roule loin du trou vers ses traces, sans se relever : cinq positions successives, un quart de tour chacune, la flèche vers les traces de bottes de l’aller.',
     format: 'pleine',
-    disposition: [['pics'], ['s1', 's2'], ['s3']],
-    hauteurs: [4, 5, 4],
+    disposition: [['porter', 'eau'], ['poing', 'jambes'], ['tirer', 'dessus']],
+    hauteurs: [246, 170, 234],
     vues: {
-      pics: {
-        titre: 'Les pics, faits maison',
-        dessin: z => pics(z).svg,
-        renvois: z => {
-          const p = pics(z);
-          return [
-            { n: 1, rond: [(p.x0 + p.x1) / 2, z.h - 12], cible: [(p.x0 + p.x1) / 2, p.cy + p.r + 1.5] },
-            { n: 2, rond: [p.x1 - 80 * p.q + 16, z.h - 12], cible: [p.x1 - 80 * p.q, p.cy] },
-            { n: 3, rond: [p.x1 + 26 * p.q, 16], cible: [p.x1 - 22 * p.q, p.yt] },
-            { n: 4, rond: [p.X(96), p.Y(140)], cible: p.porte.cordon },
-            { n: 5, rond: [p.X(80), p.Y(52)], cible: p.porte.M },
-          ].map((o, i) => ({ ...o, texte: ['bout de manche à balai', 'clou étêté, côté coupé au fond du trou', 'second trou : loge la pointe de l’autre pic', 'cordon court, par-dessus la tête, sous un bras', 'la paire emboîtée au milieu de la poitrine'][i] }));
-        },
-      },
-      s1: {
-        titre: 'Se retourner',
-        dessin: z => { const c = cadre(z); return [glace(z, c, true), pose1(z, c),
-          h.fleche(`M ${P(12, c.W - 14 * c.s)} L ${P(c.xL - 76 * c.s, c.W - 14 * c.s)}`, h.a.cache)].join('\n'); },
-        renvois: z => { const c = cadre(z), T = rep(c.xL, c.W, c.s).T; return [
-          { n: 6, rond: T([48, -34]), cible: T([19.5, -24]), texte: 'face au côté d’où l’on venait' },
-          { n: 7, rond: T([-30, -36]), cible: T([-18, -16.3]), texte: 'avant-bras à plat sur la glace' },
+      porter: {
+        titre: 'Avant d’aller sur la glace',
+        dessin: z => vPorter(z).svg,
+        renvois: z => { const p = vPorter(z).pic; return [
+          { n: 1, rond: [p.x - 15 * SB - 64, p.y + p.L * 0.42], cible: [p.x - 15 * SB - 1, p.y + p.L * 0.42], texte: 'porter les pics au cou, par-dessus le manteau' },
         ]; },
       },
-      s2: {
-        titre: 'Se hisser',
-        dessin: z => { const c = cadre(z); return [glace(z, c, false), pose2(z, c)].join('\n'); },
-        renvois: z => { const c = cadre(z), T = rep(c.xL, c.W, c.s).T; return [
-          { n: 8, rond: T([78, 58]), cible: T([74, 9]), texte: 'battre des jambes jusqu’à l’horizontale' },
-          { n: 9, rond: T([-92, -18]), cible: T(pic(rep(0, 0, 1), PIC2[0], [0.34, 0.94]).milieu), texte: 'pics plantés près du bord, pas à bout de bras' },
+      eau: {
+        dessin: z => vEau(z).svg,
+        renvois: z => { const v = vEau(z), A = v.g.articulations; return [
+          { n: 2, rond: [v.anneau[0] + 58, 14], cible: [v.anneau[0] + 23, v.anneau[1] + 1], texte: 'se tourner vers le côté d’où l’on vient' },
+          { n: 3, rond: [22, v.yG + 44], cible: [A.coudeP[0] - 14, v.yG - 1], texte: 'poser les avant-bras à plat sur la glace' },
         ]; },
       },
-      s3: {
-        titre: 'Rouler, vu de dessus',
-        dessin: z => dessus(z).svg,
-        renvois: z => { const d = dessus(z); return [
-          { n: 10, rond: d.T([-78, -54]), cible: d.T([-44, -30]), texte: 'rouler au lieu de se relever' },
-          { n: 11, rond: [d.pas[3][0] + 2.5 * d.s, d.cy + 44 * d.s], cible: [d.pas[3][0] + 2.5 * d.s, d.pas[3][1] + 3.5 * d.s], texte: 'ses traces : la glace qui a porté' },
+      poing: {
+        titre: 'Le pic, de près',
+        dessin: z => vPoing(z).svg,
+        renvois: z => { const v = vPoing(z), c = v.at(v.tG - 8, 4); return [
+          { n: 4, rond: [c[0] - 60, c[1] - 6], cible: [c[0] - 6, c[1]], texte: 'tenir le pic au poing, la pointe vers la glace' },
+        ]; },
+      },
+      jambes: {
+        dessin: z => vJambes(z).svg,
+        renvois: z => { const v = vJambes(z); return [
+          { n: 5, rond: [18, v.yG + 46], cible: [v.mP.x - 7, v.yG + 6], texte: 'planter les pics près du bord' },
+          { n: 6, rond: [Math.min(z.l - 12, v.pd[0] + 34), Math.min(z.h - 12, v.pd[1] + 34)], cible: [v.pd[0] + 16, v.pd[1] + 12], texte: 'battre des jambes pour mettre le corps à plat' },
+        ]; },
+      },
+      tirer: {
+        dessin: z => vTirer(z).svg,
+        renvois: z => { const v = vTirer(z), A = v.g.articulations; return [
+          { n: 7, rond: [A.hancheP[0] + 58, v.yF], cible: [A.hancheP[0] + 32, v.yF], texte: 'tirer en glissant sur le ventre, replanter plus loin' },
+        ]; },
+      },
+      dessus: {
+        titre: 'Vu de dessus',
+        dessin: z => vDessus(z).svg,
+        renvois: z => { const v = vDessus(z); return [
+          { n: 8, rond: [v.xF + 34, z.h - 11], cible: [v.xF + 3, v.ys[4] + 14], texte: 'rouler vers ses traces, sans se relever' },
         ]; },
       },
     },
-    danger: 'Le danger, c’est l’horloge : une minute pour reprendre son souffle, la tête hors de l’eau, puis une dizaine de minutes de mains utiles pour sortir.',
   };
 };

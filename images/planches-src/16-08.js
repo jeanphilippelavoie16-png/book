@@ -1,4 +1,71 @@
 module.exports = (h) => {
+  // Les porteurs de la descente, en corps simples (13 oct.), à l'échelle du blessé (1750 mm ≈ 119 :
+  // 0,068 par mm). Devant (retient-derriere) : face à l'aval, entre les brancards, il les tient
+  // derrière lui à bout de bras, poings fermés sur leur bout. Derrière (tire-arriere) : face au
+  // traîneau, penché vers l'amont, la corde dans les deux poings, les avant-bras d'équerre avec la
+  // corde. Sur la pente, la jambe d'amont est plus pliée : les deux pieds touchent la neige.
+  const E_P = 0.068;
+  const geoDescente = z => {
+    const pente = (z.h - 17 - 148) / z.l, ys = x => z.h - 17 - pente * x;
+    const th = Math.atan(pente), c = Math.cos(th), s = Math.sin(th);
+    const x0 = 148, y0 = ys(148);
+    const T = (a, n) => [x0 + a * c - n * s, y0 - a * s - n * c];
+    const b0 = T(47, 3), r0 = T(165, 4);
+    const av = { pose: 'retient-derriere', x: 40, y: ys(23.6), cote: 'gauche', echelle: E_P, ancrer: false, prise: { P: 40, L: 40 },
+      angles: { jambeL: -44, cuisseL: -8, mainP: 9.5, mainL: 9.5 } };
+    const arr = { pose: 'tire-arriere', x: 412, y: ys(389.2) - 0.5, cote: 'gauche', echelle: E_P, ancrer: false, prise: { P: 10, L: 10 },
+      angles: { jambeP: 20, jambeL: -55, cuisseL: 0, brasP: 34, avantbrasP: 122, mainP: 129, brasL: 30, avantbrasL: 118, mainL: 129 } };
+    return { pente, ys, th, x0, y0, T, b0, r0, av, arr };
+  };
+  // ─── L'enveloppe d'un corps simple (sac de couchage, couverture roulée) : la pose sert de gabarit,
+  // le contour visible est celui de l'enveloppe. C'est le contour du corps rendu, uni, dilaté de
+  // « marge » mm et lissé par Clipper (celui des corps simples) ; le visage reste à découvert dans
+  // l'ouverture du capuchon ; « cloisons » : des coutures du duvet en travers, en part de la longueur ;
+  // « garder » [x0, y0, x1, y1] : ne garder que ce rectangle (une couverture : du cou aux pieds, sur le lit).
+  const CL = require(require('path').join(__dirname, '../../.claude/skills/planches/scripts/corps/clipper.js'));
+  const sac = (c, { marge = 55, lisse = 150, trait = 1.4, visage = true, cloisons = [], garder = null, avec = [], motif = null } = {}) => {
+    const SC = 100, k = c.echelle, polys = [], r1 = v => Math.round(v * 10) / 10;
+    for (const m of String(c.svg).matchAll(/<path d="([^"]+)" fill="#(?:FFFFFF|E6E6E6)"/g))
+      for (const sub of m[1].split('Z')) {
+        const n = sub.match(/-?[\d.]+/g); if (!n || n.length < 6) continue;
+        const P = []; for (let i = 0; i + 1 < n.length; i += 2) P.push({ X: Math.round(+n[i] * SC), Y: Math.round(+n[i + 1] * SC) });
+        polys.push(P);
+      }
+    const op = (t, a, b, ouvert = false) => {
+      const x = new CL.Clipper(); x.AddPaths(a, CL.PolyType.ptSubject, !ouvert); if (b) x.AddPaths(b, CL.PolyType.ptClip, true);
+      if (ouvert) { const tr = new CL.PolyTree(); x.Execute(t, tr, CL.PolyFillType.pftNonZero, CL.PolyFillType.pftNonZero); return CL.Clipper.OpenPathsFromPolyTree(tr); }
+      const r = new CL.Paths(); x.Execute(t, r, CL.PolyFillType.pftNonZero, CL.PolyFillType.pftNonZero); return r;
+    };
+    const off = (p, d) => { const o = new CL.ClipperOffset(2, 0.05 * SC); o.AddPaths(p, CL.JoinType.jtRound, CL.EndType.etClosedPolygon); const r = new CL.Paths(); o.Execute(r, d * SC); return r; };
+    // « avec » : des rectangles [x0, y0, x1, y1] unis au corps (le lit sous une couverture, qu'elle y retombe)
+    for (const [a, b, cc, d] of avec) polys.push([[a, b], [cc, b], [cc, d], [a, d]].map(([x, y]) => ({ X: Math.round(x * SC), Y: Math.round(y * SC) })));
+    let env = off(off(op(CL.ClipType.ctUnion, polys), (marge + lisse) * k), -lisse * k);
+    if (garder) {
+      const [a, b, cc, d] = garder.map(v => Math.round(v * SC)), R = 30 * k;
+      env = off(off(op(CL.ClipType.ctIntersection, env, [[{ X: a, Y: b }, { X: cc, Y: b }, { X: cc, Y: d }, { X: a, Y: d }]]), -R), R);
+    }
+    if (visage) {
+      const t = c.tete, hx = t.haut[0] - t.x, hy = t.haut[1] - t.y, L = Math.hypot(hx, hy) || 1, mi = c.miroir ? -1 : 1;
+      const fx = -hy / L * mi, fy = hx / L * mi, r = 100 * k, D = [];
+      for (let i = 0; i < 48; i++) { const a = i / 48 * 2 * Math.PI; D.push({ X: Math.round((t.x + fx * 0.6 * r + 0.78 * r * Math.cos(a)) * SC), Y: Math.round((t.y + fy * 0.6 * r + 0.78 * r * Math.sin(a)) * SC) }); }
+      env = op(CL.ClipType.ctDifference, env, [D]);
+    }
+    const dP = P => 'M' + P.map(q => `${r1(q.X / SC)} ${r1(q.Y / SC)}`).join(' L');
+    const dEnv = env.map(P => dP(P) + ' Z').join(' ');
+    const out = [`<path d="${dEnv}" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="${trait}" stroke-linejoin="round"/>`];
+    if (motif) out.push(`<path d="${dEnv}" ${motif}/>`);
+    if (cloisons.length) {
+      const b = c.boite, x0 = b.x0 - marge * k, x1 = b.x1 + marge * k, dedans = off(env, -2.2);
+      const lignes = cloisons.map(t => { const x = Math.round((x0 + (x1 - x0) * t) * SC); return [{ X: x, Y: Math.round((b.y0 - 400 * k) * SC) }, { X: x, Y: Math.round((b.y1 + 400 * k) * SC) }]; });
+      const cl = op(CL.ClipType.ctIntersection, lignes, dedans, true);
+      if (cl.length) out.push(`<path d="${cl.map(dP).join(' ')}" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linecap="round"/>`);
+    }
+    // le dessus de l'enveloppe à l'abscisse x (le plus petit y de ses bords qui croisent x)
+    const haut = x => { let y = Infinity; for (const P of env) for (let i = 0; i < P.length; i++) { const a = P[i], b = P[(i + 1) % P.length], xa = a.X / SC, xb = b.X / SC;
+      if ((xa - x) * (xb - x) <= 0 && xa !== xb) y = Math.min(y, (a.Y + (b.Y - a.Y) * (x - xa) / (xb - xa)) / SC); } return y; };
+    return Object.assign(new String(out.join('\n')), { haut });
+  };
+
   const W = at => at.replace('fill="none"', 'fill="#ffffff"');
   const f = v => v.toFixed(1);
   const P = pts => pts.map(p => `${f(p[0])},${f(p[1])}`);
@@ -38,7 +105,7 @@ module.exports = (h) => {
   return {
     ref: '16-08',
     titre: 'Le traîneau-civière de perches',
-    desc: 'Deux perches d’épinette plus longues qu’un homme couché, quatre traverses posées dessus et ligaturées à chaque croisée, un brancard lié le long de chaque perche à l’avant, puis couché par-dessus le bout de la première traverse, qui le relève vers les mains du porteur. En coupe à la poitrine : les perches sur la neige, une traverse, trois couches de sapin croisées, la couverture autour du blessé, une sangle par-dessus qui fait le tour des perches. En détail, une croisée ligaturée en babiche, et la même au fil de fer, bouts tordus en queue de cochon. En descente, un homme devant tient les brancards à bout de bras et se retient, un deuxième derrière freine à la corde ; le blessé est sanglé à la poitrine, au bassin et aux cuisses. En variante, un capot de véhicule retourné, bombé, ses bords relevés.',
+    desc: 'Deux perches d’épinette plus longues qu’un homme couché, quatre traverses posées dessus et ligaturées à chaque croisée, un brancard lié le long de chaque perche à l’avant, puis couché par-dessus le bout de la première traverse, qui le relève vers les mains du porteur. En coupe à la poitrine : les perches sur la neige, une traverse, trois couches de sapin croisées, le sac de couchage autour du blessé, une sangle par-dessus qui fait le tour des perches. En détail, une croisée ligaturée en babiche, et la même au fil de fer, bouts tordus en queue de cochon. En descente, un homme devant tient les brancards à bout de bras et se retient, un deuxième derrière freine à la corde ; le blessé est sanglé à la poitrine, au bassin et aux cuisses. En variante, un capot de véhicule retourné, bombé, ses bords relevés.',
     format: 'pleine',
     disposition: [['plan'], ['coupe', 'ligature'], ['descente', 'capot']],
     hauteurs: [2, 2, 3],
@@ -80,12 +147,6 @@ module.exports = (h) => {
             o.push(h.ligne(301, Math.min(yb, yp) - 10, 301, Math.max(yb, yp) + 10, h.a.detail));
             o.push(h.ligne(304, Math.min(yb, yp) - 10, 304, Math.max(yb, yp) + 10, h.a.detail));
           }
-          // l'homme couché, en tireté : les perches le dépassent aux deux bouts
-          const hom = [[534, cy - 15], [528, cy - 33], [436, cy - 33], [430, cy - 27], [418, cy - 23], [306, cy - 15],
-            [277, cy - 15], [277, cy - 2], [415, cy], [277, cy + 2], [277, cy + 15], [306, cy + 15], [418, cy + 23],
-            [430, cy + 27], [436, cy + 33], [528, cy + 33], [534, cy + 15]];
-          o.push(h.chemin(hom, h.a.cache, true));
-          o.push(h.cercle(549, cy, 15, h.a.cache));
           return o.join('\n');
         },
         renvois: z => [
@@ -123,13 +184,13 @@ module.exports = (h) => {
           }
           o.push(h.path(d.trim(), h.a.fin));
           o.push(aiguilles(yp - 44, cx - 86, cx + 86));
-          // couverture : dessous et autour du blessé
+          // le sac de couchage : dessous et autour du blessé
           const yc = yp - 50;
           o.push(h.path(`M${f(cx - 72)},${f(yc)} C${f(cx - 72)},${f(yc - 40)} ${f(cx - 40)},${f(yc - 48)} ${f(cx)},${f(yc - 48)} C${f(cx + 40)},${f(yc - 48)} ${f(cx + 72)},${f(yc - 40)} ${f(cx + 72)},${f(yc)} Z`, h.a.hachure('isolant', 'arete')));
           // le blessé : torse et bras
           o.push(h.ellipse(cx, yc - 22, 38, 16, W(h.a.arete)));
           for (const sg of [-1, 1]) o.push(h.cercle(cx + sg * 52, yc - 16, 9, W(h.a.arete)));
-          // sangle : par-dessus la couverture, puis autour de chaque perche
+          // sangle : par-dessus le sac de couchage, puis autour de chaque perche
           const sangle = `M${f(cx - 70.9)},${f(yp + 5.25)} A10.5,10.5 0 0 1 ${f(cx - 90.5)},${f(yp)} L${f(cx - 75)},${f(yc)} C${f(cx - 75)},${f(yc - 43)} ${f(cx - 41)},${f(yc - 51)} ${f(cx)},${f(yc - 51)} C${f(cx + 41)},${f(yc - 51)} ${f(cx + 75)},${f(yc - 43)} ${f(cx + 75)},${f(yc)} L${f(cx + 90.5)},${f(yp)} A10.5,10.5 0 0 1 ${f(cx + 70.9)},${f(yp + 5.25)}`;
           o.push(h.path(sangle, halo), h.path(sangle, h.a.contour));
           return o.join('\n');
@@ -140,7 +201,7 @@ module.exports = (h) => {
             { n: 4, rond: [18, yp - 44], cible: [cx - 82, yp - 34] },
             { n: 5, rond: [22, 22], cible: [cx - 66, yc - 8] },
             { n: 6, rond: [z.l - 18, yc - 20], cible: [cx + 83.5, yc + 25] },
-          ].map((r, i) => ({ ...r, texte: ['sapin en couches croisées', 'puis la couverture', 'sangle autour des perches'][i] }));
+          ].map((r, i) => ({ ...r, texte: ['sapin en couches croisées', 'puis le sac de couchage', 'sangle autour des perches'][i] }));
         },
       },
 
@@ -213,25 +274,10 @@ module.exports = (h) => {
         titre: 'En descente',
         dessin: z => {
           const o = [];
-          const pente = (z.h - 17 - 148) / z.l;
-          const ys = x => z.h - 17 - pente * x;
-          const th = Math.atan(pente), c = Math.cos(th), s = Math.sin(th);
-          const x0 = 148, y0 = ys(148);
-          const T = (a, n) => [x0 + a * c - n * s, y0 - a * s - n * c];
+          const G = geoDescente(z), { ys, th, x0, y0, T, b0, r0 } = G;
           // neige
           o.push(h.chemin([[0, ys(0)], [z.l, ys(z.l)], [z.l, z.h], [0, z.h]], h.a.hachure('neige', 'aucun'), true));
           o.push(h.ligne(0, ys(0), z.l, ys(z.l), h.a.arete));
-
-          // homme devant, face à la pente, penché vers l'arrière
-          const main = [58, 157];
-          o.push(silhouette([
-            [[[38, 160], [27, 191], [20, ys(20) - 4]], 5.5],
-            [[[38, 160], [47, 188], [48, ys(48) - 4]], 5.5],
-            [[[22, ys(20) - 3], [11, ys(20) - 2]], 3.5],
-            [[[50, ys(48) - 3], [39, ys(48) - 2]], 3.5],
-            [[[38, 160], [46, 113]], 9],
-            [[[45, 117], [52, 139], main], 4.5],
-          ], [49, 99, 9.5]));
 
           // le traîneau
           o.push(h.chemin([T(0, 0), T(165, 0), T(165, 7), T(0, 7)], W(h.a.contour), true));
@@ -242,56 +288,60 @@ module.exports = (h) => {
           for (let a = 4; a < 162; a += 4) d += ` M${P([T(a, 15)])} L${P([T(a + 3, 24)])}`;
           o.push(h.path(d.trim(), h.a.fin));
           o.push(h.chemin([T(3, 15), T(163, 15)], h.a.detail));
-          // le blessé dans sa couverture, les pieds à l'avant
-          const prof = [[8, 24], [9, 33], [20, 35], [40, 33], [56, 37], [72, 37], [86, 40], [104, 41], [120, 45], [134, 44], [140, 38], [141, 24]];
-          o.push(h.path(lisse(prof.map(([a, n]) => T(a, n))) + ' Z', h.a.hachure('isolant', 'arete')));
-          o.push(h.cercle(...T(149, 32.5), 8.5, W(h.a.arete)));
-          const haut = a => { for (let i = 0; i < prof.length - 1; i++) if (a >= prof[i][0] && a <= prof[i + 1][0]) return prof[i][1] + (prof[i + 1][1] - prof[i][1]) * (a - prof[i][0]) / (prof[i + 1][0] - prof[i][0]); return 30; };
-          // trois sangles : cuisses, bassin, poitrine
-          for (const a of [58, 84, 118]) {
-            const t = haut(a) + 1.5;
-            o.push(h.chemin([T(a - 2, -1), T(a + 2, -1), T(a + 2, t), T(a - 2, t)], h.a.plein, true));
-          }
-          // brancard : lié le long de la perche, couché par-dessus le bout de la première traverse
-          // qui le relève vers la main (il passe à n ≈ 17,7 en a = 12, sur le dessus de la traverse)
-          const b0 = T(47, 3);
-          const L = Math.hypot(main[0] - b0[0], main[1] - b0[1]);
-          const bout = [main[0] + (main[0] - b0[0]) / L * 10, main[1] + (main[1] - b0[1]) / L * 10];
-          o.push(barre(b0[0], b0[1], bout[0], bout[1], 5.5, 4.5, W(h.a.arete)));
+          // le blessé dans son sac de couchage, les pieds à l'avant, sanglé à la poitrine, au bassin et aux
+          // cuisses : le corps simple couché sur le dos sert de gabarit au sac (hachure d'isolant,
+          // comme dans la coupe). Dessiné dans le repère du traîneau (a le long de la pente, y = −n), puis
+          // tourné de la pente.
+          const bl = h.formes.corps({ pose: 'couche-dos', cote: 'gauche', echelle: E_P, x: 154 - 877 * E_P, y: -24 - 55 * E_P,
+            angles: { cuisseP: 86, jambeP: 94, cuisseL: 86, jambeL: 94 } });
+          const env = sac(bl, { marge: 55, lisse: 150, motif: h.a.hachure('isolant', 'arete') });
+          const ar = bl.articulations;
+          const sangles = [ar.epauleP[0] + 0.3 * (ar.hancheP[0] - ar.epauleP[0]), ar.hancheP[0] + 2, (ar.hancheP[0] + ar.genouP[0]) / 2]
+            .map(x => { const t = env.haut(x) - 1.5; return h.chemin([[x - 2, 1], [x + 2, 1], [x + 2, t], [x - 2, t]], h.a.plein, true); });
+          o.push(`<g transform="translate(${f(x0)} ${f(y0)}) rotate(${f(-th * 180 / Math.PI)})">\n${bl}\n${env}\n${sangles.join('\n')}\n</g>`);
+
+          // l'homme de devant : le brancard part de la perche (lié, couché sur le bout de la première
+          // traverse) et monte dans ses poings ; il passe devant le corps, derrière le bras proche
+          let brancard = null;
+          const devant = h.formes.corps(Object.assign({}, G.av, { objetP: g => {
+            const m = [g.mainP.x, g.mainP.y], L = Math.hypot(m[0] - b0[0], m[1] - b0[1]);
+            const bout = [m[0] + (m[0] - b0[0]) / L * 9, m[1] + (m[1] - b0[1]) / L * 9];
+            brancard = { m, u: [(b0[0] - m[0]) / L, (b0[1] - m[1]) / L], L };
+            return barre(b0[0], b0[1], bout[0], bout[1], 5.5, 4.5, W(h.a.arete));
+          } }));
+          o.push(String(devant));
           for (const [a, n0, n1] of [[12, 6.5, 21], [40, -0.5, 9.5]]) {
             o.push(h.chemin([T(a - 2, n0), T(a + 2, n0), T(a + 2, n1), T(a - 2, n1)], W(h.a.detail), true));
             o.push(h.chemin([T(a, n0), T(a, n1)], h.a.detail));
           }
-          // la main par-dessus le brancard
-          o.push(h.cercle(main[0], main[1], 4.5, W(h.a.arete)));
+          // le geste : il retient, les brancards poussent le traîneau vers l'amont
+          { const { m, u } = brancard, nn = [-u[1], u[0]], o1 = 9;
+            const g0 = [m[0] + u[0] * 16 + nn[0] * o1, m[1] + u[1] * 16 + nn[1] * o1], g1 = [m[0] + u[0] * 46 + nn[0] * o1, m[1] + u[1] * 46 + nn[1] * o1];
+            o.push(h.geste(`M${P([g0])} L${P([g1])}`)); }
 
-          // homme derrière, à la corde, penché vers le haut de la pente
-          const mainF = [386, 94];
-          const r0 = T(165, 4);
-          const mil = [(r0[0] + mainF[0]) / 2, (r0[1] + mainF[1]) / 2 + 12];
-          o.push(h.path(`M${P([r0])} Q${P([mil])} ${P([mainF])}`, h.a.contour));
-          o.push(silhouette([
-            [[[404, 100], [389, 129], [382, ys(382) - 4]], 5.5],
-            [[[404, 100], [410, 126], [410, ys(410) - 4]], 5.5],
-            [[[384, ys(382) - 3], [373, ys(382) - 2]], 3.5],
-            [[[412, ys(410) - 3], [401, ys(410) - 2]], 3.5],
-            [[[404, 100], [416, 55]], 9],
-            [[[412, 60], [398, 80], mainF], 4.5],
-          ], [420, 41, 9.5]));
-          o.push(h.path(`M${P([mainF])} Q396,102 392,118`, h.a.contour));
+          // l'homme de derrière : la corde monte tendue du traîneau aux poings ; elle s'interrompt dans le
+          // poing le plus bas, finit dans le plus haut
+          const derriere = h.formes.corps(Object.assign({}, G.arr, { objetP: g => {
+            const mains = [[g.mainP.x, g.mainP.y], [g.mainL.x, g.mainL.y]].sort((p, q) => Math.hypot(p[0] - r0[0], p[1] - r0[1]) - Math.hypot(q[0] - r0[0], q[1] - r0[1]));
+            const [bas, haut] = mains, L = Math.hypot(haut[0] - r0[0], haut[1] - r0[1]), e = [(haut[0] - r0[0]) / L, (haut[1] - r0[1]) / L];
+            const t = (bas[0] - r0[0]) * e[0] + (bas[1] - r0[1]) * e[1], q = k => [r0[0] + e[0] * k, r0[1] + e[1] * k];
+            return [h.chemin([r0, q(t - 5.5)], h.a.arete), h.chemin([q(t + 5.5), haut], h.a.arete)].join('\n');
+          } }));
+          o.push(String(derriere));
+          // le geste : le frein, il tire la corde vers l'amont
+          { const m = [derriere.mainP.x, derriere.mainP.y], L = Math.hypot(m[0] - r0[0], m[1] - r0[1]), e = [(m[0] - r0[0]) / L, (m[1] - r0[1]) / L], nn = [e[1], -e[0]];
+            const g0 = [r0[0] + e[0] * L * 0.42 + nn[0] * 10, r0[1] + e[1] * L * 0.42 + nn[1] * 10], g1 = [r0[0] + e[0] * L * 0.74 + nn[0] * 10, r0[1] + e[1] * L * 0.74 + nn[1] * 10];
+            o.push(h.geste(`M${P([g0])} L${P([g1])}`)); }
           return o.join('\n');
         },
         renvois: z => {
-          const pente = (z.h - 17 - 148) / z.l;
-          const th = Math.atan(pente), c = Math.cos(th), s = Math.sin(th);
-          const x0 = 148, y0 = z.h - 17 - pente * 148;
-          const T = (a, n) => [x0 + a * c - n * s, y0 - a * s - n * c];
-          const b0 = T(47, 3), main = [58, 157], u = (-25 - 47) / (-81.3 - 47);
-          const r0 = T(165, 4), mainF = [386, 94];
+          const G = geoDescente(z), T = G.T, b0 = G.b0, r0 = G.r0;
+          const dv = h.formes.corps(G.av), dr = h.formes.corps(G.arr);
+          const m = [dv.mainP.x, dv.mainP.y], mF = [dr.mainP.x, dr.mainP.y], u = 0.62;
           return [
-            { n: 9, rond: [250, 88], cible: T(118, 46), texte: 'poitrine, bassin, cuisses' },
-            { n: 10, rond: [118, 118], cible: [b0[0] + (main[0] - b0[0]) * u, b0[1] + (main[1] - b0[1]) * u], texte: 'brancards : ils retiennent' },
-            { n: 11, rond: [322, 70], cible: [(r0[0] + mainF[0]) / 2, (r0[1] + mainF[1]) / 2 + 6], texte: 'derrière, à la corde : le frein' },
+            { n: 9, rond: [250, 84], cible: T(116, 40), texte: 'poitrine, bassin, cuisses' },
+            { n: 10, rond: [104, 112], cible: [m[0] + (b0[0] - m[0]) * u, m[1] + (b0[1] - m[1]) * u - 3], texte: 'brancards : ils retiennent' },
+            { n: 11, rond: [300, 62], cible: [r0[0] + (mF[0] - r0[0]) * 0.25, r0[1] + (mF[1] - r0[1]) * 0.25], texte: 'derrière, à la corde : le frein' },
           ];
         },
       },

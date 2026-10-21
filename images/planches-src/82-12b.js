@@ -1,5 +1,8 @@
 // Planche 82-12b — L'abri ouvert : le plancher et les roches chaudes (chapitre 16, « Sortir et
 // tenir la nuit » ; aussi ch. 22). Suite de 16-12a. Aucune cote : le chapitre n'en donne pas.
+// La charte : pas de gris, la planche n'en a pas besoin (plan, coupes de roche, petits objets). Le
+// rouge : le geste de chacune des trois vignettes qui en ont un (le coup de masse, la roche tirée à
+// la pelle, la roche glissée dans le sac), et la face fendue, le point à vérifier : la roche pleine.
 
 module.exports = (h) => {
   const W = t => h.a[t].replace('fill="none"', 'fill="#ffffff"');   // trait sur aplat blanc
@@ -141,7 +144,9 @@ module.exports = (h) => {
               h.a.hachure('pierre', 'arete'), true));
             out.push(h.rect(X(44), Y(54), 12 * s, 17 * s, W('contour')));
             out.push(h.chemin(P([[56, 47], [92, 52], [92, 48], [56, 43]]), W('arete'), true));
-            out.push(h.fleche(`M${f(X(38))} ${f(Y(52))}L${f(X(38))} ${f(Y(34))}`));
+            out.push(h.geste(`M${f(X(38))} ${f(Y(52))}L${f(X(38))} ${f(Y(34))}`));
+            // le point à vérifier : la face fendue, pleine
+            out.push(h.controle(X(50), Y(13), 10 * s));
           }
           // b · roulée à la pelle hors des braises
           {
@@ -164,7 +169,7 @@ module.exports = (h) => {
             out.push(h.chemin(P([[53.5, 15], [57, 15], [58.4, 20.6], [56.4, 20.6]]), W('arete'), true));
             out.push(h.ligne(X(57.4), Y(20.6), X(72), Y(58), h.a.arete));
             out.push(h.ligne(X(68.3), Y(59.5), X(75.7), Y(56.5), h.a.arete));
-            out.push(h.fleche(`M${f(X(69))} ${f(Y(24))}Q${f(X(79))} ${f(Y(29))} ${f(X(91))} ${f(Y(19))}`));
+            out.push(h.geste(`M${f(X(69))} ${f(Y(24))}Q${f(X(79))} ${f(Y(29))} ${f(X(91))} ${f(Y(19))}`));
           }
           // c · laissée grisonner, puis roulée dans le tissu : le baluchon, la roche dedans
           {
@@ -188,7 +193,7 @@ module.exports = (h) => {
               + `Q${f(X(3))} ${f(Y(43))} ${f(X(12))} ${f(Y(43))}Z`, W('arete')));
             out.push(h.ellipse(X(15), Y(28), 6 * s, 9 * s, h.a.detail));
             out.push(arrondi(X(71), Y(34), 17 * s, 12 * s, 5 * s, h.a.cache));
-            out.push(h.fleche(`M${f(X(27))} ${f(Y(28))}L${f(X(67))} ${f(Y(28))}`));
+            out.push(h.geste(`M${f(X(27))} ${f(Y(28))}L${f(X(67))} ${f(Y(28))}`));
           }
           return out.join('\n');
         },

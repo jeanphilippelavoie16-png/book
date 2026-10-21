@@ -96,14 +96,21 @@ module.exports = (h) => {
     const out = [];
     const base = tour(x0, ySol, R, PHI_G, PHI_D);
     const gx = base[0][0], dx = base[base.length - 1][0];
+    // la charte : la face à l'ombre du fût, à droite (lumière en haut à gauche)
+    const xo = gx + 0.66 * (dx - gx), droite = P => P.filter(p => p[0] >= xo);
     if (yHaut === null) {
       const cont = [[gx, 0], ...base, [dx, 0]];
       out.push(h.path(poly(cont) + ' Z', h.a.blanc));
+      const b = droite(base);
+      out.push(h.path(poly([[xo, 0], [dx, 0], ...b.slice().reverse(), [xo, b[0][1]]]) + ' Z', h.a.ombre));
       out.push(h.path(poly(cont), h.a.contour));
     } else {
       // silhouette : le pied par devant, les deux flancs, le dessus par derrière
       const sil = [...base, ...tour(x0, yHaut, R, PHI_D - 360, PHI_G)];
       out.push(h.path(poly(sil) + ' Z', blanc('contour')));
+      const t = droite(tour(x0, yHaut, R, PHI_G, PHI_D)), b = droite(base);
+      out.push(h.path(poly([[xo, t[0][1]], ...t, ...b.slice().reverse(), [xo, b[0][1]]]) + ' Z', h.a.ombre));
+      out.push(h.path(poly(sil) + ' Z', h.a.contour));
       out.push(h.path(poly(tour(x0, yHaut, R, PHI_G, PHI_D)), h.a.arete));
       out.push(h.path(poly(tour(x0, yHaut, R * 0.62, 0, 360)), h.a.fin));
       out.push(h.path(poly(tour(x0, yHaut, R * 0.28, 0, 360)), h.a.fin));
@@ -181,7 +188,7 @@ module.exports = (h) => {
     // le bâton tourne autour de la corde
     const ra = q.Ls + 13, arc = [];
     for (let i = 0; i <= 40; i++) { const a = rad(-55 + 155 * i / 40); arc.push([q.xs + KX * ra * Math.sin(a), q.yr - ra * (Math.cos(a) + KY * Math.sin(a))]); }
-    out.push(h.fleche(poly(arc)));
+    out.push(h.geste(poly(arc)));   // la charte : le geste, en rouge
     // le poteau vient vers l'arbre
     out.push(h.fleche(`M ${f(q.xB - 16)} ${f(q.yt + 14)} L ${f(q.xB - 54)} ${f(q.yt + 14)}`));
     return out.join('\n');
@@ -240,6 +247,8 @@ module.exports = (h) => {
     out.push(section(q.C, q.n, q.ws / 2 + q.rc, q.rc));
     // la torsion ramène le bâton : le piquet l'arrête
     out.push(arcFleche(q.C, q.Ls + 12, 316, 346));
+    // la charte : le point à contrôler, le bout du bâton en butée contre le piquet
+    out.push(h.controle(q.coin[0] - 2, q.coin[1] - 3, 11));
     return out.join('\n');
   };
   const renvoisBloquer = z => {
@@ -259,8 +268,8 @@ module.exports = (h) => {
     const a2 = rad(-4), v2 = [Math.cos(a2), Math.sin(a2)], n2 = [-v2[1], v2[0]];
     out.push(baton(add(q.C, v2, -q.Ls * 0.8), add(q.C, v2, q.Ls), q.ws));
     out.push(section(q.C, n2, q.ws / 2 + q.rc, q.rc));
-    // on le laisse revenir, retenu
-    out.push(arcFleche(q.C, q.Ls + 12, 2, 58));
+    // on le laisse revenir, retenu : la charte, le geste en rouge
+    out.push(h.geste(poly(cercleP(q.C, q.Ls + 12, 2, 58))));
     return out.join('\n');
   };
   const renvoisRelacher = z => {
@@ -297,7 +306,12 @@ module.exports = (h) => {
     }
     // la traverse, écorce gardée
     const { RT, yT, x0, x1 } = q, ex = RT * 0.36;
-    out.push(h.path(`M ${f(x0)} ${f(yT - RT)} L ${f(x1)} ${f(yT - RT)} A ${f(ex)} ${f(RT)} 0 0 1 ${f(x1)} ${f(yT + RT)} L ${f(x0)} ${f(yT + RT)} Z`, blanc('contour')));
+    const trav = `M ${f(x0)} ${f(yT - RT)} L ${f(x1)} ${f(yT - RT)} A ${f(ex)} ${f(RT)} 0 0 1 ${f(x1)} ${f(yT + RT)} L ${f(x0)} ${f(yT + RT)} Z`;
+    out.push(h.path(trav, blanc('contour')));
+    // la charte : la face à l'ombre, dessous
+    const ko = 0.4, yo = yT + ko * RT, xo = x1 + ex * Math.sqrt(1 - ko * ko);
+    out.push(h.path(`M ${f(x0)} ${f(yo)} L ${f(xo)} ${f(yo)} A ${f(ex)} ${f(RT)} 0 0 1 ${f(x1)} ${f(yT + RT)} L ${f(x0)} ${f(yT + RT)} Z`, h.a.ombre));
+    out.push(h.path(trav, h.a.contour));
     out.push(h.ellipse(f(x0), f(yT), f(ex), f(RT), blanc('arete')));
     out.push(h.ellipse(f(x0), f(yT), f(ex * 0.55), f(RT * 0.55), h.a.fin));
     let ec = '';
@@ -369,7 +383,9 @@ module.exports = (h) => {
     };
     const bouts = [[add(c2, neg(a), 12), neg(a)], [add(c3, neg(b), 12), neg(b)],
       [add(add(T1, nA, 2), a, q.R1 + 6), a], [add(add(T3, nB, 2), b, q.R3 + 6), b]];
-    for (const [p, dir] of bouts) out.push(prol(p, dir, jusquau(p, dir)));
+    // la charte : la zone dangereuse, l'axe de chaque brin, d'un seul trait rouge tireté
+    void prol;
+    out.push(h.path(bouts.map(([p, dir]) => { const L = jusquau(p, dir); return `M ${pt(p)} L ${pt([p[0] + dir[0] * L, p[1] + dir[1] * L])}`; }).join(' '), h.a.zone));
     // les brins du premier segment : de l'arbre à tirer au renvoi
     const eA_o = add(T2, nA, q.ro), eA_i = add(T2, nA, q.ri);
     const t1o = tangente(eA_o, T1, q.R1 + 1.5, nA), t1i = tangente(eA_i, T1, q.R1 + 1.5, neg(nA));
@@ -407,26 +423,27 @@ module.exports = (h) => {
     out.push(h.cercle(f(pq[0]), f(pq[1]), 2.2, h.a.fin));
     // le tireur, au bout du bâton, hors des axes
     // vu d'en haut : les épaules, la tête, deux bras coudés en dehors, les mains sur le bâton
-    const tp = add(M, nB, q.Ls + 19);
+    const tp = add(M, nB, q.Ls + 17);
+    // deux empreintes de bottes, pointes vers le bâton
+    const ovale = (c, la, lo) => { const e = []; for (let i = 0; i < 36; i++) { const t = rad(i * 10); e.push(add(add(c, b, la * Math.cos(t)), nB, lo * Math.sin(t))); } return poly(e) + ' Z'; };
     for (const s of [-1, 1]) {
-      const ep = add(add(tp, b, s * 11), nB, -2), cd = add(add(tp, b, s * 15), nB, -11);
-      const mn = add(add(M, nB, q.Ls - 3 - (s + 1) * 4), b, s * 3.2);
-      out.push(h.path(poly([ep, cd, mn]), h.a.arete));
-      out.push(h.cercle(f(mn[0]), f(mn[1]), 2.3, h.a.plein));
+      const c = add(tp, b, s * 6);
+      out.push(h.path(ovale(add(c, nB, -3), 3.4, 6), blanc('arete')));
+      out.push(h.path(ovale(add(c, nB, 6), 2.8, 2.8), blanc('arete')));
     }
-    const ep = [];
-    for (let i = 0; i < 36; i++) { const t = rad(i * 10); ep.push(add(add(tp, b, 14 * Math.cos(t)), nB, 6.5 * Math.sin(t))); }
-    out.push(h.path(poly(ep) + ' Z', blanc('contour')));
-    out.push(h.cercle(f(tp[0]), f(tp[1]), 5, blanc('arete')));
+    // renvoi 19 : un second trait vers l'autre prolongement
+    { const c3b = add(T2, nB, q.ri + q.g / 2), pa = add(c3b, neg(b), 52), r19 = [pa[0] - 30, pa[1] - 6];
+      const p1 = add(c2, neg(a), 40), d = norm([p1[0] - r19[0], p1[1] - r19[1]]);
+      out.push(`<line x1="${f(r19[0] + d[0] * 7)}" y1="${f(r19[1] + d[1] * 7)}" x2="${f(p1[0])}" y2="${f(p1[1])}" fill="none" stroke="#000" stroke-width="0.5" stroke-dasharray="3 2.5"/>`, h.cercle(f(p1[0]), f(p1[1]), 1.2, h.a.plein)); }
     // l'arbre tiré vient vers le renvoi
-    const f0 = add(add(T1, neg(a), q.R1 + 24), nA, 34);
+    const f0 = add(add(T1, neg(a), q.R1 - 4), nA, q.ro + 4);
     out.push(h.fleche(`M ${pt(f0)} L ${pt(add(f0, neg(a), 30))}`));
     return out.join('\n');
   };
   const renvoisPlan = z => {
     const q = G5(z), { T1, T2, T3, a, b, nA, nB, M } = q;
     const neg = v => [-v[0], -v[1]];
-    const tp = add(M, nB, q.Ls + 19);
+    const tp = add(M, nB, q.Ls + 17);
     const c3 = add(T2, nB, q.ri + q.g / 2), pa = add(c3, neg(b), 52);
     const st = add(M, nB, q.Ls * 0.5);
     return [
@@ -434,7 +451,7 @@ module.exports = (h) => {
       { n: 15, rond: [f(T2[0] - 44), f(T2[1] + 4)], cible: [f(T2[0] - q.R2 - 0.5), f(T2[1])], texte: 'arbre latéral : le renvoi' },
       { n: 16, rond: [f(T3[0] - 4), f(T3[1] + 46)], cible: [f(T3[0]), f(T3[1] + q.R3 + 0.5)], texte: 'ancrage' },
       { n: 17, rond: [f(M[0] - 40), f(M[1] - 34)], cible: [f(M[0] - 3), f(M[1] - 4)], texte: 'tourniquet, après le renvoi' },
-      { n: 18, rond: [f(tp[0] + 34), f(tp[1] + 4)], cible: [f(tp[0] + 10), f(tp[1])], texte: 'le tireur, hors des axes' },
+      { n: 18, rond: [f(tp[0] + 34), f(tp[1] + 4)], cible: [f(tp[0] + 9), f(tp[1])], texte: 'le tireur se tient ici' },
       { n: 19, rond: [f(pa[0] - 30), f(pa[1] - 6)], cible: [f(pa[0]), f(pa[1])], texte: 'axe des brins : personne' },
     ];
     void a; void st;

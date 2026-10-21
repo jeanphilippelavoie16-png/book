@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="826" viewBox="0 0 680 826" role="img">
+<title>Planche 89-08. Le couteau croche, d’une vieille lime</title>
+<desc>Le couteau croche vu à plat, tel qu’on le tient : la lame de lime, le dos en haut, le tranchant vers soi, la soie ligaturée sur un bras d’une branche fourchue, l’autre bras qui s’écarte du dos de la lame et porte le pouce ; on tire vers soi. En détail : la lame en coupe, une face plate, l’autre en biseau ; la lame courbée en entier ou par le bout, vue de chant ; la soie en coupe, couchée dans sa rainure, pliée en crochet dans le bois, sous une ligature serrée.</desc>
+<defs>
+<pattern id="h-bois" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#1A1A1A" stroke-width="0.7"/></pattern>
+<pattern id="h-metal" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="10" stroke="#1A1A1A" stroke-width="0.7"/></pattern>
+<marker id="fl-r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 Z" fill="#9B2C1E" stroke="#9B2C1E" stroke-width="1" stroke-linejoin="round"/></marker>
+</defs>
+<rect x="0" y="0" width="680" height="826" fill="#FFFFFF"/>
+<text x="40" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Emmanché, tel qu’on le tient</text>
+<g transform="translate(40 46)" data-vue="manche">
+<path d="M271.2 135.3 L449.4 135.3 Q463.8 134.4 468.2 127.7 L547.6 41.6 A16.2 16.2 0 0 1 572.4 62.4 L483.9 176.2 Q496.2 187.5 471 189.3 L271.2 189.3 Q255 162.3 271.2 135.3 Z" fill="#FFFFFF" stroke="none"/>
+<path d="M271.2 174.9 L462 174.9 L478.9 162.6 L564.8 56 L572.4 62.4 L483.9 176.2 Q496.2 187.5 471 189.3 L271.2 189.3 Q264.9 182.1 271.2 174.9 Z" fill="#CFCFCF" stroke="none"/>
+<path d="M395.4 153.3 L460.2 153.3 M402.6 167.7 L456.6 167.7 M485.5 135.2 L541 69" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M271.2 135.3 L449.4 135.3 Q463.8 134.4 468.2 127.7 L547.6 41.6 A16.2 16.2 0 0 1 572.4 62.4 L483.9 176.2 Q496.2 187.5 471 189.3 L271.2 189.3 Q255 162.3 271.2 135.3 Z" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M269.4 155.1 L291 155.1 L291 169.5 L269.4 169.5 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M384.6 156.9 L397.2 156.9 L397.2 167.7 L384.6 167.7 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="397.2" cy="162.3" r="3" fill="#1A1A1A" stroke="none"/>
+<path d="M289.2 133.5 L386.4 133.5 L386.4 191.1 L289.2 191.1 Z" fill="#FFFFFF" stroke="none"/>
+<path d="M292.8 133.5 L295.7 191.1 M298.9 133.5 L301.8 191.1 M305 133.5 L307.9 191.1 M311.2 133.5 L314 191.1 M317.3 133.5 L320.2 191.1 M323.4 133.5 L326.3 191.1 M329.5 133.5 L332.4 191.1 M335.6 133.5 L338.5 191.1 M341.8 133.5 L344.6 191.1 M347.9 133.5 L350.8 191.1 M354 133.5 L356.9 191.1 M360.1 133.5 L363 191.1 M366.2 133.5 L369.1 191.1 M372.4 133.5 L375.2 191.1 M378.5 133.5 L381.4 191.1" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M289.2 133.5 L386.4 133.5 L386.4 191.1 L289.2 191.1 Z" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M273 147.9 L44.4 147.9 Q22.8 150.6 17.4 175.8 L273 176.7 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M24.6 166.8 Q33.6 165.9 46.2 165.9 L271.2 165.9" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="518.3" cy="101.6" r="21" fill="none" stroke="#9B2C1E" stroke-width="1.6"/>
+<path d="M129 192.9 L129 248.7" fill="none" stroke="#9B2C1E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl-r)"/>
+</g>
+<text x="40" y="367.1" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">La lame, en coupe</text>
+<g transform="translate(40 375.1)" data-vue="coupe">
+<path d="M15.8 107.2 L83 107.2 L118.2 126.4 L15.8 126.4 Z" fill="url(#h-metal)" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round"/>
+</g>
+<text x="196.5" y="367.1" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Courbée, vue de chant</text>
+<g transform="translate(196.5 375.1)" data-vue="courbe">
+<path d="M170.5 66.3 L211.6 66.3 L208 77.2 L215.2 86.8 L210.4 102.6 L170.5 102.6 Q162 84.4 170.5 66.3 Z" fill="#FFFFFF" stroke="none"/>
+<path d="M170.5 91.7 L213.4 91.7 L210.4 102.6 L170.5 102.6 Q165.6 97.7 170.5 91.7 Z" fill="#CFCFCF" stroke="none"/>
+<path d="M210.4 102.6 L170.5 102.6 Q162 84.4 170.5 66.3 L211.6 66.3" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M211.6 66.3 L208 77.2 L215.2 86.8 L210.4 102.6" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M6 49.3 L10.3 50 L14.5 50.7 L18.8 51.3 L23 52 L27.3 52.6 L31.5 53.2 L35.8 53.9 L40.1 54.5 L44.3 55 L48.6 55.6 L52.8 56.2 L57.1 56.7 L61.4 57.3 L65.6 57.8 L69.9 58.3 L74.1 58.8 L78.4 59.3 L82.6 59.8 L86.9 60.3 L91.2 60.7 L95.4 61.2 L99.7 61.6 L103.9 62 L108.2 62.4 L112.4 62.8 L116.7 63.2 L121 63.5 L125.2 63.9 L129.5 64.2 L133.7 64.5 L138 64.8 L142.2 65 L146.5 65.3 L150.8 65.5 L155 65.7 L159.3 65.9 L163.5 66 L167.8 66.2 L172.1 66.2 L176.3 66.3 L180.6 66.3 L184.8 66.3 L189.1 66.3 L193.3 66.3 L197.6 66.3 L201.9 66.3 L206.1 66.3 L210.4 66.3 L210.4 69.9 L206.1 69.9 L201.9 69.9 L197.6 69.9 L193.3 69.9 L189.1 69.9 L184.8 69.9 L180.6 69.9 L176.3 69.9 L172.1 69.9 L167.8 69.8 L163.5 69.7 L159.3 69.5 L155 69.3 L150.8 69.1 L146.5 68.9 L142.2 68.7 L138 68.4 L133.7 68.1 L129.5 67.8 L125.2 67.5 L121 67.2 L116.7 66.8 L112.4 66.4 L108.2 66 L103.9 65.6 L99.7 65.2 L95.4 64.8 L91.2 64.4 L86.9 63.9 L82.6 63.4 L78.4 63 L74.1 62.5 L69.9 62 L65.6 61.4 L61.4 60.9 L57.1 60.4 L52.8 59.8 L48.6 59.2 L44.3 58.7 L40.1 58.1 L35.8 57.5 L31.5 56.9 L27.3 56.2 L23 55.6 L18.8 55 L14.5 54.3 L10.3 53.6 L6 53 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M170.5 173.5 L211.6 173.5 L208 184.3 L215.2 194 L210.4 209.7 L170.5 209.7 Q162 191.6 170.5 173.5 Z" fill="#FFFFFF" stroke="none"/>
+<path d="M170.5 198.8 L213.4 198.8 L210.4 209.7 L170.5 209.7 Q165.6 204.9 170.5 198.8 Z" fill="#CFCFCF" stroke="none"/>
+<path d="M210.4 209.7 L170.5 209.7 Q162 191.6 170.5 173.5 L211.6 173.5" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M211.6 173.5 L208 184.3 L215.2 194 L210.4 209.7" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M6 155.3 L10.3 158.3 L14.5 161 L18.8 163.4 L23 165.5 L27.3 167.4 L31.5 169 L35.8 170.3 L40.1 171.4 L44.3 172.2 L48.6 172.8 L52.8 173.2 L57.1 173.4 L61.4 173.5 L65.6 173.5 L69.9 173.5 L74.1 173.5 L78.4 173.5 L82.6 173.5 L86.9 173.5 L91.2 173.5 L95.4 173.5 L99.7 173.5 L103.9 173.5 L108.2 173.5 L112.4 173.5 L116.7 173.5 L121 173.5 L125.2 173.5 L129.5 173.5 L133.7 173.5 L138 173.5 L142.2 173.5 L146.5 173.5 L150.8 173.5 L155 173.5 L159.3 173.5 L163.5 173.5 L167.8 173.5 L172.1 173.5 L176.3 173.5 L180.6 173.5 L184.8 173.5 L189.1 173.5 L193.3 173.5 L197.6 173.5 L201.9 173.5 L206.1 173.5 L210.4 173.5 L210.4 177.1 L206.1 177.1 L201.9 177.1 L197.6 177.1 L193.3 177.1 L189.1 177.1 L184.8 177.1 L180.6 177.1 L176.3 177.1 L172.1 177.1 L167.8 177.1 L163.5 177.1 L159.3 177.1 L155 177.1 L150.8 177.1 L146.5 177.1 L142.2 177.1 L138 177.1 L133.7 177.1 L129.5 177.1 L125.2 177.1 L121 177.1 L116.7 177.1 L112.4 177.1 L108.2 177.1 L103.9 177.1 L99.7 177.1 L95.4 177.1 L91.2 177.1 L86.9 177.1 L82.6 177.1 L78.4 177.1 L74.1 177.1 L69.9 177.1 L65.6 177.1 L61.4 177.1 L57.1 177 L52.8 176.8 L48.6 176.4 L44.3 175.8 L40.1 175 L35.8 173.9 L31.5 172.6 L27.3 171 L23 169.1 L18.8 167 L14.5 164.6 L10.3 161.9 L6 158.9 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<text x="442.7" y="367.1" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">La soie, en coupe</text>
+<g transform="translate(442.7 375.1)" data-vue="soie">
+<path d="M38.2 97 L148.8 97 L148.8 91 L185 91 L179 111.1 L189 129.2 L181 151.3 L38.2 151.3 Q20 124.2 38.2 97 Z" fill="url(#h-bois)" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round"/>
+<path d="M4 91 L148.8 91 L148.8 119.1 L142.8 119.1 L142.8 97 L4 97 Z" fill="#1A1A1A" stroke="none"/>
+<circle cx="56.3" cy="87.2" r="3.5" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="56.3" cy="155.2" r="3.5" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="64.7" cy="87.2" r="3.5" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="64.7" cy="155.2" r="3.5" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="73.2" cy="87.2" r="3.5" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="73.2" cy="155.2" r="3.5" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="81.6" cy="87.2" r="3.5" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="81.6" cy="155.2" r="3.5" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="90.1" cy="87.2" r="3.5" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="90.1" cy="155.2" r="3.5" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="98.5" cy="87.2" r="3.5" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="98.5" cy="155.2" r="3.5" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="106.9" cy="87.2" r="3.5" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="106.9" cy="155.2" r="3.5" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="115.4" cy="87.2" r="3.5" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="115.4" cy="155.2" r="3.5" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="123.8" cy="87.2" r="3.5" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="123.8" cy="155.2" r="3.5" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="132.3" cy="87.2" r="3.5" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="132.3" cy="155.2" r="3.5" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<line x1="571" y1="250" x2="530" y2="229.1" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="571" y1="250" x2="530" y2="229.1" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="530" cy="229.1" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="579" cy="254.1" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="manche"/>
+<text x="579" y="258.1" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">5</text>
+<line x1="489.7" y1="117.7" x2="540.1" y2="132.2" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="489.7" y1="117.7" x2="540.1" y2="132.2" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="540.1" cy="132.2" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="481.1" cy="115.2" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="manche"/>
+<text x="481.1" y="119.2" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">8</text>
+<line x1="251.5" y1="275.7" x2="246.4" y2="224.2" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="251.5" y1="275.7" x2="246.4" y2="224.2" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="246.4" cy="224.2" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="252.4" cy="284.7" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="manche"/>
+<text x="252.4" y="288.7" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">9</text>
+<line x1="81.2" y1="544.6" x2="87.8" y2="503" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="81.2" y1="544.6" x2="87.8" y2="503" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="87.8" cy="503" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="79.8" cy="553.5" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="coupe"/>
+<text x="79.8" y="557.5" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">1</text>
+<line x1="141.8" y1="446.9" x2="139.5" y2="489.9" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="141.8" y1="446.9" x2="139.5" y2="489.9" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="139.5" cy="489.9" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="142.3" cy="437.9" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="coupe"/>
+<text x="142.3" y="441.9" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">2</text>
+<line x1="277.8" y1="397.6" x2="239.8" y2="428.9" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="277.8" y1="397.6" x2="239.8" y2="428.9" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="239.8" cy="428.9" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="284.8" cy="391.9" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="courbe"/>
+<text x="284.8" y="395.9" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">3</text>
+<line x1="257.3" y1="507.3" x2="215.6" y2="537.1" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="257.3" y1="507.3" x2="215.6" y2="537.1" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="215.6" cy="537.1" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="264.6" cy="502.1" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="courbe"/>
+<text x="264.6" y="506.1" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">4</text>
+<line x1="611.2" y1="432.6" x2="590.1" y2="485.2" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="611.2" y1="432.6" x2="590.1" y2="485.2" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="590.1" cy="485.2" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="614.5" cy="424.2" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="soie"/>
+<text x="614.5" y="428.2" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">6</text>
+<line x1="538" y1="571.5" x2="541.2" y2="532.9" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="538" y1="571.5" x2="541.2" y2="532.9" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="541.2" cy="532.9" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="537.2" cy="580.5" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="soie"/>
+<text x="537.2" y="584.5" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">7</text>
+<rect x="40" y="627" width="600" height="59" fill="none" stroke="#9B2C1E" stroke-width="2"/>
+<text x="54" y="650.4" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#9B2C1E">La lame vient vers le ventre, et c’est là qu’elle blesse : la pièce ne se tient ni dans la main ni contre</text>
+<text x="54" y="668.3" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#9B2C1E">soi, elle se serre au chevalet à planer.</text>
+<text x="40" y="715" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">Planche 89-08. Le couteau croche, d’une vieille lime.</text>
+<text x="50" y="740" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">1</text>
+<text x="56" y="740" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">face meulée plate</text>
+<text x="50" y="757" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">2</text>
+<text x="56" y="757" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">l’autre en biseau, comme une plane</text>
+<text x="50" y="774" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">3</text>
+<text x="56" y="774" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">courbée en entier</text>
+<text x="50" y="791" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">4</text>
+<text x="56" y="791" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">ou par le bout seulement</text>
+<text x="50" y="808" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">5</text>
+<text x="56" y="808" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">manche d’une branche fourchue</text>
+<text x="362" y="740" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">6</text>
+<text x="368" y="740" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">soie pliée en crochet, dans le bois</text>
+<text x="362" y="757" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">7</text>
+<text x="368" y="757" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">ligature serrée : tendon ou broche</text>
+<text x="362" y="774" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">8</text>
+<text x="368" y="774" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">le pouce couché sur ce bras</text>
+<text x="362" y="791" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">9</text>
+<text x="368" y="791" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">tranchant vers soi, on tire</text>
+</svg>

@@ -1,0 +1,457 @@
+{
+  "_note": "Logigramme du chapitre 7 (quand on a un préavis), double page, fait le 19 octobre 2026 sur le chapitre refait au gabarit à sept sections, sur le modèle du 03 et du 04. Page de gauche : l'alerte, son type, la série orange de la première demi-heure (pastille 30 min, comme l'intertitre orange des étapes 1 à 5), la décision de monter au chalet, et le départ de la maison. Page de droite : la crue, l'avis sur l'eau du robinet, le temps qui reste (plus ou moins de 6 heures), la dernière heure, puis l'après. Aucun avertissement redit (ni la génératrice dehors, ni le monoxyde, ni la cuisson : ils restent dans leur étape, avec leur pictogramme). Rendu : env -u TMPDIR python3 design/outils/logigramme.py images/logigrammes/07-preavis.json ; version du livre : --sans-entete --svg. « source » : les étapes du chapitre d'où vient chaque geste (ignoré au rendu).",
+  "format": "double",
+  "tome": 1,
+  "urgent": true,
+  "entete": {
+    "chapitre": "07 · Quand on a un préavis",
+    "tome": "Tome 1 · Tenir",
+    "onglet": "7",
+    "folios": [
+      null,
+      null
+    ]
+  },
+  "colonnes": {
+    "large": [
+      0.5,
+      7.375
+    ],
+    "qa": [
+      1.6,
+      6.3
+    ],
+    "v1": [
+      0.5,
+      2.6
+    ],
+    "v2": [
+      2.75,
+      4.95
+    ],
+    "v3": [
+      5.1,
+      7.375
+    ],
+    "tronc": [
+      0.5,
+      3.55
+    ],
+    "cote": [
+      4.25,
+      7.375
+    ],
+    "tronc2": [
+      8.9,
+      12.1233
+    ],
+    "cote2": [
+      12.8395,
+      15.5
+    ],
+    "vL": [
+      8.9,
+      12.05
+    ],
+    "vR": [
+      12.35,
+      15.5
+    ],
+    "large2": [
+      8.9,
+      15.5
+    ]
+  },
+  "rangs": {
+    "g1": 0.85,
+    "g2": 2.08,
+    "g3": 3.0,
+    "g4": 4.45,
+    "g5": 5.6,
+    "g6": 6.9,
+    "d1": 1.15,
+    "d2": 2.85,
+    "d3": 4.3,
+    "d4": 5.3,
+    "d5": 6.6,
+    "d6": 7.45,
+    "d7": 8.4
+  },
+  "noeuds": [
+    {
+      "id": "depA",
+      "type": "depart",
+      "col": "large",
+      "rang": "g1",
+      "ancre": "haut",
+      "taille": 15,
+      "texte": "Une alerte est émise pour le secteur",
+      "source": "section 2 ; étape 1"
+    },
+    {
+      "id": "q1",
+      "type": "question",
+      "col": "qa",
+      "rang": "g2",
+      "texte": "Quel genre d'alerte ?",
+      "precision": "Lire l'alerte au complet",
+      "source": "étape 1"
+    },
+    {
+      "id": "avert",
+      "type": "urgent",
+      "col": "v1",
+      "rang": "g3",
+      "ancre": "haut",
+      "temps": "30 min",
+      "taille": 10,
+      "texte": "**Écrire l'heure d'arrivée prévue** sur une feuille collée sur la porte.",
+      "renvoi": "ch. 7, étapes 1 et 2",
+      "source": "étapes 1 et 2"
+    },
+    {
+      "id": "veille",
+      "type": "geste",
+      "col": "v2",
+      "rang": "g3",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**Faire des réserves d'eau, charger et rentrer du bois.** Attendre l'avertissement pour le reste.",
+      "renvoi": "ch. 7, étape 1",
+      "source": "étape 1"
+    },
+    {
+      "id": "bulletin",
+      "type": "geste",
+      "col": "v3",
+      "rang": "g3",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**Lire le bulletin et garder la réserve.** Ce n'est pas une alerte.",
+      "renvoi": "ch. 7, étape 1",
+      "source": "étape 1"
+    },
+    {
+      "id": "q2",
+      "type": "question",
+      "col": "tronc",
+      "rang": "g4",
+      "texte": "L'événement va durer plus de trois jours ?",
+      "source": "étape 3"
+    },
+    {
+      "id": "chalet",
+      "type": "urgent",
+      "col": "cote",
+      "rang": "g4",
+      "taille": 10,
+      "texte": "**Monter au chalet pendant que la route est ouverte**, les pleins faits, s'il y a du bois fendu là-haut.",
+      "renvoi": "ch. 7, étape 3 ; ch. 2",
+      "source": "étape 3"
+    },
+    {
+      "id": "charge",
+      "type": "urgent",
+      "col": "large",
+      "rang": "g5",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**Mettre tout à charger**, et prévenir les proches et les voisins par message texte.",
+      "renvoi": "ch. 7, étapes 4 et 5",
+      "source": "étapes 4 et 5"
+    },
+    {
+      "id": "q3",
+      "type": "question",
+      "col": "tronc",
+      "rang": "g6",
+      "texte": "On quitte la maison ?",
+      "precision": "On évacue, ou on monte au chalet",
+      "source": "étapes 3, 39 à 41"
+    },
+    {
+      "id": "evac",
+      "type": "geste",
+      "col": "cote",
+      "rang": "g6",
+      "taille": 10,
+      "texte": "**Faire la série « On part » du ch. 2**, et l'hiver, mettre la maison hors gel avant de partir.",
+      "renvoi": "ch. 7, étapes 39 à 41",
+      "source": "étapes 39 à 41"
+    },
+    {
+      "id": "q4",
+      "type": "question",
+      "col": "tronc2",
+      "rang": "d1",
+      "texte": "Une pluie forte ou une crue est annoncée ?",
+      "source": "étape 22"
+    },
+    {
+      "id": "crue",
+      "type": "geste",
+      "col": "cote2",
+      "rang": "d1",
+      "taille": 10,
+      "texte": "**Boucher le drain de plancher**, sortir dehors les bidons d'essence et de solvant, et monter le reste à l'étage.",
+      "renvoi": "ch. 7, étape 22",
+      "source": "étape 22"
+    },
+    {
+      "id": "qavis",
+      "type": "question",
+      "col": "tronc2",
+      "rang": "d2",
+      "texte": "Un avis touche l'eau du robinet ?",
+      "precision": "Ébullition ou non-consommation",
+      "source": "étape 8"
+    },
+    {
+      "id": "avis",
+      "type": "geste",
+      "col": "cote2",
+      "rang": "d2",
+      "taille": 10,
+      "texte": "**Lire lequel.** Pour un avis d'ébullition, faire bouillir l'eau ; pour un avis de non-consommation, boire l'eau en bouteille.",
+      "renvoi": "ch. 7, étape 8",
+      "source": "étape 8"
+    },
+    {
+      "id": "q5",
+      "type": "question",
+      "col": "tronc2",
+      "rang": "d3",
+      "texte": "Il reste plus de 6 heures avant l'événement ?",
+      "source": "étapes 2, 26"
+    },
+    {
+      "id": "plus6",
+      "type": "geste",
+      "col": "vL",
+      "rang": "d4",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**Faire des réserves d'eau et remplir le congélateur**, cuire la viande qui ne tiendra pas, faire les pleins, préparer la génératrice et l'avertisseur.",
+      "renvoi": "ch. 7, étapes 6 à 25",
+      "source": "étapes 6 à 25"
+    },
+    {
+      "id": "moins6",
+      "type": "geste",
+      "col": "vR",
+      "rang": "d4",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**Faire d'abord les réserves d'eau et le congélateur**, puis l'emplacement de la génératrice et l'avertisseur.",
+      "renvoi": "ch. 7, étape 26",
+      "source": "étape 26"
+    },
+    {
+      "id": "dernieres",
+      "type": "geste",
+      "col": "large2",
+      "rang": "d5",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**Arrêter les déplacements**, remplir ce qui reste vide, débrancher l'électronique et attacher ce que le vent peut emporter.",
+      "renvoi": "ch. 7, étapes 27 à 34",
+      "source": "étapes 27 à 34"
+    },
+    {
+      "id": "heure",
+      "type": "geste",
+      "col": "large2",
+      "rang": "d6",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**Dans la dernière heure, manger chaud et tout mettre en place.** Écrire l'heure de la panne sur la porte du congélateur, puis ne plus l'ouvrir.",
+      "renvoi": "ch. 7, étapes 35 à 38",
+      "source": "étapes 35 à 38"
+    },
+    {
+      "id": "apres",
+      "type": "geste",
+      "col": "large2",
+      "rang": "d7",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**Après l'événement, remettre les services en marche un à la fois**, rouvrir le gaz appareil par appareil et refaire la réserve.",
+      "renvoi": "ch. 7, étapes 42 à 44",
+      "source": "étapes 42 à 44"
+    }
+  ],
+  "liens": [
+    {
+      "de": "depA",
+      "vers": "q1"
+    },
+    {
+      "de": "q1",
+      "vers": "avert",
+      "etiquette": "Avertissement",
+      "coude": 2.66,
+      "pos": "palier"
+    },
+    {
+      "de": "q1",
+      "vers": "veille",
+      "etiquette": "Veille ou avis",
+      "coude": 2.66,
+      "pos": "palier"
+    },
+    {
+      "de": "q1",
+      "vers": "bulletin",
+      "etiquette": "Bulletin spécial",
+      "coude": 2.66,
+      "pos": "palier"
+    },
+    {
+      "de": "avert",
+      "vers": "q2",
+      "sx": 1.55,
+      "ex": 1.55
+    },
+    {
+      "de": "q2",
+      "vers": "chalet",
+      "etiquette": "Oui",
+      "sortie": "droite",
+      "entree": "gauche"
+    },
+    {
+      "de": "q2",
+      "vers": "charge",
+      "etiquette": "Non",
+      "sx": 2.025,
+      "ex": 2.025
+    },
+    {
+      "de": "chalet",
+      "vers": "charge",
+      "sx": 5.8125,
+      "ex": 5.8125
+    },
+    {
+      "de": "charge",
+      "vers": "q3",
+      "sx": 2.025,
+      "ex": 2.025
+    },
+    {
+      "de": "q3",
+      "vers": "evac",
+      "etiquette": "Oui",
+      "sortie": "droite",
+      "entree": "gauche"
+    },
+    {
+      "de": "q3",
+      "vers": "q4",
+      "etiquette": "Non",
+      "sortie": "bas",
+      "entree": "gauche",
+      "via": [
+        [
+          2.025,
+          9.05
+        ],
+        [
+          8.7,
+          9.05
+        ],
+        [
+          8.7,
+          1.15
+        ]
+      ]
+    },
+    {
+      "de": "q4",
+      "vers": "crue",
+      "etiquette": "Oui",
+      "sortie": "droite",
+      "entree": "gauche"
+    },
+    {
+      "de": "q4",
+      "vers": "qavis",
+      "etiquette": "Non",
+      "sx": 10.5116,
+      "ex": 10.5116
+    },
+    {
+      "de": "crue",
+      "vers": "qavis",
+      "sortie": "bas",
+      "entree": "droite",
+      "ey": 2.65,
+      "via": [
+        [
+          14.1698,
+          1.95
+        ],
+        [
+          12.48,
+          1.95
+        ],
+        [
+          12.48,
+          2.65
+        ]
+      ]
+    },
+    {
+      "de": "qavis",
+      "vers": "avis",
+      "etiquette": "Oui",
+      "sortie": "droite",
+      "entree": "gauche",
+      "sy": 2.95,
+      "ey": 2.95
+    },
+    {
+      "de": "qavis",
+      "vers": "q5",
+      "etiquette": "Non",
+      "sx": 10.5116,
+      "ex": 10.5116
+    },
+    {
+      "de": "avis",
+      "vers": "q5",
+      "sortie": "bas",
+      "entree": "droite"
+    },
+    {
+      "de": "q5",
+      "vers": "plus6",
+      "etiquette": "Oui",
+      "coude": 4.92,
+      "pos": "palier"
+    },
+    {
+      "de": "q5",
+      "vers": "moins6",
+      "etiquette": "Non",
+      "coude": 4.92,
+      "pos": "palier"
+    },
+    {
+      "de": "plus6",
+      "vers": "dernieres"
+    },
+    {
+      "de": "moins6",
+      "vers": "dernieres"
+    },
+    {
+      "de": "dernieres",
+      "vers": "heure"
+    },
+    {
+      "de": "heure",
+      "vers": "apres"
+    }
+  ]
+}

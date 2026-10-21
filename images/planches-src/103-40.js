@@ -3,6 +3,26 @@
 // Tout vient du chapitre 103 : étapes 5, 14, 19, 20, le tableau des défauts, et « Fabriquer les
 // outils » (chevalet, racloir émoussé, cadre d'étirage et garrot). Aucune cote : le chapitre n'en
 // donne aucune sur ces objets.
+// 13 oct. : l'homme du poste est le corps simple (pose « penche-pousse », tronc 44), ses bras calculés
+// par poserBras. 14 oct. : « Défibrer au maillet » prend les mains simples (mains/moteur.js) : la gauche pince
+// le bout sec du tendon, le poing droit tient le manche du maillet. Rouge : la poussée du racloir, la frappe.
+
+// L'angle d'une main simple qui met l'axe de sa prise sur axe (degrés écran) et son avant-bras vers vers [x, y].
+const poser = (h, o, axe, vers) => {
+  const base = Object.assign({}, o, { angle: 0, avantbras: { longueur: 100 } }); delete base.objet;
+  const e0 = h.formes.mainSimple(base); let best = null;
+  for (const k of [0, 180]) {
+    const a = axe - e0.prise.angle + k, m = h.formes.mainSimple(Object.assign({}, base, { angle: a }));
+    const d = [m.coude[0] - m.poignet[0], m.coude[1] - m.poignet[1]], v = [vers[0] - m.poignet[0], vers[1] - m.poignet[1]];
+    const c = (d[0] * v[0] + d[1] * v[1]) / ((Math.hypot(d[0], d[1]) * Math.hypot(v[0], v[1])) || 1);
+    if (!best || c > best.c) best = { a, c };
+  }
+  return best.a;
+};
+const MAINS_DEF = {
+  pince: { pose: 'pince-laterale', vue: 'pouce', x: -392, vers: [-760, 60], rot: null },
+  maillet: { pose: 'prise-manche', vue: 'paume', rot: [0, -30, 0], vers: [-420, 420] },
+};
 
 // ─── géométrie ───────────────────────────────────────────────────────────────────────
 const f1 = v => Math.round(v * 10) / 10;
@@ -58,9 +78,9 @@ const EPP = 14;      // l'épaisseur de la peau sur le dessus de la bille
 const UR = 640;      // où travaille le racloir, le long de la bille
 const UP = 1500;     // jusqu'où la peau couvre la bille
 const UF = 330;      // la fourche
-const XCH = -640;    // la chaudière
+const XCH = -520;    // la chaudière
 const reperePoste = z => {
-  const s = Math.min((z.h - 8) / 1780, z.l / 3300), gy = z.h - 5, ox = z.l * 0.25;
+  const s = Math.min((z.h - 8) / 1780, z.l / 2950), gy = z.h - 5, ox = z.l * 0.23;
   return { s, gy, ox, V: p => [ox + p[0] * s, gy - p[1] * s] };
 };
 
@@ -82,6 +102,48 @@ const repereDet = z => {
 module.exports = (h) => {
   const A = h.a, F = h.formes;
   const blanc = at => at.replace('fill="none"', 'fill="#FFFFFF"');
+  // ─── les corps simples ─────────────────────────────────────────────────────────────────
+  // Les bras d'un corps simple, calculés pour que chaque poing tombe sur sa cible (unités de vue),
+  // l'axe de la prise donné en degrés écran (null : la prise vue par le bout, le poignet droit).
+  // Le corps regarde vers +x ; pour un corps tourné vers la
+  // gauche, poserBras le calcule en miroir autour de o.x et rend les mêmes angles.
+  const RAD = Math.PI / 180;
+  const poserBras = (o, cibles, axes, coudes = {}) => {
+    const g = o.cote === 'gauche', X0 = o.x;
+    const oo = Object.assign({}, o, { cote: 'droite' });
+    const c = F.corps(oo), ang = Object.assign({}, o.angles || {});
+    const angDe = v => Math.atan2(v[0], v[1]) / RAD, dirDe = a => [Math.sin(a * RAD), Math.cos(a * RAD)];
+    for (const k of ['P', 'L']) {
+      let C = cibles[k]; if (!C) continue;
+      let ax = axes[k];
+      if (g) { C = [2 * X0 - C[0], C[1]]; if (ax != null) ax = 180 - ax; }
+      const S = c.articulations['epaule' + k], E_ = c.articulations['coude' + k], Wr = c.articulations['poignet' + k], Mn = c['main' + k];
+      const lb = Math.hypot(E_[0] - S[0], E_[1] - S[1]), la = Math.hypot(Wr[0] - E_[0], Wr[1] - E_[1]);
+      const hv = [Mn.x - Wr[0], Mn.y - Wr[1]], lm = Math.hypot(...hv);
+      const off = angDe(hv) - angDe([Math.cos(Mn.axe * RAD), Math.sin(Mn.axe * RAD)]);
+      const resoudre = main => {
+        const h2 = dirDe(main + off).map(v => v * lm), W_ = [C[0] - h2[0], C[1] - h2[1]];
+        const d = [W_[0] - S[0], W_[1] - S[1]], D = Math.min(Math.hypot(...d), lb + la - 0.01);
+        const a0 = angDe(d), B = Math.acos(Math.max(-1, Math.min(1, (lb * lb + D * D - la * la) / (2 * lb * D)))) / RAD;
+        const bras = a0 + (coudes[k] === 'avant' ? 1 : -1) * B;
+        const e = [S[0] + lb * Math.sin(bras * RAD), S[1] + lb * Math.cos(bras * RAD)];
+        const ab = angDe([W_[0] - e[0], W_[1] - e[1]]);
+        const pli = Math.abs(((main - ab) % 360 + 540) % 360 - 180);
+        return { pli, bras, ab, main };
+      };
+      let best = null;
+      if (ax == null) {                 // la prise vue par le bout : le poignet droit, la main dans l'axe de l'avant-bras
+        let main = angDe([Math.cos(Mn.axe * RAD), Math.sin(Mn.axe * RAD)]);
+        for (let i = 0; i < 5; i++) { best = resoudre(main); main = best.ab; }
+        best = resoudre(main);
+      } else for (const main of [180 - ax, -ax, 360 - ax]) { const r = resoudre(main); if (!best || r.pli < best.pli) best = r; }
+      ang['bras' + k] = best.bras; ang['avantbras' + k] = best.ab; ang['main' + k] = best.main;
+    }
+    return ang;
+  };
+  // le poing d'un corps simple, sous la forme qu'attend poignee() : sa place et l'axe de la prise
+  const poingDe = (c, k) => { const m = c['main' + k]; return { trou: { x: m.x, y: m.y, axe: [Math.cos(m.angle * RAD), Math.sin(m.angle * RAD)] } }; };
+  const versDeg = (a, b) => Math.atan2(b[1] - a[1], b[0] - a[0]) / RAD;
 
   return {
     ref: '103-40',
@@ -94,11 +156,11 @@ module.exports = (h) => {
       + 'raide, posé sur un billot et tenu par le bout, martelé au maillet de bouleau jusqu’à s’ouvrir en pinceau '
       + 'de filaments qui retombent. Les deux ratés du séchage : la lanière en tire-bouchon, et la lanière cuite, '
       + 'cornée aux bords, cassée net. Enfin la lanière tendue en va-et-vient entre deux arbres, serrée par un '
-      + 'garrot dont le bout s’appuie au sol. Encadré danger : l’alcali du bain et les yeux.',
+      + 'garrot : un bâton passé entre les deux brins et tourné, son bout arrêté contre un piquet court. Encadré danger : l’alcali du bain et les yeux.',
     format: 'pleine',
     disposition: [['poste', 'plaques'], ['defibrer', 'rates'], ['etirer']],
-    hauteurs: [1.25, 0.95, 0.62],
-    largeurs: [[1.6, 1], [1.3, 1], [1]],
+    hauteurs: [1.4, 0.9, 0.6],
+    largeurs: [[1.8, 1], [1.3, 1], [1]],
     vues: {
       // ──────────────────────────────────────────────────────────────────────────────
       poste: {
@@ -155,6 +217,9 @@ module.exports = (h) => {
 
           // la bille écorcée
           out.push(h.chemin([bille(-6, BR), bille(bL, BR), bille(bL, -BR), bille(-6, -BR)].map(V), blanc(A.arete), true));
+          // le dessous de la bille, à l'ombre, puis le contour repassé
+          out.push(h.chemin([bille(-6, -BR * 0.3), bille(bL, -BR * 0.3), bille(bL, -BR), bille(-6, -BR)].map(V), A.ombre, true),
+            h.chemin([bille(-6, BR), bille(bL, BR), bille(bL, -BR), bille(-6, -BR)].map(V), A.arete, true));
           [[-0.35, 1250, 2250], [-0.6, 700, 1500], [0.05, 1650, 2200]].forEach(([k, a, b]) =>
             out.push(h.chemin([bille(a, BR * k), bille(b, BR * k)].map(V), A.fin)));
           out.push(h.chemin(fourche(-1), blanc(A.arete), true));  // la branche de devant
@@ -178,35 +243,30 @@ module.exports = (h) => {
             const p = V(haut(u)), q = V(bille(u + 45, BR + EPP + 24));
             out.push(brin(p, q, 0.1, A.fin));
           }
-          // l'homme : penché, le ventre sur le bout de la bille, les deux mains sur le racloir
+          // l'homme : le corps simple (pose « penche-pousse », le tronc à 44°), le devant du ventre
+          // contre le bout de la bille ; les bras recalculés pour que les deux poings serrent les bouts
+          // de la poignée, vue par le bout (le poing loin derrière le proche)
           const tR = haut(UR);                          // où le fil de la lame touche la peau
           const pg = V([tR[0] - 32, tR[1] + 50]);       // la poignée proche, derrière et au-dessus du fil
-          const homme = cible => F.personnage({ x: ox, y: gy, pose: 'debout', echelle: s, penche: 44, regard: 30,
-            mains: { proche: cible, loin: [cible[0] - 1.2, cible[1] - 1.2] } });
-          // le poignet se place pour que la poignée tombe au creux du poing
-          let cible = pg, pers = homme(cible);
-          for (let k = 0; k < 3; k++) {
-            const W = pers.poignets.proche, E = pers.mains.proche;
-            const creux = [W[0] + (E[0] - W[0]) * 0.5, W[1] + (E[1] - W[1]) * 0.5];
-            cible = [cible[0] + pg[0] - creux[0], cible[1] + pg[1] - creux[1]];
-            pers = homme(cible);
-          }
-          // la lame du racloir, vue par le bout : le haut vers l'homme, le fil devant
-          const tRv = V(tR);
-          out.push(h.chemin([pg, tRv], A.contour));
-          out.push(pers);
-          out.push(h.cercle(pg[0], pg[1], 3.2, A.hachure('bois', 'arete')));
-          // le sens de la poussée, le long de la bille
+          const rP = 3.8, tRv = V(tR);
+          const oH = { x: V([BA[0] - 10 - 195, 0])[0], y: gy, pose: 'penche-pousse', echelle: s, angles: { tronc: 44 } };
+          oH.angles = poserBras(oH, { P: pg, L: [pg[0] - 0.8, pg[1] - 0.8] }, { P: null, L: null });
+          // la lame du racloir, vue par le bout : le haut vers l'homme, le fil devant ; elle passe
+          // devant le poing loin, derrière le poing proche, et le bout de la poignée se voit dans le poing
+          const pers = F.corps(Object.assign(oH, { objetP: h.chemin([pg, tRv], A.contour),
+            objet: c => h.cercle(c.mainP.x, c.mainP.y, rP, A.hachure('bois', 'arete')) }));
+          out.push(String(pers));
+          // le geste : la poussée, le long de la bille, dans le sens du poil
           const f0 = V(bille(UR + 90, BR + EPP + 95)), f2 = V(bille(UR + 430, BR + EPP + 95));
-          out.push(h.fleche(`M${f1(f0[0])} ${f1(f0[1])} L${f1(f2[0])} ${f1(f2[1])}`, A.arete));
+          out.push(h.geste(`M${f1(f0[0])} ${f1(f0[1])} L${f1(f2[0])} ${f1(f2[1])}`));
           return out.join('\n');
         },
         renvois: z => {
           const { gy, V } = reperePoste(z);
-          const cb = V(bille(1850, -20)), ventre = V([BA[0] + 5, BA[1] + BR + 60]), ch = V([XCH, 170]);
+          const cb = V(bille(1850, -20)), ventre = V([BA[0] - 8, BA[1] - 10]), ch = V([XCH, 170]);
           return [
             { n: 1, rond: [z.l - 16, gy - 86], cible: cb, texte: 'bille écorcée, le bout haut dans une fourche' },
-            { n: 2, rond: [ventre[0] - 4, 14], cible: ventre, texte: 'le ventre sur le bout bloque la peau' },
+            { n: 2, rond: V([BA[0] + 165, 560]), cible: ventre, texte: 'le ventre sur le bout bloque la peau' },
             { n: 3, rond: [ch[0] + 6, gy - 118], cible: ch, texte: 'chaudière d’eau pleine avant d’ouvrir le sac' },
           ];
         },
@@ -265,7 +325,7 @@ module.exports = (h) => {
           const { P } = repereDet(z);
           return [
             { n: 4, rond: [16, z.h * 0.2], cible: P(-30, 40), texte: 'racloir émoussé, poussé dans le sens du poil' },
-            { n: 5, rond: [z.l * 0.6, z.h - 12], cible: P(6, 22), texte: 'le poil part en plaques, sans forcer' },
+            { n: 5, rond: [z.l * 0.86, z.h * 0.2], cible: P(14, 26), texte: 'le poil part en plaques, sans forcer' },
           ];
         },
       },
@@ -307,8 +367,16 @@ module.exports = (h) => {
           }
           out.push(h.chemin([V(-425, 0), V(-20, 0), V(-20, eT), V(-425, eT)], blanc(A.arete), true));
           // la main gauche pince le bout sec qui dépasse du billot
-          out.push(F.main({ x: V(-398, eT / 2)[0], y: V(-398, eT / 2)[1], pose: 'pince', vue: 'profil', echelle: s, bras: 60, angle: -6,
-            objet: h.chemin([V(-425, 0), V(-330, 0), V(-330, eT), V(-425, eT)], blanc(A.arete), true) }));
+          // le bout, serré entre le pouce et l'index : la pince de profil
+          // modèle s09 (le pouce et l'index qui pincent, de côté), en miroir : le point pincé sur le
+          // tendon, l'avant-bras qui remonte à gauche (188 px = 190 mm)
+          // la main simple, pince latérale vue du côté du pouce (la prise d'une clé) : le tendon serré entre la pulpe
+          // du pouce et le côté de l'index ; l'avant-bras part à gauche. La main est à l'échelle de la vue (en mm).
+          const Mp = MAINS_DEF.pince, bordV = { x0: 0, y0: 0, x1: z.l, y1: z.h };
+          const boutSec = h.chemin([V(-425, 0), V(-330, 0), V(-330, eT), V(-425, eT)], blanc(A.arete), true);
+          const pP = V(Mp.x, eT / 2), oP = { x: pP[0], y: pP[1], pose: Mp.pose, vue: Mp.vue, cote: 'gauche', echelle: s, diametre: eT, ...(Mp.rot ? { rotation: Mp.rot } : {}) };
+          const vP = V(...Mp.vers);
+          out.push(F.mainSimple({ ...oP, angle: poser(h, oP, 0, vP), objet: boutSec, avantbras: { vers: vP, bord: bordV, bras: { pli: 0 } } }).svg);
 
           // le maillet taillé dans une bûche de bouleau, levé ; le poing droit sur le manche
           const phi = 28 * Math.PI / 180, ax = [Math.cos(phi), Math.sin(phi)], nx = [-ax[1], ax[0]];
@@ -331,11 +399,19 @@ module.exports = (h) => {
           mSvg += h.path(D(bout(1)) + ' Z', blanc(A.arete));
           mSvg += h.path(D(bout(0.62)) + ' Z', A.fin) + h.path(D(bout(0.3)) + ' Z', A.fin);
           const tr = V(Fp[0], Fp[1]);
-          out.push(F.main({ x: tr[0], y: tr[1], pose: 'prise', vue: 'dos', echelle: s, diametre: 2 * rm * s, angle: 90 - 28, bras: 80, objet: mSvg }));
+          // modèle s11 (poing fermé), main droite (miroir) : le manche dans le poing, le pouce vers la
+          // tête, l'avant-bras qui monte à gauche hors du cadre ; à la taille d'une main (113 px ≈ 95 mm),
+          // le manche, plus gros que le trou du poing, passe derrière les doigts
+          // le poing droit sur le manche (34 mm), côté paume : le pouce vers la tête, l'avant-bras qui monte à gauche
+          // hors du cadre ; le manche entre d'un côté du poing et ressort de l'autre, la tête peinte avec lui
+          const Mm = MAINS_DEF.maillet;
+          const oM = { x: tr[0], y: tr[1], pose: Mm.pose, vue: Mm.vue, cote: 'droite', echelle: s, diametre: 2 * rm, ...(Mm.rot ? { rotation: Mm.rot } : {}) };
+          const vM = V(...Mm.vers);
+          out.push(F.mainSimple({ ...oM, angle: poser(h, oM, -28, vM), objet: mSvg, avantbras: { vers: vM, bord: { x0: 0, y0: 0, x1: z.l, y1: z.h }, bras: { pli: 0 } } }).svg);
           // la frappe : l'arc que décrit la tête
           const R = 335, arc = [];
           for (let a = 27; a >= 5; a -= 2) { const r = a * Math.PI / 180; arc.push(V(Fp[0] + R * Math.cos(r), Fp[1] + R * Math.sin(r))); }
-          out.push(h.fleche(D(lisse(arc, 3)), A.arete));
+          out.push(h.geste(D(lisse(arc, 3))));
           return out.join('\n');
         },
         renvois: z => {
@@ -419,30 +495,53 @@ module.exports = (h) => {
             return r.join('\n');
           };
           out.push(arbre(xL), arbre(xR));
-          // à chaque arbre, les tours de la lanière passent sur le devant du tronc et repartent derrière
-          const tours = cote => {
-            const xc = cote < 0 ? xL : xR, brins = [];
-            [-5, 0, 5].forEach(o => {
-              const dep = xc - cote * (rT + 22), bord = xc + cote * rT;
-              brins.push({ pts: [[dep, yb + o * 0.2], [xc - cote * (rT + 6), yb + o * 0.75], [xc, yb + o + 1.2], [bord, yb + o + 2.2]], ep: 2.6, debut: 'ouvert', fin: 'ouvert' });
-            });
-            return F.cordes(brins, { jeu: 0 });
-          };
-          out.push(tours(-1), tours(1));
-          // le faisceau, tordu par le garrot, d'un arbre au bâton et du bâton à l'autre arbre
-          out.push(F.corde([[xL + rT + 14, yb], [xm - 3, yb]], { ep: 8, torons: true, debut: 'ouvert', fin: 'ouvert' }));
-          out.push(F.corde([[xm + 3, yb], [xR - rT - 14, yb]], { ep: 8, torons: true, debut: 'ouvert', fin: 'ouvert' }));
-          // le garrot : un bâton passé entre les brins, tourné, le bout calé au sol
-          out.push(h.path(`M${f1(xm - 3)} ${f1(yb - 30)} L${f1(xm - 3.5)} ${f1(gy)} L${f1(xm + 3.5)} ${f1(gy)} L${f1(xm + 3)} ${f1(yb - 30)} Q${f1(xm)} ${f1(yb - 33)} ${f1(xm - 3)} ${f1(yb - 30)} Z`, blanc(A.arete)));
-          // le sens du tour, autour de l'axe du faisceau
-          out.push(h.fleche(`M${f1(xm + 7)} ${f1(yb - 24)} A10 24 0 0 1 ${f1(xm + 9)} ${f1(yb + 20)}`, A.arete));
+          // la lanière : deux brins parallèles, bien séparés, qui font chacun le tour d'un arbre
+          // (le brin du haut passe devant le tronc et revient par derrière en brin du bas)
+          const sep = 11, bande = (pts, w = 3.6) => h.path(D(pts), 'fill="none" stroke="#000" stroke-width="' + (w + 1.6) + '" stroke-linejoin="round"')
+            + h.path(D(pts), 'fill="none" stroke="#FFF" stroke-width="' + w + '" stroke-linejoin="round"');
+          const tw = 46, nX = 3;     // la longueur tordue de chaque côté du bâton, le nombre de croisements
+          const brinsDroits = (x0, x1) => [-1, 1].map(sg => [[x0, yb + sg * sep], [x1, yb + sg * sep]]);
+          // les tours aux arbres
+          [[xL, 1], [xR, -1]].forEach(([xc, c]) => {
+            const pres = xc + c * rT, loin = xc - c * rT;
+            out.push(bande([[pres, yb + sep], [pres - c * 2, yb + sep]]));          // le brin du bas sort de derrière
+            out.push(bande(lisse([[pres + c * 1, yb - sep], [xc, yb - sep + 5], [loin + c * 1, yb + sep - 1]], 6)));   // le haut passe devant
+          });
+          // les brins droits, des arbres jusqu'à la torsion
+          [[xL + rT, xm - 4 - tw], [xm + 4 + tw, xR - rT]].forEach(([x0, x1]) => brinsDroits(x0, x1).forEach(q => out.push(bande(q))));
+          // la torsion : de chaque côté du bâton, les deux brins tordus l'un sur l'autre
+          [[xm - 4 - tw, xm - 4], [xm + 4, xm + 4 + tw]].forEach(([x0, x1], cotI) => {
+            const per = (x1 - x0) / nX;
+            const y = (x, sg) => {
+              const t = (x - x0) / per;
+              const amp = sep * (cotI === 0 ? 1 - 0.55 * (x - x0) / tw : 0.45 + 0.55 * (x - x0) / tw);
+              return yb + sg * amp * Math.cos(Math.PI * t);
+            };
+            for (let k = 0; k < nX; k++) {
+              const a0 = x0 + k * per, a1 = a0 + per;
+              const seg = sg => { const q = []; for (let i = 0; i <= 10; i++) { const x = a0 + (a1 - a0) * i / 10; q.push([x, y(x, sg)]); } return q; };
+              const dessus = k % 2 === 0 ? 1 : -1;
+              out.push(bande(seg(-dessus)), bande(seg(dessus)));
+            }
+          });
+          // le garrot : un bâton court passé entre les deux brins, sans toucher le sol ; son bout bas
+          // arrêté contre un piquet court planté
+          const sb = [xm + 9, yb + 38], st = [xm - 6, yb - 30];
+          const ps = 10;   // le piquet
+          out.push(h.path(`M${f1(sb[0] + 3)} ${f1(gy)} L${f1(sb[0] + 3)} ${f1(yb + 30)} L${f1(sb[0] + 3 + ps / 2)} ${f1(yb + 26)} L${f1(sb[0] + 3 + ps)} ${f1(yb + 30)} L${f1(sb[0] + 3 + ps)} ${f1(gy)} Z`, blanc(A.arete)));
+          const ax = [sb[0] - st[0], sb[1] - st[1]], L = Math.hypot(ax[0], ax[1]), nb = [-ax[1] / L * 3.2, ax[0] / L * 3.2];
+          out.push(h.path(D([[st[0] + nb[0], st[1] + nb[1]], [sb[0] + nb[0], sb[1] + nb[1]], [sb[0] - nb[0], sb[1] - nb[1]], [st[0] - nb[0], st[1] - nb[1]]]) + ' Z', blanc(A.arete)));
+          // le brin du dessus repasse devant le bâton
+          out.push(bande([[xm - 7, yb - 1.5], [xm + 7, yb + 1.5]]));
+          // le sens du tour, autour de l'axe des brins
+          out.push(h.fleche(`M${f1(xm - 26)} ${f1(yb - 30)} A12 26 0 0 0 ${f1(xm - 28)} ${f1(yb + 22)}`, A.arete));
           return out.join('\n');
         },
         renvois: z => {
           const yb = z.h * 0.42;
           return [
-            { n: 11, rond: [z.l * 0.27, z.h - 14], cible: [z.l * 0.27, yb + 3], texte: 'va-et-vient entre deux arbres, à l’ombre' },
-            { n: 12, rond: [z.l * 0.5 + 38, z.h - 14], cible: [z.l * 0.5 + 2.5, z.h - 20], texte: 'garrot : un bâton tourné entre les brins' },
+            { n: 11, rond: [z.l * 0.27, z.h - 14], cible: [z.l * 0.27, yb + 7], texte: 'va-et-vient entre deux arbres, à l’ombre' },
+            { n: 12, rond: [z.l * 0.5 + 44, z.h * 0.12], cible: [z.l * 0.5 - 3, z.h * 0.42 - 22], texte: 'garrot : un bâton tourné entre les brins' },
           ];
         },
       },

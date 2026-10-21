@@ -144,6 +144,8 @@ module.exports = (h) => {
     const ext = decale(g.moitieA, BANDE), int = decale(g.moitieA, -BANDE);
     o.push(`<path d="${pd(ext, true)} ${pd(int.slice().reverse(), true)}" ${A.hachure('terre', 'aucun')} fill-rule="evenodd"/>`);
     o.push(`<path d="${pd(ext, true)}" ${A.detail}/>`, `<path d="${pd(int, true)}" ${A.detail}/>`);
+    // charte : la zone qui brûle, en tireté rouge, sur le bord extérieur du coupe-feu
+    o.push(`<path d="${pd(decale(g.moitieA, BANDE + 3.5), true)}" ${A.zone}/>`);
     // le front de flammes : des langues couchées vers où va le vent, sur une ligne de feu
     const yA0 = yDiv + BANDE + 6, bas = Math.max(...int.map(p => p[1])) - 4;
     const ligne = [];
@@ -160,10 +162,10 @@ module.exports = (h) => {
 <path d="${d(FLi)}" ${A.fin}/>`;
     };
     const flammes = [];
-    for (let i = 0, y = yA0 + 17; y <= bas + 2; y += 13, i++) {
+    for (let i = 0, y = yA0 + 10; y <= bas + 2; y += 14, i++) {
       const xf = xFront(y);
       if (!dedans([xf, y], int)) continue;
-      flammes.push(flamme(xf - 2, y, i % 2 ? 1.25 : 1.5, 0.62));
+      flammes.push(flamme(xf - 2, y, i % 2 ? 1.9 : 2.1, 0.62));
     }
     o.push(`<path d="${pd(ligne)}" ${A.arete}/>`, ...flammes);
     // le feu recule contre le vent : trois flèches vers la gauche, devant le front
@@ -176,16 +178,20 @@ module.exports = (h) => {
     const xv = Math.min(...g.moitieA.map(p => p[0])) - BANDE - 88;
     for (const y of [cy - 30, cy + 22]) o.push(h.fleche(`M${r1(xv)} ${r1(y)} q9 -6 18 0 t18 0 t18 0 t12 0`, A.contour));
     // les outils, prêts au bord où on allume : le seau d'eau, le battoir, le râteau à feu
-    o.push(h.cercle(xr + 9, yo + 46, 11, bA), h.cercle(xr + 9, yo + 46, 8.2, A.hachure('eau', 'fin')));
-    o.push(`<path d="M${r1(xr - 2)} ${r1(yo + 46)} Q${r1(xr + 9)} ${r1(yo + 30)} ${r1(xr + 20)} ${r1(yo + 46)}" ${A.detail}/>`);
-    const bx = xr + 33;
-    o.push(h.rect(bx - 1.8, yo + 6, 3.6, 58, bD));
-    o.push(h.rect(bx - 8, yo - 18, 16, 26, bA));
-    o.push(point([bx - 3.5, yo + 3], 1), point([bx + 3.5, yo + 3], 1));
-    const tx = xr + 55;
-    o.push(h.rect(tx - 1.8, yo - 8, 3.6, 72, bD));
-    o.push(h.rect(tx - 13, yo - 14, 26, 6, bA));
-    for (let k = 0; k < 7; k++) o.push(h.ligne(tx - 11 + k * 22 / 6, yo - 14, tx - 11 + k * 22 / 6, yo - 19, A.detail));
+    o.push(h.cercle(xr + 14, yo + 46, 11, bA), h.cercle(xr + 14, yo + 46, 8.2, A.hachure('eau', 'fin')));
+    o.push(`<path d="M${r1(xr + 3)} ${r1(yo + 46)} Q${r1(xr + 14)} ${r1(yo + 30)} ${r1(xr + 25)} ${r1(yo + 46)}" ${A.detail}/>`);
+    // le battoir, couché à plat : une bavette souple aux coins arrondis, plus large que longue,
+    // le manche qui y entre, une rangée de rivets à la jonction ; la bavette vers la talle
+    const by = yo + 12;
+    o.push(h.rect(xr + 18, by - 1.8, 70, 3.6, bD));
+    o.push(`<rect x="${r1(xr)}" y="${r1(by - 14)}" width="22" height="28" rx="5" ${bA}/>`);
+    o.push(h.rect(xr + 12, by - 1.8, 10, 3.6, bD));
+    for (let k = 0; k < 3; k++) o.push(point([xr + 16, by - 8 + k * 8], 1));
+    // le râteau à feu, couché à plat : la tête en travers, ses dents vers la talle
+    const ty = yo + 82;
+    o.push(h.rect(xr + 8, ty - 1.8, 80, 3.6, bD));
+    o.push(h.rect(xr + 2, ty - 14, 6, 28, bA));
+    for (let k = 0; k < 7; k++) o.push(h.ligne(xr + 2, ty - 12 + k * 4, xr - 4, ty - 12 + k * 4, A.detail));
     return o.join('\n');
   };
   const renvoisPlan = z => {
@@ -202,7 +208,7 @@ module.exports = (h) => {
       { n: 3, rond: [r1(cx + 30), r1(cy - 48)], cible: [r1(cx + 8), r1(cy - 34)], texte: 'l’autre moitié : son tour l’an prochain' },
       { n: 4, rond: [r1(gauche[0] - 30), r1(gauche[1] + 22)], cible: [r1(gauche[0] + 5), r1(gauche[1])], texte: 'coupe-feu tout autour : rien qui brûle' },
       { n: 5, rond: [r1(best.p[0] + 36), r1(best.p[1] + 26)], cible: [r1(best.p[0]), r1(best.p[1])], texte: 'la neige encore en lisière de forêt' },
-      { n: 6, rond: [r1(xr + 33), r1(yo + 84)], cible: [r1(xr + 33), r1(yo + 62)], texte: 'battoir, râteau à feu, eau, en main' },
+      { n: 6, rond: [r1(xr + 70), r1(yo + 46)], cible: [r1(xr + 27), r1(yo + 46)], texte: 'battoir, râteau à feu, eau, en main' },
     ];
   };
 
@@ -330,7 +336,7 @@ module.exports = (h) => {
     // le geste : on tire vers soi
     const f0 = P(FU - 26, FV - 13, 1), f1 = P(FU - 78, FV - 13, 1);
     o.push(`<path d="M${r1(f0[0])} ${r1(f0[1])} L${r1(f1[0])} ${r1(f1[1])}" fill="none" stroke="${BLANC}" stroke-width="6" stroke-linecap="round"/>`);
-    o.push(h.fleche(`M${r1(f0[0])} ${r1(f0[1])} L${r1(f1[0])} ${r1(f1[1])}`, A.arete));
+    o.push(h.geste(`M${r1(f0[0])} ${r1(f0[1])} L${r1(f1[0])} ${r1(f1[1])}`));        // charte : le geste en rouge
     return o.join('\n');
   };
   const renvoisBloc = z => {
@@ -372,6 +378,7 @@ module.exports = (h) => {
     for (const p of pousses) { o.push(h.rect(p.x - 1.4, s.yg, 2.8, s.yRz(p.x) - s.yg, bF)); o.push(p.t.svg); }
     o.push(h.ligne(4, s.yg, z.l - 4, s.yg, A.contour));
     o.push(h.ellipse(xc, s.yg, 3.2, 1.5, bD), point([xc, s.yg], 0.6));
+    o.push(h.controle(xc, s.yg, 10));                    // charte : le point à vérifier, la coupe à ras
     return o.join('\n');
   };
   const HC = 52;
@@ -391,6 +398,7 @@ module.exports = (h) => {
     // les pousses de côté : grêles, courtes, qui partent du flanc et se redressent
     for (const p of pousses) o.push(`<path d="M${r1(p.x0)} ${r1(p.y)} Q${r1(p.p1[0])} ${r1(p.p1[1])} ${r1(p.p2[0])} ${r1(p.p2[1])}" ${A.fin}/>`, point(p.p2, 0.8));
     o.push(h.ligne(4, s.yg, z.l - 4, s.yg, A.contour));
+    o.push(h.controle(xc, s.yg - HC, 10));               // charte : là où ça rate, la coupe trop haute
     return o.join('\n');
   };
 

@@ -3,7 +3,15 @@ import re, sys, os
 sys.path.insert(0, os.path.dirname(__file__))
 from md2blocks import *
 
-ROOT = r"C:\Users\jeanp\New folder"
+def _racine_livre():
+    # Windows (le PC de JP) : le dossier d'origine ; ailleurs (session dans le nuage) : le dépôt qui contient ce fichier
+    if os.name == "nt":
+        return r"C:\Users\jeanp\New folder"
+    d = os.path.dirname(os.path.abspath(__file__))
+    while d != os.path.dirname(d) and not os.path.exists(os.path.join(d, "CLAUDE.md")):
+        d = os.path.dirname(d)
+    return d
+ROOT = _racine_livre()
 OUT = os.path.join(ROOT, r"design\directions\1-manuel-de-terrain")
 md = open(os.path.join(ROOT, r"chapitres\65-fumage-a-froid.md"), encoding="utf-8").read()
 cp = open(os.path.join(ROOT, r"chapitres\00-le-chapitre-principal.md"), encoding="utf-8").read()

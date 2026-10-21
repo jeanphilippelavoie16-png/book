@@ -1,25 +1,61 @@
 #!/bin/bash
 # Couvertures des six tomes : génère le HTML, puis le PDF, un PDF par tome aux mesures de Blurb et les aperçus,
-# avec Edge sans fenêtre.
+# avec Edge sans fenêtre (Chromium hors de Windows).
 # usage : rendre_couvertures_6.sh [html|pdf|png|tout]   (défaut : tout)
 #   pdf : couvertures-nordique-6.pdf (six avants + six couvertures complètes), puis livre/tome-N/couverture.pdf
-D1="C:/Users/jeanp/New folder/design/directions/1-manuel-de-terrain"
-LIVRE="C:/Users/jeanp/New folder/livre"
-EDGE="/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"
+# Sous Windows (le PC de JP) : les chemins d'origine, Edge et python. Ailleurs (session dans le nuage) : le dépôt qui
+# contient ce script (on remonte jusqu'à CLAUDE.md), Chromium de /opt/pw-browsers avec --no-sandbox, et python3.
+case "$(uname -s)" in MINGW*|MSYS*|CYGWIN*) WIN=1 ;; *) [ "$OS" = Windows_NT ] && WIN=1 || WIN= ;; esac
+if [ -n "$WIN" ]; then
+  D1="C:/Users/jeanp/New folder/design/directions/1-manuel-de-terrain"
+  LIVRE="C:/Users/jeanp/New folder/livre"
+  EDGE="/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"
+  PY=python; BAC=()
+else
+  R="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+  while [ "$R" != / ] && [ ! -e "$R/CLAUDE.md" ]; do R="$(dirname "$R")"; done
+  D1="$R/design/directions/1-manuel-de-terrain"
+  LIVRE="$R/livre"
+  EDGE="$(ls -d /opt/pw-browsers/chromium-*/chrome-linux/chrome 2>/dev/null | sort | tail -1)"
+  [ -n "$EDGE" ] || EDGE="$(command -v chromium || command -v chromium-browser || command -v google-chrome)"
+  [ -x "$EDGE" ] || { echo "Chromium introuvable (/opt/pw-browsers/chromium-*/chrome-linux/chrome)"; exit 1; }
+  PY=python3; BAC=(--no-sandbox)
+fi
 HTML="$D1/couvertures-nordique-6.html"
 
-url(){ echo "file:///$(echo "$1" | sed 's/ /%20/g')$2"; }
+# file:///C:/… sous Windows, file:///home/… ailleurs (la barre du début du chemin ne se double pas)
+url(){ local p="${1#/}"; echo "file:///$(echo "$p" | sed 's/ /%20/g')$2"; }
 edge(){ local prof; prof="$(mktemp -d)/p"
   "$EDGE" --headless=new --disable-gpu --no-first-run --no-default-browser-check --user-data-dir="$prof" \
-    --hide-scrollbars --run-all-compositor-stages-before-draw --virtual-time-budget=25000 "$@" 2>/dev/null
+    --hide-scrollbars --run-all-compositor-stages-before-draw --virtual-time-budget=25000 "${BAC[@]}" "$@" 2>/dev/null
   rm -rf "$prof" 2>/dev/null; }
 attend(){ for i in $(seq 1 ${2:-60}); do [ -s "$1" ] && return 0; sleep 1; done; return 1; }
+# Hors de Windows, Chromium sans fenêtre (nouveau mode headless) prend sur la hauteur de --window-size la place d'une
+# barre de fenêtre (87 px CSS sur Chromium 141) : la page est plus basse que la capture, dont le bas sort blanc. On
+# mesure cette marge une fois (une page rouge de 100vh), on demande la fenêtre d'autant plus haute, puis on rogne.
+MARGE=
+marge(){ [ -n "$WIN" ] && { MARGE=0; return; }; local d; d="$(mktemp -d)"
+  printf '<!doctype html><html style="background:#fff"><body style="margin:0;background:#f00;min-height:100vh"></body></html>' > "$d/m.html"
+  edge --window-size=400,300 --screenshot="$d/m.png" "$(url "$d/m.html")"
+  MARGE=$("$PY" -c 'import sys
+from PIL import Image
+im = Image.open(sys.argv[1]).convert("RGB"); w, h = im.size; n = 0
+while n < h and im.getpixel((w // 2, h - 1 - n))[1] > 128: n += 1
+print(n)' "$d/m.png" 2>/dev/null) || MARGE=0
+  rm -rf "$d"; echo "  (marge de fenêtre de Chromium : ${MARGE:-0} px)"; }
 shot(){ # hash sortie "w,h" échelle
+  [ -n "$MARGE" ] || marge
+  local w="${3%,*}" h="${3#*,}"
   # Edge sans fenêtre rate parfois une capture quand d'autres tournent en même temps : trois essais
-  for essai in 1 2 3; do rm -f "$2"; edge --force-device-scale-factor=$4 --window-size=$3 --screenshot="$2" "$(url "$HTML" "$1")"
-    attend "$2" 20 && { echo "  $(basename "$2")"; return 0; }; done; echo "  ÉCHEC $(basename "$2")"; }
+  for essai in 1 2 3; do rm -f "$2"; edge --force-device-scale-factor=$4 --window-size=$w,$((h + ${MARGE:-0})) --screenshot="$2" "$(url "$HTML" "$1")"
+    attend "$2" 20 && {
+      [ "${MARGE:-0}" -gt 0 ] && "$PY" -c 'import sys
+from PIL import Image
+f, w, h, s = sys.argv[1], int(sys.argv[2]), int(sys.argv[3]), float(sys.argv[4])
+Image.open(f).crop((0, 0, round(w * s), round(h * s))).save(f)' "$2" "$w" "$h" "$4"
+      echo "  $(basename "$2")"; return 0; }; done; echo "  ÉCHEC $(basename "$2")"; }
 
-html(){ python "$D1/outils/build_couvertures_6.py" || exit 1; }
+html(){ "$PY" "$D1/outils/build_couvertures_6.py" || exit 1; }
 pdf(){ local out="$D1/couvertures-nordique-6.pdf"
   for essai in 1 2 3; do rm -f "$out"
     edge --no-pdf-header-footer --print-to-pdf-no-header --print-to-pdf="$out" "$(url "$HTML")"
@@ -27,7 +63,7 @@ pdf(){ local out="$D1/couvertures-nordique-6.pdf"
     attend "$out" 120 && { a=-1; while [ "$(stat -c %s "$out")" != "$a" ]; do a=$(stat -c %s "$out"); sleep 2; done
       echo "  couvertures-nordique-6.pdf"; break; }; done
   [ -s "$out" ] || { echo "  ÉCHEC couvertures-nordique-6.pdf"; exit 1; }
-  python "$D1/outils/build_couvertures_6.py" --decouper || exit 1; }
+  "$PY" "$D1/outils/build_couvertures_6.py" --decouper || exit 1; }
 png(){
   shot "#avants" "$D1/apercu-nordique-couvertures-6-avants.png" 1280,282 2
   shot "#tablette" "$D1/apercu-nordique-tablette-6-tomes.png" 640,540 3

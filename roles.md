@@ -27,7 +27,7 @@ produit un livre qu'on n'utilise pas.
 ## Rôle 2 — Rédacteur
 
 ```
-Lis CLAUDE.md et gabarit-chapitre.md.
+Lis CLAUDE.md, gabarit-chapitre.md et le skill ecriture (.claude/skills/ecriture/SKILL.md).
 
 Rédige le chapitre NN — [titre], au complet, selon les dix points du gabarit.
 
@@ -58,14 +58,15 @@ durée, quantité et nom d'espèce :
 2. Si la source dit autre chose, signale l'écart avec les deux valeurs.
 3. Si tu ne le retrouves nulle part, marque-le NON RETROUVÉ.
 4. Vérifie que chaque renvoi à un autre chapitre pointe au bon endroit dans le plan.
-5. Vérifie que chaque nom d'espèce porte son nom latin au moins une fois.
+5. Vérifie que chaque espèce est nommée sans ambiguïté par son nom de tous les jours (pas de nom latin dans le
+   texte : cadre des agents, « Les mots de tous les jours »).
 
 Tu produis un rapport, pas une réécriture. Écris dans /suivi/NN-technique.md.
 ```
 
 ---
 
-## Rôle 4 — Vérificateur sécurité
+## Rôle 4 — Vérificateur sécurité (retiré : JP, 18 octobre 2026, « j'en veux jamais »)
 
 ```
 Lis CLAUDE.md. Tu ne juges pas le style, la longueur ni la qualité d'écriture.
@@ -103,6 +104,10 @@ Reprends /chapitres/NN-titre-court.md et vérifie la cohérence sur L'ENSEMBLE :
 - La densité tient : ~700 mots utiles par page, sans bourrage.
 - La liste d'images est complète et chaque image est décrite assez pour être prise
   ou trouvée.
+
+- La phrase et le mot suivent le skill ecriture : rien qui parle du livre, aucune
+  image poétique, aucun tiret de ponctuation, aucun mot qui n'apprend rien. Passe
+  .claude/skills/ecriture/scripts/controle.py avant et après.
 
 Tu n'ajoutes aucun contenu technique neuf. Corrige, condense, harmonise.
 ```

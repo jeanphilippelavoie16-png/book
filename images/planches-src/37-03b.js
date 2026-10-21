@@ -50,6 +50,23 @@ module.exports = (h) => {
   const neige = (z, G, ep = 12) => [h.rect(0, G, z.l, ep, A.hachure('neige', 'aucun')), h.ligne(0, G, z.l, G, A.arete)].join('\n');
   const sol = (z, G) => [h.rect(0, G, z.l, 12, A.hachure('terre', 'aucun')), h.ligne(0, G, z.l, G, A.arete)].join('\n');
 
+  // ─── mains simples : la boîte d'une vue, et l'angle qui met l'axe de la prise sur `axe` (degrés à l'écran)
+  // avec l'avant-bras du côté de `vers`
+  const BORD = z => ({ x0: 0, y0: 0, x1: z.l, y1: z.h });
+  const poser = (o, axe, vers) => {
+    const base = Object.assign({}, o, { angle: 0, avantbras: { longueur: 100 } });
+    delete base.objet;
+    const e0 = h.formes.mainSimple(base);
+    let best = null;
+    for (const k of [0, 180]) {
+      const a = axe - e0.prise.angle + k, e = h.formes.mainSimple(Object.assign({}, base, { angle: a }));
+      const d = [e.coude[0] - e.poignet[0], e.coude[1] - e.poignet[1]], w = [vers[0] - e.poignet[0], vers[1] - e.poignet[1]];
+      const c = (d[0] * w[0] + d[1] * w[1]) / ((Math.hypot(d[0], d[1]) * Math.hypot(w[0], w[1])) || 1);
+      if (!best || c > best.c) best = { a, c };
+    }
+    return best.a;
+  };
+
   // ── 1. chauffer : le feu en coupe ──────────────────────────────────────────────────
   const geoFeu = z => {
     const G = z.h - 24, cx = z.l / 2, rb = 11;
@@ -83,7 +100,7 @@ module.exports = (h) => {
   // ── 2. sortir : la pince de deux bâtons verts ──────────────────────────────────────
   const geoPince = z => {
     const G = z.h - 22, cx = z.l / 2 + 4, S = [cx, G - 74], rs = [20, 15];
-    const ang = 33, L = 150, lon = [-1, 1].map(s => {
+    const ang = 52, L = 138, lon = [-1, 1].map(s => {
       const u = [s * Math.sin(ang * RAD), -Math.cos(ang * RAD)];
       const bout = [S[0] + s * (rs[0] - 1), S[1] + 1];
       return { s, u, bout, haut: [bout[0] + u[0] * L, bout[1] + u[1] * L] };
@@ -95,10 +112,13 @@ module.exports = (h) => {
     const out = [sol(z, G)];
     out.push(braises(cx - 120, cx + 120, G, 2));
     out.push(pierre(cx - 70, G - 11, 17, 11, 7, 0.3), pierre(cx + 74, G - 10, 15, 10, 8, 1.2));
-    // la pierre prise entre les deux bouts
-    out.push(pierre(S[0], S[1], rs[0], rs[1], 3, 0.4));
-    // les bâtons : écorce au trait, le bout taillé à plat du côté de la pierre
+    // la pierre prise entre les deux bouts : l'objet du geste
+    out.push(h.path(caillou(S[0], S[1], rs[0], rs[1], 3, 0.4), A.blanc), h.path(caillou(S[0], S[1], rs[0], rs[1], 3, 0.4), A.hachure('pierre', 'contour')));
+    // les bâtons : écorce au trait, le bout taillé à plat du côté de la pierre ; chacun dans sa main (mains
+    // simples, côté paume : le bâton entre d'un côté du poing et ressort de l'autre), l'avant-bras qui remonte
+    // vers le corps et sort de la vue
     for (const { s, u, bout, haut } of lon) {
+      const tige = [];
       const r = 4.2, n = [-u[1], u[0]];               // n : la normale ; côté pierre = -s
       const ext = k => [bout[0] + n[0] * k, bout[1] + n[1] * k];
       const cote = s > 0 ? 1 : -1;
@@ -110,17 +130,18 @@ module.exports = (h) => {
       const pInt = [bout[0] - n[0] * r * cote + u[0] * 22, bout[1] - n[1] * r * cote + u[1] * 22];
       const pPlat = [bout[0] - n[0] * 0.6 * cote, bout[1] - n[1] * 0.6 * cote];
       const hExt = [haut[0] + n[0] * r * cote, haut[1] + n[1] * r * cote], hInt = [haut[0] - n[0] * r * cote, haut[1] - n[1] * r * cote];
-      out.push(h.chemin([hExt, pExt, pPlat, pInt, hInt], blanc(A.arete), true));
-      out.push(h.path(`M${f([haut[0] + n[0] * r * 0.3 * cote - u[0] * 4, haut[1] + n[1] * r * 0.3 * cote - u[1] * 4])} L${f([bout[0] + n[0] * r * 0.3 * cote + u[0] * 30, bout[1] + n[1] * r * 0.3 * cote + u[1] * 30])}`, A.fin));
-      out.push(h.ligne(...pInt, ...[pInt[0] + n[0] * 0.8 * cote, pInt[1] + n[1] * 0.8 * cote], A.fin));
-    }
-    // les mains, une sur chaque bâton, aux deux tiers
-    for (const { s, u, bout } of lon) {
-      const g = [bout[0] + u[0] * L * 0.72, bout[1] + u[1] * L * 0.72];
-      out.push(h.formes.main({ x: g[0], y: g[1], pose: 'prise', vue: 'dos', cote: s < 0 ? 'droite' : 'gauche', echelle: 0.42, diametre: 8.4, angle: -s * ang, bras: 55 }));
+      tige.push(h.chemin([hExt, pExt, pPlat, pInt, hInt], blanc(A.arete), true));
+      tige.push(h.path(`M${f([haut[0] + n[0] * r * 0.3 * cote - u[0] * 4, haut[1] + n[1] * r * 0.3 * cote - u[1] * 4])} L${f([bout[0] + n[0] * r * 0.3 * cote + u[0] * 30, bout[1] + n[1] * r * 0.3 * cote + u[1] * 30])}`, A.fin));
+      tige.push(h.ligne(...pInt, ...[pInt[0] + n[0] * 0.8 * cote, pInt[1] + n[1] * 0.8 * cote], A.fin));
+      // la main, aux deux tiers du bâton : la droite sur le bâton de gauche, la gauche sur celui de droite
+      const g = [bout[0] + u[0] * L * 0.7, bout[1] + u[1] * L * 0.7], E = 0.4;
+      const o = { x: g[0], y: g[1], pose: 'prise-manche', vue: 'paume', cote: s < 0 ? 'droite' : 'gauche', echelle: E, diametre: 2 * r / E };
+      const vers = [g[0] - s * 110, g[1] - 250];
+      const m = h.formes.mainSimple({ ...o, angle: poser(o, Math.atan2(u[1], u[0]) / RAD, vers), avantbras: { vers, bord: BORD(z), longueur: 'bord' } });
+      out.push(m.couches.main, m.couches.masque, tige.join('\n'), m.couches.devant);
     }
     // on serre, on lève
-    out.push(h.fleche(`M${f([S[0], S[1] - rs[1] - 8])} L${f([S[0], S[1] - rs[1] - 44])}`, A.arete));
+    out.push(h.geste(`M${f([S[0], S[1] - rs[1] - 8])} L${f([S[0], S[1] - rs[1] - 44])}`));
     return out.join('\n');
   };
   const pinceRenvois = z => {
@@ -132,8 +153,8 @@ module.exports = (h) => {
   // ── 3. brosser : sur la pelle, à la branche de sapin, dehors ───────────────────────
   const geoBrosse = z => {
     const G = z.h - 24, cx = z.l / 2 - 10;
-    const pointe = [cx - 92, G - 56], talon = [cx + 44, G - 64];
-    const P = [cx - 26, G - 78], rp = [22, 14];
+    const pointe = [cx - 92, G - 5], talon = [cx + 44, G - 5];
+    const P = [cx - 26, G - 23], rp = [22, 14];
     const spray = [P[0] + 2, P[1] - rp[1] - 4];
     const main = [cx - 44, G - 196];
     return { G, cx, pointe, talon, P, rp, spray, main };
@@ -145,21 +166,38 @@ module.exports = (h) => {
     const lame = `M${f(pointe)} Q${f([pointe[0] + 4, pointe[1] + 4])} ${f([pointe[0] + 14, pointe[1] + 4])} L${f([talon[0] - 6, talon[1] + 4])} Q${f([talon[0] + 2, talon[1] + 3])} ${f([talon[0] + 2, talon[1] - 10])}`;
     out.push(h.path(lame, A.contour));
     out.push(h.path(`M${f([pointe[0] + 14, pointe[1] - 1])} L${f([talon[0] - 8, talon[1] - 4])}`, A.fin));
-    const m1 = [talon[0] + 2, talon[1] - 8], m2 = [z.l - 6, G - 168];
+    // le bout du manche appuyé sur une bûche couchée
+    const bu = [z.l - 34, G - 13];
+    const m1 = [talon[0] + 2, talon[1] - 8], m2 = [z.l - 14, G - 34];
+    out.push(h.cercle(bu[0], bu[1], 13, A.blanc), h.cercle(bu[0], bu[1], 13, A.hachure('bois', 'arete')), h.cercle(bu[0], bu[1], 4, A.fin));
     out.push(long(m1, m2, 5));
     // la pierre, et ce qui colle dessus : braises, charbon, cendre
     out.push(pierre(P[0], P[1] + 1, rp[0], rp[1], 5, 0.2));
     for (const [dx, dy, s] of [[-10, -12, 1], [3, -14, 0.8], [12, -10, 1.1], [-17, -4, 0.8]])
       out.push(h.path(`M${f([P[0] + dx, P[1] + dy])} l${2.5 * s},-${2.4 * s} l${3 * s},${0.8 * s} l-${0.6 * s},${2.6 * s} Z`, A.plein));
     // ce qui tombe : par-dessus la pointe, sur la neige
-    for (const [x, y, s] of [[pointe[0] - 8, G - 44, 1], [pointe[0] - 16, G - 28, 0.8], [pointe[0] - 6, G - 16, 1.1], [pointe[0] - 22, G - 8, 0.9]]) {
+    for (const [x, y, s] of [[pointe[0] - 8, G - 30, 1], [pointe[0] - 16, G - 20, 0.8], [pointe[0] - 6, G - 13, 1.1], [pointe[0] - 22, G - 8, 0.9]]) {
       out.push(h.path(`M${f([x, y])} l${2.5 * s},-${2.4 * s} l${3 * s},${0.8 * s} l-${0.6 * s},${2.6 * s} Z`, A.plein));
       out.push(h.path(`M${f([x + 1, y - 5])} l0,-7`, A.fin));
     }
     out.push(braises(pointe[0] - 34, pointe[0] + 4, G, 5));
-    // la branche de sapin : la tige dans la main, les rameaux qui balaient la pierre
+    // la branche de sapin : la tige dans la main, les rameaux qui balaient la pierre ; la tige a son
+    // épaisseur (5 au poing, 2 au bout), pour que le poing la serre
     const tige = [[main[0] - 3, main[1] - 26], main, [spray[0] - 8, spray[1] - 30], [spray[0] - 14, spray[1] - 4]];
-    out.push(h.path(lisse(tige), A.arete));
+    const crT = [];
+    for (let i = 0; i < 3; i++) for (let k = 0; k < 16; k++) {
+      const p0 = tige[Math.max(0, i - 1)], p1 = tige[i], p2 = tige[i + 1], p3 = tige[Math.min(3, i + 2)], t = k / 16, t2 = t * t, t3 = t2 * t;
+      crT.push([0, 1].map(j => 0.5 * (2 * p1[j] + (-p0[j] + p2[j]) * t + (2 * p0[j] - 5 * p1[j] + 4 * p2[j] - p3[j]) * t2 + (-p0[j] + 3 * p1[j] - 3 * p2[j] + p3[j]) * t3)));
+    }
+    crT.push(tige[3]);
+    const demiT = i => 2.6 - 1.6 * Math.max(0, (i - 16) / (crT.length - 17));
+    const gT = [], dT = [];
+    crT.forEach((p, i) => {
+      const a = crT[Math.max(0, i - 1)], b = crT[Math.min(crT.length - 1, i + 1)], l = Math.hypot(b[0] - a[0], b[1] - a[1]) || 1;
+      const nn = [-(b[1] - a[1]) / l, (b[0] - a[0]) / l], w = demiT(i);
+      gT.push([p[0] + nn[0] * w, p[1] + nn[1] * w]); dT.push([p[0] - nn[0] * w, p[1] - nn[1] * w]);
+    });
+    const tigeSvg = h.chemin(gT.concat(dT.reverse()), blanc(A.arete), true);
     const rameaux = [];
     const tg = (t) => { // un point sur la tige, de la main (0) au bout (1)
       const a = [main[0], main[1]], b = [spray[0] - 14, spray[1] - 4];
@@ -180,17 +218,24 @@ module.exports = (h) => {
       rameaux.push(h.path(ai, A.fin));
     }
     out.push(...rameaux);
-    out.push(h.formes.main({ x: main[0], y: main[1], pose: 'prise', vue: 'dos', cote: 'droite', echelle: 0.42, diametre: 6, angle: -8, bras: 60 }));
+    // la main gauche (mains simples), côté paume : la tige debout dans le poing, l'avant-bras vers la gauche
+    {
+      const E = 0.33, t0 = crT[14], t1 = crT[18];
+      const o = { x: main[0], y: main[1], pose: 'prise-manche', vue: 'paume', cote: 'gauche', echelle: E, diametre: 2 * 2.6 / E };
+      const vers = [-200, main[1] + 6];
+      const m = h.formes.mainSimple({ ...o, angle: poser(o, Math.atan2(t1[1] - t0[1], t1[0] - t0[0]) / RAD, vers), avantbras: { vers, bord: BORD(z), longueur: 'bord' } });
+      out.push(m.couches.main, m.couches.masque, tigeSvg, m.couches.devant);
+    }
     // deux ou trois coups, vers la pointe
-    for (const dy of [-34, -20]) out.push(h.fleche(`M${f([spray[0] + 62, spray[1] + dy])} L${f([spray[0] + 34, spray[1] + dy + 4])}`, A.arete));
+    for (const dy of [-34, -20]) out.push(h.geste(`M${f([spray[0] + 62, spray[1] + dy])} L${f([spray[0] + 34, spray[1] + dy + 4])}`));
     return out.join('\n');
   };
   const brosserRenvois = z => {
     const { G, cx, pointe, talon, P, spray, main } = geoBrosse(z);
     return [
       { n: 5, rond: [main[0] + 64, main[1] + 26], cible: [main[0] + 3, main[1] + 50], texte: 'branche verte de sapin' },
-      { n: 6, rond: [pointe[0] - 4, G - 96], cible: [pointe[0] - 12, G - 40], texte: 'braises et charbon, dehors' },
-      { n: 7, rond: [talon[0] + 20, talon[1] + 34], cible: [talon[0] - 20, talon[1] + 3], texte: 'pierre sur la pelle' },
+      { n: 6, rond: [pointe[0] - 4, G - 96], cible: [pointe[0] - 10, G - 30], texte: 'braises et charbon, dehors' },
+      { n: 7, rond: [talon[0] + 20, talon[1] - 60], cible: [talon[0] - 20, talon[1] + 3], texte: 'pierre sur la pelle' },
     ];
   };
 
@@ -221,15 +266,14 @@ module.exports = (h) => {
     for (const [i, p] of pts.entries()) out.push(h.path(`M${f(p)} l2.4,-2 l2.6,1 l-0.8,2.4 Z`, i % 3 ? blanc(A.fin) : A.plein));
     for (const [dx, dy, g] of [[-14, -10, 1], [10, -12, 2], [-4, 10, 3], [18, 8, 4]]) out.push(pierre(F[0] + dx, F[1] + dy, 9, 7, g, g));
     // le chemin de la pierre : du feu à la porte, puis au bac
-    const ch = [[F[0] + 44, cy], [F[0] + 90, cy - 10], [L[0] - R - 30, cy - 4], [L[0] - R + 8, cy], [L[0] - 0.18 * R - 6, cy]];
-    out.push(h.fleche(lisse(ch), A.arete));
+    out.push(h.fleche(`M${f([F[0] + 40, cy])} L${f([L[0] - 0.18 * R - 6, cy])}`, A.arete));
     return out.join('\n');
   };
   const siteRenvois = z => {
     const { cy, R, L, F } = geoSite(z);
     return [
       { n: 8, rond: [F[0] - 20, cy + 62], cible: [F[0] - 10, cy + 28], texte: 'feu des pierres, dehors' },
-      { n: 9, rond: [F[0] + 96, cy - 48], cible: [F[0] + 90, cy - 11], texte: 'brosser, puis porter' },
+      { n: 9, rond: [(F[0] + L[0] - R) / 2 + 10, cy - 48], cible: [(F[0] + 40 + L[0] - R - 6) / 2, cy], texte: 'brosser, puis porter' },
       { n: 10, rond: [L[0] + 12, cy + R + 22 > z.h - 10 ? z.h - 10 : cy + R + 22], cible: [L[0] + 4, cy + 0.18 * R - 1], texte: 'charger le bac, fermer' },
     ];
   };

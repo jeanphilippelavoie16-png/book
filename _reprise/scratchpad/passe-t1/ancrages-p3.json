@@ -1,0 +1,15 @@
+{
+  "17": {
+    "planches": [
+      {
+        "id": "17-06",
+        "apres": "Une porte cède au chambranle, presque jamais au pêne"
+      }
+    ],
+    "logigramme": {
+      "fichier": "images/logigrammes/17-qui-cogne-livre.svg",
+      "apres": "Régler une visite imprévue sur le seuil",
+      "orange": true
+    }
+  }
+}

@@ -1,4 +1,6 @@
 // Planche 25-40 — le bain de gelure (ch. 25, étapes 16 à 20 et variante d'urgence).
+// Les mains viennent de la bibliothèque des mains simples (mainSimple, la main relâchée vue de la
+// paume) : la main gelée qui pend dans le bain, la main saine qui entre de biais dans l'eau.
 module.exports = (h) => {
   const f = (n) => Math.round(n * 10) / 10;
   const blancA = h.a.arete.replace('fill="none"', 'fill="#FFFFFF"');
@@ -68,41 +70,37 @@ module.exports = (h) => {
   };
 
   // ─── Le bain : la main gelée pend dans l'eau ───────────────────────────────
-  const C = { g: 150, d: 350, r: 125, b: 300, s: 145, t0: 110, t1: 480 };
+  const C = { g: 150, d: 350, r: 125, b: 340, s: 145, t0: 110, t1: 480 };
   const a = 10 * Math.PI / 180, sa = Math.sin(a), ca = Math.cos(a);
   const XW = 236, YW = 165;                         // le poignet, sous la surface
   const mainG = ([v, u]) => [XW + u * sa + v * ca, YW + u * ca - v * sa];
   const UH = -150;                                  // l'avant-bras sort du cadre, coupé
-  const MAIN = [
-    [26, UH], [2, UH], [-1, UH - 6], [-5, UH + 6], [-8, UH], [-26, UH],
-    [-24, -110], [-21, -60], [-18, -12], [-19, 4],
-    [-24, 16], [-31, 28], [-37, 42], [-39, 54], [-36, 62], [-31, 60], [-29, 50], [-26, 40],
-    [-25.5, 52], [-25, 80], [-24.5, 92], [-21, 98], [-16, 97], [-13.5, 92],
-    [-11, 99], [-6, 105], [-1, 103], [0.5, 96],
-    [2, 100], [6.5, 102], [11, 99], [12.5, 93],
-    [14, 90], [18, 92], [22, 88], [24, 80], [25, 62], [24, 40], [21, 18], [18, 4], [18, -12],
-    [21, -60], [24, -110],
-  ];
-  // Le bris de l'avant-bras reste en angles vifs ; le reste est lissé.
-  const courbeMain = () => {
-    const brisure = MAIN.slice(0, 6);
-    const lisse = cr(MAIN.slice(5).concat([[26, UH]]), false);
-    return brisure.concat(lisse);
+  // Règle 9 : le membre en bande arrondie du pictogramme, sans doigts ; le bout arrondi pend dans l'eau.
+  const bande = (u0, u1, r) => {
+    const Q = [[r, u0], [r, u1 - r]];
+    for (let i = 1; i < 12; i++) { const an = i * Math.PI / 12; Q.push([r * Math.cos(an), u1 - r + r * Math.sin(an)]); }
+    return Q.concat([[-r, u1 - r], [-r, u0]]);
   };
+  const courbeMain = () => bande(UH, 136, 22);
 
   // La bouilloire, penchée, bec au-dessus du bord droit.
   const t = -50 * Math.PI / 180, ct = Math.cos(t), st = Math.sin(t);
   const BEC = [338, 106];
   const T = [BEC[0] - (-82 * ct - (-62) * st), BEC[1] - (-82 * st + (-62) * ct)];
   const bouil = ([x, y]) => [T[0] + x * ct - y * st, T[1] + x * st + y * ct];
-  const CORPS = [[-44, 0], [-43, -28], [-37, -54], [-26, -68], [26, -68], [37, -54], [43, -28], [44, 0]];
+  const CORPS = [[-44, 0], [-42, -30], [-36, -56], [-24, -68], [24, -68], [36, -56], [42, -30], [44, 0]];
   const BEC_F = [[-40, -36], [-60, -52], [-78, -66], [-86, -58], [-64, -30], [-43, -8]];
   const ANSE = cr([[-30, -62], [-28, -90], [0, -104], [28, -90], [30, -62]], false)
     .concat(cr([[22, -66], [20, -85], [0, -96], [-20, -85], [-22, -66]], false));
+  // la main gelée : relâchée, vue de la paume, doigts en bas ; le poignet sous la surface, l'avant-bras
+  // qui monte et sort du cadre (la main tient dans le chaudron sans toucher ni fond ni parois)
+  const mainBain = (M, z) => { const W0 = M([XW, YW + 4]);
+    return h.formes.mainSimple({ pose: 'relachee', vue: 'paume', cote: 'droite', angle: 94, x: W0[0], y: W0[1], ancre: 'poignet',
+      echelle: 0.78 * M.k, avantbras: { longueur: 'bord', bord: { x0: 0, y0: 0, x1: z.l, y1: z.h } } }); };
   const vueBain = {
     titre: 'Le bain',
     dessin: (z) => {
-      const M = cadre(z, 600, 330), P = M.P;
+      const M = cadre(z, 600, 370), P = M.P;
       const th = thermo(M, 158, 60, 200, 38);
       const Mp = (Q) => Q.map(M);
       const out = [chaudron(M, C)];
@@ -113,25 +111,24 @@ module.exports = (h) => {
       // la bouilloire : bec, corps, couvercle, anse
       out.push(h.path(dpoly(Mp(BEC_F.map(bouil)), true), blancA));
       out.push(h.path(dpoly(Mp(cr(CORPS, false).map(bouil)), true), blancA));
-      out.push(h.path(dpoly(Mp([[-20, -68], [-15, -76], [15, -76], [20, -68]].map(bouil))), h.a.detail));
+      out.push(h.path(dpoly(Mp([[-44, 0], [44, 0]].map(bouil))), h.a.contour));
+      out.push(h.path(dpoly(Mp(cr([[-22, -67], [-12, -75], [0, -77], [12, -75], [22, -67]], false).map(bouil)), true), blancA));
+      out.push(h.path(dpoly(Mp([[-4, -76.5], [-4, -84], [4, -84], [4, -76.5]].map(bouil)), true), blancA));
       out.push(h.path(dpoly(Mp(ANSE.map(bouil)), true), blancA));
       // le thermomètre pincé au bord gauche, bulbe à hauteur de la main
       out.push(th.svg);
       out.push(h.path(`M${P(154, 116)} L${P(146, 116)} L${P(146, 134)}`, h.a.arete));
-      // la main et l'avant-bras
-      out.push(h.path(dpoly(Mp(courbeMain().map(mainG)), true), blancA));
-      [[-13.5, 92, 62], [0.5, 96, 58], [12.5, 93, 60]].forEach(([v, u0, u1]) =>
-        out.push(h.ligne(...M(mainG([v, u0])), ...M(mainG([v, u1])), h.a.detail)));
-      out.push(h.path(dpoly(Mp(cr([[-23, 28], [-26, 40]], false).map(mainG))), h.a.detail));
+      // la main et l'avant-bras : la main relâchée qui pend, paume vers l'œil, doigts en bas
+      out.push(mainBain(M, z).toString());
       return out.join('\n');
     },
     renvois: (z) => {
-      const M = cadre(z, 600, 330);
+      const M = cadre(z, 600, 370), mb = mainBain(M, z);
       return [
         { n: 1, rond: M([96, 196]), cible: M([154, 196]), texte: 'thermomètre : 37 à 39 °C' },
-        { n: 2, rond: M([96, 230]), cible: M(mainG([-6, 105])), texte: 'ne touche ni fond ni parois' },
-        { n: 3, rond: M([96, 264]), cible: M([150, 264]), texte: 'chaudron ou glacière de camp' },
-        { n: 4, rond: M([292, 64]), cible: M(mainG([8, 40])), texte: 'souple, rouge-violacé, 30 min' },
+        { n: 2, rond: M([96, 230]), cible: mb.doigts.annulaire, texte: 'ne touche ni fond ni parois' },
+        { n: 3, rond: M([96, 300]), cible: M([150, 300]), texte: 'chaudron ou glacière de camp' },
+        { n: 4, rond: M([292, 64]), cible: mb.articulations['majeur.mcp'], texte: 'souple, rouge-violacé, 30 min' },
         { n: 5, rond: M([408, 186]), cible: M([319, 138]), texte: 'versée à côté, jamais dessus' },
         { n: 6, rond: M([408, 250]), cible: M([344, 240]), texte: 'brasser en versant' },
       ];
@@ -203,18 +200,14 @@ module.exports = (h) => {
 
   // ─── Sans thermomètre : la main saine du secouriste dans l'eau ─────────────
   const Cp = { g: 60, d: 220, r: 70, b: 185, s: 95, t0: 40, t1: 262 };
-  const d = [-Math.cos(35 * Math.PI / 180), Math.sin(35 * Math.PI / 180)];
-  const nrm = [d[1], -d[0]];
-  const WP = [172, 102];
-  const brasS = ([u, v]) => [WP[0] + u * d[0] + v * nrm[0], WP[1] + u * d[1] + v * nrm[1]];
+  const WP = [172, 102];                          // le poignet de la main saine, dans l'eau
   const UP = -125;
-  const PROFIL = [
-    [UP, 18], [UP, 3], [UP - 6, 0], [UP + 6, -5], [UP, -8], [UP, -16],
-    [-70, -14], [-10, -11], [15, -12.5], [42, -11], [52, -8], [80, -6], [89, -3],
-    [91, 1], [88, 5], [70, 6], [54, 8], [44, 13], [28, 14], [10, 13], [0, 12], [-10, 12], [-70, 15],
-  ];
-  const courbeProfil = () => PROFIL.slice(0, 6).concat(cr(PROFIL.slice(5).concat([[UP, 18]]), false));
+  // la bande arrondie du pictogramme, bout dans l'eau
+  const courbeProfil = () => bande(UP, 90, 12).map(([v, u]) => [u, v]);
 
+  const mainSaine = (M, z) => { const W0 = M(WP);
+    return h.formes.mainSimple({ pose: 'relachee', vue: 'paume', cote: 'droite', angle: 145, x: W0[0], y: W0[1], ancre: 'poignet',
+      echelle: 0.42 * M.k, avantbras: { longueur: 'entier', bras: { pli: -25, longueur: 'bord' }, bord: { x0: 0, y0: 0, x1: z.l, y1: z.h } } }); };
   const vuePoignet = {
     titre: 'Sans thermomètre',
     dessin: (z) => {
@@ -222,16 +215,16 @@ module.exports = (h) => {
       const Mp = (Q) => Q.map(M);
       return [
         chaudron(M, Cp),
-        h.path(dpoly(Mp(courbeProfil().map(brasS)), true), blancA),
-        h.path(dpoly(Mp(cr([[6, 5], [26, 4], [48, 5], [58, 8], [54, 9.5]], false).map(brasS))), h.a.detail),
-        h.path(dpoly(Mp(cr([[52, -1], [70, 0], [88, 1]], false).map(brasS))), h.a.detail),
+        // la même main relâchée, la main saine qui entre de biais, doigts devant, l'intérieur du
+        // poignet dans l'eau ; l'avant-bras remonte à droite
+        mainSaine(M, z).toString(),
       ].join('\n');
     },
     renvois: (z) => {
-      const M = cadre(z, 300, 200);
+      const M = cadre(z, 300, 200), ms = mainSaine(M, z);
       return [
-        { n: 9, rond: M([262, 136]), cible: M(brasS([0, 12])), texte: 'poignet : tiède et neutre' },
-        { n: 10, rond: M([28, 130]), cible: M(brasS([35, -10])), texte: 'main saine 30 s sans effort' },
+        { n: 9, rond: M([262, 136]), cible: ms.poignet, texte: 'poignet : tiède et neutre' },
+        { n: 10, rond: M([28, 130]), cible: ms.articulations['majeur.mcp'], texte: 'main saine 30 s sans effort' },
       ];
     },
   };

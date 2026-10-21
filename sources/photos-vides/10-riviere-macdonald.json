@@ -1,0 +1,105 @@
+{
+ "fichier": "10-riviere-macdonald.jpg",
+ "titre": "File:Rivière MacDonald 02.jpg",
+ "pageid": 20986762,
+ "requete": "https://commons.wikimedia.org/w/api.php?action=query&format=json&prop=imageinfo&iiprop=url%7Csize%7Csha1%7Cmime%7Cextmetadata&titles=File%3ARivi%C3%A8re+MacDonald+02.jpg&formatversion=2",
+ "lu_le": "2026-10-19",
+ "imageinfo": {
+  "size": 11853511,
+  "width": 5098,
+  "height": 3371,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/1/10/Rivi%C3%A8re_MacDonald_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+  "descriptionurl": "https://commons.wikimedia.org/wiki/File:Rivi%C3%A8re_MacDonald_02.jpg",
+  "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=20986762",
+  "sha1": "195c76723e37f7e909cc972a0019df10c76a1561",
+  "extmetadata": {
+   "DateTime": {
+    "value": "2012-08-31 20:44:14",
+    "source": "mediawiki-metadata",
+    "hidden": ""
+   },
+   "ObjectName": {
+    "value": "Rivière MacDonald 02",
+    "source": "mediawiki-metadata"
+   },
+   "CommonsMetadataExtension": {
+    "value": 1.2,
+    "source": "extension",
+    "hidden": ""
+   },
+   "Categories": {
+    "value": "Rivière MacDonald|Taken with Canon EOS 7D|Réserve faunique de Port-Cartier–Sept-Îles|Self-published work|Files with coordinates missing SDC location of creation",
+    "source": "commons-categories",
+    "hidden": ""
+   },
+   "Assessments": {
+    "value": "",
+    "source": "commons-categories",
+    "hidden": ""
+   },
+   "GPSLatitude": {
+    "value": "50.130125",
+    "source": "commons-desc-page"
+   },
+   "GPSLongitude": {
+    "value": "-67.225600",
+    "source": "commons-desc-page"
+   },
+   "GPSMapDatum": {
+    "value": "WGS-84",
+    "source": "commons-desc-page",
+    "hidden": ""
+   },
+   "ImageDescription": {
+    "value": "MacDonald river, Port-Cartier-Sept-Îles Wildlife Preserve, Quebec, Canada",
+    "source": "commons-desc-page"
+   },
+   "DateTimeOriginal": {
+    "value": "2012-08-25",
+    "source": "commons-desc-page"
+   },
+   "Credit": {
+    "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+    "source": "commons-desc-page"
+   },
+   "Artist": {
+    "value": "<a href=\"//commons.wikimedia.org/wiki/User:Cephas\" title=\"User:Cephas\">Cephas</a>",
+    "source": "commons-desc-page"
+   },
+   "LicenseShortName": {
+    "value": "CC BY-SA 3.0",
+    "source": "commons-desc-page",
+    "hidden": ""
+   },
+   "UsageTerms": {
+    "value": "Creative Commons Attribution-Share Alike 3.0",
+    "source": "commons-desc-page"
+   },
+   "AttributionRequired": {
+    "value": "true",
+    "source": "commons-desc-page",
+    "hidden": ""
+   },
+   "LicenseUrl": {
+    "value": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "commons-desc-page"
+   },
+   "Copyrighted": {
+    "value": "True",
+    "source": "commons-desc-page",
+    "hidden": ""
+   },
+   "Restrictions": {
+    "value": "",
+    "source": "commons-desc-page",
+    "hidden": ""
+   },
+   "License": {
+    "value": "cc-by-sa-3.0",
+    "source": "commons-templates",
+    "hidden": ""
+   }
+  },
+  "mime": "image/jpeg"
+ }
+}

@@ -229,3 +229,16 @@ Verdicts : `suivi/verifications/40-verifications.md`. Onze drapeaux, onze appliq
 - §9, sel du fleuve : **27 g/L (estuaire maritime) à 29 g/L (golfe)**, surface adoucie au printemps ; « la marée » retirée. « Au moins 35 litres d'eau pour un kilo de sel » est un calcul sur ces valeurs (34,5 L à 29 g/L, 37 L à 27 g/L). `sources/13-universite-laval-salinite-saint-laurent.md`
 
 Compression §3 et §4 — 27 septembre 2026 : 1 572 mots → 200 mots ; matériel coupé : couteau à trancher, fusil, scie à viande, crochets et palan, sacs de coton à carcasse, balance, glace (fondue dans le bac), papier de boucherie et sacs de congélation, marqueur et ruban, gants jetables, linges et brosse, eau et savon, table ou planche. §3 : coupés la scie contre le couteau (§8 garde le motif sanitaire), la croûte du dos, la zone de danger et les cibles 7 °C / 0 à 4 °C (déjà aux §5 et §6). Déplacé : la raison des gants (écorchure, porte d'entrée) à l'étape 2 du §5 ; le renvoi du §9 au couteau de chasse « que la section 4 accepte » réécrit sans renvoi.
+
+## Décisions de JP, 19 octobre 2026
+
+Rédacteur de la passe « décisions de JP » (les douze réponses de JP du 19 octobre ; le libellé des décisions est dans
+`_reprise/scratchpad/tome1-final/decisions-jp.js`). Aucune recherche refaite sur ce qui était déjà vérifié ; texte d'avant
+cette passe : commit `f515e01`.
+
+| Décision | Où | Ce qui a changé | Source ou règle |
+| --- | --- | --- | --- |
+| 4. La réserve de trois mois au chalet : corriger le renvoi | Section 9, premier paragraphe (l. 294 à 297) | « …c'est une ligne du chapitre d'achat, et elle y porte la mention **Chalet** (chapitre 00b). » devient « …la ligne du sel sans additif, au chapitre d'achat (ch. 00b, section 1.D), porte la mention **Chalet**. » (vrai depuis la décision 4). Dans la même phrase, « Le congélateur est au village » devient « Le congélateur est à la maison, en ville » (mot banni) | Décision 4 ; CLAUDE.md, « Les mots » |
+
+Le reste du chapitre attend la grande passe du tome 4 (le « village » de la note de lieu, l. 7, y compris). `controle.py
+--avant` (f515e01) : mots bannis 2 → 1 ; le reste, celui d'avant ; rien n'a disparu.

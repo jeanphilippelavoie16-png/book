@@ -16,7 +16,7 @@ const SCHEMA = {
   required: ['dossier', 'registre', 'telechargees', 'ecartees', 'megaoctets'],
 }
 
-const P = (f) => `Tu télécharges des images pour « Le Grand Livre du Chalet », un livre imprimé de survie à usage privé. Le projet est dans C:\\Users\\jeanp\\New folder. JP, l'auteur, a autorisé le téléchargement des images sous licence repérées par la recherche.
+const P = (f) => `Tu télécharges des images pour « Le Manuel du Nord », un livre imprimé de survie à usage privé. Le projet est dans C:\\Users\\jeanp\\New folder. JP, l'auteur, a autorisé le téléchargement des images sous licence repérées par la recherche.
 
 **Ton registre de candidates :** \`images/${f}.md\`. Il liste, image visée par image visée, une à trois candidates avec l'URL de la page, l'auteur et la licence déclarée.
 

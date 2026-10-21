@@ -1,6 +1,8 @@
 // Planche 12-05a — la maison de blocs : tailler et monter (ch. 12, section I-3, points 1 à 6).
 // Trois vues, dans l'ordre du chantier :
 //   tailler  — le bloc scié à la profondeur de la lame dans la paroi de la fosse, le fond tranché ;
+//              l'égoïne debout dans le trait du bout, en haut de sa course (poignée fermée, lame
+//              qui s'effile, dents à l'entrée dans la neige), le reste de la lame en tireté ;
 //   spirale  — le premier rang en cercle autour de la fosse, le premier bloc en biseau (rampe), le
 //              bloc suivant, plus long, posé sur la pente, et le deuxième rang qui continue, joints
 //              croisés, chaque rang penché un peu plus ;
@@ -8,6 +10,17 @@
 // La coupe de la maison finie est sur 12-05b. Cotes : seulement celles du chapitre (bloc de 20 à
 // 25 cm d'épaisseur, environ 60 cm de haut une fois debout). La voûte est une chaînette ; ses
 // proportions ne sont pas cotées, le chapitre n'en donne pas. Même géométrie que 12-05b.
+//
+// L'égoïne a été redessinée le 14 octobre 2026 : l'ancienne (une boîte à fenêtre sur un col évasé)
+// ne se reconnaissait pas. La vue est un peu plus large (la spirale, limitée en hauteur, n'y perd
+// rien) et coupée plus court à droite, pour que la scie se lise à l'impression.
+//
+// La charte : la paroi de la fosse, derrière le bloc qu'on taille, en gris loin ; dans la
+// spirale, les faces intérieures des blocs (vues par-dessus le rang) en gris loin et les faces
+// extérieures du côté droit à l'ombre, la silhouette de l'anneau au trait fort. Le rouge : le
+// va-et-vient de l'égoïne ; le sens de la pose de la spirale ; le joint du deuxième rang qui tombe
+// au milieu d'un bloc du premier, cerclé ; la clé qu'on descend de dehors (une flèche ; la
+// deuxième, symétrique, ôtée).
 
 module.exports = (h) => {
   // ─── La voûte : chaînette, en cm. Surface moyenne du mur, demi-largeur a au pied, hauteur hm.
@@ -43,20 +56,75 @@ module.exports = (h) => {
   const neige = h.a.hachure('neige', 'aucun');
   const neigeB = h.a.hachure('neige', 'arete');
   const blanc = at => at.replace('fill="none"', 'fill="#ffffff"');
+  const gris = (at, g) => at.replace('fill="none"', g.split(' ')[0]);
 
   // ─── Vue 1 : tailler les blocs. Perspective cavalière : X épaisseur, Y fuyant vers le haut à gauche.
   const tG = z => {
-    const c = 0.433, s2 = 0.25, X0 = -84, X1 = 100, Y0 = -48, Y1 = 98;
+    const c = 0.433, s2 = 0.25, X0 = -84, X1 = 90, Y0 = -48, Y1 = 98;
     const k = Math.min((z.l - 8) / (X1 - X0), (z.h - 70) / (Y1 - Y0));
     const ox = (z.l - k * (X1 - X0)) / 2 - k * X0, oy = (z.h - k * (Y1 - Y0)) / 2 - k * Y0;
     const P = (X, Y, Z) => [ox + k * (X - Y * c), oy - k * (Z + Y * s2)];
     return { k, P, L: 70, DY: 85 };
   };
 
+  // L'égoïne, dans le plan du trait du bout (Y = L), vue à plat. Repère de la scie : u le long de
+  // la lame, du talon (0) vers la pointe ; v en travers, des dents (0) vers le dos. La lame fait
+  // 64 de long, 12 de large au talon et 5 à la pointe ; la poignée fermée est du côté u < 0.
+  // Elle est en haut de sa course, penchée de 14° : la poignée vers la fosse, où se tient le
+  // constructeur, la pointe en bas vers le mur, les dents devant ; UN de lame (le long des dents)
+  // hors de la neige, le reste dans le trait, en tireté. XS : les dents à l'entrée dans la neige.
+  const LAME = 64, PENTE = 14 * Math.PI / 180, UN = 26, XS = 11.3;
+  const larg = u => 12 - 7 * u / LAME;
+  const bez = (p0, p1, p2, p3, n = 10) => Array.from({ length: n }, (_, i) => {
+    const t = i / n, s = 1 - t;
+    return [0, 1].map(j => s * s * s * p0[j] + 3 * s * s * t * p1[j] + 3 * s * t * t * p2[j] + t * t * t * p3[j]);
+  });
+  const courbeBez = (dep, segs) => {
+    const pts = []; let p = dep;
+    for (const [c1, c2, q] of segs) { pts.push(...bez(p, c1, c2, q)); p = q; }
+    pts.push(p);
+    return pts;
+  };
+  // la poignée fermée, en crosse de pistolet : la corne en haut, la prise qui file vers l'arrière
+  const POIGNEE = courbeBez([3, 12], [
+    [[0.5, 13], [-3, 14.5], [-6, 15.8]],
+    [[-7.5, 16.4], [-9.2, 17.2], [-10, 16.6]],
+    [[-10.6, 16], [-9.6, 14.6], [-8.4, 13.6]],
+    [[-10, 10.5], [-12.8, 4.5], [-14.8, 0.6]],
+    [[-15.6, -1], [-16.8, -2.4], [-16, -3.2]],
+    [[-13, -3.4], [-8, -1.6], [-3, -0.4]],
+    [[-1, 0], [1.5, 0], [3, 0]],
+    [[4.2, 3], [4.2, 9], [3, 12]],
+  ]);
+  // le trou de la main, une fente arrondie parallèle à la prise
+  const TROU = (() => {
+    const A = [-4.6, 10.2], B = [-9.0, 2.6], r = 1.8;
+    const ax = B[0] - A[0], ay = B[1] - A[1], al = Math.hypot(ax, ay), a0 = Math.atan2(ax / al, -ay / al);
+    const demi = (c, s) => Array.from({ length: 13 }, (_, i) => { const a = s + Math.PI * i / 12; return [c[0] + r * Math.cos(a), c[1] + r * Math.sin(a)]; });
+    return demi(B, a0 + Math.PI).concat(demi(A, a0));
+  })();
+  const egoine = (P, L) => {
+    const sn = Math.sin(PENTE), cs = Math.cos(PENTE);
+    const S = ([u, v]) => P(XS + (u - UN) * sn - v * cs, L, -(u - UN) * cs - v * sn);
+    const zOf = ([u, v]) => -(u - UN) * cs - v * sn;
+    // le contour de la lame, du talon côté dos jusqu'à la pointe, puis le long des dents
+    const tour = pas(1, LAME, 60).map(u => [u, larg(u)]).concat([[LAME, 0]], pas(LAME, 1, 60).map(u => [u, 0]));
+    const hors = tour.filter(p => zOf(p) >= 0), dedans = tour.filter(p => zOf(p) <= 0);
+    // les dents, de l'entrée dans la neige jusqu'à la poignée
+    const dents = [];
+    for (let u = UN; u > 3.4; u -= 2.4) { dents.push([u, 0]); if (u - 1.2 > 3.4) dents.push([u - 1.2, -1.1]); }
+    dents.push([3, 0]);
+    const dos = hors.filter(p => p[1] > 0);
+    const lame = dos.concat(dents);
+    // le va-et-vient, à côté des dents
+    const va = [[1, -6], [UN - 3, -6]].map(S).map(p => p.map(c => +c.toFixed(1)));
+    return { poignee: POIGNEE.map(S), trou: TROU.map(S), lame: lame.map(S), dos: dos.map(S), dents: dents.map(S), cachee: dedans.map(S), va, S };
+  };
+
   // ─── Vue 2 : le premier rang et le départ de la spirale, vus de trois quarts.
   const N = 13, D = 2 * Math.PI / N, TH0 = Math.PI / 2 + 0.9 * D, E = 0.5, HT = 180 * E * 2 + 140;
   const sG = z => {
-    const k = Math.min((z.l - 16) / (2 * 180), (z.h - 40) / HT);
+    const k = Math.min((z.l - 4) / (2 * (a + t / 2)), (z.h - 40) / HT);   // en largeur : l'anneau lui-même, son bord extérieur
     const cx = z.l / 2, cy = (z.h - k * HT) / 2 + k * (180 * E + 140);
     const Pr = (r, th, zz) => [cx + k * r * Math.cos(th), cy + k * (E * r * Math.sin(th) - zz)];
     const P3 = (phi, s, c) => { const [r, zz] = surf(s, c); return Pr(r, TH0 - phi, zz); };
@@ -84,13 +152,13 @@ module.exports = (h) => {
       .concat(pas(b.st(b.pa), b.sb(b.pa), 4).map(s => g.P3(b.pa, s, c)));
     const th = TH0 - pm, sm = (b.sb(pm) + b.st(pm)) / 2;
     const faces = [
-      { d: vis(th, sm, 'ext'), p: face(1) },
-      { d: vis(th, sm, 'int'), p: face(-1) },
-      { d: vis(th, b.st(pm), 'dessus'), p: ph.map(p => g.P3(p, b.st(p), 1)).concat(inv.map(p => g.P3(p, b.st(p), -1))) },
+      { d: vis(th, sm, 'ext'), p: face(1), sorte: Math.cos(th) > 0.3 ? 'ombre' : 'blanc' },
+      { d: vis(th, sm, 'int'), p: face(-1), sorte: 'loin' },
+      { d: vis(th, b.st(pm), 'dessus'), p: ph.map(p => g.P3(p, b.st(p), 1)).concat(inv.map(p => g.P3(p, b.st(p), -1))), sorte: 'blanc' },
     ];
     if (b.couvert) faces.pop();
     if (b.fin) faces.push({ d: vis(TH0 - b.pb, 0, 'bout'),
-      p: pas(b.sb(b.pb), b.st(b.pb), 4).map(s => g.P3(b.pb, s, 1)).concat(pas(b.st(b.pb), b.sb(b.pb), 4).map(s => g.P3(b.pb, s, -1))) });
+      p: pas(b.sb(b.pb), b.st(b.pb), 4).map(s => g.P3(b.pb, s, 1)).concat(pas(b.st(b.pb), b.sb(b.pb), 4).map(s => g.P3(b.pb, s, -1))), sorte: 'blanc' });
     return faces;
   };
 
@@ -106,11 +174,11 @@ module.exports = (h) => {
   return {
     ref: '12-05a',
     titre: 'La maison de blocs : tailler et monter',
-    desc: 'Maison de neige en blocs (iglou), trois vues du chantier. Tailler : dans la paroi de la fosse, le bloc scié à la profondeur de la lame, 20 à 25 cm d’épaisseur, environ 60 cm de haut, le fond tranché net avant de le soulever ; la fosse d’où sortent les blocs devient le plancher. Le premier rang posé en cercle autour de la fosse, chaque bloc penché vers l’intérieur ; le premier bloc taillé en biseau comme une rampe ; le bloc suivant, plus long, posé sur la pente, et le rang qui continue en spirale, joints croisés, chaque bloc appuyé sur les deux du dessous. La clé : le dernier trou au sommet fermé d’un bloc taillé à sa forme, plus large en haut qu’en bas, descendu de dehors ; les joints colmatés de neige écrasée.',
+    desc: 'Maison de neige en blocs (iglou), trois vues du chantier. Tailler : dans la paroi de la fosse, le bloc scié à l’égoïne, en va-et-vient, à la profondeur de la lame, 20 à 25 cm d’épaisseur, environ 60 cm de haut, le fond tranché net avant de le soulever ; la fosse d’où sortent les blocs devient le plancher. Le premier rang posé en cercle autour de la fosse, chaque bloc penché vers l’intérieur ; le premier bloc taillé en biseau comme une rampe ; le bloc suivant, plus long, posé sur la pente, et le rang qui continue en spirale, joints croisés, chaque bloc appuyé sur les deux du dessous. La clé : le dernier trou au sommet fermé d’un bloc taillé à sa forme, plus large en haut qu’en bas, descendu de dehors ; les joints colmatés de neige écrasée.',
     format: 'pleine',
     disposition: [['tailler', 'spirale'], ['cle']],
     hauteurs: [1.08, 1],
-    largeurs: [[1, 1.55], [1]],
+    largeurs: [[282, 296], [1]],          // la spirale garde son échelle (limitée en hauteur) ; la taille gagne le reste
     vues: {
       tailler: {
         titre: 'Tailler les blocs',
@@ -118,6 +186,8 @@ module.exports = (h) => {
           const { P, L, DY } = tG(z), out = [];
           // le manteau coupé au premier plan
           out.push(h.chemin([P(0, 0, 0), P(100, 0, 0), P(100, 0, -95), P(-45, 0, -95), P(-45, 0, -60), P(0, 0, -60)], neige, true));
+          // la paroi de la fosse, au-delà du bloc : derrière
+          out.push(h.chemin([P(0, L, 0), P(0, DY, 0), P(0, DY, -60), P(0, L, -60)], h.a.loin, true));
           // le dessus de la neige, la paroi de la fosse, le plancher de la fosse (en fuyante)
           out.push(h.chemin([P(100, 0, 0), P(100, DY, 0), P(0, DY, 0)], h.a.fin));
           out.push(h.chemin([P(0, 0, 0), P(0, DY, 0)], h.a.detail));
@@ -132,11 +202,17 @@ module.exports = (h) => {
           out.push(h.chemin([P(22, 0, 0), P(22, L, 0), P(0, L, 0)], h.a.arete));
           out.push(h.chemin([P(22, 0, 0), P(22, 0, -60), P(0, 0, -60)], h.a.arete));
           out.push(h.chemin([P(0, L, 0), P(0, L, -60)], h.a.arete));
-          // l'égoïne, plongée dans le trait du bout jusqu'à la profondeur de la lame
-          out.push(h.chemin([P(4, L, 0), P(7, L, -60), P(12, L, -60), P(16, L, 0)], h.a.cache));
-          out.push(h.chemin([P(4, L, 0), P(3, L, 12), P(19, L, 12), P(16, L, 0)], blanc(h.a.arete)));
-          out.push(h.chemin([P(1, L, 12), P(1, L, 30), P(22, L, 30), P(22, L, 12)], blanc(h.a.arete), true));
-          out.push(h.chemin([P(6, L, 17), P(6, L, 25), P(17, L, 25), P(17, L, 17)], h.a.detail, true));
+          // l'égoïne, debout dans le trait du bout, en haut de sa course : la poignée fermée, la
+          // lame qui s'effile vers la pointe, les dents à l'entrée dans la neige, le reste en tireté
+          const eg = egoine(P, L);
+          out.push(h.chemin(eg.cachee, h.a.cache));
+          out.push(h.chemin(eg.lame, h.a.blanc, true));
+          out.push(h.chemin(eg.dos, h.a.arete));
+          out.push(h.chemin(eg.dents, h.a.arete));
+          out.push(h.chemin([P(22, L, 0), P(0, L, 0)], h.a.arete));
+          out.push(h.chemin(eg.poignee, blanc(h.a.arete), true));
+          out.push(h.chemin(eg.trou, h.a.arete, true));
+          out.push(h.geste(`M ${eg.va[0].join(' ')} L ${eg.va[1].join(' ')}`, { double: true }));
           // cotes
           const [ax, ay] = P(0, 0, -74), [bx] = P(22, 0, -74);
           out.push(h.cote(ax, ay, bx, ay, '20 à 25 cm', { cote: 'dessous' }));
@@ -146,7 +222,7 @@ module.exports = (h) => {
         },
         renvois: z => {
           const { P, L } = tG(z);
-          const lame = P(9.5, L, -30), fond = P(0, 28, -60), fosse = P(-26, 72, -60);
+          const lame = egoine(P, L).S([50, 4]), fond = P(0, 28, -60), fosse = P(-26, 72, -60);
           return [
             { n: 1, rond: [lame[0] - 40, lame[1] - 12], cible: lame, texte: 'scier à la profondeur de la lame' },
             { n: 2, rond: [fond[0] - 22, fond[1] + 58], cible: fond, texte: 'trancher le fond net, puis soulever' },
@@ -175,10 +251,23 @@ module.exports = (h) => {
             for (const fc of dessinBloc(g, b)) faces.push({ ...fc, key });
           }
           faces.sort((u, v) => ((u.d > 0) - (v.d > 0)) || (u.key - v.key) || (u.d - v.d));
-          for (const fc of faces) out.push(h.chemin(fc.p, blanc(h.a.arete), true));
+          // La silhouette de l'anneau au trait fort : le pied devant, les flancs là où la face
+          // extérieure tourne, le dessus du premier rang derrière. Tracée sous les faces : leur
+          // blanc en couvre le dedans, il n'en reste que le bord, et rien ne passe sur un bloc.
+          const bascule = s => { const m = mid(Math.max(s, 1)); return Math.asin(Math.min(1, E * m.nz / m.nx)); };
+          const P3s = (th, s) => { const [r, zz] = surf(s, 1); return g.Pr(r, th, zz); };
+          const sil = pas(-bascule(0), Math.PI + bascule(0), 64).map(th => P3s(th, 0))
+            .concat(pas(0, 60, 12).map(s => P3s(Math.PI + bascule(s), s)))
+            .concat(pas(Math.PI + bascule(60), 2 * Math.PI - bascule(60), 64).map(th => P3s(th, 60)))
+            .concat(pas(60, 0, 12).map(s => P3s(-bascule(s), s)));
+          out.push(h.chemin(sil, h.a.contour, true));
+          const remplir = { blanc: blanc(h.a.arete), loin: gris(h.a.arete, h.a.loin), ombre: gris(h.a.arete, h.a.ombre) };
+          for (const fc of faces) out.push(h.chemin(fc.p, remplir[fc.sorte], true));
+          // le joint du deuxième rang tombe au milieu d'un bloc du premier
+          out.push(h.controle(...g.P3(2.5 * D, 60, 1), 13));
           // la suite de la spirale : les blocs suivants se posent par là, sur le premier rang
           const suite = pas(3.75 * D, 5.6 * D, 16).map(p => { const [r, zz] = surf(60, 1); return g.Pr(r - 4, TH0 - p, zz + 16); });
-          out.push(h.fleche(suite.map((p, i) => (i ? 'L' : 'M') + ' ' + p[0].toFixed(1) + ' ' + p[1].toFixed(1)).join(' ')));
+          out.push(h.geste(suite.map((p, i) => (i ? 'L' : 'M') + ' ' + p[0].toFixed(1) + ' ' + p[1].toFixed(1)).join(' ')));
           return out.join('\n');
         },
         renvois: z => {
@@ -210,10 +299,8 @@ module.exports = (h) => {
           out.push(h.chemin(Pp(courbe(SK, ST, -1, 1, 8).concat(courbe(ST, SK, 1, 1, 8)).map(([x, zz]) => [x, zz + LEVE])), h.a.contour));
           // elle descend dans le trou
           const e = surf(SK, 1);
-          for (const sg of [-1, 1]) {
-            const x = sg * (e[0] + 14);
-            out.push(h.fleche(`M ${P([x, e[1] + LEVE + 4]).join(' ')} L ${P([x, e[1] + 8]).join(' ')}`));
-          }
+          const x = e[0] + 14;
+          out.push(h.geste(`M ${P([x, e[1] + LEVE + 4]).join(' ')} L ${P([x, e[1] + 8]).join(' ')}`));
           return out.join('\n');
         },
         renvois: z => {

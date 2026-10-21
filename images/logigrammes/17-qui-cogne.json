@@ -1,0 +1,427 @@
+{
+  "_note": "Logigramme du chapitre 17 (qui cogne à la porte), double page. Fait le 15 octobre 2026, remis d'accord avec le chapitre refait au gabarit final le 19 octobre 2026. Page de gauche : la série « Quelqu'un cogne à la porte » (1 min, étapes 1 à 3), la série « La personne attend dehors » (10 min, étapes 4 à 8) et ce qui vaut à tout moment (étape 12). Page de droite : la réponse (étapes 9 à 11), l'après (13 et 14), l'hébergement (15 à 21), le lendemain (22 à 29). Le monoxyde n'y est pas : il est à l'étape 18, avec son pictogramme (JP : « on l'a dit 1000 fois »). Phrases complètes (JP : « personne parle comme ça »). Aucune branche ne mène à l'arme de la maison (étape 11). Rendu : python3 design/outils/logigramme.py images/logigrammes/17-qui-cogne.json. « source » : les étapes du chapitre d'où vient chaque geste (ignoré au rendu). Décisions de JP du 19 octobre 2026 : la première boîte dit « Répondre à travers la porte, sans ouvrir » (étape 1) ; l'adulte seul avec les enfants (décision 8) : la boîte « seul » garde l'exception de la personne seule qui gèle (étape 3), et la boîte « entre » dit le geste de l'étape 7 (si le compte concorde, ouvrir et la traîner dans la maison sur une couverture ; sinon, passer par la fenêtre un sac de couchage et une couverture). La boîte « entre » prend toute la largeur ; l'encadré de l'arme (à tout moment, étape 12) passe au bas de la page de droite, sous « Le lendemain » ; rangs g3 à g8 descendus. Éditeur, 19 octobre 2026 (règle 0) : « seul » sans renvoi dans le texte (le renvoi dit « étapes 3 et 7 ») et « passer ce qu'on donne par une fenêtre entrouverte » ; « entre » : « Si on est seul avec les enfants, ouvrir seulement si on a compté une seule personne et aucune autre trace » au lieu de l'étiquette « Seul avec les enfants : si le compte concorde » ; « deux » : « Un seul adulte doit parler » ; « arme » : « Emmener tout le monde dans la pièce du fond, bloquer la porte de l'intérieur et y rester » (les deux dernières, notées au plan de match pour après la passe). Mêmes lignes par boîte, 0 erreur.",
+  "format": "double",
+  "tome": 1,
+  "urgent": true,
+  "entete": {
+    "chapitre": "17 · Qui cogne à la porte",
+    "tome": "Tome 1 · Tenir",
+    "onglet": "17",
+    "folios": [
+      null,
+      null
+    ]
+  },
+  "colonnes": {
+    "large": [
+      0.5,
+      7.375
+    ],
+    "q1": [
+      1.55,
+      6.325
+    ],
+    "v1": [
+      0.5,
+      3.8
+    ],
+    "v2": [
+      4.075,
+      7.375
+    ],
+    "tronc": [
+      0.5,
+      3.85
+    ],
+    "cote": [
+      4.3,
+      7.375
+    ],
+    "qr": [
+      8.9,
+      13.2488
+    ],
+    "c1": [
+      8.9,
+      10.9977
+    ],
+    "c2": [
+      11.1512,
+      13.2488
+    ],
+    "c3": [
+      13.4023,
+      15.5
+    ],
+    "large2": [
+      8.9,
+      15.5
+    ],
+    "q2": [
+      11.1512,
+      15.5
+    ]
+  },
+  "rangs": {
+    "g1": 0.85,
+    "g2": 1.6,
+    "g3": 2.8,
+    "g4": 3.62,
+    "g5": 4.85,
+    "g6": 5.78,
+    "g7": 7.0,
+    "g8": 7.75,
+    "d1": 1.15,
+    "d2": 2.1,
+    "d3": 3.2,
+    "d3b": 4.5,
+    "d4": 5.85,
+    "d5": 7.15,
+    "dco": 7.55,
+    "d3q": 4.85,
+    "darme": 8.15
+  },
+  "noeuds": [
+    {
+      "id": "dep",
+      "type": "depart",
+      "col": "large",
+      "rang": "g1",
+      "ancre": "haut",
+      "taille": 15,
+      "texte": "Quelqu'un cogne à la porte",
+      "source": "section 2"
+    },
+    {
+      "id": "ouvrir",
+      "type": "urgent",
+      "col": "large",
+      "rang": "g2",
+      "ancre": "haut",
+      "temps": "1 min",
+      "texte": "**Répondre à travers la porte, sans ouvrir**, pour que la personne sache qu'il y a quelqu'un. **La nuit, éteindre la lampe de la pièce** avant de s'approcher de la fenêtre, puis éclairer le sol devant la personne.",
+      "renvoi": "ch. 17, étapes 1 et 2",
+      "source": "étapes 1 et 2"
+    },
+    {
+      "id": "qad",
+      "type": "question",
+      "col": "q1",
+      "rang": "g3",
+      "texte": "Il y a deux adultes dans la maison ?"
+    },
+    {
+      "id": "deux",
+      "type": "urgent",
+      "col": "v1",
+      "rang": "g4",
+      "ancre": "haut",
+      "taille": 10.5,
+      "texte": "**Un seul adulte doit parler.** L'autre va dans la pièce du fond avec les enfants et regarde par une autre fenêtre.",
+      "renvoi": "ch. 17, étape 3",
+      "source": "étape 3"
+    },
+    {
+      "id": "seul",
+      "type": "urgent",
+      "col": "v2",
+      "rang": "g4",
+      "ancre": "haut",
+      "taille": 10.5,
+      "texte": "**Envoyer les enfants dans la pièce du fond, et ne pas sortir**, sauf pour une personne seule qui gèle. Parler à travers la porte, et passer ce qu'on donne par une fenêtre entrouverte.",
+      "renvoi": "ch. 17, étapes 3 et 7",
+      "source": "étape 3 ; section 7, le deuxième adulte"
+    },
+    {
+      "id": "compter",
+      "type": "urgent",
+      "col": "large",
+      "rang": "g5",
+      "ancre": "haut",
+      "temps": "10 min",
+      "texte": "**Compter à voix haute les personnes, les véhicules et les traces.** S'il y a plus de traces ou de véhicules que de monde en vue, ne pas ouvrir.",
+      "renvoi": "ch. 17, étape 4",
+      "source": "étape 4"
+    },
+    {
+      "id": "parler",
+      "type": "urgent",
+      "col": "large",
+      "rang": "g6",
+      "ancre": "haut",
+      "texte": "**Lui parler à travers la porte** : lui dire où s'arrêter, à un repère qu'il voit, comme le poteau ou le bas de l'escalier, puis lui demander ce qu'il lui faut. Une seule question à la fois.",
+      "renvoi": "ch. 17, étape 5",
+      "source": "étape 5 ; étape 25"
+    },
+    {
+      "id": "qfroid",
+      "type": "question",
+      "col": "tronc",
+      "rang": "g7",
+      "texte": "Il est blessé, ou il gèle ?",
+      "precision": "Il parle mal, il est maladroit ou confus, ou il ne frissonne plus",
+      "source": "étapes 6 et 7"
+    },
+    {
+      "id": "entre",
+      "type": "urgent",
+      "col": "large",
+      "rang": "g8",
+      "ancre": "haut",
+      "texte": "**Le porter couché**, sans le faire marcher, dans la maison ou dans un abri dehors. Lui enlever ses vêtements mouillés et mettre de la chaleur sur son tronc. Lui donner à boire seulement s'il est bien éveillé et avale bien. **Si on est seul avec les enfants**, ouvrir seulement si on a compté une seule personne et aucune autre trace, et le traîner dans la maison sur une couverture. Sinon, lui passer par la fenêtre un sac de couchage et une couverture pour qu'il se couche dessus.",
+      "renvoi": "ch. 17, étapes 7 et 8 ; ch. 25",
+      "source": "étapes 7 et 8"
+    },
+    {
+      "id": "arme",
+      "type": "danger",
+      "col": "large2",
+      "rang": "darme",
+      "ancre": "haut",
+      "titre": "S'il montre une arme ou s'il menace",
+      "texte": "**Emmener tout le monde dans la pièce du fond**, bloquer la porte de l'intérieur et y rester. S'il entre et exige quelque chose, le lui donner sans discuter ni résister.",
+      "renvoi": "ch. 17, étape 12",
+      "source": "étape 12"
+    },
+    {
+      "id": "qrep",
+      "type": "question",
+      "col": "qr",
+      "rang": "d1",
+      "texte": "On peut lui donner ce qu'il demande ?",
+      "source": "étapes 9 et 10"
+    },
+    {
+      "id": "donner",
+      "type": "geste",
+      "col": "c1",
+      "rang": "d2",
+      "ancre": "haut",
+      "taille": 10.5,
+      "texte": "**Lui donner dehors**, sans le faire entrer : un repas chaud dans un de nos bols, qu'on reprend ensuite, de l'eau, du bois fendu. Jamais dans l'emballage du magasin : ça montre qu'on en a d'autres.",
+      "renvoi": "ch. 17, étape 9",
+      "source": "étape 9 ; section 7, donner sans renseigner"
+    },
+    {
+      "id": "q2",
+      "type": "question",
+      "col": "q2",
+      "rang": "d2",
+      "ancre": "haut",
+      "texte": "Il a un endroit où aller ?",
+      "source": "étape 10"
+    },
+    {
+      "id": "refuser",
+      "type": "geste",
+      "col": "c2",
+      "rang": "d3",
+      "ancre": "haut",
+      "taille": 10.5,
+      "texte": "**Refuser une seule fois**, sans mentir. Lui dire où aller, à quelle distance, et comment s'y rendre.",
+      "renvoi": "ch. 17, étape 10",
+      "source": "étape 10"
+    },
+    {
+      "id": "accueil",
+      "type": "geste",
+      "col": "c3",
+      "rang": "d3",
+      "ancre": "haut",
+      "taille": 10.5,
+      "texte": "**On ne le renvoie pas.** Lui faire un abri, un feu et lui donner à boire chaud dehors, ou le loger.",
+      "renvoi": "ch. 17, étape 10 ; section 7",
+      "source": "étape 10 ; section 7, réchauffer quelqu'un sans le faire entrer"
+    },
+    {
+      "id": "qpart",
+      "type": "question",
+      "col": "qr",
+      "rang": "d3q",
+      "texte": "Il s'en va ?"
+    },
+    {
+      "id": "reste",
+      "type": "geste",
+      "col": "c3",
+      "rang": "d3b",
+      "ancre": "haut",
+      "taille": 10.5,
+      "texte": "**Si on le loge**, lui dire d'avance combien de temps il peut rester. Il se lave les mains 20 s en entrant, il dort à l'écart des enfants et il aide aux corvées.",
+      "renvoi": "ch. 17, étapes 15 à 21",
+      "source": "étapes 15 à 19"
+    },
+    {
+      "id": "barrer",
+      "type": "geste",
+      "col": "c1",
+      "rang": "d4",
+      "ancre": "haut",
+      "taille": 10.5,
+      "texte": "**Rentrer, fermer et barrer la porte**, et rester dedans. Noter l'heure et prévenir les voisins par radio.",
+      "renvoi": "ch. 17, étape 11",
+      "source": "étape 11"
+    },
+    {
+      "id": "apres",
+      "type": "geste",
+      "col": "c2",
+      "rang": "d4",
+      "ancre": "haut",
+      "taille": 10.5,
+      "texte": "**Dire aux autres adultes** ce qu'on lui a donné et ce qu'on lui a promis. Désinfecter ce qu'il a touché.",
+      "renvoi": "ch. 17, étapes 13 et 14",
+      "source": "étapes 13 et 14"
+    },
+    {
+      "id": "lendemain",
+      "type": "geste",
+      "rang": "d5",
+      "ancre": "haut",
+      "texte": "**Le lendemain, se préparer pour la prochaine fois** : décider ensemble ce qu'on répond, planter un poteau à quelques pas de la porte pour dire au visiteur où s'arrêter, choisir la pièce du fond et poser une barre sur la porte.",
+      "renvoi": "ch. 17, étapes 22 à 29 ; section 7",
+      "source": "étapes 22 à 29 ; section 7, la porte",
+      "col": "large2"
+    }
+  ],
+  "liens": [
+    {
+      "de": "dep",
+      "vers": "ouvrir"
+    },
+    {
+      "de": "ouvrir",
+      "vers": "qad"
+    },
+    {
+      "de": "qad",
+      "vers": "deux",
+      "etiquette": "Oui",
+      "coude": 3.2,
+      "pos": "palier"
+    },
+    {
+      "de": "qad",
+      "vers": "seul",
+      "etiquette": "Non",
+      "coude": 3.2,
+      "pos": "palier"
+    },
+    {
+      "de": "deux",
+      "vers": "compter",
+      "ex": 2.15
+    },
+    {
+      "de": "seul",
+      "vers": "compter",
+      "ex": 5.725
+    },
+    {
+      "de": "compter",
+      "vers": "parler",
+      "sx": 2.175,
+      "ex": 2.175
+    },
+    {
+      "de": "parler",
+      "vers": "qfroid",
+      "sx": 2.175
+    },
+    {
+      "de": "qfroid",
+      "vers": "entre",
+      "etiquette": "Oui",
+      "ex": 2.175
+    },
+    {
+      "de": "qfroid",
+      "vers": "qrep",
+      "etiquette": "Non",
+      "sortie": "droite",
+      "entree": "gauche",
+      "via": [
+        [
+          8.7,
+          7.0
+        ],
+        [
+          8.7,
+          1.15
+        ]
+      ]
+    },
+    {
+      "de": "qrep",
+      "vers": "donner",
+      "etiquette": "Oui",
+      "coude": 1.62,
+      "pos": "palier"
+    },
+    {
+      "de": "qrep",
+      "vers": "q2",
+      "etiquette": "Non",
+      "coude": 1.62,
+      "pos": "palier",
+      "ex": 13.3256
+    },
+    {
+      "de": "q2",
+      "vers": "refuser",
+      "etiquette": "Oui",
+      "coude": 2.9,
+      "pos": "palier"
+    },
+    {
+      "de": "q2",
+      "vers": "accueil",
+      "etiquette": "Non",
+      "coude": 2.9,
+      "pos": "palier"
+    },
+    {
+      "de": "donner",
+      "vers": "qpart",
+      "ex": 9.9488
+    },
+    {
+      "de": "refuser",
+      "vers": "qpart",
+      "ex": 12.2
+    },
+    {
+      "de": "accueil",
+      "vers": "reste"
+    },
+    {
+      "de": "qpart",
+      "vers": "barrer",
+      "etiquette": "Non",
+      "coude": 5.4,
+      "pos": "palier"
+    },
+    {
+      "de": "qpart",
+      "vers": "apres",
+      "etiquette": "Oui",
+      "coude": 5.4,
+      "pos": "palier"
+    },
+    {
+      "de": "barrer",
+      "vers": "lendemain",
+      "ex": 9.9488
+    },
+    {
+      "de": "apres",
+      "vers": "lendemain",
+      "ex": 12.2
+    },
+    {
+      "de": "reste",
+      "vers": "lendemain",
+      "ex": 14.4512
+    }
+  ]
+}

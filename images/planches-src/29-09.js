@@ -4,6 +4,11 @@
 // s'arrête juste sous le bouchon et l'aide aspire par son autre bout. L'air file du bébé au pot
 // puis du pot à l'aide ; les glaires, plus lourdes, tombent au fond.
 // Seule mesure du chapitre : 10 cm au plus dans la bouche. Le pot et les tubes ne sont pas cotés.
+//
+// La charte : en coupe, l'intérieur du pot (sa paroi du fond, vue par la coupe) recule en gris loin ;
+// le bouchon seul, un tronc de cône, a son flanc de droite à l'ombre sous la trame du liège. Le
+// rouge : les deux tubes qu'on enfonce, et le cercle sur le bout du tube court, qui doit s'arrêter
+// juste sous le bouchon. Les flèches de l'air restent noires.
 module.exports = (h) => {
   const f = (v) => Math.round(v * 10) / 10;
 
@@ -109,6 +114,10 @@ module.exports = (h) => {
     const { c, yh, rx, ry, yb, rxb, ryb } = b;
     const flanc = `M ${c - rx} ${yh} L ${c - rxb} ${yb} A ${rxb} ${ryb} 0 0 0 ${c + rxb} ${yb} L ${c + rx} ${yh} A ${rx} ${ry} 0 0 1 ${c - rx} ${yh} Z`;
     const out = [
+      h.path(flanc, h.a.blanc),
+      // le flanc de droite, à l'ombre, sous la trame du liège
+      `<clipPath id="flanc-bouchon-2909"><path d="${flanc}" fill="#FFFFFF"/></clipPath>`,
+      `<g clip-path="url(#flanc-bouchon-2909)">${h.rect(c + rx * 0.4, yh - ry, rx, yb + ryb - yh + ry + 2, h.a.ombre)}</g>`,
       h.path(flanc, h.a.hachure('neige', 'aucun')),
       h.path(`M ${c - rx} ${yh} L ${c - rxb} ${yb} A ${rxb} ${ryb} 0 0 0 ${c + rxb} ${yb} L ${c + rx} ${yh}`, h.a.contour),
       h.ellipse(c, yh, rx, ry, h.a.contour.replace('fill="none"', 'fill="#FFFFFF"')),
@@ -123,8 +132,8 @@ module.exports = (h) => {
       out.push(h.ellipse(x, fin, ep / 2 - 0.7, f(ep / 2 * 0.45 - 0.4), h.a.detail));
     }
     // enfoncer : une flèche à côté de chaque tube, vers le bas
-    out.push(h.fleche(`M ${f(b.t1 - 20)} ${f(b.ytube - 36)} L ${f(b.t1 - 20)} ${f(b.ytube + 4)}`));
-    out.push(h.fleche(`M ${f(b.t2 + 20)} ${f(b.ytube - 36)} L ${f(b.t2 + 20)} ${f(b.ytube + 4)}`));
+    out.push(h.geste(`M ${f(b.t1 - 20)} ${f(b.ytube - 36)} L ${f(b.t1 - 20)} ${f(b.ytube + 4)}`));
+    out.push(h.geste(`M ${f(b.t2 + 20)} ${f(b.ytube - 36)} L ${f(b.t2 + 20)} ${f(b.ytube + 4)}`));
     return out.join('\n');
   };
 
@@ -140,7 +149,9 @@ module.exports = (h) => {
         titre: 'Monté, en coupe',
         dessin: z => {
           const g = G(z);
+          const dedans = `M ${f(g.cx - 25)} ${f(g.Y0 + 19)} Q ${f(g.cx - 45)} ${f(g.Y0 + 22)} ${f(g.cx - 45)} ${f(g.Y0 + 39)} L ${f(g.cx - 45)} ${f(g.Y0 + 153)} L ${f(g.cx + 45)} ${f(g.Y0 + 153)} L ${f(g.cx + 45)} ${f(g.Y0 + 39)} Q ${f(g.cx + 45)} ${f(g.Y0 + 22)} ${f(g.cx + 25)} ${f(g.Y0 + 19)} Z`;
           return [
+            h.path(dedans, h.a.loin),   // la paroi du fond, vue par la coupe
             pot(g),
             glaires(g),
             bouchon(g),
@@ -152,6 +163,7 @@ module.exports = (h) => {
             h.fleche(`M ${g.xt - 16} ${f(g.Y0 + 70)} L ${g.xt - 16} ${f(g.Y0 + 20)}`),
             h.fleche(`M ${g.cx + 70} ${f(g.hautC - 14)} L ${g.cx + 120} ${f(g.hautC - 14)}`),
             h.cote(g.xt + 16, g.bout - 160, g.xt + 16, g.bout, '100 mm', { cote: 'droite' }),
+            h.controle(g.xC, g.finC + 1, 11),   // le tube court s'arrête juste sous le bouchon
           ].join('\n');
         },
         renvois: z => {

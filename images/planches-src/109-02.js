@@ -82,10 +82,11 @@ module.exports = (h) => {
   };
 
   // Une tige ronde (l'étrier) : fond blanc, deux flancs à 1,4, bouts ouverts.
-  const tige = (pts, e) => {
+  // loin = true : la branche de derrière, peinte au gris loin de la charte.
+  const tige = (pts, e, loin = false) => {
     const R = reperes(pts), G = decale(R, e / 2), D = decale(R, -e / 2);
     const fond = 'M ' + G.map(pt).join(' L ') + ' L ' + D.slice().reverse().map(pt).join(' L ') + ' Z';
-    return [h.path(fond, h.a.blanc), h.path('M ' + G.map(pt).join(' L '), h.a.arete), h.path('M ' + D.map(pt).join(' L '), h.a.arete)].join('\n');
+    return [h.path(fond, loin ? h.a.loin : h.a.blanc), h.path('M ' + G.map(pt).join(' L '), h.a.arete), h.path('M ' + D.map(pt).join(' L '), h.a.arete)].join('\n');
   };
 
   // Œil de câble autour d'un appui : cercles de centres (0,0) et (ll,0), rayon Rc de la ligne
@@ -153,7 +154,7 @@ module.exports = (h) => {
     const out = [];
     const clips = [q.k1, q.k2, q.k3];
     // tiges arrière : derrière le câble
-    for (const k of clips) out.push(tige([[k + q.ox, yH], [k + q.ox, -q.d / 2], ...coude(k, q, 180, 90)].map(T), q.rd));
+    for (const k of clips) out.push(tige([[k + q.ox, yH], [k + q.ox, -q.d / 2], ...coude(k, q, 180, 90)].map(T), q.rd, true));
     out.push(corde(cheminOeil(g, q.vif, q.mort).map(T), q.d, true, false));
     out.push(cosse(g, 5, T));
     // tiges avant : devant le câble
@@ -238,6 +239,8 @@ module.exports = (h) => {
     }
     out.push(sectionCable(cx, q.yd, D));
     out.push(sectionCable(cx, q.yl, D));
+    // la charte : le point à contrôler, l'étrier qui chevauche le brin mort
+    out.push(h.controle(cx, q.yb - e + R / 2, R / 2 + 12 * q.s));
     return out.join('\n');
   };
   const renvoisCoupe = z => {
@@ -254,8 +257,9 @@ module.exports = (h) => {
     const gA = oeil(34, d), gB = oeil(27 + d / 2 + 0.6, d), gC = oeil(17 + d / 2 + 0.6, d, 34);
     const col = [z.l / 6 - 5.7, z.l / 2 - 4, 5 * z.l / 6 + 4].map(f);
     const cy = g => f(26 + g.Rc + d / 2 + 2);
-    const sx = f((col[0] + 6 + col[1] - 6) / 2), sy = f(z.h * 0.62);
-    return { d, gA, gB, gC, col, cyA: cy(gA), cyB: cy(gB), cyC: cy(gC), bas: z.h - 22, sx, sy };
+    const bas = f(z.h * 0.56);                             // brins raccourcis, cassure gardée
+    const sx = f(col[0] + 14), sy = f(bas + (z.h - bas) / 2 - 4);
+    return { d, gA, gB, gC, col, cyA: cy(gA), cyB: cy(gB), cyC: cy(gC), bas, sx, sy };
   };
   // la boucle pend : le x local descend
   const pend = (cx, cy) => p => [cx - p[1], cy + p[0]];
@@ -265,11 +269,21 @@ module.exports = (h) => {
     const TA = pend(q.col[0], q.cyA), xA = q.bas - q.cyA;
     out.push(corde(cheminOeil(q.gA, xA, xA).map(TA), q.d, true, true));
     out.push(cosse(q.gA, 4, TA));
-    // sa section : le câble couché dans la fente
-    const { sx, sy } = q, ro = 17, ri = 12.5, o = 55;
+    // trait de coupe A : en travers du côté droit de la boucle 9, flèches vers le bas
+    const yk = f(q.cyA + 14), axe = cheminOeil(q.gA, xA, xA).map(TA).filter(p => p[0] > q.col[0] && Math.abs(p[1] - yk) < 2);
+    const xr = axe.reduce((m, p) => Math.max(m, p[0]), q.col[0]);
+    out.push(h.ligne(f(xr - 13), yk, f(xr + 13), yk, h.a.detail + ' stroke-dasharray="9 3 2 3"'));
+    for (const xe of [xr - 13, xr + 13]) {
+      out.push(h.ligne(f(xe), yk, f(xe), yk, h.a.contour));
+      out.push(h.fleche(`M ${f(xe)} ${yk} L ${f(xe)} ${f(yk + 11)}`, h.a.detail));
+    }
+    out.push(h.texte(f(xr + 13), f(yk - 5), 'A', { ancre: 'middle' }));
+    // coupe A-A, ×2 : fente ouverte vers l'extérieur (+x), câble au fond du C
+    const { sx, sy } = q, ro = 34, ri = 25, o = 48;
     const P = (r, a) => `${f(sx + r * Math.cos(rad(a)))} ${f(sy + r * Math.sin(rad(a)))}`;
     out.push(h.path(`M ${P(ro, o)} A ${ro} ${ro} 0 1 1 ${P(ro, 360 - o)} L ${P(ri, 360 - o)} A ${ri} ${ri} 0 1 0 ${P(ri, o)} Z`, h.a.hachure('metal', 'arete')));
-    out.push(sectionCable(sx - 3, sy, 19));
+    out.push(sectionCable(sx - 5, sy, 38));
+    out.push(h.texte(sx, f(sy + ro + 18), 'A-A', { ancre: 'middle' }));
     // b. anneau d'attelage
     const TB = pend(q.col[1], q.cyB), xB = q.bas - q.cyB;
     out.push(corde(cheminOeil(q.gB, xB, xB).map(TB), q.d, true, true));
@@ -292,7 +306,7 @@ module.exports = (h) => {
     const x11 = f((q.col[0] + q.gA.Rc + q.d / 2 + 1.2 + q.col[1] - q.gB.Rc - q.d / 2 - 1.2) / 2);
     return [
       { n: 9, rond: [q.col[0], f(q.cyA + 8)], cible: [q.col[0], f(q.cyA - ri)], texte: 'tuyau fendu, cintré en goutte' },
-      { n: 10, rond: [q.sx, f(q.sy + 42)], cible: [q.sx, f(q.sy + 17.7)], texte: 'le câble couché dans la fente' },
+      { n: 10, rond: [f(q.sx + 62), f(q.sy - 20)], cible: [f(q.sx + 22), f(q.sy - 5)], texte: 'le câble couché dans la fente' },
       { n: 11, rond: [x11, q.cyB], cible: [f(q.col[1] - 24), q.cyB], texte: 'anneau d’attelage' },
       { n: 12, rond: [f(q.col[2] - 50), f(q.cyC + q.gC.ll / 2)], cible: [f(q.col[2] - 17.7), f(q.cyC + q.gC.ll / 2)], texte: 'gros maillon de chaîne' },
     ];
@@ -301,7 +315,7 @@ module.exports = (h) => {
   return {
     ref: '109-02',
     titre: 'La boucle au bout d’un câble d’acier',
-    desc: 'Un câble d’acier replié autour d’une cosse et tenu par trois serre-câbles : l’étrier en U de chacun sur le brin mort, le bout libre, et la selle sous le brin vivant, celui qui part à la charge. Le premier serre-câble à une longueur de selle du bout, le deuxième au ras de la cosse, le troisième entre les deux, de 6 à 7 diamètres de câble l’un de l’autre. Une coupe d’un serre-câble montre l’étrier autour du brin mort et la selle sous le brin vivant. Trois cosses de fortune : un bout de tuyau fendu sur sa longueur et cintré en goutte, un anneau d’attelage, un gros maillon de chaîne.',
+    desc: 'Un câble d’acier replié autour d’une cosse et tenu par trois serre-câbles : l’étrier en U de chacun sur le brin mort, le bout libre, et la selle sous le brin vivant, celui qui part à la charge. Le premier serre-câble à une longueur de selle du bout, le deuxième au ras de la cosse, le troisième entre les deux, de 6 à 7 diamètres de câble l’un de l’autre. Une coupe d’un serre-câble montre l’étrier autour du brin mort et la selle sous le brin vivant. Trois cosses de fortune : un bout de tuyau fendu sur sa longueur et cintré en goutte, avec sa coupe A-A agrandie : la fente ouverte vers l’extérieur de la boucle, le câble couché au fond du C, un anneau d’attelage, un gros maillon de chaîne.',
     format: 'pleine',
     disposition: [['boucle'], ['coupe', 'cosses']],
     hauteurs: [0.72, 1.28],

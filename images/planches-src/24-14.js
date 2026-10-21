@@ -7,6 +7,11 @@
 // Rangée du bas : la grosse ampoule, en coupe, même échelle aux trois étapes.
 // Mesures internes en mm, y vers le haut, peau à y = 0. Le chapitre ne donne aucune cote : il n'y
 // en a pas sur la planche.
+//
+// La charte : pas de gris (le pied est un corps, le reste est en coupe). Contour fort sur le rond
+// de feutre en coupe, et sur la surface de la peau dans les trois étapes du bas. Le rouge : la
+// poussée de l'aiguille, la pression du doigt, et le cercle sur le trou, au bord de l'ampoule.
+// Les flèches de la botte qui appuie restent noires : ce n'est pas le geste du lecteur.
 module.exports = (h) => {
   const f = v => Math.round(v * 10) / 10;
   const pt = p => `${f(p[0])} ${f(p[1])}`;
@@ -110,7 +115,7 @@ module.exports = (h) => {
   //   a : demi-largeur de l'ampoule · H : hauteur du dôme · e : épaisseur de la peau du dessus
   //   D : profondeur de chair montrée · trou : x du trou d'aiguille (null : pas de trou)
   //   rides : la peau du dessus retombée, un peu froissée
-  const peauCoupe = (V, { x1, x2, a, H, e, D, trou = null, rides = false, liquide = true }) => {
+  const peauCoupe = (V, { x1, x2, a, H, e, D, trou = null, rides = false, liquide = true, surface = h.a.arete }) => {
     const bosse = x => { const u = x / a; if (Math.abs(u) >= 1) return 0; return rides ? (0.3 + 0.22 * Math.sin(u * Math.PI * 3.2)) * Math.pow(1 - u * u, 0.6) : H * Math.pow(1 - u * u, 0.62); };
     const N = 90, xs = [];
     for (let i = 0; i <= N; i++) xs.push(x1 + (x2 - x1) * i / N);
@@ -132,7 +137,7 @@ module.exports = (h) => {
     out.push(h.path(trace([[x1, 0], [x1, -e]].map(V)), h.a.fin), h.path(trace([[x2, 0], [x2, -e]].map(V)), h.a.fin));
     out.push(h.path(trace([[x1, -e], [x2, -e]].map(V)), h.a.detail));        // le fond : la chair
     out.push(h.path(trace(dessous.filter(p => Math.abs(p[0]) < a).map(V)), h.a.detail));
-    out.push(h.path(trace(dessus.map(V)), h.a.arete));                       // la surface de la peau
+    out.push(h.path(trace(dessus.map(V)), surface));                         // la surface de la peau
     if (trou !== null) {                                                       // le trou d'aiguille
       const y = bosse(trou), g = 0.55;
       const A1 = V([trou - g, bosse(trou - g) + 0.4]), A2 = V([trou + g, bosse(trou + g) - e - 0.4]);
@@ -156,7 +161,7 @@ module.exports = (h) => {
     const chas = [];
     for (let i = 0; i <= 12; i++) { const t = Math.PI * 2 * i / 12; chas.push([L - 3.2 + 1.4 * Math.cos(t), 0.2 * Math.sin(t)]); }
     return {
-      svg: [h.path(trace(bord.map(Q), true), rempli(h.a.detail)), h.path(trace(chas.map(Q), true), h.a.fin)].join('\n'),
+      svg: [h.path(trace(bord.map(Q), true), rempli(h.a.arete)), h.path(trace(chas.map(Q), true), h.a.fin)].join('\n'),
       Q,
     };
   };
@@ -167,7 +172,7 @@ module.exports = (h) => {
   const echelleBas = () => S_BAS;   // l'aiguille entière tient dans la première étape
 
   // ─── la vue en coupe du coussinet ─────────────────────────────────────────────────────
-  const EP_ROND = 5, EP_RUBAN = 0.6, EP_TAMPON = 2.2, EP_COLLANT = 0.7;
+  const EP_ROND = 5, EP_RUBAN = 1.1, EP_TAMPON = 2.2, EP_COLLANT = 0.7;
   const geoCoupe = z => {
     const s = Math.min((z.l - 30) / 58, (z.h - 20) / 32);
     const ox = z.l / 2, oy = z.h / 2 + s * 5;
@@ -217,7 +222,6 @@ module.exports = (h) => {
             { n: 1, rond: [cx - r - 32, cy - r * 0.62], cible: [c[0] - 2 * sd, c[1] - 14.5 * sd], texte: 'rond de feutre, carton double ou cuir mince' },
             { n: 2, rond: [cx - r - 32, cy + r * 0.3], cible: [c[0] - 8.6 * sd, c[1] + 2.4 * sd], texte: 'trou de la taille de l’ampoule, au centre' },
             { n: 3, rond: [cx - r * 0.12, cy + r + 26], cible: [c[0] - 2 * sd, c[1] + 2.5 * sd], texte: 'l’ampoule, qu’on laisse fermée' },
-            { n: 4, rond: [cx + r * 0.72, cy + r + 18], cible: [c[0] + 14 * sd, c[1] + 21 * sd], texte: 'ruban qui tient le rond en place' },
           ];
         },
       },
@@ -229,7 +233,7 @@ module.exports = (h) => {
           // les deux moitiés du rond de feutre
           for (const [xa, xb] of [[-R_EXT, -R_INT], [R_INT, R_EXT]]) {
             const Q = [[xa, 0], [xb, 0], [xb, EP_ROND], [xa, EP_ROND]].map(V);
-            out.push(h.path(trace(Q, true), BLANC), h.path(trace(Q, true), h.a.hachure('isolant')));
+            out.push(h.path(trace(Q, true), BLANC), h.path(trace(Q, true), h.a.hachure('isolant', 'contour')));
           }
           // le ruban sur le rond
           for (const [xa, xb] of BANDES) out.push(h.path(trace([[xa, EP_ROND], [xb, EP_ROND], [xb, EP_ROND + EP_RUBAN], [xa, EP_ROND + EP_RUBAN]].map(V), true), rempli(h.a.detail)));
@@ -250,7 +254,8 @@ module.exports = (h) => {
           const { V } = geoCoupe(z);
           const y2 = EP_ROND + EP_RUBAN + EP_TAMPON + EP_COLLANT;
           return [
-            { n: 5, rond: V([4, y2 + 11]), cible: V([4, y2 - 0.9]), texte: 'pansement par-dessus le tout' },
+            { n: 4, rond: V([14, y2 + 15]), cible: V([14, EP_ROND + EP_RUBAN / 2]), texte: 'ruban qui tient le rond en place' },
+            { n: 5, rond: V([27, y2 + 7]), cible: V([25.6, (EP_ROND + EP_RUBAN + EP_TAMPON) / 2 + 0.3]), texte: 'pansement par-dessus le tout' },
             { n: 6, rond: V([-25, y2 + 11]), cible: V([-17.5, y2 + 6]), texte: 'la botte n’appuie que sur l’anneau' },
           ];
         },
@@ -260,12 +265,13 @@ module.exports = (h) => {
         dessin: z => {
           const s = echelleBas(z), ox = z.l / 2 + 11.7 * s, oy = z.h * 0.58;
           const V = p => [ox + p[0] * s, oy - p[1] * s];
-          const pc = peauCoupe(V, { x1: -40, x2: AMP_G.a + 5, ...AMP_G });
+          const pc = peauCoupe(V, { x1: -40, x2: AMP_G.a + 5, ...AMP_G, surface: h.a.contour });
           const xt = -0.72 * AMP_G.a, yt = -AMP_G.e + 1.1;
           const ang = 13;
           const ag = aiguille(V([xt, yt]), ang, s);
           const f1 = ag.Q([27, -3.4]), f2 = ag.Q([15, -3.4]);
-          return [pc.svg, ag.svg, h.fleche(`M${f(f1[0])} ${f(f1[1])} L${f(f2[0])} ${f(f2[1])}`)].join('\n');
+          const trouBord = V([-0.93 * AMP_G.a, 0.6]);
+          return [pc.svg, ag.svg, h.geste(`M${f(f1[0])} ${f(f1[1])} L${f(f2[0])} ${f(f2[1])}`), h.controle(trouBord[0], trouBord[1], 13)].join('\n');
         },
         renvois: z => {
           const s = echelleBas(z), ox = z.l / 2 + 11.7 * s, oy = z.h * 0.58;
@@ -285,7 +291,7 @@ module.exports = (h) => {
           const s = echelleBas(z), ox = z.l / 2 + 1.5 * s, oy = z.h * 0.56;
           const V = p => [ox + p[0] * s, oy - p[1] * s];
           const trou = -0.93 * AMP_G.a;
-          const pc = peauCoupe(V, { x1: -AMP_G.a - 8, x2: AMP_G.a + 5, ...AMP_G, H: AMP_G.H * 0.5, trou });
+          const pc = peauCoupe(V, { x1: -AMP_G.a - 8, x2: AMP_G.a + 5, ...AMP_G, H: AMP_G.H * 0.5, trou, surface: h.a.contour });
           const out = [pc.svg];
           // la goutte qui sort par le trou et coule sur la peau
           const g = courbe([[trou - 0.2, 0.25], [trou - 1.6, 1.3], [trou - 3.8, 1.25], [trou - 5.4, 0.4], [trou - 5.8, 0]]);
@@ -293,7 +299,7 @@ module.exports = (h) => {
           out.push(h.path(trace(g.map(V)), h.a.detail));
           // la pression, du côté opposé au trou
           const a = V([0.35 * AMP_G.a, AMP_G.H * 0.5 + 5.5]), b = V([0.35 * AMP_G.a, pc.bosse(0.35 * AMP_G.a) + 1.2]);
-          out.push(h.fleche(`M${f(a[0])} ${f(a[1])} L${f(b[0])} ${f(b[1])}`));
+          out.push(h.geste(`M${f(a[0])} ${f(a[1])} L${f(b[0])} ${f(b[1])}`));
           return out.join('\n');
         },
         renvois: z => {
@@ -312,7 +318,7 @@ module.exports = (h) => {
           const s = echelleBas(z), ox = z.l / 2, oy = z.h * 0.56;
           const V = p => [ox + p[0] * s, oy - p[1] * s];
           const a = AMP_G.a;
-          const out = [peauCoupe(V, { x1: -a - 7.5, x2: a + 7.5, ...AMP_G, H: 0, rides: true, liquide: false, trou: -0.93 * a }).svg];
+          const out = [peauCoupe(V, { x1: -a - 7.5, x2: a + 7.5, ...AMP_G, H: 0, rides: true, liquide: false, trou: -0.93 * a, surface: h.a.contour }).svg];
           const t0 = 0.9, t1 = t0 + EP_TAMPON, t2 = t1 + EP_COLLANT;
           const tampon = [[-a - 2, t0], [a + 2, t0], [a + 2, t1], [-a - 2, t1]].map(V);
           out.push(h.path(trace(tampon, true), BLANC), h.path(trace(tampon, true), h.a.hachure('grillage', 'detail')));
@@ -326,7 +332,7 @@ module.exports = (h) => {
           const a = AMP_G.a;
           return [
             { n: 11, rond: add(V([a + 7.5, 0]), [20, 22]), cible: V([0.3 * a, -0.35]), texte: 'peau du dessus laissée sur la chair vive' },
-            { n: 12, rond: add(V([-a - 7.5, 0]), [-18, -24]), cible: V([-0.7 * a, 1.6]), texte: 'eau et savon, vaseline, pansement' },
+            { n: 12, rond: add(V([a + 7.5, 0]), [22, -30]), cible: V([a + 3.9, (0.9 + EP_TAMPON) / 2 + 0.2]), texte: 'vaseline et pansement, sur la peau lavée' },
           ];
         },
       },

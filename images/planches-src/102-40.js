@@ -1,5 +1,9 @@
 // Planche 102-40 — Assouplir la peau : sur le cadre, sur l'arête d'une planche, sur un câble
 // tendu, à deux. Chapitre 102, §5-H et « Assouplir seul ».
+// 13 oct. : les personnages sont les corps simples (fente-pousse, cable-tire, tire-arriere), leurs
+// bras calculés par poserBras pour que les poings tombent sur le bâton ou sur la peau. La charte :
+// les arbres en gris loin ; le rouge sur le geste de chaque manière (pousser-relâcher, tirer,
+// racler, tirer à deux).
 module.exports = (h) => {
   const A = h.a, F = h.formes;
   const W = at => at.replace('fill="none"', 'fill="#FFFFFF"');
@@ -40,7 +44,7 @@ module.exports = (h) => {
   const arbre = (x, haut, sol, l) => {
     const g = [[x - l / 2, haut], [x - l / 2 - 1, sol - 30], [x - l / 2 - 5, sol]];
     const dr = [[x + l / 2 + 5, sol], [x + l / 2 + 1, sol - 30], [x + l / 2, haut]];
-    const out = [h.chemin([...g, ...dr], `fill="#FFFFFF" stroke="none"`, true),
+    const out = [h.chemin([...g, ...dr], A.loin, true),
       h.path(`M${pt(g[0])} L${pt(g[1])} Q${pt([x - l / 2 - 1, sol - 6])} ${pt(g[2])}`, A.arete),
       h.path(`M${pt(dr[2])} L${pt(dr[1])} Q${pt([x + l / 2 + 1, sol - 6])} ${pt(dr[0])}`, A.arete)];
     for (let y = haut + 8, i = 0; y < sol - 12; y += 17, i++) {
@@ -56,7 +60,63 @@ module.exports = (h) => {
     return [h.chemin([[a[0] + n[0], a[1] + n[1]], [b[0] + n[0], b[1] + n[1]], [b[0] - n[0], b[1] - n[1]], [a[0] - n[0], a[1] - n[1]]], W(A.arete), true),
       h.ligne(a[0] + n[0] * 0.3 + u[0] / L * 6, a[1] + n[1] * 0.3 + u[1] / L * 6, b[0] + n[0] * 0.3 - u[0] / L * 6, b[1] + n[1] * 0.3 - u[1] / L * 6, A.fin)].join('\n');
   };
+  const EM = E * 1.6;                  // les mains un peu plus grandes que nature, pour se lire
+  // une main qui serre une poignée de peau : le dos de la main vers nous, les doigts autour
+  const poing = (x, y, o = {}) => Object.assign({ x, y, pose: 'prise', vue: 'dos', diametre: 3.4, echelle: EM }, o);
+  // la poignée de peau dans le poing, dans l'axe de la prise : sort au-dessus et au-dessous de la main.
+  // vers : le bout qui part vers la cible ; queue : celui qui pend
+  const poignee = (m, cible) => {
+    const a = m.trou.axe, L = 8.5, c = [m.trou.x, m.trou.y];
+    const A1 = [c[0] + a[0] * L, c[1] + a[1] * L], B1 = [c[0] - a[0] * L, c[1] - a[1] * L];
+    const dA = Math.hypot(A1[0] - cible[0], A1[1] - cible[1]), dB = Math.hypot(B1[0] - cible[0], B1[1] - cible[1]);
+    const [vers, queue] = dA < dB ? [A1, B1] : [B1, A1];
+    const n = [-a[1] * 1.7, a[0] * 1.7];
+    const svg = h.chemin([[A1[0] + n[0], A1[1] + n[1]], [B1[0] + n[0], B1[1] + n[1]], [B1[0] - n[0], B1[1] - n[1]], [A1[0] - n[0], A1[1] - n[1]]], W(A.detail), true);
+    return { vers, queue, svg };
+  };
   const peau = at => W(at);             // la peau : blanche, contour franc
+  // ─── les corps simples ─────────────────────────────────────────────────────────────────
+  // Les bras d'un corps simple, calculés pour que chaque poing tombe sur sa cible (unités de vue),
+  // l'axe de la prise donné en degrés écran (null : la prise vue par le bout, le poignet droit).
+  // Le corps regarde vers +x ; pour un corps tourné vers la
+  // gauche, poserBras le calcule en miroir autour de o.x et rend les mêmes angles.
+  const RAD = Math.PI / 180;
+  const poserBras = (o, cibles, axes, coudes = {}) => {
+    const g = o.cote === 'gauche', X0 = o.x;
+    const oo = Object.assign({}, o, { cote: 'droite' });
+    const c = F.corps(oo), ang = Object.assign({}, o.angles || {});
+    const angDe = v => Math.atan2(v[0], v[1]) / RAD, dirDe = a => [Math.sin(a * RAD), Math.cos(a * RAD)];
+    for (const k of ['P', 'L']) {
+      let C = cibles[k]; if (!C) continue;
+      let ax = axes[k];
+      if (g) { C = [2 * X0 - C[0], C[1]]; if (ax != null) ax = 180 - ax; }
+      const S = c.articulations['epaule' + k], E_ = c.articulations['coude' + k], Wr = c.articulations['poignet' + k], Mn = c['main' + k];
+      const lb = Math.hypot(E_[0] - S[0], E_[1] - S[1]), la = Math.hypot(Wr[0] - E_[0], Wr[1] - E_[1]);
+      const hv = [Mn.x - Wr[0], Mn.y - Wr[1]], lm = Math.hypot(...hv);
+      const off = angDe(hv) - angDe([Math.cos(Mn.axe * RAD), Math.sin(Mn.axe * RAD)]);
+      const resoudre = main => {
+        const h2 = dirDe(main + off).map(v => v * lm), W_ = [C[0] - h2[0], C[1] - h2[1]];
+        const d = [W_[0] - S[0], W_[1] - S[1]], D = Math.min(Math.hypot(...d), lb + la - 0.01);
+        const a0 = angDe(d), B = Math.acos(Math.max(-1, Math.min(1, (lb * lb + D * D - la * la) / (2 * lb * D)))) / RAD;
+        const bras = a0 + (coudes[k] === 'avant' ? 1 : -1) * B;
+        const e = [S[0] + lb * Math.sin(bras * RAD), S[1] + lb * Math.cos(bras * RAD)];
+        const ab = angDe([W_[0] - e[0], W_[1] - e[1]]);
+        const pli = Math.abs(((main - ab) % 360 + 540) % 360 - 180);
+        return { pli, bras, ab, main };
+      };
+      let best = null;
+      if (ax == null) {                 // la prise vue par le bout : le poignet droit, la main dans l'axe de l'avant-bras
+        let main = angDe([Math.cos(Mn.axe * RAD), Math.sin(Mn.axe * RAD)]);
+        for (let i = 0; i < 5; i++) { best = resoudre(main); main = best.ab; }
+        best = resoudre(main);
+      } else for (const main of [180 - ax, -ax, 360 - ax]) { const r = resoudre(main); if (!best || r.pli < best.pli) best = r; }
+      ang['bras' + k] = best.bras; ang['avantbras' + k] = best.ab; ang['main' + k] = best.main;
+    }
+    return ang;
+  };
+  // le poing d'un corps simple, sous la forme qu'attend poignee() : sa place et l'axe de la prise
+  const poingDe = (c, k) => { const m = c['main' + k]; return { trou: { x: m.x, y: m.y, axe: [Math.cos(m.angle * RAD), Math.sin(m.angle * RAD)] } }; };
+  const versDeg = (a, b) => Math.atan2(b[1] - a[1], b[0] - a[0]) / RAD;
   const bord = 2.4;                     // la peau vue par la tranche
 
   // ─── le cadre, de face ─────────────────────────────────────────────────────────────────
@@ -120,7 +180,7 @@ module.exports = (h) => {
   const cadreCote = z => {
     const G = z.h - 12, xT = z.l - 30;
     const hTop = G - mm(2250), hBas = G - mm(250);
-    const T = [xT - mm(150) - 4.5, hTop], B = [T[0] - mm(560), hBas];   // traverse du haut contre l'arbre
+    const T = [xT - mm(150) - 4.5, hTop], B = [T[0] - mm(1100), hBas];   // traverse du haut contre l'arbre
     const u = [T[0] - B[0], T[1] - B[1]], L = Math.hypot(...u), ux = u[0] / L, uy = u[1] / L;
     const nx = -uy, ny = ux;                          // normale vers l'arbre (+x)
     const P = t => [B[0] + ux * t, B[1] + uy * t];
@@ -129,12 +189,12 @@ module.exports = (h) => {
     const pied = P(-(G - hBas) / -uy);
     out.push(perche([pied[0], G], P(L + 18), 8));
     // la peau par la tranche, lacée aux deux traverses, poussée en V par le bout du bâton
-    const hHaut = P(L - 22), hBas2 = P(24), mid = P(L * 0.5), pousse = 26;
+    const hHaut = P(L - 22), hBas2 = P(24), mid = P(L * 0.46), pousse = 18;
     // bâton presque à l'horizontale, qui descend un peu vers les mains
-    const dl = Math.hypot(1, 0.14), dir = [-1 / dl, 0.14 / dl];
+    const dl = Math.hypot(1, 0.55), dir = [-1 / dl, 0.55 / dl];   // perpendiculaire au cadre
     const apex = [mid[0] - dir[0] * pousse, mid[1] - dir[1] * pousse];
     const pe = [hHaut, [apex[0] - 3 * ux, apex[1] - 3 * uy], [apex[0] + 3 * ux, apex[1] + 3 * uy], hBas2];
-    const tipR = 3.2;
+    const tipR = 2.4;
     const bout = [apex[0] + dir[0] * (tipR + bord / 2), apex[1] + dir[1] * (tipR + bord / 2)];
     const queue = [bout[0] + dir[0] * mm(1150), bout[1] + dir[1] * mm(1150)];
     const bv = [queue[0] - bout[0], queue[1] - bout[1]], bl = Math.hypot(...bv), bu = [bv[0] / bl, bv[1] / bl], bn = [-bu[1] * tipR, bu[0] * tipR];
@@ -145,14 +205,17 @@ module.exports = (h) => {
     out.push(h.cercle(T[0], T[1], 4.5, A.hachure('bois', 'arete')), h.cercle(B[0], B[1], 4.5, A.hachure('bois', 'arete')));
     out.push(h.path(`M${pt(pe[0])} L${pt(pe[1])} Q${pt(apex)} ${pt(pe[2])} L${pt(pe[3])}`, `fill="none" stroke="#1A1A1A" stroke-width="${bord}" stroke-linecap="round" stroke-linejoin="round"`));
     // le personnage : les deux mains sur le bâton
-    const main1 = [bout[0] + bu[0] * mm(620), bout[1] + bu[1] * mm(620)];
+    const main1 = [bout[0] + bu[0] * mm(700), bout[1] + bu[1] * mm(700)];
     const main2 = [bout[0] + bu[0] * mm(980), bout[1] + bu[1] * mm(980)];
-    const pers = F.personnage({ x: main1[0] - mm(820), y: G, pose: 'debout', echelle: E, penche: 18, regard: 6,
-      mains: { loin: [main1[0] - 6, main1[1] + 2], proche: [main2[0] - 6, main2[1] + 2] } });
-    out.push(baton, pers);
+    // le corps simple (pose « fente-pousse »), les deux poings sur le bâton : la main proche derrière,
+    // la main loin devant ; le bâton passe devant le poing loin et dans le poing proche
+    const aB = versDeg(queue, bout);
+    const oC = { x: main1[0] - mm(900), y: G, pose: 'fente-pousse', echelle: E };
+    const pers = F.corps(Object.assign(oC, { angles: poserBras(oC, { P: main2, L: main1 }, { P: aB, L: aB }), objetP: baton }));
+    out.push(String(pers));
     // le geste : pousser, relâcher
     const fl = [bout[0] + bu[0] * mm(330), bout[1] + bu[1] * mm(330) - 11];
-    out.push(`<path d="M${pt([fl[0] + bu[0] * 18, fl[1] + bu[1] * 18])} L${pt([fl[0] - bu[0] * 8, fl[1] - bu[1] * 8])}" ${A.arete} marker-start="url(#fl)" marker-end="url(#fl)"/>`);
+    out.push(h.geste(`M${pt([fl[0] + bu[0] * 18, fl[1] + bu[1] * 18])} L${pt([fl[0] - bu[0] * 8, fl[1] - bu[1] * 8])}`, { double: true }));
     return { svg: out.join('\n'), apex, bout, T, B, mid, pers, queue, main1 };
   };
 
@@ -185,47 +248,53 @@ module.exports = (h) => {
     const rb = rc + bord / 2 + 0.3;
     // les deux mains : la haute plus près, la basse plus bas
     const mH = [xc - mm(600), yC - mm(60)], mB = [xc - mm(480), yC + mm(400)];
-    const pers = F.personnage({ x: xc - mm(1130), y: G, pose: 'debout', echelle: E, penche: 10, regard: 8,
-      mains: { proche: [mH[0] - 4, mH[1] + 2], loin: [mB[0] - 4, mB[1] + 2] } });
-    const hp = pers.mains.proche, hl = pers.mains.loin;
+    // le corps simple (pose « cable-tire ») : la main proche haute, la main loin basse ; chaque poing
+    // serre la peau dans l'axe de la boucle
+    const oB = { x: xc - mm(1260), y: G, pose: 'cable-tire', echelle: E };
+    const pers = F.corps(Object.assign(oB, { angles: poserBras(oB, { P: mH, L: mB }, { P: versDeg(mH, [xc, yC - rb]), L: versDeg(mB, [xc, yC + rb]) }) }));
+    const mp = poingDe(pers, 'P'), ml = poingDe(pers, 'L');
+    const gH = poignee(mp, [xc, yC]), gB = poignee(ml, [xc, yC]);
+    const hp = gH.vers, hl = gB.vers, qH = gH.queue, qB = gB.queue;
     const trait = `fill="none" stroke="#1A1A1A" stroke-width="${bord}" stroke-linecap="round" stroke-linejoin="round"`;
     // la boucle : de la main haute par-dessus le câble, autour, et revient sous le câble à la main basse
     const haut = [xc, yC - rb], bas = [xc, yC + rb];
     const boucle = `M${pt(hp)} L${pt(haut)} A${rb},${rb} 0 0 1 ${pt(bas)} L${pt(hl)}`;
     // les bouts qui pendent sous les poings
-    const pendH = `M${pt(hp)} C${pt([hp[0] - 1, hp[1] + 14])} ${pt([hp[0] + 1, hp[1] + 28])} ${pt([hp[0] - 1, hp[1] + 40])}`;
-    const pendB = `M${pt(hl)} C${pt([hl[0] + 1, hl[1] + 12])} ${pt([hl[0] + 3, hl[1] + 22])} ${pt([hl[0] + 1, hl[1] + 32])}`;
-    out.push(h.path(boucle, trait));
-    out.push(pers);
+    const pendH = `M${pt(qH)} C${pt([qH[0] - 1, qH[1] + 10])} ${pt([qH[0] + 1, qH[1] + 20])} ${pt([qH[0] - 1, qH[1] + 30])}`;
+    const pendB = `M${pt(qB)} C${pt([qB[0] + 1, qB[1] + 8])} ${pt([qB[0] + 3, qB[1] + 16])} ${pt([qB[0] + 1, qB[1] + 24])}`;
+    out.push(h.path(boucle, trait), h.path(pendH, trait), h.path(pendB, trait), gH.svg, gB.svg);
+    out.push(String(pers));
     out.push(h.cercle(xc, yC, rc, `fill="#1A1A1A" stroke="none"`));
     // le va-et-vient
     const f1a = [xc - 14, yC - rb - 8], f1b = [xc - 38, yC - rb - 7];
     const uB = [xc - hl[0], (yC + rb) - hl[1]], lB = Math.hypot(...uB), vB = [uB[0] / lB, uB[1] / lB];
     const f2a = [hl[0] + vB[0] * 10 + vB[1] * 8, hl[1] + vB[1] * 10 - vB[0] * 8 + 14], f2b = [f2a[0] + vB[0] * 22, f2a[1] + vB[1] * 22];
-    out.push(h.fleche(`M${pt(f1a)} L${pt(f1b)}`), h.fleche(`M${pt(f2a)} L${pt(f2b)}`));
+    out.push(h.geste(`M${pt(f1a)} L${pt(f1b)}`), h.fleche(`M${pt(f2a)} L${pt(f2b)}`));
     return { svg: out.join('\n'), xc, yC, hp, hl, pers };
   };
 
   // ─── l'arête d'une planche plantée ─────────────────────────────────────────────────────
   const planche = z => {
-    const G = z.h - 12, xp = z.l - 40, ep = 4.5, hautP = G - mm(950);
+    const G = z.h - 12, xp = z.l - 40, ep = 7, hautP = G - mm(950);
     const out = [sol(4, z.l - 4, G)];
     // la planche vue par le bout ; le bout enterré en tireté
-    out.push(h.path(`M${pt([xp - ep / 2, G])} L${pt([xp - ep / 2, hautP + 2])} Q${pt([xp - ep / 2, hautP])} ${pt([xp, hautP])} Q${pt([xp + ep / 2, hautP])} ${pt([xp + ep / 2, hautP + 2])} L${pt([xp + ep / 2, G])} Z`, W(A.arete)));
+    out.push(h.path(`M${pt([xp - ep / 2, G])} L${pt([xp - ep / 2, hautP + ep / 2])} A${ep / 2},${ep / 2} 0 0 1 ${pt([xp + ep / 2, hautP + ep / 2])} L${pt([xp + ep / 2, G])} Z`, A.hachure('bois', 'arete')));
     out.push(h.path(`M${pt([xp - ep / 2, G])} L${pt([xp - ep / 2, z.h])} M${pt([xp + ep / 2, G])} L${pt([xp + ep / 2, z.h])}`, A.cache));
     const trait = `fill="none" stroke="#1A1A1A" stroke-width="${bord}" stroke-linecap="round" stroke-linejoin="round"`;
     // les mains tirent la peau vers soi, par-dessus l'arête
     const mP = [xp - mm(430), hautP + mm(260)];
-    const pers = F.personnage({ x: xp - mm(900), y: G, pose: 'debout', echelle: E, penche: -6, regard: 14,
-      mains: { proche: [mP[0] - 3, mP[1]], loin: [mP[0] + 3, mP[1] - 3] } });
-    const hp = pers.mains.proche;
-    const rb = ep / 2 + bord / 2;
-    const peauD = `M${pt(hp)} L${pt([xp - rb, hautP + 1])} A${rb},${rb} 0 0 1 ${pt([xp + rb, hautP + 1])} C${pt([xp + rb + 4, hautP + 18])} ${pt([xp + rb + 12, hautP + 38])} ${pt([xp + rb + 10, hautP + 58])}`;
-    const pend = `M${pt(hp)} C${pt([hp[0] + 2, hp[1] + 14])} ${pt([hp[0] + 5, hp[1] + 26])} ${pt([hp[0] + 3, hp[1] + 38])}`;
-    out.push(h.path(pend, trait), h.path(peauD, trait), pers);
+    // le corps simple (pose « tire-arriere »), les deux poings l'un contre l'autre sur la peau
+    const oP = { x: xp - mm(950), y: G, pose: 'tire-arriere', echelle: E };
+    const axP = versDeg(mP, [xp, hautP]);
+    const pers = F.corps(Object.assign(oP, { angles: poserBras(oP, { P: mP, L: [mP[0] + 3, mP[1] - 3] }, { P: axP, L: axP }) }));
+    const mp = poingDe(pers, 'P'), rb = ep / 2 + bord / 2;
+    const gP = poignee(mp, [xp, hautP]), gL = poignee(poingDe(pers, 'L'), [xp, hautP]), hp = gP.vers, q = gP.queue;
+    const peauD = `M${pt(hp)} L${pt([xp - rb, hautP + ep / 2])} A${rb},${rb} 0 0 1 ${pt([xp + rb, hautP + ep / 2])} C${pt([xp + rb + 4, hautP + 18])} ${pt([xp + rb + 12, hautP + 38])} ${pt([xp + rb + 10, hautP + 58])}`;
+    const pend = `M${pt(q)} C${pt([q[0] + 2, q[1] + 10])} ${pt([q[0] + 4, q[1] + 20])} ${pt([q[0] + 3, q[1] + 30])}`;
+    out.push(gL.svg, h.path(pend, trait), h.path(peauD, trait), gP.svg, String(pers));
     const v = [hp[0] - (xp - rb), hp[1] - hautP], l = Math.hypot(...v), u = [v[0] / l, v[1] / l];
     const a = [xp - rb + u[0] * 6 - u[1] * 7, hautP + u[1] * 6 + u[0] * 7 - 2];
-    out.push(h.fleche(`M${pt(a)} L${pt([a[0] + u[0] * 20, a[1] + u[1] * 20])}`));
+    out.push(h.geste(`M${pt(a)} L${pt([a[0] + u[0] * 20, a[1] + u[1] * 20])}`));
     return { svg: out.join('\n'), xp, hautP, hp };
   };
 
@@ -234,16 +303,20 @@ module.exports = (h) => {
     const G = z.h - 12, cx = z.l / 2, y = G - mm(1000), demi = mm(800);
     const out = [sol(4, z.l - 4, G)];
     const trait = `fill="none" stroke="#1A1A1A" stroke-width="${bord}" stroke-linecap="round" stroke-linejoin="round"`;
-    const g = F.personnage({ x: cx - demi - mm(620), y: G, pose: 'debout', echelle: E, penche: -16, regard: 10,
-      mains: { proche: [cx - demi - 4, y + 2], loin: [cx - demi + 2, y] } });
-    const d2 = F.personnage({ x: cx + demi + mm(620), y: G, pose: 'debout', echelle: E, penche: -16, regard: 10, cote: 'gauche',
-      mains: { proche: [cx + demi + 4, y + 2], loin: [cx + demi - 2, y] } });
-    const pg = g.mains.proche, pd = d2.mains.proche;
-    out.push(h.path(`M${pt([pg[0] - 1, pg[1] + 2])} C${pt([pg[0] - 2, pg[1] + 16])} ${pt([pg[0] + 1, pg[1] + 26])} ${pt([pg[0] - 1, pg[1] + 36])}`, trait));
-    out.push(h.path(`M${pt([pd[0] + 1, pd[1] + 2])} C${pt([pd[0] + 2, pd[1] + 16])} ${pt([pd[0] - 1, pd[1] + 26])} ${pt([pd[0] + 1, pd[1] + 36])}`, trait));
-    out.push(h.path(`M${pt(pg)} L${pt(pd)}`, trait));
-    out.push(g, d2);
-    out.push(h.fleche(`M${pt([cx - 8, y - 9])} L${pt([cx - 40, y - 9])}`), h.fleche(`M${pt([cx + 8, y - 9])} L${pt([cx + 40, y - 9])}`));
+    // deux corps simples (pose « tire-arriere »), face à face, l'un tourné vers la gauche
+    const oG = { x: cx - demi - mm(620), y: G, pose: 'tire-arriere', echelle: E };
+    const oD = { x: cx + demi + mm(620), y: G, pose: 'tire-arriere', echelle: E, cote: 'gauche' };
+    const g = F.corps(Object.assign(oG, { angles: poserBras(oG, { P: [cx - demi - 4, y + 2], L: [cx - demi + 2, y] }, { P: 0, L: 0 }) }));
+    const d2 = F.corps(Object.assign(oD, { angles: poserBras(oD, { P: [cx + demi + 4, y + 2], L: [cx + demi - 2, y] }, { P: 0, L: 0 }) }));
+    const tg = poignee(poingDe(g, 'P'), [cx, y]), td = poignee(poingDe(d2, 'P'), [cx, y]);
+    const lg = poignee(poingDe(g, 'L'), [cx, y]), ld = poignee(poingDe(d2, 'L'), [cx, y]);
+    const pg = tg.vers, pd = td.vers, qg = tg.queue, qd = td.queue;
+    out.push(lg.svg, ld.svg);
+    out.push(h.path(`M${pt(qg)} C${pt([qg[0] - 2, qg[1] + 10])} ${pt([qg[0] + 1, qg[1] + 18])} ${pt([qg[0] - 1, qg[1] + 28])}`, trait));
+    out.push(h.path(`M${pt(qd)} C${pt([qd[0] + 2, qd[1] + 10])} ${pt([qd[0] - 1, qd[1] + 18])} ${pt([qd[0] + 1, qd[1] + 28])}`, trait));
+    out.push(h.path(`M${pt(pg)} Q${pt([cx, (pg[1] + pd[1]) / 2 + 1])} ${pt(pd)}`, trait), tg.svg, td.svg);
+    out.push(String(g), String(d2));
+    out.push(h.geste(`M${pt([cx - 40, y - 9])} L${pt([cx + 40, y - 9])}`, { double: true }));
     return { svg: out.join('\n'), cx, y, pg, pd };
   };
 
@@ -267,7 +340,7 @@ module.exports = (h) => {
   return {
     ref: '102-40',
     titre: 'Assouplir la peau : cadre, arête, câble, à deux',
-    desc: 'Quatre manières de travailler la peau sans arrêt pendant qu’elle sèche : lacée sur un cadre et poussée au bâton, raclée sur l’arête d’une planche plantée, frottée en boucle sur un câble tendu entre deux arbres, tirée à deux du centre vers les bords.',
+    desc: 'Quatre manières de travailler la peau sans arrêt pendant qu’elle sèche : lacée sur un cadre et poussée au bâton, raclée sur l’arête d’une planche plantée, frottée en boucle sur un câble tendu entre deux arbres, tirée à deux du centre vers les bords. Chaque personnage est de profil, les deux poings sur le bâton ou sur la peau ; le geste de chacun en flèche rouge ; les arbres en gris.',
     format: 'pleine',
     disposition: [['cadreFace', 'cadreCote'], ['cordeFace', 'cordeBout'], ['planche', 'deux', 'sens']],
     hauteurs: [1.25, 1, 1],
@@ -282,7 +355,7 @@ module.exports = (h) => {
       cadreCote: { titre: 'Le cadre, de côté',
         dessin: z => vue('cadreCote')(z).svg,
         renvois: z => { const c = vue('cadreCote')(z); return [
-          { n: 3, rond: [c.bout[0] + 6, c.bout[1] - 34], cible: [c.bout[0] - 10, c.bout[1] - 2], texte: 'pousser au bâton à bout rond' },
+          { n: 3, rond: [c.main1[0] - 4, c.main1[1] - 40], cible: [c.bout[0] - 1, c.bout[1] - 3], texte: 'pousser au bâton à bout rond' },
         ]; } },
       cordeFace: { titre: 'Le câble tendu, de face',
         dessin: z => vue('cordeFace')(z).svg,
@@ -299,7 +372,7 @@ module.exports = (h) => {
         dessin: z => vue('planche')(z).svg,
         renvois: z => { const c = vue('planche')(z); return [
           { n: 7, rond: [c.xp + 20, c.hautP + 40], cible: [c.xp + 2, c.hautP + 50], texte: 'planche plantée de chant' },
-          { n: 8, rond: [c.xp - 10, c.hautP - 26], cible: [c.xp - 16, c.hautP - 8], texte: 'racler sur l’arête' },
+          { n: 8, rond: [c.xp + 14, c.hautP - 26], cible: [c.xp + 1, c.hautP - 1.6], texte: 'racler sur l’arête' },
         ]; } },
       deux: { titre: 'À deux',
         dessin: z => vue('deux')(z).svg,

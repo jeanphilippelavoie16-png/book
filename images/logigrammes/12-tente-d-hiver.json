@@ -1,0 +1,361 @@
+{
+  "_note": "Logigramme du chapitre 12 (la tente d'hiver et l'abri de neige), double page, fait le 18 octobre 2026 sur le chapitre refait à sept sections, sur le modèle des 10 et 15. Page de gauche : la série orange « Le soleil se couche et on ne rentrera pas » (section 7, étapes 89 à 102), pastille 40 min : la clarté qui reste après le coucher du soleil, jusqu'à la fin du crépuscule civil, 36 à 41 min en décembre sur la Côte-Nord (USNO, sources/12-usno-coucher-crepuscule-cote-nord.md). Décision de l'orchestrateur après la vérification technique : le déclencheur est le coucher du soleil, et l'étape 89 dit de commencer avant. La fourche « On peut faire un feu ? » sépare l'appentis et le feu long de la tranchée bâchée. Page de droite, sans orange : la tente à poêle montée dans l'ordre (étapes 1 à 33), puis la seule vraie décision de la nuit, quelqu'un veille ou le feu est mort avant le coucher (étape 34). Aucun avertissement redit (ni le mécanisme du monoxyde, ni la génératrice, ni la thuyone : ils restent dans leur étape, à côté de leur pictogramme). Rendu : env -u TMPDIR python3 design/outils/logigramme.py images/logigrammes/12-tente-d-hiver.json ; version du livre : --sans-entete --svg. « source » : les étapes du chapitre d'où vient chaque geste (ignoré au rendu). Se place après la section 3, Matériel.",
+  "format": "double",
+  "tome": 1,
+  "urgent": true,
+  "entete": {
+    "chapitre": "12 · La tente d'hiver et l'abri de neige",
+    "tome": "Tome 1 · Tenir",
+    "onglet": "12",
+    "folios": [
+      null,
+      null
+    ]
+  },
+  "colonnes": {
+    "plein": [
+      0.5,
+      7.375
+    ],
+    "L": [
+      0.5,
+      3.75
+    ],
+    "R": [
+      4.125,
+      7.375
+    ],
+    "large2": [
+      8.625,
+      15.5
+    ],
+    "q": [
+      8.625,
+      11.876
+    ],
+    "r": [
+      12.249,
+      15.5
+    ]
+  },
+  "rangs": {
+    "g1": 1.11,
+    "g2": 1.6,
+    "g3": 2.5,
+    "g4": 3.4,
+    "g5": 4.95,
+    "g6": 6.0,
+    "g7": 6.95,
+    "g8": 8.1,
+    "d1": 1.11,
+    "d2": 1.6,
+    "d3": 2.5,
+    "d4": 3.4,
+    "d5": 4.3,
+    "d6": 5.2,
+    "d7": 6.1,
+    "d8": 7.15
+  },
+  "noeuds": [
+    {
+      "id": "dep",
+      "type": "depart",
+      "col": "plein",
+      "rang": "g1",
+      "taille": 15,
+      "texte": "Le soleil se couche et on ne rentrera pas",
+      "source": "titre de la série orange"
+    },
+    {
+      "id": "u1",
+      "type": "urgent",
+      "col": "plein",
+      "rang": "g2",
+      "ancre": "haut",
+      "temps": "40 min",
+      "taille": 10.5,
+      "texte": "**Décider tout de suite de passer la nuit sur place**, et commencer avant le coucher du soleil : le bois de toute la nuit, l'abri, le lit, puis le feu.",
+      "renvoi": "ch. 12, étape 1",
+      "source": "étape 89"
+    },
+    {
+      "id": "u2",
+      "type": "urgent",
+      "col": "plein",
+      "rang": "g3",
+      "ancre": "haut",
+      "taille": 10.5,
+      "texte": "**Couper tout le bois de la nuit avant la noirceur** : l'épinette morte debout, et deux ou trois grosses billes sèches pour le feu long. Envoyer les enfants ramasser les branches mortes.",
+      "renvoi": "ch. 12, étapes 2 et 3",
+      "source": "étapes 90 et 91"
+    },
+    {
+      "id": "q1",
+      "type": "question",
+      "col": "plein",
+      "rang": "g4",
+      "ancre": "haut",
+      "texte": "On peut faire un feu ?",
+      "precision": "Il y a du bois sec, et le vent ne rabat pas la fumée dans l'abri",
+      "source": "étape 93"
+    },
+    {
+      "id": "a1",
+      "type": "urgent",
+      "col": "L",
+      "rang": "g5",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**Monter l'appentis, le dos au vent** : la bâche du faîte jusque dans la neige. Sans bâche, des perches couvertes de sapin, du bas vers le haut.",
+      "renvoi": "ch. 12, étapes 4 et 5",
+      "source": "étapes 92 et 93"
+    },
+    {
+      "id": "a2",
+      "type": "urgent",
+      "col": "L",
+      "rang": "g6",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**Faire un lit de sapinage en écailles**, de 15 à 30 cm d'épaisseur.",
+      "renvoi": "ch. 12, étape 6",
+      "source": "étape 94"
+    },
+    {
+      "id": "a3",
+      "type": "urgent",
+      "col": "L",
+      "rang": "g7",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**Faire le feu long sur une plateforme de billes vertes** : trois billes de la longueur de l'abri, et un mur de billes derrière. On doit pouvoir garder la main sur la bâche.",
+      "renvoi": "ch. 12, étapes 7 à 10",
+      "source": "étapes 95 à 98"
+    },
+    {
+      "id": "a4",
+      "type": "urgent",
+      "col": "L",
+      "rang": "g8",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**Se coucher les pieds au feu**, les enfants entre les adultes. À deux adultes, on se relaie pour surveiller le feu.",
+      "renvoi": "ch. 12, étapes 11 et 12",
+      "source": "étapes 99 et 100"
+    },
+    {
+      "id": "t1",
+      "type": "urgent",
+      "col": "R",
+      "rang": "g5",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**Creuser une tranchée étroite**, jusqu'au sol si la neige le permet, juste assez longue pour les corps couchés serrés.",
+      "renvoi": "ch. 12, section 7",
+      "source": "section 7, la tranchée bâchée"
+    },
+    {
+      "id": "t2",
+      "type": "urgent",
+      "col": "R",
+      "rang": "g6",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**Poser des perches serrées en travers, puis la bâche**, et charger la neige sur les perches, jamais sur la bâche seule.",
+      "renvoi": "ch. 12, section 7",
+      "source": "section 7, la tranchée bâchée"
+    },
+    {
+      "id": "t3",
+      "type": "urgent",
+      "col": "R",
+      "rang": "g7",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**Mettre du sapinage sous les corps**, fermer l'entrée avec un sac et laisser une ouverture dans le toit.",
+      "renvoi": "ch. 12, section 7",
+      "source": "section 7, la tranchée bâchée"
+    },
+    {
+      "id": "depB",
+      "type": "depart",
+      "col": "large2",
+      "rang": "d1",
+      "taille": 13,
+      "texte": "On a une tente de toile et un poêle",
+      "source": "étapes 1 à 41"
+    },
+    {
+      "id": "r1",
+      "type": "geste",
+      "col": "large2",
+      "rang": "d2",
+      "ancre": "haut",
+      "taille": 10.5,
+      "texte": "**Choisir la place** à l'abri du vent, près de l'eau et du bois mort debout. Tourner la porte sous le vent, et placer l'entrée d'air du côté du vent.",
+      "renvoi": "ch. 12, étapes 15 à 18",
+      "source": "étapes 1 à 4"
+    },
+    {
+      "id": "r2",
+      "type": "geste",
+      "col": "large2",
+      "rang": "d3",
+      "ancre": "haut",
+      "taille": 10.5,
+      "texte": "**Fouler le plancher en bottes, puis en raquettes**, et monter au fond un lit de neige à la hauteur des genoux.",
+      "renvoi": "ch. 12, étapes 19 à 23",
+      "source": "étapes 5 à 9"
+    },
+    {
+      "id": "r3",
+      "type": "geste",
+      "col": "large2",
+      "rang": "d4",
+      "ancre": "haut",
+      "taille": 10.5,
+      "texte": "**Monter la charpente et la toile, puis renchausser le bas des murs**, sauf à l'entrée d'air basse.",
+      "renvoi": "ch. 12, étapes 24 à 30",
+      "source": "étapes 10 à 16"
+    },
+    {
+      "id": "r4",
+      "type": "geste",
+      "col": "large2",
+      "rang": "d5",
+      "ancre": "haut",
+      "taille": 10.5,
+      "texte": "**Poser le poêle sur quatre pieux**, passer le tuyau dans la collerette et le monter plus haut que le faîte.",
+      "renvoi": "ch. 12, étapes 32 à 39",
+      "source": "étapes 18 à 25"
+    },
+    {
+      "id": "r5",
+      "type": "geste",
+      "col": "large2",
+      "rang": "d6",
+      "ancre": "haut",
+      "taille": 10.5,
+      "texte": "**Poser le sapinage en écailles**, du fond vers la porte, sans en mettre dans le rond de neige autour du poêle.",
+      "renvoi": "ch. 12, étapes 40 à 47",
+      "source": "étapes 26 à 33"
+    },
+    {
+      "id": "q2",
+      "type": "question",
+      "col": "large2",
+      "rang": "d7",
+      "ancre": "haut",
+      "texte": "Un adulte peut veiller le poêle toute la nuit ?",
+      "source": "étape 34"
+    },
+    {
+      "id": "v1",
+      "type": "geste",
+      "col": "q",
+      "rang": "d8",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**Il garde une flamme claire**, l'air et la clé ouverts. Les adultes se relaient à chaque recharge.",
+      "renvoi": "ch. 12, étape 48",
+      "source": "étape 34"
+    },
+    {
+      "id": "v2",
+      "type": "geste",
+      "col": "r",
+      "rang": "d8",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**Laisser mourir le feu avant que le dernier adulte se couche** : plus une braise rouge dans le poêle.",
+      "renvoi": "ch. 12, étape 48",
+      "source": "étape 34"
+    }
+  ],
+  "liens": [
+    {
+      "de": "dep",
+      "vers": "u1"
+    },
+    {
+      "de": "u1",
+      "vers": "u2"
+    },
+    {
+      "de": "u2",
+      "vers": "q1"
+    },
+    {
+      "de": "q1",
+      "vers": "a1",
+      "etiquette": "Oui",
+      "coude": 4.45,
+      "pos": "palier"
+    },
+    {
+      "de": "q1",
+      "vers": "t1",
+      "etiquette": "Non",
+      "coude": 4.45,
+      "pos": "palier"
+    },
+    {
+      "de": "a1",
+      "vers": "a2"
+    },
+    {
+      "de": "a2",
+      "vers": "a3"
+    },
+    {
+      "de": "a3",
+      "vers": "a4"
+    },
+    {
+      "de": "t1",
+      "vers": "t2"
+    },
+    {
+      "de": "t2",
+      "vers": "t3"
+    },
+    {
+      "de": "depB",
+      "vers": "r1"
+    },
+    {
+      "de": "r1",
+      "vers": "r2"
+    },
+    {
+      "de": "r2",
+      "vers": "r3"
+    },
+    {
+      "de": "r3",
+      "vers": "r4"
+    },
+    {
+      "de": "r4",
+      "vers": "r5"
+    },
+    {
+      "de": "r5",
+      "vers": "q2"
+    },
+    {
+      "de": "q2",
+      "vers": "v1",
+      "etiquette": "Oui",
+      "coude": 6.75,
+      "pos": "palier"
+    },
+    {
+      "de": "q2",
+      "vers": "v2",
+      "etiquette": "Non",
+      "coude": 6.75,
+      "pos": "palier"
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-# Reprise dans une nouvelle session — Le Grand Livre du Chalet
+# Reprise dans une nouvelle session — Le Manuel du Nord
 
 Ce dossier est le projet de JP tel qu'il était le 29 septembre 2026, sorti de son ordinateur
 (`C:\Users\jeanp\New folder`) pour être repris ailleurs. Lis dans cet ordre :

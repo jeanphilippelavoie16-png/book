@@ -1,5 +1,10 @@
 // Planche 31-40 — Le puits absorbant des eaux grises (ch. 31, section F, étapes 32, 33, 35 ;
 // variante « Le puits absorbant fait à la pelle »). Suite de la 31-04 (le piège à graisse).
+//
+// La charte : les coupes et le plan gardent leurs trames, sans gris, sauf l'intérieur du tronc de
+// visite, vu par la coupe, en gris loin ; le flanc du dessous du seau penché est à l'ombre. Le
+// rouge : le va-et-vient de la main qui brasse la chaudière, et le cercle sur l'eau qui sort, qui
+// doit sortir claire. Les flèches de l'eau restent noires ; la main (modèle s11) n'est pas touchée.
 module.exports = (h) => {
   const N = '#1A1A1A', B = '#FFFFFF';
   const f = v => Math.round(v * 10) / 10;
@@ -48,18 +53,19 @@ module.exports = (h) => {
   // ═══ La coupe ══════════════════════════════════════════════════════════════════════════
   // Repère en mm : x = 0 au milieu du trou, y = 0 au sol naturel, y vers le bas.
   const geoCoupe = (z) => {
-    const s = Math.min(z.l / 3100, z.h / 2090);
-    const ox = z.l / 2, oy = (z.h - 2090 * s) / 2 + 1260 * s;
+    const s = Math.min(z.l / 3100, z.h / 2380);
+    const ox = z.l / 2, oy = (z.h - 2380 * s) / 2 + 1550 * s;
     const P = (x, y) => [ox + x * s, oy + y * s];
-    // la butte : dessus à 750 (150 de branches et de mousse, 600 de terre), crête bombée
+    // la butte : branches (0 à 180), filet, mousse (200 à 320), 600 de terre : dessus à 920 ;
+    // les deux couches sont dessinées plus épaisses que nature pour se lire à l'impression
     const surf = (x) => {
       const a = Math.abs(x);
-      if (a <= 650) return -750 - 15 * (1 - (a / 650) ** 2);
+      if (a <= 650) return -920 - 15 * (1 - (a / 650) ** 2);
       const t = Math.min(1, (a - 650) / 1300);
-      return -750 * (1 + Math.cos(Math.PI * t)) / 2;
+      return -920 * (1 + Math.cos(Math.PI * t)) / 2;
     };
     const tx = -300, tr = 125, te = 32;         // tronc de visite : axe, rayon, paroi
-    const tH = -850, tB = 300;                  // haut du tronc, pied posé sur le gravier
+    const tH = -1020, tB = 300;                  // haut du tronc, pied posé sur le gravier
     return { s, P, surf, tx, tr, te, tH, tB };
   };
 
@@ -101,10 +107,11 @@ module.exports = (h) => {
     out.push(poly([[-600, 0], [-600, 600], [600, 600], [600, 0]], h.a.arete, false));
 
     // mousse, puis branches de conifère serrées, en travers du trou
-    out.push(poly([[-880, -180], [880, -180], [880, -100], [-880, -100]], h.a.blanc));
-    out.push(poly([[-880, -180], [880, -180], [880, -100], [-880, -100]], h.a.hachure('isolant', 'aucun')));
-    out.push(poly([[-880, -180], [880, -180]], h.a.fin, false), poly([[-880, -100], [880, -100]], h.a.fin, false));
-    out.push(poly([[-820, -100], [820, -100], [820, 0], [-820, 0]], h.a.blanc));
+    out.push(poly([[-880, -320], [880, -320], [880, -200], [-880, -200]], h.a.blanc));
+    out.push(poly([[-880, -320], [880, -320], [880, -200], [-880, -200]], h.a.hachure('isolant', 'aucun')));
+    out.push(poly([[-880, -320], [880, -320]], h.a.fin, false), poly([[-880, -200], [880, -200]], h.a.fin, false));
+    out.push(poly([[-880, -200], [880, -200], [880, 0], [-880, 0]], h.a.blanc));          // filet blanc + branches
+    out.push(poly([[-820, -180], [820, -180]], h.a.fin, false));
     const rb = hasard(7);
     // un rameau de sapin vu de côté : la tige, les aiguilles couchées vers la base, plus courtes au bout
     const rameau = (A, Bq) => {
@@ -118,8 +125,8 @@ module.exports = (h) => {
       }
       return o.join('');
     };
-    [[-28, 0], [-70, 1]].forEach(([y, i]) => {
-      let x = -830 + i * 190;
+    [[-35, 0], [-90, 1], [-145, 2]].forEach(([y, i]) => {
+      let x = -830 + i * 130;
       while (x < 800) {
         const l = 300 + 150 * rb(), xa = Math.max(-815, x), xb = Math.min(815, x + l);
         const dy = (rb() - 0.5) * 22, sens = rb() < 0.5;
@@ -130,6 +137,7 @@ module.exports = (h) => {
 
     // l'ouverture de visite : un tronc creux, du gravier du fond jusqu'au-dessus de la butte
     out.push(poly([[tx - tr, tH], [tx + tr, tH], [tx + tr, tB], [tx - tr, tB]], h.a.blanc));
+    out.push(poly([[tx - tr + te, tH], [tx + tr - te, tH], [tx + tr - te, tB], [tx - tr + te, tB]], h.a.loin));   // l'intérieur du tronc, vu par la coupe
     out.push(poly([[tx - tr, tH], [tx - tr + te, tH], [tx - tr + te, tB], [tx - tr, tB]], h.a.hachure('bois', 'arete')));
     out.push(poly([[tx + tr - te, tH], [tx + tr, tH], [tx + tr, tB], [tx + tr - te, tB]], h.a.hachure('bois', 'arete')));
     // sa planche, ôtée et posée sur la butte
@@ -144,14 +152,23 @@ module.exports = (h) => {
     }
 
     // le seau, penché au-dessus de l'ouverture
-    const th = 110 * Math.PI / 180, bx = -239, by = -1071;
+    const th = 110 * Math.PI / 180, bx = -239, by = -1241;
     const R = (x, y) => [bx + x * Math.cos(th) - y * Math.sin(th), by + x * Math.sin(th) + y * Math.cos(th)];
-    const seau = [R(-150, 0), R(150, 0), R(120, 350), R(-120, 350)];
-    out.push(poly(seau, `fill="${B}" ${h.a.contour.replace('fill="none" ', '')}`));
-    out.push(poly([R(-155, 16), R(155, 16)], h.a.arete, false));                 // bourrelet du bord
-    out.push(poly([R(-140, 300), R(140, 300)], h.a.fin, false));
+    // chaudière : flancs évasés vers l'ouverture, bourrelet roulé au rebord, anse qui pend
+    const seau = [R(-160, 0), R(160, 0), R(108, 350), R(-108, 350)];
+    out.push(poly(seau, h.a.blanc));
+    out.push(poly([R(55, 0), R(160, 0), R(108, 350), R(37, 350)], h.a.ombre));   // le flanc du dessous, à l'ombre
+    out.push(poly(seau, h.a.contour));
+    out.push(poly([R(-172, -10), R(172, -10), R(170, 22), R(-170, 22)], `fill="${B}" ${h.a.arete.replace('fill="none" ', '')}`));   // bourrelet
+    out.push(poly([R(-150, 120), R(150, 120)], h.a.fin, false), poly([R(-118, 300), R(118, 300)], h.a.fin, false));
+    {
+      const o1 = P(...R(-158, 60)), o2 = P(...R(158, 60));
+      const m = [(o1[0] + o2[0]) / 2, Math.max(o1[1], o2[1]) + 420 * s];
+      out.push(h.path(`M${f(o1[0])} ${f(o1[1])} Q${f(m[0])} ${f(m[1])} ${f(o2[0])} ${f(o2[1])}`, h.a.arete));
+      out.push(h.cercle(...o1, 2.4, `fill="${B}" stroke="${N}" stroke-width="1"`), h.cercle(...o2, 2.4, `fill="${B}" stroke="${N}" stroke-width="1"`));
+    }
     // le filet d'eau : il quitte la lèvre basse du seau et tombe dans le tronc
-    const Lp = [-282, -936], Cp = [-236, -928], Ep = [-234, -862], Fp = [-234, -772];
+    const Lp = [-282, -1106], Cp = [-236, -1098], Ep = [-234, -1032], Fp = [-234, -942];
     const axe = [];
     for (let i = 0; i <= 14; i++) { const t = i / 14; axe.push([(1 - t) ** 2 * Lp[0] + 2 * t * (1 - t) * Cp[0] + t * t * Ep[0], (1 - t) ** 2 * Lp[1] + 2 * t * (1 - t) * Cp[1] + t * t * Ep[1]]); }
     for (let i = 1; i <= 6; i++) axe.push([Ep[0], Ep[1] + (Fp[1] - Ep[1]) * i / 6]);
@@ -162,10 +179,10 @@ module.exports = (h) => {
     out.push(poly([...bordA, ...bordB.reverse()], `fill="${B}" stroke="${N}" stroke-width="0.7" stroke-linejoin="round"`));
     const filet = (k, i0, i1) => poly(axe.slice(i0, i1).map((p, j) => { const n = nrm(i0 + j); return [p[0] + n[0] * k, p[1] + n[1] * k]; }), h.a.fin, false);
     out.push(filet(7, 1, 10), filet(-6, 5, 14), filet(2, 13, 19));
-    for (const [x, y, r] of [[-206, -905, 1.6], [-199, -878, 1.2], [-262, -872, 1.4], [-210, -826, 1.1], [-258, -806, 1.3]]) {
+    for (const [x, y, r] of [[-206, -1075, 1.6], [-199, -1048, 1.2], [-262, -1042, 1.4], [-210, -996, 1.1], [-258, -976, 1.3]]) {
       out.push(h.cercle(...P(x, y), r, `fill="${B}" stroke="${N}" stroke-width="0.7"`));
     }
-    const e0 = P(tx + 66, -750), e1 = P(tx + 66, tB - 50);
+    const e0 = P(tx + 66, -920), e1 = P(tx + 66, tB - 50);
     out.push(h.fleche(`M${f(e0[0])} ${f(e0[1])} L${f(e1[0])} ${f(e1[1])}`, h.a.cache));
 
     // l'eau quitte le puits par le fond et par les côtés
@@ -176,13 +193,27 @@ module.exports = (h) => {
     out.push(fl([[-380, 640], [-420, 790]]), fl([[0, 640], [0, 800]]), fl([[380, 640], [420, 790]]));
     out.push(fl([[-640, 230], [-800, 280]]), fl([[640, 230], [800, 280]]));
 
-    // cotes, à gauche, avec leurs lignes d'attache
+    // cotes : barres obliques aux deux bouts, traits de rappel jusqu'aux niveaux mesurés
+    const coteB = (x1, y1, x2, y2, txt, cote) => {
+      const [a1, b1] = P(x1, y1), [a2, b2] = P(x2, y2), k = 5;
+      const o = [`<line x1="${f(a1)}" y1="${f(b1)}" x2="${f(a2)}" y2="${f(b2)}" stroke="${B}" stroke-width="3.5"/>`, h.ligne(a1, b1, a2, b2, h.a.detail)];
+      for (const [x, y] of [[a1, b1], [a2, b2]]) o.push(h.ligne(x - k, y + k, x + k, y - k, h.a.arete));
+      const vert = Math.abs(b2 - b1) > Math.abs(a2 - a1);
+      if (vert) o.push(h.texte((a1 + a2) / 2 + (cote === 'gauche' ? -6 : 6), (b1 + b2) / 2 + 4, txt, { ancre: cote === 'gauche' ? 'end' : 'start', lisere: true }));
+      else o.push(h.texte(Math.max(a1, a2) + 8, b1 + 4, txt, { ancre: 'start', lisere: true }));
+      return o.join('');
+    };
     const xc1 = -980, xc2 = -1130;
     out.push(h.ligne(...P(-600, 600), ...P(xc2 - 40, 600), h.a.fin));
     out.push(h.ligne(...P(-600, 300), ...P(xc1 - 40, 300), h.a.fin));
-    out.push(h.cote(...P(xc1, 300), ...P(xc1, 600), '300 mm', { cote: 'droite' }));
-    out.push(h.cote(...P(xc2, 0), ...P(xc2, 600), '600 mm', { cote: 'gauche' }));
-    out.push(h.cote(...P(420, -180), ...P(420, surf(420)), '600 mm', { cote: 'droite' }));
+    out.push(coteB(xc1, 300, xc1, 600, '300 mm', 'droite'));
+    out.push(coteB(xc2, 0, xc2, 600, '600 mm', 'gauche'));
+    // la terre : du dessus de la mousse au sommet de la butte, juste à droite du tronc
+    const xt = tx + tr + 70;
+    out.push(coteB(xt, -320, xt, surf(xt), '600 mm', 'droite'));
+    // l'anneau de gravier de 150 contre la paroi, à droite
+    out.push(h.ligne(...P(450, 90), ...P(450, 200), h.a.fin));
+    out.push(coteB(450, 150, 600, 150, '150 mm'));
     return out.join('\n');
   };
 
@@ -245,13 +276,18 @@ module.exports = (h) => {
     const [a0, a1] = [P(-150, -96), P(150, -96)];
     const top = P(0, -330);
     out.push(h.path(`M${f(a0[0])} ${f(a0[1])} C${f(a0[0])} ${f(top[1] + 40 * s)} ${f(top[0] - 90 * s)} ${f(top[1])} ${f(top[0])} ${f(top[1])} C${f(top[0] + 90 * s)} ${f(top[1])} ${f(a1[0])} ${f(top[1] + 40 * s)} ${f(a1[0])} ${f(a1[1])}`, h.a.arete));
-    out.push(h.formes.main({ x: top[0], y: top[1], pose: 'prise', vue: 'dos', angle: 90, diametre: 22 * s, echelle: s, bras: 90 }));
+    // modèle s11 (poing fermé, vu de la paume) retourné : l'avant-bras monte et sort du cadre, l'anse
+    // passe dans le poing
+    out.push(h.formes.modele('s11', { x: top[0], y: top[1], ancre: [68, 42], angle: 180, echelle: 0.8 * s, masquer: [[0, 150, 140, 175]],
+      bras: { a: [21.8, 150], a0: [20.8, 135], b: [76.3, 150], b0: [76.2, 135], bord: z } }));
     // le courant, et le va-et-vient de la main
     const c0 = P(-360, 90), c1 = P(-200, 90);
     out.push(h.fleche(`M${f(c0[0])} ${f(c0[1])} L${f(c1[0])} ${f(c1[1])}`, h.a.arete));
     const v = P(0, -460), dv = 70 * s;
-    out.push(h.fleche(`M${f(v[0] + 12 * s)} ${f(v[1])} L${f(v[0] + 12 * s + dv)} ${f(v[1])}`, h.a.detail));
-    out.push(h.fleche(`M${f(v[0] - 12 * s)} ${f(v[1])} L${f(v[0] - 12 * s - dv)} ${f(v[1])}`, h.a.detail));
+    out.push(h.geste(`M${f(v[0] + 12 * s)} ${f(v[1])} L${f(v[0] + 12 * s + dv)} ${f(v[1])}`));
+    out.push(h.geste(`M${f(v[0] - 12 * s)} ${f(v[1])} L${f(v[0] - 12 * s - dv)} ${f(v[1])}`));
+    // ce qu'on regarde : l'eau qui sort de la chaudière, jusqu'à ce qu'elle sorte claire
+    out.push(h.controle(...P(235, 140), 15));
     return out.join('\n');
   };
 
@@ -279,10 +315,12 @@ module.exports = (h) => {
     out.push(h.cote(...P(cr - 600, 690), ...P(cr + 600, 690), '1 200 mm', { cote: 'dessous' }));
     out.push(h.ligne(...P(cr - 600, 0), ...P(cr - 600, 705), h.a.fin), h.ligne(...P(cr + 600, 0), ...P(cr + 600, 705), h.a.fin));
     // l'anneau de 150 : cote sortie à droite du rond
-    const [u0, u1] = [P(cr + 450, 0), P(cr + 600, 0)];
-    out.push(`<line x1="${f(u0[0])}" y1="${f(u0[1])}" x2="${f(u1[0] + 5)}" y2="${f(u1[1])}" fill="none" stroke="${B}" stroke-width="3"/>`);
-    out.push(h.ligne(u0[0], u0[1], u1[0] + 5, u1[1], h.a.detail), h.ligne(u0[0], u0[1] - 6, u0[0], u0[1] + 6, h.a.detail), h.ligne(u1[0], u1[1] - 6, u1[0], u1[1] + 6, h.a.detail));
-    out.push(h.texte(u1[0] + 7, u1[1] + 4, '150 mm', { ancre: 'start', lisere: true }));
+    // cote radiale, sur la diagonale haut-droite, sortie en dehors du rond
+    const ca = Math.SQRT1_2, [u0, u1, u2] = [450, 600, 760].map(r => P(cr + r * ca, -r * ca));
+    out.push(`<line x1="${f(u0[0])}" y1="${f(u0[1])}" x2="${f(u2[0])}" y2="${f(u2[1])}" stroke="${B}" stroke-width="3.5"/>`);
+    out.push(`<path d="M${f(u0[0] + 0.7)} ${f(u0[1] - 0.7)} L${f(u1[0] - 0.7)} ${f(u1[1] + 0.7)}" ${h.a.detail} marker-start="url(#fl)" marker-end="url(#fl)"/>`);
+    out.push(h.ligne(u1[0], u1[1], u2[0], u2[1], h.a.detail), h.ligne(u2[0], u2[1], u2[0] + 14, u2[1], h.a.detail));
+    out.push(h.texte(u2[0] + 17, u2[1] + 4, '150 mm', { ancre: 'start', lisere: true }));
     // le carré
     const q0 = [cq - 500, -500];
     out.push(h.rect(...P(...q0), 1000 * s, 1000 * s, h.a.hachure('gravier', 'aucun')));
@@ -314,11 +352,11 @@ module.exports = (h) => {
         renvois: (z) => {
           const { P, surf, tx, tr } = geoCoupe(z);
           return [
-            { n: 1, rond: P(-1250, -950), cible: P(tx - tr, -800), texte: 'ouverture de visite et sa planche' },
-            { n: 2, rond: P(1250, -1000), cible: P(960, -380), texte: 'terre perméable à l’air, en butte' },
-            { n: 3, rond: P(1420, -700), cible: P(870, -140), texte: 'mousse' },
-            { n: 4, rond: P(1460, -430), cible: P(812, -40), texte: 'branches de conifère serrées' },
-            { n: 5, rond: P(1150, 110), cible: P(230, 110), texte: 'pierres, au milieu' },
+            { n: 1, rond: P(-1250, -1150), cible: P(tx - tr, -970), texte: 'ouverture de visite et sa planche' },
+            { n: 2, rond: P(1250, -1150), cible: P(960, -500), texte: 'terre perméable à l’air, en butte' },
+            { n: 3, rond: P(1420, -820), cible: P(870, -260), texte: 'mousse' },
+            { n: 4, rond: P(1460, -480), cible: P(812, -90), texte: 'branches de conifère serrées' },
+            { n: 5, rond: P(1150, 20), cible: P(230, 40), texte: 'pierres, au milieu' },
             { n: 6, rond: P(1150, 470), cible: P(520, 470), texte: 'gravier lavé de 15 à 60 mm' },
           ];
         },

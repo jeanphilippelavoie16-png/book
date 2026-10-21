@@ -1,6 +1,10 @@
 // 86-03b — L'éolienne de fortune : lever le mât, freiner le rotor (chapitre 86, section D)
 // Repères en unités de dessin, y vers le haut ; proportions seulement, aucune cote tirée de là.
 // Mêmes proportions qu'en 86-03a : mât 10, collier des haubans à 8,1, bras de levage 3,6.
+// La charte : à la charnière, la face de droite du mât et le dessous du bras à l'ombre. Le rouge :
+// la zone où le mât tombe (le quart de cercle de sa hauteur, du côté où il penche), l'ancrage des
+// haubans de côté sur l'axe de la charnière (le point qui les garde tendus), et le geste de la lame
+// de l'interrupteur. La flèche du mât qui se lève reste noire : c'est la pièce qui bouge.
 
 const cadre = (z, bb, m = [16, 10, 16, 10]) => {
   const [x0, x1, y0, y1] = bb;
@@ -61,7 +65,7 @@ module.exports = (h) => {
           o.push(rct(T, -11.8, -0.45, 7.8, 0, h.a.hachure('terre', 'fin')));
           o.push(seg(T, [-11.8, 0], [7.8, 0], h.a.arete));
           // ancrages
-          for (const x of [AX, GP + 0.5]) o.push(seg(T, [x, 0.12], [x, -0.4], h.a.arete));
+          for (const x of [AX, GP]) o.push(seg(T, [x, 0.12], [x, -0.4], h.a.arete));
           // le mât debout, en tireté
           o.push(rct(T, -0.08, 0.55, 0.08, 10.55, h.a.cache));
           o.push(rct(T, 0.08, 0.48, GP, 0.62, h.a.cache));
@@ -104,6 +108,8 @@ module.exports = (h) => {
           o.push(h.cercle(...T(...hb), 0.12 * T.s, BLANCD));
           // le mouvement
           o.push(h.fleche(d(T, arc(HC, 9.3, Math.PI - 0.2, Math.PI / 2 + 0.2)), h.a.arete));
+          // la zone dangereuse : là où le mât tombe, sur toute sa hauteur, du côté où il penche
+          o.push(h.path(d(T, arc(HC, 10.6, Math.PI / 2, Math.PI - 0.05)), h.a.zone));
           void tp;
           return o.join('\n');
         },
@@ -133,7 +139,9 @@ module.exports = (h) => {
           o.push(rct(P, -10, -0.14, 0, 0.14, BLANC));
           o.push(rct(P, -10.6, -0.3, -9.7, 0.3, BLANCD));
           o.push(rct(P, -0.2, -0.3, 0.45, 0.3, BLANCD));
-          for (const q of [[0, 5], [0, -5], [AX, 0], [GP + 0.5, 0], [WX, 0]]) o.push(h.cercle(...P(...q), 3, h.a.plein));
+          for (const q of [[0, 5], [0, -5], [AX, 0], [GP, 0], [WX, 0]]) o.push(h.cercle(...P(...q), 3, h.a.plein));
+          // le point à contrôler : l'ancrage de côté pris sur l'axe de la charnière
+          o.push(h.controle(...P(0, 5), 11));
           return o.join('\n');
         },
         renvois: z => {
@@ -154,10 +162,10 @@ module.exports = (h) => {
           o.push(rct(P, -2.3, -1.05, 3.2, 0, BLANC));
           for (const y of [-0.3, -0.7]) o.push(h.path(d(P, [[-2.1, y], [-0.9, y + 0.06], [1.2, y - 0.05], [3.0, y + 0.03]]), h.a.fin));
           // mât
-          o.push(rct(P, -0.5, 0.6, 0.5, 6.4, BLANC));
+          o.push(rct(P, -0.5, 0.6, 0.5, 6.4, h.a.blanc), rct(P, 0.2, 0.6, 0.5, 6.4, h.a.ombre), rct(P, -0.5, 0.6, 0.5, 6.4, h.a.arete));   // la face de droite du mât, à l'ombre
           o.push(brisure(P, [-0.7, 6.4], [0.7, 6.4], 0.08));
           // bras de levage et gousset
-          o.push(rct(P, 0.5, 2.6, 5.2, 3.4, BLANC));
+          o.push(rct(P, 0.5, 2.6, 5.2, 3.4, h.a.blanc), rct(P, 0.5, 2.6, 5.2, 2.85, h.a.ombre), rct(P, 0.5, 2.6, 5.2, 3.4, h.a.arete));   // le dessous du bras, à l'ombre
           o.push(brisure(P, [5.2, 2.4], [5.2, 3.6], 0.08));
           o.push(poly(P, [[0.5, 3.4], [0.5, 4.9], [2.0, 3.4]], BLANC));
           // oreille de devant : plat boulonné contre la semelle, arrondi autour du boulon
@@ -187,7 +195,7 @@ module.exports = (h) => {
           const PV = [5.5, 5], L = [2.6, 5], R = [8.4, 5], TB = [10.3, 6.6];
           // planche
           o.push(rct(F, 0, 0, 11, 8, BLANC));
-          for (const y of [1.4, 2.9, 6.9]) o.push(h.path(d(F, [[0.4, y], [4, y + 0.12], [7.5, y - 0.1], [10.6, y + 0.05]]), h.a.fin));
+          for (const y of [1.4, 6.9]) o.push(h.path(d(F, [[0.4, y], [4, y + 0.12], [7.5, y - 0.1], [10.6, y + 0.05]]), h.a.fin));
           for (const q of [[0.4, 0.4], [10.6, 0.4], [0.4, 7.6], [10.6, 7.6]]) o.push(h.cercle(...F(...q), 1.8, h.a.plein));
           // câble du mât : les deux fils du moteur
           o.push(seg(F, [5.5, 9.6], [5.5, 8.8], h.a.contour));
@@ -209,18 +217,23 @@ module.exports = (h) => {
           o.push(rct(F, 1.0, 4.72, L[0] - 0.3, 5.28, h.a.hachure('bois', 'detail')));
           o.push(h.cercle(...F(...PV), 0.3 * F.s, BLANC), h.cercle(...F(...PV), 0.1 * F.s, h.a.plein));
           // le mouvement : par le bas, d'un plot à l'autre
-          o.push(h.fleche(d(F, arc(PV, 2.2, Math.PI + 0.35, 2 * Math.PI - 0.35)), h.a.arete));
+          o.push(h.geste(d(F, arc(PV, 2.2, Math.PI + 0.35, 2 * Math.PI - 0.35))));
+          // second rappel du renvoi 16, vers l'autre fil
+          { const k = F(1.6, -0.8), q = F(10.6, -0.8), r0 = [k[0] + 36, k[1] + 4];
+            o.push(`<line x1="${f(r0[0])}" y1="${f(r0[1])}" x2="${f(q[0])}" y2="${f(q[1])}" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>`);
+            o.push(`<line x1="${f(r0[0])}" y1="${f(r0[1])}" x2="${f(q[0])}" y2="${f(q[1])}" fill="none" stroke="#000000" stroke-width="0.5" stroke-dasharray="3 2.5"/>`);
+            o.push(`<circle cx="${f(q[0])}" cy="${f(q[1])}" r="1.8" fill="#000000" stroke="#FFFFFF" stroke-width="0.7"/>`); }
           return o.join('\n');
         },
         renvois: z => {
           const F = repF(z);
-          const a = F(5.5, 9.3), b = F(4.2, 5.12), c = F(5.5, 2.8), e = F(9.4, 5.9), g = F(1.6, 5.0), k = F(1.6, -0.8);
+          const a = F(5.5, 9.3), b = F(4.2, 5.12), c = F(5.5, 2.8), e = F(8.4, 5.42), l = F(2.6, 5.42), g = F(1.6, 5.0), k = F(1.6, -0.8);
           return [
             { n: 11, rond: [a[0] - 40, a[1] + 2], cible: a, texte: 'les deux fils du moteur' },
-            { n: 12, rond: [b[0] - 4, b[1] - 34], cible: b, texte: 'lame sur un boulon' },
+            { n: 12, rond: [b[0] - 4, b[1] - 34], cible: b, texte: 'lame à poignée de bois' },
             { n: 13, rond: [c[0], c[1] + 30], cible: c, texte: 'quitte la ligne avant le pont' },
-            { n: 14, rond: [e[0] + 6, e[1] - 34], cible: e, texte: 'pont entre les deux fils' },
-            { n: 15, rond: [g[0] - 2, g[1] - 44], cible: g, texte: 'poignée de bois' },
+            { n: 14, rond: [e[0] + 6, e[1] - 34], cible: e, texte: 'plot du frein, ponté au fil' },
+            { n: 15, rond: [l[0] + 14, l[1] + 44], cible: l, texte: 'plot de la ligne (marche)' },
             { n: 16, rond: [k[0] + 36, k[1] + 4], cible: k, texte: 'vers diode et délestage' },
           ];
         },

@@ -1,6 +1,11 @@
 // Planche 34-03 — Le sirop pesé au fléau à bras égaux (ch. 34, « Peser sans balance : le fléau à
 // bras égaux », points 1 à 4 et « Le sirop et l'onguent » ; étape 1, le sucre dissous à feu doux).
 // Aucune cote : le chapitre ne donne aucune mesure du fléau. Aucun chiffre sur le dessin.
+// La charte : l'intérieur des plateaux d'écorce, vu par l'ouverture, en gris loin ; le poêle, qui
+// porte la casserole sans être le sujet, en gris loin ; la face de droite de la casserole et le
+// dessous du bol penché à l'ombre. Le rouge : le milieu exact (le point à contrôler), la ficelle
+// portée du milieu vers l'autre bout (le geste) et le pivot du fléau à l'épreuve (l'horizontale
+// qui doit tenir).
 module.exports = (h) => {
   const f = (v) => (+v).toFixed(1);
   const pointille = h.a.fin + ' stroke-dasharray="2 2.5"';
@@ -39,7 +44,7 @@ module.exports = (h) => {
   // Plateau d'écorce de bouleau, vu un peu de haut : le fond (derrière le contenu) et le devant.
   const plateauFond = (cx, yr, rx) => {
     const ry = rx * 0.3;
-    return [h.ellipse(cx, yr, rx, ry, h.a.blanc), h.ellipse(cx, yr, rx, ry, h.a.arete)].join('\n');
+    return [h.ellipse(cx, yr, rx, ry, h.a.loin), h.ellipse(cx, yr, rx, ry, h.a.arete)].join('\n');
   };
   const plateauDevant = (cx, yr, rx, dep) => {
     const ry = rx * 0.3, rb = rx * 0.8, ryb = ry * 0.8;
@@ -204,12 +209,14 @@ module.exports = (h) => {
       h.ligne(x0, M.ys + M.e + 3, x0, yf - 3, pointille),
       h.ligne(cx + 3.5, M.ys + M.e + 3, cx + 3.5, yf - 3, pointille),
       // la même ficelle, portée du milieu à chaque encoche de bout
-      h.ligne(xg, yr, cx - 1.5, yr, h.a.detail),
-      h.ligne(cx + 1.5, yr, xd, yr, h.a.detail),
-      ...[xg, cx - 1.5, cx + 1.5, xd].map(x => h.cercle(x, yr, 1.5, h.a.plein)),
-      h.ligne(xg, M.ys + p + 3, xg, yr - 4, pointille),
-      h.ligne(xd, M.ys + p + 3, xd, yr - 4, pointille),
-      h.fleche(`M ${f(cx - 120)} ${f(yr - 7)} Q ${f(cx)} ${f(yr - 19)} ${f(cx + 120)} ${f(yr - 7)}`, h.a.detail),
+      // un brin plein du milieu à l'encoche de gauche, le même brin en tireté vers la droite
+      h.ligne(xg, yr, cx, yr, h.a.detail),
+      h.ligne(cx, yr, xd, yr, h.a.detail + ' stroke-dasharray="5 3"'),
+      h.ligne(xg, M.ys + p + 3, xg, yr, pointille),
+      h.ligne(xd, M.ys + p + 3, xd, yr, pointille),
+      h.geste(`M ${f(cx - 120)} ${f(yr - 7)} Q ${f(cx)} ${f(yr - 19)} ${f(cx + 120)} ${f(yr - 7)}`),
+      // le point à contrôler : l'encoche au milieu exact
+      h.controle(cx, M.ys + 3, 13),
     ].join('\n');
   };
 
@@ -236,6 +243,8 @@ module.exports = (h) => {
       // les deux charges changent de plateau
       h.fleche(`M ${f(xg + 2)} ${f(ya + 6)} Q ${f(c.cx)} ${f(ya - 10)} ${f(xd - 2)} ${f(ya + 6)}`, h.a.arete),
       h.fleche(`M ${f(xd - 2)} ${f(ya + 18)} Q ${f(c.cx)} ${f(ya + 34)} ${f(xg + 2)} ${f(ya + 18)}`, h.a.arete),
+      // le point à contrôler : au pivot, la baguette reste à l'horizontale
+      h.controle(c.cx, c.ys + 3, 12),
     ].join('\n');
   };
 
@@ -261,6 +270,9 @@ module.exports = (h) => {
       tasse(rep(xd - 3 - 3.4, topD - 32, -110)),
       // la première part, mise de côté dans un bol sur la table
       h.rect(table.x, table.y, 62, 6, h.a.hachure('bois')),
+      h.rect(table.x, table.y, 62, 6, h.a.arete),
+      h.rect(table.x + 50, table.y + 6, 6, z.h - table.y - 6, h.a.blanc),
+      h.rect(table.x + 50, table.y + 6, 6, z.h - table.y - 6, h.a.arete),
       bol(rep(table.x + 32, table.y - 3.5 - 22 * 0.66, 0), 22, { tas: true }),
       h.fleche(`M ${f(xd + c.pd.rx + 6)} ${f(c.yr - 16)} Q ${f(table.x + 38)} ${f(c.yr - 22)} ${f(table.x + 36)} ${f(table.y - 32)}`, h.a.arete),
     ].join('\n');
@@ -274,7 +286,7 @@ module.exports = (h) => {
     const bx = cx + 34, by = yr - 58;
     return [
       // le poêle : le dessus en fonte, la façade et sa porte
-      h.rect(14, ys + 10, z.l - 28, z.h - ys - 10, h.a.blanc),
+      h.rect(14, ys + 10, z.l - 28, z.h - ys - 10, h.a.loin),
       h.path(`M ${f(14)} ${f(z.h)} L ${f(14)} ${f(ys + 10)} L ${f(z.l - 14)} ${f(ys + 10)} L ${f(z.l - 14)} ${f(z.h)}`, h.a.arete),
       h.rect(58, ys + 20, 104, z.h - ys - 20, h.a.detail),
       h.rect(64, ys + 26, 92, z.h - ys - 26, h.a.fin),
@@ -285,7 +297,10 @@ module.exports = (h) => {
       h.ellipse(16, yr - 2, 4, 2, h.a.detail),
       h.ellipse(cx, yr, rx, ry, h.a.blanc), h.ellipse(cx, yr, rx, ry, h.a.arete),
       h.ellipse(cx, yl, rx - 2, ry - 1, h.a.hachure('eau', 'detail')),
-      h.path(potCorps, h.a.blanc), h.path(potCorps, h.a.contour),
+      h.path(potCorps, h.a.blanc),
+      // la face de droite de la casserole, à l'ombre
+      h.path(`M ${f(cx + rx * 0.55)} ${f(yr + ry * 0.835)} A ${f(rx)} ${f(ry)} 0 0 0 ${f(cx + rx)} ${f(yr)} L ${f(cx + rx)} ${f(ys - ry)} A ${f(rx)} ${f(ry)} 0 0 1 ${f(cx + rx * 0.55)} ${f(ys - ry + ry * 0.835)} Z`, h.a.ombre),
+      h.path(potCorps, h.a.contour),
       h.path(`M ${f(cx - rx)} ${f(yr)} A ${f(rx)} ${f(ry)} 0 0 0 ${f(cx + rx)} ${f(yr)}`, h.a.arete),
       // le bol des deux parts, penché, qui se vide dans l'infusion
       filet(bx + 3.4, by + 28.5, yl - 2),

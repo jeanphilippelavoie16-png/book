@@ -163,7 +163,19 @@ module.exports = (h) => {
       h.path(poils.join(' '), h.a.detail),
       h.chemin(arc(E0, 90, 360 + TH).concat(pli(Rs, b0, b1), [bout(Rs)]), h.a.contour),
       ...vertebre,
+      // second point du renvoi 3 : la peau (bande blanche du rabat)
+      (() => {
+        const a = [z.l - 14, 60], b = add(Qp, mul(t1, LF * 0.62), mul(r1, (Rs + Rb) / 2));
+        const d = Math.hypot(b[0] - a[0], b[1] - a[1]), s0 = [a[0] + 9 * (b[0] - a[0]) / d, a[1] + 9 * (b[1] - a[1]) / d];
+        return [
+          `<line x1="${f(s0[0])}" y1="${f(s0[1])}" x2="${f(b[0])}" y2="${f(b[1])}" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/>`,
+          `<line x1="${f(s0[0])}" y1="${f(s0[1])}" x2="${f(b[0])}" y2="${f(b[1])}" fill="none" stroke="#000" stroke-width="0.5" stroke-dasharray="3 2.5"/>`,
+          `<circle cx="${f(b[0])}" cy="${f(b[1])}" r="1.8" fill="#000" stroke="#fff" stroke-width="0.7"/>`,
+        ].join('\n');
+      })(),
       couteau(add(H, [-2, -2]), [-0.2, -1], 40, 7.5, 30, 9),
+      // le point qu'on surveille : la lame entre le lard et le muscle, ni dans l'un ni dans l'autre
+      h.controle(...H, 11),
     ].join('\n');
 
     const renvois = [
@@ -191,7 +203,7 @@ module.exports = (h) => {
     const haut = Array.from({ length: n + 1 }, (_, i) => rotc(L * i / n, -16));
 
     const poils = [];
-    for (let x = x1 + 2; x <= x2 - 1; x += 4) poils.push(`M${x} ${ys} L${x - 1.5} ${ys + 3.6}`);
+    for (let x = x1 + 1; x <= x2 - 5; x += 5.5) poils.push(`M${f(x)} ${ys + 1} L${f(x + 3.8)} ${ys + 2.4}`);
 
     const cx = (x1 + x2) / 2 + 6;
     const cernes = [0, 1, 2].map(i => {
@@ -226,6 +238,8 @@ module.exports = (h) => {
       h.ligne(...bas[n], ...haut[n], h.a.arete),
       h.chemin([[x1, ys], [x1, yl], [J, yl]].concat(haut), h.a.contour),
       ...lameC,
+      // le geste : pousser la lame à plat, sous le lard
+      h.geste(`M${kh + 26} ${yi - 13} L${kh - 4} ${yi - 13}`),
     ].join('\n');
 
     const renvois = [

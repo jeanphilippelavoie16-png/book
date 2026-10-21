@@ -1,0 +1,87 @@
+[01-02-03] 03-09 (abri, ch. 3, étape 10) : renuméroter les repères dans l'ordre des gestes du texte. Ancien → nouveau : 1→1, 2→2, 3→3, 8→4 (cartons), 9→5 (sapin, matelas ou coussins), 10→6 (couverture sous le corps), 4→7 (une même couverture), 5→8 (le lit : la légende devient « le lit de coussins »), 6→9 (enfants au milieu, adulte aux bouts), 11→10, 7→11 (bouts fermés). La légende du nouveau 10 devient « papier journal entre deux couvertures », sans « froissé », comme la source (McDonald 1933). Il faut aussi corriger la desc (« journal froissé »). Le dessin peut rester. Le texte porte déjà la nouvelle numérotation.
+
+[01-02-03] 03-10 (vidange, ch. 3, étape 23 et section 7) : il manque le bouchon de nettoyage du siphon (vissé au bas du coude, sous l'évier, une chaudière dessous), demandé par JP (PAUSE, point 14) et toujours ouvert. En ajoutant ce repère avant la poire, les repères deviennent : bouchon 9, poire 10, chiffon et sac 11, huile 12. Le texte (section 7, « Vidanger sans antigel ») passe alors à « repères 7 à 12 », et ses renvois suivent. La légende du repère de l'huile, « ou une tasse d'huile de cuisson », devient « ou de l'huile de cuisson dans le coude », comme le texte ; la tasse dessinée qui verse peut rester.
+
+[01-02-03] 03-08, 03-11, 03-12 : rien à changer.
+
+[01-02-03] Logigramme 03-panne-hydro (JSON, puis rendu) : en q1, « source » passe de « étape 6 » à « étape 7 ». En fB, le renvoi devient « ch. 3, étape 7 » et la source « étape 7, « Sans poêle » ». Le message à un proche (étape 6) passe avant q1, commun aux deux branches : il sort du texte de fA (« Allumer le poêle et vivre dans sa pièce. Habiller tout le monde en couches et monter un abri pour la nuit. »), dont le renvoi « étapes 6 à 10 » reste juste. Au nœud « nuit », ajouter « Envoyer un message texte à un proche » avant la couverture et la tuque.
+
+[01-02-03] Logigramme 02-rester-ou-partir (JSON, puis rendu) : en co4, retirer « temps » ([À VÉRIFIER]), comme dans le chapitre. Au nœud radio, « elle dit ce qu'on ne voit pas de la fenêtre » devient « on y apprend ce qu'on ne voit pas de la fenêtre ». Au nœud part, « garder des vêtements de rechange pour chacun à portée de main » devient « mettre des vêtements de rechange pour chacun dans un sac à part » (étape 16).
+
+[01-02-03] 01-01 (formulaire) : reste hors du livre, aucun appel. Si on le garde un jour, il faut retirer le numéro de téléphone de la bande du haut.
+
+[01-02-03] 01-02 (petite planche, le verre témoin de dégel : trois verres, la pièce de monnaie sur la glace, à mi-hauteur, au fond) et 01-03 (demi-page, le congélateur arrêté rempli de glace et de neige et couvert de couvertures) : seulement des propositions, en attente de JP. Rien à dessiner avant son oui.
+
+[05-06-07] 05-01, la chaudière à bascule (pleine page ; images/planches-src/05-01.js ; PNG images/a-valider/planche-05-01-chaudiere-bascule-contre-souris.png). Le texte ne change pas : la planche est appelée une fois, section 7, avec les repères 1 à 7 dans l'ordre des gestes. Les corrections du 15 octobre sont dans la source : la souris est décalquée de PhyloPic, et l'ombre du flanc est fermée sur les ellipses. Reste à corriger : (a) dans la vue « Montée », le dessus de la chaudière est une ellipse grise pleine qui se lit comme un couvercle fermé ; montrer l'ouverture (le rebord en anneau, la paroi intérieure plus foncée) pour qu'on voie que la souris tombe dedans ; (b) retirer du dessin la ligne « Planche 05-01. La chaudière à bascule contre les souris. », puisque le moteur pose le bandeau ; (c) dans le commentaire de tête, « §9, « Les rongeurs sans pièges… » » devient « section 7, « Les souris, sans piège ni laine d'acier » ». En attente du oui de JP.
+
+[05-06-07] 05, photo images/photos/tri/05-boite-bombee.jpg (quart de page) : l'ancre de l'étape 23 est déjà rendue. On lit encore l'étiquette du hareng fermenté suédois : recadrer sur le couvercle bombé, ou remplacer la photo par une boîte ordinaire. Prendre la légende de l'éditeur, qui n'est pas au pronominal.
+
+[05-06-07] 06-01, Traîner au lieu de porter (à dessiner, demi-page ou pleine page selon le skill planches ; audit tomes-1-2.md, ligne 06, priorité moyenne). Elle est appelée dans le ch. 6, section 7, et le texte renvoie déjà aux repères 1 à 4, dans cet ordre. Repère 1, vue de dessus d'un capot d'auto ou d'une tôle chargée : les deux cordes de tirage attachées aux deux coins avant ; à côté, une vignette ratée, marquée comme telle, où la corde est au centre et la charge, en travers, verse. Repère 2 : les deux barres rigides (bouts de bois ou bâtons de ski) qui vont du traîneau à la taille. Repère 3, vue de côté dans une descente : le traîneau pousse sur les barres et reste derrière les talons. Repère 4 : la ceinture de tirage, une couverture pliée en bande, avec les cordes et les barres nouées dessus. Le corps de profil par h.formes.corps, sans gros plan de main.
+
+[05-06-07] 07-01, l'obturateur étayé contre la solive (pleine page ; images/planches-src/07-01.js ; PNG images/a-valider/planche-07-01-obturateur-drain-etaye-contre.png). Le texte ne change pas : les repères 1 à 6 suivent l'ordre des gestes. Les corrections du 15 octobre sont faites : un vrai marteau de charpentier, et le chiffon visible en coupe. Reste à corriger : (a) le marteau pend à côté du haut du 2 × 4, tête en haut, sans le toucher ; le montrer en train de frapper le haut du 2 × 4 vers l'aplomb (tête contre le bois, manche à peu près horizontal), ou ne garder que la flèche rouge ; (b) la légende 4 dit « étai : un 2 × 4 juste trop long », alors que le texte ne dit jamais « étai » ; écrire « un 2 × 4 à peine plus long que la hauteur » ; (c) retirer du dessin la ligne « Planche 07-01. … » ; (d) dans le commentaire de tête, « §9, « L'égout » » devient « section 7, « Boucher le drain de plancher sans obturateur » ». En attente du oui de JP.
+
+[05-06-07] Ch. 5, petites planches possibles, déjà inscrites au registre images/audit-planches/petites-planches.md : ouvrir une conserve sans ouvre-boîte, refaire le joint d'une chaudière et sceller un bocal à la cire, le témoin de gel à la pièce de monnaie. Personne ne les a demandées ; JP choisira au moment des petites planches.
+
+[05-06-07] Ch. 7, « Le lanceur cassé » (audit, ligne « 15 (+03, 07) », priorité basse) : personne ne l'a demandée. Si on la dessine pour le ch. 15, l'appeler aussi au ch. 7, section 7, « La génératrice qui ne part pas », dans le paragraphe « Quand la corde du lanceur casse ».
+
+[08-09-00b] 09-08 (le joint de cuir gras et l'emporte-pièce de tuyau), repère 5 : la légende « cuir de botte, semelle ou chambre à air » (images/planches-src/09-08.js, l. 111) devient « cuir de botte ou semelle de cuir ». Le texte ne garde que le cuir, puisque la rondelle trempe ensuite dans le suif. Le cuir dessiné ne change pas.
+
+[08-09-00b] 09-08, encadré danger (09-08.js, l. 176) : le couper. Il redit l'avertissement de « Ce qu'on perd », déjà marqué du pictogramme vapeurs, avec une chose qui attend (« attend l'étincelle ») et une consigne au pronominal (« se ferme »). Si on le garde : « Aucun joint de cuir ou de caoutchouc improvisé sur une ligne de gaz ou de carburant : l'essence et le propane dessèchent le cuir. Quand une ligne de gaz fuit, la fermer au robinet de la bouteille. » La desc (l. 52) se met à jour de la même façon. La planche repasse ensuite dans images/a-valider/ avec un second regard.
+
+[08-09-00b] Petite planche possible, pas nécessaire et sans numéro : le témoin de dégel (pot de glace, pièce de monnaie en surface ou au fond), ch. 9, section 7, « L'enregistreur de température ». Un seul dessin servirait aux ch. 1, 3, 5 et 9 (images/audit-planches/petites-planches.md).
+
+[08-09-00b] Ch. 08 et ch. 00b : aucune planche, rien à dessiner ni à corriger.
+
+[11-13-14] 11-03, le chalet protégé des braises (pleine page, appelée à l'étape 7) : rien à dessiner. Elle colle au texte, et l'étape 9 appelle maintenant les repères 4 et 8 à 12.
+
+[11-13-14] 11-04, la pièce d'air propre (pleine page, appelée à l'étape 35) : renuméroter les repères dans l'ordre des gestes de la section 7, soit la pièce 1 et 2, le filtre seul 3 et 4, le cube 5 à 11 (vue de dessus comprise). Dans le même mouvement, changer les appels du texte : 10→1, 11→2, 8→3, 9→4, 1→5, 2→6, 3→7, 4→8, 5→9, 6→10, 7→11 (correspondance notée dans suivi/11-redaction.md). Dans l'en-tête de images/planches-src/11-04.js, « chapitre 11, section 9 » devient « section 7 ».
+
+[11-13-14] 11-05, les outils de feu qu'on fabrique (pleine page) : rien à dessiner, les repères 1 à 11 sont dans l'ordre. Dans l'en-tête de images/planches-src/11-05.js, « section 9 » devient « section 7 ».
+
+[11-13-14] 13-40, le ferrocérium, du tri du bois à la flamme (pleine page, appelée à l'étape 10) : à refaire depuis zéro (pause du 15 octobre, point 23 ; flèche 9 signalée). Elle montre les quatre tas (1 à 4), le tipi (5 et 6), le nid (7 et 8) et l'étincelle (9 à 12 : la pointe tenue au-dessus du creux, à un doigt de l'amadou sans le toucher, le dos du couteau immobile, la tige tirée vers soi). Viennent ensuite flamber (13 à 16) et glisser (17 et 18).
+
+[11-13-14] 13-10, la pile et la laine d'acier : à valider par JP. Rien ne change dans le texte.
+
+[11-13-14] 13-07, l'amadou (la boîte, le cornet d'écorce, l'amadouvier) : à valider par JP. Rien ne change.
+
+[11-13-14] 13-08, la boîte à braise : à valider par JP. Rien ne change.
+
+[11-13-14] 13-09, le briquet à pierre : signalée (l'avant-bras), à refaire au complet avec les repères 1 à 9.
+
+[11-13-14] 13-01, l'arc à feu : à valider par JP. Rien ne change.
+
+[11-13-14] 13-11, la lentille de glace (petite planche) : à valider par JP. Rien ne change.
+
+[11-13-14] 13-12, le réflecteur d'une lampe de poche ou d'un phare : jamais dessinée, facultative. Le paragraphe n'a pas d'appel.
+
+[11-13-14] 14-01, le poste à galène (validée) : enlever du dessin la ligne « Planche 14-01 — Le poste à galène. », qui a un tiret ; le moteur pose le bandeau. Dans l'en-tête de images/planches-src/14-01.js, « chapitre 19, section 9 » devient « chapitre 14, section 7 », et les [À VÉRIFIER] des spires, du diamètre et de l'antenne sortent (sourcés depuis le 24 septembre). L'accord aux tubes de papier d'aluminium est coupé du texte ; la planche ne le montrait pas, il n'y a rien à enlever.
+
+[15-16-17] 15-03 : le repère 4 (images/planches-src/15-03.js, l. 247) dit « tirer pendant qu'il bat des jambes ». Écrire « tirer pendant qu'elle bat des jambes », comme l'étape 8, puis refaire le rendu. Le commentaire d'en-tête (l. 13, « qu'il », « le gardant ») suit.
+
+[15-16-17] 15-06 : rien d'imprimé à changer, les légendes ne parlent pas de rive. Dans le commentaire d'en-tête de 15-06.js, remplacer « le porte jusqu'à la rive » et « section 9 » par le texte actuel : section 7, « ligaturer une perche de bois vert sous le ski ».
+
+[15-16-17] 15-01, 15-02, 15-04, 15-05 : rien d'imprimé à changer. Les en-têtes des sources et les fichiers -reperes.md citent l'ancienne numérotation (15-01 « étape 34 » au lieu des étapes 3 à 6 ; 15-02 « section 9 » au lieu de 7 ; 15-04 « section 8 » au lieu de 7 ; 15-05 « section 2 » et « étape 20 » au lieu de l'étape 40). À corriger au prochain rendu.
+
+[15-16-17] 16-08 : le repère 5 dit « puis la couverture », alors que l'étape 6 couche le blessé dans un sac de couchage fermé, entouré d'un pare-vapeur. Écrire « puis le sac de couchage », et dans desc, « la couverture autour du blessé » devient « le sac de couchage autour du blessé ». C'est une légende, pas une planche à refaire. Rien n'a été dessiné pour le travois, qui est coupé du texte.
+
+[15-16-17] 16-07 : colle au texte, rien à faire.
+
+[15-16-17] 16-09 (candidate, petite planche format quart, à dessiner si on la veut) : le blessé couché au fond du canot, la tête calée, une veste de flottaison attachée sur lui, le sac de couchage ouvert posé dessus, les bras dehors, et rien qui le lie au canot. Elle serait appelée à l'étape 11.
+
+[15-16-17] 17-06 : colle au texte (repères 1 à 11 dans l'ordre), rien à faire.
+
+[15-16-17] 17-07 (proposée, demi-page, à dessiner) : l'abri pour réchauffer quelqu'un dehors. Un appentis de toile ou de planches contre le mur du hangar, ouvert d'un côté, le dos au vent ; un lit épais de branches de sapin croisées, avec la personne couchée dessus, pas assise ; le feu devant l'ouverture et le mur de billots derrière lui ; les pierres enveloppées contre le tronc. L'étape 7 y envoie maintenant une personne en hypothermie. Appel à poser quand elle existera : section 7, « Réchauffer quelqu'un sans le faire entrer », tiret « L'abri », « (planche 17-07) ».
+
+[15-16-17] Logigramme 16 (images/logigrammes/16-sortir-un-blesse.json, pas une planche) : la boîte « marche » garde un participe (« **Le faire marcher**, soutenu, sans rien porter… »). Écrire « **Le faire marcher** sans rien porter, avec quelqu'un à côté de lui pour le soutenir », comme l'étape 5. Retirer « travois » du _note. Si on veut, la boîte de la relève peut ajouter « et rien par la bouche » (étape 13). Puis refaire les rendus.
+
+[15-16-17] Logigramme 17 (images/logigrammes/17-qui-cogne.json, pas une planche) : trois boîtes à reprendre. « **Ne pas ouvrir**, mais faire savoir… » (opposition) devient « **Répondre à travers la porte, sans ouvrir**… », comme l'étape 1. « **Un seul adulte parle.** » devient « **Un seul adulte doit parler.** ». « **Tout le monde va dans la pièce du fond**, on bloque… » devient « **Emmener tout le monde dans la pièce du fond**, bloquer la porte de l'intérieur et y rester. » La phrase « le lui donner sans discuter ni résister » dépend de la réponse de JP. Puis refaire les rendus.
+
+[18-10] 18-01 (demi-page, à dessiner, oui de JP) : la crémaillère pour cuire dehors. Deux branches fourchues plantées, une barre posée dessus, des crochets de branche pendus à différentes hauteurs, la marmite qu'on monte ou descend d'un cran au lieu de la soulever, un feu bas sur des braises, le mur de neige tassée du côté du vent. Appelée dans la section 7, « Cuire dehors, sans avertisseur ».
+
+[18-10] 18-02 (demi-page, à dessiner, oui de JP) : refroidir la marmite dans une auge de neige. L'auge creusée dans la neige tassée ; des plats larges et plats couchés dedans (plat à rôtir, tôle, couvercle de chaudière) ; une couche mince de ragoût ; la neige mouillée qu'on remplace par de la neige sèche ; un panneau lesté par-dessus contre les animaux. Appelée dans la section 7, « Refroidir vingt litres sans réfrigérateur ».
+
+[18-10] 10-07 (pleine page) : rien d'imprimé à refaire, les légendes collent au texte. Seuls le champ desc et l'en-tête de images/planches-src/10-07.js sont à corriger : « une main de grosse pierre » devient « une couche de grosses pierres » ; « seau » devient « chaudière » ; le sable se lave jusqu'à une eau « encore un peu sale » (pas « claire ») ; quand le débit tombe, frotter le dessus à peine, la paume à plat, en rond (pas « gratter à plat sur 20 à 30 mm ») ; plus d'« encadré danger ». Au montage d'essai, 10-07 et 10-03 étaient appelées sur la même page et 10-03 tombait deux pages après son appel : à revoir au montage du tome.
+
+[18-10] 10-01, 10-02, 10-03, 10-08 : collent au texte, rien à faire.
+
+[18-10] Photo 10-hutte-castor (placements-tome-1.json, clé "10") : la légende redit la consigne des 5 minutes des étapes 14 et 41. Nouvelle légende : « Hutte de castor en hiver : un dôme de branches sous la neige. »

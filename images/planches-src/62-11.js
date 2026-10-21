@@ -200,7 +200,7 @@ function dessinProfil(z) {
   const id = 'q11';
   const out = [];
   out.push(C.dessiner(h0, p, {
-    id: 'v2', loin: 'fin',
+    id: 'v2', loin: 'gris',
     os: [...Object.keys(C.VERT).filter(n => !n.startsWith('C')), 'sacrum', 'cotes', 'bassin', 'femur'],
     osForts: ['cote13', 'bassin'],
   }));
@@ -217,7 +217,8 @@ function dessinProfil(z) {
   // le décollement
   const dc = lisse(DECOLLE).map(p.T);
   out.push(`<path d="${dP(dc, false)}" ${HALO}/>`);
-  out.push(h0.fleche(dP(dc, false), h0.a.arete));
+  // la charte : le geste de la vue (décoller de l'arrière vers l'avant) en rouge
+  out.push(h0.geste(dP(dc, false)));
   return out.join('\n');
 }
 

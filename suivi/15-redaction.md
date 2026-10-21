@@ -298,3 +298,490 @@ Renvois seulement, aucun chiffre ajouté.
   sert le jour où personne ne vient. Aucun chiffre.
 
 Compression §3 et §4 — 27 septembre 2026 : 2 357 mots → 227 mots (§3 : 1 399 → 116, note [^1] gardée et hors compte ; §4 : 958 → 111, tableau devenu liste de six items) ; matériel coupé : sifflet (signal des trois : ch. 16 et 35), pelle, boyau à carburant (amorçage sans bouche : §9), raquettes et traîneau (§9 ; brancards : ch. 16 et 89), stabilisateur, entonnoir et filtre au chamois, extincteur ou seau de sable (l'eau qui étale l'essence : §8), crayon gras, fabrication détaillée des pics et du ciseau à glace, paragraphe de fin. Déplacé : la glace de marée du fleuve sans seuil publié → §5, étape 22 ; le passager du traîneau qui gèle avant le conducteur → §5, étape 25. Chiffres qui ne vivaient qu'au §3 et sortent du livre : CO à 175 et 3 200 ppm, exemple -20 °C et 50 km/h = -35, batterie à moitié vers -18 °C, diesel trouble vers -10 °C.
+
+## Conduite dans la neige : mordance et dégonflage — 15 octobre 2026
+
+**Origine.** JP a mis un « ? » à côté de deux conseils de la page « La route, sans déneigeuse » du
+chapitre 00, coupé le 15 octobre (`chapitres-retires/00-le-chapitre-principal.md`, lignes 406 à
+418) : « Redonner de la mordance sous les roues motrices » et « Dégonfler pour flotter ».
+
+**Ces conseils ne sont pas au chapitre 15.** Ni « cendre », ni « litière », ni « dégonfl… », ni
+« déjant… » dans `chapitres/15-se-deplacer-et-le-carburant.md`, ni ailleurs dans `chapitres/` ; et
+`git log -S` montre qu'ils n'y ont jamais été. Ils ne vivaient qu'au 00. **Le chapitre 15 n'a pas
+été modifié.** Le troisième conseil de la même liste, « Chaînes de fortune », renvoyait au ch. 15
+mais n'y est pas non plus ; il n'a pas été vérifié ici.
+
+**Réseau.** Le proxy de la session a refusé toutes les pages (canada.ca, getprepared.gc.ca,
+tc.canada.ca, quebec.ca, nhtsa.gov, apps.dtic.mil, archive.org, weather.gov…) ; seul l'outil de
+recherche répondait. Les fiches de `sources/` ci-dessous enregistrent donc les **extraits rendus par
+la recherche**, chacune avec son URL et la mention « page non ouverte ». **À réenregistrer depuis
+les pages** avant de lever quoi que ce soit dans le livre.
+
+### Verdicts, affirmation par affirmation
+
+| Affirmation (ch. 00) | Verdict | Source |
+| --- | --- | --- |
+| Sable sous les roues motrices | Vrai | `sources/15-securite-publique-canada-trousse-auto-litiere.md` |
+| Litière | Vrai, **non agglomérante** seulement (l'agglomérante est faite pour prendre en mottes) | idem |
+| Branches de sapin cassées court | Vrai : pelleter un chemin devant chaque roue, puis y coucher planches ou branches | `sources/15-us-army-tc21-305-4-vehicule-pris-neige.md` |
+| Cendre de poêle | Introuvable dans une source officielle ; seulement des blogues (qui la disent sans effet une fois mouillée) | — (recherche négative) |
+| « Ce qui compte est l'arête à mordre » | Nuancé : le grain doit s'enchâsser dans la neige ou la glace ; la forme anguleuse est recherchée | `sources/15-cerema-abrasifs-viabilite-hivernale.md` |
+| « … pas l'épaisseur » | Faux tel quel : le gain dépend fortement de la dose. Mais une couche lâche sur glace nue bien froide peut faire pire que la glace seule (les grains roulent) ; le sable gelé dedans fait mieux que le sable lâche | `sources/15-crrel-sable-sur-glace-friction.md` |
+| « La cendre est la meilleure des quatre par grand froid » | Introuvable, et rien ne va dans ce sens : l'abrasif routier se prend sans fraction fine ; les études du CRREL divergent sur fin ou grossier et ne testent pas la cendre | `sources/15-cerema-abrasifs-viabilite-hivernale.md`, `sources/15-crrel-sable-sur-glace-friction.md` |
+| « Le sable humide prend en bloc » | Vrai : les abrasifs routiers reçoivent du sel pour ne pas geler en mottes, et s'entreposent au sec | `sources/15-mtq-abrasif-sel-anti-gel.md` |
+| Dégonflé, le pneu s'écrase et allonge son empreinte | Vrai (elle s'élargit aussi, moins) | `sources/15-empreinte-pneu-longueur-pression.md` |
+| … il flotte sur la neige au lieu de creuser | Nuancé : vrai en neige **profonde et molle** (pression au sol plus basse, moins d'enfoncement) ; **faux sur neige tassée et glace**, où le fabricant dit de ne jamais dégonfler | `sources/15-crrel-tr-20-2-pression-pneus-neige.md`, `sources/15-bfgoodrich-bridgestone-degonfler-neige.md` |
+| On repompe dès le retour sur le dur | Vrai : il faut avoir de quoi regonfler | `sources/15-bfgoodrich-bridgestone-degonfler-neige.md`, `sources/15-nhtsa-transports-canada-sous-gonflage-dejantage.md` |
+| … sinon le pneu se déjante en virage | Nuancé : le talon sort avec moins de poussée de côté quand le pneu est mou (virage serré, ornière, bordure), dans la neige comme sur le dur. Sur le dur, à la vitesse, le danger documenté est la chaleur : flexion, échauffement, bande de roulement qui se décolle | `sources/15-nhtsa-transports-canada-sous-gonflage-dejantage.md` |
+| Aucune pression ne vaut pour tous les pneus | Vrai | `sources/15-bfgoodrich-bridgestone-degonfler-neige.md` |
+| On dégonfle par étapes, on s'arrête dès que le véhicule avance | Introuvable chez un fabricant ou une agence ; seulement des guides commerciaux hors route | idem |
+| Chiffre de pression | Aucun dans le 00 ; aucun à donner : les valeurs publiées (18 psi, 15 psi) sont propres à des pneus et des véhicules d'essai | `sources/15-crrel-tr-20-2-pression-pneus-neige.md` |
+
+### Proposition, non insérée
+
+Si JP veut ces conseils dans le livre, la place est au §9 du chapitre 15, juste avant
+« **Réparer sur le chemin.** ». Texte prêt, sans chiffre :
+
+> **Sortir le véhicule de la neige.**
+>
+> - **Garnir sous les roues motrices.** Pelleter d'abord un chemin devant chaque roue, puis y
+>   coucher ce qui donne prise : planches, branches, sable, litière à chat **non agglomérante** —
+>   l'agglomérante est faite pour prendre en mottes à l'humidité. Le grain tient quand il
+>   s'enfonce dans la neige ou gèle dans la glace ; sur de la glace nue bien froide, une couche
+>   lâche peut donner moins de prise que la glace seule, parce que les grains roulent sous le
+>   caoutchouc. Le sable se garde au sec, ou mêlé d'un peu de sel : humide, il gèle en bloc dans le
+>   coffre. La cendre du poêle se lance faute de mieux [À VÉRIFIER] ; rien ne montre qu'elle
+>   vaille mieux que le sable.
+> - **Dégonfler, dans la neige molle seulement.** Moins gonflé, le pneu s'écrase, son empreinte
+>   s'allonge et la charge s'étale : il enfonce moins dans la neige profonde. Sur la neige tassée
+>   et la glace, ça ne donne rien : on garde la pression. Aucune pression ne vaut pour tous les
+>   pneus ; on dégonfle un peu, on essaie, on recommence [À VÉRIFIER]. Plus le pneu est mou, moins
+>   il faut de poussée de côté pour sortir son talon de la jante : virage serré, ornière, roche. On
+>   ne dégonfle que si on a de quoi regonfler, et on regonfle avant de reprendre de la vitesse : un
+>   pneu mou fléchit, chauffe, et sa bande de roulement se décolle.
+
+### Encore `[À VÉRIFIER]` (dans la proposition seulement)
+
+- **La cendre comme abrasif** : plausible (c'est le grain toujours à portée au chalet) ; aucune
+  source officielle ni étude ne la teste. À lever par une source, sinon couper la phrase.
+- **Le dégonflage par étapes** : c'est la seule façon d'appliquer le conseil sans chiffre, mais aucun
+  fabricant ni aucune agence trouvés ne publient de méthode de dégonflage. À lever par une source, sinon couper.
+
+## Refonte complète — 18 octobre 2026
+
+Chapitre réécrit en entier selon `CLAUDE.md`, le skill `ecriture`, le cadre des agents (`.claude/cadre-agents.md`)
+et les points 1 à 30 de la PAUSE du 15 octobre (`suivi/plan-de-match.md`), sur la forme du ch. 13. 6 982 mots
+avant, 7 835 après (`controle.py`). Tirets : les deux lignes techniques du haut seulement, comme au ch. 13. Aucun
+« § », aucun mot banni, aucun « d'où ». Plus aucun `[À VÉRIFIER]` dans le texte.
+
+### La forme
+
+- **Huit sections** : 1 En une ligne, 2 Quand l'utiliser, 3 Matériel, 4 Procédure, 5 Points de contrôle,
+  6 Signes d'échec, 7 Danger, 8 Variante d'urgence. « Pourquoi ça marche » sort : la monnaie de conversion
+  (formule) sort ; la vapeur qui coule va à l'étape 22 et au point 3 du danger ; le CO qui se mêle à tout l'air,
+  au point 1 du danger ; la neige isolante, au point 6 du danger et à l'étape 42 ; la batterie au froid et le
+  diesel qui cristallise, en section 8 (la note [^1] du diesel suit).
+- La ligne de lieu (`**Les deux**`) seule sous le titre. « village » sort. Section 2 sans liste « mauvais choix ».
+- **Deux séries orange.**
+  - « Quelqu'un passe à travers la glace » {.orange 10 min}, étapes 1 à 10. **Pastille** : la dizaine de
+    minutes de mouvements utiles qui suit la première minute dans l'eau froide (TP 511 : « Pendant les dix minutes
+    suivantes environ, vos bras, vos jambes et vos doigts perdront leur motricité » ; Minnesota DNR : « you will
+    have about 10 minutes of meaningful movement to climb out of the water »). Le déclencheur est la chute ; le
+    temps est celui de se sortir.
+  - « La machine s'arrête loin de tout, l'hiver » {.orange 30 min}, étapes 11 à 18. **Pastille** : le temps des
+    gestes, compté sur le premier cycle du moteur, « une dizaine de minutes par période de 30 minutes »
+    (`19-quebec-trousse-urgence-et-auto.md`) : dégager l'échappement, ouvrir la fenêtre et s'installer se fait
+    avant le deuxième démarrage. Doute à signaler : c'est le temps des gestes, pas un délai de danger sourcé.
+- **Logigramme** : `images/logigrammes/15-se-deplacer.json` (double page), rendu `--sans-entete --svg` et PNG,
+  contrôle 0 erreur, 0 avis.
+
+### Renumérotation des étapes (pour les renvois des autres chapitres)
+
+| Ancien | Nouveau |
+| --- | --- |
+| 1 à 6 (constituer la réserve) | 19 à 24 |
+| 7 et 9 (dater, stabilisateur) | 25 |
+| 8 (tourner le stock) | 26 |
+| 10 (inspecter) | 27 |
+| 11 à 16 (décider de partir) | 28 à 33 |
+| 17 (dégager l'échappement avant de démarrer) | 34 (et 11) |
+| 18, 19 (deux machines, porter sur soi) | 35, 36 |
+| 20, 21 (mesurer la glace, couleur) | 40, 41 |
+| 22 (contourner) | 42 |
+| 23 (espacer) | 44 |
+| 24 (ne pas attacher le passager) | 37 |
+| 25 (les visages) | 38 |
+| 26 à 29 (génératrice) | 45 à 48 |
+| 30 (rester avec le véhicule) | 15 |
+| 31, 32 (échappement, moteur par périodes) | 11 à 13 |
+| 33 (s'isoler du sol) | 16 |
+| 34 (sortir de la glace) | 2 à 7, et 10 |
+| §4 Matériel, §5 à §9 | sections 3 à 8 |
+
+Renvois à corriger hors du chapitre (non modifiés) : ch. 84, l. 389 et 548 (« ch. 15, étapes 31 et 32 » →
+étapes 11 à 13) et l. 452 (« étape 31 » → étape 11) ; ch. 89, l. 458 (« étape 25 » → 38), l. 466 (« étape 34 » →
+étape 5), l. 472 (« ch. 15, Matériel » : reste juste, section 3), l. 480 (« étapes 20 à 23 » → 40 à 44), l. 6
+(« Quand il n'y a plus de moteur du tout » → « Quand il n'y a plus de moteur », section 8) ; ch. 16, l. 102 et 111
+(« étape 25 » → 38), l. 113 (« étape 24 » → 37). Renvois du ch. 89 vers un contenu que le ch. 15 n'a jamais eu
+(ni avant ni après) : l. 396 (branches d'épinette pliées en boucle), l. 526 et 395 (brancards du toboggan),
+l. 689 (capot, tôle roulée, skis, porte comme traîneau).
+
+### Provenance de chaque chiffre du texte
+
+| Chiffre | Où | Source |
+| --- | --- | --- |
+| Pastille 10 min ; une minute de choc ; une dizaine de minutes de force ; une heure avant de perdre connaissance | Étapes 2 et 7, logigramme | `03-transports-canada-eau-froide.md` (TP 511) ; `20-minnesota-dnr-equipement-glace-pics.md` |
+| L'auto flotte de quelques secondes à quelques minutes ; fenêtre de côté ; portières retenues | Étape 1 | `15-mndnr-glace-sortie-sauvetage-deplacements.md` (pages `15-mndnr-vehicule-qui-passe-a-travers.html`, brochure 2017) |
+| 30 cm plus près du bord (« a foot closer ») | Étape 5 | `20-lakeice-pics-a-glace.md` (site de référence, pas officiel) |
+| Corde qui flotte, 15 m au moins | Section 3 | `20c-transports-canada-tp511-canot.md` (ligne d'attrape flottante d'au moins 15 m) |
+| 4,4 à 37,8 °C (avertisseur) | Étape 12 | `17-quebec-avertisseurs-monoxyde-de-carbone.md` |
+| Moteur une dizaine de minutes par demi-heure ; fenêtre du côté opposé au vent ; feux de détresse ; batterie ménagée ; rester dans l'auto | Étapes 12 à 15 | `19-quebec-trousse-urgence-et-auto.md` |
+| 10 min de ralenti = 0,25 à 0,5 L ; d'où 0,5 à 1 L par heure et 10 à 20 h pour 10 L (calcul) | Étape 13, section 5 | `20-rncan-temps-froid-consommation-carburant.md` |
+| Pelleter devant chaque roue, planches ou branches, première et gamme basse | Étape 17 | `15-us-army-tc21-305-4-pdf-enregistre.md` (PDF enregistré le 18 octobre) |
+| +12 à 28 % dès 7 °C ; +7 à 35 % sur route enneigée | Étape 20 | `20-rncan-temps-froid-consommation-carburant.md` |
+| Vapeur plus lourde que l'air, coule au point bas, retour de flamme ; statique ; bidon posé au sol ; 5 % de vide | Étapes 22 à 24, danger point 3 | `20-cchst-essence-vapeurs.md`, `15-cchst-essence-profil-2026-10-18.md`, `83-cchst-garages-securite-essence.md` |
+| L'air d'un bidon à moitié vide vieillit l'essence | Étape 24 | `12-honda-engines-essence-entreposage.md` |
+| 30 jours ; 3 mois ; 24 mois ; couche d'eau et d'alcool au fond | Étape 25 | `12-honda-engines-essence-entreposage.md`, `85-briggs-stratton-essence-et-stabilisant.md` |
+| −20 °C à 50 km/h = −35 ; 10 à 30 min ; 5 à 10 min à −40 | Étape 33, section 5 | `20-environnement-canada-refroidissement-eolien.md`, `20-wisconsin-snowmobile-ed-refroidissement-vitesse.md` |
+| Gelure souvent sans douleur, jaunâtre ou gris blanc, main chaude jusqu'à ce que la douleur revienne, surveillance à deux | Étape 38 | `20-us-army-fm31-70-gelure-surveillance.md` |
+| 25 km/h et 55 km/h (15 et 35 mi/h) au phare | Étape 39 | `15-mndnr-glace-sortie-sauvetage-deplacements.md` |
+| Mesurer près de la rive d'abord ; au moins tous les 45 m (150 pi) ; ne pas juger au perçage | Étape 40, section 5 | `15-mndnr-glace-sortie-sauvetage-deplacements.md` ; `54-mndnr-glace-blanche-double-sondage-corde.md` |
+| 15 cm à pied, 25 cm en motoneige | Étape 41, section 5 | `35-croix-rouge-securite-sur-la-glace.md` (la plus prudente des deux ; `20-societe-de-sauvetage-epaisseur-glace.md` donne 10 et 12) |
+| 25 cm pour une auto (petite auto ou VUS, 9 à 10 po), 33 cm pour une camionnette (camion moyen, 13 po) ; doubler sur glace blanche | Étape 41, section 5 | `54-mndnr-ice-thickness.html` (page actuelle du Minnesota DNR, enregistrée le 24 septembre), extraits dans `15-mndnr-glace-sortie-sauvetage-deplacements.md` ; glace blanche « à moitié aussi solide » : `35-croix-rouge-securite-sur-la-glace.md` |
+| Lieux de glace mince (courant, sources, ponts, ponceaux, courbes, fissures, crêtes) ; neige isolante et lourde | Étape 42, danger point 6 | `15-mndnr-glace-sortie-sauvetage-deplacements.md` ; `20-societe-de-sauvetage-epaisseur-glace.md` |
+| Glace en colonnes au printemps : aucune épaisseur ne s'applique | Étape 42 | `54-mndnr-glace-alveolee-printemps.md` |
+| Eau sous la neige | Étape 42 | `20b-eau-sous-la-neige-des-lacs.md` (renvoi ch. 89) |
+| Auto sur la glace : fenêtre baissée, portières déverrouillées, pas de veste dans l'auto ; 15 m (50 pi) entre deux autos, déplacer toutes les 2 h ; trou à côté de l'auto | Étape 43, sections 5 et 6 | `15-mndnr-glace-sortie-sauvetage-deplacements.md` |
+| 6 m de tout bâtiment ; jamais dans un garage ou une remise | Étapes 45 et 46, danger point 2 | `20-sante-canada-monoxyde-generatrice.md` ; garage de toile, démarreur à distance : `20-quebec-monoxyde-de-carbone-vehicules.md` |
+| Pas d'adaptateur mâle-mâle ni de panneau ; monteurs électrocutés | Étape 47, danger point 4 | `20-hydro-quebec-generatrice-retroalimentation.md` |
+| Plein moteur refroidi | Étape 48 | `04-quebec-ca-panne-de-courant.md` (« Cool generator before refueling ») ; `83-cchst-garages-securite-essence.md` |
+| 0,96 ; 1 600 ppm (20 min, 2 h) ; 20 000 ppm (4 min) | Danger point 1 | `20-cnesst-reptox-monoxyde-de-carbone.md` |
+| Symptômes du CO | Danger point 1 | `20-quebec-monoxyde-de-carbone-vehicules.md` ; lecture « fatigue ou mauvaise humeur » chez l'enfant : `suivi/40-redaction.md` |
+| −43 °C (point d'éclair) | Danger point 3 | `17-butane-essence-proprietes.md` (NIOSH) |
+| L'essence flotte et s'étend en brûlant ; extincteur à poudre ; absorbant non combustible, pas de sciure ; bidon fermé chauffé qui éclate ; aspiration mortelle | Danger points 3 et 5, section 6 | `15-cchst-essence-profil-2026-10-18.md` |
+| Rester couché hors de l'eau, ne pas faire marcher ; chaleur sur le tronc, pas sur les membres ; pas de bain chaud ; boire si éveillé et frissonnant | Étape 10 | `03-wms-hypothermie.md` ; `22-quebec-hypothermie.md` ; `15-mndnr-glace-sortie-sauvetage-deplacements.md` (« Cold blood trapped in your extremities ») |
+| L'enfant perd sa chaleur plus vite | Étape 10 | `20c-peter-2026-enfants-refroidissement-eau-froide.md` (« likely ») ; ch. 25, étape 31 |
+| Sauver quelqu'un : ne pas courir au trou, corde, échelle, câbles, objet qui flotte, la corde autour du corps, lâcher si on est tiré, pousser une chaloupe, s'attacher | Étapes 8 et 9 | `15-mndnr-glace-sortie-sauvetage-deplacements.md` ; `54-mndnr-glace-blanche-double-sondage-corde.md` |
+| Garder ses vêtements ; sifflet ; se tourner vers la glace qui a porté ; s'égoutter sur les coudes ; rouler | Étapes 2, 3, 6 | `15-mndnr-glace-sortie-sauvetage-deplacements.md` ; `20-minnesota-dnr-equipement-glace-pics.md` ; `15-ny-dhses-pics-a-glace-au-cou.md` (bras écartés) ; `35-croix-rouge-securite-sur-la-glace.md` (ramper, rouler) |
+| Mazout proche parent du diesel | Section 8 | `15-eia-mazout-et-diesel.md` |
+| −10 °C ; 1,7 °C par 10 % de no 1 (8 °C environ à moitié-moitié, calcul) ; −34 °C ; mélanger avant le froid | Section 8 | `20-cenex-diesel-point-de-trouble-et-melange.md` ; note [^1] : `20-nrel-afdc-diesel-point-de-trouble.md` |
+| 50 % à −18 °C ; gel à −69 °C pleine, −15 à −27 °C à moitié ; jamais charger une batterie gelée | Section 8 | `18b-trojan-batteries-plomb-froid-et-charge.md` |
+| 0,76 mm ; couteau, jamais d'abrasif ; la cale accroche | Section 8 | `85-briggs-stratton-bougie.md` |
+| Pics : 10 cm (4 po), bois qui flotte, clou étêté ou tête limée, second trou, cordon ; tournevis : 2,5 à 3,8 cm | Section 8 | `20-wisconsin-dnr-pics-a-glace.md`, `20-lakeice-pics-a-glace.md` ; port au cou : `15-ny-dhses-pics-a-glace-au-cou.md` |
+
+**Règles du livre, sans source externe (des décisions, pas des faits mesurés)** : partir avec deux fois le
+carburant du trajet (étape 30 ; le ch. 11 s'y réfère) ; l'heure de demi-tour au coucher du soleil moins deux fois
+le temps de l'aller (étape 31, remplace « trois heures de jour », qui n'avait pas de source) ; trois mesures de
+consommation, garder la plus forte (étape 20) ; inspection mensuelle (étape 27). **Validées par JP le 18 octobre
+2026 (« 3 règles sont bonnes, garde ») : elles restent telles quelles, sans source.**
+
+**Gestes sans source écrite et sans chiffre, gardés** : la tenue du pic au poing, pointe sous le petit doigt ; le
+filtre de diesel réchauffé au linge chaud ; l'huile vidangée chaude et reversée tiède ; partir à la corde ;
+pousser une auto manuelle ; pas d'éther sur un diesel à bougies ; deux batteries en série ; les réparations de
+chemin (câble, conduite, cuir, savon, éclisse) ; l'huile à moteur à la place de l'huile deux temps ; le clapet
+anti-siphon au fond du goulot des autos récentes ; étouffer l'essence en feu sous la terre ou le sable.
+
+### Coupé, et pourquoi
+
+- « Pourquoi ça marche » au complet (voir plus haut). La « monnaie de conversion » sort (formule).
+- La route 138 « se ferme en entier » (aucune source) ; l'appel au voisin reste.
+- « Trois minutes de moteur avec la sortie enfouie ont déjà rempli l'habitacle » (aucune source).
+- Les épaisseurs « publiées » qui ne servent pas (10 et 12 cm) et la phrase qui disait la règle du livre.
+- Le 1 200 ppm (DIVS) et le 35 ppm (VEMP) : ils ne changent pas le geste ; restent 1 600 et 20 000 ppm.
+- « 20 pi » : l'impérial ne reste que pour la construction (les 10 cm des pics gardent leurs 4 po).
+- La motoneige qu'on « laisse descendre une pente, embrayage engagé » pour la démarrer : faux (l'embrayage d'une
+  motoneige ne s'engage que moteur tournant). La phrase dit maintenant qu'une motoneige ne part pas en poussant.
+- « La pompe du réservoir pousse le carburant elle-même, contact mis » : la pompe ne tourne que quelques
+  secondes au contact sans démarrer ; coupé.
+- « Couper le diesel avec de l'essence prive la pompe d'injection de lubrification » (aucune source) ; « le
+  mélange deux temps versé dans un quatre temps ramène à la maison » (aucune source) ; le lit de braises sous le
+  moteur (distance non sourcée, et danger d'incendie) ; « en quelques minutes » pour le deux temps qui grippe.
+- Les maximes : « S'il faut trois phrases, ce n'est pas un motif, c'est une envie », « Une machine seule… est une
+  marche de retour déguisée », « c'est une disparition différée », « C'est laid, ça ramène », « Et le temps… ».
+- La chose qui pense : « la prise d'air du voisin ne sait pas d'où vient le gaz », les machines « qui
+  pardonnent », « la glace qui ne pardonne pas l'approximation ».
+- Le budget 1-10-1 redit trois fois (§3, étape 34, danger) : il vit maintenant dans la série orange seulement.
+- La glace de marée « ne relève d'aucun seuil » → « aucune épaisseur publiée ne s'y applique, on ne la traverse
+  pas ».
+- Les renvois vers ch. 26, 39, 7, 103, 110 : remplacés par ch. 35 (ce qu'on ne peut pas soigner), ch. 25
+  (enfants, froid), ch. 89 (raquettes, traîneau).
+
+### Ajouté (avec source)
+
+- La série de l'auto qui passe à travers la glace (étape 1), sortir quelqu'un d'autre (étapes 8 et 9), ce qu'on
+  fait quand on ne sort pas (étape 7), le réchauffement couché (étape 10).
+- L'auto prise dans la neige : la fenêtre, le cycle du moteur, le carburant à l'heure, les feux, la batterie,
+  sortir l'auto (étapes 12 à 17).
+- La glace : mesurer près de la rive d'abord, tous les 45 m ; l'auto et la camionnette ; doubler sur glace
+  blanche ; les lieux de glace mince ; la glace du printemps ; l'auto sur la glace ; la vitesse au phare la nuit.
+- L'essence : statique et bidon au sol, 5 % de vide, flaque en feu, absorbant sans sciure, bidon chauffé.
+- Le mazout comme carburant diesel de dépannage ; le gel de la batterie selon sa charge.
+
+### Planches
+
+Les repères du texte suivent les fichiers de repères des planches refaites le 18 octobre par d'autres agents
+(`images/planches-src/15-01-reperes.md`, 8 repères ; `15-02-reperes.md`, 13 repères) : le texte a été réordonné
+pour les appeler dans leur ordre (étapes 3 à 6 ; section 8, « Amorcer sans la bouche »).
+
+- **15-01** (pleine page, refaite) : 1 les pics portés au cou, sur la poitrine (étape 3) ; 2 se tourner vers le
+  côté par où on est arrivé ; 3 avant-bras à plat ; 4 le pic au poing, pointe sous le petit doigt (étape 4) ;
+  5 planter près du bord ; 6 battre des jambes jusqu'à l'horizontale ; 7 tirer en glissant, replanter (étape 5) ;
+  8 rouler loin du trou (étape 6). La vue « Les pics, faits maison » de l'ancienne 15-01 n'est plus dans la
+  planche refaite : elle passe à la 15-04 proposée.
+- **15-02** (pleine page, refaite) : 1 bidon au sol, plus bas que l'essence ; 2 boyau long jusqu'au fond ; 3 boyau
+  court dans l'air ; 4 chiffon autour des deux boyaux ; 5 pomper doucement ; 6 le boyau plein coule seul ;
+  autre façon, 7 le boyau à bille au lieu de 3 à 5 ; 8 tube étroit (siège) ; 9 bille ; 10 clou au-dessus ;
+  11 secouer ; 12 la bille monte ; 13 la bille retombe. Le boyau rempli d'avance (troisième façon) reste sans
+  dessin.
+- **15-03** (proposée, demi-page) : sortir quelqu'un d'autre de l'eau. 1 le sauveteur couché sur la glace qui a
+  porté tend ou lance ; 2 le bidon bouché au bout de la corde ; 3 la corde nouée sous les bras ; 4 on tire, la
+  personne à plat ventre bat des jambes ; 5 autre façon : aller couché en poussant le toboggan, attaché à une
+  corde tenue par un autre adulte (étapes 8 et 9).
+- **15-04** (proposée, demi-page) : faire des pics à glace (section 8). 1 deux bouts de manche à balai de 10 cm ;
+  2 le clou étêté, côté coupé au fond du trou (autre façon : le clou planté pointe première, tête limée) ; 3 le
+  second trou qui loge la pointe de l'autre pic ; 4 le cordon noué en travers, un pic à chaque bout ; 5 la paire
+  au cou, au milieu de la poitrine, par-dessus le manteau.
+
+Ancrages proposés (`apres`, chacun unique dans le chapitre) : logigramme après « **Trousse d'allumage, sur
+soi** » ; 15-01 après « 3. **Prendre les pics à glace, s'il y en a au cou** » ; 15-03 après « 8. **Quelqu'un
+d'autre est tombé » ; 15-02 après « **Amorcer sans la bouche** » ; 15-04 après « Il faut deux bouts de manche
+à balai, deux gros clous et un cordon ». L'ancre actuelle de 15-01 dans `placements-tome-1.json` (« 34. Si on tombe à
+travers la glace… ») n'existe plus. À vérifier au montage : 15-01 et 15-03 tombent dans une série orange.
+
+**Pompe à vélo pour amorcer le siphon** (JP, 18 octobre 2026 : « oui, garde ») : geste de débrouille sans source écrite, gardé comme une autre façon, sans chiffre.
+
+## Refonte au gabarit final, 19 octobre 2026
+
+Chapitre remis au gabarit à sept sections (CLAUDE.md, `gabarit-chapitre.md`, cadre des agents), sur le modèle des ch. 04
+et 12. Lu avant : `.claude/cadre-agents.md`, `CLAUDE.md`, le skill `ecriture` au complet, `gabarit-chapitre.md`,
+`roles.md`, les ch. 04 et 12 et leurs fiches, `plan/dangers-inventaire.md` (section 1 et paragraphe du ch. 15),
+`dangers/partie-1.md` et `partie-2.md`, `plan/premieres-minutes-inventaire.md`, la PAUSE du 15 octobre. Demande de JP
+relayée pour cette passe : « fuck les sources, on a pas déjà fait ce travail-là ? » : **aucun chiffre déjà sourcé n'a été
+rouvert** ; seuls les faits nouveaux (ajouts de l'étape 1, notes En plus) ont été cherchés, et dans des pages déjà au
+dossier sauf une. Fichier en LF, gardé en LF. **Aucune étape renumérotée** (1 à 48 comme le 18 octobre) : les renvois des
+autres chapitres vers le ch. 15 restent justes.
+
+### Ce qui a changé
+
+- **La section 7, Danger, sort.** La variante d'urgence devient la section 7. Tous les renvois « section 8 » du chapitre
+  deviennent « section 7 » (Matériel, section 2, étapes 3 et 18, Signes d'échec) ; les renvois « section 7, point N »
+  (étapes 13, 22, 42, 45, 47) sortent : le pictogramme de l'étape les remplace.
+- Il n'y avait plus de « Comment ça marche » depuis le 18 octobre : rien à déplacer.
+- **Les trois séries orange restent en tête de la procédure**, juste après le logigramme, un sujet chacune : « On passe à
+  travers la glace » {.orange 10 min} (étapes 1 à 7), « Quelqu'un d'autre passe à travers la glace » {.orange 10 min}
+  (étapes 8 à 10), « La machine s'arrête loin de tout, l'hiver » {.orange 30 min} (étapes 11 à 18). Pastilles et sources
+  inchangées (voir « Refonte complète, 18 octobre 2026 », plus haut). Une ligne blanche manquait avant le deuxième
+  intertitre : remise.
+- **Étape 1, ajouts** (auto qui passe à travers la glace) : défoncer une vitre de côté à coups de pied ; si l'auto coule
+  avant qu'on sorte, continuer d'essayer une portière ou une vitre, qui s'ouvre un peu plus facilement à mesure que l'eau
+  remplit l'auto ; l'auto a pu se retourner, on se laisse remonter pour trouver la surface. Source : brochure du Minnesota
+  DNR déjà au dossier (`15-mndnr-danger-glace-mince-2017-texte.txt`), extraits recopiés dans
+  `sources/15-en-plus-baton-unghaq-et-reprises.md`.
+- **Étape 40** découpée en sous-étapes qui appellent la planche 15-05 repère par repère (1 pelleter, 2 percer, 3 passer le
+  crochet du ruban sous la glace, 4 tirer tendu, 5 lire au ras du dessus). « Pelleter… pour voir aussi sa couleur » :
+  MN DNR (« Shovel any snow before testing the ice for thickness and color »).
+- **Section 7, « Faire des pics à glace »** : la sous-étape du clou réécrite avec des verbes, et l'autre façon (clou
+  pointe première, tête limée) appelle maintenant la planche 15-04, repère 6.
+- **Gestes de l'orange qui redisaient les pages des dangers** : le mécanisme général sort, le geste et ce qui est propre
+  au chapitre restent. Étape 2 : le « 600 à 1 000 % » n'y était déjà plus, la phrase garde seulement « on respire très
+  vite sans pouvoir s'en empêcher ». Étape 10 : le mécanisme du sang froid dit une fois (il l'était deux fois), « pour la
+  même raison » au point suivant ; « un enfant passe en premier » garde le geste, la raison est sur la page `froid`.
+  Étape 41 : « elle porte environ deux fois moins » et « le gris vient de l'eau » sortent (page `glace`). Étape 47 : « le
+  courant remonterait dans la ligne de la rue » sort (page `electrocution`). Étapes 45 et 46 : la liste des lieux fermés
+  (garage porte ouverte, remise, auvent, abri de toile) sort (page `generatrice`) ; restent dehors, à découvert, 6 m, les
+  ouvertures, l'échappement sous le vent et les 6 m vers la maison du voisin.
+- **Phrases reprises** (skill `ecriture`) : étape 8, « il » pour « la personne » devient « elle » (étapes 8 et 9) ;
+  étape 9, la conséquence évidente « il est à son tour dans l'eau » devient « Un sauveteur seul… n'a que ses pics si la
+  glace cède sous lui » ; étape 37, « reste immobile… on l'habille » devient la consigne « L'habiller plus chaudement » ;
+  étape 38, « la personne gelée est la dernière à la voir [sa gelure] » devient « ne s'en rend souvent pas compte : l'autre le voit à sa peau » ; étape 24, l'étincelle de statique dite en une phrase ; section 7, « pour la même
+  raison qu'à l'étape 24 : pas d'étincelle au goulot » (étiquette) devient « pour qu'une étincelle de statique ne parte
+  pas au goulot (étape 24) » ; « l'éclairage passe au ch. 85 » devient « pour l'éclairage, voir le ch. 85 » ; Points de
+  contrôle, « Couper le moteur, dégager, ouvrir » (étiquette) devient une phrase.
+
+### Où chaque bloc de l'ancien Danger est allé
+
+| Ancien point | Ce qui reste dans le chapitre, et où | Ce qui sort (la page du danger le dit) |
+| --- | --- | --- |
+| 1. Le monoxyde dans l'auto, le garage et l'abri | Étape 11 `{!co}` : le tuyau bouché par la neige fait entrer le gaz dans l'auto. Étape 13 : mal de tête, mal au cœur ou sommeil, moteur en marche : couper le moteur et faire sortir tout le monde tout de suite ; « la personne qui s'endort dans l'auto, moteur en marche, est en danger de mort » (la phrase de l'ancien point 1 ; corrigée après la vérification technique, voir plus bas). Étape 16 : dans l'auto, ni réchaud, ni fanal, ni chaufferette faits pour l'extérieur (remis après la vérification technique) | Densité 0,96, 1 600 ppm (vertiges en 20 min, mort en 2 h), 20 000 ppm (mort en 4 min), les signes et l'enfant qu'on croit de mauvaise humeur, le garage même ouvert, le garage de toile et le démarreur à distance, le réchaud ou la chaufferette dans une auto ou une tente : pages `co` et `generatrice`. **La page `co` garde 0,96 et 1 600 ppm en 2 h ; le 20 000 ppm et les 20 min de vertiges sortent du livre** (source : `20-cnesst-reptox-monoxyde-de-carbone.md`) |
+| 2. La génératrice dans un bâtiment | Étapes 45 et 46, `{!generatrice}` ; depuis la vérification technique, l'étape 45 redit le rappel de `CLAUDE.md` : jamais dans un bâtiment, un garage ou une remise, même porte ouverte, ni sous un auvent ou dans un abri d'auto en toile | Le même gaz qu'une auto, le démarreur à distance : page `generatrice` |
+| 3. La vapeur d'essence | Étape 22 `{!vapeurs}` : la vapeur des bidons coule jusqu'au plancher du chalet ou au sous-sol. Étape 48 `{!vapeurs}` : le plein moteur refroidi. Section 7 `{!vapeurs}` : ne jamais percer ni meuler un réservoir | −43 °C, la flamme qui revient au bidon, l'interrupteur, « on n'allume ni n'éteint rien », la flaque en feu (pas d'eau, poudre, sable, terre) : page `vapeurs` ; le bidon fermé qu'on chauffe : page `projection`. La ligne « Odeur d'essence » des Signes d'échec garde son action (c'est le travail du tableau) |
+| 4. La génératrice branchée au panneau | Étape 47 `{!electrocution}` : rallonges, jamais d'adaptateur mâle-mâle, ni panneau, ni prise | Le courant renvoyé, le transformateur, les monteurs : page `electrocution` |
+| 5. L'essence à la bouche | Section 7, « Amorcer sans la bouche » `{!poison}` | L'aspiration dans les poumons : page `poison` (« 2 mL suffisent pour brûler le poumon ») |
+| 6. La glace qui a l'air solide | Étape 40 `{!glace}` (mesurer le jour même) ; étape 42 : « là où la neige est épaisse : la glace a moins gelé dessous, et le poids de la neige réduit ce qu'elle peut porter. Rien ne le montre en surface » (MN DNR : « The extra weight of snow cover also reduces how much weight the ice sheet can support ») | La neige qui isole, l'épaisseur qui change d'un endroit à l'autre : page `glace` |
+
+### Pictogrammes (étape → id)
+
+| Étape | Id | Ce qui est propre au chapitre, dans l'étape |
+| --- | --- | --- |
+| 2 | `eau-froide` | La première minute, la tête hors de l'eau, garder l'habit de motoneige, lâcher la motoneige, siffler |
+| 8 | `glace` | Le sauveteur qui court au trou passe à travers à son tour |
+| 10 | `froid` | Sortir de l'eau couché, traîné ou porté ; la personne seule qui marche ou fait un feu |
+| 11 | `co`, `generatrice` | Le tuyau d'échappement bouché par la neige (deux pictogrammes depuis la vérification technique, comme au ch. 02, étape 9 : le geste est au point 4 de la page `generatrice`) |
+| 22 | `vapeurs` | L'essence hors du bâtiment où on dort |
+| 38 | `froid` | La gelure du visage en motoneige, vue par l'autre |
+| 40 | `glace` | Mesurer le jour même, tous les 45 m |
+| 45 | `generatrice` | Dehors, à découvert, 6 m ; jamais dans un bâtiment, un garage ou une remise, même porte ouverte, ni sous un auvent ou dans un abri d'auto en toile |
+| 47 | `electrocution` | Rallonges seulement |
+| 48 | `vapeurs` | Le plein sur un moteur chaud |
+| Section 7, « Amorcer sans la bouche » | `poison` | Le siphon |
+| Section 7, après « Le bidon contre la machine » | `vapeurs` | Le réservoir qu'on perce ou qu'on meule |
+| Section 7, « Faire partir un moteur gelé » | `projection` | La batterie gelée qu'on charge ou qu'on survolte (« charger ni survolter », « dégeler d'abord » : `15b-travail-securitaire-nb-batterie-gelee.md` ; « charger » : `18b-trojan-batteries-plomb-froid-et-charge.md`) |
+
+`huile-en-feu` n'est pas posé : l'inventaire le proposait à l'étape 23 pour la flaque d'essence, qui est sur la page
+`vapeurs`. Inventaire et pages des dangers : les changements à faire sont rendus à l'orchestrateur (fichiers communs).
+
+### Logigramme
+
+`images/logigrammes/15-se-deplacer.json`, rendus refaits (`.svg`, `.pdf`, `.png`, `-livre.svg` par `--sans-entete --svg`),
+contrôle 0 erreur, 0 avis, regardé à l'image. Changements : `_note` à jour (sept sections, pictogrammes) ; pastille
+« 10 min » ajoutée à `o1`, la première boîte de la série « Quelqu'un d'autre » (comme l'orange) ; `m1` renvoie à la
+section 7 ; boîtes réécrites en phrases : `s3` (« en plantant les pics près du bord, ou, sans pics, en tirant sur les
+avant-bras posés à plat »), `o1` (« jusqu'au trou »), `o2` (« lui faire passer la corde sous les bras, et tirer pendant
+qu'elle bat des jambes »), `o3` (« aller la chercher »), `fin` (« À l'abri, mettre des vêtements secs, se coucher dans un
+sac de couchage fermé, et mettre la chaleur sur la poitrine et le dos », au lieu d'une liste de noms), `a3` (« Rester dans
+l'auto et allumer les feux de détresse. Se serrer sous les couvertures, sur quelque chose d'épais »). Aucun avertissement
+redit, colonnes de droite telles quelles.
+
+### Chiffres nouveaux et leurs sources
+
+Aucun chiffre nouveau dans la procédure. Dans les notes En plus : **1,5 à 3 %** d'énergie en moins dans le litre d'hiver,
+**11 %** d'air plus dense, **1,3 %** de consommation en plus sur la route (`20-rncan-temps-froid-consommation-carburant.md`).
+Aucun `[À VÉRIFIER]` dans le texte.
+
+Étape 40, sous-étapes : crochet sous la glace et ruban tendu : `54-mndnr-check-ice-thickness.html` ; lire au ras du dessus de la glace : geste sans source écrite et sans chiffre (définition de l'épaisseur), gardé.
+
+### Notes En plus (4) et leur provenance
+
+| Note | Genre | Étape | Mots | Source |
+| --- | --- | --- | --- | --- |
+| Le bâton à sonder de la côte de l'Alaska | La façon d'une nation du Nord (Yupik et autres peuples de la côte de l'Alaska) : pourquoi elle marche (on frappe là où le pied va se poser) ; ce qui la rend dangereuse si on change ses conditions (ces chasseurs connaissent leur glace de mer ; sur la glace de marée du fleuve, on ne passe pas, même avec un bâton) | 42 | 80 | **Page nouvelle** : Alaska Public Media, 2014, enregistrée `sources/15-alaska-public-media-baton-unghaq-2014.html`, extraits et lecture dans `sources/15-en-plus-baton-unghaq-et-reprises.md`. L'avertissement est du livre (étape 42 et page `glace`), pas de la page ; « coastal communities, that spend a good portion of their lives out on the ice » porte « ces chasseurs connaissent leur glace de mer » |
+| Les oiseaux et les poissons qui ouvrent la glace | Fait | 42 | 52 | Brochure MN DNR 2017 (`15-mndnr-danger-glace-mince-2017-texte.txt`) |
+| Ne pas laisser la machine geler au sol | Fait | 18 | 74 | US Army FM 31-70, ch. 3, l. 507 et 508 (`20b-fm31-70-ch3-texte-integral.txt`) |
+| L'essence d'hiver | Fait | 20 | 58 | RNCan, « Le bon $ens au volant », fiche 3 (`20-rncan-temps-froid-consommation-carburant.md`) |
+
+**Pas de photo.** Proposée : la glace en chandelles du printemps (étape 42), sur Wikimedia Commons :
+`File:Candle_Ice_(5877950711).jpg` (US Embassy Canada, CC BY 2.0), `File:Long-tail_ducks_on_candle_ice.jpg` (Matt
+Whitman, BLM Alaska, CC BY 2.0), `File:Candle_Ice.jpg` (Paulransom, CC BY-SA 3.0). Les pages des fichiers ont été lues ;
+le téléchargement de l'image a été refusé par Commons (HTTP 429, trop de requêtes) : rien n'est enregistré dans
+`images/extras/`, aucune ligne de crédit. Regardées et non retenues : le bâton et le ciseau `tuuq` des Inuits (Mondes
+inuit : pêche d'automne, pas de déplacement), les congères `uqalurait` d'Igloolik (page d'Aporta en 404, seul le résumé du
+23 septembre reste), la cécité des neiges (déjà au ch. 89), le toboggan des Innus et sa toile (déjà au ch. 89, étape 58),
+la glace neuve plus solide que la vieille (la page donne 10 cm pour un piéton, le livre 15 cm).
+
+### Ancres
+
+Toujours un début de paragraphe unique, vérifiés avec le `parse` et le `render` du constructeur : 15-01 « 3. **Prendre
+les pics à glace, s'il y en a au cou** » (inchangée) ; **15-03 « 8. {!glace} **Ne pas courir jusqu'au trou »** (nouvelle) ;
+**15-05 « 40. {!glace} **Mesurer la glace avant d'y engager une machine, le jour même.** »** (nouvelle) ; **15-02
+« {!poison} **Amorcer sans la bouche** »** (nouvelle ; l'ancienne trouvait encore le paragraphe par sous-chaîne) ; 15-04
+et 15-06 inchangées ; logigramme « **Trousse d'allumage, sur soi** » (inchangée, dernier item du Matériel). À reporter dans
+`design/epreuves-livre/placements-tome-1.json` par l'orchestrateur.
+
+### controle.py, avant et après
+
+| | Avant (18 octobre) | Après |
+| --- | --- | --- |
+| Mots | 7 961 | 7 679 |
+| Tirets | 2 (titre et ligne de tome) | 2 (les mêmes) |
+| « § », mots bannis, tournures, maximes, pronominaux | 0 | 0 |
+| Vocabulaire d'IA, mises en relief | 0 | 0 (« au niveau de l'eau » et « c'est l'autre qui » signalés en cours de passe, réécrits) |
+| Mots vides à juger | 26 | 26 (tous portent le sens : « tout de suite », « tout le monde », « tous les 45 m », « encore » = les mains serrent toujours) |
+| Redites à juger | 8 | 5, jugées : « si la tête passe sous l'eau » (étapes 2 et 7, deux moments différents) ; « se tourner vers le côté par » (étape 8 dit ce qu'on crie, avec renvoi aux étapes 4 et 5) ; « pics à glace au cou par » (Matériel et étape 36, l'objet puis le geste) ; « ces épaisseurs sur de la glace » (dans la même étape 41) ; « nuit au bord de la trace » (étape 18 et la note qui y renvoie) |
+| Ancres introuvables | 0 | 2 (15-03 et 15-05 : le pictogramme ouvre maintenant le paragraphe ; nouvelles ancres plus haut) |
+| Invariants disparus | | « 0,96 », « 1 600 ppm », « 20 000 ppm », « 20 minutes », « 4 minutes », « 2 heures », « −43 °C », un « 6 m », « génératrice » 14 → 9 : l'ancien Danger, voir le tableau plus haut. Tous sur les pages des dangers, sauf le 20 000 ppm et les 20 min de vertiges |
+
+## Corrections après la vérification technique, 19 octobre 2026
+
+Dix signalements du vérificateur technique sur la refonte au gabarit final. Demande de JP relayée pour cette passe : « fuck
+les sources, on a pas déjà fait ce travail-là ? » : **aucune recherche nouvelle**. Chaque correction s'appuie sur une
+page déjà au dossier, citée par le vérificateur et relue au passage (citation retrouvée dans le fichier). Aucune étape
+renumérotée (1 à 48), aucune ancre de planche touchée, logigramme inchangé (aucune de ses boîtes ne porte les phrases
+changées).
+
+| # | Signalement | Fait | Source au dossier |
+| --- | --- | --- | --- |
+| 1 | Étape 45 : le rappel de `CLAUDE.md` « Génératrice : jamais dans un bâtiment, un garage ou sous un auvent » ne se lisait plus (ch. 84 et 111 renvoient au ch. 15 pour lui) | **Appliqué** mot pour mot : « Jamais dans un bâtiment, un garage ou une remise, même porte ouverte, ni sous un auvent ou dans un abri d'auto en toile. » Ça revient sur la coupe de la refonte (« la liste des lieux fermés sort ») : le tableau des rappels de `CLAUDE.md` passe avant la règle des pages des dangers, comme aux ch. 01, 02, 10 et 11 | `20-sante-canada-monoxyde-generatrice.md` (garage, remise) ; `20-quebec-monoxyde-de-carbone-vehicules.md` (même si la porte est ouverte, garage en toile) |
+| 2 | Note En plus du bâton : « pour une machine, on mesure » laissait croire qu'une machine passe sur la glace de mer | **Appliqué** : « Ces chasseurs connaissent leur glace de mer. Sur la glace de marée du fleuve, on ne passe pas, même avec un bâton (étape 42). » « bâton ou pas » du vérificateur devient « même avec un bâton » (étiquette en raccourci, règle 0). « on ne marche pas là » devient « on n'y marche pas » pour tenir sous 80 mots (80). Renvoi à l'étape 42 au lieu de 40 : la note se place maintenant près de la glace de marée | `15-alaska-public-media-baton-unghaq-2014.html` (« coastal communities, that spend a good portion of their lives out on the ice ») ; étape 42 et page `glace` |
+| 3 | Étape 46 : la génératrice elle-même n'était plus placée sous le vent, seul l'échappement était tourné | **Appliqué** mot pour mot : « La placer du côté où le vent emporte le gaz loin des bâtiments, et tourner son échappement à l'opposé des portes et des fenêtres. » La phrase sur le voisin reste | `10-sante-canada-generatrice-distance.md` (« dirigez le tuyau d'évacuation dans le sens opposé de toute porte ou fenêtre ouverte ») ; la règle du vent, note de `20-sante-canada-monoxyde-generatrice.md` |
+| 4 | Étape 7 : « on se noie seulement si la tête passe sous l'eau » était une tautologie et perdait « la noyade tue avant le froid » | **Appliqué, reformulé** : « Même dans l'eau glacée, on peut mettre une heure à perdre connaissance par le froid : bien avant, on meurt noyé si la tête passe sous l'eau. » « Bien avant » dit que la noyade tue d'abord, sans la tournure « on meurt noyé avant de mourir de froid ». **« souvent une heure » devient « on peut mettre une heure »**, ce que dit TP 511 (« il faut parfois une heure ») : la phrase était réécrite de toute façon ; l'orchestrateur peut remettre « souvent » s'il le veut | `03-transports-canada-eau-froide.md` (TP 511) |
+| 5 | Étape 16 : le réchaud, le fanal ou la chaufferette d'extérieur allumés dans l'auto (ancien Danger, point 1) avaient disparu | **Appliqué**, ordre de phrase repris (règle 11 : le lieu ne se glisse pas entre « faits pour l'extérieur » et l'objet) : « - Dans l'auto, ne jamais allumer de réchaud, de fanal ni de chaufferette faits pour l'extérieur. » Pas de second pictogramme : celui de l'étape 11 couvre la série | `20-sante-canada-monoxyde-generatrice.md` (« N'utilisez jamais d'appareils pour l'extérieur fonctionnant à combustion […] à l'intérieur, notamment dans une habitation, un véhicule ») ; `19-quebec-trousse-urgence-et-auto.md` (briquet et chandelles dans la trousse) |
+| 6 | Étape 13 : « la sortir tout de suite » perdait le moteur coupé et les autres passagers | **Appliqué, fondu** dans la phrase d'avant pour ne pas dire deux fois « couper le moteur et faire sortir tout le monde » : « Si quelqu'un a mal à la tête, mal au cœur ou s'endort pendant que le moteur tourne, couper le moteur, ouvrir grand les portières et faire sortir tout le monde à l'air tout de suite : la personne qui s'endort dans l'auto, moteur en marche, est en danger de mort. Dégager l'échappement avant de redémarrer. » Rien ne se perd : moteur coupé, tout le monde, tout de suite, danger de mort, échappement dégagé | `20-quebec-monoxyde-de-carbone-vehicules.md` (« Dirigez-vous à l'extérieur ») ; page `co`, point 1 |
+| 7 | Note En plus « Ne pas laisser la machine geler au sol » : elle renvoyait à la nuit de l'étape 18, où la machine ne repart pas | **Appliqué** mot pour mot : « Pour une nuit d'arrêt en chemin, avec une machine qui roule encore (étape 18), la garer… ». Le renvoi à l'étape 18 reste : on y répare la panne, et une machine réparée tard s'arrête pour la nuit au bord de la trace (74 mots) | `20b-fm31-70-ch3-texte-integral.txt`, l. 507 et 508 |
+| 8 | Étape 11 : `{!co}` seul, alors que le geste est au point 4 de la page `generatrice` et porte `{!generatrice}` aux ch. 01, 06 et 08 | **Appliqué** : `{!co} {!generatrice}`, comme au ch. 02, étape 9. La cohérence avec les ch. 01, 06 et 08 (qui n'ont que `{!generatrice}`) est rendue à l'orchestrateur | Page `generatrice`, « Ce qu'on fait », point 4 |
+| 9 | Fiche : la source de « charger ni survolter » et « dégeler d'abord » | **Appliqué** dans le tableau des pictogrammes (ligne « Faire partir un moteur gelé ») ; texte du chapitre inchangé | `15b-travail-securitaire-nb-batterie-gelee.md` ; `18b-trojan-batteries-plomb-froid-et-charge.md` |
+| 10 | Fiche : la traçabilité des sous-étapes de l'étape 40 | **Appliqué** dans « Chiffres nouveaux et leurs sources » ; texte inchangé | `54-mndnr-check-ice-thickness.html` ; brochure 2017, l. 76 |
+
+Tableaux mis à jour plus haut dans cette fiche : « Où chaque bloc de l'ancien Danger est allé » (points 1 et 2),
+« Pictogrammes » (étapes 11 et 45, batterie gelée), « Notes En plus » (bâton : étape 42, 80 mots, avertissement ; machine :
+74 mots).
+
+**Écarté** : rien.
+
+controle.py après ces corrections : 7 734 mots (7 679 avant), 2 tirets (titre et ligne de tome), 0 « § », 0 mot banni,
+0 tournure, 0 maxime, 0 pronominal, 0 vocabulaire d'IA. Mots vides : 27, tous portent le sens (le nouveau : « bien avant »
+à l'étape 7 ; « encore » de la note de la machine = elle roule toujours). Redites : 5, jugées ; la nouvelle, « la glace de
+marée du fleuve » (étape 42 et note du bâton), est l'avertissement de la note avec son renvoi, exigé pour une façon d'une
+nation du Nord. Invariants : rien n'a disparu. Ancres introuvables : 15-03 et 15-05, toujours en attente de leur report
+dans `placements-tome-1.json` (nouvelles ancres dans « Ancres », plus haut).
+
+**Reprise après le redémarrage du conteneur (19 octobre 2026).** Les dix corrections étaient déjà dans le chapitre et
+dans cette fiche (commit `de8aac6`) ; relues une à une contre le texte, les sources citées retrouvées (TP 511, « il faut
+parfois une heure » ; Santé Canada, « garage ou votre remise » ; Québec, « garage en toile », « même si la porte du garage
+est ouverte »). Un seul changement de plus : la note du bâton faisait 81 mots au compte des espaces ; « là où on va
+mettre le pied » devient « où on va mettre le pied » (80). controle.py : 7 733 mots, 2 tirets (titre et ligne de tome),
+0 « § », 0 mot banni, 0 tournure, 0 maxime, 0 pronominal ; 27 mots vides et 5 redites, les mêmes, jugés plus haut ;
+invariants contre la version d'avant les corrections (`40920d1`) : rien n'a disparu. Ancres introuvables : 15-03 et
+15-05, en attente du report dans `placements-tome-1.json`.
+
+## Points réglés après l'édition, 19 octobre 2026
+
+Passe « trancher » (rédacteur du lot 15-16-17) : les questions laissées à JP par le rédacteur et les faits signalés par
+l'éditeur (`_reprise/scratchpad/tome1-final/lot-15-16-17.json`). Règle de JP pour la passe : rien de déjà vérifié n'est
+rouvert ; une source ne s'ouvre que pour trancher un point neuf. Fichier en LF, gardé en LF. Aucune étape renumérotée,
+aucune ancre déplacée.
+
+| Point | Ce qui est fait | La règle ou la source |
+| --- | --- | --- |
+| Étape 11, `{!co} {!generatrice}` ou `{!generatrice}` seul (question à JP) | **Réglé, gardé tel quel** : les deux pictogrammes. Le geste (dégager l'échappement avant chaque démarrage) est au point 4 de la page `generatrice` ; le gaz qui entre dans l'habitacle est le danger de la page `co`, qui nomme « l'auto prise dans la neige ». L'harmonisation des ch. 01 (l. 318), 02 (étape 3, `{!co}` seul), 06 (l. 158) et 08 (l. 230) est rendue à l'intégrateur | Cadre des agents : le pictogramme se pose dans l'étape où le danger se présente ; pages `co` et `generatrice` |
+| Pastille « 30 min » de « La machine s'arrête loin de tout, l'hiver » (question à JP) | **Réglé, gardée** : c'est le temps des gestes de la série (dégager l'échappement, ouvrir la fenêtre, s'installer) avant le deuxième démarrage, et la demi-heure est le cycle sourcé de l'étape 13 (moteur une dizaine de minutes par demi-heure) | Skill `ecriture`, tableau du 15 octobre : « Pas de durée inventée : la pastille est le temps des gestes, ou un ordre de grandeur qui a sa source » |
+| Étape 8 : l'éditeur a sorti « quelques minutes » et renvoie à l'étape 7 | **Réglé, rien à changer** : la durée (une dizaine de minutes) a une seule place, l'étape 7 ; la page MN DNR de l'étape 8 n'en donne pas | Skill `ecriture`, « La répétition » |
+| Étape 7 : « on peut mettre une heure » ou « souvent une heure » | **Réglé, gardé « on peut mettre »** : c'est ce que dit la source | `03-transports-canada-eau-froide.md` (TP 511) : « il faut parfois une heure » |
+| Étape 40 : « le perçage va si vite… » | **Réglé, rien à changer** : fidèle à la page | `54-mndnr-check-ice-thickness.html` : « It happens so quickly that it's easy to overestimate the thickness » |
+| Section 7, « Ski ou patin cassé » : « pour rejoindre la rive » (l'éditeur s'en étonnait) | **Coupé** : « ligaturer une perche de bois vert sous le ski (repères 3 et 4) ». Le but n'a pas de source (le geste est « sans source écrite, gardé ») et la consigne tient sans lui. Les légendes de la planche 15-06 ne disent pas « rive » ; seul le commentaire d'en-tête de `15-06.js` le dit (non imprimé) | Règle de la passe (phrase sans source coupée quand la consigne tient sans elle, comme au ch. 10) |
+| Note En plus de plus : la glace en chandelles du printemps, en photo | **Gardé pour JP** (choix de contenu). Le chapitre a 4 notes, le bas de la réserve de 4 à 8 | Cadre des agents, « Les encadrés En plus » |
+
+Ancres à reporter dans `placements-tome-1.json` (inchangées depuis l'édition) : 15-02 « {!poison} **Amorcer le siphon sans
+la bouche** », 15-03 « 8. {!glace} **Ne pas courir jusqu'au trou », 15-05 « 40. {!glace} **Mesurer la glace avant d'y
+engager une machine, le jour même.** ». Les autres ne bougent pas.
+
+controle.py : 7 744 mots (7 748 avant), 2 tirets (titre et ligne de tome), 0 « § », 0 mot banni, 0 tournure, 0 maxime,
+0 pronominal ; 26 mots vides et 6 redites, jugés (la sixième, « se regarder le visage l'un l'autre », étapes 18 et 38,
+est un renvoi avec son geste) ; invariants contre la version d'avant cette passe : rien n'a disparu.
+
+## Décisions de JP, 19 octobre 2026
+
+Rédacteur de la passe « décisions de JP » (libellé des décisions : `_reprise/scratchpad/tome1-final/decisions-jp.js`).
+Texte d'avant cette passe : commit `f515e01`.
+
+| Décision | Où | Ce qui a changé | Source ou règle |
+| --- | --- | --- | --- |
+| 10. Une cinquième note En plus : la photo de la glace en chandelles du printemps | Section « En plus », après « Les oiseaux et les poissons qui ouvrent la glace » | Nouvelle note « Reconnaître la glace en chandelles » (60 mots) : la photo `images/extras/15-glace-chandelles.jpg`, puis « Au printemps, la glace qui fond se défait en colonnes debout, perpendiculaires à la surface, comme des chandelles serrées. Les colonnes qui se détachent flottent et tintent en se cognant. Elles ne sont plus liées entre elles : quand on passe à travers, le bord du trou se défait sous les mains, et on n'a rien pour se hisser (étape 42). » La réserve passe à cinq notes | Photo : Wikimedia Commons, `File:Candle_Ice_(5877950711).jpg`, US Embassy Canada, CC BY 2.0, vérifiée FlickreviewR ; réponse de l'API dans `sources/15-commons-candle-ice-5877950711-2026-10-19.json` ; crédits dans `images/credits.md`. Faits : `sources/15-wikipedia-rotten-ice-candle-ice-2026-10-19.md` (Wikipédia, **source non officielle**) : colonnes perpendiculaires à la surface (Glossary of Meteorology, AMS) ; « candles » détachées qui flottent et tintent (Bailey, Oke et Rouse, 1997) ; dangereuse quelle que soit l'épaisseur, sans structure horizontale, aucun bord où s'agripper (Tawrell, 2006 ; Lifesaving Society, Ice Safety Tips) |
+
+La photo : vignette de 1 280 × 960 de Commons (l'original de 2 880 × 2 160 a été refusé par Commons, erreur 429, une
+quinzaine de minutes ; la vignette standard passait), gardée dans `images/extras/originaux/` ; la copie imprimée en est un
+recadrage de 1 080 × 690 sur le bloc, fait avec PIL, sans retouche, profil de couleur gardé. Ligne ajoutée à
+`images/extras/LISEZMOI.md`.
+
+`controle.py --avant` (f515e01) : 7 761 → 7 847 mots ; 2 tirets (titre et ligne de tome) ; 0 « § », 0 mot banni,
+0 tournure, 0 maxime, 0 pronominal ; 26 mots vides et 6 redites, ceux d'avant ; rien n'a disparu. Aucune ancre touchée
+(la note n'a pas d'ancre : le moteur la place près de l'étape 42). Fins de ligne LF.
+
+### Après la vérification technique (19 octobre 2026)
+
+Corrections du rédacteur sur les points du vérificateur de la passe « décisions de JP ».
+
+| Point | Où | Ce qui a changé | Source ou raison |
+| --- | --- | --- | --- |
+| Décision 10, source et redite | En plus, « Reconnaître la glace en chandelles » | La première phrase ne redit plus l'étape 42 (« Au printemps, la glace qui fond se défait en colonnes debout… ») : « La glace en chandelles est faite de colonnes perpendiculaires à la surface, serrées comme des chandelles. Les colonnes qui se détachent flottent et tintent en se cognant. Elles ne sont plus liées entre elles : quand on passe à travers, le bord du trou se défait sous les mains, et on n'a rien pour se hisser (étape 42). » (57 mots.) Pas « Celles qui se détachent » proposé par le vérificateur : sujet en pronom en tête de phrase (règle 11) | Nouvelle source publiée : `sources/15-awi-meereisportal-candle-ice-2026-10-19.md` (+ `.html`, et la page de l'éditeur `15-awi-meereisportal-site-notice-2026-10-19.html`) : Alfred Wegener Institute et Université de Brême, « forms perpendicular to the surface of a water body », « It clinks when the “candles” break up and collide as they float ». Le Glossary of Meteorology de l'AMS demandé n'a pas pu être enregistré (HTTP 403 Cloudflare, hôte introuvable par l'outil de récupération, web.archive.org coupé) ; la page de l'AWI le remplace. Le bord qui se défait garde sa source d'avant (Wikipédia : Tawrell, 2006 ; Lifesaving Society), à côté de la page de l'AWI |
+
+Contrôle : `controle.py --avant` (HEAD) : 7 847 → 7 844 mots ; 2 tirets (titre et ligne de tome) ; rien n'a disparu. Fins de ligne LF.

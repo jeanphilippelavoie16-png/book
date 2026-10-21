@@ -51,13 +51,13 @@ module.exports = (h) => {
   const R = 14;                 // rayon du bâton
   const XE = 210;               // l'encoche, de chaque côté du milieu
   const XB = 250;               // le bout du bâton
-  const YN = -7;                // le fond de l'encoche
-  const LC = 63;                // le crochet, du fond de l'encoche à son bas
+  const YN = -5;                // le fond de l'encoche : le tiers de l'épaisseur
+  const LC = 61;                // le crochet, du fond de l'encoche à son bas
 
   // Le bâton de face, de xa à xb, avec ses encoches ; T : mm → px (peut tourner).
   const baton = (T, xa, xb, encoches, bouts = ['bout', 'bout']) => {
     const haut = [[xa, -R]];
-    for (const xn of encoches) haut.push([xn - 6, -R], [xn, YN], [xn + 6, -R]);
+    for (const xn of encoches) haut.push([xn - 9, -R], [xn, YN], [xn + 9, -R]);
     haut.push([xb, -R]);
     const bout = (x, sg, genre) => genre === 'bout'
       ? [[x + sg * 1.5, -9], [x + sg * 2.2, 0], [x + sg * 1.5, 9]]
@@ -84,6 +84,11 @@ module.exports = (h) => {
       `Q ${Q(-38, 280)} ${Q(-28, 280)} L ${Q(28, 280)} Q ${Q(38, 280)} ${Q(38, 270)} L ${Q(38, 80)} ` +
       `C ${Q(38, 58)} ${Q(13, 55)} ${Q(13, 40)} L ${Q(13, 16)} Z`;
     const out = [h.path(d, h.a.blanc)];
+    // La charte : le flanc droit de la bouteille, à l'ombre (lumière en haut à gauche).
+    const idO = `q9611x${nClip++}`;
+    const [ox0, oy0] = P(cx + 25, yh + 50), [ox1, oy1] = P(cx + 40, yh + 282);
+    out.push(`<clipPath id="${idO}"><path d="${d}" fill="none"/></clipPath>`);
+    out.push(`<g clip-path="url(#${idO})">${h.rect(ox0, oy0, ox1 - ox0, oy1 - oy0, h.a.ombre)}</g>`);
     if (o.eau != null) {
       const id = `q9611x${nClip++}`;
       const [xa, ya] = P(cx - 40, yh + o.eau), [xb, yb] = P(cx + 40, yh + 282);
@@ -121,7 +126,16 @@ module.exports = (h) => {
         [28, 191], [48, 178], [60, 152], [62, 118], [55, 84], [40, 50], [20, 24], [6, 6]]
       : [[-6, 6], [-14, 40], [-24, 90], [-33, 136], [-37, 150], [-12, 146], [8, 149], [36, 153], [34, 132],
         [24, 88], [14, 40], [6, 6]];
-    out.push(h.path(lisse(corps.map(p => Q(...p)), true), blanc(h.a.contour)));
+    const dCorps = lisse(corps.map(p => Q(...p)), true);
+    out.push(h.path(dCorps, h.a.blanc));
+    // La charte : le sac plein est un volume ; son flanc droit et son dessous sont à l'ombre.
+    if (plein) {
+      const id = `q9611x${nClip++}`;
+      const dDec = lisse(corps.map(([x, y]) => Q(x - 18, y - 14)), true);
+      out.push(`<clipPath id="${id}"><path d="${dCorps}" fill="none"/></clipPath>`);
+      out.push(`<g clip-path="url(#${id})">${h.path(dCorps, h.a.ombre)}${h.path(dDec, h.a.blanc)}</g>`);
+    }
+    out.push(h.path(dCorps, h.a.contour));
     // les plis qui partent de la gueule
     const plis = plein
       ? [[[-3, 12], [-12, 44], [-22, 76]], [[0, 12], [1, 50], [4, 88]], [[3, 12], [14, 40], [26, 64]],
@@ -156,7 +170,8 @@ module.exports = (h) => {
     const d = `M ${P(xa, yc - r).join(' ')} L ${P(xb, yc - r).join(' ')} ` + lisse(cass(xb, 1).map(p => P(...p))).replace(/^M [^C]*/, '') +
       ` L ${P(xa, yc + r).join(' ')} ` + lisse(cass(xa, -1).reverse().map(p => P(...p))).replace(/^M [^C]*/, '') + ' Z';
     void pts;
-    const out = [h.path(d, blanc(h.a.contour))];
+    // La charte : la perche n'est que le support ; elle recule (gris loin, trait d'arête).
+    const out = [h.path(d, h.a.loin), h.path(d, h.a.arete)];
     for (const [x, y, l] of [[xa + 20, yc - r * 0.4, 70], [xa + 120, yc + r * 0.35, 60], [xb - 110, yc - r * 0.5, 80], [xb - 60, yc + r * 0.45, 40]])
       out.push(h.ligne(...P(x, y), ...P(x + l, y + 1), h.a.fin));
     return out.join('\n');
@@ -194,7 +209,9 @@ module.exports = (h) => {
     out.push(caillou(P, ...CAIL, 19, 15));
     out.push(h.ligne(...P(XE, YN + LC), ...P(XE, YK_B), h.a.arete));
     // les deux crochets, dans leurs encoches (de face, on les voit par la tranche)
-    for (const x of [-XE, XE]) out.push(h.ligne(...P(x, YN - 9), ...P(x, YN + LC), h.a.contour));
+    for (const x of [-XE, XE]) out.push(h.ligne(...P(x, YN - 3), ...P(x, YN + LC), h.a.contour));
+    // La charte : le point à contrôler, le bâton pendu par son milieu et jamais ailleurs.
+    out.push(h.controle(...P(0, 0), 12));
     return { svg: out.join('\n'), P, s };
   };
 
@@ -223,18 +240,20 @@ module.exports = (h) => {
     out.push(ficelle([P(0, YN + LC - 2), P(0, 146)], s, 'coupe', 'fixe'));
     out.push(h.ellipse(...P(0, 70), r1(2.2 * s), r1(2.6 * s), h.a.plein));
     // le crochet par la tranche, assis dans l'encoche, devant le bâton
-    out.push(tige(P, 0, YN - 9.5, YN + LC + 1.5, 3 * s));
+    out.push(tige(P, 0, YN - 3, YN + LC + 1.5, 3 * s));
     return { svg: out.join('\n'), P, s };
   };
   // Le crochet en S, vu en coupe : le haut passe par-dessus le bâton et s'appuie dans l'encoche,
   // le bas porte les deux ficelles.
-  const C1 = [0, 2.7], R1 = 17, C2 = [-2, 46], R2 = 10;
+  const RF = R + 1.6, C2 = [-2, 46], R2 = 10;
   const crochetS = () => {
     const pts = [];
-    for (let t = 150; t <= 400; t += 10) pts.push([C1[0] + R1 * Math.cos(rad(t)), C1[1] + R1 * Math.sin(rad(t))]);
+    // le haut épouse la section : à plat sur le fond de l'encoche (fil de 3 mm, axe 1,5 mm au-dessus),
+    // puis il redescend autour du bâton
+    for (let t = 150; t <= 400; t += 5) pts.push([RF * Math.cos(rad(t)), Math.max(YN + 0.6, RF * Math.sin(rad(t)))]);
     const A = pts[pts.length - 1];
     const B = [C2[0] - R2, C2[1]];
-    const ta = [-Math.sin(rad(40)), Math.cos(rad(40))];
+    const ta = [0.15, 1];   // il quitte le bâton vers le bas, sans recouper la section
     for (let i = 1; i < 12; i++) {
       const t = i / 12, c1 = [A[0] + 12 * ta[0], A[1] + 12 * ta[1]], c2 = [B[0], B[1] - 12];
       const m = 1 - t;
@@ -252,15 +271,14 @@ module.exports = (h) => {
     const xc = Math.sqrt(R * R - YN * YN);
     // le bâton coupé à l'encoche : la section sous le fond de l'encoche, hachurée ; au-delà, le
     // dessus du bâton, entier
-    out.push(`<path d="M ${P(-xc, YN).join(' ')} A ${r1(R * s)} ${r1(R * s)} 0 0 1 ${P(xc, YN).join(' ')}" ${h.a.arete}/>`);
     const sec = `M ${P(-xc, YN).join(' ')} L ${P(xc, YN).join(' ')} A ${r1(R * s)} ${r1(R * s)} 0 1 1 ${P(-xc, YN).join(' ')} Z`;
     out.push(h.path(sec, h.a.blanc), h.path(sec, h.a.hachure('bois', 'contour')));
     // le caillou, derrière la ficelle de la bouteille ; chacun sa boucle au bas du crochet
     out.push(ficelle([P(2, 53), P(2, 86)], s));
-    out.push(h.ellipse(...P(2, 76), r1(2.6 * s), r1(2.2 * s), h.a.plein));
+    out.push(h.ellipse(...P(2, 67), r1(2.6 * s), r1(2.2 * s), h.a.plein));
     out.push(caillou(P, 2, 100, 19, 15));
     out.push(ficelle([P(-6, 53), P(-6, 146)], s, 'coupe', 'fixe'));
-    out.push(h.ellipse(...P(-6, 68), r1(2.6 * s), r1(2.2 * s), h.a.plein));
+    out.push(h.ellipse(...P(-6, 70), r1(2.6 * s), r1(2.2 * s), h.a.plein));
     // le crochet, puis les deux boucles repassées par-dessus son fil
     out.push(F.corde(crochetS().map(p => P(...p)), { ep: 3 * s, debut: 'coupe', fin: 'coupe', trait: 'arete' }));
     out.push(ficelle([P(2, 52.4), P(2, 60)], s));
@@ -288,13 +306,14 @@ module.exports = (h) => {
     out.push(h.ligne(...P(xd, yd + LC), ...P(xd, yd + LC + 64), h.a.arete));
     out.push(harnais(P, xd, yd + LC + 124, yd + LC + 64));
     out.push(bouteille(P, xd, yd + LC + 124));
-    for (const [x, y] of [[xg, yg], [xd, yd]]) out.push(h.ligne(...P(x, y - 9), ...P(x, y + LC), h.a.contour));
+    for (const [x, y] of [[xg, yg], [xd, yd]]) out.push(h.ligne(...P(x, y - 3), ...P(x, y + LC), h.a.contour));
     // le caillou, sa boucle ouverte, et le geste qui l'accroche au crochet du côté léger
     const cx = xd + 95, cy = yd + LC + 90;
     out.push(h.path(lisse([P(cx, cy - 17), P(cx - 7, cy - 42), P(cx, cy - 52), P(cx + 7, cy - 42), P(cx, cy - 17)]), h.a.arete));
     out.push(caillou(P, cx, cy, 22, 17));
     const [ax, ay] = P(cx - 10, cy - 64), [bx, by] = P(xd + 14, yd + LC - 4);
-    out.push(h.fleche(`M ${ax} ${ay} Q ${r1((ax + bx) / 2 + 4)} ${r1(Math.min(ay, by) - 22)} ${bx} ${by}`));
+    // La charte : le geste, accrocher le caillou au crochet du côté léger.
+    out.push(h.geste(`M ${ax} ${ay} Q ${r1((ax + bx) / 2 + 4)} ${r1(Math.min(ay, by) - 22)} ${bx} ${by}`));
     return { svg: out.join('\n'), P, s, xd, yd, xg, yg, cx, cy };
   };
 
@@ -319,13 +338,18 @@ module.exports = (h) => {
     const out = [];
     // le corps de la boîte : côtés, fond (arc de devant), bord
     const corps = [...arc(YR, RX, RY, Math.PI, 0), ...arc(0, RX, RY, 0, Math.PI)];
-    out.push(h.chemin(corps, blanc(h.a.contour), true));
+    out.push(h.chemin(corps, h.a.blanc, true));
+    // La charte : le flanc droit de la boîte à l'ombre ; l'intérieur, vu par l'ouverture, en gris loin.
+    const idB = `q9611x${nClip++}`;
+    out.push(`<clipPath id="${idB}">${h.chemin(corps, 'fill="none"', true)}</clipPath>`);
+    out.push(`<g clip-path="url(#${idB})">${h.rect(...P(RX * 0.45, YR - RY - 4), (RX * 0.55 + 4) * s, (RY * 2 - YR + 8) * s, h.a.ombre)}</g>`);
+    out.push(h.chemin(corps, h.a.contour, true));
     for (const y of [-66, -33]) out.push(h.chemin(arc(y, RX, RY, 0.08, Math.PI - 0.08), h.a.fin));
     // l'ouverture : la paroi du fond, la coquille au ras de la surface
     const bord = arc(YR, RX - 2, RY - 1, 0, 2 * Math.PI, 48);
     const id = `q9611x${nClip++}`;
     out.push(`<clipPath id="${id}"><path d="${poly(bord)} Z" fill="none"/></clipPath>`);
-    out.push(h.chemin(bord, h.a.blanc, true));
+    out.push(h.chemin(bord, h.a.loin, true));
     const surf = arc(YS, RX - 2, RY - 1, 0, 2 * Math.PI, 48);
     const eclats = [];
     let g = 7;
@@ -356,8 +380,9 @@ module.exports = (h) => {
     for (const u of [96, 132]) out.push(h.cercle(...K(u, -0.5), r1(2 * s), h.a.plein));
     // le geste : la pointe gratte le long de la paroi
     const fl = [];
-    for (let t = -Math.PI * 0.66; t >= -Math.PI * 0.8; t -= 0.02) fl.push(P((RX - 2) * Math.cos(t), yM(t) - 5));
-    out.push(h.fleche(poly(fl)));
+    for (let t = -Math.PI * 0.66; t >= -Math.PI * 0.87; t -= 0.02) fl.push(P((RX - 2) * Math.cos(t), yM(t) - 5));
+    // La charte : le geste, la pointe qui gratte la paroi.
+    out.push(h.geste(poly(fl)));
     return { svg: out.join('\n'), P, s, tip, yM };
   };
 
@@ -390,7 +415,7 @@ module.exports = (h) => {
         renvois: z => {
           const { P } = vueFace(z);
           return [
-            { n: 6, rond: P(-20, -30), cible: P(-3, -10), texte: 'l’encoche tient le crochet' },
+            { n: 6, rond: P(-20, -30), cible: P(-5, -9), texte: 'l’encoche tient le crochet' },
           ];
         },
       },
@@ -400,7 +425,7 @@ module.exports = (h) => {
         renvois: z => {
           const { P } = vueCoupe(z);
           return [
-            { n: 7, rond: P(19, -30), cible: P(12, -9.3), texte: 'crochet en S sur le bâton' },
+            { n: 7, rond: P(19, -30), cible: P(8, -4.4), texte: 'crochet en S sur le bâton' },
             { n: 8, rond: P(-19, 64), cible: P(-6, 57), texte: 'les deux au même crochet' },
           ];
         },

@@ -3,23 +3,23 @@
 **Ne s'imprime pas.** JP, 28 septembre 2026 : « enlève les pages crédit photo, garde les backup quelque part mais pas dans le livre ». Aucune page de crédits dans `livre/tome-2/interieur.pdf`, rien au sommaire.
 
 - **Tiré de :** `images/credits.md` et `images/photos/registre-*.md` (les registres restent la référence)
-- **Par :** `design/outils/assembler-tome.py 2`, le 2026-09-29 06:47, tome de 416 pages
+- **Par :** `design/outils/assembler-tome.py 2`, le 2026-10-14 21:37, tome de 416 pages
 - **Même contenu, lisible à l'écran :** `livre/credits/tome-2-credits.pdf`
 - **Page :** celle du tome où l'image s'imprime ; elle change à chaque assemblage.
 
 | Page | Ch. | Fichier | Image | Auteur | Licence | Lien |
 | ---: | --- | --- | --- | --- | --- | --- |
-| 22 | 20 | `25-7a-gencives.jpg` | Gencives gonflées, molles, qui saignent : scorbut installé. | Centers for Disease Control and Prevention | Domaine public | https://commons.wikimedia.org/wiki/File:Scorbutic_gums.jpg |
-| 23 | 20 | `25-7b-hemorragies-perifolliculaires.png` | Petites taches rouges à la base des poils : hémorragies périfolliculaires, un signe quasi propre au scorbut. | CDC (photographe non nommé) | Domaine public (agence fédérale américaine, voir la fiche) | https://wwwn.cdc.gov/phil/Details.aspx?pid=19448 |
-| 29 | 20 | `25-6b-camarine-neige.jpg` | Camarine noire dans la neige de mars : le jus noir tache la neige. | Ilya Baidakov | CC BY-NC [NC] | https://www.inaturalist.org/observations/268786938 |
-| 30 | 20 | `25-6c-canneberge-hiver.jpg` | Canneberge sauvage en décembre, encore sur la plante. | Robin Holm | CC BY-SA | https://www.inaturalist.org/observations/144651464 |
-| 30 | 20 | `25-6a-airelle-hiver.jpg` | Airelle vigne-d'Ida restée sur la tige tout l'hiver. | Tero Karppinen, de Finlande | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Overwinter_Lingonberries_(51016409306).jpg |
-| 50 | 22 | `22-poisson-foie-rogue-laitance.jpg` | Poisson ouvert : le foie, la rogue et la laitance, sortis à côté. | yoyo | CC BY 4.0 — Creative Commons Attribution 4.0 | https://commons.wikimedia.org/wiki/File:Alaska_pollack_liver_roe_milt.jpg |
-| 51 | 22 | `41-5c-lapin-lesions-foyers-blancs.jpg` | Petits foyers blancs sur le foie : signal d'arrêt, toute la bête part aux refus, avec des gants. | Ammam I. et coll. | CC BY 4.0 (figure de revue, acceptée le 24 sept. 2026) | https://pmc.ncbi.nlm.nih.gov/articles/PMC9743112/ |
-| 54 | 22 | `41-5a-orignal-kystes-hydatiques.jpg` | Foie et poumons d'orignal porteurs de kystes : tout part aux refus, rien au chien. | Filip-Hutsch K. et coll. | CC BY 4.0 (figure de revue, acceptée le 24 sept. 2026) | https://pmc.ncbi.nlm.nih.gov/articles/PMC13319169/ |
-| 110 | 25 | `25-gelure-superficielle-cloques.jpg` | Gelure superficielle des doigts, après le dégel : peau rouge, ampoules claires comme de l'eau, celles qu'on peut vider. | Winky from Oxford, UK | CC BY 2.0 — Creative Commons Attribution 2.0 | https://commons.wikimedia.org/wiki/File:Frostbitten_hands.jpg |
-| 111 | 25 | `25-gelure-profonde.png` | Gelure profonde du pied, après le dégel : grande ampoule sur le dessus, orteils violacés qui virent au noir. | CheckDO | CC BY-SA 4.0 — Creative Commons Attribution-Share Alike 4.0 | https://commons.wikimedia.org/wiki/File:Right_foot_third_degree_frostbite.png |
-| 127 | 26 | `26-rougeur-cernee-crayon.jpg` | Le pourtour de la rougeur cerné au crayon : le lendemain, on regarde si le rouge a passé le trait. | John Campbell | CC0 — Creative Commons Zero, Public Domain Dedication | https://commons.wikimedia.org/wiki/File:Cellulitis_left_leg_(44699141152 |
+| 24 | 20 | `25-7a-gencives.jpg` | Gencives gonflées, molles, qui saignent : scorbut installé. | Centers for Disease Control and Prevention | Domaine public | https://commons.wikimedia.org/wiki/File:Scorbutic_gums.jpg |
+| 25 | 20 | `25-7b-hemorragies-perifolliculaires.png` | Petites taches rouges à la base des poils : hémorragies périfolliculaires, un signe quasi propre au scorbut. | CDC (photographe non nommé) | Domaine public (agence fédérale américaine, voir la fiche) | https://wwwn.cdc.gov/phil/Details.aspx?pid=19448 |
+| 31 | 20 | `25-6b-camarine-neige.jpg` | Camarine noire dans la neige de mars : le jus noir tache la neige. | Ilya Baidakov | CC BY-NC [NC] | https://www.inaturalist.org/observations/268786938 |
+| 32 | 20 | `25-6c-canneberge-hiver.jpg` | Canneberge sauvage en décembre, encore sur la plante. | Robin Holm | CC BY-SA | https://www.inaturalist.org/observations/144651464 |
+| 32 | 20 | `25-6a-airelle-hiver.jpg` | Airelle vigne-d'Ida restée sur la tige tout l'hiver. | Tero Karppinen, de Finlande | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Overwinter_Lingonberries_(51016409306).jpg |
+| 52 | 22 | `22-poisson-foie-rogue-laitance.jpg` | Poisson ouvert : le foie, la rogue et la laitance, sortis à côté. | yoyo | CC BY 4.0 — Creative Commons Attribution 4.0 | https://commons.wikimedia.org/wiki/File:Alaska_pollack_liver_roe_milt.jpg |
+| 53 | 22 | `41-5c-lapin-lesions-foyers-blancs.jpg` | Petits foyers blancs sur le foie : signal d'arrêt, toute la bête part aux refus, avec des gants. | Ammam I. et coll. | CC BY 4.0 (figure de revue, acceptée le 24 sept. 2026) | https://pmc.ncbi.nlm.nih.gov/articles/PMC9743112/ |
+| 56 | 22 | `41-5a-orignal-kystes-hydatiques.jpg` | Foie et poumons d'orignal porteurs de kystes : tout part aux refus, rien au chien. | Filip-Hutsch K. et coll. | CC BY 4.0 (figure de revue, acceptée le 24 sept. 2026) | https://pmc.ncbi.nlm.nih.gov/articles/PMC13319169/ |
+| 112 | 25 | `25-gelure-superficielle-cloques.jpg` | Gelure superficielle des doigts, après le dégel : peau rouge, ampoules claires comme de l'eau, celles qu'on peut vider. | Winky from Oxford, UK | CC BY 2.0 — Creative Commons Attribution 2.0 | https://commons.wikimedia.org/wiki/File:Frostbitten_hands.jpg |
+| 113 | 25 | `25-gelure-profonde.png` | Gelure profonde du pied, après le dégel : grande ampoule sur le dessus, orteils violacés qui virent au noir. | CheckDO | CC BY-SA 4.0 — Creative Commons Attribution-Share Alike 4.0 | https://commons.wikimedia.org/wiki/File:Right_foot_third_degree_frostbite.png |
+| 129 | 26 | `26-rougeur-cernee-crayon.jpg` | Le pourtour de la rougeur cerné au crayon : le lendemain, on regarde si le rouge a passé le trait. | John Campbell | CC0 — Creative Commons Zero, Public Domain Dedication | https://commons.wikimedia.org/wiki/File:Cellulitis_left_leg_(44699141152 |
 | 267 | 33 | `55-berce-du-caucase-tige.jpg` | Berce du Caucase, la tige. | Stefan.lefnaer | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Heracleum_mantegazzianum_sl1.jpg |
 | 267 | 33 | `53-berce-laineuse-tige-feuille.jpg` | Berce laineuse, tige et feuille. | Ayotte, Gilles, 1948- | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Heracleum_maximum_15-p.bot-hera.maxim-61.jpg |
 | 268 | 33 | `54-berce-du-caucase-plant.jpg` | Berce du Caucase, plant entier. | anastasiiamerkulova | CC BY 4.0 | https://commons.wikimedia.org/wiki/File:0_Heracleum_mantegazzianum,_native,_Chegemsky_District,_Kabardino-Balkarian_Republic,_Caucasus_Mts,_Russia_1.jpg |

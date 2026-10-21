@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="826" viewBox="0 0 680 826" role="img">
+<title>Planche modele-bebe — Modèle : tête de bébé de profil</title>
+<desc>Tête de bébé de quelques mois, de profil vers la droite, silhouette encrée en courbes de Bézier.</desc>
+<rect x="0" y="0" width="680" height="826" fill="#FFFFFF"/>
+<g transform="translate(40 24)" data-vue="a">
+<path d="M39.5,645.7 C78.4,624.5 113.6,596.3 120.7,553.9 C124.2,539.8 108.4,532.7 99.5,522.1 C71.3,490.4 43.1,419.8 46.6,352.7 C51.9,208.0 166.6,95.1 307.8,95.1 C434.8,91.6 538.9,186.9 540.7,271.6 C542.5,306.9 531.9,345.7 523.1,363.3 C521.3,373.9 523.1,384.5 531.9,393.3 C540.0,400.7 547.1,407.8 545.3,418.4 C544.2,426.5 542.1,431.1 537.2,430.4 C533.6,433.9 531.9,444.5 535.4,451.6 C538.9,458.6 540.7,465.7 535.4,472.7 C532.9,474.9 530.1,476.3 528.4,477.0 C533.6,481.6 535.4,490.4 526.6,495.7 C517.8,501.0 514.2,504.5 515.3,515.1 C516.7,529.2 514.2,543.3 501.9,552.1 C491.3,561.0 473.6,571.6 452.5,575.1 C441.9,576.9 434.8,583.9 433.1,592.7 C433.1,613.9 452.5,631.6 498.4,645.7 Z" fill="#fff" stroke="none"/>
+<path d="M39.5,645.7 C78.4,624.5 113.6,596.3 120.7,553.9 C124.2,539.8 108.4,532.7 99.5,522.1 C71.3,490.4 43.1,419.8 46.6,352.7 C51.9,208.0 166.6,95.1 307.8,95.1 C434.8,91.6 538.9,186.9 540.7,271.6 C542.5,306.9 531.9,345.7 523.1,363.3 C521.3,373.9 523.1,384.5 531.9,393.3 C540.0,400.7 547.1,407.8 545.3,418.4 C544.2,426.5 542.1,431.1 537.2,430.4 C533.6,433.9 531.9,444.5 535.4,451.6 C538.9,458.6 540.7,465.7 535.4,472.7 C532.9,474.9 530.1,476.3 528.4,477.0 C533.6,481.6 535.4,490.4 526.6,495.7 C517.8,501.0 514.2,504.5 515.3,515.1 C516.7,529.2 514.2,543.3 501.9,552.1 C491.3,561.0 473.6,571.6 452.5,575.1 C441.9,576.9 434.8,583.9 433.1,592.7 C433.1,613.9 452.5,631.6 498.4,645.7" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M447.5,361.9 C460.2,345.0 481.4,347.1 494.1,368.3" fill="none" stroke="#000" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M451.8,370.4 C464.5,383.1 481.4,383.1 492.0,372.5" fill="none" stroke="#000" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M494.1,368.3 C498.4,361.9 502.6,359.4 507.5,358.4" fill="none" stroke="#000" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M482.1,356.3 C490.6,359.4 491.6,372.9 483.9,378.9 C478.9,375.3 477.9,361.2 482.1,356.3 Z" fill="#000"/>
+<path d="M473.6,331.6 C482.5,327.3 493.1,328.0 501.9,333.3" fill="none" stroke="#000" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M528.7,417.7 C523.8,421.2 524.5,428.3 531.5,429.0" fill="none" stroke="#000" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M528.4,477.0 C524.8,477.7 521.3,477.0 517.8,474.5" fill="none" stroke="#000" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M459.5,419.8 C498.4,437.4 505.4,508.0 484.2,555.7" fill="none" stroke="#000" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M314.0,371.4 C284.2,366.9 268.6,395.5 279.4,429.3 C289.5,459.6 308.4,480.8 329.1,476.4 C339.5,474.2 340.7,463.1 335.1,453.5" fill="none" stroke="#000" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M310.0,386.7 C292.8,390.3 291.8,419.4 300.6,435.6 C306.6,446.9 316.4,450.3 322.2,443.6" fill="none" stroke="#000" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M326.1,394.1 C332.0,396.5 334.2,406.8 329.7,411.4" fill="none" stroke="#000" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M413.6,603.3 C353.6,582.1 237.2,582.1 173.6,610.4 C152.5,621.0 138.4,633.3 131.3,645.7" fill="none" stroke="#000" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M152.5,553.9 C166.6,561.0 180.7,561.0 194.8,557.4" fill="none" stroke="#000" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M293.6,95.1 C295.4,86.3 300.7,82.7 307.8,81.0" fill="none" stroke="#000" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M258.4,112.7 C265.4,108.5 270.7,110.6 279.5,107.1" fill="none" stroke="#000" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M265.4,125.1 C272.5,121.2 279.5,123.7 288.4,120.5" fill="none" stroke="#000" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M237.2,114.5 C230.1,114.9 224.8,120.5 217.8,122.6" fill="none" stroke="#000" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M226.6,130.4 C219.5,130.4 214.2,136.7 207.2,139.6" fill="none" stroke="#000" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<text x="40" y="808" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">Planche modele-bebe — Modèle : tête de bébé de profil.</text>
+</svg>

@@ -12,6 +12,10 @@
 // Les perches sont croisées aux coins comme le bac de la 95-40a. Aucune mesure de bac dans le
 // chapitre : aucune cote. Les couches de la coupe sont dessinées à deux épaisseurs de brun pour
 // une de vert, ce qui est la proportion du chapitre, pas une consigne de couches.
+// La charte : comme la 95-40a, le dessous de chaque perche couchée du composteur à l'ombre ; en
+// coupe, les bouts du mur du fond, derrière, en gris loin. Le rouge : le tubercule qui affleure dans
+// le raté (l'endroit où ça casse). Les flèches de la terre tirée vers la tige disent où va la
+// terre, elles restent noires, comme celles du billon de la 95-40a.
 module.exports = (h) => {
   const NOIR = '#1A1A1A';
   const blanc = (a) => a.replace('fill="none"', 'fill="#FFFFFF"');
@@ -23,6 +27,7 @@ module.exports = (h) => {
 
   const DEFS = `<defs>
 <pattern id="h9540b-vert" width="13" height="11" patternUnits="userSpaceOnUse"><path d="M0.8 4.2 Q3.8 -0.2 7 3.8 M6.6 10 Q9.6 5.6 12.6 9.6" fill="none" stroke="${NOIR}" stroke-width="0.9" stroke-linecap="round"/><ellipse cx="3" cy="8.6" rx="1.5" ry="0.9" fill="${NOIR}"/><ellipse cx="10.2" cy="2.4" rx="1.3" ry="0.8" fill="${NOIR}"/></pattern>
+<pattern id="h9540b-brun" width="22" height="16" patternUnits="userSpaceOnUse"><path d="M1.5 4 Q4 1.2 6.8 3.6 M12 10.5 Q14.8 7.8 17.6 10.4 M14.5 2.6 L19.5 3.4 M3 12.8 L7.6 11.6 M9 6.6 L10.6 9.4 M18.8 14 L21 12.4" fill="none" stroke="${NOIR}" stroke-width="0.6" stroke-linecap="round"/></pattern>
 </defs>`;
 
   // ─── Feuille : un limbe en amande, en coordonnées d'écran ───
@@ -81,6 +86,8 @@ module.exports = (h) => {
       const vert = id === 'rate' && i === 1;
       out.push(h.ellipse(c[0], c[1], rx * s, ry * s, h.a.blanc));
       out.push(h.ellipse(c[0], c[1], rx * s, ry * s, vert ? h.a.hachure('metal', 'arete') : blanc(h.a.arete)));
+      // l'endroit où ça casse : le tubercule qui sort à la lumière
+      if (vert) out.push(h.controle(c[0], c[1], Math.max(rx, ry) * s + 6));
     });
     // La surface, trait fort, et la surface d'avant en tireté.
     out.push(h.chemin(prof.map(([x, zz]) => q(x, zz)), h.a.contour));
@@ -124,7 +131,7 @@ module.exports = (h) => {
   };
 
   // ════ Le composteur : projection oblique et perches en volume (comme la 95-40a) ════
-  const kc = 0.6 * Math.cos(60 * Math.PI / 180), ks = 0.6 * Math.sin(60 * Math.PI / 180);
+  const kc = 0.6 * Math.cos(20 * Math.PI / 180), ks = 0.6 * Math.sin(20 * Math.PI / 180);   // fuite basse, comme la 95-40a : le bout d'une perche de côté tombe entre deux perches avant
   const hull = (pts) => {
     const P = pts.slice().sort((a, b) => a[0] - b[0] || a[1] - b[1]);
     const cr = (o, a, b) => (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0]);
@@ -147,12 +154,22 @@ module.exports = (h) => {
     const vis = axe === 'x' ? u1 : u0, cache = axe === 'x' ? u0 : u1;
     const A = cerclePerche(p, axe, vis, c, zc, r, demi), B = cerclePerche(p, axe, cache, c, zc, r, demi);
     const out = [];
+    // le dessous de la perche, à l'ombre : l'enveloppe des deux arcs du bas (sous 0,55 r)
+    const bas = (u) => Array.from({ length: 13 }, (_, i) => {
+      const t = Math.PI + 0.582 + (Math.PI - 1.164) * i / 12, dc = r * Math.cos(t), dz = r * Math.sin(t);
+      return axe === 'x' ? p(u, c + dc, zc + dz) : p(c + dc, u, zc + dz);
+    });
+    const ombre = demi ? '' : poly(hull(bas(vis).concat(bas(cache))), h.a.ombre);
     if (!morceau) {
-      out.push(poly(hull(A.concat(B)), blanc(h.a.arete)));
+      const hl = hull(A.concat(B));
+      out.push(poly(hl, h.a.blanc));
+      if (ombre) out.push(ombre);
+      out.push(poly(hl, h.a.arete));
     } else {
       const tag = new Map(); A.forEach((q) => tag.set(q.join(), 'A')); B.forEach((q) => tag.set(q.join(), 'B'));
       const hl = hull(A.concat(B));
       out.push(poly(hl, 'fill="#FFFFFF" stroke="none"'));
+      if (ombre) out.push(ombre);
       hl.forEach((q, i) => {
         const n = hl[(i + 1) % hl.length];
         if (tag.get(q.join()) !== tag.get(n.join())) out.push(h.ligne(q[0], q[1], n[0], n[1], h.a.arete));
@@ -187,7 +204,7 @@ module.exports = (h) => {
     .sort((a, b) => a.prof - b.prof)
     .map((x) => x.pe);
 
-  const WC = 90, RP = 7, OP = 13, NRC = 7, GAP = 30, TOLE = 15, ONDE = 8, AMP = 2;
+  const WC = 90, RP = 7, OP = 13, NRC = 7, GAP = 14, TOLE = 15, ONDE = 8, AMP = 2;
   const ZT = NRC * RP;                                    // dessus du dernier rang : la tôle y porte
   const DY = WC + 2 * OP + GAP;                           // le deuxième bac, derrière le premier
   const PIERRES = [[12, 0.62], [WC - 12, 0.62]];            // x, fraction de y : sur les deux appuis
@@ -241,7 +258,7 @@ module.exports = (h) => {
     format: 'pleine',
     disposition: [['b1', 'b2', 'b3', 'rate'], ['compo', 'coupe']],
     hauteurs: [1, 1.2],
-    largeurs: [[1, 1, 1, 1], [1.1, 1]],
+    largeurs: [[1, 1, 1, 1], [1.4, 1]],
     vues: {
       b1: {
         titre: 'Premier buttage',
@@ -320,9 +337,15 @@ module.exports = (h) => {
           // Le sol, sous le bac et autour.
           out.push(h.rect(q(-TOLE - 4, 0)[0], q(0, 0)[1], s * (WC + 2 * TOLE + 8), s * 11, h.a.hachure('terre', 'aucun')));
           // Le mur du fond, derrière : ses perches en long, qui dépassent aux deux coins.
+          // Seuls dépassent, de part et d'autre, leurs bouts : un tronçon arrondi derrière chaque
+          // jonction de deux perches coupées.
           for (let k = 0; k < NRC; k += 2) {
             const zb = k === 0 ? 0 : k * RP - RP, zh = k * RP + RP;
-            out.push(h.rect(q(-OP, 0)[0], q(0, zh)[1], s * (WC + 2 * OP), s * (zh - zb), blanc(h.a.arete)));
+            [[0, -OP], [WC, WC + OP]].forEach(([xi, xe]) => {
+              const sg = Math.sign(xe - xi), a = q(xi, zb), b = q(xe - sg * RP * 0.5, zb), c = q(xe - sg * RP * 0.5, zh), d = q(xi, zh);
+              const m = q(xe + sg * RP * 0.35, (zb + zh) / 2);
+              out.push(h.path(`M${pt(d)} L${pt(c)} Q${pt([m[0], c[1]])} ${pt(m)} Q${pt([m[0], b[1]])} ${pt(b)} L${pt(a)}`, h.a.arete.replace('fill="none"', 'fill="#E6E6E6"')));
+            });
           }
           // Les couches : brun, vert enfoui, brun, vert enfoui, brun par-dessus.
           COUCHES.forEach(([mat, z0, z1], i) => {
@@ -333,7 +356,7 @@ module.exports = (h) => {
             }
             const forme = bas.concat(haut.reverse());
             out.push(poly(forme, h.a.blanc));
-            out.push(poly(forme, mat === 'brun' ? h.a.hachure('paille', 'aucun') : motif('h9540b-vert')));
+            out.push(poly(forme, mat === 'brun' ? motif('h9540b-brun') : motif('h9540b-vert')));
             out.push(h.chemin(haut.slice().reverse(), i === COUCHES.length - 1 ? h.a.arete : h.a.detail));
             if (i === 0) out.push(h.chemin(bas, h.a.detail));
           });

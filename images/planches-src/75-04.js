@@ -1,4 +1,6 @@
-// Planche 75-04 — le bac de glace monté en couches (chapitre 70, étapes 19 à 24 et section 9).
+// Planche 75-04 — le bac de glace monté en couches (chapitre 75, étapes 19 à 24 et section 9).
+// La charte : coupe hachurée sans gris ; en travers, la cavité du ventre en gris loin. Le rouge :
+// la pointe de la sonde (là où on lit 4 à -1 °C) et le drain ouvert. L'eau de fonte reste en noir.
 module.exports = (h) => {
   const blanc = t => t.replace('fill="none"', 'fill="#ffffff"');
   const halo = (ep = 5) => `fill="none" stroke="#ffffff" stroke-width="${ep}" stroke-linecap="round" stroke-linejoin="round"`;
@@ -121,7 +123,12 @@ module.exports = (h) => {
           const xb = r1(q.c1[0][0] + q.c1[0][1] + 7), xa = r1(q.c2[0][0] + q.c2[0][1] + 7);
           const d = `M${xa},${T + 14} L${xa},${r1(y2 + 8)} L${xb},${r1(y1 - 16)} L${xb},${F - 3}`
             + ` L${X1 - 4},${F - 3} Q${X1 + 8},${F - 3} ${X1 + 8},${F + 8}`;
-          out.push(h.path(d, halo(5)), h.fleche(d, h.a.cache));
+          const eau = 'fill="none" stroke="#000000" stroke-width="1.1" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 3.5"';
+          out.push(h.path(d, halo(6)), h.fleche(d, eau));
+          // deux pointes en route : milieu de la descente, milieu du fond
+          const ym = r1((T + 14 + y2 + 8) / 2), xm = r1((xb + X1 - 4) / 2);
+          out.push(h.fleche(`M${xa},${ym - 3} L${xa},${ym}`, eau));
+          out.push(h.fleche(`M${xm - 3},${F - 3} L${xm},${F - 3}`, eau));
           out.push(goutte(X1 + 8, F + 17));
           // silhouette de la coupe
           out.push(h.chemin([[X0, T], [xi0, T], [xi0, F], [X1, F], [X1, G], [X0, G]], h.a.contour, true));
@@ -133,6 +140,9 @@ module.exports = (h) => {
           out.push(h.ligne(xs, yb, xs, yp, h.a.cache));
           out.push(h.cercle(xs, yd, 7, blanc(h.a.arete)));
           out.push(h.ligne(xs, yd, xs + 4, yd - 5, h.a.detail));
+          // ce qu'on vérifie : la pointe de la sonde dans la chair épaisse, et le drain qui coule
+          out.push(h.controle(xs, yp, 9));
+          out.push(h.controle(X1 + 2, F - 3, 10));
           // couvercle soulevé, même épaisseur que les parois, débordant
           const th = 6 * Math.PI / 180, cs = Math.cos(th), sn = Math.sin(th), ov = 8;
           const rot = pts => pts.map(([x, y]) => [r1(X1 + (x - X1) * cs - (y - T) * sn), r1(T + (x - X1) * sn + (y - T) * cs)]);
@@ -158,7 +168,7 @@ module.exports = (h) => {
             { n: 1, rond: [13, F - 7], cible: [xi0 + 18, F - 7], texte: 'glace au fond, avant tout poisson' },
             { n: 3, rond: [z.l - 13, r1(y2)], cible: [xi1 - 7, r1(y2)], texte: 'glace entre poisson et paroi' },
             { n: 4, rond: [13, r1(y1 - 24)], cible: [xi0 + 20, r1(y1 - 24)], texte: 'glace dessus, puis même couche' },
-            { n: 5, rond: [z.l - 13, F - 26], cible: [X1 + 3, F - 6], texte: 'drain ouvert, cheville tirée' },
+            { n: 5, rond: [z.l - 13, F - 26], cible: [X1 - 10, F - 3], texte: 'drain ouvert, cheville tirée' },
             { n: 6, rond: [r1(q.xs + 42), T - 8], cible: [r1(q.xs + 2), T - 1], texte: 'sonde derrière la tête, chair épaisse' },
           ];
         },
@@ -173,7 +183,7 @@ module.exports = (h) => {
           // cavité : vide, ouverte vers le bas
           const cav = `M${P(7, 44)} C${P(14, 32)} ${P(18, 14)} ${P(15, 2)} C${P(12, -6)} ${P(5, -8)} ${P(0, -8)}`
             + ` C${P(-5, -8)} ${P(-12, -6)} ${P(-15, 2)} C${P(-18, 14)} ${P(-14, 32)} ${P(-7, 44)} Z`;
-          out.push(h.path(cav, h.a.blanc));
+          out.push(h.path(cav, h.a.loin));   // la cavité, vide : on voit l'intérieur, en gris loin
           out.push(h.path(`M${P(-2.5, -45)} L${P(0, -63)} L${P(2.5, -45)} Z`, blanc(h.a.arete)));
           const chair = `M${P(0, -46)} C${P(18, -44)} ${P(29, -20)} ${P(28, 2)} C${P(27, 22)} ${P(20, 38)} ${P(13, 46)}`
             + ` L${P(7, 44)} C${P(14, 32)} ${P(18, 14)} ${P(15, 2)} C${P(12, -6)} ${P(5, -8)} ${P(0, -8)}`

@@ -1,0 +1,349 @@
+{
+  "_note": "Logigramme du chapitre 3 (panne majeure d'Hydro en janvier), double page, fait le 16 octobre 2026 sur le chapitre réécrit, sur le modèle du 11 ; mis d'accord le 19 octobre 2026 avec le chapitre refait au gabarit final (sept sections, plus de parties « le détail », plus de section Danger : les pictogrammes sont dans les étapes). Les pastilles suivent celles du chapitre : 15 min pour « Le courant vient de manquer » (étapes 1 à 5), 6 h pour « Le courant ne revient pas » (étapes 6 à 11), 1 min pour « L'avertisseur de CO sonne » (étapes 12 et 13). Page de gauche : la panne, la nuit, le poêle. Page de droite : rester ou partir, et l'avertisseur qui sonne. Le premier geste arrive sans question. Aucun avertissement redit (ni la génératrice, ni les appareils de camping, ni le poêle étouffé la nuit, ni le fil tombé : ils restent dans leur étape, avec leur pictogramme). Rendu : env -u TMPDIR python3 design/outils/logigramme.py images/logigrammes/03-panne-hydro.json ; version du livre : --sans-entete --svg. « source » : les étapes du chapitre d'où vient chaque geste (ignoré au rendu). Décisions du 19 octobre 2026 (ch. 3 renuméroté : le message à un proche est l'étape 6, le poêle l'étape 7) : le message passe avant la question du poêle, dans une boîte à lui (msg), commune aux deux branches, et porte la pastille 6 h de la série « Le courant ne revient pas » (retirée de fA et fB) ; la nuit, le message s'envoie avant la couverture et la tuque (chapeau de la série) ; q1 et fB renvoient à l'étape 7 (« Sans poêle »), fA aux étapes 7 à 10. Rangs g5 à g7 décalés pour la place de msg.",
+  "format": "double",
+  "tome": 1,
+  "urgent": true,
+  "entete": {
+    "chapitre": "03 · Panne majeure d'Hydro en janvier",
+    "tome": "Tome 1 · Tenir",
+    "onglet": "3",
+    "folios": [
+      null,
+      null
+    ]
+  },
+  "colonnes": {
+    "large": [
+      0.5,
+      7.375
+    ],
+    "tronc": [
+      0.5,
+      3.55
+    ],
+    "cote": [
+      4.25,
+      7.375
+    ],
+    "fA": [
+      0.5,
+      3.8
+    ],
+    "fB": [
+      4.075,
+      7.375
+    ],
+    "q3": [
+      8.9,
+      12.1233
+    ],
+    "partir": [
+      12.8395,
+      15.5
+    ],
+    "rester": [
+      8.9,
+      12.1233
+    ],
+    "large2": [
+      8.9,
+      15.5
+    ]
+  },
+  "rangs": {
+    "g1": 0.85,
+    "g2": 1.6,
+    "g3": 2.4,
+    "g4": 3.18,
+    "g5": 4.3,
+    "g6": 6.52,
+    "g7": 7.45,
+    "d1": 0.85,
+    "d2": 2.75,
+    "d4": 4.9,
+    "d5": 5.95,
+    "d6": 7.25,
+    "gm": 5.22
+  },
+  "noeuds": [
+    {
+      "id": "depA",
+      "type": "depart",
+      "col": "large",
+      "rang": "g1",
+      "ancre": "haut",
+      "taille": 15,
+      "texte": "Le courant vient de manquer",
+      "source": "section 2 ; étape 1"
+    },
+    {
+      "id": "u1",
+      "type": "urgent",
+      "col": "large",
+      "rang": "g2",
+      "ancre": "haut",
+      "temps": "15 min",
+      "taille": 10,
+      "texte": "**Regarder si la rue est noire aussi.** Si elle est éclairée et pas la maison, regarder le disjoncteur principal, puis le mât de branchement : un mât brisé laisse la maison sans courant, même quand la rue est rebranchée.",
+      "renvoi": "ch. 3, étape 1",
+      "source": "étape 1"
+    },
+    {
+      "id": "u2",
+      "type": "urgent",
+      "col": "large",
+      "rang": "g3",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**Éteindre les appareils qui marchaient et débrancher l'électronique.** Écrire l'heure sur la porte du congélateur, puis remplir la baignoire et des chaudrons d'eau.",
+      "renvoi": "ch. 3, étapes 2 à 4",
+      "source": "étapes 2 à 4"
+    },
+    {
+      "id": "u3",
+      "type": "urgent",
+      "col": "large",
+      "rang": "g4",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**Tester l'avertisseur de CO au bouton** et le poser dans la pièce où la famille va dormir.",
+      "renvoi": "ch. 3, étape 5",
+      "source": "étape 5"
+    },
+    {
+      "id": "qnuit",
+      "type": "question",
+      "col": "tronc",
+      "rang": "g5",
+      "texte": "La panne arrive la nuit, et la maison est encore chaude ?",
+      "precision": "Les enfants dorment",
+      "source": "chapeau de la série « Le courant ne revient pas »"
+    },
+    {
+      "id": "nuit",
+      "type": "geste",
+      "col": "cote",
+      "rang": "g5",
+      "taille": 10,
+      "texte": "**Envoyer un message texte à un proche, ajouter une couverture et une tuque aux enfants, et les laisser dormir.** Faire la suite au réveil.",
+      "renvoi": "ch. 3, étapes 6 à 11",
+      "source": "chapeau de la série « Le courant ne revient pas »"
+    },
+    {
+      "id": "msg",
+      "type": "urgent",
+      "col": "tronc",
+      "rang": "gm",
+      "ancre": "haut",
+      "temps": "6 h",
+      "taille": 10,
+      "texte": "**Envoyer un message texte à un proche** : où on est, combien on est, ce qu'on va faire.",
+      "renvoi": "ch. 3, étape 6",
+      "source": "étape 6"
+    },
+    {
+      "id": "q1",
+      "type": "question",
+      "col": "large",
+      "rang": "g6",
+      "texte": "La maison a un poêle à bois raccordé à une cheminée ?",
+      "precision": "Une fournaise au mazout ou au gaz s'arrête avec le courant",
+      "source": "étape 7"
+    },
+    {
+      "id": "fA",
+      "type": "urgent",
+      "col": "fA",
+      "rang": "g7",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**Allumer le poêle et vivre dans sa pièce.** Habiller tout le monde en couches et monter un abri pour la nuit.",
+      "renvoi": "ch. 3, étapes 7 à 10",
+      "source": "étapes 7 à 10"
+    },
+    {
+      "id": "fB",
+      "type": "urgent",
+      "col": "fB",
+      "rang": "g7",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**Vivre dans la plus petite pièce, sous un abri.** Suivre la température, vidanger avant 5 °C et partir de jour, pendant que la route est ouverte.",
+      "renvoi": "ch. 3, étape 7",
+      "source": "étape 7, « Sans poêle »"
+    },
+    {
+      "id": "q3",
+      "type": "question",
+      "col": "q3",
+      "rang": "d1",
+      "ancre": "haut",
+      "texte": "On peut rester à la maison ?",
+      "precision": "Il faut du bois sec pour toute la panne, un avertisseur qui répond au bouton, la pièce chauffée au-dessus de 5 °C, et personne qui dépend d'un appareil médical électrique",
+      "source": "étape 11"
+    },
+    {
+      "id": "partir",
+      "type": "geste",
+      "col": "partir",
+      "rang": "d1",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**Vidanger la maison, de jour, et la fermer à clé.** Partir pendant que la route est ouverte.",
+      "renvoi": "ch. 3, étapes 21 à 25 ; ch. 2",
+      "source": "étapes 11, 21 à 25"
+    },
+    {
+      "id": "rester",
+      "type": "geste",
+      "col": "rester",
+      "rang": "d2",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**Rester dans la pièce du poêle.** Vidanger avant que la pièce la plus froide descende à 5 °C, sortir la viande dehors le premier matin s'il gèle jour et nuit, et reprendre la décision deux fois par jour.",
+      "renvoi": "ch. 3, étapes 11, 21 à 29",
+      "source": "étapes 11, 21 à 25, 29"
+    },
+    {
+      "id": "depB",
+      "type": "depart",
+      "col": "large2",
+      "rang": "d4",
+      "ancre": "haut",
+      "taille": 12,
+      "texte": "L'avertisseur de CO sonne, ou plusieurs personnes ont mal à la tête, la nausée ou des étourdissements en même temps",
+      "source": "chapeau de la série « L'avertisseur de CO sonne »"
+    },
+    {
+      "id": "co1",
+      "type": "urgent",
+      "col": "large2",
+      "rang": "d5",
+      "ancre": "haut",
+      "temps": "1 min",
+      "taille": 10,
+      "texte": "**Réveiller et sortir tout le monde, tout de suite, sans chercher la source**, avec les manteaux, les bottes et les couvertures. Mettre les enfants au chaud chez un voisin, ou dans l'auto stationnée dehors, le tuyau d'échappement dégagé de la neige.",
+      "renvoi": "ch. 3, étapes 12 et 13",
+      "source": "étapes 12 et 13"
+    },
+    {
+      "id": "co2",
+      "type": "geste",
+      "col": "large2",
+      "rang": "d6",
+      "ancre": "haut",
+      "taille": 10,
+      "texte": "**Couper la source, aérer, et rentrer quand l'avertisseur est revenu à la normale.**",
+      "renvoi": "ch. 2, étapes 4 à 8",
+      "source": "étape 13 ; ch. 2, étapes 4 à 8"
+    }
+  ],
+  "liens": [
+    {
+      "de": "depA",
+      "vers": "u1"
+    },
+    {
+      "de": "u1",
+      "vers": "u2"
+    },
+    {
+      "de": "u2",
+      "vers": "u3"
+    },
+    {
+      "de": "u3",
+      "vers": "qnuit",
+      "sx": 2.025,
+      "ex": 2.025
+    },
+    {
+      "de": "qnuit",
+      "vers": "nuit",
+      "etiquette": "Oui",
+      "sortie": "droite",
+      "entree": "gauche"
+    },
+    {
+      "de": "qnuit",
+      "vers": "msg",
+      "etiquette": "Non",
+      "sx": 2.025,
+      "ex": 2.025
+    },
+    {
+      "de": "msg",
+      "vers": "q1",
+      "sx": 2.025,
+      "ex": 2.025
+    },
+    {
+      "de": "nuit",
+      "vers": "q1",
+      "etiquette": "Au réveil",
+      "sx": 5.8125,
+      "ex": 5.8125,
+      "pos": "milieu"
+    },
+    {
+      "de": "q1",
+      "vers": "fA",
+      "etiquette": "Oui",
+      "coude": 7.1,
+      "pos": "palier",
+      "sx": 3.94
+    },
+    {
+      "de": "q1",
+      "vers": "fB",
+      "etiquette": "Non",
+      "coude": 7.1,
+      "pos": "palier",
+      "sx": 3.94
+    },
+    {
+      "de": "fA",
+      "vers": "q3",
+      "sortie": "bas",
+      "entree": "gauche",
+      "via": [
+        [
+          2.15,
+          9.05
+        ],
+        [
+          8.7,
+          9.05
+        ],
+        [
+          8.7,
+          1.3
+        ]
+      ]
+    },
+    {
+      "de": "q3",
+      "vers": "partir",
+      "etiquette": "Non",
+      "sortie": "droite",
+      "entree": "gauche",
+      "sy": 1.2,
+      "ey": 1.2
+    },
+    {
+      "de": "q3",
+      "vers": "rester",
+      "etiquette": "Oui",
+      "sx": 10.5116,
+      "ex": 10.5116
+    },
+    {
+      "de": "depB",
+      "vers": "co1"
+    },
+    {
+      "de": "co1",
+      "vers": "co2"
+    }
+  ]
+}

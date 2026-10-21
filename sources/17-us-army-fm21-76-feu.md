@@ -77,3 +77,88 @@
 - Aucune durée de vie d'une braise transportée (« punk » = bois pourri sec qui couve).
 - Le manuel veut un foret de **bois dur** sur une planchette de **bois tendre** ; il ne parle pas d'un
   foret et d'une planchette de la même essence.
+
+## Extraits ajoutés le 16 octobre 2026 (chapitre 13, nouvelle numérotation)
+
+Tirés du même PDF enregistré (`sources/17-us-army-fm21-76-survie.pdf`), avec `pdftotext -layout`.
+
+### Le foyer (p. 64 et 65 du PDF)
+
+> « CAUTION Do not use wet or porous rocks as they may explode when heated. »
+
+> « If you are in a snow-covered area, use green logs to make a dry base for your fire (Figure
+> 7-3). Trees with wrist-sized trunks are easily broken in extreme cold. Cut or break several green
+> logs and lay them side by side on top of the snow. Add one or two more layers. Lay the top layer
+> of logs opposite those below it. »
+
+### Le tipi (p. 66)
+
+> « arrange the tinder and a few sticks of kindling in the shape of a tepee or cone. Light the
+> center. As the tepee burns, the outside logs will fall inward, feeding the fire. This type of
+> fire burns well even with wet wood. »
+
+### Allumer (p. 67 et 68)
+
+> « Always light your fire from the upwind side. »
+
+> « Convex Lens. Use this method (Figure 7-6) only on bright, sunny days. The lens can come from
+> binoculars, camera, telescopic sights, or magnifying glasses. Angle the lens to concentrate the
+> sun's rays on the tinder. Hold the lens over the same spot until the tinder begins to smolder.
+> Gently blow or fan the tinder into flame, and apply it to the fire lay. »
+
+### Le froid (chapitre 15, p. 156 et 157)
+
+> « Fires have been known to burn underground, resurfacing nearby. Therefore, do not build a fire
+> too close to a shelter. »
+
+> « A fire inside a shelter lacking adequate ventilation can result in carbon monoxide poisoning. »
+
+> « A person trying to get warm or to dry clothes may become careless and burn or scorch his
+> clothing and equipment. »
+
+> « Make tinder for starting fires from cattail fluff, cedar bark, lighter knot wood from pine
+> trees, or hardened sap from resinous wood trees. » (chapitre 9, plantes, p. 107 du PDF)
+
+### Amadou, petit bois, combustible (ajouté le 16 octobre 2026, soir, pour le ch. 13, étape 10)
+
+Tiré du PDF déjà enregistré (`17-us-army-fm21-76-survie.pdf`, chapitre 7, « Fire Material Selection ») :
+
+> « You need three types of materials (Figure 7-4) to build a fire--tinder, kindling, and fuel.
+> Tinder is dry material that ignites with little heat--a spark starts a fire. The tinder must be
+> absolutely dry to be sure just a spark will ignite it. [...] Kindling is readily combustible
+> material that you add to the burning tinder. Again, this material should be absolutely dry to ensure
+> rapid burning. Kindling increases the fire's temperature so that it will ignite less combustible
+> material. Fuel is less combustible material that burns slowly and steadily once ignited. »
+
+Sert à : ch. 13, étape 10 (l'étincelle allume l'amadou, l'amadou allume le petit bois, le petit bois
+allume les grosseurs suivantes ; tout doit être sec).
+
+## Ce que ces ajouts règlent au chapitre 13
+
+| Fait | Où |
+| --- | --- |
+| Pierres mouillées ou poreuses : elles éclatent au feu | Étape 8 |
+| Sur la neige : deux ou trois rangs de bois vert, gros comme le poignet, le rang du dessus en travers | Étapes 4 et 8 |
+| Le tipi brûle bien même avec du bois mouillé | Étape 13 |
+| Allumer du côté d'où vient le vent | Étape 13 |
+| La lentille : seulement par soleil franc ; tenir le point immobile jusqu'à ce que ça fume, puis souffler doucement | Étapes 22 à 24 |
+| Le feu peut brûler sous terre et ressortir plus loin | Étapes 8 et 29 |
+| Barbe de quenouille, écorce de cèdre, bois gras de pin, gomme figée : amadou | Section 9 |
+| Le foret en bois dur, la planchette en bois tendre (déjà plus haut) | Section 9, l'arc à feu |
+
+## Extrait ajouté le 19 octobre 2026 (ch. 13, étape 8 : le feu dans le vent)
+
+Tiré du même PDF enregistré (`17-us-army-fm21-76-survie.pdf`, chapitre 7, « Site Selection and Preparation »,
+p. 63 et 64 du PDF, `pdftotext -layout`) :
+
+> « Look for a dry spot that-- • Is protected from the wind. »
+
+> « If time allows, construct a fire wall using logs or rocks. This wall will help to reflect or direct the heat
+> where you want it (Figure 7-1). It will also reduce flying sparks and cut down on the amount of wind blowing into
+> the fire. However, you will need enough wind to keep the fire burning. »
+
+Sert à : ch. 13, étape 8, dernière sous-étape. Quand il faut un feu pour se réchauffer et que le vent dépasse
+20 km/h (la limite de la SOPFEU, `17-sopfeu-feux-de-camp.md`), le faire derrière une butte ou un rocher, ou monter un
+mur de bûches ou de pierres sèches du côté du vent : il coupe le vent qui entre dans le feu, retient les étincelles
+et renvoie la chaleur. Remplace la phrase marquée `[À VÉRIFIER]` (« le plus petit possible, derrière une butte, un
+rocher ou un mur de neige, et dégager plus large autour »), dont rien n'était sourcé.

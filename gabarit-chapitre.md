@@ -17,16 +17,16 @@ Une phrase. Pas deux.
 
 ## 2. Quand l'utiliser
 
-La situation où c'est le bon choix, et celle où c'en est un mauvais. Les deux listes,
-toujours. Un chapitre qui ne dit pas quand ne pas l'utiliser est incomplet.
+**Seulement quand l'utiliser** : une courte liste des situations où on ouvre ce chapitre, sans
+sous-titre. Une ligne par situation, dite comme on la voit (« Un feu est déclaré dans le secteur »,
+« De la cendre tombe sur la galerie »), sans justification.
 
-**Aucune évidence dans ces listes.** « Sortir si le bâtiment brûle », « obéir aux
-autorités qui ordonnent l'évacuation », « ne pas rester si une vie est en jeu » :
-personne n'apprend rien et ça vole la place du contenu. Une entrée reste seulement si
-elle dit quelque chose qu'un adulte sensé ne devinerait pas tout seul — par exemple que
-devant une source radiologique perdue on s'éloigne au lieu de se confiner, ce qui est
-l'inverse du réflexe. Si la liste tombe à deux entrées vraies, elle fait deux entrées.
-Si elle tombe à zéro, elle saute.
+**Pas de liste « quand ne pas l'utiliser »** (JP, 15 octobre 2026, sur « C'est la mauvaise procédure quand :
+le feu est dans le bâtiment, dans un chaudron » au chapitre du feu de forêt : « no shit qu'une procédure de
+feu de forêt couvre pas un feu de chaudron ; quand l'utiliser, c'est juste quand l'utiliser, pas besoin de
+donner des exemples bidon »). Le contre-exemple évident ne s'écrit pas. Le rare fait qui retourne un
+réflexe (devant une source radiologique perdue, on s'éloigne au lieu de se confiner) va dans l'étape
+où il sert ou dans l'encadré danger, pas ici.
 
 ## 3. Pourquoi ça marche
 
@@ -38,13 +38,13 @@ Sans cette section, le lecteur applique une recette ; avec elle, il comprend et 
 
 **Seulement l'indispensable** — ce sans quoi la procédure échoue ou devient dangereuse —
 en liste, **une ligne par item, 15 à 20 mots** : le nom en gras, puis ce qu'il fait ou ce
-que c'est. Un substitut seulement s'il est vital, sinon « (→ §9) ». Pas de tableau, pas de
+que c'est. Un substitut seulement s'il est vital, sinon « (→ section 9) ». Pas de tableau, pas de
 gants, d'étiquettes ni de ce que tout le monde a déjà. JP, 27 septembre 2026 : « c'est long
 pour rien ». Le format validé :
 
 ```
-- **Thermomètre à sonde** — porte les 74 °C à cœur. Ne se fabrique pas.
-- **Sel nitrité** — sel + nitrite de sodium, 2e barrière contre le botulisme. Dosé selon l'emballage.
+- **Thermomètre à sonde** : porte les 74 °C à cœur. Ne se fabrique pas.
+- **Sel nitrité** : sel et nitrite de sodium, deuxième barrière contre le botulisme. Dosé selon l'emballage.
 ```
 
 **L'item se nomme, il ne se spécifie pas.** « Scie à chaîne », pas le pantalon forestier
@@ -53,7 +53,7 @@ ASTM, ni ULC, ni ANSI. Si un détail mérite de survivre, c'est celui qui dit ce
 chose **fait** : le pantalon de coupe bourre la chaîne et l'arrête. Ça change un
 comportement ; un numéro, non.
 
-Le jour où l'item n'est pas là, c'est la variante d'urgence (§9) qui sert : c'est elle qui
+Le jour où l'item n'est pas là, c'est la variante d'urgence (section 9) qui sert : c'est elle qui
 fabrique ou remplace, pas la liste.
 
 ## 5. Procédure
@@ -72,7 +72,15 @@ hors cible. À quoi ça doit ressembler, sentir et peser à chaque étape.
 Ce qui indique qu'il faut jeter. Formulé sans ambiguïté. Un tableau observation →
 diagnostic → action. « Ça sent bizarre » ne suffit pas.
 
-## 8. Danger
+## 8. Danger (retiré)
+
+**La section Danger sort des chapitres** (JP, 18 octobre 2026 : « on crée des pictogrammes pour tous les dangers ;
+les dangers sont expliqués une fois dans le livre, dans la section qui explique les symboles ; chaque fois qu'un
+danger est présent, on affiche le pictogramme et on enlève la section »). Le gabarit en vigueur a sept sections
+(1 En une ligne, 2 Quand l'utiliser, 3 Matériel, 4 Procédure, 5 Points de contrôle, 6 Signes d'échec, 7 Variante
+d'urgence ; voir CLAUDE.md). Dans l'étape où le danger se présente : le pictogramme (`{!id}`, ids dans
+`plan/dangers-inventaire.md`) et ce qui est propre au chapitre. Le texte ci-dessous reste pour la règle du mécanisme,
+qui vaut maintenant pour la page du tome et pour l'étape :
 
 Encadré. Seulement quand il y a un risque de mort ou d'intoxication grave. Pas de
 dilution : si l'encadré est partout, personne ne le lit.
@@ -88,7 +96,7 @@ même place dans le chapitre.
 
 C'est ici que vit la raison d'être du livre. La manière propre avec le bon outil, il la
 connaît déjà ; le jour où il ouvre cette page, le bon outil n'est pas là. Souder avec deux
-batteries de char montées en série, remplacer un joint par du cuir gras, fabriquer l'outil
+batteries d'auto montées en série, remplacer un joint par du cuir gras, fabriquer l'outil
 manquant, faire tenir la chose avec ce qui traîne : chaque fois qu'une manière de faire
 avec rien existe, elle se trouve ici, détaillée, pas mentionnée.
 
@@ -99,6 +107,20 @@ Une variante d'urgence de trois lignes est le signe que le chapitre n'a pas fait
 travail.
 
 ---
+
+## En plus (section non numérotée, à la fin)
+
+Ajoutée le 18 octobre 2026 (JP : « fais un mixte et mets des encadrés pour montrer que c'est de l'extra, en vert
+pâle »). Une réserve de 4 à 8 notes `### Titre`, 30 à 80 mots chacune (JP : « moins de texte »), que la mise en pages
+laisse dans le texte (chapitre.js, `fillExtras` et `placerNotes`) : une feuille vert pâle droite (JP : « mets-les pas
+croches »), avec une ombre douce, dans une colonne d'une page qui a de la place, **une seule par page**, glissée après le paragraphe de
+l'étape dont elle parle (JP : « je veux pas qu'ils soient cordés ; genre des notes laissées doucement dans le texte, la
+bulle est trop invasive » ; « plus naturel, plus beau, plus d'ombre, dispersé »). La note dit son étape entre
+parenthèses quand elle en a une : c'est ce qui la place. Trois genres seulement : la façon des Innus ou d'une autre nation du Nord (pourquoi elle
+marche, ce qui la rend dangereuse si on change ses conditions), un fait, ou une photo pour reconnaître
+(`![légende](images/extras/….jpg)`). **Jamais de planche ni de dessin** (JP : « je veux pas de planche dans les
+affaires vertes »). Ce qui est bon à savoir sans être nécessaire au geste ; jamais une redite du chapitre. Une note qui
+ne trouve pas de page ne s'imprime pas, et le rapport de l'assembleur le dit.
 
 ## Ce qui n'est plus dans le chapitre
 
@@ -144,3 +166,6 @@ occidentalis*), une unité, une équivalence. Jamais un nom d'organisme.
 Environ 700 mots utiles par page en 8 × 10. Une phrase qui n'apprend rien saute.
 Pas d'introduction qui annonce ce qui suit, pas de conclusion qui résume ce qui précède,
 pas de « il est important de noter que ».
+
+La phrase et le mot : skill `ecriture` (`.claude/skills/ecriture/SKILL.md`). Aucun tiret de ponctuation,
+aucune image poétique, aucune phrase qui parle du livre.

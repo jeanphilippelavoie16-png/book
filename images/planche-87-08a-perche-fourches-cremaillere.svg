@@ -5,23 +5,24 @@
 <pattern id="h-bois" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#1A1A1A" stroke-width="0.7"/></pattern>
 <pattern id="h-terre" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="5.5" stroke="#1A1A1A" stroke-width="0.7"/><line x1="4.5" y1="4.5" x2="4.5" y2="9" stroke="#1A1A1A" stroke-width="0.5"/></pattern>
 <marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#1A1A1A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<marker id="fl-r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 Z" fill="#9B2C1E" stroke="#9B2C1E" stroke-width="1" stroke-linejoin="round"/></marker>
 </defs>
 <rect x="0" y="0" width="680" height="826" fill="#FFFFFF"/>
 <text x="40" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">De face, au-dessus du feu long</text>
 <g transform="translate(40 46)" data-vue="elev">
 <rect x="0" y="308" width="402" height="22" fill="url(#h-terre)" stroke="none"/>
 <line x1="0" y1="308" x2="402" y2="308" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
-<rect x="66" y="298" width="264" height="10" fill="#ffffff" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
-<rect x="72" y="288" width="264" height="10" fill="#ffffff" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
-<rect x="66" y="278" width="264" height="10" fill="#ffffff" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
-<rect x="74" y="270" width="4" height="38" fill="#ffffff" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
-<rect x="199" y="270" width="4" height="38" fill="#ffffff" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
-<rect x="324" y="270" width="4" height="38" fill="#ffffff" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="66" y="298" width="264" height="10" fill="#E6E6E6" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="72" y="288" width="264" height="10" fill="#E6E6E6" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="66" y="278" width="264" height="10" fill="#E6E6E6" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="74" y="270" width="4" height="38" fill="#E6E6E6" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="199" y="270" width="4" height="38" fill="#E6E6E6" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="324" y="270" width="4" height="38" fill="#E6E6E6" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M28.5 308 L28.5 320 L34 326 L39.5 320 L39.5 308" fill="#ffffff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M28.5 308 L29 89 L23.8 60 L30.2 60 L34 77 L37.8 60 L44.2 60 L39 89 L39.5 308 Z" fill="#ffffff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M362.5 308 L362.5 320 L368 326 L373.5 320 L373.5 308" fill="#ffffff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M362.5 308 L363 89 L357.8 60 L364.2 60 L368 77 L371.8 60 L378.2 60 L373 89 L373.5 308 Z" fill="#ffffff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<rect x="12" y="67" width="378" height="10" fill="#ffffff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="12" y="67" width="378" height="10" fill="#ffffff" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M36.8 78.1 L43.8 61.1 L38.2 58.9 L31.2 75.9 Z" fill="#ffffff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M370.8 78.1 L377.8 61.1 L372.2 58.9 L365.2 75.9 Z" fill="#ffffff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <ellipse cx="93" cy="300.1" rx="5" ry="3.4" fill="#ffffff" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
@@ -70,18 +71,22 @@
 <path d="M 318 293 C 313.45 289.1 316.7 283.9 318.65 280 C 319.56 285.2 322.94 288.45 318 293 Z" fill="#ffffff" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M 330 293 C 326.5 290 329 286 330.5 283 C 331.2 287 333.8 289.5 330 293 Z" fill="#ffffff" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M 98 240 Q 114 213.5 137 191 Q 160 213.5 176 240" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M 99 236 C 94.44 261.3 109.64 282 137 282 C 164.36 282 179.56 261.3 175 236 Z" fill="#ffffff" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 99 236 C 94.44 261.3 109.64 282 137 282 C 164.36 282 179.56 261.3 175 236 Z" fill="#FFFFFF" stroke="none"/>
+<path d="M 175 236 C 179.56 261.3 164.36 282 137 282 C 155.24 275.56 167.4 259 167.4 236 Z" fill="#CFCFCF" stroke="none"/>
+<path d="M 99 236 C 94.44 261.3 109.64 282 137 282 C 164.36 282 179.56 261.3 175 236 Z" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <rect x="96" y="232" width="82" height="4" fill="#ffffff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="98" cy="240" r="2.2" fill="#ffffff" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="176" cy="240" r="2.2" fill="#ffffff" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M132.5 14 L141.5 14 L141.5 202 L132.5 202 Z" fill="#ffffff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M132.5 14 L141.5 14 L141.5 202 L132.5 202 Z" fill="#ffffff" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="132.5" y1="44" x2="141.5" y2="44" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 3.5"/>
 <line x1="132.5" y1="66" x2="141.5" y2="66" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 3.5"/>
 <line x1="132.5" y1="88" x2="141.5" y2="88" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 3.5"/>
 <line x1="132.5" y1="110" x2="141.5" y2="110" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 3.5"/>
 <line x1="132.5" y1="132" x2="141.5" y2="132" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 3.5"/>
 <path d="M 224 168 Q 235 149.5 253 135 Q 271 149.5 282 168" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M 225 164 C 221.64 183.8 232.84 200 253 200 C 273.16 200 284.36 183.8 281 164 Z" fill="#ffffff" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 225 164 C 221.64 183.8 232.84 200 253 200 C 273.16 200 284.36 183.8 281 164 Z" fill="#FFFFFF" stroke="none"/>
+<path d="M 281 164 C 284.36 183.8 273.16 200 253 200 C 266.44 194.96 275.4 182 275.4 164 Z" fill="#CFCFCF" stroke="none"/>
+<path d="M 225 164 C 221.64 183.8 232.84 200 253 200 C 273.16 200 284.36 183.8 281 164 Z" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <rect x="222" y="160" width="62" height="4" fill="#ffffff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="224" cy="168" r="2.2" fill="#ffffff" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="282" cy="168" r="2.2" fill="#ffffff" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
@@ -92,8 +97,8 @@
 <g transform="translate(464.8 46)" data-vue="bout">
 <rect x="0" y="308" width="175" height="22" fill="url(#h-terre)" stroke="none"/>
 <line x1="0" y1="308" x2="175" y2="308" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M58.5 308 L58.5 320 L64 326 L69.5 320 L69.5 308" fill="#ffffff" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M58.5 308 L59 98 L40.8 54 L47.2 54 L64 86 L80.8 54 L87.2 54 L69 98 L69.5 308 Z" fill="#ffffff" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M58.5 308 L58.5 320 L64 326 L69.5 320 L69.5 308" fill="#E6E6E6" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M58.5 308 L59 98 L40.8 54 L47.2 54 L64 86 L80.8 54 L87.2 54 L69 98 L69.5 308 Z" fill="#E6E6E6" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <rect x="122" y="270" width="4" height="46" fill="#ffffff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <rect x="140" y="270" width="4" height="46" fill="#ffffff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="133" cy="302.5" r="5.5" fill="url(#h-bois)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
@@ -115,9 +120,11 @@
 <ellipse cx="82" cy="305.6" rx="4" ry="2.4" fill="#ffffff" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <ellipse cx="92" cy="304.6" rx="5" ry="3.4" fill="#ffffff" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M64.3 202.1 L76.3 186.1 L70.7 181.9 L58.7 197.9 Z" fill="#ffffff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M53.5 14 L64.5 14 L64.5 22 L58 22 L58 34 L64.5 39 L64.5 44 L58 44 L58 56 L64.5 61 L64.5 66 L58 66 L58 78 L64.5 83 L64.5 92 L58 92 L58 104 L64.5 109 L64.5 114 L58 114 L58 126 L64.5 131 L64.5 136 L58 136 L58 148 L64.5 153 L64.5 204 L53.5 204 Z" fill="#ffffff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M53.5 14 L64.5 14 L64.5 22 L58 22 L58 34 L64.5 39 L64.5 44 L58 44 L58 56 L64.5 61 L64.5 66 L58 66 L58 78 L64.5 83 L64.5 92 L58 92 L58 104 L64.5 109 L64.5 114 L58 114 L58 126 L64.5 131 L64.5 136 L58 136 L58 148 L64.5 153 L64.5 204 L53.5 204 Z" fill="#ffffff" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="64" cy="72" r="6" fill="url(#h-bois)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
-<path d="M 28 236 C 23.44 261.3 38.64 282 66 282 C 93.36 282 108.56 261.3 104 236 Z" fill="#ffffff" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 28 236 C 23.44 261.3 38.64 282 66 282 C 93.36 282 108.56 261.3 104 236 Z" fill="#FFFFFF" stroke="none"/>
+<path d="M 104 236 C 108.56 261.3 93.36 282 66 282 C 84.24 275.56 96.4 259 96.4 236 Z" fill="#CFCFCF" stroke="none"/>
+<path d="M 28 236 C 23.44 261.3 38.64 282 66 282 C 93.36 282 108.56 261.3 104 236 Z" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <rect x="25" y="232" width="82" height="4" fill="#ffffff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="66" y1="240" x2="66" y2="191" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="66" cy="240" r="2.2" fill="#ffffff" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
@@ -153,19 +160,20 @@
 <line x1="39" y1="26" x2="65" y2="26" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="4 3"/>
 <line x1="53" y1="172.2" x2="74.2" y2="187.3" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="4 3"/>
 <path d="M130.3 198.3 L141.5 181.8 L135.8 177.7 L123.7 193.7 Z" fill="#ffffff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M122 26 L132 26 L132 42 L127.5 42 L127.5 50 L132 54 L132 64 L127.5 64 L127.5 72 L132 76 L132 86 L127.5 86 L127.5 94 L132 98 L132 108 L127.5 108 L127.5 116 L132 120 L132 210 L122 210 Z" fill="#ffffff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M122 26 L132 26 L132 42 L127.5 42 L127.5 50 L132 54 L132 64 L127.5 64 L127.5 72 L132 76 L132 86 L127.5 86 L127.5 94 L132 98 L132 108 L127.5 108 L127.5 116 L132 120 L132 210 L122 210 Z" fill="#ffffff" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="125" y1="30" x2="125" y2="206" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="129" y1="30" x2="129" y2="206" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M 74 102 L 105 102" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
 </g>
 <text x="247.3" y="414.9" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Un cran, grossi</text>
 <g transform="translate(247.3 422.9)" data-vue="cran">
-<path d="M36 6 L70 6 L70 32 L54 32 L54 62 L70 74 L70 102 L54 102 L54 132 L70 144 L70 174 L54 174 L54 204 L70 216 L70 238 L36 238 Z" fill="#ffffff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M36 6 L70 6 L70 32 L54 32 L54 62 L70 74 L70 102 L54 102 L54 132 L70 144 L70 174 L54 174 L54 204 L70 216 L70 238 L36 238 Z" fill="#ffffff" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="44" y1="12" x2="44" y2="232" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="53" y1="12" x2="53" y2="232" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="62" y1="12" x2="62" y2="232" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="69" cy="117" r="15" fill="url(#h-bois)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
-<path d="M 16 142 L 16 88" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
+<path d="M 16 142 L 16 88" fill="none" stroke="#9B2C1E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl-r)"/>
+<circle cx="62" cy="102" r="12" fill="none" stroke="#9B2C1E" stroke-width="1.6"/>
 </g>
 <text x="417.6" y="414.9" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Vu de dessus</text>
 <g transform="translate(417.6 422.9)" data-vue="plan">
@@ -245,7 +253,7 @@
 <ellipse cx="154" cy="163.9" rx="4.5" ry="3.1" fill="#ffffff" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <rect x="144" y="144" width="36" height="6" fill="#ffffff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <rect x="148" y="152" width="34" height="6" fill="#ffffff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M 176 179 L 128 179" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
+<path d="M 176 179 L 128 179" fill="none" stroke="#9B2C1E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl-r)"/>
 <circle cx="75" cy="151" r="19.8" fill="#ffffff" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="75" cy="151" r="16.8" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="140" cy="151" r="14" fill="#ffffff" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>

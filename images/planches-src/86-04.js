@@ -12,6 +12,15 @@
 // l'alternateur ; excitation : + batterie → interrupteur → ampoule témoin → borne du témoin ;
 // sortie : gros câble au + ; borne S au + ; boîtier au − ; voltmètre sur les deux bornes.
 // Les deux poulies tournent dans le même sens (courroie ouverte).
+//
+// La charte : un gris, h.a.loin, sur le moteur et l'alternateur de la vue de dessus (l'objet
+// secondaire qu'on voit sans qu'il prenne l'œil) ; les autres vues sont des élévations, un schéma
+// et deux coupes hachurées. Le rouge : trois points à contrôler, le fil tendu qui touche la face
+// de chaque poulie (les arbres alignés), et l'interrupteur du témoin, ouvert à l'arrêt.
+// Aucun geste fléché : rien ne change.
+// Redessin du 14 octobre 2026 (vue de dessus sans hiérarchie) : la hachure du madrier qui
+// couvrait la vue est partie, les deux vues du haut ont la même largeur et donc la même échelle,
+// la courroie passe par-dessus les deux poulies comme on la voit d'en haut.
 
 module.exports = (h) => {
   const r1 = v => Math.round(v * 10) / 10;
@@ -162,39 +171,65 @@ module.exports = (h) => {
   }
 
   // ───────────────────── Vue 2 : vu de dessus, le fil tendu ─────────────────────
-  // Nominal 380 × 290 ; mêmes abscisses que la vue 1. Les arbres pointent vers le bas.
-  const BW2 = 380, BH2 = 292;
-  const yF = 244;   // plan des faces avant des deux poulies
+  // Nominal 380 × 258 ; mêmes abscisses que la vue 1, et la même échelle sur la page (les deux
+  // vues ont la même largeur). Les arbres pointent vers le bas, vers le fil.
+  // La hiérarchie : ce que la vue montre, ce sont les deux poulies dans le même plan et le fil
+  // qui touche leurs deux faces. Les poulies au contour fort, la courroie et le fil à 1,4, le
+  // fil prolongé jusqu'à ses deux clous. Le moteur et l'alternateur sont l'objet secondaire,
+  // en gris loin, pour qu'on les reconnaisse sans qu'ils prennent l'œil. Le madrier est blanc,
+  // son fil de bois à 0,5 : plus de hachure qui couvre la vue.
+  const BW2 = 380, BH2 = 258;
+  const yF = 210;   // plan des faces avant des deux poulies
   function dessinDessus(z) {
     const { s, P, Q } = cadre(z, BW2, BH2);
     const o = [];
-    o.push(h.rect(...P(4, 72), 372 * s, 190 * s, h.a.hachure('bois', 'arete')));
-    // Moteur vu de dessus : lanceur à l'arrière, cylindre et silencieux à gauche, réservoir.
-    o.push(poly(Q([[58, 40], [142, 40], [142, 62], [58, 62]])));
-    o.push(poly(Q([[8, 96], [36, 96], [36, 168], [8, 168]])));
-    o.push(poly(Q([[30, 90], [58, 90], [58, 176], [30, 176]])));
-    for (let x = 34; x <= 54; x += 5) o.push(h.ligne(...P(x, 90), ...P(x, 176), h.a.detail));
-    o.push(poly(Q([[46, 62], [158, 62], [158, 212], [46, 212]]), h.a.contour));
-    o.push(poly(Q([[118, 84], [170, 84], [170, 180], [118, 180]])));
-    o.push(h.cercle(...P(158, 96), 6 * s, h.a.arete));
-    // Arbre et poulie du moteur, vue sur la tranche.
-    o.push(poly(Q([[95, 212], [105, 212], [105, 228], [95, 228]])));
-    o.push(poly(Q([[Cm[0] - R1, 228], [Cm[0] + R1, 228], [Cm[0] + R1, yF], [Cm[0] - R1, yF]])));
-    // Alternateur vu de dessus : boîtier couché, ventilateur, arbre, poulie.
-    o.push(poly(Q([[Ca[0] - Rb, 118], [Ca[0] + Rb, 118], [Ca[0] + Rb, 208], [Ca[0] - Rb, 208]]), h.a.contour));
-    for (let y = 132; y <= 196; y += 16) o.push(h.ligne(...P(Ca[0] - Rb + 6, y), ...P(Ca[0] + Rb - 6, y), h.a.detail));
-    o.push(poly(Q([[Ca[0] - 42, 208], [Ca[0] + 42, 208], [Ca[0] + 42, 218], [Ca[0] - 42, 218]])));
-    o.push(poly(Q([[Ca[0] - 4, 218], [Ca[0] + 4, 218], [Ca[0] + 4, 228], [Ca[0] - 4, 228]])));
-    o.push(poly(Q([[Ca[0] - R2, 228], [Ca[0] + R2, 228], [Ca[0] + R2, yF], [Ca[0] - R2, yF]])));
-    // Courroie vue de dessus, dans les deux gorges.
-    o.push(poly(Q([[Cm[0] + R1 - 6, 233], [Ca[0] - R2 + 6, 233], [Ca[0] - R2 + 6, 239], [Cm[0] + R1 - 6, 239]])));
-    o.push(h.ligne(...P(Cm[0] - R1 + 6, 233), ...P(Cm[0] - R1 + 6, 239), h.a.detail));
-    o.push(h.ligne(...P(Ca[0] + R2 - 6, 233), ...P(Ca[0] + R2 - 6, 239), h.a.detail));
-    // Le fil tendu contre les faces des deux poulies, noué à deux clous.
-    const fy = yF + 1.2;
-    o.push(h.ligne(...P(22, fy), ...P(358, fy), h.a.detail));
-    o.push(h.cercle(...P(20, fy), 3.2 * s, h.a.plein));
-    o.push(h.cercle(...P(360, fy), 3.2 * s, h.a.plein));
+    const gris = (pts, trait = h.a.arete) => h.chemin(pts, h.a.loin, true) + '\n' + h.chemin(pts, trait, true);
+    // Rectangle à coins arrondis, en repère nominal.
+    const rr = (x0, y0, x1, y1, r) => {
+      const a = P(x0, y0), b = P(x1, y1), k = r * s;
+      return `M ${pt([a[0] + k, a[1]])} L ${pt([b[0] - k, a[1]])} Q ${pt([b[0], a[1]])} ${pt([b[0], a[1] + k])} L ${pt([b[0], b[1] - k])} Q ${pt([b[0], b[1]])} ${pt([b[0] - k, b[1]])} L ${pt([a[0] + k, b[1]])} Q ${pt([a[0], b[1]])} ${pt([a[0], b[1] - k])} L ${pt([a[0], a[1] + k])} Q ${pt([a[0], a[1]])} ${pt([a[0] + k, a[1]])} Z`;
+    };
+    const grisR = (x0, y0, x1, y1, r, trait = h.a.arete) => h.path(rr(x0, y0, x1, y1, r), h.a.loin) + '\n' + h.path(rr(x0, y0, x1, y1, r), trait);
+
+    // Le madrier, vu de dessus : blanc, au trait fin ; il porte tout sans prendre l’œil, et le
+    // carter du lanceur le déborde à l’arrière, pour qu’il se lise comme une planche et non un cadre.
+    o.push(h.rect(...P(4, 30), 372 * s, 202 * s, 'fill="#FFFFFF" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round"'));
+
+    // ── Moteur, en gris : lanceur à l'arrière, silencieux et cylindre à gauche, réservoir à droite ──
+    o.push(grisR(64, 14, 136, 40, 9));                       // carter du lanceur
+    o.push(grisR(8, 82, 30, 146, 5));                        // silencieux
+    o.push(gris(Q([[26, 74], [58, 74], [58, 156], [26, 156]])));   // cylindre à ailettes
+    for (let x = 31; x <= 53; x += 5.5) o.push(h.ligne(...P(x, 76), ...P(x, 154), h.a.detail));
+    o.push(grisR(46, 40, 158, 178, 8));                      // carter
+    o.push(grisR(116, 58, 170, 150, 6));                     // réservoir
+    o.push(h.cercle(...P(156, 72), 6 * s, h.a.detail));      // bouchon
+    // ── Alternateur, en gris : boîtier couché, joint des deux demi-carters, fentes, ventilateur ──
+    o.push(grisR(Ca[0] - Rb, 90, Ca[0] + Rb, 172, 10));
+    o.push(h.ligne(...P(Ca[0] - Rb, 131), ...P(Ca[0] + Rb, 131), h.a.detail));
+    for (const y of [106, 116, 146, 156]) o.push(h.ligne(...P(Ca[0] - 30, y), ...P(Ca[0] + 30, y), h.a.detail));
+    o.push(gris(Q([[Ca[0] - 42, 172], [Ca[0] + 42, 172], [Ca[0] + 42, 180], [Ca[0] - 42, 180]])));
+
+    // ── Les deux arbres, les deux poulies, la courroie : le sujet de la vue ──
+    o.push(poly(Q([[Cm[0] - 5, 178], [Cm[0] + 5, 178], [Cm[0] + 5, 186], [Cm[0] - 5, 186]])));
+    o.push(poly(Q([[Ca[0] - 4, 180], [Ca[0] + 4, 180], [Ca[0] + 4, 186], [Ca[0] - 4, 186]])));
+    const yP = 186;   // dos des poulies
+    o.push(poly(Q([[Cm[0] - R1, yP], [Cm[0] + R1, yP], [Cm[0] + R1, yF], [Cm[0] - R1, yF]]), h.a.contour));
+    o.push(poly(Q([[Ca[0] - R2, yP], [Ca[0] + R2, yP], [Ca[0] + R2, yF], [Ca[0] - R2, yF]]), h.a.contour));
+    // La courroie passe par-dessus les deux poulies : vue d'en haut, elle couvre leur gorge
+    // d'un bout à l'autre, et dépasse un peu les jantes (elle est enroulée autour).
+    o.push(poly(Q([[Cm[0] - R1 - 4, 194], [Ca[0] + R2 + 4, 194], [Ca[0] + R2 + 4, 202], [Cm[0] - R1 - 4, 202]])));
+
+    // Le fil tendu contre les faces avant des deux poulies, noué à deux clous plantés dans le madrier.
+    const fy = yF + 1.9;
+    const c1 = [12, fy], c2 = [368, fy];
+    o.push(h.ligne(...P(c1[0] + 3, fy), ...P(c2[0] - 3, fy), h.a.arete));
+    [c1, c2].forEach(c => {
+      o.push(h.cercle(...P(...c), 4.2 * s, 'fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4"'));
+      o.push(h.cercle(...P(...c), 1.6 * s, h.a.plein));
+    });
+    // Les points à contrôler : le fil touche la face de chaque poulie sur toute sa largeur.
+    o.push(h.controle(...P(Cm[0], fy), 12 * s));
+    o.push(h.controle(...P(Ca[0], fy), 12 * s));
     return o.join('\n');
   }
 
@@ -264,6 +299,8 @@ module.exports = (h) => {
     o.push(poly(Q([[334, yT - 9], [362, yT - 9], [362, yT + 9], [334, yT + 9]])));
     o.push(h.ligne(...P(348, yT - 9), ...P(356, yT - 26), h.a.contour));
     o.push(disque(P(356, yT - 27), 3.5 * s));
+    // le point à contrôler : l'interrupteur, ouvert à l'arrêt
+    o.push(h.controle(...P(350, yT - 9), 20 * s));
     o.push(fil(Q([[362, yT], [440, yT], [491, Pp[1] + 1]])));
     // Voltmètre sur les deux bornes.
     const V = { x: 498, y: 8, l: 70, h: 44 };
@@ -319,7 +356,7 @@ module.exports = (h) => {
     format: 'pleine',
     disposition: [['bati', 'dessus'], ['cablage'], ['enV', 'nerv']],
     hauteurs: [4.4, 3.8, 1.5],
-    largeurs: [[3, 2], [1], [1, 1]],
+    largeurs: [[1, 1], [1], [1, 1]],
     vues: {
       bati: {
         titre: 'Vu du bout des arbres',
@@ -343,7 +380,7 @@ module.exports = (h) => {
         renvois: z => {
           const { P } = cadre(z, BW2, BH2);
           return [
-            { n: 6, rond: P(190, 280), cible: P(190, yF + 1.2), texte: 'fil tendu contre les faces des deux poulies' },
+            { n: 6, rond: P(186, 247), cible: P(186, yF + 1.9), texte: 'fil tendu contre les faces des deux poulies' },
           ];
         },
       },

@@ -1,0 +1,550 @@
+{
+  "_note": "Logigramme du chapitre 2 (rester ou partir), double page, fait le 15 octobre 2026 sur le chapitre réécrit, sur le modèle du 04-retombees. Page de gauche : l'alarme de CO (étape 1, en orange), puis la décision (étapes 2 à 4). Page de droite : la route, la destination, la première heure (étapes 8 et 9, en orange), la reprise à heure fixe (étape 10). Rendu : python3 design/outils/logigramme.py images/logigrammes/02-rester-ou-partir.json ; version du livre : --sans-entete --svg. « source » : les étapes du chapitre d'où vient chaque geste (ignoré au rendu). Réécrit le 15 octobre en phrases complètes, comme on le dirait à voix haute (JP : « personne parle comme ça »). Refait le 19 octobre 2026 sur le chapitre remis au gabarit à sept sections (étapes numérotées de 1 à 45) : renvois aux nouvelles étapes, plus de « § » ; pastille « 1 min » sur la série du CO, comme au ch. 3 et au chapitre ; « 1 h » gardé sur les deux séries de la première heure ; les pastilles « 2 min » et « 15 min » des boîtes non orange retirées (le chapitre ne les donne plus) ; la boîte « Si on reste » ne redit plus l'avertissement de la génératrice et des appareils à combustible (étapes 9 et 10, pictogrammes) ; la boîte « En panne sur la route » garde la décision (rester dans l'auto) et le geste du moteur, sans redire le mécanisme. Colonnes et rangs inchangés. Corrigé le 19 octobre 2026 après la vérification technique : la série du CO est coupée en deux, comme au chapitre ; « 1 min » reste sur co1 (étapes 1 à 4), et co4 ouvre la seconde série « Tout le monde est dehors » (étapes 5 à 8), dont la pastille est [À VÉRIFIER] (aucune source ne donne ce temps) ; la boîte « Avant de partir » dit « vidanger le bâtiment qu'on quitte » (étape 20). Décisions de JP du 19 octobre 2026 : les « quatre horloges » du ch. 2 deviennent « les quatre mesures » (nœuds mesures, qd, b1, b2, reprendre ; le ch. 1 garde ses quatre horloges, qui ne sont pas les mêmes) ; la pastille [À VÉRIFIER] de co4 est retirée, comme dans le chapitre (la série « Tout le monde est dehors » n'a pas de temps sourcé) ; radio : « on y apprend ce qu'on ne voit pas de la fenêtre » (étape 25) ; part : « mettre des vêtements de rechange pour chacun dans un sac à part » (étape 16).",
+  "format": "double",
+  "tome": 1,
+  "urgent": true,
+  "entete": {
+    "chapitre": "02 · Rester ou partir",
+    "tome": "Tome 1 · Tenir",
+    "onglet": "2",
+    "folios": [
+      null,
+      null
+    ]
+  },
+  "colonnes": {
+    "co": [
+      0.5,
+      3.6
+    ],
+    "mn": [
+      4.0,
+      7.375
+    ],
+    "qd": [
+      1.9,
+      6.0
+    ],
+    "b1": [
+      0.5,
+      2.6
+    ],
+    "b2": [
+      2.75,
+      5.125
+    ],
+    "b3": [
+      5.275,
+      7.375
+    ],
+    "r": [
+      8.9,
+      11.6628
+    ],
+    "p": [
+      12.2767,
+      15.5
+    ],
+    "p1": [
+      12.2767,
+      13.8116
+    ],
+    "p2": [
+      13.9651,
+      15.5
+    ],
+    "bas": [
+      8.9,
+      15.5
+    ],
+    "mnc": [
+      4.65,
+      7.375
+    ],
+    "rc": [
+      9.4628,
+      11.6628
+    ]
+  },
+  "rangs": {
+    "g1": 1.2,
+    "c1": 1.8,
+    "c2": 2.63,
+    "c3": 3.52,
+    "c4": 4.58,
+    "c5": 5.47,
+    "c6": 5.97,
+    "m1": 1.83,
+    "m2": 2.72,
+    "qd": 6.93,
+    "br": 7.95,
+    "r1": 0.95,
+    "r2": 2.6,
+    "q1": 0.95,
+    "q2": 2.2,
+    "pv": 3.95,
+    "pp": 4.95,
+    "pd": 6.45,
+    "bas": 8.15,
+    "m3": 3.83,
+    "m4": 5.3,
+    "r3": 4.3
+  },
+  "noeuds": [
+    {
+      "id": "depA",
+      "type": "depart",
+      "col": "co",
+      "rang": "g1",
+      "taille": 12,
+      "texte": "L'avertisseur de CO sonne, ou plusieurs personnes ont mal à la tête",
+      "source": "étape 1 ; §7"
+    },
+    {
+      "id": "depB",
+      "type": "depart",
+      "col": "mn",
+      "rang": "g1",
+      "taille": 12,
+      "texte": "Le courant, l'eau ou la route sont coupés, sans savoir pour combien de temps",
+      "source": "§2"
+    },
+    {
+      "id": "co1",
+      "type": "urgent",
+      "col": "co",
+      "rang": "c1",
+      "ancre": "haut",
+      "texte": "**Sortir tout le monde, tout de suite**, et laisser la porte ouverte. Compter les gens une fois dehors.",
+      "renvoi": "ch. 2, étapes 1 et 2",
+      "source": "étapes 1 et 2",
+      "taille": 10,
+      "temps": "1 min"
+    },
+    {
+      "id": "co2",
+      "type": "urgent",
+      "col": "co",
+      "rang": "c2",
+      "ancre": "haut",
+      "texte": "**Mettre les enfants à l'abri du froid avec un adulte** : chez un voisin, ou dans l'auto, l'échappement dégagé.",
+      "renvoi": "ch. 2, étape 3",
+      "source": "étape 3",
+      "taille": 10
+    },
+    {
+      "id": "co3",
+      "type": "urgent",
+      "col": "co",
+      "rang": "c3",
+      "ancre": "haut",
+      "texte": "**Garder à l'air libre et au chaud les gens qui ont des symptômes.** Coucher sur le côté une personne confuse ou inconsciente, et déclencher le SOS.",
+      "renvoi": "ch. 2, étape 4",
+      "source": "étape 4",
+      "taille": 10
+    },
+    {
+      "id": "co4",
+      "type": "urgent",
+      "col": "co",
+      "rang": "c4",
+      "ancre": "haut",
+      "texte": "**Couper la source**, si on sait laquelle : un adulte sans symptômes y va. Ouvrir les portes de l'extérieur.",
+      "renvoi": "ch. 2, étapes 5 et 6",
+      "source": "étapes 5 et 6",
+      "taille": 10
+    },
+    {
+      "id": "co5",
+      "type": "urgent",
+      "col": "co",
+      "rang": "c5",
+      "ancre": "haut",
+      "texte": "**Rentrer seulement quand l'avertisseur, laissé à l'intérieur, est revenu à la normale.** Ne rien rallumer avant d'avoir réglé la cause, puis passer à l'étape 25.",
+      "renvoi": "ch. 2, étapes 7 et 8",
+      "source": "étapes 7 et 8",
+      "taille": 10
+    },
+    {
+      "id": "radio",
+      "type": "geste",
+      "col": "mn",
+      "rang": "m1",
+      "ancre": "haut",
+      "texte": "**Allumer la radio** : on y apprend ce qu'on ne voit pas de la fenêtre, comme un feu, un pont fermé ou de la fumée.",
+      "renvoi": "ch. 2, étape 25",
+      "source": "étape 25",
+      "taille": 10
+    },
+    {
+      "id": "mesures",
+      "type": "geste",
+      "col": "mn",
+      "rang": "m2",
+      "ancre": "haut",
+      "texte": "**Écrire les quatre mesures** : combien de temps il reste de chaleur, d'eau, de nourriture et de contact avec l'extérieur. Pour la chaleur, noter combien de degrés la maison perd en 2 h.",
+      "renvoi": "ch. 2, étapes 26 à 30",
+      "source": "étapes 26 à 30",
+      "taille": 10
+    },
+    {
+      "id": "hypo",
+      "type": "danger",
+      "col": "mnc",
+      "rang": "m3",
+      "ancre": "haut",
+      "titre": "Signes d'hypothermie modérée",
+      "texte": "**Si quelqu'un est confus, maladroit ou parle mal, le mettre tout de suite dans un endroit chauffé.** Il ne doit plus prendre la route ni participer aux décisions.",
+      "renvoi": "ch. 2, étape 40 ; ch. 25",
+      "source": "étape 40",
+      "taille": 10
+    },
+    {
+      "id": "nuit",
+      "type": "geste",
+      "col": "mnc",
+      "rang": "m4",
+      "ancre": "haut",
+      "texte": "**S'il reste moins de clarté que la durée du trajet**, passer la nuit sur place, sauf si un feu approche.",
+      "renvoi": "ch. 2, étape 35",
+      "source": "étape 35",
+      "taille": 10
+    },
+    {
+      "id": "qd",
+      "type": "question",
+      "col": "qd",
+      "rang": "qd",
+      "texte": "Combien de temps tient la plus courte des quatre mesures ?",
+      "precision": "La comparer à 72 h et à la durée du trajet",
+      "source": "étape 31"
+    },
+    {
+      "id": "b3",
+      "type": "geste",
+      "col": "b1",
+      "rang": "br",
+      "ancre": "haut",
+      "texte": "**Partir maintenant**, ou décider de rester pour de bon. Si un feu approche, partir tôt.",
+      "renvoi": "ch. 2, étapes 31 et 37",
+      "source": "étape 31 ; étape 37",
+      "taille": 10
+    },
+    {
+      "id": "b2",
+      "type": "geste",
+      "col": "b2",
+      "rang": "br",
+      "ancre": "haut",
+      "texte": "**Rester, avec un plan écrit** pour faire durer ce qui va manquer en premier, avec ce qu'on a sur place.",
+      "renvoi": "ch. 2, étape 31",
+      "source": "étape 31",
+      "taille": 10
+    },
+    {
+      "id": "b1",
+      "type": "geste",
+      "col": "b3",
+      "rang": "br",
+      "ancre": "haut",
+      "texte": "**Rester**, et continuer à faire les quatre mesures.",
+      "renvoi": "ch. 2, étape 31",
+      "source": "étape 31",
+      "taille": 10
+    },
+    {
+      "id": "reste",
+      "type": "urgent",
+      "col": "r",
+      "rang": "r1",
+      "ancre": "haut",
+      "temps": "1 h",
+      "texte": "**Si on reste** : tester l'avertisseur de CO, vivre dans une seule pièce chauffée et remplir tous les contenants d'eau. Prévenir quelqu'un et fixer l'heure du prochain contact. Écrire sur la porte l'heure de la prochaine décision.",
+      "renvoi": "ch. 2, étapes 9 à 15",
+      "source": "étapes 9 à 15",
+      "taille": 10
+    },
+    {
+      "id": "fumee",
+      "type": "geste",
+      "col": "rc",
+      "rang": "r3",
+      "ancre": "haut",
+      "texte": "**Si une fumée épaisse arrive au chalet chauffé au bois**, partir vers la maison : on ne peut pas fermer le chalet à la fumée et le chauffer en même temps.",
+      "renvoi": "ch. 2, étape 38",
+      "source": "étape 38",
+      "taille": 10
+    },
+    {
+      "id": "qroute",
+      "type": "question",
+      "col": "p",
+      "rang": "q1",
+      "ancre": "haut",
+      "texte": "La route est ouverte, le plein est fait et on arrive avant la nuit ?",
+      "precision": "Et personne dans l'auto n'est confus ni maladroit",
+      "source": "étapes 33 à 36 ; étape 40"
+    },
+    {
+      "id": "qou",
+      "type": "question",
+      "col": "p",
+      "rang": "q2",
+      "ancre": "haut",
+      "texte": "Ça risque de durer ?",
+      "precision": "L'eau du robinet n'a plus de pression, le retour du courant a été repoussé deux fois, les voisins sont partis",
+      "source": "étape 32"
+    },
+    {
+      "id": "ville",
+      "type": "geste",
+      "col": "p1",
+      "rang": "pv",
+      "ancre": "haut",
+      "texte": "**Aller en ville**, chez soi ou chez un proche.",
+      "source": "étape 32",
+      "taille": 10
+    },
+    {
+      "id": "chalet",
+      "type": "geste",
+      "col": "p2",
+      "rang": "pv",
+      "ancre": "haut",
+      "texte": "**Aller au chalet**, de jour, avec le plein fait.",
+      "source": "étapes 32 et 35",
+      "taille": 10
+    },
+    {
+      "id": "part",
+      "type": "urgent",
+      "col": "p",
+      "rang": "pp",
+      "ancre": "haut",
+      "temps": "1 h",
+      "texte": "**Avant de partir** : habiller les enfants et mettre des vêtements de rechange pour chacun dans un sac à part. Prendre la trousse et les papiers. Prévenir des proches et prévoir deux chemins. L'hiver, vidanger le bâtiment qu'on quitte. Écrire « PARTIS » sur la porte et faire le plein.",
+      "renvoi": "ch. 2, étapes 16 à 24",
+      "source": "étapes 16 à 24",
+      "taille": 10
+    },
+    {
+      "id": "panne",
+      "type": "danger",
+      "col": "p",
+      "rang": "pd",
+      "ancre": "haut",
+      "titre": "En panne sur la route",
+      "texte": "**Rester dans l'auto** au lieu de partir à pied chercher de l'aide. Faire tourner le moteur une dizaine de minutes par demi-heure, l'échappement dégagé.",
+      "renvoi": "ch. 2, étapes 3 et 45",
+      "source": "étapes 3 et 45",
+      "taille": 10
+    },
+    {
+      "id": "reprendre",
+      "type": "geste",
+      "col": "bas",
+      "rang": "bas",
+      "ancre": "haut",
+      "texte": "**Reprendre la décision à heure fixe** : au réveil, assez tôt pour pouvoir partir de jour, et chaque fois qu'une des quatre mesures change. Un seul adulte a le dernier mot.",
+      "renvoi": "ch. 2, étapes 41 à 43",
+      "source": "étapes 41 à 43"
+    }
+  ],
+  "liens": [
+    {
+      "de": "depA",
+      "vers": "co1"
+    },
+    {
+      "de": "co1",
+      "vers": "co2"
+    },
+    {
+      "de": "co2",
+      "vers": "co3"
+    },
+    {
+      "de": "co3",
+      "vers": "co4"
+    },
+    {
+      "de": "co4",
+      "vers": "co5"
+    },
+    {
+      "de": "depB",
+      "vers": "radio"
+    },
+    {
+      "de": "radio",
+      "vers": "mesures"
+    },
+    {
+      "de": "mesures",
+      "vers": "qd",
+      "sx": 4.3,
+      "ex": 4.3
+    },
+    {
+      "de": "qd",
+      "vers": "b3",
+      "etiquette": "Moins longtemps que le trajet",
+      "coude": 7.53,
+      "pos": "palier"
+    },
+    {
+      "de": "qd",
+      "vers": "b2",
+      "etiquette": "Moins de 72 h",
+      "coude": 7.53,
+      "pos": "palier"
+    },
+    {
+      "de": "qd",
+      "vers": "b1",
+      "etiquette": "Plus de 72 h",
+      "coude": 7.53,
+      "pos": "palier"
+    },
+    {
+      "de": "b3",
+      "vers": "qroute",
+      "sortie": "bas",
+      "entree": "droite",
+      "sx": 1.55,
+      "via": [
+        [
+          1.55,
+          9.18
+        ],
+        [
+          15.6535,
+          9.18
+        ],
+        [
+          15.6535,
+          1.3
+        ]
+      ]
+    },
+    {
+      "de": "b2",
+      "vers": "qroute",
+      "etiquette": "On n'a pas de plan",
+      "sortie": "bas",
+      "entree": "droite",
+      "sx": 3.3,
+      "pos": "debut",
+      "via": [
+        [
+          3.3,
+          9.18
+        ],
+        [
+          15.6535,
+          9.18
+        ],
+        [
+          15.6535,
+          1.3
+        ]
+      ]
+    },
+    {
+      "de": "b2",
+      "vers": "reste",
+      "etiquette": "On a un plan écrit",
+      "sortie": "bas",
+      "entree": "gauche",
+      "sx": 4.6,
+      "pos": "debut",
+      "via": [
+        [
+          4.6,
+          9.0
+        ],
+        [
+          8.7,
+          9.0
+        ],
+        [
+          8.7,
+          1.3
+        ]
+      ]
+    },
+    {
+      "de": "b1",
+      "vers": "reste",
+      "sortie": "bas",
+      "entree": "gauche",
+      "sx": 6.3,
+      "via": [
+        [
+          6.3,
+          9.0
+        ],
+        [
+          8.7,
+          9.0
+        ],
+        [
+          8.7,
+          1.3
+        ]
+      ]
+    },
+    {
+      "de": "qroute",
+      "vers": "reste",
+      "etiquette": "Non",
+      "sortie": "gauche",
+      "entree": "droite"
+    },
+    {
+      "de": "qroute",
+      "vers": "qou",
+      "etiquette": "Oui"
+    },
+    {
+      "de": "qou",
+      "vers": "ville",
+      "etiquette": "Non",
+      "coude": 3.6,
+      "pos": "palier"
+    },
+    {
+      "de": "qou",
+      "vers": "chalet",
+      "etiquette": "Oui",
+      "coude": 3.6,
+      "pos": "palier"
+    },
+    {
+      "de": "ville",
+      "vers": "part",
+      "ex": 13.0442
+    },
+    {
+      "de": "chalet",
+      "vers": "part",
+      "ex": 14.7326
+    },
+    {
+      "de": "part",
+      "vers": "panne"
+    },
+    {
+      "de": "panne",
+      "vers": "reprendre",
+      "sx": 13.8884,
+      "ex": 13.8884
+    },
+    {
+      "de": "reste",
+      "vers": "reprendre",
+      "sx": 9.1558,
+      "ex": 9.1558
+    }
+  ]
+}

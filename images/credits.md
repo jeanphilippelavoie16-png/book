@@ -72,7 +72,7 @@ Les licences non commerciales sont correctes pour un usage privé et à remplace
 | 08 | 1 | pleine page | La réserve du chalet : l'étagère complète, chargée, en service, contenants étiquetés lisibles à l'impression.  | | | | à acquérir |
 | 08 | 2 | demi-page | Le coin carburant extérieur : bidons d'essence homologués et étiquetés, bouteilles de propane debout, à distan | | | | à acquérir |
 | 08 | 3 | demi-page | Séquence de rotation en trois vues : nouveau contenant étiqueté, insertion par l'arrière de la tablette, conte | | | | à acquérir |
-| 08 | 4 | quart de page | Conserves à rejeter : une boîte bombée et une boîte rouillée sur le serti, côte à côte avec une boîte saine. U | | | | à acquérir |
+| 08 | 4 | quart de page | Conserves à rejeter : une boîte bombée et une boîte rouillée sur le serti, côte à côte avec une boîte saine. U | Kat1100 | CC BY 4.0 | https://commons.wikimedia.org/wiki/File:Surstr%C3%B6mming_bulged_can.jpg | téléchargée en partie : la boîte bombée, `photos/tri/05-boite-bombee.jpg` (posée au ch. 5, étape 23 ; recadrée sur le couvercle, 19 octobre 2026) ; la boîte rouillée, `photos/manquantes/05-boites-rouillees-serti.jpg` (High Contrast, CC BY 3.0 de), n'est pas posée |
 | 08 | 5 | quart de page | Thermomètre min-max du local de réserve montrant un relevé réel d'hiver. À prendre en janvier, lié au thermomè | | | | à acquérir |
 | 09 | 1 | pleine page | La trousse complete etalee : les 2 bacs, les 4 sacs a dos et tout le contenu sorti, range par poste (eau, chal | | | | à acquérir |
 | 09 | 2 | quart de page | Le sac a dos d'un enfant de 4 ans, contenu etale | | | | à acquérir |
@@ -994,3 +994,230 @@ Les licences non commerciales sont correctes pour un usage privé et à remplace
 | 89 | 7 | quart de page | La lampe a graisse allumee : coupelle basse, meche couchee, une seule pointe au bord | | | | à acquérir |
 | 89 | 8 | quart de page | Le contenant a cendres reglementaire : metal, fond sureleve, couvercle metallique, dehors, sur surface non com | | | | à acquérir |
 | 89 | 9 | demi-page | Trois gras a la meme temperature de piece, dans des pots identiques : suif d'orignal, gras d'ours noir, lard d | | | | à acquérir |
+
+## Modèles calqués pour les mains, les têtes et les corps des planches (13 octobre 2026)
+
+Images envoyées par JP comme modèles, sans licence libre. JP a autorisé le calque pour l'usage
+personnel du livre (13 octobre 2026). Les calques vivent dans `_reprise/scratchpad/modeles/calque/` ;
+une planche qui en reprend un le dit dans sa fiche. **À remplacer si le livre se vend ou se donne
+hors de la famille.**
+
+- Tableau homme-femme, face et dos, au trait gris : aperçu à filigrane de la banque d'images 123RF,
+  auteur non relevé. Calque : `corps.svg`.
+- Planche de vingt mains (prises de bâton, de corde, de tasse, poing) : Kibbitzer, DeviantArt
+  (signature sur l'image). Calque : `mains-kibbitzer.svg`.
+- Planche de gestes de la main au trait (pince, pouce levé, crayon) : origine inconnue. Calque :
+  `mains-gestes.svg`.
+- Corps de femme face et dos, peau beige : origine inconnue. Pas repris (le tableau 123RF le remplace).
+- Planche de vingt mains au trait fin (prise, pince, poing, main qui pend, pouce levé) : shoo_arts,
+  iStock (aperçu à filigrane, image 948543248). Calque : `mains-shoo.svg` ; modèles s01 à s20 dans
+  `images/modeles/`. C'est la planche de mains que JP a choisie le 13 octobre (« prends celle-là »).
+
+
+## Modèles calqués pour les animaux des planches (14 octobre 2026)
+
+Les fonctions de `images/planches-src/_animaux.js` disent d'où vient chaque forme dans leur commentaire de tête.
+
+- **Canard** (planche 47-03) : la cane colvert qui nage, en bas à droite de la planche 12 de Louis Agassiz
+  Fuertes, pour E. H. Eaton, *Birds of New York*, 1910. Domaine public. Fichier déjà au dépôt :
+  `photos/lot5/50-01c-canard-noir-colvert-fuertes-pl12.jpg`. La partie sous l'eau est dessinée sans modèle.
+- **Lagopède** (planche 47-04) : la silhouette du tétras du Canada mâle de la planche 41 de Fuertes, même ouvrage,
+  1910, domaine public, en plumage blanc ; pattes et branche retirées. Fichier : `photos/lot5/45-04a-gelinotte-tetras-fuertes-pl41.jpg`.
+- **Lièvre** (48-09), **chien** (59-08) et **castor** (50-10) : construits sans modèle (masses puis contour). Le
+  réseau de la session bloquait Wikimedia et la BHL le 14 octobre.
+
+## Photos du chapitre 11, le feu de forêt (15 octobre 2026)
+
+Deux photos du même feu (Pagami Creek, Boundary Waters, Minnesota, forêt boréale), prises le même jour
+depuis un lac. Licences relues sur l'API de Wikimedia Commons au téléchargement. Détail dans
+`images/photos/registre-manquantes.md`.
+
+| Fichier | Sujet | Auteur | Licence | Lien |
+| --- | --- | --- | --- | --- |
+| `photos/manquantes/11-colonne-couchee-par-le-vent.jpg` | Colonne de fumée sombre couchée par le vent, vue d'un lac | Greg Seitz (Gregseitz) | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Pagami_Creek_Fire.jpg |
+| `photos/manquantes/11-colonne-chou-fleur.jpg` | Colonne qui monte droit et finit en chou-fleur blanc, vue d'un lac | Stephen Handler, United States Forest Service | Domaine public | https://commons.wikimedia.org/wiki/File:Pagami_fire_plume.jpg |
+| `photos/manquantes/11-colonnes-de-fumee.jpg` | Les deux photos précédentes côte à côte (montage du 15 octobre 2026, celle qui s'imprime) | Greg Seitz ; Stephen Handler, United States Forest Service | CC BY-SA 4.0 (volet de gauche) ; domaine public (volet de droite) | voir les deux lignes précédentes |
+
+## Encadrés « En plus » du chapitre 12, la tente d'hiver (18 octobre 2026)
+
+Trois photos d'iNaturalist, prises au Québec, identification confirmée par la communauté (« research »). Licence
+**de chaque photo** relue sur l'API d'iNaturalist au téléchargement (`license_code` de la photo, pas de
+l'observation) ; réponse de l'API enregistrée dans `sources/12-inaturalist-trois-coniferes-2026-10-18.json`. Les
+originaux (taille « original » d'iNaturalist) sont gardés dans `extras/originaux/` ; le montage les recadre en 3 × 4
+(le sapin un peu serré sur la branche) et les met à la même hauteur, sans texte ni retouche.
+
+| Fichier | Sujet | Auteur | Licence | Lien |
+| --- | --- | --- | --- | --- |
+| `extras/originaux/12-sapin-baumier-inat-750762021.jpg` | Sapin baumier (*Abies balsamea*), rameau de près, dessus des aiguilles ; Sainte-Béatrix, Québec, 11 octobre 2026 | Patrice Dupont (patrice_dupont), « (c) Patrice Dupont, some rights reserved (CC BY) » | CC BY | https://www.inaturalist.org/observations/408422961 (photo 750762021) |
+| `extras/originaux/12-epinette-noire-inat-48737841.jpg` | Épinette noire (*Picea mariana*), rameau de près, poils brunâtres du rameau ; La Vallée-de-la-Gatineau, Québec, 9 août 2019 | rboles, « (c) rboles, some rights reserved (CC BY) » | CC BY | https://www.inaturalist.org/observations/31157360 (photo 48737841) |
+| `extras/originaux/12-cedre-inat-420156486.jpg` | Thuya occidental, le cèdre (*Thuja occidentalis*), rameaux aplatis en éventail ; Gatineau, Québec, 13 août 2024 | Alexis Tinker-Tsavalas (alexis_orion), « (c) Alexis Tinker-Tsavalas, some rights reserved (CC BY) » | CC BY | https://www.inaturalist.org/observations/236186493 (photo 420156486) |
+| `extras/12-trois-coniferes.jpg` | Les trois photos précédentes côte à côte, de gauche à droite : sapin baumier, épinette noire, cèdre (montage du 18 octobre 2026, celui qui s'imprime) | Patrice Dupont ; rboles ; Alexis Tinker-Tsavalas | CC BY (les trois volets) | voir les trois lignes précédentes |
+
+Encadré « Reconnaître le mélèze, l'hiver » (ajouté le 18 octobre 2026) : deux photos d'iNaturalist, prises au Québec
+en hiver, identification confirmée par la communauté (« research »). Licence **de chaque photo** relue sur l'API
+d'iNaturalist au téléchargement ; réponse enregistrée dans `sources/12-inaturalist-meleze-2026-10-18.json`. Originaux
+dans `extras/originaux/`. Le montage met les deux photos à la même hauteur (1 500 px), séparées de 30 px de blanc, sans
+recadrage, sans texte ni retouche.
+
+| Fichier | Sujet | Auteur | Licence | Lien |
+| --- | --- | --- | --- | --- |
+| `extras/originaux/12-meleze-arbre-inat-470590126.jpg` | Mélèze laricin (*Larix laricina*) en hiver, sans aiguilles, parmi des conifères verts ; Sainte-Béatrix, Québec, 15 février 2025 | Patrice Dupont (patrice_dupont), « (c) Patrice Dupont, some rights reserved (CC BY) » | CC BY | https://www.inaturalist.org/observations/261887656 (photo 470590126) |
+| `extras/originaux/12-meleze-rameau-inat-480749975.jpg` | Mélèze laricin (*Larix laricina*), rameau nu avec ses rameaux nains et un cône ouvert, tenu dans la main ; Rouyn-Noranda, Québec, 28 mars 2025 | Pierre Cartier (pcartier), « no rights reserved » | CC0 (licence de la photo ; l'observation est en CC BY-NC) | https://www.inaturalist.org/observations/267511623 (photo 480749975) |
+| `extras/12-meleze-hiver.jpg` | Les deux photos précédentes côte à côte, l'arbre à gauche, le rameau à droite (montage du 18 octobre 2026, celui qui s'imprime) | Patrice Dupont ; Pierre Cartier | CC BY (volet de gauche) ; CC0 (volet de droite) | voir les deux lignes précédentes |
+
+## Encadré « En plus » du chapitre 3, la panne majeure d'Hydro (19 octobre 2026)
+
+Une photo de Wikimedia Commons, la réduction de 1 280 × 1 707 px que sert Commons, sans recadrage ni retouche. Licence
+lue sur l'API de Commons ; les champs sont recopiés dans la fiche de sources (`suivi/03-redaction.md`, notes « En
+plus »). Original de la réduction dans `extras/originaux/`.
+
+| Fichier | Sujet | Auteur | Licence | Lien |
+| --- | --- | --- | --- | --- |
+| `extras/03-mat-de-branchement.jpg` (original : `extras/originaux/03-mat-de-branchement-commons-weatherhead.jpg`) | Mât de branchement qui sort d'un toit de bardeaux, col-de-cygne en haut, isolateur qui retient le câble du poteau ; Mount Vernon (Washington), 17 juillet 2011 ; réduction de Commons à 1 280 × 1 707 px | Chetvorno (Chris Burks) | CC0 | https://commons.wikimedia.org/wiki/File:Weatherhead.JPG |
+
+## Encadrés « En plus » du chapitre 9, ce qui manque toujours (19 octobre 2026)
+
+Une photo de Wikimedia Commons. Auteur et licence relus sur l'API de Commons au téléchargement ; la réponse est enregistrée dans `sources/09-commons-pile-coulee-metadonnees-2026-10-19.json` (page 85254910). L'original gardé dans `extras/originaux/` est la vignette de 1 280 × 720 que sert Commons (le fichier source fait 1 920 × 1 080) ; l'image imprimée en est un recadrage carré sur le compartiment, sans texte ni retouche.
+
+| Fichier | Sujet | Auteur | Licence | Lien |
+| --- | --- | --- | --- | --- |
+| `extras/originaux/09-pile-coulee-commons-binarysequence.png` | Piles AA alcalines dans le compartiment d'un appareil : deux intactes en haut, deux qui ont coulé en bas (vignette 1 280 × 720 de Commons) | Binarysequence | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Alkaline_Battery_Leakage_Inside_a_Product.png |
+| `extras/09-pile-coulee.jpg` | Recadrage de 720 × 720 de la photo précédente sur le compartiment, sans retouche (adaptation) ; celle qui s'imprime | Binarysequence | CC BY-SA 4.0 | voir la ligne précédente |
+
+## Notes « En plus » du chapitre 10, l'eau (19 octobre 2026)
+
+Deux photos déjà au dossier, licence relue au téléchargement (`photos/registre-manquantes.md`, ligne `10-barrage-castor.jpg` ; `photos/registre-35c.md`, ligne `35c-35-rat-musque-hutte.jpg`). Les originaux restent au chemin donné dans la colonne Sujet ; pas de copie dans `extras/originaux/`.
+
+| Fichier | Sujet | Auteur | Licence | Lien |
+| --- | --- | --- | --- | --- |
+| `extras/10-etang-castor.jpg` | Barrage de castor au premier plan et l'étang qu'il retient, comté de St. Louis, Minnesota ; photo entière ramenée à 1 500 px de haut (copie de `photos/manquantes/10-barrage-castor.jpg`) | Courtney Celley, U.S. Fish and Wildlife Service, Midwest Region | Domaine public | https://commons.wikimedia.org/wiki/File:Beaver_dam_(53718655489).jpg |
+| `extras/10-hutte-rat-musque.jpg` | Hutte de rat musqué dans un marais de quenouilles gelé, Russie, 9 mars 2014 ; recadrée (horodatage hors du cadre) et ramenée à 2 250 × 1 500 px (copie de `photos/35c/35c-35-rat-musque-hutte.jpg`) | Игорь Орлов (Igor Orlov) | CC BY 3.0 | https://commons.wikimedia.org/wiki/File:%D0%A5%D0%B0%D1%82%D0%BA%D0%B0_%D0%9E%D0%BD%D0%B4%D0%B0%D1%82%D1%80%D1%8B,_House_Muskrat_-_panoramio.jpg |
+
+## Encadrés « En plus » du chapitre 11, le feu de forêt (19 octobre 2026)
+
+Une photo de Wikimedia Commons, la vignette de 1 280 px, sans recadrage ni retouche. Licence relue sur l'API de
+Commons (`extmetadata`, `LicenseShortName`) ; réponse de l'API enregistrée dans
+`sources/11-commons-grands-jardins-np-09-2026-10-19.json`.
+
+| Fichier | Sujet | Auteur | Licence | Lien |
+| --- | --- | --- | --- | --- |
+| `extras/11-pessiere-a-cladonie.jpg` | Pessière à cladonie : épinettes espacées, branches jusqu'au sol, sur un tapis de lichen ; parc national des Grands-Jardins, Charlevoix, Québec, 3 octobre 2010 (vignette de 1 280 px de Commons, sans recadrage) | LBM1948 (Wikimedia Commons), « Own work » | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Grands-Jardins_NP_09.jpg |
+
+## Encadré « En plus » du chapitre 13, le feu sans allumettes (19 octobre 2026)
+
+Une photo d'iNaturalist, identification confirmée par la communauté (« research »). Licence de la photo relue sur l'API (`license_code` de la photo, pas de l'observation) ; réponse enregistrée dans `sources/13-inaturalist-amadouvier-2026-10-19.json`. Original dans `extras/originaux/` ; la copie imprimée n'est ni recadrée ni retouchée, seulement convertie de Display P3 en sRGB.
+
+| Fichier | Sujet | Auteur | Licence | Lien |
+| --- | --- | --- | --- | --- |
+| `extras/originaux/13-amadouvier-inat-102445923.jpg` | Amadouvier (*Fomes fomentarius*), deux champignons en sabot sur un tronc de bouleau ; New Glasgow, Nouvelle-Écosse, 28 octobre 2020 | scaup, « (c) scaup, some rights reserved (CC BY) » | CC BY (licence de la photo ; l'observation est en CC0) | https://www.inaturalist.org/observations/63794378 (photo 102445923) |
+| `extras/13-amadouvier-bouleau.jpg` | La photo précédente, 1 775 × 2 048, convertie en sRGB (celle qui s'imprime) | scaup | CC BY | voir la ligne précédente |
+
+## Encadré « En plus » du chapitre 15, se déplacer et le carburant (19 octobre 2026)
+
+Une photo de Wikimedia Commons, venue de Flickr et vérifiée par FlickreviewR (3 décembre 2016, cc-by-2.0). Auteur et
+licence relus sur l'API de Commons (`extmetadata`, `LicenseShortName` ; texte de la page du fichier) ; réponse enregistrée
+dans `sources/15-commons-candle-ice-5877950711-2026-10-19.json` (page 53748019). L'original gardé dans
+`extras/originaux/` est la vignette de 1 280 × 960 que sert Commons (le fichier source fait 2 880 × 2 160 ; Commons a
+refusé de servir l'original, erreur 429, pendant une quinzaine de minutes) ; l'image imprimée en est un recadrage sur le
+bloc de glace, sans retouche.
+
+| Fichier | Sujet | Auteur | Licence | Lien |
+| --- | --- | --- | --- | --- |
+| `extras/originaux/15-glace-chandelles-commons-5877950711.jpg` | Glace en chandelles : un bloc de glace de printemps fait de colonnes debout, sur la rive, Canada, 20 juin 2011 (vignette 1 280 × 960 de Commons) | US Embassy Canada (Flickr, us_mission_canada) | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Candle_Ice_(5877950711).jpg (Flickr : https://www.flickr.com/photos/us_mission_canada/5877950711/) |
+| `extras/15-glace-chandelles.jpg` | Recadrage de 1 080 × 690 de la photo précédente sur le bloc de glace, sans retouche (adaptation) ; celle qui s'imprime | US Embassy Canada | CC BY 2.0 | voir la ligne précédente |
+
+## Pages de titre des tomes (images/tomes/)
+
+- Champignon atomique, forêt en feu : Game-icons.net (Lorc, Delapouite), CC BY 3.0, https://game-icons.net
+- Famille, feu de camp, pylône coupé, neige : Material Design Icons (Pictogrammers), Apache 2.0, https://pictogrammers.com
+- Maison en feu : Font Awesome 6 Free (Fonticons), CC BY 4.0, https://fontawesome.com
+
+## Bibliothèque de mains (images/bibliotheque-mains/adobe-116570613/)
+
+- Mains en silhouette, « hands » : Ewelina Kowalska, Adobe Stock 116570613, licence standard Adobe Stock (JP).
+
+## Pictogrammes de danger (images/pictos-dangers/, 18 octobre 2026)
+
+Icônes de jeux libres, recadrées en blanc sur le carré rouge du livre par `images/pictos-dangers/construire.py`.
+Le détail par pictogramme est dans `images/pictos-dangers/LISEZMOI.md`.
+
+| Jeu | Auteur | Licence | Lien | Icônes prises |
+| --- | --- | --- | --- | --- |
+| Material Design Icons | Pictogrammers | Apache 2.0 | https://pictogrammers.com | cloud, generator-portable, home-roof, heat-wave, fire, pine-tree-fire, fire-off, kettle-steam, crosshairs, rodent, nail, thermometer, water, tea-off |
+| Font Awesome 6 Free | Fonticons (Dave Gandy) | CC BY 4.0 | https://fontawesome.com | house-fire, flask, burst, weight-hanging, person, snowflake, person-drowning, person-walking, worm, jar, hourglass, poop, heart-pulse |
+| Game-icons.net | Delapouite (hole-ladder, rabbit, liver, cherry), Lorc (dripping-knife, wolf-head), SeregaCthtuf (pouch-with-beads) | CC BY 3.0 | https://game-icons.net | hole-ladder, dripping-knife, wolf-head, rabbit, liver, cherry, pouch-with-beads |
+| Pinhead Map Icons | Quincy Morgan | CC0 | https://github.com/waysidemapping/pinhead | utility-pole-with-bolt, bear |
+| IconPark | ByteDance | Apache 2.0 | https://github.com/bytedance/IconPark | petrol |
+| Material Symbols | Google | Apache 2.0 | https://github.com/google/material-design-icons | skillet |
+| Health Icons | Resolve to Save Lives | MIT | https://healthicons.org | poison |
+| Twemoji | Twitter, suite jdecked | CC BY 4.0 | https://github.com/jdecked/twemoji | moose |
+| Boxicons | Boxicons | MIT | https://boxicons.com | meat-filled |
+
+**Propositions du 18 octobre (images/pictos-dangers/propositions/)**, en attente du choix de JP. Jeux déjà inscrits
+ci-dessus, icônes ajoutées : Material Design Icons (fire, cloud, ladder, water, tea, nail, hand-wash, thermometer,
+fish) ; Font Awesome 6 Free (house, person, child, worm, jar, leaf) ; Game-icons.net : Delapouite (power-generator,
+log, shotgun-rounds, bear-head, fly, canned-fish), Lorc (tree-branch, nailed-foot, elderberry), Skoll (ham-shank,
+winchester-rifle, lee-enfield), Sbed (poison-cloud) ; Pinhead (person-sleeping, liver-with-bile-duct, kidneys) ;
+Boxicons (meat-filled) ; Twemoji (moose). Jeux nouveaux :
+
+| Jeu | Auteur | Licence | Lien | Icônes prises |
+| --- | --- | --- | --- | --- |
+| Fluent Emoji Flat | Microsoft | MIT | https://github.com/microsoft/fluentui-emoji | moose |
+| IconOven | Appic Marketing | MIT | https://iconoven.com/icons | meat-thermometer |
+
+## Pages de titre et couvertures des tomes (images générées, 18 octobre 2026)
+
+Linogravures générées par le réseau AI Horde à partir d'une image de départ dessinée pour le livre (`images/tomes/scene_titre.py`, `essais-ia/tome-N/`), choisies par JP, agrandies ×4 (RealESRGAN, AI Horde) et retouchées (étoiles contre les lettres, reflet, canot).
+
+| Fichier | Modèle | Licence du modèle | Retouches |
+| --- | --- | --- | --- |
+| `images/tomes/titre-tome-1.jpg` | Juggernaut XL (img2img 0,75) | CreativeML Open RAIL++-M | étoiles contre les lettres retirées |
+| `images/tomes/titre-tome-2.jpg` | Flux.1-Schnell (img2img 0,66, `s3-A-flux-i66-0`) | Apache 2.0 | taches roses du mur et rectangle de la bouilloire retirés ; tuyau du poêle, bouquet de plantes, tablette avec linge, panier et cruche, chaudière et bûches ajoutés (`pimp_soin1.py`) ; un cadre au mur avec la photo du lac de JP regravée (Juggernaut XL, img2img 0,51, CreativeML Open RAIL++-M ; `cadre-gravure/`, `cadre_mur.py`) ; bas refait le 19 octobre 2026 (`pimp_soin1.py`, `objets-bas/`) : bouquets pendus, linge plié, panier d'achillée et cruche de grès générés un par un par Flux.1-Schnell (AI Horde, Apache 2.0), détourés et ramenés aux encres de l'image ; chaudière et corde de bois dessinées en vectoriel pour le livre |
+| `images/tomes/titre-tome-3.jpg` | Juggernaut XL (img2img 0,65) | CreativeML Open RAIL++-M | reflet du soleil regravé en tirets ; canot remonté ; lièvre et grève ajoutés (Juggernaut XL, img2img 0,58 et 0,55), forme, entailles, pied, ombre et crête refaites (`essais-ia/tome-3/lievre/lievre_v2.py`) |
+| `images/tomes/titre-tome-4.jpg` | Flux.1-Schnell (img2img 0,62 sur la version d'été de la candidate 2, `t4e-flux62-1`) | Apache 2.0 | soleil en aplat sans liseré ; reflet regravé en morceaux ; deux bêtes couchées dans l'herbe et un oiseau retirés ; poissons de tailles variées (`ete/retouche_ete.py`) |
+| `images/tomes/titre-tome-5.jpg` | Juggernaut XL (img2img 0,50 sur la version d'été de la candidate 4, `t5e-jug50-1`) | CreativeML Open RAIL++-M | rangée de fausse écriture au pied du bâtiment remplacée par des pierres (`ete/retouche_ete.py`) ; ciel regravé avec des bancs de nuages (`ete/ciel_ete.py`) |
+| `images/tomes/titre-tome-6.jpg` | Flux.1-Schnell (img2img 0,88, `t6-fA88-1`) | Apache 2.0 | croissant de lune déplacé hors du titre ; intérieur de l'atelier redessiné (`retouche_atelier.py`) |
+
+## Photos des pages pleines et des vides (tome 1)
+
+JP, 19 octobre 2026 : « rien ne reste blanc » ; « je veux des belles photos » ; « même si ce n'est pas de la Côte-Nord, pour
+des pages pleines, je veux des beaux paysages de forêt boréale ». Choisies par JP sur les planches contact de Flickr
+(`design/outils/flickr_candidates.py`, licences Creative Commons sans « ND »). Licences non commerciales : correctes pour
+un livre privé, à remplacer si le livre se vend. La page de chaque photo, avec sa licence, est dans `sources/photos-flickr/`. Le bas des trois photos de MikoFox est rogné de 4,5 % (la ligne de signature).
+
+| Fichier | Sujet | Auteur | Licence | Lien | Taille |
+| --- | --- | --- | --- | --- | --- |
+| `bandes/tome-1/aurore-iles-riviere.jpg` | Islands in the Stream | Keith Williams | CC BY-NC 2.0 | https://www.flickr.com/photos/46306125@N03/19654263529/ | 1200 × 718 |
+| `bandes/tome-1/berges-saint-laurent-hiver.jpg` | Berges du Saint-Laurent en hiver | abdallahh | CC BY 2.0 | https://www.flickr.com/photos/22168167@N00/7204391702/ | 1733 × 1151 |
+| `bandes/tome-1/caribou-alpenglow.jpg` | Alpenglow, caribou, frost | frostnip907 | CC BY-NC-SA 2.0 | https://www.flickr.com/photos/135422841@N07/25208439302/ | 2700 × 1800 |
+| `bandes/tome-1/etang-de-castor-automne.jpg` | Beaver Pond Below Fold Mountain | MikoFox | CC BY-NC-SA 2.0 | https://www.flickr.com/photos/28648755@N07/49699381662/ | 3000 × 2000 |
+| `bandes/trop-petites/aurore-reservoir-gouin.jpg` | Aurora Borealis over Gouin Reservoir, Québec | Axel Drainville | CC BY-NC 2.0 | https://www.flickr.com/photos/8250978@N04/5208209944/ | 567 × 850 |
+| `pleine-page/tome-1/01-chateaux-de-nuages-brume.jpg` | Castles in the Clouds | Alex Berger | CC BY-NC 2.0 | https://www.flickr.com/photos/32368927@N02/54496957564/ | 6400 × 3600 |
+| `pleine-page/tome-1/02-laponie-soleil-de-midi.jpg` | Mid-day Sunset | Lauri Sten | CC BY-NC 2.0 | https://www.flickr.com/photos/28839353@N03/50765089768/ | 6400 × 3600 |
+| `pleine-page/tome-1/03-brume-sur-le-ruisseau.jpg` | PermaLiv__DSC3357_22-09-22 | Øyvind Holmstad | CC BY-SA 2.0 | https://www.flickr.com/photos/78304219@N06/52393477430/ | 5400 × 3600 |
+| `pleine-page/tome-1/04-epinettes-givrees-soleil.jpg` | Winter landscape | Sonja Laukkanen | CC BY-NC-SA 2.0 | https://www.flickr.com/photos/40056159@N05/54263861393/ | 4912 × 2760 |
+| `pleine-page/tome-1/05-aurore-lac-fox.jpg` | Aurora Borealis Over Fox Lake | MikoFox | CC BY-NC-SA 2.0 | https://www.flickr.com/photos/28648755@N07/54396647438/ | 3921 × 2614 |
+| `pleine-page/tome-1/06-givre-sur-feuille.jpg` | Icy frost arrow shapes on leaf macro | Aron n Alisons | CC BY-NC-SA 2.0 | https://www.flickr.com/photos/59920975@N02/31424138885/ | 5399 × 3600 |
+| `pleine-page/tome-1/07-neige-sculptee-par-le-vent.jpg` | The Winds That Carve - Monochrome | MikoFox | CC BY-NC-SA 2.0 | https://www.flickr.com/photos/28648755@N07/52756404546/ | 4020 × 2466 |
+| `pleine-page/tome-1/08-givre-bleu.jpg` | Blue Frost - Givre bleu | Monteregina (Nicole) | CC BY-NC-SA 2.0 | https://www.flickr.com/photos/7196003@N02/25229571122/ | 2460 × 2460 |
+| `bandes/tome-1/orignal-brume-aube.jpg` | moose dawn | Steve Wall | CC BY-NC-SA 2.0 | https://www.flickr.com/photos/61779926@N00/2285060690/ | 3600 × 2400 |
+| `bandes/tome-1/orignal-brume.jpg` | Photo of the Week - Moose in mist (ME) | U.S. Fish and Wildlife Service Northeast Region | Marque du domaine public | https://www.flickr.com/photos/43322816@N08/12637633223/ | 3072 × 2048 |
+| `bandes/tome-1/orignal-tete-givre.jpg` | A Moose Hidden in the Snow (le bas rogné : la signature) | Chase Dekker | CC BY-NC-SA 2.0 | https://www.flickr.com/photos/87288449@N08/8299758266/ | 2382 × 1158 |
+| `bandes/tome-1/aurore-lac-epinettes.jpg` | Solar Storm over Twin Lakes | Keith Williams | CC BY-NC 2.0 | https://www.flickr.com/photos/46306125@N03/21910291690/ | 2048 × 1367 |
+
+Réserve des pages pleines (`images/pleine-page/reserve/`), choisies par JP le 19 octobre 2026 ; « ppp » = la résolution une fois recadrée en page pleine portrait (8,75 po de large) : sous 200, trop molle pour une page pleine.
+
+| Fichier | Sujet | Auteur | Licence | Lien | Taille | ppp en page pleine |
+| --- | --- | --- | --- | --- | --- | --- |
+| `pleine-page/reserve/P24-arc-en-ciel-taiga.jpg` | Nowitna National Wildlife Refuge | Alaska Region U.S. Fish & Wildlife Service | Marque du domaine public | https://www.flickr.com/photos/54775250@N07/55424786975/ | 2700 × 1801 | 160 |
+| `pleine-page/reserve/P629-huards-brume.jpg` | loons in the mist | Steve Wall | CC BY-NC-SA 2.0 | https://www.flickr.com/photos/61779926@N00/2744334778/ | 3600 × 2400 | 213 |
+| `pleine-page/reserve/P180-epinettes-brouillard.jpg` | Trees, Snow, Cloud | Dru! | CC BY-NC 2.0 | https://www.flickr.com/photos/36543076@N00/24827719762/ | 3264 × 2448 | 218 |
+| `pleine-page/reserve/P484-rayons-foret-enneigee.jpg` | Shine On | Audun Bie | CC BY-NC-SA 2.0 | https://www.flickr.com/photos/144547954@N08/32788311090/ | 5393 × 3600 | 320 |
+| `pleine-page/reserve/A146-ourson-noir-arbre.jpg` | Bennington VT - near Walloomsac River - black bear baby 08 | Daniel Mennerich | CC BY-NC-SA 2.0 | https://www.flickr.com/photos/29858421@N04/54565570407/ | 1944 × 1296 | 115 |
+| `pleine-page/reserve/A64-renard-couche-neige.jpg` | Red Fox Just Uncurled | MikoFox | CC BY-NC-SA 2.0 | https://www.flickr.com/photos/28648755@N07/13441815265/ | 2582 × 1936 | 172 |
+| `pleine-page/reserve/A373-chouette-lapone-neige.jpg` | Great Gray Owl | Sunny | CC BY-NC-SA 2.0 | https://www.flickr.com/photos/42478987@N07/50811626348/ | 2048 × 1463 | 130 |
+| `pleine-page/reserve/A522-tetras-neige.jpg` | Spruce grouse realizing there's no female and letting himsel | Claudine Lamothe | CC BY-NC 2.0 | https://www.flickr.com/photos/47094939@N07/29792998292/ | 2000 × 1179 | 105 |
+| `pleine-page/reserve/A87-renard-rocher-montagnes.jpg` | Red Fox (Vulpes vulpes) Surveys The Landscape | Lake Clark National Park & Preserve | Marque du domaine public | https://www.flickr.com/photos/93799642@N07/23484121868/ | 2288 × 1712 | 152 |
+| `pleine-page/reserve/A303-caribous-combat-givre.jpg` | Caribou combat | frostnip907 | CC BY-NC-SA 2.0 | https://www.flickr.com/photos/135422841@N07/23798229394/ | 1350 × 900 | 80 |
+| `pleine-page/reserve/P23-meandre-taiga-automne.jpg` | Nowitna National Wildlife Refuge | Alaska Region U.S. Fish & Wildlife Service | Marque du domaine public | https://www.flickr.com/photos/54775250@N07/55424790140/ | 2700 × 1801 | 160 |
+| `pleine-page/reserve/P442-riviere-gelee-brume-bleue.jpg` | Geothermal Reflections | Terry Lawson | CC BY-NC 2.0 | https://www.flickr.com/photos/59719397@N08/39358722331/ | 5000 × 2922 | 260 |

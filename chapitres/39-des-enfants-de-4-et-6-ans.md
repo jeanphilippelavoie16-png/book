@@ -1,4 +1,4 @@
-# Chapitre 39 — Des enfants de 4 et 6 ans
+# Chapitre 39 — Les jeunes enfants
 
 *Tome 2 — Le corps*
 
@@ -450,14 +450,14 @@ sûre, c'est elle qu'on remonte.
 ### Sans pics à glace, et ce qu'on fait quand quelqu'un passe au travers
 
 **Fabriquer les pics.** Deux clous de charpente plantés à fond dans deux bouts de manche à balai ou deux morceaux de branche de la grosseur d'un manche, la pointe limée courte et bien acérée,
-sortant à peine de la longueur d'un ongle. Un cordon noué d'un pic à l'autre, assez long pour
-passer dans une manche, derrière le cou et dans l'autre manche : les pics pendent aux poignets et
-restent utilisables même quand les mains ne se ferment plus. Un bouchon de liège ou un bout de
-bois mou enfoncé sur chaque pointe pour le transport.
+sortant à peine de la longueur d'un ongle. Un cordon noué d'un pic à l'autre, porté au cou par-dessus
+le manteau : les pics pendent sur la poitrine, à portée des deux mains (planche 15-01). Un bouchon de
+liège ou un bout de bois mou enfoncé sur chaque pointe pour le transport.
 
 **Pourquoi ça compte.** Le premier effet de l'eau glacée est un réflexe de suffocation qui prend
 la respiration, et les mains cessent d'obéir bien avant que le corps refroidisse. Une corde qu'il faut
-attraper suppose une main qui se ferme ; un pic pendu au poignet n'en suppose pas.
+attraper suppose une main qui se ferme : les pics se saisissent dans la première minute, pendant que
+les mains obéissent encore.
 
 **La sortie.** Sortir par où on est entré : c'est le seul endroit où la glace a déjà porté. Planter
 les pics, battre des jambes jusqu'à se mettre à l'horizontale et se tirer en glissant sur le ventre,

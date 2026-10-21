@@ -38,6 +38,7 @@
 //     valeur: { muscles: ['semitendineux'], trame: 'r2' },   // muscle(s) en trame
 //     muscles: true,                              // tous les muscles de surface en contour
 //     loin: 'fin',                                // pattes du côté opposé en trait 0,7 (défaut 1,4)
+//     loin: 'gris',                               // pattes du côté opposé en gris loin, trait 0,7 (la charte)
 //     fondOs: false,                              // os sans fond blanc (défaut : fond blanc)
 //   })
 //   p.pt('rotule')  -> [x, y] dans la vue, pour la cible d'un renvoi
@@ -368,6 +369,7 @@ function placer(z, { cadre = CADRE, echelle, marge = 6, ancre = 'centre' } = {})
 
 // ─── Rendu ─────────────────────────────────────────────────────────────────────────────────
 const NOIR = '#1A1A1A', BLANC = '#FFFFFF';
+const GRIS_LOIN = '#E6E6E6';   // la charte (JP, 13 octobre 2026) : ce qui est derrière
 const f1 = v => Math.round(v * 10) / 10;
 const trait = (ep, extra = '') => `fill="none" stroke="${NOIR}" stroke-width="${ep}" stroke-linejoin="round" stroke-linecap="round"${extra}`;
 const plein = (fond, ep) => `fill="${fond}" stroke="${NOIR}" stroke-width="${ep}" stroke-linejoin="round"`;
@@ -406,10 +408,12 @@ function dessiner(h, p, o = {}) {
   out.push(`<defs>${defs.join('')}</defs>`);
   out.push(`<g clip-path="url(#${id}-vue)">`);
 
-  // 1. Pattes du côté opposé, derrière
+  // 1. Pattes du côté opposé, derrière. La charte : loin: 'gris' les peint en gris loin, au
+  //    trait fin (elles reculent derrière la patte du côté vu).
   const loin = [PATTE_AV_LOIN, PATTE_AR_LOIN].map(q => lisse(q, true));
+  const loinAt = o.loin === 'gris' ? plein(GRIS_LOIN, 0.7) : plein(BLANC, o.loin === 'fin' ? 0.7 : 1.4);
   loin.forEach(q => {
-    out.push(`<path d="${d(q, true)}" ${plein(BLANC, o.loin === 'fin' ? 0.7 : 1.4)}/>`);
+    out.push(`<path d="${d(q, true)}" ${loinAt}/>`);
     if (regions.includes(1)) out.push(`<path d="${d(q, true)}" fill="url(#${id}-r1)" stroke="none"/>`);
   });
   // 2. Le corps, en blanc, qui cache le haut des pattes opposées

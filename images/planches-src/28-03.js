@@ -11,6 +11,11 @@
 // l'écrou (la ficelle passée dans le trou et nouée sur elle-même), l'amplitude (7° de part et
 // d'autre, pour « petit élan »), les proportions de la porte et de l'écrou (un écrou de 24 :
 // 36 sur plats, 19 d'épaisseur ; porte de 810 × 2030 ; chambranle de 70).
+//
+// La charte : l'écrou est l'objet, contour fort au repos et en grand. La porte ouverte, derrière
+// le cadre, recule en gris loin ; de côté, le pan du dessous de l'écrou est à l'ombre. Le rouge :
+// le cercle sur le milieu de l'écrou, où finit le mètre. La flèche de l'aller reste noire : c'est
+// le poids qui se déplace, pas un geste.
 module.exports = (h) => {
   const RAD = Math.PI / 180;
   const f = v => Math.round(v * 10) / 10;
@@ -62,6 +67,7 @@ module.exports = (h) => {
     // la porte ouverte, poussée vers la pièce d'à côté, pentures à gauche : vue de biais
     const c80 = Math.cos(80 * RAD);
     const xLibre = -405 + 810 * c80;
+    o.push(ch([[-405, 12], [xLibre, 12], [xLibre, 2026], [-405, 2026]], h.a.loin, true));   // derrière le cadre : recule
     o.push(ch([[-405, 12], [xLibre, 12], [xLibre, 2026], [-405, 2026]], h.a.detail, true));
     // deux panneaux, raccourcis par le biais
     const px = v => -405 + v * c80;
@@ -108,14 +114,19 @@ module.exports = (h) => {
     o.push(h.fleche(`M${f(g[0])} ${f(g[1])} A${f(R * s)} ${f(R * s)} 0 0 0 ${f(d[0])} ${f(d[1])}`, h.a.arete));
 
     // au repos : la ficelle et l'écrou pleins
-    const e0 = ecrou(0, `fill="#FFFFFF" ${h.a.arete.replace('fill="none" ', '')}`, h.a.detail);
+    const e0 = ecrou(0, `fill="#FFFFFF" ${h.a.contour.replace('fill="none" ', '')}`, h.a.detail);
     o.push(h.ligne(ax, ay + 3, e0.haut[0], e0.haut[1], h.a.arete));
     o.push(e0.svg);
 
     // la cote : du point d'attache au milieu de l'écrou
-    const xc = P(175, 0)[0];
-    o.push(h.ligne(e0.bx + (AC / 2) * s + 3, e0.by, xc + 6, e0.by, h.a.fin));
-    o.push(h.cote(xc, ay, xc, e0.by, '1000 mm', { cote: 'droite' }));
+    const xc = P(175, 0)[0] + 20;
+    o.push(h.ligne(ax + 4, ay, xc + 6, ay, h.a.fin));                       // attache haute : du point (1)
+    o.push(h.ligne(e0.bx + (AC / 2) * s + 3, e0.by, xc + 6, e0.by, h.a.fin)); // attache basse : centre de l'écrou
+    const ym = (ay + e0.by) / 2;
+    o.push(h.ligne(xc, ay, xc, e0.by, h.a.detail));
+    const pointe = (y, d) => `<path d="M${f(xc)} ${f(y)} L${f(xc - 3.5)} ${f(y + d * 11)} L${f(xc + 3.5)} ${f(y + d * 11)} Z" fill="#000000" stroke="none"/>`;
+    o.push(pointe(ay, 1), pointe(e0.by, -1));                                  // flèches fermées
+    o.push(`<g transform="rotate(-90 ${f(xc + 17)} ${f(ym)})">` + h.texte(xc + 17, ym, '1000 mm', { lisere: true }) + '</g>');
     return o.join('\n');
   };
 
@@ -145,7 +156,9 @@ module.exports = (h) => {
     const ch = 1.5 * k;
     const cote = [[xS - ep, yC - af + ch], [xS - ep + ch, yC - af], [xS + ep - ch, yC - af], [xS + ep, yC - af + ch],
       [xS + ep, yC + af - ch], [xS + ep - ch, yC + af], [xS - ep + ch, yC + af], [xS - ep, yC + af - ch]];
-    o.push(h.chemin(cote, `fill="#FFFFFF" ${h.a.arete.replace('fill="none" ', '')}`, true));
+    o.push(h.chemin(cote, h.a.blanc, true));
+    o.push(h.chemin([[xS - ep, yC], [xS + ep, yC], ...cote.slice(4)], h.a.ombre, true));   // le pan du dessous, à l'ombre
+    o.push(h.chemin(cote, h.a.contour, true));
     o.push(h.ligne(xS - ep, yC, xS + ep, yC, h.a.detail));
     // le chanfrein : un arc au bout de chaque pan
     for (const [y0, y1] of [[yC - af, yC], [yC, yC + af]]) for (const sx of [-1, 1]) {
@@ -162,7 +175,7 @@ module.exports = (h) => {
 
     // l'écrou de face
     o.push(h.formes.cordes([{ pts: [[xF, yHaut], [xF, yK]], ep: fil, debut: 'fixe', fin: 'coupe' }]));
-    o.push(h.chemin(face, `fill="#FFFFFF" ${h.a.arete.replace('fill="none" ', '')}`, true));
+    o.push(h.chemin(face, `fill="#FFFFFF" ${h.a.contour.replace('fill="none" ', '')}`, true));
     o.push(h.cercle(xF, yC, af - 1.2, h.a.fin));                       // le chanfrein
     o.push(h.cercle(xF, yC, tr, h.a.detail));                          // le trou
     const rF = FIL * k;                                                // le filet : trois quarts de cercle
@@ -175,6 +188,7 @@ module.exports = (h) => {
     o.push(h.path(`M${f(xF - 4)} ${f(yK - 3)} Q${f(xF)} ${f(yK + 1)} ${f(xF + 4)} ${f(yK - 3)} M${f(xF - 4)} ${f(yK + 2)} Q${f(xF)} ${f(yK + 6)} ${f(xF + 4)} ${f(yK + 2)}`, h.a.fin));
     o.push(h.formes.cordes([{ pts: [[xF - 4, yK + 2], [xF - 10, yK + 8], [xF - 12, yK + 16]], ep: fil, debut: 'fixe', fin: 'libre' }]));
 
+    o.push(h.controle(xF, yC, 9));                                     // le milieu du poids : là finit le mètre
     // les axes : le milieu de l'écrou, dans les deux vues
     const axe = `fill="none" stroke="${N}" stroke-width="0.5" stroke-dasharray="9 2.5 2 2.5"`;
     o.push(h.ligne(xF - ac - 6, yC, xD + 6, yC, axe));

@@ -5,7 +5,8 @@
 // contre de l'eau sur une balance d'égalité.
 // Cotes : le diamètre du chalumeau (8 ou 11 mm, celui de la mèche) et la profondeur du trou (4 cm
 // environ), les seules que le chapitre donne. La longueur du chalumeau n'est pas cotée.
-// La main du maillet vient de h.formes.
+// La main du maillet est une main simple (mains/moteur.js, 14 oct.), au lieu du calque s11. La charte :
+// le chalumeau planté pèse (contour 2,4), le coup de maillet est la flèche rouge du geste.
 
 module.exports = (h) => {
   const F = h.formes;
@@ -82,16 +83,18 @@ module.exports = (h) => {
 
   // ─── Vue 1 : le chalumeau taillé, de côté et du bout, puis en place dans le tronc (2,2 px par mm) ───
   const K = 2.2, DIA = 11 * K, RC = DIA / 2, LCH = 70 * K, GW = 4 * K, GD = 4 * K;
-  const ENF = 26 * K, PROF = 40 * K;             // enfoncé : dessin seulement ; profondeur du trou : 4 cm environ
+  const ENF = 26 * K, PROF = 40 * K;
+  const KV = K * 1.5, DV = 11 * KV, RV = DV / 2, LV = 70 * KV, GWV = 4 * KV, GDV = 4 * KV;   // vues de côté et du bout, une fois et demie             // enfoncé : dessin seulement ; profondeur du trou : 4 cm environ
   const TA = (z) => {
-    const x0 = 60, x1 = x0 + LCH, ye = 26, yc = ye + RC, xb = x1 + 50;
-    const xs = x0 + ENF, yA = z.h - 46, Q = repere([xs, yA]);
+    const x0 = 12, x1 = x0 + LV, ye = 22, yc = ye + RV, xb = x1 + 22 + RV;
+    // l'écorce assez loin du bord pour que le fond du trou (40 mm) et sa cote restent dans la vue
+    const xs = Math.max(x0 + ENF, PROF + 22), yA = z.h - 46, Q = repere([xs, yA]);
     return { x0, x1, ye, yc, xb, xs, yA, Q };
   };
   const vueTaille = (z) => {
     const { x0, x1, ye, yc, xb, xs, yA, Q } = TA(z);
-    const yg = Math.sqrt(RC * RC - (GW / 2) ** 2);
-    const bout = `M${r1(xb + GW / 2)},${r1(yc - yg)} A${r1(RC)},${r1(RC)} 0 1 1 ${r1(xb - GW / 2)},${r1(yc - yg)} L${r1(xb - GW / 2)},${r1(yc - RC + GD - GW / 2)} A${r1(GW / 2)},${r1(GW / 2)} 0 0 0 ${r1(xb + GW / 2)},${r1(yc - RC + GD - GW / 2)} Z`;
+    const yg = Math.sqrt(RV * RV - (GWV / 2) ** 2);
+    const bout = `M${r1(xb + GWV / 2)},${r1(yc - yg)} A${r1(RV)},${r1(RV)} 0 1 1 ${r1(xb - GWV / 2)},${r1(yc - yg)} L${r1(xb - GWV / 2)},${r1(yc - RV + GDV - GWV / 2)} A${r1(GWV / 2)},${r1(GWV / 2)} 0 0 0 ${r1(xb + GWV / 2)},${r1(yc - RV + GDV - GWV / 2)} Z`;
     const tr = tronc(12, yA - 74, z.h - 6, xs, 8);
     const aIn = -ENF, aOut = LCH - ENF, rh = RC, gd = GD;
     const trou = [Q(2, -rh), Q(-PROF + 7, -rh), Q(-PROF, 0), Q(-PROF + 7, rh), Q(2, rh)].map(R1);
@@ -99,15 +102,14 @@ module.exports = (h) => {
     const bt = Q(aOut, rh), fond = Q(-PROF, 0), coteY = Q(-PROF, -rh)[1] - 14;
     return [
       // de côté, et du bout (rappels entre les deux)
-      h.ligne(x1 + 6, ye, xb - RC - 6, ye, h.a.fin), h.ligne(x1 + 6, ye + DIA, xb - RC - 6, ye + DIA, h.a.fin),
-      h.ligne(x1 + 6, ye + GD, xb - GW / 2 - 6, ye + GD, h.a.fin),
-      h.rect(x0, ye, LCH, DIA, B(h.a.contour)),
-      h.ligne(x0, ye + GD, x1, ye + GD, h.a.cache),
-      h.ligne(x0 + 22, ye + DIA * 0.66, x1 - 36, ye + DIA * 0.66, h.a.fin),
-      h.ligne(x0 + 60, ye + DIA * 0.84, x1 - 12, ye + DIA * 0.84, h.a.fin),
+      h.ligne(x1 + 6, ye, xb - RV - 6, ye, h.a.fin), h.ligne(x1 + 6, ye + DV, xb - RV - 6, ye + DV, h.a.fin),
+      h.ligne(x1 + 6, ye + GDV, xb - GWV / 2 - 6, ye + GDV, h.a.fin),
+      h.rect(x0, ye, LV, DV, B(h.a.contour)),
+      h.ligne(x0, ye + GDV, x1, ye + GDV, h.a.cache),
+      h.ligne(x0 + 33, ye + DV * 0.66, x1 - 54, ye + DV * 0.66, h.a.fin),
+      h.ligne(x0 + 90, ye + DV * 0.84, x1 - 18, ye + DV * 0.84, h.a.fin),
       h.path(bout, B(h.a.contour)),
-      h.cercle(xb + 1.5, yc + 3, 1, h.a.plein),
-      h.cote(xb - RC, ye + DIA + 14, xb + RC, ye + DIA + 14, 'Ø 8 ou 11 mm', { cote: 'dessous' }),
+      h.cote(xb - RV, ye + DV + 14, xb + RV, ye + DV + 14, 'Ø 8 ou 11 mm', { cote: 'dessous' }),
       // en place : le tronc coupé par l'axe du trou
       tr.fond,
       tr.bords,
@@ -125,6 +127,20 @@ module.exports = (h) => {
       h.ligne(r1(fond[0]), r1(fond[1] - 3), r1(fond[0]), r1(coteY - 4), h.a.fin),
       h.cote(r1(fond[0]), r1(coteY), r1(xs), r1(coteY), 'env. 40 mm'),
     ].join('\n');
+  };
+
+  // l'angle de la main simple qui met l'axe de sa prise sur `axe` (degrés à l'écran) et son avant-bras du
+  // côté de `vers` (le même outil que 104-40 et 50-40)
+  const poser = (o, axe, vers) => {
+    const base = Object.assign({}, o, { angle: 0, avantbras: { longueur: 100 } }); delete base.objet;
+    const e0 = F.mainSimple(base); let best = null;
+    for (const k of [0, 180]) {
+      const a = axe - e0.prise.angle + k, m = F.mainSimple(Object.assign({}, base, { angle: a }));
+      const d = [m.coude[0] - m.poignet[0], m.coude[1] - m.poignet[1]], v = [vers[0] - m.poignet[0], vers[1] - m.poignet[1]];
+      const c = (d[0] * v[0] + d[1] * v[1]) / ((Math.hypot(d[0], d[1]) * Math.hypot(v[0], v[1])) || 1);
+      if (!best || c > best.c) best = { a, c };
+    }
+    return best.a;
   };
 
   // ─── Vue 2 : au maillet de bois (le tronc de côté, 0,85 px par mm) ───
@@ -146,7 +162,12 @@ module.exports = (h) => {
     for (let y = yT + 10; y < yB - 6; y += 11) { let x = xL + 6 + 8 * R(); while (x < X0 - 10) { const l = 5 + 9 * R(), dy = 3 * R(); lent.push(h.ligne(r1(x), r1(y + dy), r1(Math.min(x + l, X0 - 4)), r1(y + dy), h.a.detail)); x += l + 6 + 10 * R(); } }
     const manche = h.chemin([Q(aHc - rM, RH - 2), Q(aHc - rM, bFin - 3), Q(aHc - rM + 3, bFin), Q(aHc + rM - 3, bFin), Q(aHc + rM, bFin - 3), Q(aHc + rM, RH - 2)].map(R1), B(h.a.contour), true);
     const mG = Q(aHc, bGrip);
-    const m = F.main({ x: mG[0], y: mG[1], pose: 'prise', vue: 'dos', cote: 'gauche', echelle: S, angle: TH, diametre: 2 * rM, bras: 26, objet: manche });
+    // la main simple (prise-manche, vue côté paume, penchée de 25° : les doigts à plat en travers) fermée
+    // sur le manche de 26 mm : le manche entre par le haut du poing et ressort par le bas, derrière les
+    // doigts ; l'avant-bras vers la droite, qui sort de la vue. La main garde la taille de la vue (0,85 par mm).
+    const vM = [mG[0] + 600, mG[1]], axeM = 90 + TH;
+    const oM = { x: mG[0], y: mG[1], pose: 'prise-manche', vue: 'paume', cote: 'droite', echelle: S, diametre: 2 * rM / S, rotation: [-25, 0, 0] };
+    const m = F.mainSimple({ ...oM, angle: poser(oM, axeM, vM), objet: manche, avantbras: { vers: vM, bord: { x0: 0, y0: 0, x1: z.l, y1: z.h }, bras: { pli: 0 } } }).svg;
     const tete = [Q(aH0, -RH + 5), Q(aH0 + 5, -RH), Q(aH0 + LH - 5, -RH), Q(aH0 + LH, -RH + 5), Q(aH0 + LH, RH - 5), Q(aH0 + LH - 5, RH), Q(aH0 + 5, RH), Q(aH0, RH - 5)].map(R1);
     return [
       h.chemin(tour, h.a.blanc, true), ...lent,
@@ -154,7 +175,7 @@ module.exports = (h) => {
       h.chemin(serie(xL, X0, 4, x => [x, haut(x)]), h.a.detail), h.chemin(serie(xL, X0, 4, x => [x, bas(x)]), h.a.detail),
       h.chemin(serie(yT, yB, 4, y => [gch(y), y]), h.a.detail),
       // le chalumeau qui dépasse, la gouttière dessus
-      h.chemin([Q(-1, -rh), Q(aOut, -rh), Q(aOut, rh), Q(-1, rh)].map(R1), B(h.a.arete), true),
+      h.chemin([Q(-1, -rh), Q(aOut, -rh), Q(aOut, rh), Q(-1, rh)].map(R1), B(h.a.contour), true),   // la charte : l'objet du geste pèse
       h.chemin([Q(0, -rh + gd), Q(aOut, -rh + gd)].map(R1), h.a.cache),
       // la main tient le manche ; la tête passe par-dessus
       m,
@@ -163,8 +184,8 @@ module.exports = (h) => {
       h.chemin([Q(aH0 + 26, RH * 0.5), Q(aH0 + LH - 9, RH * 0.5)].map(R1), h.a.fin),
       h.chemin([Q(aHc - rM, -RH), Q(aHc - rM, -RH - 5), Q(aHc + rM, -RH - 5), Q(aHc + rM, -RH)].map(R1), B(h.a.arete)),
       h.chemin([Q(aHc, -RH - 5), Q(aHc, -RH - 1)].map(R1), h.a.detail),
-      // le coup, dans l'axe du chalumeau
-      h.fleche(`M${R1(Q(aH0 + LH * 0.7, -RH - 11)).join(',')} L${R1(Q(aH0 - 2, -RH - 11)).join(',')}`, h.a.arete),
+      // le coup, dans l'axe du chalumeau : le geste (charte : le rouge)
+      h.geste(`M${R1(Q(aH0 + LH * 0.7, -RH - 11)).join(',')} L${R1(Q(aH0 - 2, -RH - 11)).join(',')}`),
     ].join('\n');
   };
 
@@ -333,11 +354,11 @@ module.exports = (h) => {
         titre: 'Le chalumeau, taillé et en place',
         dessin: vueTaille,
         renvois: z => {
-          const { x0, ye, xb, xs, yA, Q } = TA(z);
+          const { x0, ye, yc, xb, xs, yA, Q } = TA(z);
           const aOut = LCH - ENF;
           return [
-            { n: 1, rond: [xb + 38, 12], cible: [xb, ye + GD - 2], texte: 'gouttière sur le dessus' },
-            { n: 2, rond: [x0 + 112, ye + DIA + 28], cible: [x0 + 112, ye + DIA * 0.75], texte: 'goujon de bois dur' },
+            { n: 1, rond: [xb - RV - 14, 13], cible: [r1(xb - GWV / 2 - 1), r1(yc - Math.sqrt(RV * RV - (GWV / 2) ** 2) - 1)], texte: 'gouttière sur le dessus' },
+            { n: 2, rond: [x0 + 150, ye + DV + 26], cible: [x0 + 150, ye + DV * 0.75], texte: 'goujon de bois dur' },
             { n: 3, rond: [34, yA + 34], cible: Q(-PROF + 16, RC), texte: 'trou qui monte un peu' },
             { n: 4, rond: [xs + 76, yA - 44], cible: Q(aOut - 30, -RC + GD / 2), texte: 'la sève suit la gouttière' },
           ];

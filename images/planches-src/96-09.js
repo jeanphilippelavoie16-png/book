@@ -7,6 +7,10 @@
 // l'urine va au pied des plants. Aucune mesure du trou : aucune cote, la bêche sert d'échelle.
 // Le sol en place est le podzol du § 3 : sous la mousse, une mince couche noire, la couche grise
 // délavée, puis la couche couleur de rouille.
+// La charte : le trou vide, en coupe, montre sa paroi du fond en gris loin (comme la 96-02). Le
+// rouge : la mousse levée vers le côté (le geste) et, en coupe, la terre autour de la racine (le
+// point à vérifier : rien de posé contre elle). La cendre et le varech qui tombent, l'urine versée
+// gardent leurs flèches noires.
 module.exports = (h) => {
   const N = '#1A1A1A', B = '#FFFFFF';
   const f = (v) => Math.round(v * 10) / 10;
@@ -110,7 +114,7 @@ module.exports = (h) => {
       const bl = g.cx - g.wb / 2, br = g.cx + g.wb / 2, yf = g.ys + g.D, r = 7;
       const murs = [[hl, g.ys], [bl, yf - r], ...bez([bl, yf - r], [bl, yf], [bl + r, yf], 4).slice(1),
         [br - r, yf], ...bez([br - r, yf], [br, yf], [br, yf - r], 4).slice(1), [hr, g.ys]];
-      out.push(poly(murs, g.trou === 'vide' ? h.a.blanc : FN));
+      out.push(poly(murs, g.trou === 'vide' ? h.a.loin : FN));
       out.push(ouvert(murs, h.a.arete));
     }
     if (g.trou === 'vide') {
@@ -194,7 +198,7 @@ module.exports = (h) => {
           out.push(mousse(xa, xb, yP - m, g.mo, rnd, [xa, xb]));
           out.push(ouvert([[xa, yP - m - g.mo], [xa, yP], [xb, yP], [xb, yP - m - g.mo]], h.a.arete));
           // Le geste : du trou vers la plaque.
-          out.push(h.fleche(`M ${f(g.cx)} ${f(g.ys - 4)} Q ${f(g.cx + 12)} ${f(g.ys - 54)} ${f((xa + xb) / 2 - 8)} ${f(yP - m - g.mo - 6)}`));
+          out.push(h.geste(`M ${f(g.cx)} ${f(g.ys - 4)} Q ${f(g.cx + 12)} ${f(g.ys - 54)} ${f((xa + xb) / 2 - 8)} ${f(yP - m - g.mo - 6)}`));
           return out.join('\n');
         },
         renvois: (z) => {
@@ -306,6 +310,8 @@ module.exports = (h) => {
           });
           out.push(poly(ell, blanc(h.a.arete)));
           out.push(h.fleche(`M ${f(u.a[0])} ${f(u.a[1])} L ${f(u.b[0])} ${f(u.b[1])}`));
+          // le point à vérifier : la terre autour de la racine, où rien n'est posé
+          out.push(h.controle(rz.cx, g.ys + 0.36 * g.D, 0.32 * g.D));
           return out.join('\n');
         },
         renvois: (z) => {

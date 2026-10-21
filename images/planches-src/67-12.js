@@ -1,5 +1,8 @@
 // Planche 67-12 — La claie de graduation. Chapitre 62, « Tirer du sel du fleuve »,
 // deuxième étage : le vent, l'été. Aucune dimension dans le chapitre : aucune cote.
+// La charte : de face, le toit et les poteaux au contour fort ; en coupe, les poteaux et l'entrait
+// vus au-delà du plan de coupe en gris loin. Un seul rouge : la saumure qu'on puise au bout de
+// l'auge et qu'on reverse en haut. Le vent et la saumure qui descend restent en noir.
 module.exports = (h) => {
   const blanc = (t) => t.replace('fill="none"', 'fill="#ffffff"');
   const f = (n) => n.toFixed(1);
@@ -82,13 +85,13 @@ module.exports = (h) => {
           o.push(h.chemin(pts, blanc(h.a.arete), true));
           // poteaux, avec la ligature de chaque perche
           for (const p of postes) {
-            o.push(h.rect(p, yGb - 26, pL, yg - yGb + 26, blanc(h.a.arete)));
+            o.push(h.rect(p, yGb - 26, pL, yg - yGb + 26, blanc(h.a.contour)));
             for (const y of [...perches, yPb]) {
               o.push(h.ligne(p - 1, y - 4, p + pL + 1, y + 1, h.a.fin), h.ligne(p - 1, y - 1, p + pL + 1, y + 4, h.a.fin));
             }
           }
           // toit : le versant vu de long, planches dans le sens de la pente
-          o.push(h.rect(murG - 12, 26, murD - murG + 24, 30, blanc(h.a.arete)));
+          o.push(h.rect(murG - 12, 26, murD - murG + 24, 30, blanc(h.a.contour)));
           for (let x = murG - 2; x < murD + 12; x += 10) o.push(h.ligne(x, 27, x, 55, h.a.fin));
           o.push(h.ligne(murG - 12, 56, murD + 12, 56, h.a.contour));
           // le seau : on puise au bout de l'auge, on verse au bout de la gouttière
@@ -99,7 +102,7 @@ module.exports = (h) => {
           o.push(h.path(`M${rot(sx, sy, ang, [[-11, -12]])[0].map(f).join(' ')} Q${rot(sx, sy, ang, [[0, 12]])[0].map(f).join(' ')} ${rot(sx, sy, ang, [[11, -12]])[0].map(f).join(' ')}`, h.a.detail));
           const lev = rot(sx, sy, ang, [[-12, -22]])[0];
           o.push(h.path(`M${f(lev[0])} ${f(lev[1])} Q${f(lev[0] - 4)} ${f(lev[1] + 6)} ${f(lev[0] - 5)} ${yGt + 1}`, h.a.cache));
-          o.push(h.fleche(`M${bout - 6} ${yAh + 6} C${bout + 34} ${yAh - 10} ${bout + 38} 120 ${sx + 12} ${sy + 8}`, h.a.detail));
+          o.push(h.geste(`M${bout - 6} ${yAh + 6} C${bout + 34} ${yAh - 10} ${bout + 38} 120 ${sx + 12} ${sy + 8}`));
           return o.join('\n');
         },
         renvois: z => [
@@ -126,9 +129,12 @@ module.exports = (h) => {
           o.push(h.rect(4, yg, z.l - 8, 12, h.a.hachure('terre', 'fin')));
           o.push(h.ligne(4, yg, z.l - 4, yg, h.a.arete));
           // poteaux, vus au-delà du plan de coupe
-          for (const p of [pG, pD]) o.push(h.chemin([[p, yg], [p, toit(p) + 4], [p + 8, toit(p + 8) + 4], [p + 8, yg]], blanc(h.a.arete), true));
-          // entrait sous le toit
-          o.push(h.rect(pG - 2, yE - 2, pD - pG + 12, 5, blanc(h.a.arete)));
+          for (const p of [pG, pD]) {
+            const pts = [[p, yg], [p, toit(p) + 4], [p + 8, toit(p + 8) + 4], [p + 8, yg]];
+            o.push(h.chemin(pts, h.a.loin, true), h.chemin(pts, h.a.arete, true));
+          }
+          // entrait sous le toit, au-delà lui aussi
+          o.push(h.rect(pG - 2, yE - 2, pD - pG + 12, 5, h.a.loin), h.rect(pG - 2, yE - 2, pD - pG + 12, 5, h.a.arete));
           // toit coupé
           o.push(h.chemin([[eG, yE], [cx, yF], [eD, yE], [eD, yE + 4], [cx, yF + 4], [eG, yE + 4]], h.a.hachure('bois', 'arete'), true));
           // auge coupée : planches, bâche, saumure

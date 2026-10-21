@@ -7,6 +7,11 @@
 // la vue de dos reprennent ce brelage ; la corde d'amarrage fait le tour des montants ; la charge
 // portée de profil a l'épaisseur du torse ; le poil du traîneau est serré sur le dessous et
 // l'arrière, couché vers l'arrière.
+//
+// Refaite le 13 octobre 2026 : le porteur est le corps simple debout, de profil (cote gauche), la
+// bretelle posée sur lui (devant le tronc, sous le bras proche). La charte : les sacs, objets du
+// geste, à 2,4 avec leur face à l'ombre ; le rouge : la flèche du tirage du traîneau et le cercle
+// des reins qui restent libres sous la charge (« contre les omoplates et non sur les reins »).
 module.exports = (h) => {
   const B = h.a.blanc.match(/fill="([^"]+)"/)[1];
   const blanc = t => h.a[t].replace('fill="none"', `fill="${B}"`);
@@ -128,6 +133,14 @@ module.exports = (h) => {
     return out.join('\n');
   };
   const neige = h.a.hachure('neige').replace(/stroke="[^"]*"/, 'stroke="none"');
+  // La face à l'ombre d'un volume (la charte) : le gris là où la forme, poussée vers le bas à droite,
+  // sort d'elle-même ; le blanc, l'ombre, puis le contour à 2,4 par-dessus.
+  let nOmbre = 0;
+  const ombre = (d, dx, dy) => {
+    const id = `ombre-64-08-${++nOmbre}`;
+    return `<clipPath id="${id}"><path d="${d}" fill="#FFFFFF"/></clipPath>\n${h.path(d, h.a.blanc)}\n<g clip-path="url(#${id})">${h.path(d, h.a.ombre)}` +
+      `<path d="${d}" transform="translate(${-dx} ${-dy})" ${h.a.blanc}/></g>\n${h.path(d, h.a.contour)}`;
+  };
   const chemin = (P, cmds) => cmds.map(c => {
     if (c === 'Z') return 'Z';
     const [k, ...v] = c, pts = [];
@@ -283,8 +296,8 @@ module.exports = (h) => {
     out.push(corde([[xt, gy - 1], [xt + 1, gy - Hb * 0.5], [xt + 3, gy - Hb + 3],
       ...bez([xt + 3, gy - Hb + 3], [xt - 4, gy - Hb - 6], [xa - 14, gy - Hb - 12], [xa - 30, gy - Hb - 18], 10).slice(1),
       [8, gy - Hb - 40]], 4));
-    // Le sens de la marche.
-    out.push(h.fleche(`M ${f(xa - 36)} ${f(gy - 12)} L ${f(16)} ${f(gy - 12)}`));
+    // Le geste : on tire vers l'avant, le poil couché vers l'arrière glisse.
+    out.push(h.geste(`M ${f(xa - 36)} ${f(gy - 12)} L ${f(16)} ${f(gy - 12)}`));
     return out.join('\n');
   };
   const renvoisTraineau = z => {
@@ -376,32 +389,31 @@ module.exports = (h) => {
     b.forEach(q => { if (q[0] > 20 && Math.abs(q[1] - v) < Math.abs(best[1] - v)) best = q; });
     return best[0];
   };
+  const porteur = z => {
+    const { s, gy, xc, P } = geoPorteur(z);
+    const e = 100 * s / 1772;                                   // la tête à v = 0, les pieds à v = 100
+    const o = { y: gy, pose: 'debout', vue: 'profil', cote: 'gauche', age: 'adulte', echelle: e };
+    const c0 = h.formes.corps({ ...o, x: xc });
+    const dx = P(6, 0)[0] - (c0.articulations.epauleP[0] + 100 * e);   // le dos (≈ 100 mm derrière l'épaule) à u = 6
+    const x = xc + dx;
+    // la bretelle, en mm depuis l'épaule : av vers l'avant, ht vers le haut
+    const bretelle = g => {
+      const S = g.articulations.epauleP, Q = (av, ht) => [S[0] - av * e, S[1] - ht * e];
+      const pts = suite(bez(P(9.4, 11), Q(-40, 120), Q(-30, 90), Q(20, 74), 8), bez(Q(20, 74), Q(70, 60), Q(112, 10), Q(112, -60), 8).slice(1),
+        bez(Q(112, -60), Q(112, -150), Q(70, -220), Q(10, -250), 8).slice(1), bez(Q(10, -250), Q(-60, -300), Q(-100, -420), P(9.2, 47.6), 10).slice(1));
+      return { svg: bande(pts, 1.25 * s).svg, poitrine: Q(112, -40), reins: Q(-104, -480) };
+    };
+    const corps = h.formes.corps({ ...o, x, objetP: g => bretelle(g).svg });
+    return { corps, bretelle: bretelle(corps) };
+  };
   const vuePorteur = z => {
     const { s, gy, P } = geoPorteur(z), out = [];
     out.push(h.ligne(0, gy, z.l, gy, h.a.arete));
-    // Le corps, au trait moyen : ce n'est pas lui qu'on construit.
-    out.push(h.path(chemin(P, [
-      ['M', 0.5, 0], ['C', -3.5, 0, -5.2, 2.8, -5.2, 6], ['L', -6.2, 8.2], ['L', -5.2, 9],
-      ['C', -5, 10.5, -4.5, 12, -3, 12.8], ['L', -2.6, 15.5],
-      ['C', -5.5, 16.5, -6.8, 19, -6.8, 23], ['C', -6.8, 30, -5.8, 36, -5.8, 40],
-      ['C', -5.8, 45, -4.5, 49, -4, 52], ['C', -4.5, 62, -4.5, 70, -4, 74],
-      ['C', -3.5, 82, -3.5, 90, -3, 95], ['L', -3.2, 97], ['L', -8.5, 98.6], ['L', -8.5, 100],
-      ['L', 3.2, 100], ['L', 3.2, 97], ['L', 2.5, 95], ['C', 3.5, 90, 4.8, 84, 4.2, 79],
-      ['C', 3.8, 76, 3.2, 75, 3.4, 72], ['C', 3.8, 64, 5.5, 58, 5.8, 53],
-      ['C', 6.8, 50, 6.5, 45, 4.6, 41], ['C', 3.8, 38, 4, 35, 4.8, 31],
-      ['C', 5.8, 26, 6.2, 20, 4.5, 16.5], ['C', 3, 15, 2.8, 13.5, 3.5, 12],
-      ['C', 5.2, 10, 5.8, 6, 5.2, 4], ['C', 4.5, 1.2, 2.5, 0, 0.5, 0], 'Z']), blanc('arete')));
-    out.push(h.path(chemin(P, [['M', 1.2, 5.2], ['C', 2.4, 5.4, 2.6, 7.6, 1.4, 8]]), h.a.detail));
-    // La bretelle : du haut du cadre, par-dessus l'épaule, sous l'aisselle, au bas du cadre.
-    const br = [[9.4, 11], [6, 13], [2.5, 14.9], [-1.5, 16.4], [-4.2, 18.6], [-5, 22.5], [-3.5, 25.5],
-      [0.5, 27], [3.5, 30.5], [5.6, 36], [7.2, 43], [9.2, 47.6]].map(q => P(q[0], q[1]));
-    out.push(bande(bez(br[0], br[1], br[2], br[3], 6).concat(bez(br[3], br[4], br[5], br[6], 8).slice(1),
-      bez(br[6], br[7], br[8], br[9], 8).slice(1), bez(br[9], br[10], br[11], br[11], 6).slice(1)), 1.25 * s).svg);
-    // Le bras, par-dessus.
-    out.push(h.path(chemin(P, [
-      ['M', -1, 16.2], ['C', -3, 18, -3.2, 22, -3, 27], ['L', -2.8, 34], ['C', -3.4, 38, -4, 42, -4.4, 46],
-      ['C', -5.6, 49, -4.4, 52.6, -2.4, 51.6], ['C', -1.6, 50, -1.4, 48, -1.4, 46], ['C', -0.6, 42, 0.4, 38, 1, 35],
-      ['C', 2, 31, 2.8, 25, 2.8, 21.5], ['C', 2.8, 18.5, 1.5, 16.2, -1, 16.2], 'Z']), blanc('arete')));
+    // Le corps simple, debout, de profil, tourné vers la gauche (cote gauche) : le dos posé à 6 unités
+    // derrière l'axe, juste devant le montant du cadre. La bretelle passe devant le tronc et sous le
+    // bras proche (objetP) : du haut du cadre, par-dessus l'épaule, sous l'aisselle, au bas du cadre.
+    const { corps, bretelle } = porteur(z);
+    out.push(corps.toString());
     // Le cadre vu de côté : le montant, les deux traverses en bout.
     out.push(perche(P(7.6, 7), P(7.9, 51), 1.8 * s, 2.1 * s, ['coupe', 'coupe'], false));
     [[9.4, 11], [9.6, 48]].forEach(([u, v]) => {
@@ -412,10 +424,10 @@ module.exports = (h) => {
     // Le sac de coton, haut sur le cadre, la pièce dedans : de la traverse du haut au milieu du
     // dos, aussi épais que le torse ; le bas reste au-dessus des reins.
     const [d0, d1, d2, d3, d4, d5, d6] = sacDehors;
-    out.push(h.path(chemin(P, [
+    out.push(ombre(chemin(P, [
       ['M', 15.6, 11.2], ['C', 15.8, 11.9, 15.2, 12.3, 14.2, 12.6], ['C', 11.4, 13.4, 10.3, 15.6, 10.3, 19], ['L', 10.3, 33],
       ['C', 10.4, 36, 13, 37.2, ...d0], ['C', ...d1, ...d2, ...d3], ['C', ...d4, ...d5, ...d6],
-      ['C', 18.4, 12.3, 17.4, 11.9, 17.6, 11.2], 'Z']), blanc('contour')));
+      ['C', 18.4, 12.3, 17.4, 11.9, 17.6, 11.2], 'Z']), 1.4 * s, 2 * s));
     out.push(h.path(chemin(P, [['M', 15.6, 11.2], ['L', 14.8, 9.6], ['L', 16.3, 10.2], ['L', 17.2, 9.4], ['L', 17.6, 11.2]]), blanc('arete')));
     out.push(h.path(chemin(P, [['M', 16, 13.4], ['C', 15.4, 16, 14.6, 18, 14.2, 20.5], ['M', 17.4, 13.4], ['C', 19.2, 16, 21.5, 17.6, 23.5, 18.6],
       ['M', 13, 34.6], ['C', 16, 33.5, 19.5, 33.5, 22, 34.3]]), h.a.detail));
@@ -427,13 +439,15 @@ module.exports = (h) => {
       out.push(h.ligne(...P(6.8, va - 0.42), ...P(6.8, va + 0.42), h.a.arete));
       out.push(tourne(fin, [1, 0.05], 0.85 * s));
     });
+    // le point à contrôler : la charge haute, contre les omoplates, les reins libres dessous
+    out.push(h.controle(bretelle.reins[0], bretelle.reins[1], 2.6 * s));
     return out.join('\n');
   };
   const renvoisPorteur = z => {
     const { P } = geoPorteur(z);
     return [
       { n: 4, rond: [z.l - 12, P(0, 40)[1]], cible: P(21, 33), texte: 'pièce haute sur les omoplates, reins libres' },
-      { n: 5, rond: [12, P(0, 22)[1]], cible: P(-4.9, 21), texte: 'bretelle, du haut du cadre au bas' },
+      { n: 5, rond: [12, P(0, 22)[1]], cible: porteur(z).bretelle.poitrine, texte: 'bretelle, du haut du cadre au bas' },
     ];
   };
 
@@ -479,10 +493,10 @@ module.exports = (h) => {
       out.push(bande([P(6.8 * k, TH - 1.4), P(6.8 * k, TH + 1.4)], 1.25 * s).svg);
     });
     // Le sac de coton, la pièce dedans, noué en haut ; il loge entre les montants.
-    out.push(h.path(chemin(P, [
+    out.push(ombre(chemin(P, [
       ['M', -1.6, 4.9], ['C', -6.5, 5.5, -9.3, 7.8, -9.5, 12.5], ['L', -9.3, 21], ['C', -9.1, 26, -6, 28.4, 0, 28.4],
       ['C', 6, 28.4, 9.1, 26, 9.3, 21], ['L', 9.5, 12.5], ['C', 9.3, 7.8, 6.5, 5.5, 1.6, 4.9],
-      ['C', 1.1, 4.6, 1, 4.3, 1.2, 3.9], ['L', -1.2, 3.9], ['C', -1, 4.3, -1.1, 4.6, -1.6, 4.9], 'Z']), blanc('contour')));
+      ['C', 1.1, 4.6, 1, 4.3, 1.2, 3.9], ['L', -1.2, 3.9], ['C', -1, 4.3, -1.1, 4.6, -1.6, 4.9], 'Z']), 1.2 * s, 1.6 * s));
     out.push(h.path(chemin(P, [['M', -1.2, 3.9], ['L', -2.4, 1.7], ['L', -0.8, 2.5], ['L', 0.2, 1.2], ['L', 1, 2.4], ['L', 2.4, 1.6], ['L', 1.2, 3.9]]), blanc('arete')));
     out.push(corde([P(-1.6, 4.2), P(1.6, 4.2)], 0.75 * s));
     let plis = '';

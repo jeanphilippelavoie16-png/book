@@ -2,6 +2,8 @@
 // le pouce et le dos de la lame, la fendre (et ramener la fente qui dérive), la garder en
 // couronne ; tordre une pousse de saule jusqu'à ce qu'elle plie sans casser (ch. 36).
 // Aucune cote : le chapitre ne donne aucune mesure pour ces gestes.
+// La charte : les racines au contour ; le rouge sur cinq gestes (tirer, tirer au travers du pincement, écarter les
+// deux moitiés, plier le côté épais). La torsion de la hart reste noire : cinq marques rouges au plus.
 
 // ─── géométrie ───────────────────────────────────────────────────────────────────────
 const lisse = (pts, n = 8) => {
@@ -102,6 +104,29 @@ const bande = (h, pts, w, o = {}) => {
   return out.join('\n');
 };
 
+// L'angle d'une main simple qui met l'axe de sa prise sur axe (degrés écran) et son avant-bras vers vers [x, y].
+const poser = (h, o, axe, vers) => {
+  const base = Object.assign({}, o, { angle: 0, avantbras: { longueur: 100 } }); delete base.objet;
+  const e0 = h.formes.mainSimple(base); let best = null;
+  for (const k of [0, 180]) {
+    const a = axe - e0.prise.angle + k, m = h.formes.mainSimple(Object.assign({}, base, { angle: a }));
+    const d = [m.coude[0] - m.poignet[0], m.coude[1] - m.poignet[1]], v = [vers[0] - m.poignet[0], vers[1] - m.poignet[1]];
+    const c = (d[0] * v[0] + d[1] * v[1]) / ((Math.hypot(d[0], d[1]) * Math.hypot(v[0], v[1])) || 1);
+    if (!best || c > best.c) best = { a, c };
+  }
+  return best.a;
+};
+// Les deux mains d'« Écorcer » (mains simples, mains/moteur.js) : la droite tient le couteau, le poing fermé sur
+// le manche contre la garde, vu côté paume, le pouce qui serre la racine contre le dos de la lame ; la gauche tire
+// le bout écorcé de la racine vers le bas, au travers du pincement. (14 oct. : la prise pouce couché sur le dos,
+// vue de côté, faisait une moufle grise sous le manche ; on passe au poing.) La vue se dessine la pointe à droite,
+// puis se retourne en miroir : la lame pointe à gauche, et la main du couteau, dessinée gauche, devient la droite.
+const MAINS_ECORCER = {
+  couteau: { pose: 'prise-manche', vue: 'paume', cote: 'gauche', ech: 0.69, x: 60, rot: [-25, 0, 0], vers: [-150, -200] },
+  racine: { pose: 'prise-corde', vue: 'paume', cote: 'droite', ech: 0.69, y: 186, rot: null, vers: [320, 330] },
+};
+const BORD_V = z => ({ x0: 0, y0: 0, x1: z.l, y1: z.h });
+
 // Anneau de rotation autour d'une tige : moitié arrière en caché, moitié avant fléchée.
 const anneau = (h, cx, cy, rx, ry) => ({
   derriere: h.path(`M${cx},${cy - ry} A${rx} ${ry} 0 0 0 ${cx},${cy + ry}`, h.a.cache),
@@ -126,8 +151,8 @@ module.exports = (h) => {
   }).concat([[360, yL], [460, yL], [558, yL]]);
 
   // Vue 2 — écorcer.
-  const hautR = [[121, 112], [122, 90], [124, 60], [127, 30], [130, 2]];
-  const basR = [[121, 114], [120, 140], [118, 162], [116, 182]];
+  const hautR = [[105, 112], [106, 90], [108, 60], [115, 30], [124, 2]];
+  const basR = [[105, 114], [104.5, 140], [104, 162], [103.5, 200]];
 
   // Vues 3 et 4 — fendre.
   const fut = [[79, 206], [79, 118]];
@@ -197,7 +222,7 @@ module.exports = (h) => {
           // la racine : encore sous la mousse à droite, pliée et tirée à plat au-dessus
           out.push(bande(h, enterree, WR, { bouts: [false, false], lignes: [[0.05, 1, 0]] }));
           out.push(bande(h, tiree, WR, { bouts: [false, true], lignes: [[0.15, 0.97, 0]] }));
-          out.push(h.fleche(`M568,${yL} L${z.l - 4},${yL}`));
+          out.push(h.geste(`M568,${yL} L${z.l - 4},${yL}`));
           return out.join('\n');
         },
         renvois: z => [
@@ -211,36 +236,39 @@ module.exports = (h) => {
         titre: 'Écorcer',
         dessin: z => {
           const out = [];
-          // le couteau : manche, garde, lame dos en haut
-          out.push(h.path('M8,121 L92,121 L92,139 L8,139 Q3,130 8,121 Z', h.a.hachure('bois')));
-          out.push(h.path('M8,121 L92,121 L92,139 L8,139 Q3,130 8,121 Z', h.a.arete));
-          out.push(h.cercle(20, 130, 2.2, h.a.detail));
-          out.push(h.rect(92, 116, 5, 28, h.a.blanc), h.rect(92, 116, 5, 28, h.a.arete));
-          const lame = 'M97,117 L200,117 Q224,118 234,125 Q220,142 172,143 L97,143 Z';
+          // le couteau : la lame dos en haut (le manche est l'objet tenu, plus bas)
+          const mancheC = [h.path('M8,121 L92,121 L92,139 L8,139 Q3,130 8,121 Z', h.a.hachure('bois', 'contour')),
+            h.cercle(20, 130, 2.2, h.a.detail)].join('\n');
+                    const lame = 'M92,117 L200,117 Q224,118 234,125 Q220,142 172,143 L92,143 Z';
           out.push(h.path(lame, h.a.blanc), h.path(lame, h.a.contour));
-          out.push(h.path('M97,120 L200,120 Q220,121 229,125', h.a.fin));
-          out.push(h.path('M97,135 L172,135 Q214,134 231,126.5', h.a.fin));
+          out.push(h.path('M92,120 L200,120 Q220,121 229,125', h.a.fin));
+          out.push(h.path('M92,135 L172,135 Q214,134 231,126.5', h.a.fin));
           // la racine : écorcée sous le pouce, encore dans son écorce au-dessus
           out.push(bande(h, basR, 7, { bouts: [false, true], lignes: [[0.02, 0.97, -0.35], [0.02, 0.97, 0.4]] }));
           out.push(bande(h, hautR, 10, { rugueux: 1.4, ecorce: [0.02, 0.98], bouts: [false, true] }));
           // l'écorce qui s'accumule et tombe
-          out.push(h.path('M116,103 Q107,101 104,93 Q103,87 108,88 Q110,91 108,93 M126,103 Q135,102 139,95 Q141,89 136,89 Q134,92 136,94', h.a.detail));
-          out.push(copeau(h, 156, 110, 6), copeau(h, 174, 111, 5, -1), copeau(h, 150, 94, 4.5, -1));
-          // la main : le pouce couché sur le dos de la lame, les doigts autour du manche
-          const main = lisse([[0, 74], [20, 86], [45, 95], [70, 100], [95, 102], [115, 103.5], [128, 104.5], [135, 107.5],
-            [136.5, 112], [132, 115.8], [115, 116.2], [99, 116.2], [93, 118], [96, 127], [97, 138], [95, 148], [89, 155],
-            [81, 156.5], [72, 160.5], [63, 159], [54, 160], [45, 156], [38, 149], [33, 139], [29, 128], [20, 119], [0, 113]], 8);
-          out.push(h.path(D(main) + ' Z', h.a.blanc), h.path(D(main) + ' Z', h.a.arete));
-          out.push(h.path('M121,104.5 Q133,105 134.5,111 M121,104.5 Q126,109 134.5,111', h.a.detail));   // ongle
-          out.push(h.path('M70,100.5 Q66,106 71,112 M81,156.5 Q79,150 83,144 M63,159 Q61,152 64,146 M45,156 Q45,150 48,145', h.a.detail));
-          out.push(h.fleche('M134,152 L131,198'));
-          return out.join('\n');
+          out.push(h.path('M110,103 Q119,102 123,95 Q125,89 120,89 Q118,92 120,94', h.a.detail));
+          out.push(copeau(h, 168, 110, 6), copeau(h, 186, 108, 5, -1), copeau(h, 146, 88, 4.5, -1));
+          // la main du couteau : le poing sur le manche, contre la garde, le pouce qui y pince la racine contre le dos
+          // de la lame ; l'avant-bras monte du côté du manche
+          const Mc = MAINS_ECORCER.couteau;
+          const oC = { x: Mc.x, y: 130, pose: Mc.pose, vue: Mc.vue, cote: Mc.cote, echelle: Mc.ech, diametre: 18 / Mc.ech, ...(Mc.rot ? { rotation: Mc.rot } : {}) };
+          out.push(h.formes.mainSimple({ ...oC, angle: poser(h, oC, 0, Mc.vers), objet: mancheC, avantbras: { vers: Mc.vers, bord: BORD_V(z), bras: { pli: 0 } } }).svg);
+          // l'autre main tire le bout écorcé vers le bas, au travers du pincement : le poing sur la racine, côté
+          // paume, l'avant-bras qui part en bas, du côté de la pointe
+          const Mr = MAINS_ECORCER.racine;
+          const racineBas = bande(h, basR, 7, { bouts: [false, true], lignes: [[0.02, 0.97, -0.35], [0.02, 0.97, 0.4]] });
+          const oR = { x: 104, y: Mr.y, pose: Mr.pose, vue: Mr.vue, cote: Mr.cote, echelle: Mr.ech, diametre: 7 / Mr.ech, ...(Mr.rot ? { rotation: Mr.rot } : {}) };
+          out.push(h.formes.mainSimple({ ...oR, angle: poser(h, oR, 90, Mr.vers), objet: racineBas, avantbras: { vers: Mr.vers, bord: BORD_V(z), bras: { pli: 0 } } }).svg);
+          // le geste : tirer la racine vers le bas
+          out.push(h.geste('M70,164 L70,204'));
+          return `<g transform="matrix(-1 0 0 1 ${z.l} 0)">\n${out.join('\n')}\n</g>`;
         },
         renvois: z => [
-          { n: 4, rond: [78, 40], cible: pt(hautR, 10, 0.55, -1.2), texte: 'ébouillantée ou trempée' },
-          { n: 5, rond: [192, 84], cible: [137.5, 110], texte: 'pouce sur le dos de la lame' },
-          { n: 6, rond: [72, 190], cible: pt(basR, 7, 0.82, 1.25), texte: 'tirer la racine au travers' },
-        ],
+          { n: 4, rond: [170, 34], cible: pt(hautR, 10, 0.55, 1.2), texte: 'ébouillantée ou trempée' },
+          { n: 5, rond: [192, 84], cible: [108, 118], texte: 'pouce sur le dos de la lame' },
+          { n: 6, rond: [198, 156], cible: [130, 168], texte: 'tirer la racine au travers' },
+        ].map(r => ({ ...r, rond: [z.l - r.rond[0], r.rond[1]], cible: [z.l - r.cible[0], r.cible[1]] })),
       },
 
       fendre: {
@@ -249,8 +277,8 @@ module.exports = (h) => {
           bande(h, fut, 10, { bouts: [true, false], lignes: [[0.03, 1, 0]] }),
           bande(h, gF, 5, { bouts: [false, true], lignes: [[0.03, 0.97, -0.2]] }),
           bande(h, dF, 5, { bouts: [false, true], lignes: [[0.03, 0.97, 0.2]] }),
-          h.fleche('M40,64 L27,76'),
-          h.fleche('M118,64 L131,76'),
+          h.geste('M40,64 L27,76'),
+          h.geste('M118,64 L131,76'),
         ].join('\n'),
         renvois: z => [
           { n: 7, rond: [79, 72], cible: [79, 114], texte: 'en deux, dans la longueur' },
@@ -264,7 +292,7 @@ module.exports = (h) => {
           bande(h, fut, 10, { bouts: [true, false] }),
           bande(h, gD, wGD, { bouts: [false, true], trait: h.a.arete }),
           bande(h, dD, wDD, { bouts: [false, true], lignes: [[0.05, 0.97, -0.3]] }),
-          h.fleche('M146,98 L146,124'),
+          h.geste('M146,98 L146,124'),
         ].join('\n'),
         renvois: z => [
           { n: 9, rond: [30, 96], cible: pt(gD, wGD, 0.3, 2.2), texte: 'la fente file côté mince' },

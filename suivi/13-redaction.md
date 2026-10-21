@@ -179,3 +179,505 @@ changé ou confirmé.
   l'éditeur (note A des vérifications) : la source veut un foret de **bois dur** sur une planchette
   de bois tendre, le chapitre dit « la même essence ».
 - Compression §3 et §4 — 27 septembre 2026 : 1236 mots → 239 mots (§3 : 516 → 112 ; §4 : 720 → 127) ; matériel coupé : boîte hermétique à amadou, écorce de bouleau, charpie vaselinée, chandelle, laine d'acier + pile, loupe, briquet BBQ, thermomètre à sonde (le 74 °C reste en §8 et §9), quantités, substituts (repris en §9) et le paragraphe des frappes 12 000 / 3 000 ; §3 perd les quatre familles de sources, le 25 % (reste en §6) et le détail des souffles (reste à l'étape 11 et en §7). La plage 4,4–37,8 °C de l'avertisseur reste en §6.
+
+## Refonte complète avec les règles du 15 et du 16 octobre 2026 (chapitre test)
+
+Chapitre réécrit au complet, les neuf sections, sur les modèles des ch. 11 et 3 et le skill `ecriture`
+(tableau « Ce que la relecture du 15 octobre change à la passe », points 1 à 19 de la pause du
+plan de match). 6 027 → 5 325 mots (`wc -w`), 0 tiret dans le texte (les deux qui restent sont ceux de la
+ligne de titre et de la ligne de tome, que `build_chapitre.py` lit pour trouver le numéro et le titre),
+0 « § », 0 mot banni.
+
+**Structure.** Rien sous la ligne de lieu (**Chalet**). Section 2 en quatre puces, sans liste « mauvais
+choix ». Section 3 renommée « Comment ça marche » : quatre mécanismes, chacun avec ce qu'il change et son
+étape (120 mots). Matériel : cinq lignes (l'avertisseur de CO sort de la liste, aucune procédure du
+chapitre ne fait de feu dans un abri ; il reste à la section 8). Procédure : une série orange, puis
+« le détail », puis monter le feu, ferrocérium, pile ou batterie, soleil, amadou carbonisé, éteindre
+(29 étapes). « Garder le feu » (couvrir, relais, boîte à braise) passe tout entier en section 9 : il ne
+demande rien d'acheté, et il était dit deux fois (étapes 24 et 25, et section 9).
+
+**La série orange.** « Il faut un feu tout de suite, par grand froid » {.orange 10 min}, étapes 1 à 7.
+La pastille est la durée de travail fin à mains nues au-delà de laquelle il faut réchauffer les mains
+(CSST, *Travailler au froid !*, `sources/17-cnesst-travail-au-froid.md` : « travail de précision à mains
+nues d'une durée de plus de 10 minutes »). Le déclencheur est le besoin de feu par grand froid ; le temps
+est celui des mains de la personne qui allume. L'ordre (mettre au sec avant d'allumer) suit le ch. 25,
+étape 27 (« l'habillage sec passe avant tout le reste »). L'inventaire `plan/premieres-minutes-inventaire.md`
+classait le ch. 13 sans geste urgent : à mettre à jour si JP garde la série.
+
+**Sous-étapes.** Étape 8 (l'endroit : sol, humus, neige, pierres, taille et vent), 12 (fendre), 13 (tipi),
+14 à 17 (nid, étincelle, flamber, glisser : planche 13-40, repères 1 à 18), 20 (la batterie), 25 à 27
+(la boîte d'amadou carbonisé : planche 13-07, repères 1 à 7) ; en section 9, la boîte à braise (13-08,
+repères 1 à 10), l'amadouvier (13-07, repères 13 à 19), le cornet (13-07, repères 8 à 12), le briquet à
+pierre (13-09, repères 1 à 9), l'arc à feu (13-01, repères 1 à 15). Numéros pris dans
+`reperes.json` de l'agent des planches (provisoire, 16 octobre) ; l'ordre du texte suit les repères.
+
+### Provenance des chiffres du texte
+
+| Chiffre | Où | Source |
+| --- | --- | --- |
+| Butane 0 °C, isobutane −11 °C | Section 3 | `17-butane-essence-proprietes.md` (NIOSH, NIST) |
+| 10 min de travail fin à mains nues ; 16 °C de peau ; −17,5 °C mitaines | Série orange, détail, section 6 | `17-cnesst-travail-au-froid.md` |
+| 15 °C, seuil de douleur des doigts | Détail de la série orange (ancienne note [^1]) | `17-inrs-travailler-ambiance-thermique-froide.md` |
+| Moins de 2 cm, 2 à 5 cm, bûches de moins de 15 cm, environ 25 % d'humidité | Étapes 3, 10, section 6 | `17-rncan-classes-bois-chauffage.md` |
+| 1 m sur 1 m ; vent de 20 km/h | Étape 8, section 6 | `17-sopfeu-feux-de-camp.md` |
+| Drapeau déployé à 16 km/h, papier journal soulevé à 24 km/h | Étape 8, section 6 | `03-cnesst-travail-au-froid.md` (déjà au dossier) |
+| Pile de 9 V qui court-circuitée par du métal chauffe assez pour allumer un feu ; pile faible encore dangereuse | Étape 19 | **nouvelle** : `13-feu-nfpa-pile-9-volts.md` (+ PDF) |
+| Batterie au plomb : hydrogène explosif | Étape 20 | `15b-travail-securitaire-nb-batterie-gelee.md` (déjà au dossier) |
+| Planchette 2,5 × 10 cm, cavité à 2 cm du bord, foret 25 × 2 cm de bois dur, arc vert de 2,5 cm | Section 9, arc à feu | `17-us-army-fm21-76-feu.md` |
+| CO : densité 0,96, sans odeur | Section 8 | `17-cnesst-monoxyde-de-carbone.md` |
+| Avertisseur fait pour 4,4 à 37,8 °C | Section 8 | `17-quebec-avertisseurs-monoxyde-de-carbone.md` |
+| Essence inflammable jusqu'à −43 °C | Section 8 | `17-butane-essence-proprietes.md` |
+| Hypothermie sous 35 °C ; 28 à 32,2 °C, jugement atteint | Section 8 | `17-quebec-hypothermie.md` |
+| 74 °C à cœur | Section 8 | `17-quebec-cuisson-temperatures-internes.md` |
+
+Faits sans chiffre ajoutés, avec leur source (extraits ajoutés le 16 octobre à
+`sources/17-us-army-fm21-76-feu.md`, tirés du PDF déjà enregistré) : pierres mouillées ou poreuses qui
+éclatent (étape 8) ; deux ou trois rangs de bois vert sur la neige (étapes 4 et 8) ; le tipi qui brûle
+avec du bois humide et l'allumage du côté du vent (étape 13) ; la lentille seulement par soleil franc
+(étape 23) ; le feu qui brûle sous terre et ressort plus loin (étape 8) ; la quenouille, l'écorce de cèdre,
+le bois gras et la gomme figée comme amadou (section 9) ; l'acier inoxydable qui ne donne pas de bonne
+étincelle (section 9). Synthétique qui fond : `16c-sewing-org-test-de-combustion-fibres.md`. Amadouvier
+(sabot, croûte grise et dure, sur le bouleau ; tissu interne pour allumer et porter les braises) :
+`59-rncan-carie-blanche-spongieuse-amadouvier.md`.
+
+Restent sans source, sans chiffre, à vérifier si JP le demande : l'écorce de bouleau qui brûle humide
+(aucune page officielle trouvée le 16 octobre, seulement des blogues et des forums), la laine d'acier « la
+plus fine » (le grade 0000 de l'ancien texte n'a aucune source et sort), la mine de crayon et le filament
+d'ampoule, la lentille de glace, le son clair ou mat du bois.
+
+### Chiffres retirés, et pourquoi
+
+- « à trois mètres » (le nid projeté), « neuf fois sur dix », « 60 secondes après la flamme », « 30
+  secondes » (signes d'échec), « ressort à dix mètres », « à deux centimètres » (la paillette), « une
+  douzaine de trous », « les dix premières minutes », « deux poignées », « une journée pour tailler un
+  arc », « un quart d'heure contre le ventre », « en moins d'une minute », « allumée le matin, encore
+  vivante à midi », « 15 h en janvier », « −30 °C » (mitaines) : aucune source. Remplacés par un repère
+  observable ou par le chiffre sourcé (−17,5 °C).
+- Grade de laine d'acier 0000 : aucune source.
+- « Deux tentatives, puis l'abri » : règle sans source ; remplacée par la limite sourcée de 10 minutes à
+  mains nues (étape 7) et le mécanisme de l'hypothermie (section 8, point 3).
+- CO 35, 175, 1 200 et 3 200 ppm ; 25 ppm sur 1 h et 10 ppm sur 24 h : sourcés, mais aucun ne change ce que
+  fait la famille sans appareil qui affiche les ppm ; ils restent au ch. 3 et au ch. 26.
+- Propane −42,04 °C (ch. 87) : il servait de comparaison ; le briquet est au butane.
+- Cendres : 7 jours en contenant de métal : c'est la vidange du poêle, pas l'allumage ; renvoi au ch. 82
+  (étape 29), et le ch. 3 le dit à l'étape 14.
+- 74 °C : 3 → 1. Gardé une fois, en section 8, point 4. Le chapitre n'a aucune étape de cuisson ; la
+  ligne du tableau de la section 6 et la puce « Ce qui ne se remplace pas » le redisaient.
+- Renvois sortis : ch. 5 (piles en boîte à part : la consigne de rangement sort, CLAUDE.md), ch. 33, ch. 58,
+  ch. 72, ch. 87, un des deux ch. 26 ; ch. 82 reste une fois.
+
+### Faits redits, et la place gardée
+
+| Fait | Avant | Gardé |
+| --- | --- | --- |
+| Hypothermie, 35 °C et 28 à 32,2 °C | Section 2 et section 8 | Section 8, point 3 |
+| Mains : 16 °C, 10 min, −17,5 °C | Sections 2 et 6, étape 15 | Série orange (geste), son détail (mécanisme), section 6 (cible) |
+| CO : mécanisme | Sections 2, 6, 7, 8, 9 | Section 8, point 1 ; une ligne de signe en section 7 |
+| Couvrir le feu pour la nuit | Étape 24 et section 9 | Section 9 |
+| Boîte à braise | Étape 25 et section 9 | Section 9 |
+| Feu dans l'humus | Étape 1, section 7, section 8 | Étape 8 (mécanisme), étape 29 et section 7 (geste) |
+| Bois mort debout, le bois au sol mouillé | Étape 4 et section 9 (arc) | Étape 11 ; l'arc à feu dit seulement « pris debout » |
+| L'amadou sec qui ne se trouve pas dehors | Section 9, deux fois | Section 9, l'amadou qu'on ramasse |
+| Étincelle de pierre trop faible pour l'ouate | Étape 22 et section 9 | Section 9, le briquet à pierre |
+| Synthétique qui fond | Après l'encadré, et sur la planche 13-40 | Étape 16 (texte) ; la planche garde sa note |
+| Thuyone | Après l'encadré | Section 8, point 5 (le thuya sert à l'amadou et à l'arc) |
+
+### Sorti, et pourquoi
+
+- La note de lieu, les deux listes « bon choix / mauvais choix » de la section 2 (le mauvais choix
+  devenait un contre-exemple évident ; ce qui retourne un réflexe est passé dans l'étape ou l'encadré).
+- Les phrases sur le livre ou le chapitre (« Cette section est écrite pour le cas où… », « C'est la vraie
+  réponse historique », « la technique la moins spectaculaire du chapitre »), les chutes (« Le même arbre,
+  deux usages, un seul mortel », « On échange une garantie contre une compétence », « Une journée perdue
+  là-dessus est une journée de bois pas coupé »), les titres en maxime (« Le feu le moins cher est celui
+  qu'on n'éteint pas » devient « Garder le feu »), les titres avec tiret.
+- « Coffre » et consignes de rangement des piles au lithium (domestique, sans source) ; la pile de 9 V
+  reste, parce que le court-circuit qui allume la laine est celui qui met le feu au sac (NFPA).
+- Les nids de souris dans la liste d'amadou (hantavirus, ch. 76 ; rien ne les rend nécessaires).
+- « Signaler si ça échappe » (service à appeler).
+
+### Confrontation des dangers
+
+- Couvrir le feu pour la nuit contre le poêle étouffé du ch. 3 (section 8) : la section 9 dit maintenant de
+  couvrir dehors ou dans un foyer ouvert seulement, et de garder l'air du poêle ouvert (ch. 3, étape 6).
+- Mettre la personne mouillée au sec avant le feu : conforme au ch. 25, étape 27.
+
+### Ce dont je doute
+
+- **L'essence du foret.** Le FM 21-76 veut un foret de bois dur sur une planchette de bois tendre ; l'ancien
+  texte et l'ancienne planche disaient « la même essence ». Le texte suit la source ; l'agent des planches
+  a corrigé le repère 4 (« foret de bois dur, sec, droit »). Aucune essence de bois dur locale n'est
+  sourcée : le texte n'en nomme pas.
+- **La pastille de 10 min.** Elle mesure le temps des mains, pas celui de la personne mouillée. Si JP veut
+  une pastille qui dise le temps de la personne mouillée, il faut une source (aucune trouvée).
+- **Planche neuve 13-10** (pile et laine d'acier), proposée par l'agent des planches : pas dessinée à la fin
+  de la passe, donc pas appelée. Son appel irait à l'étape 18.
+- Les ancres de `design/epreuves-livre/placements-tome-1.json` pour le ch. 13 sont à remplacer par celles
+  de la passe (planches 13-01, 13-07, 13-08, 13-09, 13-40, les deux photos et le logigramme neuf).
+
+## Passe du 16 octobre 2026 (soir) : huit sections, tout dans l'orange, plus de loi en formule
+
+Sur la version du matin (`demo-13/13-v1.md`), avec les corrections de JP sur cette version : points 20, 21
+et 22 de la pause du plan de match, et les dernières lignes du tableau du skill `ecriture`. 5 324 → 5 377 mots
+(`wc -w`, première partie de la passe), puis 5 478 après la liste de `.claude/cadre-agents.md` ; 6 027 avant toute passe. 0 tiret dans le texte (les deux de la ligne de titre et de la ligne de
+tome restent pour `build_chapitre.py`), 0 « § », 0 mot banni, 0 avis « tournure ».
+
+**Huit sections.** « Comment ça marche » sort ; Matériel devient la section 3, Procédure 4, Points de contrôle
+5, Signes d'échec 6, DANGER 7, Variante d'urgence 8. Renvois internes suivis : « section 9 » → « section 8 »
+(sections 2, 3, 4 et 6), « section 7 » (signes d'échec, étape 29) → « section 6 ». « ch. 11, section 9 » ne bouge
+pas (ch. 11 pas migré). Les étapes gardent leurs numéros (1 à 29). Le moteur (`build_chapitre.py`) reconnaît maintenant
+la Danger et la variante à leur titre : le chapitre à huit sections se lit sans changement (vérifié par `parse`).
+
+**L'ancienne section 3, morceau par morceau.**
+- L'étincelle qui n'allume que du très fin, et la montée d'une grosseur à la fois → étape 10, dit par la chaîne
+  qu'on voit (« L'étincelle allume l'amadou ; la flamme de l'amadou allume le bois de moins de 2 cm… »).
+  Source ajoutée : extrait « Fire Material Selection » dans `sources/17-us-army-fm21-76-feu.md`.
+- « Dans une fibre mouillée, la chaleur part à évaporer l'eau » → étape 12 : « Le bois mouillé use la chaleur de
+  la petite flamme du nid à sécher son eau, et la flamme s'éteint avant que le bois prenne » (forme du skill).
+  Section 6 : « Bois vert ou mouillé : l'eau du bois bout ».
+- « Une braise devient flamme quand l'air lui arrive sans arrêt, d'où le souffle continu » → étape 16 : « Pour que
+  la braise grossisse et s'enflamme, il faut lui envoyer de l'air sans arrêt : chaque fois qu'on arrête pour
+  reprendre son souffle, elle refroidit. » La ligne de la section 6 ne redit plus le mécanisme.
+- Le briquet sous son point d'ébullition (0 °C butane, −11 °C isobutane) → étape 2 (orange), dit par la
+  pression : « le butane n'a plus assez de pression pour sortir du briquet » (c'est le mot de la fiche source).
+
+**L'orange a absorbé « le détail ».** La partie « Il faut un feu tout de suite : le détail » sort. Étape 1 : un
+adulte pour la personne mouillée, l'autre pour le feu ; seul, des vêtements secs d'abord. Étape 2 : le pourquoi
+du briquet et « allumer tout de suite, avant que le briquet refroidisse ». Étape 3 : pourquoi garder les
+mitaines. Étape 5 : pourquoi la pile et la batterie (le geste se fait avec les mitaines) et le repère de la
+douleur (16 °C de peau, 15 °C de douleur). Étape 7 : le pourquoi des 10 minutes.
+
+**Ce qui ne se redit plus ailleurs.** Section 5 : les deux lignes « Avant d'enlever les mitaines » (−17,5 °C) et
+« Pendant le travail à mains nues » (10 min) sortent, l'orange les porte. Section 7, point 3 : « les vêtements
+secs, l'abri et le sac de couchage passent avant le feu » sort (étape 1) ; il reste le mécanisme et la consigne
+qui n'est dite nulle part ailleurs (l'autre adulte fait arrêter l'essai, étape 7). Les appels de planche en
+double dans une même étape sortent (13-07 à l'étape 25, 13-08, 13-09, 13-01) : le premier appel reste, la suite
+dit « repère N ». « souffler comme à l'étape 16 » devient « souffler (étape 16) ».
+
+**Autres corrections à la lecture à voix haute.** « d'où vient le vent » → « du côté du vent » ; « Ne pas mettre de
+pierres mouillées » → « prendre des pierres sèches et dures » ; « Ne pas allumer quand le vent dépasse » → « Allumer
+dehors seulement quand le vent reste sous 20 km/h » ; « la combustion avance seule » → « le rouge s'étend seul
+dans la boule » ; « son silence ne prouve rien » (chute) → « il peut ne pas sonner même s'il y a du CO » ; « Ce qui
+brûle, c'est la vapeur » → « L'essence brûle par sa vapeur » ; « Un couteau qu'on pousse… » → « Si on pousse le
+couteau… » ; « Une personne est chargée du feu » (présent qui décrit) → « On charge une personne du feu » ; « la
+tâche change de mains » → « on change de personne » ; « Le coton doit… se déchirer » → « on doit pouvoir le
+déchirer » ; « Ce qui ne se remplace pas » → « Ce qu'on ne peut pas remplacer » ; « la batterie qui allume le feu
+est aussi celle qui démarre l'auto » → « pour garder dans la batterie assez de charge pour démarrer l'auto » ;
+le palier « sinon la chaleur se fait aux deux bouts » → « le foret doit chauffer seulement en bas, dans la
+cavité » ; l'amadouvier « il devient une mèche lente » → « il couve seul, lentement, comme une mèche ». Au soleil,
+la lentille de glace et le réflecteur deviennent des paragraphes (pour leurs petites planches), les autres
+lentilles une ligne.
+
+**Logigramme.** `images/logigrammes/13-feu-sans-allumettes.json` : « section 9 » → « section 8 » partout, la case
+des étapes 2 et 3 dans l'ordre des étapes (le briquet d'abord). Rendu, 0 erreur, 0 avis ; ancrage après le
+dernier item du Matériel (« **Eau, sable ou terre** »).
+
+**Photos.** Ancres séparées (elles avaient la même) : l'écorce de bouleau sur sa ligne de la liste d'amadou, la
+gomme d'épinette sur la sienne.
+
+**Deuxième tour, contre la liste « Le texte » de `.claude/cadre-agents.md`.**
+- L'urgence sans préparation : l'étape 2 commence par « S'il y a un briquet au butane… » ; l'étape 4 ne dit plus
+  « sortir l'amadou de sous ses vêtements » (préparation qui n'a peut-être pas eu lieu) : l'étape 3 fait ramasser
+  l'amadou avec le bois (écorce de bouleau, barbe de vieillard), et l'amadou qu'on avait sur soi sert en premier.
+- Consigne confrontée au scénario : la règle du vent (20 km/h, feu de camp) contre le feu dont on a besoin pour se
+  réchauffer. Ajouté à l'étape 8 : sans poêle, le feu le plus petit possible, derrière une butte, un rocher ou un mur
+  de neige, et dégager plus large autour **[À VÉRIFIER]** (aucune source ne tranche ; à lever ou à couper).
+- Loi en formule encore trouvée : « La lumière chauffe une matière sombre ; une matière blanche la renvoie » → « Le
+  point de lumière fait fumer une matière sombre ; sur une matière blanche, il ne fait presque rien » ; « L'essence
+  brûle par sa vapeur » → « Versée sur des braises, l'essence dégage un nuage de vapeur invisible… ; la vapeur prend
+  feu ».
+- Mot que personne n'emploie : « écharper » → « effilocher » (étapes 6, 14, sections 5 et 6). La légende du repère
+  7 de la 13-40 dit « fibres lâches : le jour passe » : rien à changer sur la planche.
+- Procédures tassées découpées : étape 29 (éteindre) en quatre sous-étapes ; « Couvrir le feu pour la nuit » en
+  quatre ; l'arc à feu, « Tourner le foret », en six (repères 10 à 15).
+- Petites retouches : « Il doit rayer le verre » → « La pierre doit rayer le verre » ; « selon la braise » →
+  « selon la braise qu'on a mise ».
+
+**Planches.** Repères de la 13-40 neuve (`demo-13b/reperes.json`) : mêmes numéros et même ordre que le texte (1 à 4
+étape 10, 5 et 6 étape 13, 7 et 8 étape 14, 9 à 12 étape 15, 13 à 16 étape 16, 17 et 18 étape 17) ; rien à
+renuméroter. Planche 13-10 appelée à l'étape 18 (repères 1 à 3 étape 18, 4 et 5 étape 19, 6 à 8 étape 20, 9 et 10
+section 8). Petite planche 13-11 (lentille de glace) appelée une fois, au bout de son paragraphe en section 8 ; la
+13-12 (réflecteur) n'a pas été dessinée, le paragraphe du réflecteur reste sans appel. Ancrages :
+`demo-13b/ancrages-texte.json`, chaque `apres` vérifié unique contre le texte parsé.
+
+**Reste ouvert.** La pastille de 10 min est le temps des mains, pas un temps compté depuis le déclencheur (doute
+déjà noté) ; le [À VÉRIFIER] du vent ; la lentille de glace, le réflecteur, la mine de crayon et l'écorce de bouleau
+qui brûle humide restent sans source (sans chiffre) ; 13-10 (étape 18) et 13-07 (étape 25) sont à environ une demi-page
+l'une de l'autre : vérifier au montage qu'elles ne tombent pas sur la même page.
+
+## Refonte au gabarit final, 19 octobre 2026
+
+Commande : « Monte le reste du tome 1 final » ; le chapitre passe au gabarit à **sept sections** plus « En plus », sur
+les modèles des ch. 4 et 12. Rédacteur (rôle 2). Aucun travail de source refait sur ce qui l'était déjà (JP, 19 octobre
+2026 : « fuck les sources, on a pas déjà fait ce travail-là ? ») : tout chiffre nouveau vient d'une page déjà
+enregistrée, recopiée dans `sources/13-refonte-2026-10-19-pyramide-et-en-plus.md` ; seule la photo de l'amadouvier
+est nouvelle. Fins de ligne LF gardées (aucun CR). Rien d'autre touché que mes fichiers : le chapitre, cette fiche,
+`sources/13-refonte-2026-10-19-pyramide-et-en-plus.md`, `sources/13-inaturalist-amadouvier-2026-10-19.json`, le
+logigramme et ses rendus, `images/extras/13-amadouvier-bouleau.jpg` et son original.
+
+### Ce qui a changé
+
+- **La section 7 « DANGER » sort** ; la Variante d'urgence devient la **section 7**. Renvois internes suivis : « section
+  8 » → « section 7 » (section 2, Matériel ×2, étapes 3, 5, 28, phrase après l'étape 17, section 6). Les étapes gardent
+  leurs numéros (1 à 29) : aucun renvoi d'un autre chapitre n'est à refaire (ch. 12 : étapes 11 et 29 ; ch. 15 :
+  étapes 1 à 7 ; les autres renvoient au chapitre sans étape ni section).
+- **« Comment ça marche »** : déjà sorti le 16 octobre (section « Passe du 16 octobre 2026 (soir) » plus haut, morceau
+  par morceau : étapes 2, 10, 12, 16). Rien à déplacer aujourd'hui.
+- « ch. 11, section 9 » (étape 8, la mousse qui craque) → « ch. 11, section 7 » : la mousse qui craque est dans la
+  variante d'urgence du ch. 11, qui devient la section 7 quand le ch. 11 passe au gabarit final. **Si le ch. 11 n'est
+  pas migré dans la même passe, remettre « section 9 ».**
+- Étape 8 : la première sous-étape dit maintenant où faire le feu (dehors, ou dans un poêle raccordé à son tuyau ;
+  la tente à poêle, ch. 12) ; la deuxième prend un verbe (« Le faire à l'abri du vent… »).
+- Étape 20 : les sous-étapes deviennent des phrases (majuscule, point), pour que le pictogramme ouvre une phrase.
+- Étapes 22 et 23 : les appels de la planche 13-11 sortent (voir « Planches ») ; l'étape 23 dit avec quoi on fait le
+  point (« avec une loupe ou une des lentilles de la section 7 »).
+- Section 7, « Garder le feu » : **le feu en pyramide** ajouté comme autre façon, dehors (FM 3-05.70, § 7-17, déjà
+  enregistré, `43b-us-army-fm3-05-70-survival-2002-texte.txt`). Le paragraphe du poêle perd son mécanisme (« le feu
+  couve et le CO refoule dans la pièce ») : c'est la page `co` (« le poêle qu'on étouffe pour la nuit »).
+- Section 7, l'amadouvier : « sur un bouleau mort » → « sur le tronc d'un bouleau, mort ou vivant » (RNCan, fiche
+  183 : « sur les feuillus vivants et morts » ; `59-rncan-carie-blanche-spongieuse-amadouvier.md`). Le ch. 93 dit déjà
+  la même chose.
+- « Thuya » → « cèdre » (le mot du livre et de la page `thuyone`) dans la liste d'amadou et pour la planchette de l'arc
+  à feu ; « (le thuya) » reste une fois entre parenthèses.
+- Logigramme qb : la précision en liste devient une phrase (« Une vieille lime, un ressort ou une tête de hache, mais
+  pas un couteau inoxydable »).
+
+### Où est allé chaque bloc de l'ancienne section 7, Danger
+
+| Bloc | Où il est allé | Ce qui saute, et pourquoi |
+| --- | --- | --- |
+| 1. Le feu dans un abri fermé | Étape 8, `{!co}`, première sous-étape : le feu dehors ou dans un poêle raccordé à son tuyau (ch. 12) ; jamais dans une tente, un abri de neige, une cabane de pêche ou la cabine d'un camion, « même pour se réchauffer vite » | Densité 0,96, sans odeur ni couleur, avertisseur entre 4,4 et 37,8 °C : dans la page `co`. La génératrice : page `generatrice`, aucune génératrice dans le chapitre. « Un appentis » sort de la liste : le ch. 12 fait le feu devant l'appentis ouvert |
+| 2. Jamais d'accélérant | Étape 12, `{!vapeurs}`, dernière sous-étape : faire prendre le bois mouillé avec les copeaux en frisure et le bois gras, jamais avec de l'essence ni de l'allume-feu liquide ou en gel ; rien sur une braise ; jamais de bidon entre soi et le feu | La vapeur qui remonte jusqu'au bidon et le −43 °C : dans la page `vapeurs` |
+| (hydrogène de la batterie, déjà à l'étape 20) | Étape 20, `{!vapeurs}`, troisième sous-étape | « un gaz explosif » : la page le dit ; le bac qui éclate et l'acide restent (propres au geste) |
+| 3. La personne en hypothermie s'obstine | Étape 7, `{!froid}` : elle continue d'essayer d'allumer sans voir qu'elle doit arrêter ; l'autre adulte doit lui faire arrêter l'essai au bout de 10 minutes | 35 °C, 28 à 32,2 °C : dans la page `froid` |
+| 4. La braise ne donne aucun repère pour cuire (74 °C, trichine, ch. 52) | Nulle part | Le chapitre n'a aucune étape de cuisson ; tout le bloc est dans les pages `cuisson` (74 °C, thermomètre, couleur, os et gras, « sur un poêle à bois, on ne connaît pas la chaleur ») et `trichine`. Pas de pictogramme sans étape. À confirmer par JP (question rendue) |
+| 5. Le thuya ne va jamais dans une tisane | Section 7, « L'amadou qu'on ramasse », ligne du cèdre, `{!thuyone}` : « Le cèdre ne va jamais dans une tisane : pour la vitamine C, prendre les aiguilles de sapin baumier ou d'épinette (ch. 20) » | « La thuyone qu'il contient est toxique » : la page le dit ; le rappel du tableau de CLAUDE.md reste dit en une phrase là où on manipule le cèdre |
+
+Le poêle étouffé pour la nuit (section 7, « Garder le feu ») reçoit aussi `{!co}` : c'est là que le danger se présente
+(on garde le feu la nuit).
+
+### Pictogrammes (étape → id)
+
+| Où | Id |
+| --- | --- |
+| Étape 7 | `froid` |
+| Étape 8 | `co` |
+| Étape 12, dernière sous-étape | `vapeurs` |
+| Étape 20, troisième sous-étape | `vapeurs` |
+| Section 7, « Garder le feu », paragraphe du poêle | `co` |
+| Section 7, « L'amadou qu'on ramasse », ligne du cèdre | `thuyone` |
+
+Six pictogrammes, quatre ids, un par étape. Vérifié au montage d'essai (`build_chapitre.py`, sortie dans le
+scratchpad) : co ×2, froid ×1, vapeurs ×2, thuyone ×1. Ne portent plus le ch. 13 : `generatrice`, `cuisson`,
+`trichine` (inventaire à corriger, rendu à l'orchestrateur).
+
+### Série orange
+
+Inchangée : « Il faut un feu tout de suite, par grand froid » `{.orange 10 min}`, étapes 1 à 7, en tête de la section 4,
+juste après le logigramme. Pastille : la durée de travail fin à mains nues au-delà de laquelle il faut réchauffer les
+mains (CSST, *Travailler au froid !*, `17-cnesst-travail-au-froid.md`). Seul ajout : à l'étape 7, la phrase de
+l'ancien danger 3 (l'autre adulte fait arrêter l'essai), qui est le geste de ces 10 minutes. Le doute du 16 octobre
+reste : la pastille est le temps des mains, pas un temps compté depuis le déclencheur.
+
+### Logigramme
+
+`images/logigrammes/13-feu-sans-allumettes.json` : « section 8 » → « section 7 » (renvois et sources) ; u3 ne dit
+plus « sortir l'amadou de sous ses vêtements » (l'étape 4 ne le dit plus depuis le 16 octobre : l'amadou se ramasse
+avec le bois, étape 3) ; u2 dit « ramasser le bois et l'amadou… et de l'écorce de bouleau » ; qb, précision en
+phrase. Pastille 10 min identique à l'orange. Colonnes de droite inchangées. Rendus : `env -u TMPDIR python3
+design/outils/logigramme.py …json` (svg, pdf, png) et `… --sans-entete --svg` (`-livre.svg`) : **0 erreur, 0 avis**
+les deux fois. Ancre inchangée : « **Eau, sable ou terre** », dernier item du Matériel.
+
+### Planches
+
+- Ancres de `placements-tome-1.json` (clé « 13 ») toutes intactes et uniques, chacune en début de paragraphe :
+  13-40 (étape 10), 13-10 (étape 18), 13-07 (étape 25), 13-08 (boîte à braise), 13-09 (briquet à pierre), 13-01 (arc
+  à feu), 13-11 (lentille de glace), la photo de l'écorce et de la gomme, le logigramme.
+- **13-11 (la lentille de glace, petite planche)** : appelée seulement en section 7, là où son geste arrive (la
+  lentille se fabrique là), repères 1 à 3 au paragraphe de la lentille, puis 4 à 6 à « La cible et le geste sont ceux
+  des étapes 22 à 24 ». Avant, les étapes 22 et 23 appelaient les repères 4 à 6, pages avant l'ancre et dans l'ordre
+  inverse des repères. `controle.py` compte donc un appel de moins (3 → 2) : voulu.
+- Toutes les planches du chapitre sont encore dans `images/a-valider/` (aucune dans `validees/`) : le montage d'essai
+  n'en trouve aucune (`planches: []`). Point 23 de la pause : 13-40 à refaire depuis zéro, les autres à faire valider.
+
+### Chiffres nouveaux et leurs sources
+
+| Chiffre | Où | Source (déjà enregistrée) |
+| --- | --- | --- |
+| Trois ou quatre rangs (feu en pyramide) | Section 7, « Garder le feu » | `43b-us-army-fm3-05-70-survival-2002-texte.txt`, § 7-17 |
+| 12 000 et 3 000 coups de grattoir | En plus, étape 15 | `17-light-my-fire-tiges-ferrocerium.md` |
+| 20 cm de haut, 30 ans et plus | En plus, l'amadouvier | `59-rncan-carie-blanche-spongieuse-amadouvier.md` |
+| Plus de 5 000 ans | En plus, la pyrite | `37-wikipedia-pyrite-en.html` (3350 à 3105 av. J.-C.) |
+
+Extraits recopiés dans `sources/13-refonte-2026-10-19-pyramide-et-en-plus.md`. Disparus avec la section Danger et
+portés par les pages des dangers : 0,96 ; 4,4 et 37,8 °C ; −43 °C ; 35 °C, 28 à 32,2 °C ; 74 °C ; le renvoi au ch. 52.
+
+### `[À VÉRIFIER]`
+
+Un seul, inchangé : étape 8, le feu dont on a besoin pour se réchauffer quand le vent dépasse 20 km/h (« le plus
+petit possible, derrière une butte, un rocher ou un mur de neige, et dégager plus large autour »). Aucune source ne
+tranche entre la règle du vent et le besoin de chaleur. Le FM 3-05.70 (§ 7-6, déjà enregistré) appuie seulement le
+mur de bûches ou de pierres qui coupe le vent et arrête les étincelles ; il ne dit rien du vent fort. À lever ou à
+couper avant l'impression : question rendue à JP.
+
+### Notes « En plus » (quatre)
+
+| Note | Genre | Étape | Provenance |
+| --- | --- | --- | --- |
+| Quatre fois plus de coups avec la grosse tige | Fait | 15 | `17-light-my-fire-tiges-ferrocerium.md` (le chiffre retiré du Matériel le 27 septembre revient hors du geste) |
+| La fumée d'amadouvier contre les moustiques | Façon des Métis : pourquoi ça marche (le champignon couve sans flamme et fume), ce qui la rend dangereuse (sous une toile, ce qui couve fait du monoxyde) | Section 7 | `30-uprety-2012-fichier-additionnel-1-texte.txt` (« Fruiting body burned to repell mosquitoes and flies [Metis: 13] ») ; page `co` |
+| Reconnaître l'amadouvier | Photo | Section 7 | Texte : `59-rncan-carie-blanche-spongieuse-amadouvier.md`. Photo : iNaturalist 63794378, photo 102445923, « (c) scaup », CC BY ; `images/extras/13-amadouvier-bouleau.jpg` (original dans `extras/originaux/`), réponse de l'API dans `sources/13-inaturalist-amadouvier-2026-10-19.json` |
+| La pyrite au lieu de l'acier | Fait | Section 7 | `37-wikipedia-pyrite-en.html` |
+
+Aucune façon des Innus : aucune page déjà enregistrée ne décrit comment les Innus allumaient ou portaient le feu
+(cherché dans `16c-turner-1894-…`, `80-turner-1894-…`, les fiches Nametau, Tipatshimuna, N360 et Uprety), et la
+commande était de ne pas refaire de recherche. Trois notes renvoient à la section 7, sans numéro d'étape :
+`chapitre.js` (placerNotes) les pose alors où il y a de la place, sans les rapprocher de la variante d'urgence.
+
+### `controle.py`, avant et après
+
+| | Avant (HEAD) | Après |
+| --- | --- | --- |
+| Mots (`controle.py`) | 5 588 | 5 624 |
+| Mots (`wc -w`) | 5 497 | 5 534 |
+| Tirets | 2 (titre et ligne de tome, lus par l'assembleur) | 2 (les mêmes) |
+| « § », mots bannis, vocabulaire d'IA, tournures, maximes, pronominaux | 0 | 0 |
+| Mots vides à juger | 23 | 22 (le « tout » de l'ancien danger 1 parti ; les autres portent le sens) |
+| Redites à juger | 11 | 11 (les mêmes : un même mot pour la même chose, ou « souffler (étape 16) », un renvoi) |
+| Invariants disparus | | 0,96, 4,4, 37,8 °C, 43 °C, 35 °C, 32,2 °C, 74 °C, ch. 52, génératrice, trichinellose : la section Danger, portée par les pages `co`, `vapeurs`, `froid`, `cuisson`, `trichine`, `generatrice`. Planche 13-11 : 3 → 2 appels, voulu (« Planches ») |
+
+## Corrections après la vérification technique, 19 octobre 2026
+
+Rédacteur (rôle 2), sur les quatre points du vérificateur technique. Aucune source cherchée de nouveau (JP, 19 octobre
+2026 : « fuck les sources, on a pas déjà fait ce travail-là ? ») : rien de ce qui suit n'apporte un chiffre ou un fait
+nouveau ; la licence de la photo se lit dans la réponse de l'API déjà enregistrée. Fichiers touchés : le chapitre, cette
+fiche, le logigramme et ses rendus, `images/extras/13-amadouvier-bouleau.jpg`. Les fichiers communs (crédits, LISEZMOI
+des extras, inventaire des dangers, page `vapeurs`) ne sont pas touchés : les changements sont rendus à l'orchestrateur.
+
+| Point du vérificateur | Ce que j'ai fait |
+| --- | --- |
+| 1. Erreur : la photo de l'amadouvier n'a pas de ligne dans `images/credits.md` ni dans `images/extras/LISEZMOI.md` | **Appliqué, rendu à l'orchestrateur** (fichiers communs) : le bloc de crédits et la ligne du LISEZMOI, mot pour mot, dans le rapport. Licence relue dans `sources/13-inaturalist-amadouvier-2026-10-19.json` : photo 102445923, `cc-by`, « (c) scaup, some rights reserved (CC BY) » ; observation 63794378 en `cc0`, « research », New Glasgow (N.-É.), 28 octobre 2020. En passant : la copie qui s'imprime avait perdu le profil de couleur de l'original (Display P3) sans être convertie, donc des couleurs un peu ternes. Elle est refaite depuis l'original, convertie en sRGB (profil joint), 1 775 × 2 048, sans recadrage ni retouche, JPEG qualité 92 |
+| 2. À préciser : la série orange et le logigramme disent « à l'abri du vent » sans dire « dehors » ; l'interdit du feu dans un abri fermé est à l'étape 8, hors de l'orange | **Appliqué, autrement que proposé.** Le vérificateur posait `{!co}` et « dehors ou dans un poêle » à l'étape 4 et gardait la liste des abris interdits à l'étape 8 : le même fait aurait été dit deux fois, avec deux pictogrammes, et l'orange aurait été redit plus loin (cadre : « Rien de l'orange ne se redit ailleurs » ; skill, « un fait garde une seule place »). J'ai **déplacé** tout l'ancien danger 1 dans l'étape 4 : `{!co}`, « Faire le feu dehors, ou dans un poêle raccordé à son tuyau (la tente à poêle : ch. 12) », puis « Dehors, le faire à l'abri du vent, et sur un lit de branches vertes s'il y a de la neige (étape 8) », puis la liste (tente, abri de neige, cabane de pêche, cabine d'un camion) et le mécanisme propre au chapitre (sans tuyau, le monoxyde du feu reste dedans). L'étape 8 perd son pictogramme et sa première sous-étape ; la suivante commence par « Dehors, faire le feu à l'abri du vent… », et la dernière sous-étape dit déjà quand faire le feu dans le poêle. Logigramme, u3 : « **Faire le feu dehors, à l'abri du vent, ou dans un poêle raccordé à son tuyau.** S'il y a de la neige, le faire sur un lit de branches vertes. » C'est le geste (où faire le feu), pas l'avertissement : celui-ci reste dans l'étape 4. Rendus : 0 erreur, 0 avis les deux fois ; la boîte tient sur deux lignes |
+| 3. À préciser : le bloc du ch. 13 dans `plan/dangers-inventaire.md` demande encore 0,96, 4,4 à 37,8 °C, −43 °C, `cuisson` et `trichine` | **Appliqué, rendu à l'orchestrateur**, avec l'étape 4 au lieu de l'étape 8 pour `co`. `generatrice` sort du ch. 13 tout de suite : le tableau de `CLAUDE.md` l'applique au stock, au carburant et à l'électricité, et le chapitre n'a aucune génératrice (l'ancien danger 1 la nommait seulement en passant). `cuisson` et `trichine` attendent le oui de JP (question gardée) |
+| 4. À préciser : la page `vapeurs` range le ch. 13 sous « l'éclairage » | **Appliqué tel quel, rendu à l'orchestrateur** (page commune) : « Le carburant (ch. 5, 15), le feu qu'on allume (ch. 13), l'éclairage (ch. 85), le propane, les batteries et l'atelier (ch. 103 à 112). » Vérifié : ch. 15 est « Se déplacer et le carburant », ch. 85 « Éclairage » |
+
+### Pictogrammes, état au soir du 19 octobre (remplace le tableau « Pictogrammes » plus haut)
+
+| Où | Id |
+| --- | --- |
+| Étape 4 (série orange) | `co` |
+| Étape 7 (série orange) | `froid` |
+| Étape 12, dernière sous-étape | `vapeurs` |
+| Étape 20, troisième sous-étape | `vapeurs` |
+| Section 7, « Garder le feu », paragraphe du poêle | `co` |
+| Section 7, « L'amadou qu'on ramasse », ligne du cèdre | `thuyone` |
+
+Vérifié au montage d'essai (`build_chapitre.py` importé avec `OUTD` dans le scratchpad, rien écrit dans
+`design/epreuves-livre/`) : co, froid, vapeurs, vapeurs, co, thuyone, dans cet ordre. L'étape 8 n'a plus de
+pictogramme.
+
+### Le reste
+
+- Ancres de `placements-tome-1.json` (clé « 13 ») : aucune ne touche les étapes 4 et 8 ; toutes encore présentes une
+  seule fois, en début de paragraphe.
+- Renvois d'autres chapitres : aucun à refaire (les étapes gardent leurs numéros ; ch. 12 → étapes 11 et 29, ch. 15 →
+  étapes 1 à 7). Le « ch. 11, section 7 » de l'étape 8 est juste : le ch. 11 est migré, la mousse qui craque est dans
+  sa section 7 (Variante d'urgence).
+- `controle.py --avant` (HEAD) : 5 622 → 5 624 mots ; 2 tirets (titre et ligne de tome, lus par l'assembleur) ;
+  0 « § », 0 mot banni, 0 tournure, 0 maxime, 0 pronominal ; 22 mots vides et 11 redites, les mêmes qu'avant, jugés
+  (un « tout » qui veut dire tout, un renvoi « souffler (étape 16) ») ; invariants : rien n'a disparu.
+- Le `[À VÉRIFIER]` de l'étape 8 (le feu pour se réchauffer quand le vent dépasse 20 km/h) reste : question à JP.
+
+### Deuxième vérification technique (sept points), 19 octobre 2026
+
+Rédacteur (rôle 2). Aucune source cherchée de nouveau : chaque point se règle avec une page déjà enregistrée ou avec un
+autre chapitre. Fichiers touchés : le chapitre et cette fiche. Le logigramme n'est pas touché (u3 dit seulement où
+faire le feu ; le vérificateur ne le met pas en cause), donc pas de nouveau rendu. Les fichiers communs (crédits,
+LISEZMOI des extras, inventaire des dangers, pages `vapeurs`, `projection` et `brulure`) ne sont pas touchés : les
+changements sont rendus à l'orchestrateur, mot pour mot.
+
+| Point du vérificateur | Ce que j'ai fait |
+| --- | --- |
+| 1. Erreur : l'étape 4 interdit le feu dans toute tente, ce qui contredit le ch. 12, étape 75 (le cône de bâches) | **Appliqué, en nommant les trois conditions** au lieu de les laisser au renvoi : la série orange se lit sans le ch. 12 sous les yeux. « …ne jamais faire de feu dans une tente fermée, un abri de neige, une cabane de pêche ou la cabine d'un camion : sans tuyau, le monoxyde du feu reste dedans. Sous un cône de bâches, on peut faire un feu à trois conditions : le sommet reste grand ouvert, la flamme reste claire, et quelqu'un reste éveillé toute la nuit pour la garder (ch. 12, étape 75). » « Ouvert au sommet » et « feu ouvert » de la correction proposée sortent : la première condition le dit déjà. Les conditions sont celles du ch. 12, étape 75, mot pour mot ou presque ; leur source est dans `suivi/12-redaction.md` |
+| 2. Erreur : la photo de l'amadouvier n'a pas de ligne dans `images/credits.md` ni dans `images/extras/LISEZMOI.md` | **Rendu de nouveau à l'orchestrateur** (fichiers communs, que je ne touche pas). Relu ce soir dans `sources/13-inaturalist-amadouvier-2026-10-19.json` : photo 102445923, `license_code` `cc-by`, « (c) scaup, some rights reserved (CC BY) », 1 775 × 2 048 ; observation 63794378 en `cc0`, « research », New Glasgow (N.-É.), 28 octobre 2020. Copie imprimée : 1 775 × 2 048, profil sRGB joint ; original en Display P3 dans `extras/originaux/` |
+| 3. À préciser : la page `vapeurs` range le ch. 13 sous « l'éclairage » | **Rendu de nouveau à l'orchestrateur** (page commune), tel que proposé |
+| 4. À préciser : le bloc du ch. 13 dans `plan/dangers-inventaire.md` décrit le chapitre d'avant la refonte | **Rendu à l'orchestrateur**, à jour avec les points 1 et 7 (`co` à l'étape 4 avec le cône, `projection` à l'étape 8, `brulure` à l'étape 16). `generatrice`, `cuisson` et `trichine` sortent du ch. 13 dans la section 1 : le chapitre ne cuit rien, ne nomme ni ours ni phoque et ne fait tourner aucune génératrice (tableau de `CLAUDE.md`, colonne « Où elle s'applique »). La question à JP sur `cuisson` et `trichine` se ferme : aucune étape de cuisson, donc aucun pictogramme |
+| 5. À préciser : « Couvrir le feu pour la nuit, dehors ou dans un foyer ouvert » contredit le poêle qu'on ne couvre pas (page `co` : la braise ; ch. 3, étape 6) | **Appliqué** : « **Couvrir le feu pour la nuit**, dehors. » Aucune source enregistrée ne dit qu'un feu couvert dans un foyer ouvert est sans danger la nuit, et le ch. 3, étape 6, dit que le feu réduit à la braise renvoie son monoxyde dans la pièce. Le foyer ouvert n'apparaît dans aucun autre chapitre ; je l'ai coupé plutôt que de le garder `[À VÉRIFIER]`. Dans la foulée, « **Autre façon, dehors : le feu en pyramide** » perd son « dehors » (les deux façons sont maintenant dehors) |
+| 6. À préciser : l'aulne n'est pas dans la liste des hôtes de la fiche RNCan 183 | **Appliqué** : « On le trouve surtout sur le bouleau à papier, aussi sur l'érable et le peuplier faux-tremble, et il est commun dans les vieilles aulnaies (section 7, l'amadouvier). » Source : `59-rncan-carie-blanche-spongieuse-amadouvier.md`, « particulièrement commun dans les forêts de bouleaux et d'aulnes (*Alnus*) surannés » ; hôtes principaux, les bouleaux ; autres hôtes, les érables et le peuplier faux-tremble. La note fait 66 mots (30 à 80). Le ch. 93 (l. 491) dit aussi « et l'aulne » : rendu à l'orchestrateur, ce n'est pas mon fichier |
+| 7. À préciser : les pierres qui éclatent (étape 8) et la manche synthétique qui fond (étape 16) n'ont pas de pictogramme, alors que le ch. 12 pose `projection` et `brulure` sur les mêmes faits | **Appliqué** : `{!projection}` en tête de la sous-étape des pierres (étape 8), `{!brulure}` en tête de la sous-étape de la laine ou du coton (étape 16). Le texte de l'étape ne change pas : il dit ce qui est propre au chapitre (une pierre mouillée ou poreuse éclate en chauffant ; la manche synthétique fond et colle à la peau). La page `brulure` dit déjà « Le synthétique fond et colle dans la brûlure » et « porter de la laine plutôt que du synthétique ». La page `projection` ne parle pas des pierres du foyer : son « Où il revient » et une phrase de mécanisme sont rendus à l'orchestrateur (le mécanisme, l'eau de la pierre qui se change en vapeur d'un coup, est au ch. 12, étape 14, sourcé au ch. 83 ; l'avertissement seul, au FM 21-76 : « Do not use wet or porous rocks as they may explode when heated », `17-us-army-fm21-76-feu.md`, l. 87) |
+
+### Pictogrammes, état final du 19 octobre (remplace les deux tableaux « Pictogrammes » plus haut)
+
+| Où | Id |
+| --- | --- |
+| Étape 4 (série orange) | `co` |
+| Étape 7 (série orange) | `froid` |
+| Étape 8, sous-étape des pierres | `projection` |
+| Étape 12, dernière sous-étape | `vapeurs` |
+| Étape 16, dernière sous-étape | `brulure` |
+| Étape 20, troisième sous-étape | `vapeurs` |
+| Section 7, « Garder le feu », paragraphe du poêle | `co` |
+| Section 7, « L'amadou qu'on ramasse », ligne du cèdre | `thuyone` |
+
+Vérifié au montage d'essai (`build_chapitre.py` importé avec `OUTD` dans le scratchpad, rien écrit dans
+`design/epreuves-livre/`) : co, froid, projection, vapeurs, brulure, vapeurs, co, thuyone, dans cet ordre, avec les noms
+courts Monoxyde, Froid, Projection, Vapeurs, Brûlure, Vapeurs, Monoxyde, Cèdre.
+
+### Le reste
+
+- Ancres de `placements-tome-1.json` (clé « 13 ») : aucune ne touche les passages modifiés ; les neuf sont encore
+  présentes une seule fois.
+- Renvois d'autres chapitres : aucun à refaire. Les étapes gardent leurs numéros ; ch. 12, l. 60 et 85 → étapes 11 et
+  29 ; ch. 15, l. 121 → étapes 1 à 7 : tous justes.
+- `controle.py --avant` (HEAD) : 5 624 → 5 664 mots (`wc -w` : 5 535 → 5 574) ; 2 tirets (titre et ligne de tome, lus
+  par l'assembleur) ; 0 « § », 0 mot banni, 0 vocabulaire d'IA, 0 tournure, 0 maxime, 0 pronominal ; 23 mots vides
+  (le nouveau est « toute la nuit », qui veut dire toute la nuit) et 11 redites, les mêmes qu'avant, jugées ;
+  invariants : rien n'a disparu. Fins de ligne LF.
+- Le `[À VÉRIFIER]` de l'étape 8 (le feu pour se réchauffer quand le vent dépasse 20 km/h) reste : question à JP.
+
+## Points réglés après l'édition, 19 octobre 2026
+
+Rédacteur du lot 11-13-14, passe « trancher » (JP : « on a pas déjà fait ce travail-là ? ») : rien n'est revérifié ; une
+source déjà au dossier n'est ouverte que pour trancher un point neuf. Les deux questions laissées à JP se ferment ; les
+trois points de l'éditeur (`suivi/13-edition.md`) sont appliqués.
+
+| Point | Où | Ce qui a changé | Règle ou source |
+| --- | --- | --- | --- |
+| Question à JP 1 : le seul `[À VÉRIFIER]`, le feu dont on a besoin pour se réchauffer quand le vent dépasse 20 km/h | Étape 8, dernière sous-étape ; section 5, ligne « Le vent » | « Sans poêle, quand il faut un feu pour se réchauffer (étapes 1 à 7), le faire derrière une butte ou un rocher, ou monter un mur de bûches ou de pierres sèches du côté du vent : le mur coupe le vent qui entre dans le feu, retient les étincelles et renvoie la chaleur vers soi. » Sortent, faute de source : « le plus petit possible » (le 1 m sur 1 m de la même étape suffit), « un mur de neige », « dégager plus large autour ». Section 5, hors cible : « S'il faut un feu pour se réchauffer, monter un mur du côté du vent (étape 8). » **`[À VÉRIFIER]` levé ; question fermée** | `sources/17-us-army-fm21-76-feu.md`, extrait ajouté (PDF déjà enregistré, p. 63 et 64 : « protected from the wind » ; « construct a fire wall using logs or rocks […] reflect or direct the heat […] reduce flying sparks and cut down on the amount of wind blowing into the fire ») ; les pierres sèches, comme la sous-étape `{!projection}` juste au-dessus |
+| Question à JP 2 : la pastille « 10 min » était le temps des mains (CNESST), pas le temps qu'on a depuis le déclencheur | Pastille de la série « Il faut un feu tout de suite, par grand froid » | Pastille inchangée ; son fondement devient le temps qu'on a depuis le déclencheur : par −30 °C et un vent de 10 km/h, la peau exposée gèle en 10 à 30 minutes ; la pastille prend le bas de la fourchette, comme aux ch. 14 et 16. La limite de 10 minutes à mains nues de l'étape 7 tombe sur le même chiffre. **Question fermée** | CLAUDE.md, « La pastille dit le temps qu'on a pour faire la série, à partir de ce qui la déclenche » ; cadre, « ce temps est sourcé » ; `sources/20-environnement-canada-refroidissement-eolien.md` (déjà au dossier, même fondement que `suivi/16-redaction.md` et `suivi/14-redaction.md`, point 16) |
+| Éditeur 1 : renvoi circulaire, « creuser jusqu'à la terre minérale (étape 29) », alors que c'est l'étape 8 qui fait creuser | Section 6, dernière ligne | « (étapes 8 et 29) » | Renvoi juste |
+| Éditeur 2 : « Le feu brûle sur ce fond sec », sur un fond de branches vertes | Étape 8, sous-étape de la neige | « Le feu brûle sur ce lit de branches, au-dessus de la neige. » (« lit de branches vertes » est le mot des étapes 4 et 29) | Règle 6 du skill : le même mot pour la même chose ; « sec » voulait dire « hors de la neige » (FM 21-76 : « dry base ») |
+| Éditeur 3 : la tige de ferrocérium trop courte n'avait pas de rapport avec le titre « Les briquets vides » | Section 7, « Le briquet à pierre » | Titre : « **Les briquets vides et la tige trop courte.** » ; aucun texte déplacé | Le titre nomme ce que dit le paragraphe |
+
+**À suivre, hors de mes fichiers** : le lot 01-02-03 a inséré dans l'arbre une étape 6 au ch. 3 (le message texte) ;
+le poêle y passe à l'étape 7. Si ce changement tient, la section 7 du ch. 13 (« on garde l'air du poêle ouvert et on
+recharge à tour de rôle (ch. 3, étape 6) ») doit dire « (ch. 3, étape 7) ». Rendu à l'orchestrateur (contradictions) ;
+je ne change pas le renvoi tant que le ch. 3 n'est pas fixé.
+
+**Ancres** : aucune ne bouge (les neuf sont intactes ; aucun paragraphe touché ne porte d'ancre).
+
+**controle.py** (`--avant` HEAD) : 5 756 → 5 799 mots ; 2 tirets (titre et ligne de tome) ; 0 « § », 0 tournure,
+0 maxime, 0 pronominal ; 24 mots vides et 9 redites, jugés (des renvois, ou le même mot pour la même chose ;
+« sur un lit de branches vertes » aux étapes 4 et 29 est voulu) ; invariants : rien n'a disparu. Aucun
+`[À VÉRIFIER]` dans le chapitre. Fins de ligne LF.
+
+## Décisions de JP, 19 octobre 2026
+
+Rédacteur de la passe « décisions de JP » (les douze réponses de JP du 19 octobre ; le libellé des décisions est dans
+`_reprise/scratchpad/tome1-final/decisions-jp.js`). Aucune recherche refaite sur ce qui était déjà vérifié ; texte d'avant
+cette passe : commit `f515e01`.
+
+| Décision | Où | Ce qui a changé | Source ou règle |
+| --- | --- | --- | --- |
+| 11. Le feu par vent de plus de 20 km/h (JP : « pas besoin de source ok ») | Étape 8, avant-dernière sous-étape ; section 5, ligne « Le vent » | **Rien ne change au chapitre** : le texte de `f515e01` est remis mot pour mot après la vérification (voir plus bas). La coupe d'abord faite (la phrase des 20, 16 et 24 km/h, et la ligne « Le vent ») reposait sur une idée fausse, « le chiffre n'a pas de source » : les trois chiffres ont la leur. Le `[À VÉRIFIER]` visé par la question à JP portait sur le feu qu'on fait pour se réchauffer quand le vent dépasse 20 km/h ; il avait été levé avec FM 21-76, et ce geste reste | 20 km/h : SOPFEU, `17-sopfeu-feux-de-camp.md` (l. 19 et 57) ; 16 et 24 km/h : CNESST, `03-cnesst-travail-au-froid.md` ; le feu derrière un mur : `17-us-army-fm21-76-feu.md`. « Pas besoin de source » se lit : on garde, sans chercher plus. **Si JP voulait couper les 20 km/h, le lui faire confirmer en lui disant que le chiffre a sa source** |
+
+Le logigramme 13 ne parlait pas du vent en chiffres : pas touché.
+
+### Après la vérification technique (19 octobre 2026)
+
+Le vérificateur a signalé que la coupe de la décision 11 faisait perdre des chiffres sourcés. **Appliqué** : l'étape 8
+(« Allumer dehors seulement quand le vent reste sous 20 km/h : à 16 km/h, un drapeau léger est déployé ; à 24 km/h,
+une feuille de papier journal se soulève du sol. Quand le vent est plus fort, ou que la mousse craque sous le pied… »)
+et la ligne « Le vent » de la section 5 sont remises telles qu'au commit `f515e01` ; le chapitre est identique à
+`f515e01`. `controle.py --avant` (texte de la passe) : 5 718 → 5 799 mots ; 2 tirets (titre et ligne de tome) ;
+0 « § », 0 mot banni, 0 tournure, 0 maxime, 0 pronominal ; rien n'a disparu. Aucune ancre touchée. Fins de ligne LF.

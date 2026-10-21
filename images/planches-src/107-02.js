@@ -16,8 +16,8 @@ module.exports = (h) => {
 
   // ─── Soudure bout à bout, chanfrein en V ───────────────────────────────────────────
   const geoSoudure = (z) => {
-    const c = z.l / 2, x0 = M, x1 = z.l - M;
-    const t = Math.min(z.h * 0.29, 66);
+    const c = z.l / 2, x0 = M + 12, x1 = z.l - M;
+    const t = Math.min(z.h * 0.38, 86); // même échelle que les recouvrements (tp)
     const ym = z.h / 2 + 6;
     const y0 = ym - t / 2, yB = y0 + t;
     const g = 2, a = 0.55 * t, f = 0.14 * t, w = 5;
@@ -53,6 +53,8 @@ module.exports = (h) => {
     return [
       h.path(forme, h.a.hachure('metal')),
       h.path(zone, h.a.blanc),
+      `<defs><pattern id="p-fondu-10702" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="0.5" fill="#000"/></pattern></defs>`,
+      h.path(zone, 'fill="url(#p-fondu-10702)" stroke="none"'),
       h.chemin(chanfrein(-1), h.a.cache),
       h.chemin(chanfrein(1), h.a.cache),
       h.path(fusion(-1), h.a.arete),
@@ -65,7 +67,7 @@ module.exports = (h) => {
   // ─── Brasage à recouvrement ────────────────────────────────────────────────────────
   const geoRecouvrement = (z, e, r) => {
     const c = z.l / 2, x0 = M, x1 = z.l - M;
-    const tp = Math.min(z.h * 0.21, 48);
+    const tp = Math.min(z.h * 0.27, 62);
     const Lo = 0.44 * z.l, xL = c - Lo / 2, xR = c + Lo / 2;
     const ym = z.h / 2 + 6;
     const yt = ym - (2 * tp + e) / 2;
@@ -88,10 +90,12 @@ module.exports = (h) => {
       h.path(congeD, h.a.plein),
       h.chemin([[x0, yb], [xR, yb], [xR, yb + tp], [x0, yb + tp]], h.a.contour),
       h.chemin([[x1, yt], [xL, yt], [xL, yt + tp], [x1, yt + tp]], h.a.contour),
+      // la charte : le point à contrôler, le jeu du joint (serré et régulier, §5.3 point 18)
+      h.controle(xL + 0.24 * Lo, yb - e / 2, e / 2 + 9),
     ].join('\n');
   };
 
-  const SERRE = [3, 7], GROS = [11, 10];
+  const SERRE = [4, 9], GROS = [14, 13];
 
   return {
     ref: '107-02',
@@ -106,10 +110,11 @@ module.exports = (h) => {
         renvois: z => {
           const s = geoSoudure(z);
           const { c, y0, yB, g, a, f, w } = s;
-          const cible1 = [c - g - a * 0.4, y0 + (yB - f - y0) * 0.6];
+          const yc1 = (y0 + yB) / 2, u1 = (yc1 - y0) / (yB - f - y0);
+          const cible1 = [c - g - a * (1 - u1), yc1]; // sur le tireté du chanfrein gauche
           const cible2 = surBezier(fusionPts(s, 1), 0.55);
           return [
-            { n: 1, rond: [M + 16, y0 - 30], cible: cible1, texte: 'bord d’origine des pièces, fondu' },
+            { n: 1, rond: [11, yc1], cible: cible1, texte: 'bord d’origine des pièces, fondu' },
             { n: 2, rond: [c + g + a + w + 22, yB + 30], cible: cible2, texte: 'ligne de fusion : un seul morceau' },
           ];
         },

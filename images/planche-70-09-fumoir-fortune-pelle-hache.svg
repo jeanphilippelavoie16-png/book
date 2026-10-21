@@ -13,6 +13,7 @@
 <path d="M4 220.8 L596 185.2 L596 301 L4 301 Z" fill="url(#h-terre)" stroke="none"/>
 <path d="M92 215.5 L118 231.9 L118 259.9 L125 267.9 L169 267.9 L176 259.9 L176 236.4 L452 219.9 L470 214.8 L483 204 L490 191.6 Z" fill="#FFFFFF" stroke="none"/>
 <path d="M92 215.5 L118 231.9 L118 259.9 L125 267.9 L169 267.9 L176 259.9 L176 236.4 L452 219.9 L470 214.8 L483 204 L490 191.6" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M400 197 L462.4 68.2 L493.6 66.3 L556 187.6 Z" fill="#E6E6E6" stroke="none"/>
 <path d="M4 220.8 L92 215.5" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M490 191.6 L596 185.2" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M178.0 205.3 Q196.0 190.2 218.0 189.9 L369.0 180.9 Q389.0 179.7 403.0 191.8 Z" fill="url(#h-terre)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
@@ -68,6 +69,7 @@
 <path d="M496.2 68.8 L483 43 L486 41.5 L499.3 67.3 Z" fill="#1A1A1A" stroke="none"/>
 <path d="M312.0 183.3 c-6 -6 6 -12 0 -18 c-6 -6 6 -12 0 -18" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M319.0 184.3 c-5 -5 5 -10 0 -15 c-5 -5 5 -10 0 -12" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="315" cy="185.3" r="11" fill="none" stroke="#9B2C1E" stroke-width="1.6"/>
 <line x1="118" y1="278.9" x2="176" y2="278.9" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="118" y1="272.9" x2="118" y2="284.9" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="176" y1="272.9" x2="176" y2="284.9" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
@@ -83,7 +85,7 @@
 <text x="40" y="387" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">La tranchée en travers</text>
 <g transform="translate(40 395)" data-vue="travers">
 <rect x="10" y="59" width="269" height="82" fill="url(#h-terre)" stroke="none"/>
-<path d="M73 59 L76 121 L132 121 L135 59 Z" fill="#FFFFFF" stroke="none"/>
+<path d="M73 59 L76 121 L132 121 L135 59 Z" fill="#E6E6E6" stroke="none"/>
 <path d="M73 59 L76 121 L132 121 L135 59" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="10" y1="59" x2="73" y2="59" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="135" y1="59" x2="279" y2="59" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>

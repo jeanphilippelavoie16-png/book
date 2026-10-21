@@ -34,7 +34,7 @@ module.exports = (h) => {
     [[-53, 39.5], [-56, 30.5]], [[53, 39.5], [56, 30.5]],
   ];
   // Le X : deux lignes par les vides, entre les doigts et le coussinet.
-  const X = [[[-34, 30], [37, 92]], [[34, 30], [-37, 92]]];
+  const X = [[[-29, 48], [29, 64]], [[29, 48], [-29, 64]]];   // presque à plat, bouts dans le vide
 
   return {
     ref: '43-01c',
@@ -53,7 +53,7 @@ module.exports = (h) => {
         ]),
         renvois: z => [
           P.renvoi(1, [560, 50], T([13.8, -6]), 'griffe : elle marque'),
-          P.renvoi(2, [150, 470], T([-28, 85.5]), 'le X, entre doigts et coussinet'),
+          P.renvoi(2, [150, 165], T([-20, 50.5]), 'le X, entre doigts et coussinet'),
           P.renvoi(3, [610, 610], T([36.5, 124]), 'grand coussinet en triangle'),
         ],
       },

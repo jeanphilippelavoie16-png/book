@@ -25,7 +25,7 @@ const S = {
   required: ['chapitres'],
 }
 
-const P = (g) => `Tu travailles sur « Le Grand Livre du Chalet », un manuel de survie pour une famille de la Côte-Nord. Projet : C:\\Users\\jeanp\\New folder. **CLAUDE.md est dans ton contexte et prime sur tout** : aucune attribution de source dans le texte, aucun chiffre inventé, aucune mention de relecteur ou de relecture, ni loi ni municipalité, un signe nommé s'explique en note de bas de page.
+const P = (g) => `Tu travailles sur « Le Manuel du Nord », un manuel de survie pour une famille de la Côte-Nord. Projet : C:\\Users\\jeanp\\New folder. **CLAUDE.md est dans ton contexte et prime sur tout** : aucune attribution de source dans le texte, aucun chiffre inventé, aucune mention de relecteur ou de relecture, ni loi ni municipalité, un signe nommé s'explique en note de bas de page.
 
 **Ta mission : appliquer aux chapitres les verdicts de la recherche à la source.** Chaque drapeau \`[À VÉRIFIER]\` des chapitres a été cherché, et le verdict est dans \`suivi/verifications/<NN>-verifications.md\` (NN = le numéro du chapitre), une ligne par drapeau avec la phrase, le verdict, la source et « à faire ».
 

@@ -1,9 +1,24 @@
-// Planche 04-01a — La pièce d'abri chargée (chapitre 6, variante « Sans sous-sol et sans caveau »)
-// Cotes : 200 mm (mur de bois rond, étape 2) · 2/3 (sacs remplis aux deux tiers, variante).
+// Planche 04-01a — La pièce d'abri chargée (chapitre 4, variante « Sans sous-sol et sans caveau »)
+// Cotes : 2/3 (sacs remplis aux deux tiers, variante).
+// Repères 9 et 10 échangés le 18 octobre 2026 (suivi/04-edition.md, point 8) : le texte nomme la taie avant la terre.
+// 19 octobre 2026 : l'encadré rouge du monoxyde est coupé (le danger a son pictogramme {!co} à l'étape 18 du ch. 4 et sa
+// page au début du tome ; JP : « on le sait, on l'a déjà dit »). La place qu'il prenait revient aux dessins : chaque
+// vue est agrandie d'un même facteur (VUE) et centrée dans sa zone, ses renvois suivent par le même calcul ; les sols
+// des deux vues du bas tombent à la même hauteur.
 module.exports = (h) => {
   const A = h.a;
   const W = at => at.replace('fill="none"', 'fill="#FFFFFF"');
   const rr = (x, y, l, ht, r, at) => h.rect(x, y, l, ht, `${at} rx="${r}"`);
+  // Agrandir une vue dessinée en unités fixes : le dessin dans un groupe, les renvois par le même calcul.
+  const f1 = v => Math.round(v * 10) / 10;
+  const VUE = {
+    coupe: { k: 1.1, dx: -30, dy: 0 },
+    appentis: { k: 1.15, dx: -39.8, dy: 6.4 },
+    sacs: { k: 1.1, dx: -14, dy: 6.9 },
+  };
+  const enG = (id, fn) => z => { const { k, dx, dy } = VUE[id]; return `<g transform="translate(${dx} ${dy}) scale(${k})">\n${fn(z)}\n</g>`; };
+  const pt = (id, [x, y]) => { const { k, dx, dy } = VUE[id]; return [f1(dx + k * x), f1(dy + k * y)]; };
+  const suit = (id, fn) => z => fn(z).map(r => ({ ...r, rond: pt(id, r.rond), cible: pt(id, r.cible) }));
 
   // ── En coupe : le chalet de plain-pied, la pièce chargée ──────────────────────────
   const coupe = z => {
@@ -68,14 +83,12 @@ module.exports = (h) => {
     for (const cy of [222, 212, 202]) for (const cx of [316, 326, 336]) o.push(h.cercle(cx, cy, 5, W(A.arete)), h.cercle(cx, cy, 1.6, A.fin));
     o.push(bidon(344, 202));
     for (let i = 0; i < 5; i++) o.push(h.rect(366 + (i % 2), 227 - 4 * (i + 1), 20 - (i % 3), 4, W(A.detail)));
-    // un dormeur sous la table
-    o.push(rr(284, 272, 88, 6, 2, W(A.arete)));
-    o.push(h.path('M297 272 C300 259, 318 259, 335 262 C352 264, 364 263, 370 272 Z', W(A.arete)));
-    o.push(h.cercle(291, 266, 5.5, W(A.arete)));
+    // un dormeur sous la table : le corps simple couché sur le dos, la tête à gauche, à l'échelle des
+    // billes (200 mm = 11) ; les genoux levés pour tenir entre les pattes de la table
+    o.push(rr(284, 272, 92, 6, 2, W(A.arete)));
+    o.push(h.formes.corps({ x: 331, y: 272, pose: 'couche-dos', echelle: 0.055,
+      angles: { cuisseP: 140, jambeP: 40, cuisseL: 136, jambeL: 44, piedP: 92, piedL: 92 } }).toString());
 
-    // cote : le mur de bois rond
-    o.push(h.ligne(401, 160, 421, 160, A.detail), h.ligne(410, 154, 410, 166, A.detail), h.ligne(421, 154, 421, 166, A.detail));
-    o.push(h.texte(398, 164, '200 mm', { ancre: 'end', lisere: true }));
     return `<g transform="translate(0,-21)">\n${o.join('\n')}\n</g>`;
   };
 
@@ -92,14 +105,11 @@ module.exports = (h) => {
       const xs = xout(Math.min(yl, 188.4)) + 1;
       for (let k = 0; k < 3; k++) o.push(rr(xs + 24 * k, yh + 0.5, 23.5, 13, 5, A.hachure('terre', 'arete')));
     }
-    // quelqu'un assis dessous, le dos au mur
-    const tube = (x1, y1, x2, y2, r) => {
-      const L = Math.hypot(x2 - x1, y2 - y1), nx = -(y2 - y1) / L * r, ny = (x2 - x1) / L * r;
-      return h.path(`M${x1 + nx} ${y1 + ny} L${x2 + nx} ${y2 + ny} A${r} ${r} 0 0 0 ${x2 - nx} ${y2 - ny} L${x1 - nx} ${y1 - ny} A${r} ${r} 0 0 0 ${x1 + nx} ${y1 + ny} Z`, W(A.arete));
-    };
-    o.push(tube(110, 184, 110, 147, 7), h.cercle(110, 132, 6.6, W(A.arete)));
-    o.push(tube(112, 185, 140, 164, 5), tube(140, 164, 160, 187, 3.9), tube(160, 189, 170, 189, 2.8));
-    o.push(tube(112, 150, 123, 170, 3.3), tube(123, 170, 137, 165, 3), h.cercle(139, 164, 2.8, W(A.arete)));
+    // quelqu'un assis dessous, le dos au mur : le corps simple assis au sol, à l'échelle de la porte
+    // (2030 mm = 160), les genoux remontés pour rester sous les portes
+    o.push(h.formes.corps({ x: 113, y: yf, pose: 'assis-sol', echelle: 0.076,
+      angles: { cuisseP: 128, jambeP: 38, cuisseL: 124, jambeL: 42, piedP: 94, piedL: 94, tronc: -4, cou: -2,
+        brasP: 20, avantbrasP: 70, mainP: 80, brasL: 16, avantbrasL: 66, mainL: 76 } }).toString());
     return `<g transform="translate(0,-6)">\n${o.join('\n')}\n</g>`;
   };
 
@@ -128,39 +138,38 @@ module.exports = (h) => {
     desc: 'Coupe d’un chalet sans sous-sol : bois cordé contre le mur extérieur jusque sous le débord du toit, neige tassée en banc jusqu’au bas de la fenêtre, eau, farine et livres sous la fenêtre, deux portes démontées à plat sur une table chargée de terre, de bûches, de bidons et de livres, un dormeur dessous. Variante des portes appuyées contre un mur intérieur, chargées de sacs de terre montés du plancher, quelqu’un assis dessous le dos au mur. Détail d’une taie remplie aux deux tiers et nouée, et d’un mur de sacs à joints croisés.',
     format: 'pleine',
     disposition: [['coupe'], ['appentis', 'sacs']],
-    hauteurs: [3, 2],
+    hauteurs: [2.9, 2.1],
     largeurs: [[1], [3, 2]],
     vues: {
       coupe: {
         titre: 'En coupe, le chalet sans sous-sol',
-        dessin: coupe,
-        renvois: z => [
+        dessin: enG('coupe', coupe),
+        renvois: suit('coupe', z => [
           { n: 1, rond: [525, 194], cible: [470, 201], texte: 'bois cordé sur toute la hauteur' },
           { n: 2, rond: [72, 175], cible: [128, 219], texte: 'neige montée jusqu’aux fenêtres' },
           { n: 3, rond: [42, 231], cible: [112, 241], texte: 'tassée par couches, arrosée entre chacune' },
           { n: 4, rond: [228, 175], cible: [225, 206], texte: 'eau, farine, livres sous la fenêtre' },
           { n: 5, rond: [258, 171], cible: [268, 213], texte: 'deux portes démontées, à plat sur la table' },
           { n: 6, rond: [330, 147], cible: [326, 176], texte: 'chargées de terre, bûches, bidons, livres' },
-        ],
+        ]),
       },
       appentis: {
         titre: 'Ou les portes appuyées au mur',
-        dessin: appentis,
-        renvois: z => [
+        dessin: enG('appentis', appentis),
+        renvois: suit('appentis', z => [
           { n: 7, rond: [118, 22], cible: [102, 56.5], texte: 'portes appuyées à un mur intérieur' },
           { n: 8, rond: [300, 94], cible: [214, 95], texte: 'sacs montés du plancher contre la porte' },
-        ],
+        ]),
       },
       sacs: {
         titre: 'Les sacs de terre, sans sacs',
-        dessin: sacs,
-        renvois: z => [
-          { n: 9, rond: [78, 16], cible: [84, 42.4], texte: 'terre ou sable aux deux tiers' },
-          { n: 10, rond: [208, 36], cible: [178.8, 58.4], texte: 'taie ou jambe de pantalon nouée' },
+        dessin: enG('sacs', sacs),
+        renvois: suit('sacs', z => [
+          { n: 9, rond: [208, 36], cible: [178.8, 58.4], texte: 'taie ou jambe de pantalon nouée' },
+          { n: 10, rond: [78, 16], cible: [84, 42.4], texte: 'terre ou sable aux deux tiers' },
           { n: 11, rond: [212, 112], cible: [145, 130], texte: 'joints croisés d’un rang à l’autre' },
-        ],
+        ]),
       },
     },
-    danger: 'Danger — un poêle au propane, une chaufferette ou une génératrice dans la pièce scellée tue avant les retombées : le monoxyde n’a ni odeur ni couleur, on s’endort au lieu de sortir.',
   };
 };

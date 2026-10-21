@@ -168,7 +168,7 @@ module.exports = (h) => {
           const c = z.h * 0.54, x0 = z.l * 0.36, xe = z.l - 12, D = 16, xs1 = z.l * 0.66;
           // La corde commise : les brins apparaissent en « / ».
           o.push(h.rect(x0, c - D / 2, xe - x0, D, B));
-          o.push(h.ligne(x0, c - D / 2, xe, c - D / 2, h.a.arete), h.ligne(x0, c + D / 2, xe, c + D / 2, h.a.arete));
+          o.push(h.ligne(x0, c - D / 2, xe, c - D / 2, h.a.contour), h.ligne(x0, c + D / 2, xe, c + D / 2, h.a.contour));
           for (let x = x0; x < xs1 + 4; x += 11) {
             o.push(h.path(`M ${r1(x)} ${r1(c + D / 2)} Q ${r1(x + 2)} ${r1(c)} ${r1(x + 9)} ${r1(c - D / 2)}`, h.a.detail));
           }
@@ -191,7 +191,8 @@ module.exports = (h) => {
           o.push(brin([14, c + 32], [x0, c + 4.2], 9));
           // Rotation de la corde commise : dans l'autre sens.
           const xr = x0 + 44;
-          o.push(h.fleche(`M ${r1(xr)} ${r1(c + D / 2 + 7)} Q ${r1(xr + 14)} ${r1(c)} ${r1(xr)} ${r1(c - D / 2 - 7)}`, h.a.detail));
+          // le geste qui fait le contre-toron : commettre dans l'autre sens
+          o.push(h.geste(`M ${r1(xr)} ${r1(c + D / 2 + 9)} Q ${r1(xr + 16)} ${r1(c)} ${r1(xr)} ${r1(c - D / 2 - 9)}`));
           // La ligature où la flèche s'appuie.
           o.push(lig([xs1, c], [xe, c], D + 4, 2.4));
           o.push(zig([xe, c - D / 2 - 5], [xe, c + D / 2 + 5], 4, 2));
@@ -213,7 +214,7 @@ module.exports = (h) => {
           const o = [];
           const c = z.h * 0.36, xn = 24, xt = z.l - 24;
           o.push(forme([[xn, c - 3], [xt - 26, c - 3], [xt - 26, c + 3], [xn, c + 3], [xn, c + 1.2], [xn + 5, c + 1.2], [xn + 5, c - 1.2], [xn, c - 1.2]]));
-          o.push(h.ellipse(xt - 15, c, 15, 8, B), h.ellipse(xt - 15, c, 15, 8, h.a.arete));
+          o.push(h.ellipse(xt - 15, c, 15, 8, B), h.path(`M ${r1(xt - 15)} ${r1(c + 8)} A 15 8 0 0 0 ${r1(xt)} ${r1(c)} Q ${r1(xt - 10.5)} ${r1(c + 2.4)} ${r1(xt - 15)} ${r1(c + 8)} Z`, h.a.ombre), h.ellipse(xt - 15, c, 15, 8, h.a.arete));
           const xa = xn + 22, xb = xn + 118;
           o.push(h.rect(xa - 8, c - 4.2, xb - xa + 16, 1.2, B));
           o.push(barbe([[xa, c - 11], [xa + 8, c - 14], [xa + 32, c - 13], [xb, c - 3.5]], c - 3.5, 10, 7));
@@ -233,8 +234,12 @@ module.exports = (h) => {
           // La baguette refendue, avec son épaisseur gardée au bout : trait caché.
           o.push(h.chemin([[x0, c - 9], [xk, c - 9], [xk + 10, c - 18], [xf + 2, c - 18], [xf + 2, c + 18], [xk + 10, c + 18], [xk, c + 9], [x0, c + 9]], h.a.cache));
           // Le fût arrondi et le bulbe.
-          o.push(forme([[x0, c - 6], [xb + 4, c - 6], [xb + 4, c + 6], [x0, c + 6]]));
-          o.push(bloc(`M ${r1(xb)} ${r1(c - 5.5)} C ${r1(xb + 8)} ${r1(c - 7)} ${r1(xb + 12)} ${r1(c - 16)} ${r1(xb + 28)} ${r1(c - 16)} C ${r1(xf - 4)} ${r1(c - 16)} ${r1(xf)} ${r1(c - 8)} ${r1(xf)} ${r1(c)} C ${r1(xf)} ${r1(c + 8)} ${r1(xf - 4)} ${r1(c + 16)} ${r1(xb + 28)} ${r1(c + 16)} C ${r1(xb + 12)} ${r1(c + 16)} ${r1(xb + 8)} ${r1(c + 7)} ${r1(xb)} ${r1(c + 5.5)} Z`));
+          o.push(forme([[x0, c - 6], [xb + 4, c - 6], [xb + 4, c + 6], [x0, c + 6]], h.a.contour));
+          const dBulbe = `M ${r1(xb)} ${r1(c - 5.5)} C ${r1(xb + 8)} ${r1(c - 7)} ${r1(xb + 12)} ${r1(c - 16)} ${r1(xb + 28)} ${r1(c - 16)} C ${r1(xf - 4)} ${r1(c - 16)} ${r1(xf)} ${r1(c - 8)} ${r1(xf)} ${r1(c)} C ${r1(xf)} ${r1(c + 8)} ${r1(xf - 4)} ${r1(c + 16)} ${r1(xb + 28)} ${r1(c + 16)} C ${r1(xb + 12)} ${r1(c + 16)} ${r1(xb + 8)} ${r1(c + 7)} ${r1(xb)} ${r1(c + 5.5)} Z`;
+          o.push(h.path(dBulbe, B));
+          // la face à l'ombre du bulbe : dessous et droite
+          o.push(h.path(`M ${r1(xb + 28)} ${r1(c + 16)} C ${r1(xf - 4)} ${r1(c + 16)} ${r1(xf)} ${r1(c + 8)} ${r1(xf)} ${r1(c)} Q ${r1(xf - 16)} ${r1(c + 5)} ${r1(xb + 28)} ${r1(c + 16)} Z`, h.a.ombre));
+          o.push(h.path(dBulbe, h.a.contour));
           o.push(zig([x0, c - 12], [x0, c + 12], 4, 2));
           return o.join('\n');
         },
@@ -254,11 +259,14 @@ module.exports = (h) => {
           const o = [];
           const c = z.h * 0.55, x0 = 10, hx = z.l * 0.40, xf = hx + 80;
           // Le fût, jusqu'au collet.
-          o.push(forme([[x0, c - 6], [hx - 16, c - 6], [hx - 2, c - 4.5], [hx - 2, c + 4.5], [hx - 16, c + 6], [x0, c + 6]]));
+          o.push(forme([[x0, c - 6], [hx - 16, c - 6], [hx - 2, c - 4.5], [hx - 2, c + 4.5], [hx - 16, c + 6], [x0, c + 6]], h.a.contour));
           o.push(zig([x0, c - 12], [x0, c + 12], 4, 2));
           // La tête : un collet percé et l'œuf.
-          o.push(forme([[hx - 2, c - 9], [hx + 16, c - 9], [hx + 16, c + 9], [hx - 2, c + 9]]));
-          o.push(h.ellipse(hx + 46, c, 34, 20, B), h.ellipse(hx + 46, c, 34, 20, h.a.arete));
+          o.push(forme([[hx - 2, c - 9], [hx + 16, c - 9], [hx + 16, c + 9], [hx - 2, c + 9]], h.a.contour));
+          o.push(h.ellipse(hx + 46, c, 34, 20, B));
+          // la face à l'ombre de la tête : dessous et droite
+          o.push(h.path(`M ${r1(hx + 46)} ${r1(c + 20)} A 34 20 0 0 0 ${r1(hx + 80)} ${r1(c)} Q ${r1(hx + 56)} ${r1(c + 6)} ${r1(hx + 46)} ${r1(c + 20)} Z`, h.a.ombre));
+          o.push(h.ellipse(hx + 46, c, 34, 20, h.a.contour));
           o.push(h.rect(hx + 10, c - 8.2, 8, 16.4, B));
           o.push(h.ligne(hx + 16, c - 9, hx + 16.8, c - 8.6, h.a.arete));
           // Caché : le trou, le bout aminci qui y entre à la poix, le clou dans l'axe.
@@ -295,6 +303,8 @@ module.exports = (h) => {
           o.push(barbe([[xa, c + 13.5], [xa + 10, c + 16.5], [xa + 42, c + 16], [xb, c + 5]], c + 5, 8, 10));
           // Les bouts de tuyau nus, ligaturés.
           o.push(lig([xa - 12, c], [xa, c], 16, 2.2), lig([xb, c], [xb + 12, c], 16, 2.2));
+          // le point qui casse sur un raté : l'encoche coupée en travers, jamais fendue
+          o.push(h.controle(xn + 5, c, 12));
           return o.join('\n');
         },
         renvois: z => {
@@ -413,7 +423,7 @@ module.exports = (h) => {
           o.push(lig([cx, yE + 0.5], [cx, yE + 28], 2 * f + 3, 2.3));
           // Le clou : la tige ronde, puis le bout battu en ciseau et limé.
           const yT = yE - 26, yA = yE - 52;
-          o.push(forme([[cx - r, yE], [cx - r, yT], [cx - 7, yA + 3], [cx - 7, yA], [cx + 7, yA], [cx + 7, yA + 3], [cx + r, yT], [cx + r, yE]]));
+          o.push(forme([[cx - r, yE], [cx - r, yT], [cx - 7, yA + 3], [cx - 7, yA], [cx + 7, yA], [cx + 7, yA + 3], [cx + r, yT], [cx + r, yE]], h.a.contour));
           o.push(h.ligne(cx - 7, yA + 5, cx + 7, yA + 5, h.a.fin));
           return o.join('\n');
         },

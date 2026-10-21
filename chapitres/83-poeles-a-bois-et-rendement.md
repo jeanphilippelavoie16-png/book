@@ -123,8 +123,7 @@ d'oxygène et fait du monoxyde de carbone.
  crayon gras, remise au milieu de la pile et repesée une fois par mois. Tant que la masse
  baisse, le bois sèche ; quand elle cesse de baisser, le bois est aussi sec que le site le
  permet. C'est l'humidimètre du pauvre, et il ne se brise pas.
-13. Viser au plus **20 % d'humidité**, l'idéal pour une combustion efficace étant
- «environ **25 p. 100** ». Mesurer sur une face **fraîchement fendue** : la
+13. Viser au plus **20 % d'humidité**. Mesurer sur une face **fraîchement fendue** : la
  surface d'une bûche mouillée sèche en une journée de soleil et ment.
 14. Compter le temps. Il faut «un bois dur qui a séché **au moins six mois** ». Pour l'épinette,
  le sapin, le pin et le tremble, coupés, fendus et empilés tôt au printemps, un été suffit :
@@ -211,7 +210,7 @@ d'oxygène et fait du monoxyde de carbone.
 | Au tronçonnage et au fendage | Longueur, diamètre, allumage | 30, 40 ou 50 cm ; diamètre < 15 cm ; allumage menu ≤ 2 cm et moyen de 2 à 5 cm. Jeu de ≥ 7,5 cm dans le foyer | Recouper, refendre. Le rond non fendu ne sèche que par les bouts, et une bûche coincée force à ouvrir la porte sur un feu vif |
 | À l'empilage | Pile sur dosseaux, couverte sur le dessus seulement | Aucun contact avec le sol | Relever la pile. Le bas d'une pile au sol est perdu |
 | Chaque mois, pile en séchage | Masse de la bûche témoin | En baisse d'un mois à l'autre | Ne baisse plus : le bois est au maximum de siccité du site. Remonte : la pile prend l'eau, revoir la couverture |
-| Avant de rentrer le bois | Humidité, sur face fraîchement fendue | ≤ 20 %, idéal ≈ 25 %. Bois dur : ≥ 6 mois de séchage | Ne pas rentrer, ou brûler en le sachant et resserrer le ramonage. Six mois sous une bâche fermée ne sèchent rien : c'est la mesure qui tranche, pas le calendrier |
+| Avant de rentrer le bois | Humidité, sur face fraîchement fendue | ≤ 20 %. Bois dur : ≥ 6 mois de séchage | Ne pas rentrer, ou brûler en le sachant et resserrer le ramonage. Six mois sous une bâche fermée ne sèchent rien : c'est la mesure qui tranche, pas le calendrier |
 | 10 à 20 min après l'allumage, bois carbonisé | Fumée à la sortie de cheminée | Claire, ou blanche de vapeur en hiver ; jamais grise ni bleue | Ouvrir l'air, réduire la charge, vérifier le bois |
 | En régime | Flammes sur la charge, et température de surface du tuyau | Flammes vives en continu sur la charge, jusqu'au charbon. Pas de fenêtre de température qui vaille pour tous les poêles ; un seul plafond : jamais plus de 460 °C au thermomètre du tuyau pendant plus de quelques minutes — et le thermomètre magnétique lit plus bas que la sonde, donc 460 °C sur la tôle, c'est déjà trop | Charge qui fume sans flamme : rouvrir l'air. Tuyau froid : créosote. Tuyau surchauffé : feu de cheminée |
 | Chaque semaine | Dépôt dans la première section de tuyau | Poudreux, brun clair, se brosse | Noir, dur, luisant : arrêt, section 7 |

@@ -187,7 +187,7 @@ module.exports = (h) => {
   function vue1(z) {
     const p = p1(z), T = p.T;
     const L = (pts, ferme = true) => C.dense(pts, 3, ferme).map(T);
-    const out = [C.dessiner(h, p, { id: 'v1', loin: 'fin', os: ['omoplate', 'humerus', 'metacarpe', 'phalangesAvant', 'onglonAvant'] })];
+    const out = [C.dessiner(h, p, { id: 'v1', loin: 'gris', os: ['omoplate', 'humerus', 'metacarpe', 'phalangesAvant', 'onglonAvant'] })];
     // le jarret avant, du coude au bas du carpe, en trame de points découpée par la silhouette
     const jarret = [...C.LIMITES.coude, [900, 700], [900, 1006], [740, 1008], [600, 1013], [600, 713]];
     out.push(`<defs>${points('v1-p')}</defs>`);
@@ -247,7 +247,7 @@ module.exports = (h) => {
     out.push('</g>');
     // la flèche du geste : le couteau entre par la face arrière du coude
     const a0 = T([858, 718]), a1 = T([813, 689]);
-    out.push(h.fleche(`M${f1(a0[0])} ${f1(a0[1])} L${f1(a1[0])} ${f1(a1[1])}`, h.a.arete));
+    out.push(h.geste(`M${f1(a0[0])} ${f1(a0[1])} L${f1(a1[0])} ${f1(a1[1])}`));   // la charte : en rouge
     return out.join('\n');
   }
 

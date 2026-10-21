@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Compose un formulaire du Grand Livre du Chalet en PDF 8 × 10 po, typographié en Georgia.
+// Compose un formulaire du Manuel du Nord en PDF 8 × 10 po, typographié en Georgia.
 //
 //   node composer-formulaire.js images/formulaires/01-01.json
 //
@@ -51,7 +51,7 @@ const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').re
 // normale au crayon sans qu'elle mange la ligne du dessus.
 const CSS = () => `
 @page { size: 8in 10in; margin: 0.75in 0.5in 0.75in 0.5in;
-  @bottom-left  { content: "Le Grand Livre du Chalet"; font-family: Georgia, serif; font-size: 7.5pt; color: #555; vertical-align: top; padding-top: 0.18in; }
+  @bottom-left  { content: "Le Manuel du Nord"; font-family: Georgia, serif; font-size: 7.5pt; color: #555; vertical-align: top; padding-top: 0.18in; }
   @bottom-right { content: "Fiche ${esc(F.ref)}"; font-family: Georgia, serif; font-size: 7.5pt; color: #555; vertical-align: top; padding-top: 0.18in; }
 }
 * { box-sizing: border-box; }
@@ -248,7 +248,7 @@ const apercu = base + '.apercu.html';
 fs.writeFileSync(apercu, html.replace('</style>',
   'html{background:#fff} body{width:8in;height:10in;padding:0.75in 0.5in;position:relative;overflow:hidden}' +
   '.pied-apercu{position:absolute;left:0.5in;right:0.5in;bottom:0.35in;display:flex;justify-content:space-between;font-size:7.5pt;color:#555}</style>')
-  .replace('</body>', `<div class="pied-apercu"><span>Le Grand Livre du Chalet</span><span>Fiche ${esc(F.ref)}</span></div></body>`), 'utf8');
+  .replace('</body>', `<div class="pied-apercu"><span>Le Manuel du Nord</span><span>Fiche ${esc(F.ref)}</span></div></body>`), 'utf8');
 const pngOk = (() => {
   const b = base; const orig = base + '.html';
   // on imprime l'aperçu, pas le fichier d'impression

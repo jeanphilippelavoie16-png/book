@@ -2,8 +2,8 @@
 // (chapitre 43, §9 « Les gabarits à l'échelle » : les planches d'empreintes sont dessinées grandeur
 // nature, règle imprimée à côté ; on pose le livre ouvert à côté de l'empreinte et on compare.)
 //
-// L'échelle. La planche fait 680 unités de large et s'imprime dans la zone utile de la page, 7 po
-// (177,8 mm) : 1 mm = 680 / 177,8 = 3,8245 unités. La règle de 10 cm le vérifie sur le papier.
+// L'échelle. La planche fait 680 unités de large et, au format « pleine », s'imprime sur l'empagement
+// de 167,2 mm, comme 43-01 et 43-02 : 1 mm = 680 / 167,2 = 4,067 unités. La règle de 10 cm le vérifie sur le papier.
 //
 // Les tailles viennent du tableau 5-E et 5-F du chapitre ; chaque empreinte est dessinée au milieu
 // de la fourchette que le chapitre donne (la fourchette est dans la légende) :
@@ -19,8 +19,10 @@
 // Laissés de côté : l'écureuil roux et le rat musqué (le chapitre ne donne que des longueurs, ni
 // le nombre de doigts ni la forme), le canard et le tétras (aucune mesure dans le chapitre).
 // Toutes les empreintes ont les doigts vers le haut : la bête allait vers le haut de la page.
+// La charte (empreinte grandeur nature : pas de gris, pas de rouge) : le bord des pieds poilus du
+// lièvre et de la martre passe à 2,4, comme le contour des grands gabarits de la 43-01.
 module.exports = (h) => {
-  const S = 680 / 177.8;                       // unités de vue par mm, à l'impression
+  const S = 680 / 167.2;                       // unités de vue par mm, à l'impression
   const f = (n) => (Math.round(n * 10) / 10).toFixed(1);
 
   // Catmull-Rom fermé ou ouvert → segments de Bézier
@@ -76,7 +78,7 @@ module.exports = (h) => {
   const LIEVRE_AV = miroir([[0, 31.25], [11, 29.8], [18.5, 24], [22.5, 13], [22, 1], [18.5, -12], [13, -23],
     [6.5, -29.8], [0, -31.25]]);
   // le creux du pied poilu est pointillé : c'est la surface que le pied a tassée
-  const pied = (ox, oy, contour, graine) => h.path(lisse(poilu(contour, 0.45, 2.2, graine).map(rep(ox, oy))), h.a.hachure('neige', 'arete'));
+  const pied = (ox, oy, contour, graine) => h.path(lisse(poilu(contour, 0.45, 2.2, graine).map(rep(ox, oy))), h.a.hachure('neige', 'contour'));
 
   // ─── Les mustélidés : cinq doigts un-trois-un, coussinet en chevron, griffes ───────────────────
   // En fraction de la largeur (u) et de la longueur (v) ; pied avant droit, petit doigt à gauche.
@@ -106,7 +108,7 @@ module.exports = (h) => {
   const MARTRE_POIL = miroir([[0, 0.5], [0.2, 0.48], [0.37, 0.39], [0.47, 0.22], [0.5, 0.02], [0.47, -0.18],
     [0.39, -0.36], [0.24, -0.47], [0, -0.5]]);
   const martre = (ox, oy) => [
-    h.path(lisse(poilu(MARTRE_POIL.map(([u, v]) => [u * 50, v * 55]), 0.4, 2, 5).map(rep(ox, oy))), h.a.hachure('neige', 'arete')),
+    h.path(lisse(poilu(MARTRE_POIL.map(([u, v]) => [u * 50, v * 55]), 0.4, 2, 5).map(rep(ox, oy))), h.a.hachure('neige', 'contour')),
     mustelide(ox, oy, 40, 44, true),
   ].join('\n');
 
@@ -142,21 +144,21 @@ module.exports = (h) => {
     ].join('\n');
   };
 
-  // ─── La règle de 10 cm, graduée aux 5 mm ────────────────────────────────────────────────────
+  // ─── La règle de 10 cm : un trait par mm, un moyen aux 5 mm, un long et un chiffre par cm ─────
   const regle = (x, yHaut) => {
     const out = [h.ligne(x, yHaut, x, f(yHaut + 100 * S), h.a.arete)];
-    for (let mm = 0; mm <= 100; mm += 5) {
+    for (let mm = 0; mm <= 100; mm += 1) {
       const y = f(yHaut + (100 - mm) * S);
-      const long = mm % 50 === 0 ? 14 : mm % 10 === 0 ? 10 : 5;
-      out.push(h.ligne(x - long, y, x, y, mm % 10 === 0 ? h.a.detail : h.a.fin));
+      const long = mm % 10 === 0 ? 14 : mm % 5 === 0 ? 9 : 5;
+      out.push(h.ligne(x - long, y, x, y, mm % 5 === 0 ? h.a.detail : h.a.fin));
+      if (mm % 10 === 0) out.push(h.texte(x + 9, f(+y + 4), String(mm / 10)));
     }
-    out.push(h.texte(x - 7, yHaut - 8, '10 cm'));
-    out.push(h.texte(x - 7, f(yHaut + 100 * S + 17), '0'));
+    out.push(h.texte(x + 6, yHaut - 10, 'cm'));
     return out.join('\n');
   };
 
   // positions (unités de vue) — voir la mise en place en tête du fichier
-  const H = [160, 222], F = [500, 124], M = [500, 372], V = [70, 556], B = [525, 565], G = [250, 585];
+  const H = [170, 240], F = [495, 135], M = [495, 385], V = [75, 560], B = [530, 580], G = [295, 575];
 
   return {
     ref: '43-03',
@@ -176,15 +178,15 @@ module.exports = (h) => {
           mustelide(V[0], V[1], 32.5, 40),
           mustelide(B[0], B[1], 15, 25),
           gelinotte(G[0], G[1]),
-          regle(340, 30),
+          regle(358, 22),
         ].join('\n'),
         renvois: () => [
-          { n: 1, rond: [36, 372], cible: [90, 372], texte: 'lièvre, pied arrière, 8 à 15 cm' },
-          { n: 2, rond: [392, 70], cible: [416, 76], texte: 'lièvre, pied avant, 5 à 7,5 cm' },
-          { n: 3, rond: [388, 296], cible: [424, 305], texte: 'martre, pied avant l’hiver, 4 à 7 cm' },
-          { n: 4, rond: [22, 470], cible: [46, 505], texte: 'vison, pied avant, 3 à 5 cm' },
-          { n: 5, rond: [586, 530], cible: [549, 553], texte: 'belette, 2 à 3 cm' },
-          { n: 6, rond: [380, 590], cible: [312, 540], texte: 'gélinotte huppée l’hiver, 4 à 5,5 cm' },
+          { n: 1, rond: [18, 300], cible: [58, 300], texte: 'lièvre, pied arrière, 8 à 15 cm' },
+          { n: 2, rond: [585, 270], cible: [548, 226], texte: 'lièvre, pied avant, 5 à 7,5 cm' },
+          { n: 3, rond: [400, 520], cible: [430, 470], texte: 'martre, pied avant l’hiver, 4 à 7 cm' },
+          { n: 4, rond: [170, 625], cible: [112, 600], texte: 'vison, pied avant, 3 à 5 cm' },
+          { n: 5, rond: [585, 625], cible: [549, 612], texte: 'belette, 2 à 3 cm' },
+          { n: 6, rond: [430, 590], cible: [372, 522], texte: 'gélinotte huppée l’hiver, 4 à 5,5 cm' },
         ],
       },
     },

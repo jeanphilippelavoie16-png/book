@@ -48,11 +48,11 @@ module.exports = (h) => {
         return [h.rect(10, y, z.l - 20, 14, A.hachure('bois', 'contour')), m].join('\n');
       }),
       g: vue('La paume à plat, vue du dos', z => {
-        const x = z.l * 0.55, y = z.h * 0.52;
+        const x = z.l * 0.55, y = z.h * 0.5;
         return F.main({ x, y, pose: 'appui', vue: 'dos', bras: 40 }).toString();
       }),
       i: vue('Main gauche : la prise en miroir, tournée', z => {
-        const x = z.l * 0.44, y = z.h * 0.64;
+        const x = z.l * 0.46, y = z.h * 0.62;
         const m = F.main({ x, y, pose: 'prise', vue: 'dos', cote: 'gauche', angle: -60, diametre: 30, bras: 20, echelle: 0.85 });
         return [manche(m, 80, 80), m].join('\n');
       }),

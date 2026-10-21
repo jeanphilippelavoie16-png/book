@@ -5,9 +5,11 @@
 
 const f = n => Math.round(n * 10) / 10;
 const P = (x, y) => `${f(x)} ${f(y)}`;
-const BLANC_A = 'fill="#fff" stroke="#000" stroke-width="1.4" stroke-linejoin="round"';
-const BLANC_D = 'fill="#fff" stroke="#000" stroke-width="0.7" stroke-linejoin="round"';
-const BLANC_C = 'fill="#fff" stroke="#000" stroke-width="2.4" stroke-linejoin="round"';
+const BLANC_A = 'fill="#fff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"';
+const BLANC_D = 'fill="#fff" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round"';
+const BLANC_C = 'fill="#fff" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round"';
+// la charte : ce qui est derrière (le clayonnage, côté amont, vu de l'aval) en gris loin
+const LOIN_D = 'fill="#E6E6E6" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round"';
 
 const lePong = (poly, pas, debut = 0) => {
   const out = [];
@@ -119,6 +121,8 @@ module.exports = (h) => {
       const w = (d - g) / nb;
       for (let i = 0; i < nb; i++) out.push(caillou(g + w * (i + 0.5), y, w - 2, ht));
     }
+    // le plancher lié à la patte amont et à la patte aval
+    out.push(ligature(xa, yp, 11, 3), ligature(xb, yp, 11, 3));
     return out.join('\n');
   };
   const chevaletRenvois = z => {
@@ -155,14 +159,14 @@ module.exports = (h) => {
     const dy = 7, yTop = ys - 14, pw = 2.4;
     const ms = [];
     for (let x = 10; x < z.l; x += 24) ms.push(x);
-    for (const x of ms) out.push(h.rect(x - pw, yTop - 5, 2 * pw, yb0 - yTop + 5, BLANC_D));
+    for (const x of ms) out.push(h.rect(x - pw, yTop - 5, 2 * pw, yb0 - yTop + 5, LOIN_D));
     const K = Math.floor((yb0 - yTop) / dy);
     for (let k = 0; k < K; k++) {
       const y = yb0 - (k + 1) * dy, y1b = y + 0.6, y2b = y + dy - 0.6;
-      out.push(h.rect(0, y1b, z.l, y2b - y1b, BLANC_D));
+      out.push(h.rect(0, y1b, z.l, y2b - y1b, LOIN_D));
       ms.forEach((x, i) => {
         if ((i + k) % 2 === 0) return;
-        out.push(h.rect(x - pw + 0.7, y1b - 1, 2 * pw - 1.4, y2b - y1b + 2, h.a.blanc));
+        out.push(h.rect(x - pw + 0.7, y1b - 1, 2 * pw - 1.4, y2b - y1b + 2, h.a.loin));
         out.push(h.ligne(x - pw, y1b - 1, x - pw, y2b + 1, h.a.detail), h.ligne(x + pw, y1b - 1, x + pw, y2b + 1, h.a.detail));
       });
     }
@@ -190,20 +194,27 @@ module.exports = (h) => {
         const nb = Math.max(1, Math.round((d - g) / 18)), w = (d - g) / nb;
         for (let i = 0; i < nb; i++) out.push(caillou(g + w * (i + 0.5), y, w - 2, ht));
       }
+      out.push(ligature(xg(xc, yp), yp, 11, 3), ligature(xd(xc, yp), yp, 11, 3));
       // la troisième perche, qui vient vers nous
       out.push(perche([xc + 2, yT], [xc + 10, yR(xc + 10) + 3], 9, 6, 0, BLANC_C));
     }
+    // la charte : le point à contrôler, le jour sous le pied fermé par les pierres (le creux le
+    // plus profond, à l'écart des pieds de perche)
+    let xh = 0, best = 0;
+    for (let x = 0; x < cs[0] - 30; x++) if (creux(x) > best) { best = creux(x); xh = x; }
+    out.push(h.controle(xh, yb0 + best / 2 + 1, 17));
     return out.join('\n');
   };
   const ligneRenvois = z => {
     const { yb0, creux, cs, yT, y1 } = gLigne(z);
+    // le creux le plus profond, à l'écart des pieds de perche : le même que le cercle de contrôle
     let xh = 0, best = 0;
-    for (let x = cs[0] + 50; x < cs[1] - 50; x++) if (creux(x) > best) { best = creux(x); xh = x; }
+    for (let x = 0; x < cs[0] - 30; x++) if (creux(x) > best) { best = creux(x); xh = x; }
     const xm = (cs[0] + cs[1]) / 2;
     return [
       { n: 5, rond: [xm, 14], cible: [xm, y1 - 4], texte: 'perches en travers' },
       { n: 6, rond: [z.l - 12, yb0 - 60], cible: [cs[1] + 8, yb0 - 60], texte: 'la troisième, vers l’aval' },
-      { n: 7, rond: [xh + 26, z.h - 10], cible: [xh, yb0 + best / 2 + 1], texte: 'pierres qui ferment le pied' },
+      { n: 7, rond: [xh + 46, z.h - 10], cible: [xh + 5, yb0 + best / 2 + 1], texte: 'pierres qui ferment le pied' },
     ];
   };
 
@@ -257,7 +268,7 @@ module.exports = (h) => {
 
   // ─── Le muret de pierres, en coupe ───
   const gMur = z => {
-    const yb = z.h - 34, xc = z.l / 2 + 6, k = 1.4;
+    const yb = z.h - 34, xc = z.l / 2 + 6, k = 1.66;
     const assises = [
       { ht: 28, pierres: [[-48, 44], [0, 48], [47, 42]] },
       { ht: 23, pierres: [[-34, 36], [3, 36], [37, 30]] },
@@ -280,8 +291,10 @@ module.exports = (h) => {
     out.push(h.chemin(sol, h.a.arete));
     out.push(h.fleche(`M ${P(4, yb - 42)} L ${P(32, yb - 42)}`, h.a.detail));
     // les cales, derrière les joints
+    // la charte : les cales, vues derrière les joints, en gris loin
+    const LOIN_A = 'fill="#E6E6E6" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"';
     for (const [dx, dy] of [[-25, 26], [24, 25], [-17, 48], [21, 46], [0, 67], [-52, 30], [52, 30]])
-      out.push(caillou(xc + dx * k, yb - dy * k, 9 * k, 7 * k, BLANC_A));
+      out.push(caillou(xc + dx * k, yb - dy * k, 9 * k, 7 * k, LOIN_A));
     for (const a of assises) for (const [dx, w] of a.pierres) out.push(caillou(xc + dx, a.y, w, a.ht - 1.5));
     return out.join('\n');
   };

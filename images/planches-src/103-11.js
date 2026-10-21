@@ -95,7 +95,8 @@ const spires = (h, x0, n, p, yc, r) => {
   return out.join('\n');
 };
 
-// Tronçon de manche vu de face : fond blanc, contour, cassures aux deux bouts, fil du bois.
+// Tronçon de manche vu de face : fond gris loin (charte : le manche recule, la babiche se lit
+// devant), contour, cassures aux deux bouts, fil du bois.
 const tige = (h, xl, xr, yc, R) => {
   const cass = x => `M${x},${yc - R} C${x - 11},${yc - R / 3} ${x + 11},${yc + R / 3} ${x},${yc + R}`;
   const fil = [[-0.55, 0.3], [-0.12, 1.4], [0.3, 2.2], [0.68, 0.9]].map(([f, ph]) => {
@@ -104,7 +105,8 @@ const tige = (h, xl, xr, yc, R) => {
     return D(pts);
   }).join(' ');
   return [
-    h.rect(xl, yc - R, xr - xl, 2 * R, h.a.blanc),
+    h.path(`M${xl},${yc - R} L${xr},${yc - R} C${xr - 11},${yc - R / 3} ${xr + 11},${yc + R / 3} ${xr},${yc + R} `
+      + `L${xl},${yc + R} C${xl + 11},${yc + R / 3} ${xl - 11},${yc - R / 3} ${xl},${yc - R} Z`, h.a.loin),
     h.path(fil, h.a.fin),
     h.path(D([[xl, yc - R], [xr, yc - R]]) + ' ' + D([[xl, yc + R], [xr, yc + R]]), h.a.contour),
     h.path(cass(xl) + ' ' + cass(xr), h.a.arete),
@@ -114,7 +116,7 @@ const tige = (h, xl, xr, yc, R) => {
 // Flèche d'enroulement : la moitié avant descend, la moitié arrière en caché.
 const anneau = (h, cx, cy, rx, ry) => ({
   derriere: h.path(`M${cx},${cy - ry} A${rx} ${ry} 0 0 0 ${cx},${cy + ry}`, h.a.cache),
-  devant: h.fleche(`M${cx},${cy - ry} A${rx} ${ry} 0 0 1 ${cx},${cy + ry}`),
+  devant: h.geste(`M${cx},${cy - ry} A${rx} ${ry} 0 0 1 ${cx},${cy + ry}`),   // charte : le geste en rouge
 });
 
 // ─── la planche ──────────────────────────────────────────────────────────────────────
@@ -151,9 +153,6 @@ module.exports = (h) => {
             spires(h, s0, 4, p, yc, Rw),
             bout.cache,
             r.devant,
-            h.ligne(sN + 76, yb - p / 2, xq + 4, yb - p / 2, h.a.fin),
-            h.ligne(sN + 87, yb + p / 2, xq + 4, yb + p / 2, h.a.fin),
-            h.cote(xq, yb - p / 2, xq, yb + p / 2, '5 à 10 mm', { cote: 'droite' }),
           ].join('\n');
         },
         renvois: z => {
@@ -182,7 +181,7 @@ module.exports = (h) => {
             bout.plein,
             spires(h, sT, 2, p, yc, Rl),
             bout.cache,
-            h.fleche(`M${tip[0] - 4},${tip[1] - 6} Q${tip[0] - 14},${tip[1] - 22} ${tip[0] - 34},${tip[1] - 34}`),
+            h.geste(`M${tip[0] - 4},${tip[1] - 6} Q${tip[0] - 14},${tip[1] - 22} ${tip[0] - 34},${tip[1] - 34}`),
           ].join('\n');
         },
         renvois: z => {
@@ -221,7 +220,7 @@ module.exports = (h) => {
             + `L${L0 + 2},${yc + 0.4} L${hx1 + 11},${yc + 1.0} L${hx1 + 6},${yc + 0.9} L${hx1},${yc + 2.6} Z`;
           const suite = D([[L0 + 2, yc], [L0 + 40, yc + 1], [L0 + 80, yc - 0.5], [L0 + 125, yc + 0.8], [L0 + 138, yc + 0.2]]);
           return [
-            h.path(manche, h.a.blanc),
+            h.path(manche, h.a.loin),
             h.path(fil, h.a.fin),
             h.path(manche, h.a.contour),
             h.path(`M${hx0 - 7},${yc - r} L${hx0 - 7},${yc + r}`, h.a.contour),

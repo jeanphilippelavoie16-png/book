@@ -1,0 +1,237 @@
+{{Short description|Type of lighting device that uses kerosene as a fuel}}
+{{Use American English|date=March 2021}}
+{{Use mdy dates|date=March 2021}}
+[[File:A kerosene lamp produced by the factory of Karlskrona Lampfabrik in Sweden c. 1890s.jpg|thumb|A kerosene lamp produced by the factory of Karlskrona Lampfabrik in Sweden c. 1890s]]
+[[File:SwissKeroseneLamp.jpg|thumb|upright|Swiss flat-wick kerosene lamp. The knob protruding to the right adjusts the wick, and thus the flame size.]]
+[[File:A 19th-century kerosene lamp made of tin.jpg|thumb|A handmade tin kerosene lamp used for household lighting before the advent of electricity.]]
+
+A '''kerosene lamp''' (also known as a '''paraffin lamp''' in some countries) is a type of [[lighting]] device that uses [[kerosene]] as a [[fuel]]. Kerosene lamps utilize a [[Candle wick|wick]] or [[gas mantle|mantle]] as a light source, protected by a glass chimney or globe; lamps may be used on a table, or as hand-held [[lantern]]s for portable lighting. Like [[oil lamp]]s, they are useful for lighting without electricity, such as in regions without [[rural electrification]], in [[electrification|electrified]] areas during [[power outage]]s, at [[campsite]]s, and on [[boat]]s. There are three common types of kerosene lamp: flat-wick, central-draft (tubular round wick), and mantle lamp. Kerosene lanterns meant for portable use have a flat wick and are made in dead-flame, hot-blast, and cold-blast variants.
+
+Pressurized kerosene lamps use a [[gas mantle]]; these are known as [[Petromax]], [[Tilley lamp]]s, or [[Coleman Lantern|Coleman]] lamps, among other manufacturers. They produce more light per unit of fuel than wick-type lamps, but are more complex and expensive in construction and more complex to operate. A hand-pump pressurizes air, which forces liquid fuel from a reservoir into a gas chamber. Vapor from the chamber burns, heating a mantle to incandescence and providing heat.
+
+Kerosene lamps are widely used for lighting in rural areas of Africa and Asia, where electricity is not distributed or is too costly. As of 2005, kerosene and other fuel-based illumination methods consume an estimated {{convert|77|e9L|e9USgal|abbr=off}} of fuel per year, equivalent to {{convert|1.3|e6BOE|e6GJ|abbr=off|order=flip}} per day.<ref>Jean-Claude Bolay, Alexandre Schmid, Gabriela Tejada ''Technologies and Innovations for Development: Scientific Cooperation for a Sustainable Future'', Springer, 2012
+{{ISBN|2-8178-0267-5}} page 308.</ref><ref>{{Cite journal|last=Mills|first=E.|date=2005-05-27|title=ENVIRONMENT: The Specter of Fuel-Based Lighting|url=https://www.science.org/doi/10.1126/science.1113090|journal=Science|language=en|volume=308|issue=5726|pages=1263–1264|doi=10.1126/science.1113090|pmid=15919979 |s2cid=129749450 |issn=0036-8075|url-access=subscription}}</ref> This is comparable to annual U.S. jet-fuel consumption of {{convert|76|e9L|e9USgal|abbr=off}} per year.<ref>{{Cite web|title=Jet fuel consumption by country, around the world|url=https://www.theglobaleconomy.com/rankings/jet_fuel_consumption/|access-date=2021-06-26|website=TheGlobalEconomy.com|language=en}}</ref>
+
+== History ==
+In 1813, John Tilley invented the hydro-pneumatic [[blowpipe (tool)|blowpipe]].<ref name="Tilley-1814">{{cite journal |last1=Tilley |first1=John |title=LIX. Description of a hydro-pneumatic blow-pipe for the use of chemists, enamellers, assayers, and glass-blowers |journal=The Philosophical Magazine |date=April 1814 |volume=43 |issue=192 |pages=280–284 |doi=10.1080/14786441408638024|url=https://zenodo.org/record/2209753 }}</ref> In 1818, William Henry Tilley, gas fitters, was manufacturing gas lamps in [[Stoke Newington]].<ref>*[http://www.tilleylamp.co.uk/ Tilley lamp Company]
+*[http://www.hytta.de/info/en_petromax.htm Principles of Tilley lamp operation]
+*[http://www.tilleylamps.co.uk/ Tilley lamps] {{Webarchive|url=https://web.archive.org/web/20161027021449/http://www.tilleylamps.co.uk/ |date=October 27, 2016 }}</ref>
+
+In 1846, [[Abraham Pineo Gesner]] invented a substitute for [[whale oil]] for lighting, distilled from coal. Later made from petroleum, kerosene became a popular lighting fuel.
+
+Modern and most popular versions of the paraffin lamp were later constructed by [[Polish people|Polish]] [[inventor]] and [[pharmacist]] [[Ignacy Łukasiewicz]], in [[Lemberg]] in 1853.<ref>{{Cite web
+  |url=http://www.beskidniski.org.pl/szlaki/naftowy/szlak_naftowy.htm  
+  |archive-url=https://web.archive.org/web/20090828103133/http://www.beskidniski.org.pl/szlaki/naftowy/szlak_naftowy.htm  
+  |archive-date=2009-08-28
+  |title=The Petroleum Trail
+}}</ref><ref>{{Cite encyclopedia
+  |url=https://www.encyclopedia.com/history/encyclopedias-almanacs-transcripts-and-maps/lukasiewicz-ignacy
+  |title=Lukasiewicz, Ignacy 
+  |encyclopedia=Encyclopedia of World Biography
+  |publisher=Encyclopedia.com
+}}</ref><ref>{{Cite web
+  |url=https://www.historychannel.com.au/this-day-in-history/pharmacist-introduces-kerosene-lamp-saves-whales/
+  |title=Pharmacist Introduces Kerosene Lamp, Saves Whales
+  |website=History Channel
+  |access-date=June 9, 2019
+  |archive-date=June 9, 2019
+  |archive-url=https://web.archive.org/web/20190609140011/https://www.historychannel.com.au/this-day-in-history/pharmacist-introduces-kerosene-lamp-saves-whales/
+  |url-status=dead
+  }}</ref><ref>{{Cite web
+  |url=https://polska.pl/science/famous-scientists/ignacy-lukasiewicz-18221882-polish-pharmacist-and-prometheus/
+  |title=Ignacy Łukasiewicz (1822–1882) – Polish pharmacist and Prometheus
+  |publisher=Polish Ministry of Foreign Affairs
+}}</ref> It was a significant improvement over lamps designed to burn vegetable or sperm oil.
+
+In 1914, the [[Coleman Lantern]] pressure lamp was introduced by the [[Coleman Company]].<ref name="terry-marsh/coleman-1914">{{cite web |title=Coleman US lanterns 1914 – 1920 |url=https://terry-marsh.com/coleman-us-lanterns-1914-1920/ |website=The Terrence Marsh Lantern Gallery |access-date=10 November 2022 |language=en |date=25 January 2018}}</ref><ref name="oldtowncoleman/date-a-coleman">{{cite web |last1=Bebb |first1=Frank |title=How to date your Coleman® Lamp, Lantern and Stove |url=https://www.oldtowncoleman.com/learn/how-to-date-a-coleman-lantern-or-stove.htm |website=The Old Town Coleman Center |access-date=10 November 2022 |language=English}}</ref><ref name="coleman/our-story">{{cite web |title=Our Story |url=https://www.coleman.com/our-story.html |website=Coleman |access-date=10 November 2022}}</ref>
+
+In 1919, Tilley High-Pressure Gas Company started using kerosene as a fuel for lamps.<ref name="gracesguide/Tilley_Lamp">{{cite web |title=Tilley Lamp Co |url=https://www.gracesguide.co.uk/Tilley_Lamp_Co |website=[[Grace's Guide To British Industrial History]] |access-date=10 November 2022}}</ref>
+
+== Types ==
+
+=== Flat-wick lamp ===
+{{Unreferenced section|date=February 2019}}[[File:Railway Lamp.jpg|thumb|[[New Zealand Railways Department|New Zealand Railways]] lamp on the [[Weka Pass Railway]]]]
+A flat-wick kerosene lamp has a fuel reservoir and a burner holding an adjustable wick. Kerosene rises through the wick by capillary action. Raising or lowering the wick changes the size of the flame. In lamps fitted with a glass chimney, the upward draft supplies air to the flame and helps it burn.<ref>{{Cite patent|number=US86291A|title=Improvement in lamp-chimneys|gdate=1869-01-26|url=https://patents.google.com/patent/US86291A/en}}</ref>
+
+Flat-wick lanterns include dead-flame, hot-blast, and cold-blast designs, differing in how air reaches the burner. Cold blast produces the brightest light.<ref>{{Cite web |title=Lantern Care & Terminology |url=https://lanternnet.com/lantern-care-terminology/ |access-date=2026-09-24 |website=The Source for Oil Lamps and Hurricane Lanterns |language=en-US}}</ref>
+
+The chimney is used for a more important duty.  The mantle/wick holder has holes around the outer edges.  When the lantern is lit and a chimney is attached, the thermally induced draft draws air through these holes and passes over the top of the mantle, just as a chimney in a house.  This has a cooling effect and keeps the mantle from overheating.  Without a properly installed chimney, a definite safety condition exists.  This is even more important if using Aladdin lamps.  They also have a thinner chimney to induce a faster airflow.  This information should be adhered to regardless of the type of lantern in use.
+
+The lamp burner has a flat wick, usually made of [[cotton]]. The lower part of the wick dips into the fount and absorbs the kerosene; the top part of the wick extends out of the wick tube of the lamp burner, which includes a wick-adjustment mechanism. Adjusting how much of the wick extends above the wick tube controls the flame. The wick tube surrounds the wick and ensures that the correct amount of air reaches the lamp burner.  Adjustment is usually done by means of a small knob operating a cric, which is a toothed metal [[sprocket]] bearing against the wick.  If the wick is too high, and extends beyond the burner cone at the top of the wick tube, the lamp will produce [[smoke]] and [[soot]] (unburned carbon). When the lamp is lit, the kerosene that the wick has absorbed burns and produces a clear, bright, yellow [[flame]].  As the kerosene burns, [[capillary action]] in the wick draws more kerosene up from the fuel tank.
+
+This type of lamp was very widely used by railways, both on the front and rear of trains and for hand signals, due to its reliability.  At a time when there were few competing light sources at night outside major towns, the limited brightness of these lamps was adequate and could be seen at sufficient distance to serve as a warning or signal.<ref>{{Cite web |title=Hurricane Lamp - Newmarket Saleyards, Newmarket, after 1933 |url=https://collections.museumsvictoria.com.au/items/261585 |access-date=2026-09-24 |website=Museums Victoria Collections}}</ref>
+
+=== Central-draft (tubular round wick) lamp ===
+[[File:Centre draft lamp explained.jpg|thumb|Air flow in a central draft kerosene lamp]]
+
+A central-draft lamp is a continuation of the principles used in the [[Argand lamp]] from 1780. It also uses a tubular round wick and it also has air intake under the flame into the glass chimney. Since [[whale oil]] used in the Argand lamp has a high [[viscosity]] it was necessary to place the oil reservoir higher than the flame of the lamp itself in order to let the oil flow by pressure caused by [[gravity]]. Kerosene has a much lower viscosity and can be transported through the wick by [[capillary action]]. This made it possible to install the oil reservoir below the flame. Oil reservoirs were made with a hollow tube in the middle that transported air from below the oil reservoir into the flame.<ref name="Side Draft vs Center Draft Lamp, an explanation.">{{cite web |title=Side Draft vs Center Draft Lamp, an explanation. |url=https://www.youtube.com/watch?v=kFGI4PHmZ2s |website=[[YouTube: The wick shop]] |access-date=21 October 2024}}</ref> The tubular woven wick (or flat wick rolled into a tube, the seam of which is then stitched together to form the complete wick) is placed around this tube. The tubular wick is then mounted into a "carrier", which is some form of a toothed rack that engages into the gears of the wick-raising mechanism of the burner and allows the wick to be raised and lowered. The wick rides in between the inner and outer wick tubes; the inner wick tube (central draft tube) provides the "central draft" or draft that supplies air to the flame spreader. When the lamp is lit, the central draft tube supplies air to the flame spreader that spreads out the flame into a ring of [[fire]] and allows the lamp to burn cleanly.    
+
+=== Side-draft (flat wick folded round) lamp ===
+[[File:Idealbrenner.JPG|thumb| The Ideal burner. A "Side-draft" kerosene lamp with flame spreader]]
+
+In 1865 the Berlin based company Wild & Wessel invented the Kosmos Brenner.<ref> The round burner https://artoluys.com/index.php/en/paraffin-kerosene-burners/the-kosmos-burner </ref> This lamp used a flat wick that was folded open at the bottom and gradually folded round at the top. This allowed for air flow in the centre of flame just like in centre-draft burner. Only here the air intake is done above the oil reservoir and under the burner itself. This avoids the need of a hollow tube all along the height of the reservoir. This makes it easier to use [[ceramic]] or glass oil reservoirs. While the Kosmos Brenner doesn't use a flame spreader other side draft kerosene lamps do. Examples are the Ideal Brenner and the Matador Brenner from [[Ehrich and Graetz]]
+
+=== Duplex lamp (two parallel flat wicks) lamp ===
+In 1865 the Duplex lamp also came on the market. It was a very popular type of kerosene lamp in Great Britain. The lamps had 2 flat wicks inside 1 glass chimney. Both wicks could be adjusted with their own wick raiser knob. 
+
+[[File:Duplex burner British made.jpg|thumb|Duplex burner. Double wick and a double wick raiser knob.]]
+
+=== Mantle lamp ===
+{{Main article|Gas mantle}}{{More citations needed section|date=February 2019}}[[File:Sumburgh Lighthouse Lamp.jpg|thumb|upright=0.9|An 85&nbsp;mm Chance Brothers ''Incandescent Petroleum Vapour Installation'', which produced the light for the [[Sumburgh Head Lighthouse|Sumburgh Head lighthouse]] until 1976]]
+
+A variation on the "central-draft" lamp is the mantle lamp. The mantle is a roughly pear-shaped mesh made of fabric placed over the burner. The mantle typically contains [[thorium]] or other [[rare-earth]] [[Salt (chemistry)|salts]]; on first use the cloth burns away, and the rare-earth salts are converted to oxides, leaving a very fragile structure, which [[incandescence|incandesces]] (glows brightly) upon exposure to the heat of the burner flame. Mantle lamps are considerably brighter than flat- or round-wick lamps, produce a whiter light and generate more [[heat]]. Mantle lamps typically use fuel faster than a flat-wick lamp, but slower than a center-draft round-wick, as they depend on a small flame heating a mantle, rather than having all the light coming from the flame itself.
+
+Mantle lamps are nearly always bright enough to benefit from a lampshade, and a few mantle lamps may be enough to heat a small building in cold weather. Mantle lamps, because of the higher [[temperature]] at which they operate, do not produce much odor, except when first lit or extinguished.  Like flat- and round-wick lamps, they can be adjusted for brightness; however, caution must be used, because if set too high, the lamp chimney and the mantle can become covered with black areas of soot. A lamp set too high will burn off its soot harmlessly if quickly turned down, but if not caught soon enough, the soot itself can ignite, and a "runaway lamp" condition can result.
+
+All unpressurized mantle lamps are based on the Argand lamp that was improved by the [[Clamond basket]] mantle. These lamps were popular from 1882 until shortly after WWII, when rural electrification made them obsolete. Aladdin Lamps is the only maker of this style lamp today.<ref>{{Cite web|title=Aladdin Kerosene Lamps|url=http://aladdinlamps.info/|access-date=2021-06-08|website=aladdinlamps.info}}</ref> Even they, are now marketing electric fixtures that fit the old style lamps.
+
+Large fixed pressurized kerosene mantle lamps were used in [[lighthouse]] beacons for navigation of ships, brighter and with lower fuel consumption than oil lamps used before.<ref>Dennis L. Noble ''Lighthouses & Keepers: The U.S. Lighthouse Service and Its Legacy'', Naval Institute Press, 2004 {{ISBN|1-59114-626-7}}, page 34.</ref> An early version of the [[gas mantle]] lamp, kerosene was vaporized by a secondary burner, which pressurized the kerosene tank that supplied the central draught. Like all gas mantle lamps, the only purpose of the burner is to hold the flame that heats the mantle, which is 4–5 times as bright as the wick itself. The [[Coleman Lantern]] is the direct descendant of this type lamp.
+
+=== Kerosene lantern ===
+{{More citations needed section|date=February 2019}}
+[[File:Kerosene-lamp-01.JPG|thumb|upright|left|Dead-flame]]
+[[File:Tranby house 49 gnangarra.jpg|thumb|upright|Hot-blast]]
+[[File:Kerosine lamp.jpg|thumb|upright|Cold-blast]]
+
+A kerosene lantern, also known as a "barn lantern" or "hurricane lantern", is a flat-wick lamp made for portable and outdoor use. They are made of soldered or crimped-together sheet-metal stampings, with tin-plated sheet steel being the most common material, followed by brass and copper. There are three types: dead-flame, hot-blast, and cold-blast. Both hot-blast and cold-blast designs are called tubular lanterns and are safer than dead-flame lamps, as tipping over a tubular lantern cuts off the oxygen flow to the burner and will extinguish the flame within seconds.<ref>{{cite web|title=Tubular Oil Lanterns—Frequently Asked Questions |url=http://www.lanterns.us/faqs.htm |publisher=W. T. Kirkman Lanterns, Inc. |url-status=dead |archive-url=https://web.archive.org/web/20131029192016/http://www.lanterns.us/faqs.htm |archive-date=2013-10-29 }}</ref>
+
+The earliest portable kerosene "glass globe" lanterns, of the 1850s and 1860s, were of the dead-flame type, meaning that it had an open wick, but the airflow to the flame was strictly controlled in an upward motion by a combination of vents at the bottom of the burner and an open topped chimney.  This had the effect of removing side-to-side drafts and thus significantly reducing or even eliminating the flickering that can occur with an exposed flame.
+
+Later lanterns, such as the hot-blast and cold-blast lanterns, took this airflow control even further by partially or fully enclosing the wick in a "deflector" or "burner cone" and then channeling the air to be supplied for combustion at the wick while at the same time pre-heating the air for combustion.
+
+The hot-blast design, also known as a "tubular lantern" due to the metal tubes used in its construction, was invented by John H. Irwin and was {{US patent|89770|patented on May 4, 1869}}.<ref name="patent_US_89770_hotBlast" /> As noted in the patent, the "novel mode of constructing a lantern whereby the wind, instead of acting upon the flame in such a manner as to extinguish it, serves to support or sustain and prevent the extinguishment thereof." This improvement essentially redirected wind which might normally tend to extinguish the flame of an unprotected dead-flame lantern, instead is redirected, slowed, pre-heated, and supplied to the burner to actually support and promote the combustion of the fuel.
+
+Later, Irwin improved upon this design by inventing and {{US patent|138654|patenting his cold-blast design on May 6, 1873}}.<ref name="patent_US_138654_coldBlast" /> This design is similar to his earlier "hot-blast" design, except that the oxygen-depleted hot combustion byproducts are redirected and prevented from recirculating back to the burner by redesigning the intake products, so that only oxygen-rich, fresh air is drawn from the atmosphere into the lamp ("the inlets for fresh air are placed out of the ascending current of products of combustion, and said products are thereby prevented from entering [the air intake]"<ref name="patent_US_138654_coldBlast" />). The primary benefit of this design compared to the earlier "hot-blast" design was to maximize the amount of oxygen available for combustion by ensuring that only fresh air is supplied to the burner, thereby increasing the brightness and stability of the flame.<ref name="note_term_hotBlastColdBlast" group="Note" />
+
+== Safety ==
+=== Combustion ===
+Contamination of lamp fuel with even a small amount of gasoline results in a lower flash point and higher vapor pressure for the fuel, with potentially dangerous consequences.  Vapors from spilled fuel may ignite; vapor trapped above liquid fuel may lead to excess pressure and fires. Kerosene lamps are still extensively used in areas without electrical lighting; the cost and dangers of combustion lighting are a continuing concern in many countries.<ref>{{Cite journal|last1=Shepherd|first1=Joseph E.|last2=Perez|first2=Frank A.|date=April 2008|title=Kerosene lamps and cookstoves—The hazards of gasoline contamination|journal=Fire Safety Journal|language=en|volume=43|issue=3|pages=171–179|doi=10.1016/j.firesaf.2007.08.001|url=https://authors.library.caltech.edu/105217/|archive-date=April 6, 2023|access-date=July 13, 2022|archive-url=https://web.archive.org/web/20230406004530/https://authors.library.caltech.edu/105217/|url-status=dead}}</ref>
+
+=== Inhalation ===
+The [[World Health Organization]] considers kerosene to be a polluting fuel and recommends that "governments and practitioners immediately stop promoting its household use".<ref name=WHO>{{Cite book|url=https://www.who.int/airpollution/publications/burning-opportunities/en/|archive-url=https://web.archive.org/web/20171124101534/http://www.who.int/airpollution/publications/burning-opportunities/en/|url-status=dead|archive-date=November 24, 2017|title=Burning opportunity: clean household energy for health, sustainable development, and wellbeing of women and children|year=2016|location=Geneva, Switzerland |publisher=[[World Health Organization]]}}</ref>{{Rp|p=X}} Kerosene smoke contains high levels of harmful [[particulate matter]], and household use of kerosene is associated with higher risks of cancer, respiratory infections, asthma, tuberculosis, [[cataract]], and adverse pregnancy outcomes.<ref name=WHO/>{{Rp|p=49}}
+
+== Performance ==
+Flat-wick lamps have the lowest light output, center-draft round-wick lamps have three to four times the output of flat-wick lamps, and pressurized lamps have bright light outputs; the range is from 8 to 100 [[Lumen (unit)|lumens]]. A kerosene lamp producing 37 lumens for 4 hours per day for a month (120 hours) consumes about {{convert|3|L|USpt imppt}} of kerosene.<ref>Narasimha Desirazu Rao (2011). [https://purl.stanford.edu/py027yn9445 ''Distributional Impacts of Energy Policies in India: Implications for Equity'']. Ph.D. 	Stanford, Calif.: Stanford University. p. 36.</ref>
+
+{| class="wikitable"
+|+Oil lamp output in candlepower (CP), lumens and incandescent electric watts equivalent {{citation needed|date=November 2017}}
+|-
+! Flat-wick width
+! Candlepower
+! Lumens
+! Watts<ref>{{Cite web|url=http://www.rapidtables.com/calc/light/lumen-to-watt-calculator.htm|title=Lumens to watts (W) conversion calculator|website=www.rapidtables.com|language=en|access-date=2017-08-27}}</ref>
+|-
+|{{Frac|1|4}}"
+|2
+|25
+|1.65
+|-
+|{{Frac|3|8}}"
+|4
+|50
+|3.3
+|-
+|{{Frac|1|2}}"
+|7
+|88
+|5.9
+|-
+|{{Frac|5|8}}"
+|9
+|113
+|7.5
+|-
+|{{Frac|3|4}}"
+|10
+|125
+|8.3
+|-
+|{{Frac|7|8}}–1"
+|12
+|151
+|10.1
+|-
+|1-1/2"
+|20
+|251
+|16.7
+|-
+|2× 1",  {{Frac|1|1|16}}", {{Frac|1|1|8}}"
+|30
+|377
+|25
+|-
+|2× {{Frac|1|1|2}}"
+|50
+|628.5
+|42
+|-
+|{{Frac|1|1|4}}" round "Dressel Belgian"
+|67
+|842
+|56
+|-
+|{{Frac|1|1|2}}" round "Rayo"
+|80
+|1000
+|66.6
+|-
+|{{Frac|2|1|2}}" round "Firelight" or "store" lamp
+|300
+|3771
+|251
+|}
+
+12.57 lumens = 1 CP
+
+== See also ==
+* [[Candles]]
+* [[List of light sources]]
+* [[Robert Edwin Newbery]]
+* [[R. E. Dietz Company]]
+* [[Safe bottle lamp]]
+* [[Tilley lamp]]
+
+==Notes==
+{{Reflist|group=Note|refs=
+<ref name="note_term_hotBlastColdBlast" group="Note">It is worth noting that the terms "hot-blast" and "cold-blast" do not appear directly in either of John Irwin's patents. It is likely these terms came into use later or were possibly marketing terms invented by sellers of kerosene lamps.</ref>
+}}
+
+== References ==
+{{Reflist|
+refs=
+<ref name="patent_US_89770_hotBlast">
+{{US patent reference
+	| number = 89770
+	| issue-date = 1869-05-04 
+	| inventor = John H. Irwin
+	| title = Improvement in lanterns
+}}
+</ref>
+<ref name="patent_US_138654_coldBlast">
+{{US patent reference
+	| number = 138654
+	| issue-date = 1873-05-06
+	| inventor = John H. Irwin 
+	| title = Improvement in lamps
+}}
+</ref>
+}}
+
+== External links ==
+{{Commons category|Kerosene lamps}}
+* {{cite web|url=http://www.antiquelampsupply.com/help/11HowToAssembleAKeroseneLamp02.php |title=How to Assemble a Kerosene Lamp |website= Antique Lamp Supply }}
+* [http://colag.de/blink.html Information on blinking kerosene lamps]
+* [http://www.lanternnet.com Information on Dietz Kerosene Lamps and Lanterns]
+* [http://steampunkworkshop.com/kerosene-lamps.shtml Making and Repairing Kerosene Lamps]
+* [http://www.alpharubicon.com/primitive/oillampsstryder.html Oil Lamp Basics for Survivalists]
+
+{{Artificial light sources}}
+{{Authority control}}
+
+[[Category:Austrian inventions]]
+[[Category:Fireplaces]]
+[[Category:History of the petroleum industry]]
+[[Category:Oil lamp]]
+[[Category:Polish inventions]]
+[[Category:Rural society]]

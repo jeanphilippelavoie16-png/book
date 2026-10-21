@@ -3,8 +3,8 @@
 *Tome 5 — La forêt, le jardin et le chalet*
 
 **Lieu : Chalet.** Le bouleau, l'épinette, la peau et la neige profonde sont là-bas. Au village,
-les rues se déneigent et on marche ; au chalet, quand le moteur est mort (ch. 15, « Quand il n'y a
-plus de moteur du tout »), la raquette et le toboggan sont le seul déplacement qui reste. Le
+les rues se déneigent et on marche ; au chalet, quand le moteur est mort (ch. 15, section 7, « Quand il n'y
+a plus de moteur »), la raquette et le toboggan sont le seul déplacement qui reste. Le
 travail se fait à l'automne : une paire lacée demande une semaine, et en février il est trop tard
 pour commencer par une peau.
 
@@ -393,7 +393,7 @@ pour tirer les deux planches du tronc.
     filer. Pente en travers : ceux qui tiennent restent **au-dessus** du toboggan, le plus loin que la
     corde le permet. Très raide : on le descend au bout d'une longue corde. En descente, des
     brancards rigides valent mieux qu'une corde : une corde laisse la charge frapper les jambes
-    (ch. 15).
+    (ch. 16, étape 8).
 65. **En file, celui qui ouvre la trace (étape 42) tire peu ou rien** ; les charges lourdes suivent
     sur la trace déjà tapée.
 
@@ -455,7 +455,7 @@ pour tirer les deux planches du tronc.
 > mauvais thermomètre. Et un enfant qui refroidit **devient tranquille** : emmitouflé sur la
 > charge, il a l'air de dormir. Sous lui, une peau avec son poil ou du sapinage : un sac écrasé
 > n'isole plus du bas (étape 60). On s'arrête pour lui **à intervalle fixe, décidé avant de
-> partir**, pas quand celui qui tire a envie de souffler (ch. 25, étape 34 ; ch. 15, étape 25). Sur
+> partir**, pas quand celui qui tire a envie de souffler (ch. 25, étape 34 ; ch. 15, étape 38). Sur
 > un lac, c'est le vent qui fait le froid : à un indice de -40, la peau nue gèle en 5 à 10 minutes
 > (ch. 25, tableau du refroidissement éolien). Joues, oreilles, doigts, et est-ce qu'il répond. Pas
 > l'air qu'il a : sa réponse.
@@ -463,7 +463,7 @@ pour tirer les deux planches du tronc.
 > **2. Sur la glace, rien ne doit rester attaché à ce qui coule.** Un toboggan qui passe à travers
 > la glace tire vers le fond celui qui le traîne par une ceinture bouclée. Une raquette qui ne se
 > défait pas garde au pied une grande palette qui accroche le bord de la glace et empêche de battre
-> des jambes pour remonter à l'horizontale (ch. 15, étape 34). Dans l'eau, tout ce qui fait une
+> des jambes pour remonter à l'horizontale (ch. 15, étape 5). Dans l'eau, tout ce qui fait une
 > boucle fermée autour du corps retient comme une attache : un harnais, une corde en bandoulière,
 > le double de la corde contre la poitrine, une sangle, un sac de couchage fermé sur les bras. La
 > traction vient de l'arrière et du bas, et elle serre la boucle au lieu de la faire glisser.
@@ -477,7 +477,7 @@ pour tirer les deux planches du tronc.
 > sans les mains : la lanière, qui s'enfile et s'enlève d'un mouvement du pied, réglée assez lâche
 > pour sortir d'un tour de cheville. Une boucle, une sangle ou une bande de chambre à air s'ouvre à
 > la main : on l'essaie sur la rive, et si le pied n'en sort pas d'un tour de cheville, on traverse
-> sans raquettes, dans la trace, ou on contourne. Et la glace se mesure avant, raquettes ou pas (ch. 15, étapes 20 à 23). En plein froid, de l'eau peut
+> sans raquettes, dans la trace, ou on contourne. Et la glace se mesure avant, raquettes ou pas (ch. 15, étapes 40 à 44). En plein froid, de l'eau peut
 > aussi dormir sous la neige d'un lac et tremper le pied sans prévenir (§7).
 >
 > **3. Dans une pente, la charge va plus vite que soi.** Un toboggan chargé, retenu par une corde
@@ -523,7 +523,7 @@ d'environ **30 cm** au plus large. Ligaturer deux traverses en travers du milieu
 pied porte sur l'une, le talon sur l'autre. Tendre de la corde en diagonale d'un côté à l'autre du
 cadre, en croisillons, et nouer deux cordes à chaque traverse pour attacher la botte. Deux
 branches d'épinette noire pliées en boucle et ligaturées sous la botte font la même chose en plus
-grossier (ch. 15).
+grossier.
 
 **La raquette de trois perches.** Celle qui se fait sans rien cintrer. Pour chaque raquette, trois
 perches **aussi longues que la personne est grande**, grosses comme le pouce au gros bout et comme
@@ -686,8 +686,8 @@ trous et une ligature, comme à l'étape 50.
   on ouvre le paquet dès l'arrivée. Un quartier encore chaud roulé dans sa peau et traîné des heures
   garde sa chaleur au cœur du cuissot, et le 7 °C en 24 heures est manqué (ch. 61, §3 et §9). Le
   prix : une peau traînée ne fait plus un bon cuir (ch. 61, ch. 102).
-- **Le capot, la tôle roulée, les deux skis, la bâche entre deux perches, la porte** : ch. 15 et
-  ch. 26.
+- **Le capot, la tôle roulée, les deux skis, la bâche entre deux perches, la porte** : ch. 16,
+  section 7, et ch. 26.
 
 ### Tirer sans harnais
 
@@ -697,7 +697,7 @@ double de la corde, répartit la traction sur le haut du corps. **Sur la glace**
 une boucle fermée autour du torse et ne tombe pas : la corde se tient à la main ou se pose sur une
 seule épaule (§8, point 2). Une corde mince qui scie l'épaule se double d'une mitaine repliée. Pour
 un blessé ou une charge lourde en descente, deux perches liées aux coins du toboggan font des
-brancards qui empêchent la charge de rattraper celui qui tire (ch. 15) ; sur la glace, ils se
+brancards qui empêchent la charge de rattraper celui qui tire (ch. 16, étape 8) ; sur la glace, ils se
 tiennent à la main et ne se lient pas à la ceinture.
 
 ### Réparer sur la piste

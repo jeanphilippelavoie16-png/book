@@ -61,6 +61,13 @@ module.exports = (h) => {
           o.push(h.chemin(trou.slice(0, 6).concat([[px, a2]]), h.a.arete));
           o.push(h.chemin([[px, a1], ...trou.slice(6)], h.a.arete));
           o.push(h.fleche(`M ${m2 + 8} ${gy - 16} L ${px - 6} ${(a1 + a2) / 2 + 5}`, h.a.cache));
+          {
+            // Pointe pleine sur le tireté, tournée vers les braises
+            const x0 = m2 + 8, y0 = gy - 16, x1 = px + 6, y1 = (a1 + a2) / 2 - 1;
+            const L = Math.hypot(x1 - x0, y1 - y0), ux = (x1 - x0) / L, uy = (y1 - y0) / L;
+            const bx = x1 - ux * 11, by = y1 - uy * 11;
+            o.push(h.chemin([[x1, y1], [bx - uy * 5, by + ux * 5], [bx + uy * 5, by - ux * 5]], h.a.plein, true));
+          }
           // Braises au fond
           for (let i = 0; i < 7; i++) o.push(h.ellipse(cx - 36 + i * 12, pb - 6, 5.2, 4.2, h.a.plein));
           for (let i = 0; i < 6; i++) o.push(h.ellipse(cx - 30 + i * 12, pb - 14, 5, 3.8, h.a.plein));
@@ -90,6 +97,11 @@ module.exports = (h) => {
             gauche.push([cx - d, y]); droite.push([cx + d, y]);
           }
           o.push(h.chemin([...gauche, ...droite.slice().reverse()], h.a.blanc, true));
+          // charte : le dedans du sac, vu en coupe, en gris loin ; le haut du conduit reste blanc
+          {
+            const sac = [...gauche, ...droite.slice().reverse()].map((p, i) => `${i ? 'L' : 'M'}${Math.round(p[0] * 10) / 10} ${Math.round(p[1] * 10) / 10}`).join(' ') + ' Z';
+            o.push(`<path d="${sac} M${cx - tR} ${ty} L${cx + tR} ${ty} L${cx + tR} ${sb} L${cx - tR} ${sb} Z" ${h.a.loin} fill-rule="evenodd"/>`);
+          }
           // Conduit : bûche creusée, deux parois en coupe
           o.push(h.rect(cx - tR, ty, tR - tr, gy - ty, h.a.hachure('bois')));
           o.push(h.rect(cx + tr, ty, tR - tr, gy - ty, h.a.hachure('bois')));
@@ -130,6 +142,7 @@ module.exports = (h) => {
             { n: 3, rond: [cx - 92, gy - 52], cible: [cx - tR, gy - 52], texte: 'bûche creusée, ou tuyau de poêle' },
             { n: 4, rond: [cx - (hw(g, y4) + jambe(g, y4)) / 2 - 4, y4], cible: [cx - hw(g, y4) - 2, y4], texte: 'peau cousue en sac, côtés étanches' },
             { n: 5, rond: [cx + 88, sb + 16], cible: [cx + 28, sb + 1], texte: 'ouverture en bas, sur le conduit' },
+            { n: 9, rond: [cx + g.pf + 112, gy + 30], cible: [cx + g.pf + 50, (pb - 24 + gy) / 2], texte: 'prise d’air, au niveau des braises' },
           ];
         },
       },

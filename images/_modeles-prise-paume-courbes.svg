@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="826" viewBox="0 0 680 826" role="img">
+<title>Planche modele — Modèle : la prise côté paume</title>
+<desc>Feuille de modèle : main droite qui serre un manche vertical, vue côté paume, en grand.</desc>
+<defs>
+<pattern id="h-bois" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#1A1A1A" stroke-width="0.7"/></pattern>
+</defs>
+<rect x="0" y="0" width="680" height="826" fill="#FFFFFF"/>
+<g transform="translate(40 24)" data-vue="a">
+<rect x="104" y="10" width="112" height="733" fill="url(#h-bois)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
+<path d="M 576.5 257.5 C 517.0 264.5 440.0 264.5 398.0 264.5 C 359.5 261.0 303.5 215.5 254.5 201.5 C 209.0 191.0 167.0 201.5 139.0 215.5 C 111.0 219.0 76.0 215.5 55.0 219.0 C 37.5 222.5 30.5 240.0 30.5 261.0 C 30.5 282.0 34.0 292.5 41.0 296.0 C 27.0 299.5 20.0 317.0 20.0 334.5 C 20.0 355.5 27.0 366.0 34.0 369.5 C 27.0 373.0 27.0 387.0 27.0 404.5 C 27.0 422.0 34.0 436.0 44.5 439.5 C 48.0 446.5 51.5 453.5 51.5 467.5 C 51.5 485.0 62.0 495.5 79.5 495.5 C 125.0 495.5 167.0 499.0 202.0 502.5 C 223.0 506.0 237.0 523.5 261.5 523.5 C 314.0 520.0 363.0 485.0 398.0 481.5 C 433.0 478.0 517.0 481.5 576.5 485.0" fill="#fff" stroke="none" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 41.0 296.0 C 51.5 296.0 62.0 296.0 72.5 296.0" fill="none" stroke="#000" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 34.0 369.5 C 90.0 373.0 160.0 373.0 209.0 373.0" fill="none" stroke="#000" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 44.5 439.5 C 97.0 443.0 160.0 443.0 202.0 443.0" fill="none" stroke="#000" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 174.0 296.0 C 209.0 303.0 233.5 341.5 209.0 373.0" fill="none" stroke="#000" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 209.0 373.0 C 230.0 380.0 233.5 425.5 202.0 443.0" fill="none" stroke="#000" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 202.0 443.0 C 219.5 450.0 223.0 488.5 202.0 502.5" fill="none" stroke="#000" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 58.5 313.5 C 55.0 324.0 55.0 341.5 58.5 352.0" fill="none" stroke="#000" stroke-width="0.5" stroke-linecap="round"/>
+<path d="M 58.5 383.5 C 55.0 394.0 55.0 411.5 58.5 422.0" fill="none" stroke="#000" stroke-width="0.5" stroke-linecap="round"/>
+<path d="M 76.0 453.5 C 72.5 464.0 72.5 474.5 76.0 485.0" fill="none" stroke="#000" stroke-width="0.5" stroke-linecap="round"/>
+<path d="M 174.0 320.5 C 170.5 331.0 170.5 345.0 174.0 355.5" fill="none" stroke="#000" stroke-width="0.5" stroke-linecap="round"/>
+<path d="M 177.5 387.0 C 174.0 397.5 174.0 411.5 177.5 422.0" fill="none" stroke="#000" stroke-width="0.5" stroke-linecap="round"/>
+<path d="M 170.5 453.5 C 167.0 464.0 167.0 474.5 170.5 485.0" fill="none" stroke="#000" stroke-width="0.5" stroke-linecap="round"/>
+<path d="M 139.0 215.5 C 118.0 236.5 97.0 261.0 83.0 278.5 C 65.5 299.5 72.5 320.5 90.0 320.5 C 118.0 320.5 146.0 303.0 174.0 289.0 C 195.0 278.5 216.0 275.0 237.0 285.5 C 261.5 250.5 261.5 215.5 254.5 201.5 C 209.0 191.0 167.0 201.5 139.0 215.5 Z" fill="#fff" stroke="none"/>
+<path d="M 139.0 215.5 C 118.0 236.5 97.0 261.0 83.0 278.5 C 65.5 299.5 72.5 320.5 90.0 320.5 C 118.0 320.5 146.0 303.0 174.0 289.0 C 195.0 278.5 216.0 275.0 237.0 285.5" fill="none" stroke="#000" stroke-width="1.1" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 79.5 292.5 C 86.5 278.5 97.0 264.5 111.0 261.0 M 111.0 261.0 C 121.5 271.5 118.0 289.0 100.5 303.0" fill="none" stroke="#000" stroke-width="0.5" stroke-linecap="round"/>
+<path d="M 146.0 222.5 C 156.5 229.5 163.5 240.0 163.5 250.5" fill="none" stroke="#000" stroke-width="0.5" stroke-linecap="round"/>
+<path d="M 237.0 285.5 C 265.0 313.5 303.5 383.5 328.0 464.0" fill="none" stroke="#000" stroke-width="0.5" stroke-linecap="round"/>
+<path d="M 380.5 306.5 C 387.5 341.5 387.5 397.5 380.5 432.5" fill="none" stroke="#000" stroke-width="0.5" stroke-linecap="round"/>
+<path d="M 576.5 257.5 C 517.0 264.5 440.0 264.5 398.0 264.5 C 359.5 261.0 303.5 215.5 254.5 201.5 C 209.0 191.0 167.0 201.5 139.0 215.5 C 111.0 219.0 76.0 215.5 55.0 219.0 C 37.5 222.5 30.5 240.0 30.5 261.0 C 30.5 282.0 34.0 292.5 41.0 296.0 C 27.0 299.5 20.0 317.0 20.0 334.5 C 20.0 355.5 27.0 366.0 34.0 369.5 C 27.0 373.0 27.0 387.0 27.0 404.5 C 27.0 422.0 34.0 436.0 44.5 439.5 C 48.0 446.5 51.5 453.5 51.5 467.5 C 51.5 485.0 62.0 495.5 79.5 495.5 C 125.0 495.5 167.0 499.0 202.0 502.5 C 223.0 506.0 237.0 523.5 261.5 523.5 C 314.0 520.0 363.0 485.0 398.0 481.5 C 433.0 478.0 517.0 481.5 576.5 485.0" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<text x="40" y="808" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">Planche modele — Modèle : la prise côté paume.</text>
+</svg>

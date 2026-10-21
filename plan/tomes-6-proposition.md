@@ -51,7 +51,7 @@ Numéros actuels (27 septembre 2026). « Ancien » = numéro d'origine, avant le
 | **36** | 32 | Tenir le moral tout un hiver |
 | **37** | — | Le sauna et le bien-être *(à écrire)* |
 | **38** | — | Le deuil, le choc et la peur des adultes *(à écrire)* |
-| **39** | 07 | Des enfants de 4 et 6 ans |
+| **39** | 07 | Les jeunes enfants |
 | **40** | 33 | Les enfants, la peur et la routine |
 
 ## Tome 3 — Prélever

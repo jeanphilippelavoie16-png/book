@@ -1,70 +1,59 @@
 // Planche 24-12 — L'exercice du poignet et l'étirement (chapitre 24, étape 30).
-// Le poing qui tient la boîte vient de h.formes.main (prise de profil) ; le pli du poignet se
-// fait ici : l'avant-bras reste à plat sur la table, la main tourne autour du poignet, et la
-// jonction se coupe sur la bissectrice (pli net en dedans, arrondi en dehors).
+// Les mains viennent de la bibliothèque des mains simples (mainSimple) : la main autour de la boîte
+// (prise-grosse, vue du côté du petit doigt, la boîte vue par le bout), la main tendue et celle qui
+// pousse (plat, vue du côté du pouce). Le poignet se plie dans le moteur (sa flexion) : l'avant-bras
+// reste droit, posé à plat, et la main tourne au poignet.
 module.exports = (h) => {
   const F = h.formes;
   const RAD = Math.PI / 180, f1 = v => Math.round(v * 10) / 10;
   const rot = (p, a) => [p[0] * Math.cos(a * RAD) - p[1] * Math.sin(a * RAD), p[0] * Math.sin(a * RAD) + p[1] * Math.cos(a * RAD)];
-  const add = (a, b) => [a[0] + b[0], a[1] + b[1]], mul = (a, k) => [a[0] * k, a[1] * k];
+  const add = (a, b) => [a[0] + b[0], a[1] + b[1]], sub = (a, b) => [a[0] - b[0], a[1] - b[1]], mul = (a, k) => [a[0] * k, a[1] * k];
   const P = p => `${f1(p[0])} ${f1(p[1])}`;
   const BLANC = 'fill="#FFFFFF" stroke="none"';
-  let nclip = 0;
 
   const E = 0.95;          // échelle des vues de l'exercice (unités de vue par mm)
-  const DIAM = 58;         // la boîte, en mm
-  const RECUL = 30;        // le pli : là où l'éminence commence, 30 mm avant la base de la main
-  const DT = 21.7, DV = 21.8;   // demi-épaisseurs de l'avant-bras de la bibliothèque, dos et paume
-  const DECALE = 29;       // le centre du poing est à 29° sous l'axe de la main, vu du poignet
+  const DIAM = 54;         // la petite boîte de conserve vue par le bout, en mm
 
-  // La boîte vue par le bout, qui dépasse un peu du poing vers l'œil : le fond, les deux flancs,
-  // le couvercle et son rebord.
-  function boite(c, r) {
-    const v = [-5 * E, 4 * E];
-    const n = rot([v[1], -v[0]], 0), ln = Math.hypot(n[0], n[1]);
-    const t = mul(n, r / ln);
-    const c2 = add(c, v);
-    return [
-      `<path d="M${P(add(c, t))} L${P(add(c2, t))} M${P(add(c, mul(t, -1)))} L${P(add(c2, mul(t, -1)))}" ${h.a.arete}/>`,
-      h.cercle(c2[0], c2[1], r, `fill="#FFFFFF" ${h.a.arete.replace('fill="none" ', '')}`),
-      h.cercle(c2[0], c2[1], r - 4.2 * E, h.a.detail),
-    ].join('\n');
-  }
+  // La main de la bibliothèque (mainSimple), l'avant-bras posé à plat vers la gauche, le poignet
+  // plié de flex (sa flexion : le moteur plie la main, l'avant-bras reste droit). La main est placée
+  // par son poignet en B, tournée pour que l'avant-bras soit horizontal.
+  const avantBrasAPlat = (o) => {
+    const m0 = F.mainSimple({ ...o, x: 0, y: 0, angle: 0, echelle: 1, ancre: 'poignet', avantbras: { longueur: 100 } });
+    return 180 - Math.atan2(m0.coude[1] - m0.poignet[1], m0.coude[0] - m0.poignet[0]) / RAD;
+  };
+  const mainPliee = (o, B, z, d = 0) => F.mainSimple({ ...o, angle: avantBrasAPlat(o) + d, x: B[0], y: B[1], echelle: o.echelle, ancre: 'poignet',
+    avantbras: { longueur: 'bord', bord: { x0: 0, y0: 0, x1: z.l, y1: z.h } } });
+  // l'avant-bras s'élargit vers le coude : on le tourne pour que son dessous (ce qui pose sur la
+  // table) soit à plat entre le bord de la table et le bord de la vue
+  // le dessous de l'avant-bras à l'abscisse x : le plus bas des bords à moins de 42 mm du poignet en
+  // hauteur (la main qui pend, plus bas, n'en est pas)
+  const dessous = (m, x, B) => Math.max(...ysV(m, x).filter(y => Math.abs(y - B[1]) < 42 * E));
+  const dessousAPlat = (o, B, z, xa, xb) => {
+    let d = 0;
+    for (let k = 0; k < 3; k++) {
+      const m = mainPliee(o, B, z, d), ya = dessous(m, xa, B), yb = dessous(m, xb, B);
+      d -= Math.atan2(yb - ya, xb - xa) / RAD;
+    }
+    return d;
+  };
+  // le contour de la main (son premier tracé) : les y où la verticale x le coupe
+  const ysV = (m, x) => {
+    const q = [...m.couches.main.match(/<path d="([^"]+)"/)[1].matchAll(/(-?\d+\.?\d*)[ ,](-?\d+\.?\d*)/g)].map(c => [+c[1], +c[2]]);
+    const r = [];
+    for (let i = 0; i < q.length; i++) {
+      const A = q[i], C = q[(i + 1) % q.length];
+      if ((A[0] - x) * (C[0] - x) <= 0 && A[0] !== C[0]) r.push(A[1] + (C[1] - A[1]) * (x - A[0]) / (C[0] - A[0]));
+    }
+    return r.sort((u, v) => u - v);
+  };
 
-  // Le poing plié au poignet. B : le pli ; a : l'angle de la main (+ : vers le bas).
-  function poingPlie(B, a, avb) {
-    const essai = F.main({ x: 0, y: 0, pose: 'prise', vue: 'profil', diametre: DIAM * E, echelle: E, bras: RECUL + 6, angle: a });
-    const u = [essai.bras[0] - essai.poignet[0], essai.bras[1] - essai.poignet[1]];
-    const B0 = add(essai.poignet, mul(u, RECUL * E / Math.hypot(u[0], u[1])));
-    const x = B[0] - B0[0], y = B[1] - B0[1];
-    const m = F.main({ x, y, pose: 'prise', vue: 'profil', diametre: DIAM * E, echelle: E, bras: RECUL + 6, angle: a });
-    const n = rot([1, 0], a / 2), d = rot([0, 1], a / 2), L = 900;
-    const demi = s => [add(B, mul(d, L)), add(add(B, mul(d, L)), mul(n, s * L)), add(add(B, mul(d, -L)), mul(n, s * L)), add(B, mul(d, -L))];
-    const idM = `p2412-${++nclip}`, idA = `p2412-${++nclip}`;
-    // la main garde aussi tout ce qui sort de l'avant-bras du côté du pli (l'éminence qui bombe)
-    const yPli = a > 0 ? B[1] + DV * E : B[1] - DT * E, hPli = a > 0 ? 900 : -900;
-    const pli = `<path fill="none" d="M${P([B[0] - 900, yPli])} L${P([B[0] + 900, yPli])} L${P([B[0] + 900, yPli + hPli])} L${P([B[0] - 900, yPli + hPli])} Z"/>`;
-    const defs = `<defs><clipPath id="${idM}"><path fill="none" d="M${demi(1).map(P).join(' L')} Z"/>${pli}</clipPath>` +
-      `<clipPath id="${idA}"><path fill="none" d="M${demi(-1).map(P).join(' L')} Z"/></clipPath></defs>`;
-    const s = a > 0 ? -1 : 1;                       // côté convexe : le dos si la main descend
-    const r = (s < 0 ? DT : DV) * E;
-    const xa = B[0] - avb, yT = B[1] - DT * E, yV = B[1] + DV * E;
-    const xT = s < 0 ? B[0] : B[0] + 300, xV = s < 0 ? B[0] + 300 : B[0];
-    const lignes = `M${P([xa, yT])} L${P([xT, yT])} M${P([xa, yV])} L${P([xV, yV])}`;
-    const avantBras = `<g clip-path="url(#${idA})"><path d="${lignes}" ${h.a.contour}/>` +
-      `<rect x="${f1(xa)}" y="${f1(yT)}" width="${f1(avb + 300)}" height="${f1(yV - yT)}" ${BLANC}/><path d="${lignes}" ${h.a.detail}/></g>`;
-    // l'arrondi du côté convexe : on blanchit le coin, puis on trace l'arc
-    const p1 = add(B, [0, s * r]), p2 = add(B, rot([0, s * r], a));
-    const coin = add(B, mul(d, s * r / Math.cos(a / 2 * RAD)));
-    const o1 = add(p1, [0, s * 3]), o2 = add(p2, rot([0, s * 3], a)), oc = add(coin, mul(d, s * 4));
-    const bal = a > 0 ? 1 : 0;
-    const arrondi = `<path d="M${P(p1)} L${P(o1)} L${P(oc)} L${P(o2)} L${P(p2)} A${f1(r)} ${f1(r)} 0 0 ${1 - bal} ${P(p1)} Z" ${BLANC}/>` +
-      `<path d="M${P(p1)} A${f1(r)} ${f1(r)} 0 0 ${bal} ${P(p2)}" ${h.a.contour}/>`;
-    const svg = [defs, avantBras, `<g clip-path="url(#${idM})">${m}</g>`, arrondi, boite([m.trou.x, m.trou.y], m.trou.r)].join('\n');
-    return { svg, m, yT, yV };
-  }
+  // La boîte vue par le bout : le rebord du couvercle et le creux du fond.
+  const boite = (c, r) => [
+    h.cercle(c[0], c[1], r, `fill="#FFFFFF" ${h.a.arete.replace('fill="none" ', '')}`),
+    h.cercle(c[0], c[1], r - 4.5 * E, h.a.detail),
+  ].join('\n');
 
-  // La table, coupée à gauche : le dessus sous l'avant-bras, le chant, le dessous.
+  // La table, coupée à gauche : le dessus sous l'avant-bras, le chant.
   function table(xg, xb, y) {
     const ep = 26;
     return [
@@ -73,11 +62,11 @@ module.exports = (h) => {
     ].join('\n');
   }
 
-  // L'arc que suit le poing, centré sur le pli, avec un trait par temps compté.
+  // L'arc que suit le poing, centré sur le poignet, avec un trait par temps compté.
   function arc(B, de, a, rho, temps) {
     const pt = t => add(B, rot([rho, 0], t));
     const bal = a > de ? 1 : 0;
-    const out = [h.fleche(`M${P(pt(de))} A${rho} ${rho} 0 0 ${bal} ${P(pt(a))}`, h.a.arete)];
+    const out = [h.geste(`M${P(pt(de))} A${f1(rho)} ${f1(rho)} 0 0 ${bal} ${P(pt(a))}`)];
     for (let i = 1; i < temps; i++) {
       const t = de + (a - de) * i / temps;
       out.push(h.ligne(...add(B, rot([rho - 7, 0], t)), ...add(B, rot([rho + 7, 0], t)), h.a.arete));
@@ -85,42 +74,64 @@ module.exports = (h) => {
     return out.join('\n');
   }
 
-  const HAUT = -45, BAS = 55;                         // la main levée, la main descendue
-  const vueExercice = (a, de, vers, temps, paumeEnHaut = false) => z => {
-    const B = [z.l * 0.40, z.h * (paumeEnHaut ? 0.52 : 0.46)];
-    const avb = B[0] - 6;
-    const pp = poingPlie(B, paumeEnHaut ? -a : a, avb);
-    const rho = 148 * E;
-    let dessin = pp.svg;
-    let yTable = pp.yV;
-    if (paumeEnHaut) {
-      dessin = `<g transform="translate(0 ${f1(2 * B[1])}) scale(1 -1)">${pp.svg}</g>`;
-      yTable = 2 * B[1] - pp.yT;
-    }
+  const HAUT = 45, BAS = -50;                         // la flexion du poignet : la main levée, la main descendue
+  // prise-grosse (la main autour d'un cylindre de 50 à 90 mm), vue du côté du petit doigt : la boîte
+  // vue par le bout, dans le poing ; le pouce passe derrière elle (gris). Paume en bas, la main
+  // droite ; paume en haut, la gauche (le même dessin retourné).
+  const PRISE = cote => ({ pose: 'prise-grosse', vue: 'auriculaire', cote, diametre: DIAM, echelle: E });
+  const vueExercice = (a, depuis, temps, paumeEnHaut = false) => z => {
+    const B = [z.l * 0.36, z.h * (paumeEnHaut ? 0.50 : 0.46)];
+    const o = PRISE(paumeEnHaut ? 'gauche' : 'droite');
+    const flex = paumeEnHaut ? -a : a;
+    let ct = null, rt = DIAM * E / 2;
+    const boiteDans = g => { ct = [g.x, g.y]; rt = g.r; return boite(ct, g.r); };
+    const xBord = B[0] - 40 * E;
+    const oF = { ...o, poignet: { flexion: flex } }, d = dessousAPlat(oF, B, z, 6, xBord);
+    const m = mainPliee({ ...oF, objet: boiteDans }, B, z, d);
+    String(m);
+    // la boîte au départ du geste : même avant-bras, l'autre flexion
+    const o1 = { ...o, poignet: { flexion: paumeEnHaut ? -depuis : depuis } };
+    const m1 = mainPliee(o1, B, z, dessousAPlat(o1, B, z, 6, xBord));
+    const c1 = [m1.prise.x, m1.prise.y];
+    if (!ct) ct = [m.prise.x, m.prise.y];
+    const ang = c => Math.atan2(c[1] - B[1], c[0] - B[0]) / RAD;
+    const fin = ang(ct), debut = ang(c1);
+    const rho = Math.max(Math.hypot(ct[0] - B[0], ct[1] - B[1]), Math.hypot(c1[0] - B[0], c1[1] - B[1])) + rt + 34 * E;
+    // la table : son dessus sous l'avant-bras, relevé sur le contour au bord de la table
+    const yTable = dessous(m, xBord, B);
     return {
-      B, yTable, trou: pp.m.trou, paumeEnHaut,
-      svg: [table(6, B[0] - 44 * E, yTable), dessin, arc(B, de, vers, rho, temps)].join('\n'),
+      B, yTable, trou: { x: ct[0], y: ct[1], r: rt }, rho, fin, debut,
+      svg: [table(6, xBord, yTable), m.toString(), arc(B, debut, fin, rho, temps)].join('\n'),
     };
   };
 
   // les vues de l'exercice, calculées une fois par taille de vue
   const cache = {};
   const ex = (cle, fab) => z => (cache[cle] = cache[cle] || fab(z));
-  const monter = ex('monter', vueExercice(HAUT, BAS + DECALE, HAUT + DECALE, 2));
-  const descendre = ex('descendre', vueExercice(BAS, HAUT + DECALE, BAS + DECALE, 4));
-  const dedans = ex('dedans', vueExercice(BAS, -(BAS + DECALE), -(HAUT + DECALE), 4, true));
+  const monter = ex('monter', vueExercice(HAUT, BAS, 2));
+  const descendre = ex('descendre', vueExercice(BAS, HAUT, 4));
+  const dedans = ex('dedans', vueExercice(BAS, HAUT, 4, true));
 
-  // L'étirement : le bras tendu, la main pliée vers le bas, la poussée de l'autre main.
-  const ES = 1.15;
+  // L'étirement : le bras tendu devant soi, paume en bas, la main pliée vers le bas, les doigts
+  // allongés (plat, vue du côté du pouce) ; l'autre main, à plat sur le dos des doigts, venue d'en
+  // dessous, les doigts vers le haut : elle ramène les doigts vers soi.
+  const ES = 0.8;
   const etirement = z => {
-    const W = [z.l * 0.52, 52];
-    const m0 = F.main({ x: 0, y: 0, pose: 'appui', vue: 'profil', inclinaison: -80, angle: 80, bras: (z.l * 0.52 - 8) / ES, echelle: ES });
-    const o = [W[0] - m0.poignet[0], W[1] - m0.poignet[1]];
-    const m = F.main({ x: o[0], y: o[1], pose: 'appui', vue: 'profil', inclinaison: -80, angle: 80, bras: (z.l * 0.52 - 8) / ES, echelle: ES });
-    // la poussée : un arc autour du poignet, qui vient toucher le dos des doigts
-    const rho = 118 * ES, pt = t => add(W, rot([rho, 0], t));
-    const fl = h.fleche(`M${P(pt(38))} A${f1(rho)} ${f1(rho)} 0 0 1 ${P(pt(78))}`, h.a.arete);
-    return { W, o, svg: [m.toString(), fl].join('\n'), rho, pt };
+    const B = [z.l * 0.40, 46];
+    const o = { pose: 'plat', vue: 'pouce', cote: 'droite', echelle: ES, poignet: { flexion: 80 } };
+    const m = mainPliee(o, B, z);
+    // le dos des doigts : de la jointure de l'index à son bout
+    const k0 = m.articulations['index.mcp'], k1 = m.doigts.index;
+    const v = [(k1[0] - k0[0]) / Math.hypot(k1[0] - k0[0], k1[1] - k0[1]), (k1[1] - k0[1]) / Math.hypot(k1[0] - k0[0], k1[1] - k0[1])];
+    const th = Math.atan2(v[1], v[0]) / RAD;
+    // l'autre main : sa paume contre le dos des doigts, ses doigts remontent vers les jointures
+    const nDos = rot(v, -90);                           // du côté du dos de la main pliée
+    const colle = add(add(k0, mul(v, 70 * ES)), mul(nDos, 42 * ES));
+    const pousse = F.mainSimple({ pose: 'plat', vue: 'pouce', cote: 'gauche', angle: th + 180, x: colle[0], y: colle[1], echelle: ES,
+      avantbras: { longueur: 'bord', bord: { x0: 0, y0: 0, x1: z.l, y1: z.h } } });
+    const rho = 150 * ES, pt = t => add(B, rot([rho, 0], t));
+    const fl = h.geste(`M${P(pt(22))} A${f1(rho)} ${f1(rho)} 0 0 1 ${P(pt(62))}`);
+    return { B, m, pousse, rho, pt, main8: add(k0, mul(v, 70 * ES)), svg: [m.toString(), pousse.toString(), fl].join('\n') };
   };
   const cacheE = {};
   const et = z => (cacheE.v = cacheE.v || etirement(z));
@@ -138,21 +149,20 @@ module.exports = (h) => {
         renvois: z => {
           const v = monter(z), B = v.B;
           return [
-            { n: 1, rond: [22, v.yTable + 50], cible: [B[0] - 70 * E, B[1]], texte: 'l’avant-bras à plat' },
-            { n: 2, rond: [B[0] - 20, v.yTable + 60], cible: [B[0] - 44 * E, v.yTable + 2], texte: 'le poignet dépasse du bord' },
-            { n: 3, rond: [v.trou.x - 78, v.trou.y - 62], cible: [v.trou.x - v.trou.r * 0.85, v.trou.y - v.trou.r * 0.45], texte: 'sans poids, puis une boîte' },
-            { n: 4, rond: [z.l - 18, B[1] + 60], cible: add(B, rot([148 * E, 0], 38)), texte: 'un trait par temps compté' },
+            { n: 1, rond: [22, v.yTable + 50], cible: [B[0] - 90 * E, B[1]], texte: 'l’avant-bras à plat' },
+            { n: 2, rond: [B[0] - 4, v.yTable + 62], cible: [B[0] - 40 * E, v.yTable + 2], texte: 'le poignet dépasse du bord' },
+            { n: 3, rond: [v.trou.x - v.trou.r - 50, v.trou.y - v.trou.r - 18], cible: [v.trou.x - v.trou.r * 0.7, v.trou.y - v.trou.r * 0.7], texte: 'sans poids, puis une boîte' },
+            { n: 4, rond: [z.l - 18, B[1] + 92], cible: add(B, rot([v.rho, 0], (v.debut + v.fin) / 2)), texte: 'un trait par temps compté' },
           ];
         },
       },
       descendre: {
-        titre: 'Redescendre lentement, en 4 temps',
+        titre: 'Redescendre en 4 temps — trois séries de dix par jour',
         dessin: z => descendre(z).svg,
         renvois: z => {
           const v = descendre(z), B = v.B;
           return [
-            { n: 5, rond: [z.l - 18, 26], cible: add(B, rot([148 * E, 0], -2)), texte: 'c’est la descente qui soigne' },
-            { n: 6, rond: [30, 28], cible: [B[0] - 90 * E, B[1] - DT * E], texte: 'trois séries de dix par jour' },
+            { n: 5, rond: [z.l - 18, 26], cible: add(B, rot([v.rho, 0], v.debut + (v.fin - v.debut) * 0.2)), texte: 'c’est la descente qui soigne' },
           ];
         },
       },
@@ -162,7 +172,7 @@ module.exports = (h) => {
         renvois: z => {
           const v = dedans(z), B = v.B;
           return [
-            { n: 7, rond: [B[0] - 50, 26], cible: add(B, rot([148 * E, 0], -45)), texte: 'monter en 2, redescendre en 4' },
+            { n: 6, rond: [B[0] - 50, 26], cible: add(B, rot([v.rho, 0], v.debut + (v.fin - v.debut) * 0.15)), texte: 'monter en 2, redescendre en 4' },
           ];
         },
       },
@@ -172,8 +182,8 @@ module.exports = (h) => {
         renvois: z => {
           const v = et(z);
           return [
-            { n: 8, rond: [40, v.W[1] + 75], cible: [v.W[0] - 100, v.W[1] + 10], texte: 'le bras tendu, paume en bas' },
-            { n: 9, rond: [z.l - 18, v.W[1] + 30], cible: v.pt(52), texte: 'l’autre main pousse ici' },
+            { n: 7, rond: [40, v.B[1] + 75], cible: [v.B[0] - 90, v.B[1] + 6], texte: 'le bras tendu, paume en bas' },
+            { n: 8, rond: [z.l - 18, v.B[1] + 30], cible: v.main8, texte: 'l’autre main pousse ici' },
           ];
         },
       },

@@ -1,0 +1,10 @@
+# Tome 1 · Tenir — crédits des images (hors du livre)
+
+**Ne s'imprime pas.** JP, 28 septembre 2026 : « enlève les pages crédit photo, garde les backup quelque part mais pas dans le livre ». Aucune page de crédits dans `livre/tome-1/interieur.pdf`, rien au sommaire.
+
+- **Tiré de :** `images/credits.md` et `images/photos/registre-*.md` (les registres restent la référence)
+- **Par :** `design/outils/assembler-tome.py 1`, le 2026-10-19 02:15, tome de 44 pages
+- **Même contenu, lisible à l'écran :** `livre/apercus-ch12/credits/tome-1-credits.pdf`
+- **Page :** celle du tome où l'image s'imprime ; elle change à chaque assemblage.
+
+Aucune photo ni image venue d'ailleurs dans ce tome : toutes ses figures sont des planches dessinées pour le livre.

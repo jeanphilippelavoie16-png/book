@@ -3,74 +3,74 @@
 **Ne s'imprime pas.** JP, 28 septembre 2026 : « enlève les pages crédit photo, garde les backup quelque part mais pas dans le livre ». Aucune page de crédits dans `livre/tome-3/interieur.pdf`, rien au sommaire.
 
 - **Tiré de :** `images/credits.md` et `images/photos/registre-*.md` (les registres restent la référence)
-- **Par :** `design/outils/assembler-tome.py 3`, le 2026-09-29 06:53, tome de 334 pages
+- **Par :** `design/outils/assembler-tome.py 3`, le 2026-10-14 21:38, tome de 334 pages
 - **Même contenu, lisible à l'écran :** `livre/credits/tome-3-credits.pdf`
 - **Page :** celle du tome où l'image s'imprime ; elle change à chaque assemblage.
 
 | Page | Ch. | Fichier | Image | Auteur | Licence | Lien |
 | ---: | --- | --- | --- | --- | --- | --- |
-| 23 | 42 | `35-08b-barrage-castor.jpg` | Étang de castor : le barrage. | Cantons-de-l'Est | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Val-Morin,_Quebec_-_barrage_castor.jpg |
-| 23 | 42 | `35-08a-arbre-abattu-castor.jpg` | Étang de castor : arbre abattu, souche taillée en crayon. | Hans-Jürgen Hübner | CC BY 3.0 (ou GFDL) | https://commons.wikimedia.org/wiki/File:Mizzy_Lake_Ontario_beaver_traces.JPG |
-| 24 | 42 | `35-05-glace-noire-lac.jpg` | Glace claire et transparente : elle paraît noire parce qu'on voit l'eau à travers. | TobiasGr | CC BY 3.0 (ou GFDL) | https://commons.wikimedia.org/wiki/File:Katzensee_Seegfrörni_2012_Eis.JPG |
-| 38 | 43 | `35c-08-caribou-crateres.jpg` | Caribou : cratères creusés à la patte jusqu'aux lichens. | Bruce Bennett (brucebennett) | CC BY-NC [NC] | https://www.inaturalist.org/observations/347965022 |
-| 38 | 43 | `35c-07-caribou-empreinte.jpg` | Caribou : plus large que long, deux demi-lunes écartées. | NPS | Domaine public | https://commons.wikimedia.org/wiki/File:Two_caribou_tracks_clearly_stamped_in_the_sand._(83954f49-1dd8-b71c-0748-7b5f030cff08).jpg |
-| 38 | 43 | `35c-05-orignal-crottes.jpg` | Orignal : crottes d'hiver. | Горбунова М.С. | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Moose_droppings.jpg |
-| 38 | 43 | `35c-02-orignal-piste.jpg` | Orignal : piste dans la neige profonde. | Beeblebrox | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Tracksdeepsnow.JPG |
-| 38 | 43 | `35c-01-orignal-empreinte.jpg` | Orignal : deux croissants allongés et pointus. | peupleloup | CC BY-SA 2.0 | https://commons.wikimedia.org/wiki/File:Traces_d%27orignal_Moose_track_(2971638127).jpg |
-| 39 | 43 | `35c-12-ours-crottes.jpg` | Ours noir : crotte pleine de petits fruits. | USFWSmidwest | Domaine public | https://commons.wikimedia.org/wiki/File:Black_Bear_Scat_(15274318020).jpg |
-| 39 | 43 | `35c-09-ours-empreinte-avant.jpg` | Ours noir : empreinte dans la boue. | ShenandoahNPS | Domaine public | https://commons.wikimedia.org/wiki/File:Black_Bear_Track_in_Mud_(44654784885).jpg |
-| 42 | 43 | `35c-10-ours-empreinte-arriere.jpg` | Ours noir : empreintes. | minokawa | CC BY-NC [NC] | https://www.inaturalist.org/observations/237775007 |
-| 45 | 43 | `35c-23-lynx-piste.jpg` | Lynx : piste dans une neige mince. | Ryan Sealy (rsealy) | CC BY-NC [NC] | https://www.inaturalist.org/observations/24825073 |
-| 45 | 43 | `35c-22-lynx-empreinte.jpg` | Lynx : ronde, aussi large que longue, sans griffes. | Dan Serpiello (dserp) | CC BY-NC [NC] | https://www.inaturalist.org/observations/9565217 |
-| 45 | 43 | `35c-21-renard-plongeon.jpg` | Renard roux en plongeon : museau le premier, au bout d'un bond en arc, sur un campagnol entendu sous la neige. | Goutham89 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Red_fox_mousing.jpg |
-| 45 | 43 | `35c-20-renard-piste.jpg` | Renard roux : une ligne droite, chaque pied arrière dans l'empreinte de l'avant. | Markus Trienke | CC BY-SA 2.0 | https://commons.wikimedia.org/wiki/File:Fox_Track_(26191985512).jpg |
-| 46 | 43 | `35c-19-renard-empreinte.jpg` | Renard roux : empreintes. | Garth Harwood (garth_harwood) | CC BY | https://www.inaturalist.org/observations/108153437 |
-| 46 | 43 | `35c-18-coyote-crottes.jpg` | Coyote : crottes, une règle pour l'échelle. | Toronto Raptor (torontoraptor) | CC BY-NC [NC] | https://www.inaturalist.org/observations/265631523 |
-| 46 | 43 | `35c-17-coyote-empreinte.jpg` | Coyote : le dessin du loup, en plus petit. | steve b (stevestevens) | CC0 | https://www.inaturalist.org/observations/103289040 |
-| 46 | 43 | `35c-16-loup-crottes.jpg` | Loup : crottes. | Jason Hollinger | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Wolf_Scat_(3536824940).jpg |
-| 47 | 43 | `35c-15-loup-piste.jpg` | Loup : pistes dans la neige. | Yellowstone National Park | Domaine public | https://commons.wikimedia.org/wiki/File:Wolf_track_sunset_in_Hayden_Valley_(33007883433).jpg |
-| 47 | 43 | `35c-14-loup-empreinte.jpg` | Loup : empreinte, la main donne l'échelle. | Jakub Pełka (jakubpelka) | CC BY-NC [NC] | https://www.inaturalist.org/observations/9028465 |
-| 49 | 43 | `35c-30-hermine-piste.jpg` | Belette : bonds par paires, courts et longs. | U. S. Fish and Wildlife Service - Northeast Region | Domaine public | https://commons.wikimedia.org/wiki/File:Weasel_tracks_at_Missisquoi_National_Wildlife_Refuge._(8513632324).jpg |
-| 49 | 43 | `43-loutre-latrine-ecailles.jpg` | Loutre : latrine faite d'écailles de poisson. | (c) Laurie DiCesare, some rights reserved (CC BY-NC) | CC BY-NC | https://www.inaturalist.org/observations/324893964 |
-| 49 | 43 | `35c-29-loutre-latrine.jpg` | Loutre : latrine sur un point haut, faite ici de carapaces d'écrevisses. | Garth Harwood (garth_harwood) | CC BY | https://www.inaturalist.org/observations/399323182 |
-| 49 | 43 | `35c-28-loutre-glissade.jpg` | Loutre : bonds et glissades, la piste point-trait. | USFWS Mountain-Prairie | Domaine public | https://commons.wikimedia.org/wiki/File:Northern_River_Otter_Tracks_in_the_Snow_on_Seedskadee_NWR_(32101245865).jpg |
-| 49 | 43 | `35c-27-loutre-empreinte.jpg` | Loutre : empreintes. | USFWSAlaska | Domaine public | https://commons.wikimedia.org/wiki/File:River_otter_tracks_(13436624813).jpg |
-| 50 | 43 | `35c-26-vison-empreinte.jpg` | Vison : empreinte dans la boue, près d'un ruisseau. | spider99 | CC BY-NC [NC] | https://www.inaturalist.org/observations/198514453 |
-| 50 | 43 | `35c-25-martre-piste.jpg` | Martre : bonds par paires. | Matthew Smith (flyersmith) | CC BY-NC [NC] | https://www.inaturalist.org/observations/5170434 |
-| 50 | 43 | `35c-24-martre-empreinte.jpg` | Martre : empreintes. | Cole Tomlinson (ctomlinson12) | CC BY-NC [NC] | https://www.inaturalist.org/observations/259862381 |
-| 51 | 43 | `43-pekan-piste-neige.jpg` | Pékan : paires de bonds, une martre en plus gros ; des lunettes de soleil pour l'échelle. | (c) Erin E., some rights reserved (CC BY) | CC BY | https://www.inaturalist.org/observations/106246605 |
-| 52 | 43 | `35c-52-canard-empreinte.jpg` | Canard colvert : palmé, plus petit que l'outarde. | Jonathan Poppele (jonathanpoppele) | CC BY-NC [NC] | https://www.inaturalist.org/observations/362757806 |
-| 52 | 43 | `35c-51-outarde-empreinte.jpg` | Outarde : trois doigts palmés, une carte pour l'échelle. | Kirsten Welge (kirstenwelge) | CC BY-NC [NC] | https://www.inaturalist.org/observations/184295757 |
-| 52 | 43 | `35c-50-lagopede-empreinte.jpg` | Lagopède des saules : empreintes et marques d'ailes. | Alexey V. Ivanov (wkent) | CC BY-NC [NC] | https://www.inaturalist.org/observations/153072632 |
-| 55 | 43 | `35c-49-tetras-crottes.jpg` | Tétras du Canada : crottes d'hiver. | Gone But Not Forgotten - R.I.P (bert_raccoon) | CC BY-NC [NC] | https://www.inaturalist.org/observations/110799202 |
-| 55 | 43 | `35c-48-tetras-empreinte.jpg` | Tétras du Canada : empreintes, un ruban pour l'échelle. | Gone But Not Forgotten - R.I.P (bert_raccoon) | CC BY-NC [NC] | https://www.inaturalist.org/observations/141738204 |
-| 55 | 43 | `35c-47-gelinotte-crottes.jpg` | Gélinotte huppée : crottes. | Liam Ragan (liamragan) | CC BY-NC [NC] | https://www.inaturalist.org/observations/23924682 |
-| 55 | 43 | `35c-46-gelinotte-trou-neige.jpg` | Gélinotte huppée : trou de neige et marques d'ailes. | Cephas | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Bonasa_umbellus_snow_hole.jpg |
-| 56 | 43 | `35c-45-gelinotte-empreinte.jpg` | Gélinotte huppée : piste. | wpl500 | CC BY-NC [NC] | https://www.inaturalist.org/observations/328390080 |
-| 56 | 43 | `35c-44-ecureuil-amas.jpg` | Écureuil roux : amas d'écailles et de rafles de cônes au pied d'un perchoir. | Yellowstone National Park | Domaine public | https://commons.wikimedia.org/wiki/File:Red_squirrel_food_cache_and_midden_(45620679251).jpg |
-| 56 | 43 | `35c-43-ecureuil-piste.jpg` | Écureuil roux : groupe de quatre, un canif pour l'échelle. | Séraphin Poudrier (seraphinpoudrier) | CC BY-NC [NC] | https://www.inaturalist.org/observations/268384525 |
-| 56 | 43 | `35c-42-lievre-crottes.jpg` | Lièvre : crottes rondes, un peu aplaties. | Kyle Jones (kylejones) | CC BY-NC [NC] | https://www.inaturalist.org/observations/2498720 |
-| 57 | 43 | `35c-40-lievre-empreinte.jpg` | Lièvre : les grands pieds arrière devant. | USFWS Headquarters | Domaine public | https://commons.wikimedia.org/wiki/File:Snowshoe_hare_tracks_(31070133470).jpg |
-| 57 | 43 | `35c-39-porc-epic-crottes.jpg` | Porc-épic : crottes arquées comme une noix de cajou, une règle pour l'échelle. | Rob Speiden (speiden) | CC BY-NC [NC] | https://www.inaturalist.org/observations/334699 |
-| 57 | 43 | `35c-37-porc-epic-piste.jpg` | Porc-épic : sillon large et traînant dans la neige. | Brad Von Blon (bobcatbrad) | CC BY-NC [NC] | https://www.inaturalist.org/observations/193254344 |
-| 57 | 43 | `35c-35-rat-musque-hutte.jpg` | Rat musqué : hutte de végétaux et de boue. | Игорь Орлов | CC BY 3.0 | https://commons.wikimedia.org/wiki/File:%D0%A5%D0%B0%D1%82%D0%BA%D0%B0_%D0%9E%D0%BD%D0%B4%D0%B0%D1%82%D1%80%D1%8B,_House_Muskrat_-_panoramio.jpg |
-| 58 | 43 | `35c-36-porc-epic-empreinte.jpg` | Porc-épic : empreinte. | Nick Kleinschmidt (nick2524) | CC BY | https://www.inaturalist.org/observations/66217747 |
-| 58 | 43 | `35c-34-rat-musque-empreinte.jpg` | Rat musqué : empreintes, une carte pour l'échelle. | Adam M. McCosham (amccosham) | CC BY-NC [NC] | https://www.inaturalist.org/observations/154486458 |
-| 58 | 43 | `43-castor-reserve-branches.jpg` | Castor : réserve de branches dans l'eau, les bouts qui dépassent. | (c) Matt Wallace, some rights reserved (CC BY-NC) | CC BY-NC | https://www.inaturalist.org/observations/259294556 |
-| 59 | 43 | `35c-33-castor-hutte.jpg` | Castor : hutte. | U.S. Fish and Wildlife Service - Midwest Region | Domaine public | https://commons.wikimedia.org/wiki/File:Beaver_lodge_(53556642425).jpg |
-| 59 | 43 | `35c-31-castor-empreinte.jpg` | Castor : pied arrière palmé. | Chandler Olson (chandlerolson) | CC BY-NC [NC] | https://www.inaturalist.org/observations/256924192 |
-| 61 | 43 | `43-pic-macule-puits-seve.jpg` | Pic maculé : rangées de petits trous à sève. | (c) dysmetria2, some rights reserved (CC BY-NC) | CC BY-NC | https://www.inaturalist.org/observations/286126320 |
-| 61 | 43 | `43-grand-pic-trous-rectangulaires.jpg` | Grand pic : grands trous oblongs creusés les uns au-dessus des autres. | (c) laura2ee, some rights reserved (CC BY-NC) | CC BY-NC | https://www.inaturalist.org/observations/37320474 |
-| 61 | 43 | `35c-41-lievre-brout.jpg` | Lièvre : rameau coupé net en biais. | Ryan Sealy (rsealy) | CC BY-NC [NC] | https://www.inaturalist.org/observations/344133985 |
-| 62 | 43 | `35c-38-porc-epic-ecorcage.jpg` | Porc-épic : plaques d'écorce enlevées haut dans l'arbre. | gdthiker | CC BY-NC [NC] | https://www.inaturalist.org/observations/211227335 |
-| 62 | 43 | `35c-32-castor-souche.jpg` | Castor : souche en crayon, gros copeaux au pied. | NPS Staff | Domaine public | https://commons.wikimedia.org/wiki/File:A_tree_gnawed_on_by_a_beaver_(a91da97c96574d958becee3e5202f89b).JPG |
-| 63 | 43 | `43-ours-poils-colles.jpg` | Ours noir : touffe de poils restée collée au bois frotté, ici sur un poteau. | (c) Jess, some rights reserved (CC BY-NC) | CC BY-NC | https://www.inaturalist.org/observations/70024879 |
-| 63 | 43 | `43-ours-arbre-frotte.jpg` | Ours noir : arbre de marquage, l'écorce usée par le frottement. | (c) woodhaunt, some rights reserved (CC BY-NC) | CC BY-NC | https://www.inaturalist.org/observations/263681023 |
-| 64 | 43 | `35c-13-ours-ecorcage.jpg` | Ours noir : écorçage de printemps. | Christopher J. Earle (chris_earle) | CC BY-NC [NC] | https://www.inaturalist.org/observations/140390016 |
-| 64 | 43 | `35c-11-ours-griffades.jpg` | Ours noir : griffades sur un tronc. | ShenandoahNPS | Domaine public | https://commons.wikimedia.org/wiki/File:Bear_claw_marks_on_tree_(44654787915).jpg |
-| 65 | 43 | `35c-06-orignal-frottis.jpg` | Orignal mâle : frottis du rut, sur un sapin baumier. | Rob Routledge (rroutledge) | CC BY-NC [NC] | https://www.inaturalist.org/observations/101564552 |
-| 65 | 43 | `35c-04-orignal-ecorcage.jpg` | Orignal : écorçage. | Cephas | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Alces_alces_bark_stripping.jpg |
-| 66 | 43 | `35c-03-orignal-brout.jpg` | Orignal : saule brouté en balai. | jozien | CC BY-NC [NC] | https://www.inaturalist.org/observations/148723345 |
+| 25 | 42 | `35-08b-barrage-castor.jpg` | Étang de castor : le barrage. | Cantons-de-l'Est | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Val-Morin,_Quebec_-_barrage_castor.jpg |
+| 25 | 42 | `35-08a-arbre-abattu-castor.jpg` | Étang de castor : arbre abattu, souche taillée en crayon. | Hans-Jürgen Hübner | CC BY 3.0 (ou GFDL) | https://commons.wikimedia.org/wiki/File:Mizzy_Lake_Ontario_beaver_traces.JPG |
+| 26 | 42 | `35-05-glace-noire-lac.jpg` | Glace claire et transparente : elle paraît noire parce qu'on voit l'eau à travers. | TobiasGr | CC BY 3.0 (ou GFDL) | https://commons.wikimedia.org/wiki/File:Katzensee_Seegfrörni_2012_Eis.JPG |
+| 40 | 43 | `35c-08-caribou-crateres.jpg` | Caribou : cratères creusés à la patte jusqu'aux lichens. | Bruce Bennett (brucebennett) | CC BY-NC [NC] | https://www.inaturalist.org/observations/347965022 |
+| 40 | 43 | `35c-07-caribou-empreinte.jpg` | Caribou : plus large que long, deux demi-lunes écartées. | NPS | Domaine public | https://commons.wikimedia.org/wiki/File:Two_caribou_tracks_clearly_stamped_in_the_sand._(83954f49-1dd8-b71c-0748-7b5f030cff08).jpg |
+| 40 | 43 | `35c-05-orignal-crottes.jpg` | Orignal : crottes d'hiver. | Горбунова М.С. | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Moose_droppings.jpg |
+| 40 | 43 | `35c-02-orignal-piste.jpg` | Orignal : piste dans la neige profonde. | Beeblebrox | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Tracksdeepsnow.JPG |
+| 40 | 43 | `35c-01-orignal-empreinte.jpg` | Orignal : deux croissants allongés et pointus. | peupleloup | CC BY-SA 2.0 | https://commons.wikimedia.org/wiki/File:Traces_d%27orignal_Moose_track_(2971638127).jpg |
+| 41 | 43 | `35c-12-ours-crottes.jpg` | Ours noir : crotte pleine de petits fruits. | USFWSmidwest | Domaine public | https://commons.wikimedia.org/wiki/File:Black_Bear_Scat_(15274318020).jpg |
+| 41 | 43 | `35c-09-ours-empreinte-avant.jpg` | Ours noir : empreinte dans la boue. | ShenandoahNPS | Domaine public | https://commons.wikimedia.org/wiki/File:Black_Bear_Track_in_Mud_(44654784885).jpg |
+| 44 | 43 | `35c-10-ours-empreinte-arriere.jpg` | Ours noir : empreintes. | minokawa | CC BY-NC [NC] | https://www.inaturalist.org/observations/237775007 |
+| 47 | 43 | `35c-23-lynx-piste.jpg` | Lynx : piste dans une neige mince. | Ryan Sealy (rsealy) | CC BY-NC [NC] | https://www.inaturalist.org/observations/24825073 |
+| 47 | 43 | `35c-22-lynx-empreinte.jpg` | Lynx : ronde, aussi large que longue, sans griffes. | Dan Serpiello (dserp) | CC BY-NC [NC] | https://www.inaturalist.org/observations/9565217 |
+| 47 | 43 | `35c-21-renard-plongeon.jpg` | Renard roux en plongeon : museau le premier, au bout d'un bond en arc, sur un campagnol entendu sous la neige. | Goutham89 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Red_fox_mousing.jpg |
+| 47 | 43 | `35c-20-renard-piste.jpg` | Renard roux : une ligne droite, chaque pied arrière dans l'empreinte de l'avant. | Markus Trienke | CC BY-SA 2.0 | https://commons.wikimedia.org/wiki/File:Fox_Track_(26191985512).jpg |
+| 48 | 43 | `35c-19-renard-empreinte.jpg` | Renard roux : empreintes. | Garth Harwood (garth_harwood) | CC BY | https://www.inaturalist.org/observations/108153437 |
+| 48 | 43 | `35c-18-coyote-crottes.jpg` | Coyote : crottes, une règle pour l'échelle. | Toronto Raptor (torontoraptor) | CC BY-NC [NC] | https://www.inaturalist.org/observations/265631523 |
+| 48 | 43 | `35c-17-coyote-empreinte.jpg` | Coyote : le dessin du loup, en plus petit. | steve b (stevestevens) | CC0 | https://www.inaturalist.org/observations/103289040 |
+| 48 | 43 | `35c-16-loup-crottes.jpg` | Loup : crottes. | Jason Hollinger | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Wolf_Scat_(3536824940).jpg |
+| 49 | 43 | `35c-15-loup-piste.jpg` | Loup : pistes dans la neige. | Yellowstone National Park | Domaine public | https://commons.wikimedia.org/wiki/File:Wolf_track_sunset_in_Hayden_Valley_(33007883433).jpg |
+| 49 | 43 | `35c-14-loup-empreinte.jpg` | Loup : empreinte, la main donne l'échelle. | Jakub Pełka (jakubpelka) | CC BY-NC [NC] | https://www.inaturalist.org/observations/9028465 |
+| 51 | 43 | `35c-30-hermine-piste.jpg` | Belette : bonds par paires, courts et longs. | U. S. Fish and Wildlife Service - Northeast Region | Domaine public | https://commons.wikimedia.org/wiki/File:Weasel_tracks_at_Missisquoi_National_Wildlife_Refuge._(8513632324).jpg |
+| 51 | 43 | `43-loutre-latrine-ecailles.jpg` | Loutre : latrine faite d'écailles de poisson. | (c) Laurie DiCesare, some rights reserved (CC BY-NC) | CC BY-NC | https://www.inaturalist.org/observations/324893964 |
+| 51 | 43 | `35c-29-loutre-latrine.jpg` | Loutre : latrine sur un point haut, faite ici de carapaces d'écrevisses. | Garth Harwood (garth_harwood) | CC BY | https://www.inaturalist.org/observations/399323182 |
+| 51 | 43 | `35c-28-loutre-glissade.jpg` | Loutre : bonds et glissades, la piste point-trait. | USFWS Mountain-Prairie | Domaine public | https://commons.wikimedia.org/wiki/File:Northern_River_Otter_Tracks_in_the_Snow_on_Seedskadee_NWR_(32101245865).jpg |
+| 51 | 43 | `35c-27-loutre-empreinte.jpg` | Loutre : empreintes. | USFWSAlaska | Domaine public | https://commons.wikimedia.org/wiki/File:River_otter_tracks_(13436624813).jpg |
+| 52 | 43 | `35c-26-vison-empreinte.jpg` | Vison : empreinte dans la boue, près d'un ruisseau. | spider99 | CC BY-NC [NC] | https://www.inaturalist.org/observations/198514453 |
+| 52 | 43 | `35c-25-martre-piste.jpg` | Martre : bonds par paires. | Matthew Smith (flyersmith) | CC BY-NC [NC] | https://www.inaturalist.org/observations/5170434 |
+| 52 | 43 | `35c-24-martre-empreinte.jpg` | Martre : empreintes. | Cole Tomlinson (ctomlinson12) | CC BY-NC [NC] | https://www.inaturalist.org/observations/259862381 |
+| 53 | 43 | `43-pekan-piste-neige.jpg` | Pékan : paires de bonds, une martre en plus gros ; des lunettes de soleil pour l'échelle. | (c) Erin E., some rights reserved (CC BY) | CC BY | https://www.inaturalist.org/observations/106246605 |
+| 54 | 43 | `35c-52-canard-empreinte.jpg` | Canard colvert : palmé, plus petit que l'outarde. | Jonathan Poppele (jonathanpoppele) | CC BY-NC [NC] | https://www.inaturalist.org/observations/362757806 |
+| 54 | 43 | `35c-51-outarde-empreinte.jpg` | Outarde : trois doigts palmés, une carte pour l'échelle. | Kirsten Welge (kirstenwelge) | CC BY-NC [NC] | https://www.inaturalist.org/observations/184295757 |
+| 54 | 43 | `35c-50-lagopede-empreinte.jpg` | Lagopède des saules : empreintes et marques d'ailes. | Alexey V. Ivanov (wkent) | CC BY-NC [NC] | https://www.inaturalist.org/observations/153072632 |
+| 57 | 43 | `35c-49-tetras-crottes.jpg` | Tétras du Canada : crottes d'hiver. | Gone But Not Forgotten - R.I.P (bert_raccoon) | CC BY-NC [NC] | https://www.inaturalist.org/observations/110799202 |
+| 57 | 43 | `35c-48-tetras-empreinte.jpg` | Tétras du Canada : empreintes, un ruban pour l'échelle. | Gone But Not Forgotten - R.I.P (bert_raccoon) | CC BY-NC [NC] | https://www.inaturalist.org/observations/141738204 |
+| 57 | 43 | `35c-47-gelinotte-crottes.jpg` | Gélinotte huppée : crottes. | Liam Ragan (liamragan) | CC BY-NC [NC] | https://www.inaturalist.org/observations/23924682 |
+| 57 | 43 | `35c-46-gelinotte-trou-neige.jpg` | Gélinotte huppée : trou de neige et marques d'ailes. | Cephas | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Bonasa_umbellus_snow_hole.jpg |
+| 58 | 43 | `35c-45-gelinotte-empreinte.jpg` | Gélinotte huppée : piste. | wpl500 | CC BY-NC [NC] | https://www.inaturalist.org/observations/328390080 |
+| 58 | 43 | `35c-44-ecureuil-amas.jpg` | Écureuil roux : amas d'écailles et de rafles de cônes au pied d'un perchoir. | Yellowstone National Park | Domaine public | https://commons.wikimedia.org/wiki/File:Red_squirrel_food_cache_and_midden_(45620679251).jpg |
+| 58 | 43 | `35c-43-ecureuil-piste.jpg` | Écureuil roux : groupe de quatre, un canif pour l'échelle. | Séraphin Poudrier (seraphinpoudrier) | CC BY-NC [NC] | https://www.inaturalist.org/observations/268384525 |
+| 58 | 43 | `35c-42-lievre-crottes.jpg` | Lièvre : crottes rondes, un peu aplaties. | Kyle Jones (kylejones) | CC BY-NC [NC] | https://www.inaturalist.org/observations/2498720 |
+| 59 | 43 | `35c-40-lievre-empreinte.jpg` | Lièvre : les grands pieds arrière devant. | USFWS Headquarters | Domaine public | https://commons.wikimedia.org/wiki/File:Snowshoe_hare_tracks_(31070133470).jpg |
+| 59 | 43 | `35c-39-porc-epic-crottes.jpg` | Porc-épic : crottes arquées comme une noix de cajou, une règle pour l'échelle. | Rob Speiden (speiden) | CC BY-NC [NC] | https://www.inaturalist.org/observations/334699 |
+| 59 | 43 | `35c-37-porc-epic-piste.jpg` | Porc-épic : sillon large et traînant dans la neige. | Brad Von Blon (bobcatbrad) | CC BY-NC [NC] | https://www.inaturalist.org/observations/193254344 |
+| 59 | 43 | `35c-35-rat-musque-hutte.jpg` | Rat musqué : hutte de végétaux et de boue. | Игорь Орлов | CC BY 3.0 | https://commons.wikimedia.org/wiki/File:%D0%A5%D0%B0%D1%82%D0%BA%D0%B0_%D0%9E%D0%BD%D0%B4%D0%B0%D1%82%D1%80%D1%8B,_House_Muskrat_-_panoramio.jpg |
+| 60 | 43 | `35c-36-porc-epic-empreinte.jpg` | Porc-épic : empreinte. | Nick Kleinschmidt (nick2524) | CC BY | https://www.inaturalist.org/observations/66217747 |
+| 60 | 43 | `35c-34-rat-musque-empreinte.jpg` | Rat musqué : empreintes, une carte pour l'échelle. | Adam M. McCosham (amccosham) | CC BY-NC [NC] | https://www.inaturalist.org/observations/154486458 |
+| 60 | 43 | `43-castor-reserve-branches.jpg` | Castor : réserve de branches dans l'eau, les bouts qui dépassent. | (c) Matt Wallace, some rights reserved (CC BY-NC) | CC BY-NC | https://www.inaturalist.org/observations/259294556 |
+| 61 | 43 | `35c-33-castor-hutte.jpg` | Castor : hutte. | U.S. Fish and Wildlife Service - Midwest Region | Domaine public | https://commons.wikimedia.org/wiki/File:Beaver_lodge_(53556642425).jpg |
+| 61 | 43 | `35c-31-castor-empreinte.jpg` | Castor : pied arrière palmé. | Chandler Olson (chandlerolson) | CC BY-NC [NC] | https://www.inaturalist.org/observations/256924192 |
+| 63 | 43 | `43-pic-macule-puits-seve.jpg` | Pic maculé : rangées de petits trous à sève. | (c) dysmetria2, some rights reserved (CC BY-NC) | CC BY-NC | https://www.inaturalist.org/observations/286126320 |
+| 63 | 43 | `43-grand-pic-trous-rectangulaires.jpg` | Grand pic : grands trous oblongs creusés les uns au-dessus des autres. | (c) laura2ee, some rights reserved (CC BY-NC) | CC BY-NC | https://www.inaturalist.org/observations/37320474 |
+| 63 | 43 | `35c-41-lievre-brout.jpg` | Lièvre : rameau coupé net en biais. | Ryan Sealy (rsealy) | CC BY-NC [NC] | https://www.inaturalist.org/observations/344133985 |
+| 64 | 43 | `35c-38-porc-epic-ecorcage.jpg` | Porc-épic : plaques d'écorce enlevées haut dans l'arbre. | gdthiker | CC BY-NC [NC] | https://www.inaturalist.org/observations/211227335 |
+| 64 | 43 | `35c-32-castor-souche.jpg` | Castor : souche en crayon, gros copeaux au pied. | NPS Staff | Domaine public | https://commons.wikimedia.org/wiki/File:A_tree_gnawed_on_by_a_beaver_(a91da97c96574d958becee3e5202f89b).JPG |
+| 65 | 43 | `43-ours-poils-colles.jpg` | Ours noir : touffe de poils restée collée au bois frotté, ici sur un poteau. | (c) Jess, some rights reserved (CC BY-NC) | CC BY-NC | https://www.inaturalist.org/observations/70024879 |
+| 65 | 43 | `43-ours-arbre-frotte.jpg` | Ours noir : arbre de marquage, l'écorce usée par le frottement. | (c) woodhaunt, some rights reserved (CC BY-NC) | CC BY-NC | https://www.inaturalist.org/observations/263681023 |
+| 66 | 43 | `35c-13-ours-ecorcage.jpg` | Ours noir : écorçage de printemps. | Christopher J. Earle (chris_earle) | CC BY-NC [NC] | https://www.inaturalist.org/observations/140390016 |
+| 66 | 43 | `35c-11-ours-griffades.jpg` | Ours noir : griffades sur un tronc. | ShenandoahNPS | Domaine public | https://commons.wikimedia.org/wiki/File:Bear_claw_marks_on_tree_(44654787915).jpg |
+| 67 | 43 | `35c-06-orignal-frottis.jpg` | Orignal mâle : frottis du rut, sur un sapin baumier. | Rob Routledge (rroutledge) | CC BY-NC [NC] | https://www.inaturalist.org/observations/101564552 |
+| 67 | 43 | `35c-04-orignal-ecorcage.jpg` | Orignal : écorçage. | Cephas | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Alces_alces_bark_stripping.jpg |
+| 68 | 43 | `35c-03-orignal-brout.jpg` | Orignal : saule brouté en balai. | jozien | CC BY-NC [NC] | https://www.inaturalist.org/observations/148723345 |
 | 149 | 48 | `48-broutage-lievre-coupe.jpg` | La coupe du lièvre, de près : nette et en biseau, comme au couteau. | (c) Ryan Sealy, some rights reserved (CC BY-NC) | CC BY-NC | https://www.inaturalist.org/observations/344133985 |
 | 149 | 48 | `48-broutage-lievre-neige.jpg` | Broutage d'hiver du lièvre : tiges coupées net, à la hauteur de la neige. | (c) birdguykai, some rights reserved (CC BY-NC) | CC BY-NC | https://www.inaturalist.org/observations/150754363 |
 | 151 | 48 | `44-01-rat-musque-rate-tularemie.png` | Tularémie confirmée chez un rat musqué : la flèche montre la rate, semée de fins points. Ce sont les points qu'on cherche sur le foie et la  | CDC / Dr. J.M. Clinton | Domaine public (crédit CDC demandé) | https://phil.cdc.gov/Details.aspx?pid=14784 |

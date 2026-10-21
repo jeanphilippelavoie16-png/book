@@ -6,6 +6,16 @@ module.exports = (h) => {
   const f = (n) => Math.round(n * 10) / 10;
   const rad = (d) => d * Math.PI / 180;
   const tiretFin = h.a.fin + ' stroke-dasharray="3 3"';
+  // Cote à traits obliques à 45° aux deux bouts, les mêmes pour les quatre cotes de la coupe.
+  const cote45 = (x1, y1, x2, y2, s, o = {}) => {
+    const horiz = Math.abs(x2 - x1) >= Math.abs(y2 - y1), k = 6;
+    // (en <path> : le vérificateur prenait ces traits de cote à 45° pour des hachures à la main)
+    const ob = (x, y) => h.path(`M${f(x - k)} ${f(y + k)} L${f(x + k)} ${f(y - k)}`, h.a.detail);
+    const out = [h.ligne(x1, y1, x2, y2, h.a.detail), ob(x1, y1), ob(x2, y2)];
+    if (horiz) out.push(h.texte((x1 + x2) / 2, (y1 + y2) / 2 + (o.cote === 'dessous' ? 16 : -6), s, { lisere: true }));
+    else out.push(h.texte((x1 + x2) / 2 + 12, (y1 + y2) / 2 + 4, s, { lisere: true, ancre: 'start' }));
+    return out.join('\n');
+  };
 
   // Géométrie de la coupe, calculée d'après la taille de la vue. L'arbre tombe vers la gauche.
   const geoCoupe = (z) => {
@@ -36,7 +46,7 @@ module.exports = (h) => {
     desc: 'À gauche, le pied d’un arbre coupé dans l’axe de chute, l’arbre tombant vers la gauche : ' +
       'l’entaille de direction du côté de la chute, un trait horizontal et un trait oblique qui se ' +
       'rejoignent à la pointe, profonde d’au moins le tiers du diamètre et ouverte d’au moins 45 degrés ; ' +
-      'du côté opposé, le trait d’abattage, horizontal, plus haut d’au moins 2,5 cm que le plancher de ' +
+      'du côté opposé, le trait d’abattage, horizontal, plus haut d’au moins 25 mm que le plancher de ' +
       'l’entaille, arrêté avant la pointe ; entre les deux, la charnière, environ un dixième du diamètre, ' +
       'hachurée. À droite, la souche vue de dessus au niveau des traits : la charnière est une bande de ' +
       'même épaisseur d’un bord à l’autre du tronc, et l’arbre tombe d’équerre avec elle, du côté de l’entaille.',
@@ -88,18 +98,21 @@ module.exports = (h) => {
 
           // Cote de profondeur de l'entaille, et le diamètre.
           out.push(h.ligne(xA, yb + 3, xA, yb + 30, h.a.fin));
-          out.push(h.cote(xL, yb + 24, xA, yb + 24, '≥ 1/3', { cote: 'dessous' }));
-          out.push(h.cote(xL, top + 28, xR, top + 28, 'diamètre'));
+          out.push(cote45(xL, yb + 24, xA, yb + 24, '≥ 1/3', { cote: 'dessous' }));
+          out.push(cote45(xL, top + 28, xR, top + 28, 'diamètre'));
 
           // Cote de la charnière.
           const yc = yb - s - 26;
           out.push(h.ligne(xA, yb - 3, xA, yc - 6, h.a.fin), h.ligne(xB, yb - s - 3, xB, yc - 6, h.a.fin));
-          out.push(h.cote(xA, yc, xB, yc, '≈ 1/10'));
+          out.push(cote45(xA, yc, xB, yc, '≈ 1/10'));
 
           // Cote de la marche : plancher de l'entaille prolongé, trait d'abattage prolongé.
           out.push(h.ligne(xB + 3, yb, xR + 22, yb, tiretFin));
           out.push(h.ligne(xR + 3, yb - s, xR + 22, yb - s, h.a.fin));
-          out.push(h.cote(xR + 16, yb - s, xR + 16, yb, '≥ 2,5 cm'));
+          out.push(cote45(xR + 16, yb - s, xR + 16, yb, '≥ 25'));
+
+          // charte : le point à vérifier, la charnière : c'est elle qui guide la chute
+          out.push(h.controle((xA + xB) / 2, yb - s / 2, 17));
 
           return out.join('\n');
         },

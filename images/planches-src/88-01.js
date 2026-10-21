@@ -3,6 +3,9 @@
 // la galette posée, la cuisson en coupe (sable chauffé dessous, galette, couche de sable,
 // braise ramenée), la galette cuite soulevée au bâton.
 // Aucune cote : le chapitre ne donne aucune dimension pour cette façon de faire.
+// La charte : la galette garde son contour fort ; son épaisseur, vue un peu d'en haut, à
+// l'ombre (la face de dessous). Pas de gris sur la coupe ni sur le sable. Le rouge : la
+// galette qu'on pose, le bâton qu'on lève (un geste par vue) ; la chaleur reste en noir.
 
 module.exports = (h) => {
   const f = v => Math.round(v * 10) / 10;
@@ -116,8 +119,12 @@ module.exports = (h) => {
     const farine = [[-0.5, -0.1], [-0.3, 0.2], [-0.1, -0.3], [0.1, 0.1], [0.3, -0.2], [0.45, 0.15], [-0.2, -0.05], [0.2, 0.35], [-0.4, 0.35], [0.05, -0.45], [0.55, -0.05], [-0.6, 0.1]]
       .map(([u, v]) => [cx + u * a, yb - ep * 0.62 - b * 0.35 + v * b * 1.1]);
     const T = p => tourne(p, ang, px, py);
+    // l'épaisseur, face de dessous : entre le rebord du dessus et le bord du dessous, à l'ombre
+    const flanc = [...rebord, [cx + a * 0.97, yb - ep * 0.35], [cx + a, yb], ...[...dessous].reverse(), [cx - a * 0.97, yb - ep * 0.35], rebord[0]];
     return [
-      h.chemin(T(contour), blancContour, true),
+      h.chemin(T(contour), h.a.blanc, true),
+      h.chemin(T(flanc), h.a.ombre, true),
+      h.chemin(T(contour), h.a.contour, true),
       h.chemin(T(rebord), h.a.fin),
       ...T(farine).map(([x, y]) => h.cercle(x, y, 0.9, h.a.plein)),
     ].join('\n');
@@ -251,7 +258,8 @@ module.exports = (h) => {
           out.push(h.fleche(`M ${f(g.cx + z.l * 0.1)} ${f(g.yG - 16)} L ${f(g.xTd - z.l * 0.12)} ${f(g.yG - 16)}`));
           // la galette, qui descend se poser à même le sable chaud
           out.push(miche(g.cx, g.yGal, g.a, g.a * 0.3));
-          out.push(h.fleche(`M ${f(g.cx)} ${f(g.yGal + g.a * 0.3 + 10)} L ${f(g.cx)} ${f(g.yG - 26)}`));
+          // le geste : poser la galette à même le sable chaud
+          out.push(h.geste(`M ${f(g.cx)} ${f(g.yGal + g.a * 0.3 + 10)} L ${f(g.cx)} ${f(g.yG - 26)}`));
           return out.join('\n');
         },
         renvois: z => {
@@ -317,7 +325,7 @@ module.exports = (h) => {
           });
           // le geste : le bâton se lève
           const [xl, yl] = tourne([[g.cx - g.a, g.yb]], g.ang, g.px, g.py)[0];
-          out.push(h.fleche(`M ${f(xl - 14)} ${f(yl + 20)} Q ${f(xl - 22)} ${f(yl - 8)} ${f(xl - 6)} ${f(yl - 30)}`));
+          out.push(h.geste(`M ${f(xl - 14)} ${f(yl + 20)} Q ${f(xl - 22)} ${f(yl - 8)} ${f(xl - 6)} ${f(yl - 30)}`));
           return out.join('\n');
         },
         renvois: z => {

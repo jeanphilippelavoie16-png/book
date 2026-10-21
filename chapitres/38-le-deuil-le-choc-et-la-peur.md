@@ -146,7 +146,7 @@ souvent courte : ce qui s'interpose pendant ce temps-là la laisse passer.
  glace, ni arme, ni conduite (ch. 36, point 35).
 11. **Relier.** Les enfants apprennent la nouvelle d'un adulte, en mots exacts, et reçoivent une
  tâche liée (ch. 40, 5-E). À la maison, on laisse entrer les voisins qui viennent. Au chalet,
- le signal « venez » part le soir même (ch. 36, point 7 ; ch. 16, étape 5), pas le signal
+ le signal « venez » part le soir même (ch. 36, point 7 ; ch. 16, étape 19), pas le signal
  d'absence, qui ne fait monter le voisin qu'une fois manqué : un voisin qui sait ne sert à
  rien s'il apprend au printemps.
 12. **Aucune décision qui ne se défait pas, ce soir-là.** Ni partir, ni vendre, ni brûler, ni
@@ -516,7 +516,7 @@ ou que les murs tombent.
 > reste pas seul avec la personne, c'est l'adulte qui a peur qui garde sur lui la culasse ou la
 > pièce mobile, et c'est lui qui s'éloigne avec les enfants, sans attendre que l'autre se
 > calme : chez le voisin si le trajet peut se faire ce soir-là, dans le froid et le noir, avec
-> les enfants ; sinon, il fait le signal « venez » (ch. 16, étape 5 ; ch. 36, point 7), qui fait
+> les enfants ; sinon, il fait le signal « venez » (ch. 16, étape 19 ; ch. 36, point 7), qui fait
 > monter le voisin dès qu'il le voit ou l'entend. Pas le signal d'absence : celui-là ne fait
 > monter personne avant le lendemain.
 >
@@ -609,7 +609,7 @@ un poêle et un voisin. Ce qui suit se fait avec ça.
  n'est pas morte tant qu'elle n'a pas été réchauffée (ch. 35, section 2 et 5-F, étape 1). Les
  enfants voient le corps ou ne le voient pas, mais ils savent, et un mensonge ne tient pas dans
  une maison de trois personnes.
-4. **Le signal « venez » part ce soir, pas quand on sera à bout** (ch. 16, étape 5 ; ch. 36,
+4. **Le signal « venez » part ce soir, pas quand on sera à bout** (ch. 16, étape 19 ; ch. 36,
  point 7) : pas le signal d'absence, qui ne ferait monter le voisin qu'une fois manqué. Un
  adulte seul avec des enfants est le cas pour lequel le regroupement du ch. 18 existe. Le voisin qui sait peut venir, ou prendre
  les enfants une journée, ou accueillir tout le monde ; le voisin qui ne sait pas ne peut rien.
@@ -677,7 +677,7 @@ parce qu'un corps posé sur la neige perd sa chaleur beaucoup plus vite que dans
 section 9) : un banc, un lit de branches de sapin, un matelas de sol ; et un sifflet. Là, les
 enfants s'habillent, se mettent à deux dans les sacs et font ce qu'ils savent déjà pour l'enfant
 perdu : *s'asseoir, souffler, rester* (ch. 39, étape 5). Trois coups de sifflet, une pause, trois
-coups (ch. 16, étape 5), puis on se tait pour écouter.
+coups (ch. 16, étape 19), puis on se tait pour écouter.
 
 **On ne rentre pas au chalet : c'est un adulte qui vient chercher les enfants.** Après une
 alarme, le chalet n'est sûr que quand quelqu'un a lu l'avertisseur, et un enfant ne sait pas le
@@ -693,7 +693,7 @@ autrement.
 
 ### Le signal, réglé pour un adulte seul
 
-Il y a deux signaux, et ils ne font pas le même travail. Le signal « venez » (ch. 16, étape 5) se fait
+Il y a deux signaux, et ils ne font pas le même travail. Le signal « venez » (ch. 16, étape 19) se fait
 quand on peut encore le faire, et fait monter le voisin dès qu'il le voit ou l'entend. Le signal
 d'absence couvre
 le cas où plus personne n'est en état de rien faire : c'est son absence qui parle. Le ch. 36
@@ -723,7 +723,7 @@ plus le trajet du voisin. Et le sentier se tape une fois par semaine même sans 
 
 ### Le travail qui blesse, fait seul
 
-La règle du groupe — jamais de bûchage seul (ch. 16, étape 18) — ne peut pas tenir ; son
+La règle du groupe — jamais de bûchage seul (ch. 16, étape 30) — ne peut pas tenir ; son
 mécanisme, lui, tient : quelqu'un doit savoir où l'on est et quand l'on revient. Seul, un
 adulte blessé laisse deux enfants seuls, et c'est ce qui décide de tout le reste :
 

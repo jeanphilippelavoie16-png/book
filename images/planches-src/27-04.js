@@ -4,6 +4,13 @@
 // parois, puis le centre, l'excédent le long de la gencive) ; la morsure, comme avant ou trop
 // haute. Les dents sont en coupe : l'os en trame de gravier, la gencive au trait, la dent en
 // blanc avec la ligne de l'émail et la pulpe, le ciment en trame de terre (la même que la pâte).
+// Mains simples et charte (14 octobre) : les deux bouts de doigts calqués (s09) deviennent deux bouts de doigts de
+// la main simple, en gros plan, coupés par le bord de la vue ; la main entière qui pince, essayée d'abord, faisait la
+// boulette minuscule et les doigts du fond en pince d'oiseau. Rouge : le geste de rouler, l'index qui se lève de la
+// pâte qui colle, le ciment pressé contre les parois (un éventail de trois flèches : un seul geste), puis au
+// centre.
+// La poudre tirée vers le liquide reste en noir (c'est la poudre qui se déplace). Pas de gris : la tranche de la
+// vitre est trop mince pour une ombre.
 module.exports = (h) => {
   const A = h.a, F = h.formes;
   const BL = A.blanc.split(' ')[0];
@@ -13,6 +20,7 @@ module.exports = (h) => {
   const ferme = (pts, at) => h.path(d(pts) + ' Z', at);
   const ouvert = (pts, at) => h.path(d(pts), at);
   const fl = (pts) => h.fleche(d(pts));
+  const geste = (pts) => h.geste(d(pts));                     // la charte : la flèche du geste, en rouge
 
   // Catmull-Rom → polyligne lisse
   const lisse = (P, boucle = false, n = 10) => {
@@ -116,27 +124,6 @@ module.exports = (h) => {
     h.cercle(x, y, r, blanc(A.arete)),
     ouvert(lisse([[x - r * 0.6, y + r * 0.05], [x - r * 0.45, y - r * 0.45], [x - r * 0.05, y - r * 0.62]], false, 4), A.fin),
   ].join('\n');
-  // la pâte qui colle : une galette écrasée sur le bout des doigts, qui file en dessous
-  const collante = (x, y, r) => {
-    const P = [];
-    for (let i = 0; i < 12; i++) {
-      const t = i / 12 * 2 * Math.PI, k = 1 + 0.09 * Math.sin(3 * t + 0.5) + 0.05 * Math.cos(5 * t);
-      P.push([x + r * 1.45 * k * Math.cos(t), y + r * 0.95 * k * Math.sin(t)]);
-    }
-    // un filet de pâte qui pend : une bande qui s'amincit, une goutte au bout
-    const fil = (x0, x1, y1) => {
-      const w0 = r * 0.22, w1 = r * 0.07, ym = (y + y1) / 2;
-      const g = lisse([[x0 - w0, y + r * 0.5], [(x0 + x1) / 2 - w1 + 1, ym], [x1 - w1, y1]], false, 5);
-      const dr = lisse([[x1 + w1, y1], [(x0 + x1) / 2 + w1 + 1, ym], [x0 + w0, y + r * 0.5]], false, 5);
-      return [ferme([...g, ...dr], blanc(A.detail)), h.cercle(x1, y1 + r * 0.2, r * 0.24, blanc(A.detail))].join('\n');
-    };
-    return [
-      fil(x - r * 0.5, x - r * 0.75, y + r * 2.5), fil(x + r * 0.55, x + r * 0.7, y + r * 1.9),
-      ferme(lisse(P, true, 5), blanc(A.arete)),
-      ouvert(lisse([[x - r * 0.7, y - r * 0.1], [x - r * 0.3, y - r * 0.45], [x + r * 0.3, y - r * 0.5]], false, 4), A.fin),
-    ].join('\n');
-  };
-
   // ═══ les dents ══════════════════════════════════════════════════════════════════════════
   // La molaire du bas, repère local : les pointes des cuspides à y = 0, le collet à y = 72,
   // les racines jusqu'à 170. E1 (indice 2) et E2 (indice 9) : les bords du trou.
@@ -171,7 +158,7 @@ module.exports = (h) => {
   // le ciment : du plancher jusqu'à la surface d'origine ; bosse : de combien il dépasse au centre
   const ciment = (bosse = 0) => {
     const surf = molPts.slice(E1 * NS, E2 * NS + 1).map(([x, y]) => {
-      const b = bosse * Math.max(0, Math.min(1, (x + 12) / 8, (40 - x) / 16));
+      const b = bosse * Math.max(0, 1 - ((x - 10) / 17) ** 2);
       return [x, y - b];
     });
     return [...PLANCHER, ...surf.reverse()];
@@ -227,8 +214,10 @@ module.exports = (h) => {
   // la morsure : la molaire du bas réparée, celle du haut qui se referme ; jeu : de combien le
   // ciment trop haut tient la mâchoire du haut ouverte
   const YC = 96;
+  // les deux morsures au même cadrage, assez haut pour la dent relevée de 30 du « Trop haut » (sans quoi elle
+  // sortait de sa vue et cachait son titre)
   const geoMorsure = z => {
-    const haut = 24 - YC - 8, bas = YC + 3;
+    const haut = 24 - YC - 8 - 30, bas = YC + 3;
     const s = Math.min((z.h - 2) / (bas - haut), (z.l - 6) / 110);
     return { s, W: z.l / 2 / s - 0.3, T: ([x, y]) => [z.l / 2 + s * x, z.h - 1 - s * (bas - y)] };
   };
@@ -245,13 +234,58 @@ module.exports = (h) => {
     return `${clip}\n<g clip-path="url(#${id})">\n${contenu}\n</g>`;
   };
 
-  // ═══ les mains ══════════════════════════════════════════════════════════════════════════
-  // la main en pince ; (bx, by) : le creux entre le bout de l'index et le bout du pouce, où la
-  // boulette se roule
-  const geoMain = z => {
-    const e = (z.h - 10) / 108, x = z.l - 78, y = z.h - 6 - 20 * e;
-    return { x, y, e, bx: x + 13 * e, by: y - 7 * e };
+  // ═══ les deux bouts de doigts, en gros plan ═══════════════════════════════════════════════
+  // L'index dessus, le pouce dessous, vus de côté, les pulpes face à face ; le reste de la main sort de la vue
+  // par la gauche. Chaque bout est le bout d'un doigt tendu de la main simple (pose pointe, vue du pouce), le pouce
+  // retourné (côté gauche) et un peu plus gros. La pince-fine grossie ne se lit pas : le creux entre le pouce et
+  // l'index y fait une boîte, et ses bouts, des bosses.
+  const E_D = 2.6, R_B = 5 * E_D;                                // px/mm ; la boulette de 10 mm
+  const contour = m => {
+    const n = ((String(m.svg).match(/<path d="([^"]+)" fill="#FFFFFF"/) || [])[1] || '').match(/-?\d+(?:\.\d+)?/g) || [];
+    const P = [];
+    for (let i = 0; i + 1 < n.length; i += 2) P.push([+n[i], +n[i + 1]]);
+    return P;
   };
+  // un bout de doigt dont la pulpe (le point le plus bas pour l'index, le plus haut pour le pouce, dans les
+  // 20 mm du bout) tombe en (px, py)
+  const boutDoigt = (dessous, ang, k, px, py) => {
+    const o = { pose: 'pointe', vue: 'pouce', cote: dessous ? 'gauche' : 'droite', echelle: E_D * k, angle: ang, ancre: 'bout' };
+    const pulpe = m => contour(m).filter(q => Math.hypot(q[0] - m.bout[0], q[1] - m.bout[1]) < 20 * E_D * k)
+      .reduce((a, q) => ((dessous ? q[1] < a[1] : q[1] > a[1]) ? q : a));
+    const m0 = F.mainSimple({ ...o, x: px, y: py }), q = pulpe(m0);
+    return F.mainSimple({ ...o, x: 2 * px - q[0], y: 2 * py - q[1] });
+  };
+  const GD = z => ({ bx: z.l * 0.5, by: z.h * 0.5, r: R_B });
+  const doigts = (z, id, ecart) => {
+    const { bx, by } = GD(z);
+    return dansVue(z, id, [boutDoigt(false, 10, 1, bx, by - ecart).svg, boutDoigt(true, -10, 1.08, bx, by + ecart).svg].join('\n'));
+  };
+  // la pâte qui colle : une galette sur chaque pulpe, et des fils qui s'étirent de l'une à l'autre
+  const filante = (x, yh, yb, r) => {
+    const fil = (dx, l0, l1, w) => {
+      const xm = x + (l0 + l1) / 2, ym = (yh + yb) / 2, w0 = r * 0.24 * w, w1 = r * 0.06 * w;
+      const g = lisse([[x + l0 - w0, yh + r * 0.2], [xm + dx - w1, ym], [x + l1 - w0, yb - r * 0.2]], false, 6);
+      const dr = lisse([[x + l1 + w0, yb - r * 0.2], [xm + dx + w1, ym], [x + l0 + w0, yh + r * 0.2]], false, 6);
+      return ferme([...g, ...dr], blanc(A.detail));
+    };
+    // la galette : son bord contre la pulpe remonte avec elle aux deux bouts (elle s'y colle), l'autre bord pend
+    const galette = (y, sens) => {
+      const P = [];
+      for (let i = 0; i <= 12; i++) {
+        const t = Math.PI * i / 12, k = 1 + 0.06 * Math.sin(5 * t + (sens > 0 ? 0 : 1));
+        P.push([x + r * 1.15 * k * Math.cos(t), y - sens * r * 0.5 * k * Math.sin(t)]);
+      }
+      for (let i = 11; i >= 1; i--) {
+        const c = Math.cos(Math.PI * i / 12);
+        P.push([x + r * 1.15 * c, y + sens * r * 0.3 * c * c]);
+      }
+      return ferme(lisse(P, true, 4), blanc(A.arete));
+    };
+    return [fil(-1, -r * 0.7, -r * 0.55, 1), fil(1.5, 0, r * 0.1, 0.8), fil(0, r * 0.62, r * 0.7, 1),
+      galette(yh, -1), galette(yb, 1)].join('\n');
+  };
+
+  const dansVue = (z, id, contenu) => `<clipPath id="${id}"><rect x="0" y="0" width="${r1(z.l)}" height="${r1(z.h)}"/></clipPath>\n<g clip-path="url(#${id})">\n${contenu}\n</g>`;
 
   return {
     ref: '27-04',
@@ -302,30 +336,28 @@ module.exports = (h) => {
         },
       },
       bonne: {
-        titre: 'Rouler une boulette entre les doigts',
+        titre: 'Rouler une boulette',
         dessin: z => {
-          const { x, y, e, bx, by } = geoMain(z), R = 7.5 * e, k = R + 7;
+          const { bx, by, r } = GD(z), k = r * 3.7;
           const arc = [];
-          for (let a = -75; a <= 75; a += 7.5) arc.push([bx + k * Math.cos(a * Math.PI / 180), by + k * Math.sin(a * Math.PI / 180)]);
-          return [
-            F.main({ x, y, pose: 'pince', vue: 'profil', echelle: e, bras: 6, objet: boulette(bx, by, R) }).toString(),
-            h.path(d(arc), `${A.arete} marker-start="url(#fl)"`).replace('/>', ' marker-end="url(#fl)"/>'),
-          ].join('\n');
+          for (let a = -32; a <= 32; a += 4) arc.push([bx + k * Math.cos(a * Math.PI / 180), by + k * Math.sin(a * Math.PI / 180)]);
+          return [doigts(z, 'doigts-bonne', r), boulette(bx, by, r), geste(arc)].join('\n');
         },
         renvois: z => {
-          const { bx, by } = geoMain(z);
-          return [{ n: 6, rond: [bx + 48, by - 34], cible: [bx + 2, by + 4], texte: 'roule sans coller : prête' }];
+          const { bx, by, r } = GD(z);
+          return [{ n: 6, rond: [z.l - 14, by - r - 44], cible: [bx + r * 0.6, by - r * 0.4], texte: 'roule sans coller : prête' }];
         },
       },
       colle: {
         titre: 'Elle colle',
         dessin: z => {
-          const { x, y, e, bx, by } = geoMain(z);
-          return F.main({ x, y, pose: 'pince', vue: 'profil', echelle: e, bras: 6, objet: collante(bx, by, 7.5 * e) }).toString();
+          const { bx, by, r } = GD(z), e = r * 2.2, xf = bx + r * 3.4;
+          // un seul geste : l'index se lève, le pouce reste
+          return [doigts(z, 'doigts-colle', e), filante(bx, by - e, by + e, r), geste([[xf, by - r * 0.6], [xf, by - r * 2.8]])].join('\n');
         },
         renvois: z => {
-          const { bx, by } = geoMain(z);
-          return [{ n: 7, rond: [bx + 48, by - 34], cible: [bx + 6, by + 2], texte: 'colle : ajouter de la poudre' }];
+          const { bx, by, r } = GD(z);
+          return [{ n: 7, rond: [z.l - 14, by + 4], cible: [bx + r * 0.55, by + r * 0.2], texte: 'colle : ajouter de la poudre' }];
         },
       },
       parois: {
@@ -334,7 +366,7 @@ module.exports = (h) => {
           const { T, W } = geoPose(z);
           return dentPose(T, W, 'pose-parois', [
             ferme(doublure(8).map(T), A.hachure('terre', 'arete')),
-            fl([[5, 16], [-7, 19]].map(T)), fl([[12, 12], [12, 22]].map(T)), fl([[19, 15], [25, 26]].map(T)),
+            geste([[5, 16], [-7, 19]].map(T)), geste([[12, 12], [12, 22]].map(T)), geste([[19, 15], [25, 26]].map(T)),
           ].join('\n'));
         },
         renvois: z => {
@@ -351,7 +383,7 @@ module.exports = (h) => {
             ferme(ciment(0).map(T), A.hachure('terre', 'arete')),
             ferme([...molPts.slice(8 * NS, E2 * NS + 1), ...exces.slice().reverse()].map(T), A.blanc),
             ferme([...molPts.slice(8 * NS, E2 * NS + 1), ...exces.slice().reverse()].map(T), A.hachure('terre', 'arete')),
-            fl([[10, -12], [10, 12]].map(T)),
+            geste([[10, -12], [10, 12]].map(T)),
           ].join('\n'));
         },
         renvois: z => {
@@ -369,10 +401,10 @@ module.exports = (h) => {
       },
       haut: {
         titre: 'Trop haut',
-        dessin: z => morsure(z, 7, 'morsure-trop-haut'),
+        dessin: z => morsure(z, 30, 'morsure-trop-haut'),
         renvois: z => {
           const { T } = geoMorsure(z);
-          return [{ n: 11, rond: T([-40, -40]), cible: T([6, 4]), texte: 'gratter avant qu’il durcisse' }];
+          return [{ n: 11, rond: T([-40, -40]), cible: T([12, -14]), texte: 'gratter avant qu’il durcisse' }];
         },
       },
     },

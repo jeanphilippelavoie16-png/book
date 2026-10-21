@@ -15,8 +15,11 @@
 // Les vues : la mâchoire du bas, côté droit. En haut à gauche, les dents vues de la joue (joue
 // écartée) ; les trois autres, la même coupe de face à travers la dent malade (joue à gauche,
 // langue à droite), à la même échelle, les hauteurs alignées sur la première rangée.
-// Trames : os en hachure à 45° ; pus en pointillé ; enflure dure en quadrillage ; dent, gencive,
-// joue et langue en blanc.
+// Trames : os en hachure à 45° ; pus en pointillé ; enflure dure en quadrillage ; chair (joue,
+// gencive, langue, plancher, menton) en tireté horizontal ; dent et air en blanc.
+//
+// La charte : pas de gris, les trois coupes ont chacune leurs trames. Le rouge : le cercle sur le
+// sommet de la bulle, là où la pointe se pose. La flèche du pus qui coule reste noire.
 
 module.exports = (h) => {
   const BL = h.a.blanc.split(' ')[0];
@@ -100,7 +103,18 @@ module.exports = (h) => {
     const L = (pts, a = h.a.arete, ferme = false) => h.path(cr(M(pts), ferme), a);
     const out = [];
     const dur = etat === 'dure';
+    out.push('<defs><pattern id="h-chair" width="12" height="6" patternUnits="userSpaceOnUse"><line x1="1" y1="2" x2="6" y2="2" stroke="#1A1A1A" stroke-width="0.5"/><line x1="7" y1="5" x2="11" y2="5" stroke="#1A1A1A" stroke-width="0.5"/></pattern></defs>');
+    const suite = pts => cr(M(pts)).replace(/^M/, ' L');
+    // la chair (joue, gencive, langue, plancher, menton) en tireté horizontal ; l'air en blanc
+    out.push(h.path(cr(M(dur ? PEAU_DUR : PEAU)) + ` L${f(P([247, 38]))} L${f(P([24, 38]))} Z`, 'fill="url(#h-chair)" stroke="none"'));
+    const gl = etat === 'bulle' ? cr(M([...G_HAUT, ...BULLE, ...G_BAS]))
+      : etat === 'coule' ? cr(M([...G_HAUT, ...VIDE_H])) + suite([...VIDE_B, ...G_BAS])
+      : cr(M([...G_HAUT, ...LISSE, ...G_BAS.slice(1)]));
+    out.push(h.path(gl + ` L${f(P([46, 30]))} L${f(P([150, 30]))} Z`, h.a.blanc));
+    out.push(h.path(cr(M(dur ? LANGUE_DUR : LANGUE)) + ` L${f(P([247, 30]))} L${f(P([150, 30]))} L${f(P([150, 86]))} Z`, h.a.blanc));
+    if (dur) out.push(h.path(cr(M(ZONE), true), h.a.blanc));
     if (dur) out.push(h.path(cr(M(ZONE), true), h.a.hachure('grillage', 'fin')));
+    out.push(h.path(cr(M(OS)) + ' Z', h.a.blanc));
     out.push(h.path(cr(M(OS)) + ' Z', h.a.hachure('metal', 'arete')));
     if (etat === 'bulle') out.push(pus(cr(M(PUS_BULLE), true)));
     else if (etat === 'coule') out.push(pus(cr(M(PUS_VIDE), true)));
@@ -130,28 +144,31 @@ module.exports = (h) => {
     out.push(L(dur ? PEAU_DUR : PEAU));
     out.push(brisure(P([24, 38]), P([46, 38])));
     out.push(brisure(P([247, dur ? 39 : 46]), P([247, dur ? 281 : 266])));
-    if (etat === 'bulle') out.push(lame(P));
+    if (etat === 'bulle') {
+      out.push(lame(P));
+      const [cx, cy] = P(LAME.T);                  // le sommet, là où la pointe se pose
+      out.push(h.controle(cx, cy, 13));
+    }
     return out.join('\n');
   };
 
-  // La pointe du couteau d'office, le plat vers nous : dos droit, tranchant qui remonte à la
-  // pointe. Posée au sommet de la bulle, venue d'en haut par le repli, la joue écartée.
-  const LAME = { T: [92.5, 171], a: 55, L: 92, W: 40 };
+  // La lancette : une pointe fine, posée perpendiculaire au point le plus saillant de la bulle,
+  // venue d'en haut par le repli, la joue écartée.
+  const LAME = { T: [93.5, 164.5], a: 28, L: 50, W: 5 };
   const lame = P => {
     const { T, a, L, W } = LAME;
-    const u = [-Math.cos(a * Math.PI / 180), -Math.sin(a * Math.PI / 180)], n = [-u[1], u[0]];   // n : vers le haut à droite
+    const u = [-Math.cos(a * Math.PI / 180), -Math.sin(a * Math.PI / 180)], n = [-u[1], u[0]];
     const at = (s, e) => P([T[0] + u[0] * s + n[0] * e, T[1] + u[1] * s + n[1] * e]);
-    const e = s => W * (1 - Math.pow(1 - s / L, 2));
-    const dos = [at(0, 0), at(L, 0)];
-    const tr = []; for (let s = 0; s <= L; s += 4) tr.push(at(s, e(s)));
-    tr[tr.length - 1] = at(L, W);
-    const forme = [dos[0], ...tr.slice(1), dos[1]];
-    const biseau = []; for (let s = 12; s <= L; s += 8) biseau.push(at(s, e(s) - 6));
+    const e = s => W / 2 * Math.min(1, s / 16);
+    const haut = [], bas = [];
+    for (let s = 0; s <= L; s += 4) { haut.push(at(s, e(s))); bas.push(at(s, -e(s))); }
+    haut.push(at(L, W / 2)); bas.push(at(L, -W / 2));
+    const forme = [...haut, ...bas.reverse()];
     return [
       h.chemin(forme, h.a.blanc, true),
-      h.chemin([dos[1], dos[0], ...tr.slice(1)], h.a.contour),
-      h.chemin(biseau, h.a.detail),
-      brisure(at(L, -1), at(L, W + 1)),
+      h.chemin(forme, h.a.contour, true),
+      h.chemin([at(4, 0), at(L, 0)], h.a.fin),
+      brisure(at(L, -W / 2 - 1), at(L, W / 2 + 1)),
     ].join('\n');
   };
 
@@ -202,6 +219,14 @@ module.exports = (h) => {
       const [x, y] = P([148 + dx, 167.5 + dy]);
       out.push(h.cercle(x, y, 0.8, h.a.plein));
     }
+    // le trait de coupe : à travers la dent malade et la bulle ; les flèches regardent vers le fond
+    const mixte = 'fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linecap="round" stroke-dasharray="14 3 2 3"';
+    const [xc, ya] = P([150, 24]), [, yb] = P([150, 204]), Lb = 26 * s, k = 3.6;
+    const bout = y => [
+      h.ligne(f([xc, y]).split(',')[0], f([xc, y]).split(',')[1], r1(xc - Lb + 5), r1(y), h.a.arete),
+      h.path(`M${r1(xc - Lb)},${r1(y)} L${r1(xc - Lb + 2.2 * k)},${r1(y - k)} L${r1(xc - Lb + 2.2 * k)},${r1(y + k)} Z`, h.a.plein),
+    ].join('\n');
+    out.push(h.ligne(r1(xc), r1(ya), r1(xc), r1(yb), mixte), bout(ya), bout(yb));
     return out.join('\n');
   };
 
@@ -211,7 +236,7 @@ module.exports = (h) => {
   return {
     ref: '27-06',
     titre: 'Ouvrir la bulle',
-    desc: 'La mâchoire du bas, côté droit. En haut à gauche, les dents vues de la joue écartée : sur la gencive, vis-à-vis du bout de la racine de la dent cariée, une bulle ronde avec sa pointe au sommet. Les trois autres vues sont la même coupe de face à travers la dent malade, joue à gauche, langue à droite : le pus né au bout de la racine traverse l’os vers la gencive et gonfle la bulle, la pointe d’un couteau d’office se pose sur son sommet ; la bulle ouverte se vide le long de la gencive, la poche au bout de la racine reste ; enfin l’enflure dure, qui passe sous la langue et sous le menton, soulève la langue et le plancher de la bouche et n’a pas de poche à ouvrir.',
+    desc: 'La mâchoire du bas, côté droit. En haut à gauche, les dents vues de la joue écartée : sur la gencive, vis-à-vis du bout de la racine de la dent cariée, une bulle ronde avec sa pointe au sommet ; un trait de coupe passe à travers la dent et la bulle. Les trois autres vues sont la même coupe de face à travers la dent malade, joue à gauche, langue à droite : le pus né au bout de la racine traverse l’os vers la gencive et gonfle la bulle, une pointe fine de lancette se pose perpendiculaire à son point le plus saillant ; la bulle ouverte se vide le long de la gencive, la poche au bout de la racine reste ; enfin l’enflure dure, qui passe sous la langue et sous le menton, soulève la langue et le plancher de la bouche et n’a pas de poche à ouvrir.',
     format: 'pleine',
     disposition: [['gencive', 'piquer'], ['couler', 'dure']],
     vues: {
@@ -227,8 +252,8 @@ module.exports = (h) => {
         titre: 'Piquer au sommet',
         dessin: z => coupe(z, 'bulle'),
         renvois: z => [
-          { n: 3, rond: R(z, [96, 50]), cible: R(z, [72, 110]), texte: 'pointe fine, autoclavée ou bouillie 30 min' },
-          { n: 4, rond: R(z, [76, 234]), cible: R(z, [92, 177]), texte: 'piquer au sommet, là où elle pointe' },
+          { n: 3, rond: R(z, [96, 50]), cible: R(z, [68, 151]), texte: 'pointe fine, autoclavée ou bouillie 30 min' },
+          { n: 4, rond: R(z, [76, 234]), cible: R(z, [93.5, 164.5]), texte: 'piquer au sommet, là où elle pointe' },
           { n: 5, rond: R(z, [32, 284]), cible: R(z, [41, 216]), texte: 'joue, peau du visage : jamais de lame' },
         ],
       },

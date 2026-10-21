@@ -4,6 +4,9 @@
 // de 2 à 5 cm) sont dans la légende, en mm ; « 10 à 20 minutes » aussi. Aucun autre chiffre.
 // Couche par couche : la charge éclatée, chaque couche soulevée au-dessus de celle qui la porte.
 // Le montage : vue cavalière du poêle, porte grande ouverte, le briquet long dans la main droite.
+// 14 oct. : la main est une main simple (mains/moteur.js, prise-manche vue côté paume) au lieu du
+// calque s11 ; la charte : le foyer vu par la porte en gris loin, le flanc droit à l'ombre, et au
+// troisième temps la flèche rouge du tiroir qu'on remonte pour réduire l'air.
 // Les trois temps : le même poêle en coupe sur la profondeur (porte à gauche, tuyau au fond),
 // l'air qui entre sous la porte, les gaz qui montent et sortent par le tuyau.
 module.exports = (h) => {
@@ -138,6 +141,20 @@ module.exports = (h) => {
     return o.join('\n');
   };
 
+  // l'angle de la main simple qui met l'axe de sa prise sur `axe` (degrés à l'écran) et son avant-bras du
+  // côté de `vers` (le même outil que 104-40 et 50-40)
+  const poser = (o, axe, vers) => {
+    const base = Object.assign({}, o, { angle: 0, avantbras: { longueur: 100 } }); delete base.objet;
+    const e0 = h.formes.mainSimple(base); let best = null;
+    for (const k of [0, 180]) {
+      const a = axe - e0.prise.angle + k, m = h.formes.mainSimple(Object.assign({}, base, { angle: a }));
+      const d = [m.coude[0] - m.poignet[0], m.coude[1] - m.poignet[1]], v = [vers[0] - m.poignet[0], vers[1] - m.poignet[1]];
+      const c = (d[0] * v[0] + d[1] * v[1]) / ((Math.hypot(d[0], d[1]) * Math.hypot(v[0], v[1])) || 1);
+      if (!best || c > best.c) best = { a, c };
+    }
+    return best.a;
+  };
+
   // ── Le montage : le poêle porte ouverte, le briquet long ─────────────────────────────
   const PHI = 105 * Math.PI / 180, LP = 460, XH = -232;                // la porte, ouverte à 105°
   const TH = 24 * Math.PI / 180;
@@ -171,13 +188,15 @@ module.exports = (h) => {
       poly([P(x + 30, -100, zz), P(x + 30, -100, zz + 30), P(x + 30, -30, zz + 30), P(x + 30, -30, zz)], W(A.arete)),
     ].join('\n');
     o.push(patte(250, 430));
-    // l'intérieur, vu par la porte : sole, paroi de gauche, fond
+    // l'intérieur, vu par la porte : le gris loin du foyer (charte), puis sole, paroi de gauche, fond
+    o.push(poly([P(-215, 50, 0), P(215, 50, 0), P(215, 330, 0), P(-215, 330, 0)], A.loin));
     o.push(h.chemin([P(-280, 0, 0), P(-280, 0, 460), P(280, 0, 460)], A.detail));
     o.push(h.chemin([P(-280, 0, 460), P(-280, 380, 460)], A.detail));
     o.push(charge(P, s, 60, 0));
     // la caisse : dessus, flanc droit, façade percée de la porte
     o.push(poly([P(-280, 380, 0), P(280, 380, 0), P(280, 380, 460), P(-280, 380, 460)], W(A.contour)));
-    o.push(poly([P(280, -30, 0), P(280, -30, 460), P(280, 380, 460), P(280, 380, 0)], W(A.contour)));
+    const flanc = [P(280, -30, 0), P(280, -30, 460), P(280, 380, 460), P(280, 380, 0)];
+    o.push(poly(flanc, A.ombre), poly(flanc, A.contour));        // le flanc droit, à l'ombre (charte)
     const fac = [P(-280, -30, 0), P(280, -30, 0), P(280, 380, 0), P(-280, 380, 0)];
     const trou = [P(-215, 50, 0), P(215, 50, 0), P(215, 330, 0), P(-215, 330, 0)];
     o.push(`<path d="M${fac.map(pt).join(' L')} Z M${trou.map(pt).join(' L')} Z" fill="#FFFFFF" fill-rule="evenodd" ${A.contour.replace('fill="none"', '')}/>`);
@@ -210,7 +229,15 @@ module.exports = (h) => {
       h.path(`M${pt(L(14, 16.6))} L${pt(L(78, 16.9))} L${pt(L(78, 20.1))} L${pt(L(14, 20.4))} Z`, W(A.detail)),
       h.path(`M${pt(L(78, 17.3))} L${pt(L(84, 17.6))} L${pt(L(84, 19.4))} L${pt(L(78, 19.7))} Z`, A.plein),
     ].join('\n');
-    o.push(h.formes.main({ x: g.c[0], y: g.c[1], pose: 'prise', vue: 'dos', echelle: s * 0.95, angle: 24, diametre: 10 * g.k, bras: 110, objet: briquet }));
+    // la main droite (main simple, prise-manche) fermée sur la poignée du briquet, vue côté paume et
+    // tournée de 35° pour que les doigts s'enroulent à l'œil : la poignée entre par le bas du poing et
+    // ressort en haut, où part le tube ; le bras part en haut à gauche et sort de la vue. La main garde
+    // sa taille (s : la vue en mm), la prise se ferme sur la poignée de 25 mm (10 unités de briquet).
+    const BORD = { x0: 0, y0: 0, x1: z.l, y1: z.h };
+    const vM = add(g.c, WX, -600), ax = Math.atan2(AX[1], AX[0]) * 180 / Math.PI;
+    const oM = { x: g.c[0], y: g.c[1], pose: 'prise-manche', vue: 'paume', cote: 'droite', echelle: s, diametre: 25, rotation: [0, 35, 0] };
+    const aM = poser(oM, ax, vM);
+    o.push(h.formes.mainSimple({ ...oM, angle: aM, objet: briquet, avantbras: { vers: vM, bord: BORD, bras: { pli: 0 } } }).svg);
     o.push(flamme(g.bout[0] + 1, g.bout[1] + 1, 16 * g.k, 7 * g.k, 1));
     return o.join('\n');
   };
@@ -306,6 +333,8 @@ module.exports = (h) => {
     const tiroir = temps === 3 ? 28 : 0;
     o.push(R(-32, -48 + tiroir, -12, 0 + tiroir, W(A.arete)));
     { const q = T(-32, -24 + tiroir); o.push(h.cercle(q[0] - 2.6, q[1], 2.6, W(A.arete))); }
+    // le geste du troisième temps : remonter le tiroir, réduire l'air (charte : le rouge)
+    if (temps === 3) { const a = T(-50, -56), b = T(-50, 4); o.push(h.geste(`M${pt(a)} L${pt(b)}`)); }
     // le tuyau
     const yHaut = 4;
     o.push(h.ligne(T(300, 388)[0], T(0, 388)[1], T(300, 388)[0], yHaut, A.contour), h.ligne(T(440, 388)[0], T(0, 388)[1], T(440, 388)[0], yHaut, A.contour));

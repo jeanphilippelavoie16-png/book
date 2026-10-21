@@ -8,6 +8,17 @@
 // grand que le tuyau et plus petit que la plaque, cousue au fil de fer.
 // La charpente vue du bout : le chevalet en X lié au croisement, le faîte dans la fourche, les
 // traverses sur leurs piquets fourchus. Aucune cote : le chapitre n'en donne pas.
+//
+// La charte : dans la coupe de la collerette, l'intérieur du tuyau (son fond) en gris loin ; rien
+// sur le plan, la plaque à plat et les perches, trop minces. Le rouge : la toile au bord de la
+// plaque, cerclée — c'est là que le chapitre fait le test de la main. La flèche du vent reste noire.
+//
+// La coupe de la collerette a été redessinée le 14 octobre 2026 : le tuyau y prenait toute la hauteur
+// et la plaque, la toile et les points de fil de fer étaient trop petits pour se lire. Le tuyau est
+// coupé lui aussi (deux parois de tôle) et brisé juste au-delà de la plaque ; la plaque, en noir,
+// est décollée de la toile d'un filet blanc pour qu'on voie où la toile s'arrête ; le point de fil
+// de fer fait le tour du bord de la plaque par son trou. La plaque taillée passe à droite du plan,
+// où il y avait de la place, pour que la coupe et la charpente soient plus larges.
 
 module.exports = (h) => {
   const f = v => Math.round(v * 10) / 10;
@@ -22,8 +33,8 @@ module.exports = (h) => {
   const cordons = [0.25, 2.1, 3.95];
 
   const Pl = z => {
-    const k = Math.min((z.l - 10) / 8.8, (z.h - 8) / 7.1);
-    return { k, S: s => z.l / 2 + (s - 0.75) * k, Yp: l => z.h / 2 - (l + 0.35) * k };
+    const k = Math.min((z.l - 14) / 9.2, (z.h - 8) / 7.1);
+    return { k, S: s => z.l / 2 + (s - 0.975) * k, Yp: l => z.h / 2 - (l + 0.35) * k };
   };
   // Un corps mort vu de dessus : un bout de bois couché en travers du tirant.
   const barre = (S, Yp, k, s, l, ds, dl) => {
@@ -37,13 +48,17 @@ module.exports = (h) => {
   const R = 0.285, trou = 0.085, rt = 0.065;         // plaque, étoile, tuyau (m)
   const th = Math.atan(0.806);                         // pente du toit (même que 12-01a)
   const Fa = z => ({ k: Math.min(z.l - 16, z.h - 14) / (2 * R + 0.06), cx: z.l / 2, cy: z.h / 2 + 2 });
+  // La coupe : le tuyau coupé par deux brisures juste au-delà de la plaque, pour que la plaque, la
+  // toile et les languettes prennent la place. P(t, o) : à t mètres du tuyau le long du pan (vers
+  // le bas à droite), à o pixels au-dessus de la toile.
   const Co = z => {
-    const k = Math.min((z.l - 10) / 0.5, (z.h - 10) / 0.5);
-    const cx = z.l / 2, cy = z.h / 2 + 0.02 * k;
+    const hT = 0.215;                                  // le tuyau, de part et d'autre du centre (m)
+    const k = Math.min((z.l - 12) / 0.62, (z.h - 18) / (2 * hT));
+    const cx = z.l / 2, cy = z.h / 2;
     const u = [Math.cos(th), Math.sin(th)];          // le long du pan, vers le bas à droite (px)
     const n = [Math.sin(th), -Math.cos(th)];         // normale, vers le dehors (px)
     const P = (t, o = 0) => [cx + t * u[0] * k + o * n[0], cy + t * u[1] * k + o * n[1]];
-    return { k, cx, cy, u, n, P, trouP: (rt + 0.015) / Math.cos(th), ouv: 0.18 };
+    return { k, cx, cy, u, n, P, hT, trouP: (rt + 0.015) / Math.cos(th), ouv: 0.18, tH: R - 0.028 };
   };
 
   // ─── La charpente vue du bout.
@@ -64,9 +79,9 @@ module.exports = (h) => {
     titre: 'La tente à poêle : plan, collerette et charpente',
     desc: 'Vu de dessus, la porte à gauche et le fond à droite : le vent dominant arrive de biais par l’arrière, du côté du bas ; la porte est sous le vent, et l’entrée d’air, une boîte de conserve, traverse au ras du plancher le mur qui reçoit le vent, là où le renchaussement s’interrompt ; le renchaussement fait le tour du reste de la tente. Le poêle est près de la porte, du côté sous le vent ; trois haubans de fil de fer partent du tuyau vers trois corps morts, et les cordons des murs vont chacun à un corps mort, un bout de bois couché en travers du tirant et enfoui dans la neige foulée. La plaque taillée : un couvercle de baril aplati, une étoile taillée au centre au ciseau à froid, une rangée de trous au clou sur le pourtour. La collerette en coupe dans le pan du toit : le tuyau vertical passe dans l’étoile, dont les languettes sont rabattues vers le haut le long du tuyau ; la toile est découpée plus grand que le tuyau et plus petit que la plaque, et la plaque y est cousue au fil de fer par ses trous ; la toile ne touche jamais le tuyau. La charpente vue du bout : deux perches croisées en X et liées au croisement, le faîte posé dans la fourche au-dessus, et de chaque côté une traverse posée dans un piquet fourchu planté dans la neige foulée.',
     format: 'pleine',
-    disposition: [['plan'], ['face', 'coupe', 'charpente']],
+    disposition: [['plan', 'face'], ['coupe', 'charpente']],
     hauteurs: [1.3, 1],
-    largeurs: [[1], [1, 1, 1.2]],
+    largeurs: [[2.8, 1], [1.25, 1]],
     vues: {
       plan: {
         titre: 'Vu de dessus, la porte à gauche',
@@ -148,34 +163,55 @@ module.exports = (h) => {
       coupe: {
         titre: 'Cousue dans le pan, en coupe',
         dessin: z => {
-          const g = Co(z), { k, P, n, cx } = g, out = [];
-          // Le tuyau, vertical, à travers le pan.
-          out.push(h.rect(cx - rt * k, 4, 2 * rt * k, z.h - 8, blanc(h.a.arete)));
-          // La toile, ouverte plus grand que le tuyau et plus petit que la plaque.
-          const tm = (z.l / 2 - 3) / (k * Math.cos(th));
+          const g = Co(z), { k, P, cx, cy, hT } = g, out = [];
+          const E = 2.6, EP = 4;                       // la plaque : au-dessus de la toile, épaisseur (px)
+          // Le tuyau, coupé lui aussi : ses deux parois de tôle en noir, l'intérieur du fond en gris
+          // loin ; une brisure en zigzag en haut et en bas.
+          const xg = cx - rt * k, xd = cx + rt * k, yh = cy - hT * k, yb = cy + hT * k;
+          const zig = (y0, x0, x1, sg) => Array.from({ length: 7 }, (_, i) => [x0 + (x1 - x0) * i / 6, y0 + sg * (i % 2 ? 3 : -3)]);
+          out.push(poly([...zig(yh, xg, xd, 1), ...zig(yb, xd, xg, -1)], h.a.loin));
+          for (const x of [xg, xd - 2]) out.push(poly([[x, yh - 3], [x + 2, yh - 3], [x + 2, yb + 3], [x, yb + 3]], h.a.plein));
+          out.push(h.chemin(zig(yh, xg, xd, 1), h.a.detail), h.chemin(zig(yb, xd, xg, -1), h.a.detail));
+          // La toile, ouverte plus grand que le tuyau et plus petit que la plaque ; elle file hors de la vue.
+          const tm = (z.l / 2 - 2) / (k * Math.cos(th));
           out.push(h.chemin([P(-tm), P(-g.ouv)], h.a.arete));
           out.push(h.chemin([P(g.ouv), P(tm)], h.a.arete));
-          // La plaque par-dessus, trouée à peine plus grand que le tuyau.
-          for (const s of [-1, 1]) out.push(poly([P(s * g.trouP, 1.4), P(s * R, 1.4), P(s * R, 4.4), P(s * g.trouP, 4.4)], h.a.plein));
-          // Les languettes rabattues vers le haut, le long du tuyau.
-          for (const s of [-1, 1]) {
-            const [x0, y0] = P(s * g.trouP, 2.9);
-            out.push(h.ligne(x0 - s * 1.2, y0, x0 - s * 1.2, y0 - 0.07 * k, 'fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linecap="butt"'));
+          // La plaque, posée sur la toile, percée à peine plus grand que le tuyau ; à droite, le trou
+          // du point de couture.
+          const bande = (t0, t1) => poly([P(t0, E), P(t1, E), P(t1, E + EP), P(t0, E + EP)], h.a.plein);
+          out.push(bande(-R, -g.trouP));
+          out.push(bande(g.trouP, g.tH - 0.006), bande(g.tH + 0.006, R));
+          // Les languettes de l'étoile, rabattues vers le haut le long du tuyau.
+          for (const sg of [-1, 1]) {
+            const [x0, y0] = P(sg * g.trouP, E + EP / 2);
+            const xl = x0 - sg * 1.5;
+            out.push(poly([[xl - 1.5, y0], [xl + 1.5, y0], [xl + 1.5, y0 - 0.055 * k], [xl - 1.5, y0 - 0.055 * k]], h.a.plein));
           }
-          // Les points de fil de fer, par les trous de la plaque et à travers la toile.
-          for (const t of [-0.245, 0.245]) {
-            const a = P(t - 0.012, -4), b = P(t - 0.012, 8), c = P(t + 0.012, 8), d = P(t + 0.012, -4);
-            out.push(h.path(`M ${f(a[0])} ${f(a[1])} L ${f(b[0])} ${f(b[1])} L ${f(c[0])} ${f(c[1])} L ${f(d[0])} ${f(d[1])} Z`, h.a.detail));
-          }
+          // Le point de couture, à droite : le fil de fer descend par le trou de la plaque, traverse la
+          // toile, passe dessous, remonte à travers la toile au-delà du bord et revient par-dessus.
+          const t1 = g.tH, t2 = R + 0.024, oh = E + EP + 5, ob = -6;
+          const coins = [P(t1, oh), P(t1, ob), P(t2, ob), P(t2, oh)], r = 4;
+          const vers = (a, b, d) => { const L = Math.hypot(b[0] - a[0], b[1] - a[1]); return [a[0] + (b[0] - a[0]) * d / L, a[1] + (b[1] - a[1]) * d / L]; };
+          let dB = '';
+          coins.forEach((c, i) => {
+            const av = coins[(i + 3) % 4], ap = coins[(i + 1) % 4], e = vers(c, av, r), sx = vers(c, ap, r);
+            dB += `${i ? 'L' : 'M'} ${f(e[0])} ${f(e[1])} Q ${f(c[0])} ${f(c[1])} ${f(sx[0])} ${f(sx[1])} `;
+          });
+          out.push(h.path(dB + 'Z', h.a.arete));
+          // le test de la main : la toile, au bord de la plaque
+          out.push(h.controle(...P(-R - 0.012, 2), 11));
           return out.join('\n');
         },
         renvois: z => {
-          const g = Co(z), { k, P, cx } = g;
-          const [xl, yl] = P(-g.trouP, 2.9);
+          const g = Co(z), { k, P, cx, cy } = g;
+          const [xl, yl] = P(-g.trouP, 2.6 + 2);
+          const lang = [xl + 1.5, yl - 0.035 * k];
+          const pt = P((g.tH + R + 0.024) / 2, 2.6 + 4 + 5);
+          const bt = P(g.ouv + 0.003, -1);
           return [
-            { n: 10, rond: [cx - 0.17 * k, P(-0.1)[1] - 0.2 * k], cible: [xl + 1.2, yl - 0.05 * k], texte: 'languettes rabattues' },
-            { n: 11, rond: [P(0.245)[0] + 0.02 * k, P(0.245)[1] - 0.16 * k], cible: P(0.257, 8), texte: 'cousue à la toile au fil de fer' },
-            { n: 12, rond: [P(0.15)[0] + 0.02 * k, P(0.15)[1] + 0.2 * k], cible: P(g.ouv + 0.004, -1), texte: 'toile ouverte loin du tuyau' },
+            { n: 10, rond: [lang[0] - 46, lang[1] - 34], cible: [lang[0] - 2, lang[1]], texte: 'languettes rabattues' },
+            { n: 11, rond: [pt[0] + 22, pt[1] - 46], cible: pt, texte: 'cousue à la toile au fil de fer' },
+            { n: 12, rond: [bt[0] - 34, bt[1] + 48], cible: bt, texte: 'toile ouverte loin du tuyau' },
           ];
         },
       },

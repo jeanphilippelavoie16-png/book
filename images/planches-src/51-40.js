@@ -36,129 +36,232 @@ module.exports = (h) => {
     return x > L[0][0] ? L[0][1] : L[L.length - 1][1];
   };
 
-  // ─── Le porc-épic de profil, la tête à droite, le sol en y = 0 ───────────────────────────
-  // Unités locales : la bête fait 335 du nez au bout de la queue.
-  const CORPS = [
-    [161, -43], [159, -53], [151, -63], [136, -72], [116, -80], [92, -89], [56, -105], [12, -121], [-34, -129],
-    [-80, -119], [-113, -96], [-141, -72], [-164, -51], [-174, -40],
-    [-163, -33], [-136, -40], [-116, -48],
-    [-118, -34], [-113, -18], [-114, -6], [-108, 0], [-74, 0], [-70, -6], [-78, -20], [-72, -36],
-    [-40, -37], [0, -35], [38, -37],
-    [54, -35], [58, -18], [61, -5], [58, 0], [86, 0], [88, -7], [83, -20], [88, -38],
-    [106, -42], [126, -36], [144, -34], [156, -36],
-  ];
-  const DOS = [[116, -80], [92, -89], [56, -105], [12, -121], [-34, -129], [-80, -119], [-113, -96], [-141, -72], [-164, -51], [-174, -40]];
-  const LIMITE = [[116, -70], [100, -60], [80, -53], [40, -49], [0, -47], [-40, -48], [-80, -53], [-112, -58], [-140, -50], [-164, -43], [-174, -40]];
-  const longueurPiquant = (x) => 10 + 26 * Math.exp(-(((x + 45) / 85) ** 2)) + (x < -125 ? 5 : 0);
-
-  const piquantsProfil = (P) => {
-    const r = hasard(51);
-    const out = [];
-    const rangs = 8;
-    for (let k = 0; k < rangs; k++) {
-      const v = k / (rangs - 1);
-      for (let x = 110 - (k % 2) * 4; x > -172; x -= 7.5) {
-        const xj = x + (r() - 0.5) * 3;
-        const yT = surX(DOS, xj), yB = surX(LIMITE, xj);
-        if (yB - yT < 4 && k > 0) continue;
-        const B = [xj, yT + (yB - yT) * v + (r() - 0.5) * 2];
-        // tangente vers la queue, relevée de 32° en haut, de 8° en bas
-        const t = uni([-4, (surX(DOS, xj - 2) * (1 - v) + surX(LIMITE, xj - 2) * v) - (surX(DOS, xj + 2) * (1 - v) + surX(LIMITE, xj + 2) * v)]);
-        const leve = xj > 40 ? 0.35 + 0.65 * Math.max(0, (90 - xj) / 50) : 1;   // à plat sur la nuque
-        const d = tourne(t, (32 * (1 - v) + 8) * leve + (r() - 0.5) * 12);
-        const L = longueurPiquant(xj) * (1 - 0.4 * v) * (0.8 + r() * 0.4);
-        const B0 = k === 0 ? add(B, mul(d, -3)) : B;
-        out.push(h.path(`M${f(P(B0))} L${f(P(add(B, mul(d, L))))}`, k === 0 ? A.detail : A.fin));
-      }
-    }
-    return out.join('\n');
+  // ─── Les piquants et le jarre ─────────────────────────────────────────────────────────────
+  // Un piquant : une tige pâle, effilée, la pointe noire (c'est ce qui se voit sur la bête) ;
+  // le jarre : de longs poils fins qui dépassent les piquants sur le bas du dos et la croupe.
+  const piquant = (P, B, d, L, ep = 1) => {
+    const n = [-d[1], d[0]];
+    const T = add(B, mul(d, L)), M = add(B, mul(d, L * 0.7));
+    const w = 0.75 * ep;
+    return [
+      h.path(`M${f(P(B))} L${f(P(M))}`, A.fin),
+      h.chemin([P(add(M, mul(n, w))), P(T), P(add(M, mul(n, -w)))], A.plein, true),
+    ].join('\n');
   };
+  const poil = (P, B, d, L, courbe) => {
+    const n = [-d[1], d[0]];
+    const M = add(add(B, mul(d, L * 0.5)), mul(n, courbe)), T = add(add(B, mul(d, L)), mul(n, courbe * 0.4));
+    return h.path(`M${f(P(B))} Q${f(P(M))} ${f(P(T))}`, A.fin);
+  };
+
+  // un membre court et épais (a → b), puis la paume ou la plante, ses doigts et ses griffes
+  const pattePlante = (Q, s, r, a, b, w, plante, doigts) => {
+    const d = uni([b[0] - a[0], b[1] - a[1]]), n = [-d[1], d[0]];
+    const bras = [add(a, mul(n, w)), add(b, mul(n, w * 0.8)), add(b, mul(n, -w * 0.8)), add(a, mul(n, -w))];
+    const o = [h.path(lisse(bras.map(Q), true), blanc(A.arete))];
+    const c = add(b, mul(d, plante[0] * 0.5));
+    // la plante, nue et grenue
+    const pl = [];
+    for (let i = 0; i < 12; i++) { const t = i / 12 * Math.PI * 2; pl.push(add(c, add(mul(d, plante[0] * 0.55 * Math.cos(t)), mul(n, plante[1] * 0.5 * Math.sin(t))))); }
+    o.push(h.path(lisse(pl.map(Q), true), blanc(A.arete)));
+    for (let i = 0; i < 12; i++) {
+      const t = r() * Math.PI * 2, rr = Math.sqrt(r()) * 0.75;
+      o.push(h.cercle(...Q(add(c, add(mul(d, plante[0] * 0.5 * rr * Math.cos(t)), mul(n, plante[1] * 0.45 * rr * Math.sin(t))))), 0.8 * s, A.fin));
+    }
+    // les doigts, courts, serrés au bout de la plante, chacun avec sa griffe noire, longue et courbe
+    doigts.forEach((t) => {
+      const dd = tourne(d, t), nn = [-dd[1], dd[0]];
+      const base = add(c, mul(dd, plante[0] * 0.44)), bout = add(base, mul(dd, 7));
+      o.push(h.path(lisse([add(base, mul(nn, 3)), add(bout, mul(nn, 2.6)), add(bout, mul(dd, 2.4)), add(bout, mul(nn, -2.6)), add(base, mul(nn, -3))].map(Q), true), blanc(A.detail)));
+      const g0 = add(bout, mul(dd, 1.8)), dg = tourne(dd, 22);
+      const tip = add(add(g0, mul(dd, 7)), mul(dg, 5));
+      o.push(h.path(lisse([add(g0, mul(nn, 1.6)), add(add(g0, mul(dd, 6)), mul(nn, 1.2)), tip, add(add(g0, mul(dd, 5)), mul(nn, -0.6)), add(g0, mul(nn, -1.6))].map(Q), true), A.plein));
+    });
+    return o.join('\n');
+  };
+
+  // ─── Le porc-épic de profil, la tête à droite, le sol en y = 0 ───────────────────────────
+  // Le vrai porc-épic d'Amérique : trapu, le dos qui monte vers la croupe (le point haut est
+  // sur les hanches, pas sur les épaules), la tête petite, ronde et portée bas, le museau court
+  // et noir, l'œil petit, l'oreille presque cachée dans le poil, les pattes très courtes, le
+  // ventre à quelques centimètres du sol, les pieds à plat avec de longues griffes courbes, la
+  // queue courte et épaisse en massue. Unités : environ 350 du nez au bout de la queue.
+  // La peau du dos (sous le pelage), du crâne vers le bout de la queue
+  const PEAU = [[104, -78], [82, -92], [50, -105], [10, -116], [-30, -122], [-70, -118], [-104, -102], [-126, -84], [-140, -66], [-156, -56], [-172, -48], [-184, -40], [-188, -32]];
+  // la limite basse des piquants sur le flanc
+  const LIM = [[104, -62], [80, -54], [50, -47], [10, -43], [-30, -43], [-70, -47], [-104, -52], [-128, -50], [-146, -42], [-164, -38], [-180, -34], [-188, -32]];
+  const longueur = (x) => (x > 84 ? 6 + (104 - x) * 0.3 : 10 + 24 * Math.exp(-(((x + 75) / 90) ** 2)) - (x < -150 ? 4 : 0));
+  // la tête : du crâne au museau, puis la mâchoire jusqu'à la gorge
+  const TETE = [[104, -78], [118, -73], [131, -63], [140, -53], [146, -43], [145, -34], [136, -28], [122, -26], [106, -30], [96, -35]];
+  // le dessous : poitrail, ventre, fesse, dessous de la queue
+  const VENTRE = [[96, -35], [80, -30], [40, -24], [0, -22], [-40, -24], [-80, -32], [-112, -42], [-130, -40], [-150, -34], [-170, -28], [-182, -26], [-188, -32]];
+  // les pattes du côté proche
+  // les pattes du côté proche : seulement ce qui sort du pelage, le haut caché dans le corps
+  const AVANT = [[60, -40], [57, -24], [62, -9], [61, -2], [64, 0], [92, 0], [93, -3], [86, -7], [80, -12], [82, -26], [86, -40]];
+  const ARRIERE = [[-60, -46], [-62, -30], [-70, -14], [-58, -7], [-50, -3], [-52, 0], [-102, 0], [-107, -6], [-102, -20], [-104, -32], [-112, -44]];
 
   const porcProfil = (ox, oy, s) => {
     const P = (p) => [ox + s * p[0], oy + s * p[1]];
     const out = [];
-    // les pattes du côté loin, à peine décalées, derrière
-    const loin = (pts) => h.path(lisse(pts.map(P), true), blanc(A.detail));
-    out.push(loin([[-100, -30], [-96, -6], [-92, 0], [-62, 0], [-60, -6], [-68, -30]]));
-    out.push(loin([[64, -30], [68, -6], [66, 0], [94, 0], [95, -7], [90, -30]]));
-    out.push(h.path(lisse(CORPS.map(P), true), blanc(A.detail)));
-    // le contour appuyé des parties nues : queue dessous, pattes, ventre, poitrail, museau
-    const iNu = CORPS.findIndex((p) => p[0] === -163);
-    const nu = [...CORPS.slice(iNu), ...CORPS.slice(0, 5)];   // du dessous de la queue jusqu'au front
-    out.push(h.path(lisse(nu.map(P)), A.arete));
-    out.push(piquantsProfil(P));
-    // griffes
-    const griffe = (b, t) => h.path(`M${f(P(b))} Q${f(P(add(b, [t * 0.6, -1])))} ${f(P(add(b, [t, 3])))}`, A.detail);
-    [[86, -3], [84, -1.5], [82, 0]].forEach((b) => out.push(griffe(b, 9)));
-    [[-74, -3], [-76, -1.5], [-78, 0]].forEach((b) => out.push(griffe(b, 8)));
-    // la face : truffe, œil, bouche, oreille, moustaches
-    out.push(h.path(lisse([[161, -43], [160, -52], [154, -54], [151, -47], [154, -41]].map(P), true), A.plein));
-    out.push(h.cercle(...P([137, -60]), 2.8 * s, A.plein));
-    out.push(h.path(`M${f(P([155, -37]))} Q${f(P([150, -39]))} ${f(P([144, -37]))}`, A.detail));
-    out.push(h.path(`M${f(P([117, -72]))} Q${f(P([110, -84]))} ${f(P([103, -73]))}`, A.detail));
-    [[-7, 13], [-1, 15], [5, 13]].forEach(([dy, L]) => out.push(h.path(`M${f(P([152, -45]))} L${f(P([152 + L, -45 + dy]))}`, A.fin)));
+    const r = hasard(51);
+    // les pattes du côté loin, derrière, un peu décalées
+    const patte = (Q, dx, t) => {
+      const R = Q.map(([x, y]) => P([x + dx, y]));
+      return [h.path(lisse(R, true), A.blanc), h.path(lisse(R), t)].join('\n');
+    };
+    out.push(patte(AVANT, -14, A.detail), patte(ARRIERE, 12, A.detail));
+    // l'aplat du corps (sans trait sur le dos : c'est le pelage qui fait la ligne du dos)
+    const corps = [...TETE, ...VENTRE.slice(1), ...[...PEAU].reverse().slice(1, -1)];
+    out.push(h.path(lisse(corps.map(P), true), A.blanc));
+    // le trait de la tête, du poitrail, du ventre et du dessous de la queue
+    out.push(h.path(lisse([...TETE, ...VENTRE.slice(1)].map(P)), A.arete));
+    // le poil du ventre : court, raide, vers le bas
+    for (let x = 62; x > -110; x -= 6) {
+      const xj = x + (r() - 0.5) * 3, yh = surX(LIM, xj), yb = surX(VENTRE, xj);
+      for (let y = yh + 2 + r() * 3; y < yb - 5; y += 7) out.push(poil(P, [xj, y], uni([-0.25, 1]), 4 + r() * 2, 0.5));
+    }
+    // les pattes du côté proche, par-dessus
+    out.push(patte(AVANT, 0, A.arete), patte(ARRIERE, 0, A.arete));
+    // les piquants : neuf rangs du dos au flanc, couchés vers l'arrière, plus longs sur la croupe
+    const rangs = 9;
+    for (let k = rangs - 1; k >= 0; k--) {
+      const v = k / (rangs - 1);
+      for (let x = 102 - (k % 2) * 3; x > -190; x -= 5.8) {
+        const xj = x + (r() - 0.5) * 3;
+        const yT = surX(PEAU, xj), yB = surX(LIM, xj);
+        if (yB - yT < 5 && k > 0) continue;
+        const B = [xj, yT + (yB - yT) * v * 0.95 + (r() - 0.5) * 2];
+        const ta = uni([-4, surX(PEAU, xj - 2) - surX(PEAU, xj + 2)]);
+        const leve = xj > 84 ? 6 : xj > 40 ? 14 : xj > -150 ? 24 : 14;
+        const d = tourne(ta, leve * (1 - 0.6 * v) + (r() - 0.5) * 12);
+        const L = longueur(xj) * (1 - 0.4 * v) * (0.8 + r() * 0.4);
+        out.push(piquant(P, B, d, L, xj > 84 ? 0.7 : 1));
+      }
+    }
+    // le jarre : longs poils fins qui dépassent les piquants, du milieu du dos à la croupe
+    for (let x = 30; x > -150; x -= 4.5) {
+      const xj = x + (r() - 0.5) * 3;
+      const B = [xj, surX(PEAU, xj) + 3 + r() * 8];
+      const ta = uni([-4, surX(PEAU, xj - 2) - surX(PEAU, xj + 2)]);
+      const d = tourne(ta, 32 + (r() - 0.5) * 20);
+      const L = (longueur(xj) + 14) * (0.8 + r() * 0.4) * (xj > -10 ? 0.75 : 1);
+      out.push(poil(P, B, d, L, (r() - 0.3) * 6));
+    }
+    // la tête : poil court et serré des joues et du front, couché vers l'arrière
+    for (let i = 0; i < 34; i++) {
+      const B = [98 + r() * 34, -72 + r() * 42];
+      const yHaut = B[0] < 118 ? -76 + (B[0] - 104) * 0.3 : -73 + (B[0] - 118) * 0.77;
+      if (B[1] < yHaut + 5 || B[1] > -31 || B[0] > 132 - (B[1] + 50) * 0.3) continue;
+      if (Math.hypot(B[0] - 121, B[1] + 57) < 6) continue;
+      out.push(poil(P, B, uni([-1, -0.35 + (B[1] + 52) * 0.025]), 4 + r() * 2, 0.6));
+    }
+    // griffes : longues et courbes, devant les doigts
+    const griffe = (b, L) => h.path(lisse([add(b, [0, -1.8]), add(b, [L * 0.6, -2.2]), add(b, [L, 2.2]), add(b, [L * 0.5, 0]), add(b, [0, 1])].map(P), true), A.plein);
+    [[92, -4.5], [91, -2.5]].forEach((b) => out.push(griffe(b, 11)));
+    [[-51, -4.5], [-52, -2.5]].forEach((b) => out.push(griffe(b, 10)));
+    out.push(h.path(`M${f(P([84, -6]))} L${f(P([85, -1]))}`, A.fin), h.path(`M${f(P([-58, -6]))} L${f(P([-59, -1]))}`, A.fin));
+    // la face : le museau noir et rond, la bouche, l'œil petit, l'oreille ronde à demi cachée
+    out.push(h.path(lisse([[146, -43], [141, -53], [134, -54], [131, -46], [133, -37], [139, -32], [145, -34]].map(P), true), A.plein));
+    out.push(h.path(`M${f(P([139, -28]))} Q${f(P([134, -30]))} ${f(P([127, -28]))}`, A.detail));
+    out.push(h.cercle(...P([121, -57]), 2.5 * s, A.plein));
+    out.push(h.path(lisse([[106, -66], [104, -75], [97, -77], [94, -69]].map(P)), A.detail));
+    [[-9, 18], [-2, 20], [5, 17]].forEach(([dy, L]) => out.push(h.path(`M${f(P([142, -40]))} Q${f(P([142 + L * 0.6, -40 + dy * 0.4]))} ${f(P([142 + L, -40 + dy]))}`, A.fin)));
     return { svg: out.join('\n'), P };
   };
 
   // ─── Le porc-épic vu de face (le museau vers l'œil), debout : centre du corps (0, -60) ───
-  const FACE_CORPS = [[-68, -8], [-78, -42], [-70, -84], [-42, -112], [0, -121], [42, -112], [70, -84], [78, -42], [68, -8], [36, -2], [-36, -2]];
+  // Derrière la tête, le dos en dôme hérissé ; devant, la tête ronde et large, le museau noir
+  // court, les yeux petits et écartés, les oreilles rondes à demi dans le poil, les pattes
+  // de devant courtes sous les joues, les griffes au sol.
+  const FACE_PEAU = [[-52, -16], [-66, -34], [-72, -58], [-66, -84], [-46, -108], [-16, -120], [16, -120], [46, -108], [66, -84], [72, -58], [66, -34], [52, -16]];
   const porcFace = (ox, oy, s, rot, sol) => {
     // rot : rotation de la bête autour du centre de son corps ; sol : y du sol dans la vue
     const C = [0, -60];
     const P = (p) => { const q = tourne([p[0] - C[0], p[1] - C[1]], rot); return [ox + s * q[0], oy + s * q[1]]; };
     const out = [];
     const r = hasard(7 + Math.round(rot));
-    const sousSol = (p) => p[1] > sol - 1;
-    // les piquants : en rayons autour du dos et des flancs
-    const pq = [];
-    for (let k = 0; k < 5; k++) {
-      const rr = 0.62 + k * 0.1;
-      for (let th = -198 + (k % 2) * 4; th <= 18; th += 7) {
+    const sousSol = (p) => p[1] > sol - 1.5;
+    // l'aplat du corps
+    out.push(h.path(lisse([...FACE_PEAU, [30, -10], [-30, -10]].map(P), true), A.blanc));
+    // les piquants, en rayons autour du dôme : de la peau vers l'extérieur, plus longs en haut
+    const rayon = (t) => {   // point de la peau dans la direction t (degrés, 0 = droite, -90 = haut)
+      const a = t * Math.PI / 180;
+      return [72 * Math.cos(a) * (1 - 0.08 * Math.abs(Math.sin(a))), -60 + 60 * Math.sin(a)];
+    };
+    // vus de face, les piquants fuient vers l'arrière : courts sur le dôme (raccourcis), plus
+    // longs au bord, où on les voit de côté
+    for (let k = 0; k <= 5; k++) {
+      const rr = 0.42 + k * 0.115;
+      for (let th = -205 + (k % 2) * 3; th <= 25; th += 7 - k * 0.5) {
         const t = th + (r() - 0.5) * 4, a = t * Math.PI / 180;
-        const B = [C[0] + 74 * rr * Math.cos(a), C[1] + 60 * rr * Math.sin(a)];
-        const d = tourne([Math.cos(a), Math.sin(a)], (r() - 0.5) * 16);
-        const L = (k === 4 ? 26 : 13) * (0.8 + r() * 0.4) * (Math.sin(a) < 0 ? 1 : 0.7);
+        const B = add(C, mul(add(rayon(t), [-C[0], -C[1]]), rr));
+        if (Math.abs(B[0]) < 34 && B[1] > -78) continue;   // derrière la tête
+        const d = tourne([Math.cos(a), Math.sin(a)], (r() - 0.5) * 22);
+        const L = (k === 5 ? 15 : 5 + k * 1.4) * (0.75 + r() * 0.5);
         const E = add(B, mul(d, L));
         if (sousSol(P(E)) || sousSol(P(B))) continue;
-        pq.push(h.path(`M${f(P(B))} L${f(P(E))}`, k === 4 ? A.detail : A.fin));
+        out.push(piquant(P, B, d, L, 0.9));
       }
     }
-    // pattes de devant, sous le poitrail, griffes vers le sol
-    const patte = (sx) => {
-      const Q = [[26, -30], [24, -8], [22, 0], [44, 0], [42, -8], [44, -30]].map(([x, y]) => [sx * x, y]);
-      const g = [26, 31, 36, 41].map((x) => h.path(`M${f(P([sx * x, -1]))} Q${f(P([sx * (x + 1), 3]))} ${f(P([sx * x, 7]))}`, A.detail));
-      return [h.path(lisse(Q.map(P), true), blanc(A.arete)), ...g].join('\n');
-    };
-    out.push(h.path(lisse(FACE_CORPS.map(P), true), blanc(A.detail)));
-    out.push(pq.join('\n'));
-    // le poitrail et le ventre, nus, au trait
-    out.push(h.path(lisse([[-66, -30], [-60, -12], [-36, -3], [0, -1], [36, -3], [60, -12], [66, -30]].map(P)), A.arete));
+    // le jarre, sur le haut du dôme
+    for (let th = -170; th <= -10; th += 4) {
+      const t = th + (r() - 0.5) * 3, a = t * Math.PI / 180;
+      const B = rayon(t), d = tourne([Math.cos(a), Math.sin(a)], (r() - 0.5) * 24);
+      const L = 22 * (0.8 + r() * 0.4);
+      if (sousSol(P(add(B, mul(d, L))))) continue;
+      out.push(poil(P, B, d, L, (r() - 0.5) * 8));
+    }
+    // le poil du ventre, sous la tête
+    for (let x = -50; x <= 50; x += 6) {
+      const B = [x + (r() - 0.5) * 3, -28 - r() * 6];
+      if (Math.abs(B[0]) < 34) continue;
+      if (!sousSol(P(B))) out.push(poil(P, B, uni([Math.sign(x) * 0.3, 1]), 6, 0.4));
+    }
+    out.push(h.path(lisse([[-66, -34], [-52, -16], [-30, -11], [30, -11], [52, -16], [66, -34]].map(P)), A.arete));
+    // les pattes de devant, courtes, sous les joues : la plante nue, les griffes
+    const patte = (sx) => pattePlante(P, s, r, [sx * 30, -40], [sx * 34, -18], 8, [18, 17], [-28, -9, 9, 28]);
     out.push(patte(1), patte(-1));
     // la tête
-    const TETE = [[0, -84], [22, -78], [30, -60], [26, -42], [14, -28], [0, -24], [-14, -28], [-26, -42], [-30, -60], [-22, -78]];
-    [1, -1].forEach((sx) => out.push(h.path(lisse([[sx * 18, -79], [sx * 30, -86], [sx * 36, -74], [sx * 28, -68]].map(P), true), blanc(A.detail))));
-    out.push(h.path(lisse(TETE.map(P), true), blanc(A.arete)));
-    out.push(h.ellipse(...P([0, -34]), 7.5 * s, 5.5 * s, A.plein));
-    out.push(h.cercle(...P([-13, -58]), 2.8 * s, A.plein), h.cercle(...P([13, -58]), 2.8 * s, A.plein));
-    out.push(h.path(`M${f(P([-7, -26.5]))} Q${f(P([0, -24]))} ${f(P([7, -26.5]))}`, A.fin));
-    // petits piquants du front
-    for (let x = -14; x <= 14; x += 5) out.push(h.path(`M${f(P([x, -80]))} L${f(P([x * 1.3, -90]))}`, A.fin));
+    const TETE = [[0, -84], [16, -82], [27, -74], [31, -60], [28, -46], [21, -34], [12, -25], [0, -22], [-12, -25], [-21, -34], [-28, -46], [-31, -60], [-27, -74], [-16, -82]];
+    out.push(h.path(lisse(TETE.map(P), true), A.blanc));
+    // le contour des joues et de la mâchoire ; le haut de la tête se perd dans les piquants
+    out.push(h.path(lisse(TETE.slice(2, 13).map(P)), A.arete));
+    // le poil des joues et du front, serré, couché vers l'extérieur
+    for (let i = 0; i < 90; i++) {
+      const a = (-200 + r() * 220) * Math.PI / 180, rr = 0.35 + r() * 0.6;
+      const B = [28 * rr * Math.cos(a), -56 + 28 * rr * Math.sin(a)];
+      if (Math.abs(B[0]) < 16 && B[1] > -52) continue;            // le museau
+      if (Math.hypot(Math.abs(B[0]) - 13, B[1] + 58) < 5) continue;  // les yeux
+      out.push(poil(P, B, uni([Math.cos(a), Math.sin(a) - 0.3]), 4 + r() * 3, 0.3));
+    }
+    // les piquants du crâne : ils commencent au-dessus des yeux et couvrent le haut de la tête
+    for (let k = 0; k < 2; k++) {
+      for (let t = -170; t <= -10; t += 7) {
+        const a = (t + (r() - 0.5) * 4) * Math.PI / 180;
+        const B = [(18 + k * 6) * Math.cos(a), -66 + (12 + k * 8) * Math.sin(a)];
+        out.push(piquant(P, B, tourne([Math.cos(a), Math.sin(a)], (r() - 0.5) * 16), 8 + k * 5 + r() * 4, 0.8));
+      }
+    }
+    // le museau : la truffe noire, large et ronde ; la bouche dessous
+    out.push(h.path(lisse([[0, -46], [8, -45], [11, -40], [9, -34], [0, -31], [-9, -34], [-11, -40], [-8, -45]].map(P), true), A.plein));
+    out.push(h.path(`M${f(P([-7, -27]))} Q${f(P([0, -24]))} ${f(P([7, -27]))}`, A.detail));
+    out.push(h.cercle(...P([-14, -60]), 2.3 * s, A.plein), h.cercle(...P([14, -60]), 2.3 * s, A.plein));
     return { svg: out.join('\n'), P };
   };
 
   // ─── Vue 1 : de profil, les zones sans piquants ──────────────────────────────────────────
   const profil = (z) => {
-    const s = Math.min((z.l - 20) / 345, (z.h - 14) / 170);
-    const ox = z.l / 2 + 6 * s, oy = z.h - 8;
+    const s = Math.min((z.l - 20) / 372, (z.h - 14) / 162);
+    const ox = z.l / 2 + 12 * s, oy = z.h - 8;
     const b = porcProfil(ox, oy, s);
-    const svg = [h.ligne(ox - 185 * s, oy, ox + 172 * s, oy, A.detail), b.svg].join('\n');
+    const svg = [h.ligne(ox - 200 * s, oy, ox + 172 * s, oy, A.detail), b.svg].join('\n');
     const P = b.P;
     return {
       svg,
       renvois: [
-        { n: 1, rond: P([150, -110]), cible: P([146, -52]), texte: 'museau nu' },
-        { n: 2, rond: add(P([112, -10]), [6, 0]), cible: P([86, -12]), texte: 'pattes nues' },
-        { n: 3, rond: P([12, -8]), cible: P([4, -37]), texte: 'dessous du corps nu' },
+        { n: 1, rond: P([154, -92]), cible: P([140, -44]), texte: 'museau nu' },
+        { n: 2, rond: add(P([122, -12]), [6, 0]), cible: P([81, -16]), texte: 'pattes nues' },
+        { n: 3, rond: P([0, -10]), cible: P([-24, -24]), texte: 'dessous du corps nu' },
       ],
     };
   };
@@ -171,99 +274,110 @@ module.exports = (h) => {
     const s = Math.min((z.l - 80) / 160, (z.h - 30) / 186);
     const out = [h.ligne(6, sol, z.l - 6, sol, A.detail)];
     const xa = z.l - 10 - 90 * s, ya = sol - 76 * s;
-    // le bâton d'abord : la bête le cache là où il passe sous elle
-    const t0 = [xa - 10 * s, sol - 4], dirB = uni([-1, -0.66]);
-    const t1 = add(t0, mul(dirB, (t0[0] - 8) / 0.835));
-    const n = [-dirB[1], dirB[0]], e = 4.6;
-    out.push(h.chemin([add(t0, mul(n, e)), add(t1, mul(n, e)), add(t1, mul(n, -e)), add(t0, mul(n, -e))], blanc(A.arete), true));
     const a = porcFace(xa, ya, s, 90, sol);
+    // le bâton passe sous le flanc du ventre, entre la bête et le sol, la pointe au-delà
+    const t0 = [xa - 4 * s, sol - 4], dirB = uni([-1, -0.3]);
+    const t1 = add(t0, mul(dirB, (t0[0] - 8) / Math.abs(dirB[0])));
+    const n = [-dirB[1], dirB[0]], e = 4.2;
+    out.push(h.chemin([add(t0, mul(n, e)), add(t1, mul(n, e)), add(t1, mul(n, -e)), add(t0, mul(n, -e))], blanc(A.contour), true));
     out.push(a.svg);
     // on soulève le bâton : la bête roule sur le dos (flèche par-dessus, de gauche à droite)
     const c = [xa, ya], R = 108 * s;
     const pol = (deg) => add(c, [R * Math.cos(deg * Math.PI / 180), R * Math.sin(deg * Math.PI / 180)]);
     out.push(h.fleche(`M${f(pol(-158))} A${R.toFixed(1)} ${R.toFixed(1)} 0 0 1 ${f(pol(-40))}`));
-    const lv = lerp(t0, t1, 0.8);
-    out.push(h.fleche(`M${f(add(lv, [-2, 12]))} L${f(add(lv, [-2, -18]))}`));
+    const lv = lerp(t0, t1, 0.88);
+    // le geste : soulever le bâton
+    out.push(h.geste(`M${f(add(lv, [-2, 12]))} L${f(add(lv, [-2, -18]))}`));
     return {
       svg: out.join('\n'),
       renvois: [
-        { n: 4, rond: add(lerp(t0, t1, 0.42), [14, 18]), cible: lerp(t0, t1, 0.42), texte: 'bâton glissé côté ventre' },
+        { n: 4, rond: add(lerp(t0, t1, 0.5), [-6, -40]), cible: lerp(t0, t1, 0.5), texte: 'bâton glissé côté ventre' },
       ],
     };
   };
 
   // ─── Vue 3 : sur le dos, vue de dessus : le ventre nu et l'incision ──────────────────────
   const dessous = (z) => {
-    const s = Math.min((z.h - 12) / 392, (z.l - 10) / 296);
-    const ox = z.l / 2, oy = z.h / 2 + 14 * s;
+    const s = Math.min((z.h - 12) / 384, (z.l - 8) / 264);
+    const ox = z.l / 2, oy = z.h / 2 + 8 * s;
     const P = (p) => [ox + s * p[0], oy + s * p[1]];
     const Pm = (p) => P([-p[0], p[1]]);
     const out = [];
     const r = hasard(3);
     // les bûches, de chaque côté
     const buche = (sx) => {
-      const x0 = sx * 128, w = 20;
-      const pts = [[x0 - w, -118], [x0 + w, -118], [x0 + w, 124], [x0 - w, 124]].map(P);
+      const x0 = sx * 112, w = 15;
+      const pts = [[x0 - w, -120], [x0 + w, -120], [x0 + w, 124], [x0 - w, 124]].map(P);
       const ecorce = [];
       for (let i = -1; i <= 1; i++) {
-        const x = x0 + i * 9;
-        ecorce.push(h.path(`M${f(P([x, -108 + Math.abs(i) * 16]))} L${f(P([x + 1, 10 + i * 12]))}`, A.fin));
+        const x = x0 + i * 8;
+        ecorce.push(h.path(`M${f(P([x, -110 + Math.abs(i) * 16]))} L${f(P([x + 1, 10 + i * 12]))}`, A.fin));
         ecorce.push(h.path(`M${f(P([x - 1, 36 + i * 10]))} L${f(P([x, 114 - Math.abs(i) * 14]))}`, A.fin));
       }
       return [h.chemin(pts, blanc(A.arete), true), ...ecorce].join('\n');
     };
     out.push(buche(-1), buche(1));
-    // le corps, vu par le ventre
-    const cote = [[0, -178], [13, -173], [25, -156], [33, -134], [40, -113], [62, -88], [76, -50], [80, 0], [76, 50], [64, 88], [48, 114], [26, 133],
-      [22, 165], [13, 193], [0, 203]];
+    // le corps vu par le ventre : la tête courte et ronde, le cou épais, le corps en poire, large
+    // aux hanches, la queue courte et épaisse
+    const cote = [[0, -164], [11, -162], [21, -154], [29, -140], [35, -124], [40, -110], [52, -94], [64, -68], [74, -32], [80, 8], [80, 48], [72, 84], [56, 108], [32, 124],
+      [27, 136], [26, 152], [20, 168], [0, 174]];
     const contour = [...cote, ...cote.slice(1, -1).reverse().map(([x, y]) => [-x, y])];
-    // la frange de piquants des flancs, écrasés vers l'extérieur par la bête couchée sur le dos
+    // la frange de piquants : la bête couchée dessus, ils débordent des flancs, vers l'arrière
     const demi = cote.map(([x, yy]) => [-yy, x]);
     const frange = [];
-    for (let k = 0; k < 2; k++) {
-      for (let y = -126; y <= 196; y += 6.5) {
-        const yj = y + (k ? 3 : 0) + (r() - 0.5) * 2;
+    for (let k = 0; k < 3; k++) {
+      for (let y = -134; y <= 166; y += 4.5) {
+        const yj = y + k * 1.7 + (r() - 0.5) * 2;
         const xb = surX(demi, -yj);
-        const L = (y < -100 ? 14 : y > 135 ? 16 : 24) * (0.8 + r() * 0.4) * (k ? 0.7 : 1);
+        const L = (y < -90 ? 12 : y > 128 ? 16 : 22 + 14 * Math.exp(-(((y - 50) / 80) ** 2))) * (0.8 + r() * 0.4) * (1 - k * 0.2);
         [1, -1].forEach((sx) => {
-          const B = [sx * (xb - 6), yj];
-          const d = uni([sx * 1, 0.55 + (r() - 0.5) * 0.4 + (y > 135 ? 0.6 : 0)]);
-          frange.push(h.path(`M${f(P(B))} L${f(P(add(B, mul(d, L + 6))))}`, k ? A.fin : A.detail));
+          const B = [sx * (xb - 4 - k * 2), yj];
+          const d = uni([sx * 1, 0.5 + (r() - 0.5) * 0.5 + (y > 128 ? 0.5 : 0) + (y < -90 ? 0.3 : 0)]);
+          frange.push(piquant(P, B, d, L + 4));
         });
       }
     }
+    // le jarre qui dépasse sur les hanches
+    for (let y = 0; y <= 110; y += 5) [1, -1].forEach((sx) => {
+      const B = [sx * (surX(demi, -y) - 2), y];
+      frange.push(poil(P, B, uni([sx * 1, 0.7 + (r() - 0.5) * 0.4]), 34 * (0.8 + r() * 0.4), sx * (r() - 0.5) * 8));
+    });
     out.push(frange.join('\n'));
-    // les pattes, levées : devant près du poitrail, derrière vers le bas
-    const patteAv = [[58, -92], [84, -108], [98, -122], [110, -128], [112, -118], [102, -104], [80, -80], [70, -70]];
-    const patteAr = [[62, 70], [90, 88], [110, 106], [120, 116], [112, 126], [96, 116], [72, 102], [52, 98]];
-    const griffes = (Q, base, dir) => base.map((b) => { const e = add(b, mul(uni(dir), 10)); return h.path(`M${f(Q(b))} Q${f(Q(add(lerp(b, e, 0.5), [2, -1])))} ${f(Q(e))}`, A.detail); });
-    const gAv = [[108, -127], [111, -123], [112.5, -119], [111, -115]], dAv = [1, -0.6];
-    const gAr = [[119, 117], [118, 121], [115, 124], [112, 126], [108, 125]], dAr = [0.8, 0.8];
+    // les pattes, molles, ouvertes vers l'extérieur : la paume et la plante en l'air, nues, grenues
     [P, Pm].forEach((Q) => {
-      out.push(h.path(lisse(patteAv.map(Q), true), blanc(A.arete)), ...griffes(Q, gAv, dAv));
-      out.push(h.path(lisse(patteAr.map(Q), true), blanc(A.arete)), ...griffes(Q, gAr, dAr));
+      out.push(pattePlante(Q, s, r, [48, -90], [66, -106], 11, [28, 26], [-39, -13, 13, 39]));
+      out.push(pattePlante(Q, s, r, [62, 72], [80, 88], 13, [36, 26], [-40, -20, 0, 20, 40]));
     });
     out.push(h.path(lisse(contour.map(P), true), blanc(A.arete)));
-    // le museau vu par-dessous : la truffe au bout, la bouche
-    out.push(h.ellipse(...P([0, -170]), 7 * s, 5 * s, A.plein));
-    out.push(h.path(`M${f(P([-9, -152]))} Q${f(P([0, -146]))} ${f(P([9, -152]))}`, A.detail));
-    // la queue : ses soies dessous
-    for (let y = 150; y <= 192; y += 8) out.push(h.path(`M${f(P([-8, y]))} L${f(P([0, y + 6]))} L${f(P([8, y]))}`, A.fin));
+    // le poil court du ventre, couché vers la queue, sauf sur la ligne médiane
+    for (let y = -100; y <= 112; y += 8) {
+      const xmax = surX(demi, -y) - 8;
+      for (let x = 12 + (y % 16 ? 4 : 0); x < xmax; x += 10) [1, -1].forEach((sx) => {
+        const B = [sx * (x + (r() - 0.5) * 3), y + (r() - 0.5) * 3];
+        out.push(poil(P, B, uni([sx * 0.25, 1]), 5 + r() * 2, 0.3));
+      });
+    }
+    // la tête par-dessous : le menton, la truffe au bout, la bouche
+    out.push(h.path(lisse([[0, -172], [8, -171], [11, -165], [6, -161], [0, -162], [-6, -161], [-11, -165], [-8, -171]].map(P), true), A.plein));
+    out.push(h.path(`M${f(P([-10, -154]))} Q${f(P([0, -149]))} ${f(P([10, -154]))}`, A.detail));
+    out.push(h.path(`M${f(P([-22, -126]))} Q${f(P([0, -116]))} ${f(P([22, -126]))}`, A.fin));
+    // la queue : ses soies raides dessous
+    for (let y = 134; y <= 162; y += 5) [-12, -6, 0, 6, 12].forEach((x) => { if (Math.abs(x) < 20 - (y - 134) * 0.3) out.push(poil(P, [x + (r() - 0.5) * 2, y], uni([x * 0.02, 1]), 6, 0.3)); });
     // l'anus
-    out.push(h.ellipse(...P([0, 128]), 3 * s, 4 * s, A.detail));
+    out.push(h.ellipse(...P([0, 118]), 3 * s, 4 * s, A.detail));
     // l'incision : ligne médiane de la gorge à l'anus, puis chaque patte par l'intérieur
-    out.push(h.path(`M${f(P([0, -128]))} L${f(P([0, 122]))}`, A.cache));
+    out.push(h.path(`M${f(P([0, -116]))} L${f(P([0, 112]))}`, A.cache));
     const branche = (Q, pts, anneau) => [h.path(lisse(pts.map(Q)), A.cache), h.path(lisse(anneau.map(Q), true), A.cache)].join('\n');
     [P, Pm].forEach((Q) => {
-      out.push(branche(Q, [[0, -62], [34, -72], [64, -86], [86, -104], [98, -112]], [[94, -120], [104, -116], [102, -106], [92, -110]]));
-      out.push(branche(Q, [[0, 106], [34, 100], [62, 94], [84, 102], [100, 112]], [[98, 104], [106, 112], [100, 122], [92, 114]]));
+      out.push(branche(Q, [[0, -60], [26, -70], [44, -84], [57, -96]], [[52, -107], [64, -110], [68, -97], [56, -93]]));
+      out.push(branche(Q, [[0, 100], [30, 96], [52, 90], [70, 84]], [[66, 72], [80, 74], [80, 92], [66, 92]]));
     });
     return {
       svg: out.join('\n'),
       renvois: [
-        { n: 5, rond: P([128, -150]), cible: P([128, -104]), texte: 'deux bûches qui la calent' },
-        { n: 6, rond: P([36, 12]), cible: P([0, -8]), texte: 'incision, gorge à l’anus' },
-        { n: 7, rond: P([-52, 70]), cible: Pm([40, 99]), texte: 'les pattes, par l’intérieur' },
+        { n: 5, rond: P([112, -150]), cible: P([112, -96]), texte: 'deux bûches qui la calent' },
+        { n: 6, rond: P([36, 20]), cible: P([0, 0]), texte: 'incision, gorge à l’anus' },
+        { n: 7, rond: P([-50, 66]), cible: Pm([40, 96]), texte: 'les pattes, par l’intérieur' },
       ],
     };
   };
@@ -301,12 +415,14 @@ module.exports = (h) => {
     const a = (sg, s) => Q(-s, sg * (w + 0.3 + s * 0.02));
     const b = (sg, s) => Q(-s, sg * (w + 0.3 + s * 0.02 + 11));
     [1, -1].forEach((sg) => {
-      out.push(h.chemin([a(sg, smax), a(sg, 3), b(sg, 3), b(sg, smax)], blanc(A.arete)));
+      out.push(h.chemin([a(sg, smax), a(sg, 3), b(sg, 3), b(sg, smax)], blanc(A.contour)));
       out.push(h.chemin([a(sg, smax), add(lerp(a(sg, smax), b(sg, smax), 0.35), mul(dIn, 3)), add(lerp(a(sg, smax), b(sg, smax), 0.65), mul(dIn, -3)), b(sg, smax)], A.detail));
     });
     // tirer d'un coup sec, dans l'axe
     const f0 = add(Q(-40, 0), mul(nq, -30)), f1 = add(Q(-100, 0), mul(nq, -30));
-    out.push(h.fleche(`M${f(f0)} L${f(f1)}`));
+    out.push(h.geste(`M${f(f0)} L${f(f1)}`));
+    // le point qui décide : la pince serre au ras de la peau, pas plus haut
+    out.push(h.controle(...Q(-4, 0), 17));
     // le bout de bois qui retient la peau, à gauche
     const bw = 7;
     out.push(h.chemin([[xb - bw - 10, 8], [xb - bw, surf(xb) - 0.5], [xb + bw, surf(xb) - 0.5], [xb + bw - 10, 8]], blanc(A.arete)));
@@ -318,7 +434,7 @@ module.exports = (h) => {
         { n: 8, rond: add(Q(-18, 0), mul(nq, 30)), cible: Q(-10, w + 8), texte: 'pince au ras de la peau' },
         { n: 9, rond: [xb - bw - 26, ys - 18], cible: [xb - 8, ys - 14], texte: 'bois qui retient la peau' },
         { n: 10, rond: add(pointe, [-30, 2]), cible: Q(Lin - 12, w + 1), texte: 'aiguillons, dans la chair' },
-        { n: 11, rond: add(f1, add(mul(nq, -14), mul(dIn, -2))), cible: lerp(f0, f1, 0.8), texte: 'coup sec, dans l’axe' },
+        { n: 11, rond: add(f1, add(mul(nq, -24), mul(dIn, 4))), cible: lerp(f0, f1, 0.8), texte: 'coup sec, dans l’axe' },
       ],
     };
   };
@@ -334,14 +450,21 @@ module.exports = (h) => {
     const gC = 3.4, ouv = 6;               // demi-écart au coin, demi-écart de plus aux mâchoires
     const ecart = (y) => (y <= yF ? 0 : y <= yC ? gC * (y - yF) / (yC - yF) : gC + ouv * (y - yC) / (yb - yC));
     // le bout non fendu, en haut, arrondi
-    out.push(h.path(`M${f([cx - r, yF + 1])} L${f([cx - r, yh + 5])} Q${f([cx, yh - 4])} ${f([cx + r, yh + 5])} L${f([cx + r, yF + 1])}`, blanc(A.arete)));
+    const dHaut = `M${f([cx - r, yF + 1])} L${f([cx - r, yh + 5])} Q${f([cx, yh - 4])} ${f([cx + r, yh + 5])} L${f([cx + r, yF + 1])}`;
+    out.push(h.path(dHaut, A.blanc));
+    // la face de droite du bâton, à l'ombre
+    out.push(h.chemin([[cx + r * 0.45, yh + 2], [cx + r, yh + 5], [cx + r, yF + 1], [cx + r * 0.45, yF + 1]], A.ombre, true));
+    out.push(h.path(dHaut, A.contour));
     // les deux moitiés, de la fente aux mâchoires
     const moitie = (sg) => {
       const pts = [];
       for (let y = yF; y < yb; y += 4) pts.push([cx + sg * ecart(y), y]);
       pts.push([cx + sg * ecart(yb), yb]);
       const ext = pts.map(([x, y]) => [x + sg * r, y]).reverse();
-      return h.chemin([...pts, ...ext], blanc(A.arete), true);
+      const o = [h.chemin([...pts, ...ext], A.blanc, true)];
+      if (sg > 0) o.push(h.chemin([...pts.map(([x, y]) => [x + r * 0.45, y]), ...ext], A.ombre, true));
+      o.push(h.chemin([...pts, ...ext], A.contour, true));
+      return o.join('\n');
     };
     out.push(moitie(-1), moitie(1));
     // le fil du bois, le long des moitiés
@@ -378,15 +501,15 @@ module.exports = (h) => {
   return {
     ref: '51-40',
     titre: 'Le porc-épic : le retourner, l’ouvrir par le ventre, ôter un piquant',
-    desc: 'De profil, le porc-épic : piquants sur le dos, les flancs et la queue ; museau, pattes et dessous du corps nus. '
+    desc: 'De profil, le porc-épic trapu, le dos qui monte vers la croupe, la tête petite et basse, les pattes courtes aux longues griffes : piquants à pointe noire et long jarre sur le dos, les flancs et la queue ; museau, pattes et dessous du corps nus. '
       + 'Vu du museau, la bête couchée sur le flanc, un bâton glissé sous elle côté ventre : on soulève, elle roule sur le dos. '
       + 'Vue de dessus, la bête sur le dos calée entre deux bûches : le ventre nu, l’incision en tireté sur la ligne médiane de la gorge à l’anus, et le long de l’intérieur de chaque patte. '
       + 'En coupe dans la peau, un piquant planté de biais, ses aiguillons au bout dans la chair, la pince de bois serrée au ras de la peau et un bout de bois qui retient la peau à côté ; la flèche tire dans l’axe. '
       + 'Enfin la pince : un bâton vert fendu, un petit coin en haut de la fente, une ligature juste sous le coin, les deux bouts recoupés à plat.',
     format: 'pleine',
     disposition: [['profil', 'retourner'], ['dessous', 'oter', 'pince']],
-    hauteurs: [1, 1.45],
-    largeurs: [[1.3, 1], [1, 1.25, 0.6]],
+    hauteurs: [0.9, 1.45],
+    largeurs: [[1.3, 1], [1.05, 1.2, 0.6]],
     vues: {
       profil: vue('Où il n’y a pas de piquants', profil),
       retourner: vue('Retourner au bâton', retourner),

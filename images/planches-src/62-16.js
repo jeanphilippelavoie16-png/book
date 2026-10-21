@@ -25,7 +25,8 @@
 //   la lame (IMPS 114D, « butterfly cut »), fléchée depuis le tendon, seul endroit où la lame se
 //   voit ; puis les deux moitiés écartées, la lame retirée entre elles, le grain en arête de
 //   poisson vers la lame (GUELPH, structure pennée).
-// Vue 4 — le supraspinatus sorti, en cône (CEE-ONU 9229), sans flèche : grain non établi.
+// Vue 4 — le supraspinatus sorti, en cône (CEE-ONU 9229), sans flèche : grain non établi. Son renvoi
+//   (ajouté le 14 octobre) dit ce que le chapitre en fait : braisé, haché ou en saumure.
 // Vue 5 — le triceps en trois chefs écartés à leurs coutures, dans leur position : le chef long,
 //   le plus gros, avec ses flèches (fibres obliques ; obliquité recopiée sur les hachures de f,
 //   fig. 304) ; le latéral et le médial sans flèche. Le médial, caché de profil, est posé à part :
@@ -118,7 +119,7 @@ module.exports = (h) => {
     const S = lisse(p, SUPRA, true), I = lisse(p, INFRA, true), Lg = lisse(p, LONG, true), La = lisse(p, LAT, true);
     return [
       C.dessiner(h, p, {
-        id: 'v1', loin: 'fin', fondOs: false,
+        id: 'v1', loin: 'gris', fondOs: false,
         os: ['omoplate', 'cartilageOmoplate', 'humerus', 'radius', 'cubitus'],
         osForts: ['cubitus'],                   // l'olécrane ; l'épine est repassée en trait fort plus bas
       }),
@@ -144,7 +145,7 @@ module.exports = (h) => {
     const k = p.k;
     return [
       C.dessiner(h, p, {
-        id: 'v2', loin: 'fin', fondOs: false,
+        id: 'v2', loin: 'gris', fondOs: false,
         os: ['omoplate', 'cartilageOmoplate', 'humerus', 'radius', 'cubitus'],
       }),
       `<g clip-path="url(#v2-corps)">`,
@@ -230,7 +231,7 @@ module.exports = (h) => {
     out.push(`<path d="${dd(T(entier, Y_A), true)}" fill="${BLANC}" ${trait(2.4).replace('fill="none" ', '')}/>`);
     out.push(`<path d="${dd(T(lame, Y_A), true)}" fill="${NOIR}" stroke="${NOIR}" stroke-width="0.5"/>`);
     const fl = T([[LI + 14, -12], [DEBUT_LAME + 4, -12]], Y_A);
-    out.push(h.fleche(dd(fl), trait(1.4)));
+    out.push(h.geste(dd(fl)));   // la charte : la refente, le geste, en rouge
     // B — ouvert : les deux moitiés écartées, la lame retirée entre elles
     const yB = Y_B;
     out.push(`<path d="${dd(T(C.dense(moitieHaut, 2, true), yB - ECART), true)}" fill="${BLANC}" ${trait(2.4).replace('fill="none" ', '')}/>`);
@@ -318,17 +319,23 @@ module.exports = (h) => {
       supra: {
         titre: 'Supraspinatus',
         dessin: vueSupra,
-        renvois: () => [],
+        // ce que le chapitre en dit (tableau du quartier avant) : en cône, braisé, haché ou en saumure
+        renvois: z => {
+          const P = poseSupra(z);
+          const c = P.T([SUPRA_S.reduce((a, q) => a + q[0], 0) / SUPRA_S.length, SUPRA_S.reduce((a, q) => a + q[1], 0) / SUPRA_S.length]);
+          return [{ n: 10, texte: 'en cône : braisé ou en saumure', rond: [z.l - 12, z.h - 14], cible: c }];
+        },
       },
       triceps: {
         titre: 'Triceps, trois chefs',
         dessin: vueTriceps,
         renvois: z => {
           const P = poseTri(z);
-          const cL = P.T([827, 470]), cA = P.T([720 + D_LAT[0], 640 + D_LAT[1]]), cM = P.T([700 + D_MED[0], 604 + D_MED[1]]);
+          const cL = P.T([827, 470]), cM = P.T([700 + D_MED[0], 604 + D_MED[1]]);
           return [
-            { n: 10, texte: 'chef long, à saler : grain oblique', rond: [z.l - 12, cL[1] - 30], cible: cL },
-            { n: 11, texte: 'chef latéral', rond: [cA[0] - 10, z.h - 12], cible: cA },
+            // (le chef latéral n'a plus de renvoi : le titre dit trois chefs, les deux autres sont nommés ; la
+            // légende ne tient pas treize lignes en deux colonnes, et le supraspinatus en a pris un)
+            { n: 11, texte: 'chef long, à saler : grain oblique', rond: [z.l - 12, cL[1] - 30], cible: cL },
             { n: 12, texte: 'chef médial, sur la face interne', rond: [12, cM[1] - 40], cible: cM },
           ];
         },

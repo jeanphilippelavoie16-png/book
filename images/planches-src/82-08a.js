@@ -3,6 +3,9 @@
 // Chaque vue a son repère en unités de modèle, mis à l'échelle de la vue par rep().
 // Aucune cote : le chapitre ne donne aucune mesure de ces outils, seulement « au diamètre du
 // tuyau » et « un peu plus large que le conduit », que le dessin montre au tireté.
+// La charte : les perches du manche et le manchon, vus en élévation, ont leur dessous à l'ombre.
+// Le rouge : les deux flèches du pli, les deux moitiés des brins rabattues d'un même geste (deux
+// marques, une vue). Pas de point à contrôler : le chapitre n'en nomme pas.
 
 const f = v => Math.round(v * 10) / 10;
 const blanc = at => at.replace('fill="none"', 'fill="#FFFFFF"');
@@ -32,6 +35,18 @@ function corde(h, P, a, b, e = 2.1) {
     tw.push(`M${pt(P, x1 + ux * t - nx, y1 + uy * t - ny)} L${pt(P, x1 + ux * (t + 2.6) + nx, y1 + uy * (t + 2.6) + ny)}`);
   if (tw.length) o.push(h.path(tw.join(' '), h.a.fin));
   return o.join('\n');
+}
+
+// un bout de broche tordu : deux brins fins qui s'enroulent l'un sur l'autre, n tours
+function torsade(h, P, a, b, amp = 1.3, n = 3.5) {
+  // chaque demi-tour, un brin passe en biais par-dessus l'autre : 2n traits obliques jointifs
+  const [x1, y1] = a, [x2, y2] = b, L = Math.hypot(x2 - x1, y2 - y1);
+  const ux = (x2 - x1) / L, uy = (y2 - y1) / L, nx = -uy, ny = ux, k = Math.round(2 * n), d = L / k, o = [];
+  for (let i = 0; i < k; i++) {
+    const t0 = i * d, t1 = t0 + d * 1.25;
+    o.push(`M${pt(P, x1 + ux * t0 + nx * amp, y1 + uy * t0 + ny * amp)} Q${pt(P, x1 + ux * (t0 + d * 0.9) + nx * amp, y1 + uy * (t0 + d * 0.9) + ny * amp)} ${pt(P, x1 + ux * t1 - nx * amp, y1 + uy * t1 - ny * amp)}`);
+  }
+  return h.path(o.join(' '), h.a.detail);
 }
 
 // un maillon de chaîne vu à plat ou de chant, orienté selon l'angle a
@@ -69,7 +84,7 @@ module.exports = (h) => {
       const y = 99.5 + k * 4;
       o.push(h.path(trace(P, [['M', cx - 11.5, y], ['L', cx + 11.5, y + 2.6]]), h.a.arete));
     }
-    o.push(h.path(trace(P, [['M', cx + 11.5, 108], ['L', cx + 15, 105.5], ['L', cx + 17.5, 109.5], ['L', cx + 20.5, 106.5], ['L', cx + 23, 110]]), h.a.detail));
+    o.push(torsade(h, P, [cx + 11.5, 107.5], [cx + 26, 109], 1.6));
     return o.join('\n');
   };
   const C1 = 55, C2 = 168, C3 = 278, R = 50, RC = 44;
@@ -83,7 +98,14 @@ module.exports = (h) => {
       const w = Math.sin(i * 1.7 + graine) * 0.7;
       haut.push(P(x, yc - r + w)); bas.push(P(x, yc + r + w * 0.6));
     }
-    const o = [h.chemin(haut.concat(bas.reverse()), blanc(h.a.contour), true)];
+    // le dessous de la perche, à l'ombre : du tiers bas jusqu'au contour
+    const mi = [];
+    for (let i = 0; i <= n; i++) {
+      const x = x0 + (x1 - x0) * i / n, r = r0 + (r1 - r0) * i / n;
+      mi.push(P(x, yc + r * 0.38 + Math.sin(i * 1.7 + graine) * 0.4));
+    }
+    const sil = haut.concat(bas.slice().reverse());
+    const o = [h.chemin(sil, h.a.blanc, true), h.chemin(mi.concat(bas.slice().reverse()), h.a.ombre, true), h.chemin(sil, h.a.contour, true)];
     o.push(h.path(trace(P, [['M', x0 + 12, yc - 4], ['Q', (x0 + x1) / 2, yc - 7, x1 - 14, yc - 3]]), h.a.fin));
     o.push(h.path(trace(P, [['M', x0 + 30, yc + 6], ['Q', (x0 + x1) / 2, yc + 4, x1 - 30, yc + 7]]), h.a.fin));
     return o.join('\n');
@@ -110,8 +132,8 @@ module.exports = (h) => {
             const y = 94 + i * 2.8;
             o.push(h.chemin([P(C1 - 46, y + (i - 2.5) * 0.9), P(C1 + 46, y - (i - 2.5) * 0.6)], h.a.detail));
           }
-          o.push(h.fleche(trace(P, [['M', C1 - 50, 116], ['Q', C1 - 50, 150, C1 - 22, 160]])));
-          o.push(h.fleche(trace(P, [['M', C1 + 50, 116], ['Q', C1 + 50, 150, C1 + 22, 160]])));
+          o.push(h.geste(trace(P, [['M', C1 - 50, 116], ['Q', C1 - 50, 150, C1 - 22, 160]])));
+          o.push(h.geste(trace(P, [['M', C1 + 50, 116], ['Q', C1 + 50, 150, C1 + 22, 160]])));
           // 2. pliés en deux autour de la tige, serrés sur le pli
           o.push(tige(P, C2), plie(P, C2, 139), broche(P, C2));
           // 3. ouverts en goupillon, un peu plus large que le conduit (tireté)
@@ -166,7 +188,7 @@ module.exports = (h) => {
           const FX = 58;
           o.push(h.ligne(...P(FX - 36, 36), ...P(FX - 36, 222), h.a.cache));
           o.push(h.ligne(...P(FX + 36, 36), ...P(FX + 36, 222), h.a.cache));
-          o.push(corde(h, P, [FX, 0], [FX, 64]), corde(h, P, [FX, 196], [FX, 260]));
+          o.push(corde(h, P, [FX, 0], [FX, 260]));
           const lit = yb => {
             const l = [h.chemin([P(FX - 4, yb - 3), P(FX - 33, yb + 44), P(FX, yb + 58), P(FX + 33, yb + 44), P(FX + 4, yb - 3)], h.a.blanc, true)];
             for (let i = 0; i < 7; i++) {
@@ -181,11 +203,22 @@ module.exports = (h) => {
               }
               l.push(h.path(cmds[0], h.a.arete), h.path(cmds.slice(1).join(' '), h.a.fin));
             }
-            for (let k = 0; k < 3; k++)
-              l.push(h.path(trace(P, [['M', FX - 7, yb + k * 3], ['L', FX + 7, yb + 1.8 + k * 3]]), h.a.arete));
             return l.join('\n');
           };
-          o.push(lit(140), lit(102), lit(64));
+          // la ligature : les talons serrés contre la corde, quatre tours de ficelle en biais, un nœud
+          const ligature = yb => {
+            const l = [h.rect(...P(FX - 6, yb - 10), 12 * P.s, 21 * P.s, h.a.blanc)];
+            for (const dx of [-5, -3.2, -1.4, 1.4, 3.2, 5]) l.push(h.ligne(...P(FX + dx * 0.9, yb - 10), ...P(FX + dx, yb + 11), h.a.detail));
+            l.push(h.ligne(...P(FX - 6.2, yb - 10), ...P(FX + 6.2, yb - 10), h.a.fin));
+            for (let k = 0; k < 4; k++) {
+              const y = yb - 4 + k * 3.4;
+              l.push(h.path(trace(P, [['M', FX - 6.4, y], ['L', FX + 6.4, y + 1.6]]), h.a.arete));
+            }
+            l.push(h.cercle(...P(FX + 7.6, yb + 4.6), 1.6 * P.s, h.a.plein));
+            l.push(h.path(trace(P, [['M', FX + 8.6, yb + 4.6], ['L', FX + 13, yb + 3], ['M', FX + 8.4, yb + 5.6], ['L', FX + 12, yb + 10]]), h.a.detail));
+            return l.join('\n');
+          };
+          o.push(lit(168), lit(106), lit(44), ligature(168), ligature(106), ligature(44));
           // la chaîne dans une poche de jute
           const SX = 165;
           o.push(corde(h, P, [SX, 0], [SX, 62]));
@@ -214,10 +247,10 @@ module.exports = (h) => {
           return o.join('\n');
         },
         renvois: z => {
-          const P = rep(z, 220, 260);
+          const P = rep(z, 220, 260), FX = 58;
           return [
-            { n: 7, rond: P(112, 118), cible: P(84, 136), texte: 'branches de sapin baumier' },
-            { n: 8, rond: P(20, 44), cible: P(52, 65), texte: 'ligaturées sur la corde' },
+            { n: 7, rond: P(112, 122), cible: P(85, 145), texte: 'branches de sapin baumier' },
+            { n: 8, rond: P(18, 26), cible: P(FX - 5, 42.5), texte: 'ligaturées sur la corde' },
             { n: 9, rond: P(214, 132), cible: P(183, 168), texte: 'chaîne dans un sac de jute' },
             { n: 10, rond: P(206, 40), cible: P(172, 68), texte: 'goulot ficelé sur la corde' },
           ];
@@ -231,7 +264,9 @@ module.exports = (h) => {
             o.push(perche(P, 8, 176, yc, 15, 14, yc), perche(P, 176, 352, yc, 14, 12.5, yc + 2));
             o.push(bout(P, 8, yc, 15), bout(P, 352, yc + 0.5, 12.5));
             o.push(noeud(P, 62, yc - 3), noeud(P, 300, yc + 4));
-            o.push(h.rect(...P(128, yc - 18), 94 * P.s, 36 * P.s, blanc(h.a.contour)));
+            o.push(h.rect(...P(128, yc - 18), 94 * P.s, 36 * P.s, h.a.blanc));
+            o.push(h.rect(...P(128, yc + 6), 94 * P.s, 12 * P.s, h.a.ombre));   // le dessous du manchon, à l'ombre
+            o.push(h.rect(...P(128, yc - 18), 94 * P.s, 36 * P.s, h.a.contour));
             o.push(h.ligne(...P(128, yc - 14.5), ...P(222, yc - 14.5), h.a.cache));
             o.push(h.ligne(...P(128, yc + 14), ...P(222, yc + 14), h.a.cache));
             o.push(h.ligne(...P(176, yc - 14.5), ...P(176, yc + 14), h.a.cache));
@@ -248,7 +283,7 @@ module.exports = (h) => {
               for (const x0 of [135, 199]) {
                 for (let k = 0; k < 4; k++)
                   o.push(h.path(trace(P, [['M', x0 + k * 3.6, yc - 18.5], ['L', x0 + 3 + k * 3.6, yc + 18.5]]), h.a.arete));
-                o.push(h.path(trace(P, [['M', x0 + 6, yc - 18.5], ['L', x0 + 4, yc - 22], ['L', x0 + 8, yc - 25], ['L', x0 + 5, yc - 28], ['L', x0 + 8.5, yc - 31]]), h.a.detail));
+                o.push(torsade(h, P, [x0 + 6, yc - 18.5], [x0 + 7, yc - 33], 1.6));
               }
             }
           }

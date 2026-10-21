@@ -92,6 +92,8 @@ module.exports = (h) => {
           // clou de l'axe
           out.push(h.cercle(px, py, 5.5, blancArete.replace('stroke-width="2.4"', 'stroke-width="1.4"')));
           out.push(h.cercle(px, py, 2.2, h.a.plein));
+          // le point qui gèle et colle la bascule : l'axe, graissé au suif
+          out.push(h.controle(px, py, 12));
           // bâton fendu et ligature au bout du bras de ligne
           out.push(baton(T, blancArete.replace('stroke-width="2.4"', 'stroke-width="1.4"')));
           out.push(h.ligne(T[0] - 5, T[1] - 4, T[0] + 5, T[1] + 4, h.a.detail));
@@ -146,6 +148,8 @@ module.exports = (h) => {
           // la ligne enroulée
           const e1 = top + 50, e2 = top + 112;
           out.push(h.rect(cx - 13, e1, 26, e2 - e1, blancArete.replace('stroke-width="2.4"', 'stroke-width="1.4"')));
+          // la ligne enroulée fait un cylindre : son côté droit, à l'ombre
+          out.push(h.rect(cx + 4, e1 + 0.7, 8.3, e2 - e1 - 1.4, h.a.ombre));
           for (let y = e1 + 4; y < e2; y += 4.5) out.push(h.ligne(cx - 13, y + 3, cx + 13, y - 3, h.a.detail));
           // la ligne descend, entre dans la fente, sort par le bout
           out.push(h.chemin([[cx + 13, e2 - 3], [cx + 12, bas - 42], [cx + 1, bas - 32], [cx, bas], [cx, z.h - 6]], h.a.arete));

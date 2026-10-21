@@ -185,7 +185,7 @@ patte descend la charge au sol en compression dans le fil, le sens où le bois e
 (ch. 110), et le brêlage du sommet ne fait que tenir les trois pattes ensemble. La perche est donc
 rarement ce qui lâche : trois épinettes de 15 cm et de 6 m, brêlées en trépied, portent un peu
 moins de deux tonnes. Ce qui lâche, c'est le sol sous les pieds, et la charge qui quitte l'aplomb
-du sommet.
+du sommet (planche 109-41).
 
 - **Les pieds poussent vers l'extérieur.** L'écartement correct, d'un pied à l'autre, va de la
  moitié aux deux tiers de la longueur des pattes. À cet écartement, chaque pied pousse vers
@@ -570,7 +570,7 @@ Pour monter un billot, un baril ou un poêle rond dans une boîte de camion, san
 
 1. Deux madriers en rampe, du sol au plancher de la boîte.
 2. Une corde par madrier, frappée en haut sur un point fixe, descendue sous la pièce, passée
- dessous et remontée par-devant.
+ dessous et remontée par-devant (planche 109-43).
 3. On tire sur les deux bouts remontés : la pièce roule sur elle-même en montant, et elle monte
  deux fois moins vite qu'on tire — c'est un mouflage à deux brins qui ne coûte pas une poulie.
 4. Les deux cordes se tirent ensemble, sinon la pièce se met en travers.
@@ -606,7 +606,7 @@ avec un deuxième bâton, un tour à la fois.
 - **La bille enterrée.** Une bille couchée en travers de la traction dans une tranchée, le câble
  sortant par une saignée inclinée vers le bas, de sorte que la traction enfonce l'ancrage au lieu
  de le soulever. C'est la terre qui tient ; la bille ne fait que répartir. Une planche debout
- contre la face avant de la bille double la surface qui pousse sur la terre. Sur sol gelé, ça
+ contre la face avant de la bille double la surface qui pousse sur la terre (planche 109-42). Sur sol gelé, ça
  tient beaucoup ; au dégel, ça ne tient plus, et rien ne prévient entre les deux.
 - **Les piquets en file.** Trois pieux plantés en ligne dans l'axe de la traction, inclinés en
  arrière, la tête de chacun amarrée au pied du suivant, bien tendu. Chaque pieu retient celui de
@@ -631,7 +631,7 @@ Un vérin qui suinte n'est pas mort ; c'est sa coupelle d'étanchéité qui est 
  bulles, puis le former à chaud sur un mandrin de bois tourné au diamètre du piston. Le cuir
  prend la forme d'un godet.
 4. Monter le godet **lèvre vers la pression** : c'est la pression elle-même qui plaque la lèvre
- contre la paroi et fait l'étanchéité. Monté à l'envers, il ne retient rien.
+ contre la paroi et fait l'étanchéité. Monté à l'envers, il ne retient rien (planche 109-44).
 5. Remplir d'huile hydraulique ou, à défaut, d'huile à transmission automatique propre. **Jamais
  de liquide à freins** : il fait gonfler les joints faits pour l'huile. **Jamais d'eau** : elle
  gèle et elle rouille l'alésage par l'intérieur.

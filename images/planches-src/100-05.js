@@ -29,6 +29,11 @@ module.exports = (h) => {
     ];
     const o = [];
     o.push(h.chemin(P(corps.map(T)), h.a.blanc, true));
+    // charte : la face à l'ombre, le tiers de droite du corps posé (pas sur celui qu'on verse : la
+    // bande y aurait l'air de la graine dedans)
+    const ombre = [[W / 2 - W * 0.36, haut], [W / 2, haut], [W / 2 - W * 0.05, bas - H * 0.3], [W / 2 - W * 0.09, bas - H * 0.09],
+      [W / 2 - W * 0.18, bas], [W / 2 - W * 0.38, bas]];
+    if (ang === 0) o.push(h.chemin(P(ombre.map(T)), h.a.ombre, true));
     o.push(h.chemin(P(corps.map(T)), h.a.contour));
     o.push(h.chemin(P([[-W / 2 - 2.5, haut], [W / 2 + 2.5, haut]].map(T)), h.a.contour));
     o.push(h.chemin(P([[-W / 2 + 1, haut + 3.5], [W / 2 - 1, haut + 3.5]].map(T)), h.a.detail));
@@ -73,7 +78,7 @@ module.exports = (h) => {
 
   // Le versement : chaudron incliné tenu par l'anse, filet de graine, chaudron qui reçoit,
   // trajectoires des débris. Retourne les traits et les points utiles aux renvois.
-  const verse = (g, xMax, portees, graine) => {
+  const verse = (g, xMax, portees, graine, rouge = true) => {
     const { G, u, W, H, xL, yL, yR } = g;
     const r = alea(graine);
     const o = [];
@@ -114,7 +119,11 @@ module.exports = (h) => {
     const a = ang * Math.PI / 180, ca = Math.cos(a), sa = Math.sin(a);
     const xr = -W / 2 - 2.5, yr = -5;                                // coin du rebord, le plus haut
     const rx = px + xr * ca - yr * sa, ry = py + xr * sa + yr * ca;
-    o.push(...poing(rx - 2, ry + 3, -0.35));
+    // pas de mains : une flèche courbe dit qu'on bascule lentement
+    // charte : le geste en rouge dans la vue où c'est lui qu'on montre
+    // (hors du chaudron, à gauche : le fond remonte quand on bascule)
+    const dB = `M ${f(rx - 30)} ${f(ry + 30)} Q ${f(rx - 41)} ${f(ry + 8)} ${f(rx - 31)} ${f(ry - 3)}`;
+    o.push(rouge ? h.geste(dB) : h.fleche(dB, h.a.detail));
     return { o, traj, px, py, xC };
   };
 
@@ -122,9 +131,9 @@ module.exports = (h) => {
     ref: '100-05',
     titre: 'Vanner d’un chaudron à l’autre',
     desc: 'Deux vues de côté. À gauche, dans une porte ouverte : le courant d’air traverse la porte, '
-      + 'un chaudron tenu au rebord est versé de haut dans un second chaudron posé au sol ; la graine '
+      + 'un chaudron incliné est versé lentement de haut dans un second chaudron posé au sol ; la graine '
       + 'tombe presque droit dedans, les débris légers partent sous le vent et retombent plus loin. '
-      + 'À droite, sans vent : deux personnes agitent une couverture qui pousse l’air sur le filet, '
+      + 'À droite, sans vent : une couverture tenue par ses deux coins du haut est balancée et qui pousse l’air sur le filet, '
       + 'et tout le poste est sur une toile.',
     format: 'demi',
     disposition: [['porte', 'couverture']],
@@ -145,6 +154,7 @@ module.exports = (h) => {
           o.push(h.chemin(P([[0, G - 6], [wx + ep + 4, G - 6], [wx + ep + 4, G]]), h.a.arete));
           // battant ouvert vers l'intérieur, vu de face, gonds au montant
           const bx = wx - 0.72 * u, by = yD + 2, bh = G - 8 - by;
+          o.push(h.rect(f(bx), f(by), f(wx - bx), f(bh), h.a.loin));   // charte : le battant, dedans, recule
           o.push(h.rect(f(bx), f(by), f(wx - bx), f(bh), h.a.arete));
           o.push(h.rect(f(bx + 7), f(by + 8), f(wx - bx - 14), f(bh * 0.4), h.a.detail));
           o.push(h.rect(f(bx + 7), f(by + bh * 0.4 + 16), f(wx - bx - 14), f(bh * 0.6 - 24), h.a.detail));
@@ -173,7 +183,7 @@ module.exports = (h) => {
           const T3 = [(1 - t) ** 2 * xs + 2 * t * (1 - t) * cx + t * t * xe, (1 - t) ** 2 * ys + 2 * t * (1 - t) * cy + t * t * ye];
           return [
             { n: 1, rond: [f(wx + ep + 26), f(yL - 60)], cible: [f(px - 12), f(py - 14)], texte: 'chaudron qu’on verse, tenu haut' },
-            { n: 2, rond: [f(wx + ep + 22), f(yL - 16)], cible: [f(wx + ep + 22), f(yA[0] - 1.5)], texte: 'courant d’air par la porte' },
+            { n: 2, rond: [f(wx + ep + 12), f(yL - 16)], cible: [f(wx + ep + 12), f(yA[0] - 1.5)], texte: 'courant d’air par la porte' },
             { n: 3, rond: [f(z.l - 26), f(yL - 10)], cible: [f(T3[0]), f(T3[1])], texte: 'débris légers, emportés plus loin' },
             { n: 4, rond: [f(xL - 42), f((yA[1] + yA[2]) / 2)], cible: [f(xL - 3), f((yA[1] + yA[2]) / 2)], texte: 'graine, plus dense, tombe court' },
             { n: 5, rond: [f(xL - 42), f(G - 16)], cible: [f(xL + 3 - W / 2 - 1), f(G - 12)], texte: 'chaudron qui reçoit la graine' },
@@ -189,7 +199,9 @@ module.exports = (h) => {
           const o = [];
           // sol et toile
           o.push(h.rect(0, G, z.l, z.h - G, h.a.hachure('terre', 'detail')));
-          o.push(h.chemin(P([[4, G], [4, G - 2.5], [z.l - 3, G - 2.5]]), h.a.arete));
+          o.push(h.path(`M 4 ${G - 9} Q 6 ${G - 4} 12 ${G - 4} L ${f(z.l - 12)} ${G - 4} Q ${f(z.l - 6)} ${G - 4} ${f(z.l - 3)} ${G - 9} L ${f(z.l - 3)} ${G - 6} Q ${f(z.l - 7)} ${G} ${f(z.l - 12)} ${G} L 12 ${G} Q 5 ${G} 4 ${G - 6} Z`, h.a.blanc));
+          o.push(h.path(`M 4 ${G - 9} Q 6 ${G - 4} 12 ${G - 4} L ${f(z.l - 12)} ${G - 4} Q ${f(z.l - 6)} ${G - 4} ${f(z.l - 3)} ${G - 9} L ${f(z.l - 3)} ${G - 6} Q ${f(z.l - 7)} ${G} ${f(z.l - 12)} ${G} L 12 ${G} Q 5 ${G} 4 ${G - 6} Z`, h.a.arete));
+          [0.3, 0.6].forEach((k) => o.push(h.ligne(f(k * z.l), G - 4, f(k * z.l + 5), G, h.a.detail)));
           o.push(h.ligne(0, G, z.l, G, h.a.arete));
           // couverture tenue par ses deux coins du haut, balancée vers le filet
           const yh = G - 1.7 * u;
@@ -204,22 +216,24 @@ module.exports = (h) => {
             `C ${f(w1[0])} ${f(w1[1])} ${f(w2[0])} ${f(w2[1])} ${f(D[0])} ${f(D[1])} Q ${f(kA[0])} ${f(kA[1])} ${f(A[0])} ${f(A[1])} Z`;
           o.push(h.path(face, h.a.blanc));
           // plis de l'étoffe, qui partent des mains et s'ouvrent vers l'ourlet
-          [[0.12, 0.3], [0.5, 0.52], [0.88, 0.74]].forEach(([k, k2]) => {
-            const x0 = A[0] + k * (B[0] - A[0]), y0 = A[1] + k * (B[1] - A[1]) + 7;
-            const x1 = D[0] + k2 * (C[0] - D[0]), y1 = D[1] + k2 * (C[1] - D[1]) - 2;
-            o.push(h.path(`M ${f(x0)} ${f(y0)} Q ${f(x0 - 0.05 * u)} ${f(y0 + 0.7 * u)} ${f(x1)} ${f(y1)}`, h.a.detail));
+          [[0.15, 0.2], [0.38, 0.42], [0.62, 0.62], [0.85, 0.82]].forEach(([k, k2]) => {
+            const x0 = A[0] + k * (B[0] - A[0]), y0 = A[1] + k * (B[1] - A[1]) + 8;
+            const x1 = D[0] + k2 * (C[0] - D[0]), y1 = D[1] + k2 * (C[1] - D[1]) - 4;
+            const mx = (x0 + x1) / 2, my = (y0 + y1) / 2;
+            o.push(h.path(`M ${f(x0)} ${f(y0)} Q ${f(mx - 6)} ${f(my - 0.15 * u)} ${f(mx)} ${f(my)} T ${f(x1)} ${f(y1)}`, h.a.detail));
           });
-          o.push(h.path(face, h.a.contour));
-          // ourlet
-          o.push(h.path(`M ${f(C[0] - 1)} ${f(C[1] - 4)} C ${f(w1[0])} ${f(w1[1] - 4)} ${f(w2[0])} ${f(w2[1] - 4)} ${f(D[0] + 1)} ${f(D[1] - 4)}`, h.a.fin));
+          o.push(h.path(face, h.a.arete));
+          // coins pincés : le tissu se fronce en éventail sous chaque coin tenu
+          [A, B].forEach(([x, y]) => [-4, 0, 4].forEach((d) => o.push(h.path(`M ${f(x)} ${f(y + 1)} Q ${f(x + d * 0.6)} ${f(y + 7)} ${f(x + d)} ${f(y + 14)}`, h.a.detail))));
+          // petits nœuds de tissu aux coins
+          [A, B].forEach(([x, y]) => o.push(h.cercle(f(x), f(y), 2.6, h.a.arete)));
           // le balancement : l'ourlet part en arrière, revient vers le filet
-          o.push(h.fleche(`M ${f(D[0] - 0.22 * u)} ${f(D[1] + 4)} Q ${f(D[0] - 0.02 * u)} ${f(D[1] + 16)} ${f(D[0] + 0.2 * u)} ${f(D[1] + 8)}`, h.a.detail));
-          // les deux mains, deux personnes
-          o.push(...poing(A[0], A[1], -0.1));
-          o.push(...poing(B[0], B[1], -0.1));
+          const m0 = [D[0] - 0.02 * u, D[1] + 18];
+          // charte : le geste de la vue, en rouge, aller et retour
+          o.push(h.geste(`M ${f(m0[0] - 0.22 * u)} ${f(m0[1] - 4)} Q ${f(m0[0] - 0.1 * u)} ${f(m0[1] + 6)} ${f(m0[0])} ${f(m0[1])} Q ${f(m0[0] + 0.1 * u)} ${f(m0[1] + 6)} ${f(m0[0] + 0.22 * u)} ${f(m0[1] - 4)}`, { double: true }));
           // le courant
           [yL + 0.35 * (yR - yL), yL + 0.72 * (yR - yL)].forEach((y) => o.push(h.fleche(`M ${f(C[0] + 10)} ${f(y)} L ${f(xL - 12)} ${f(y)}`, h.a.detail)));
-          const v = verse(g, z.l - 8, [0.85, 0.62, 0.42], 23);
+          const v = verse(g, z.l - 8, [0.85, 0.62, 0.42], 23, false);
           o.push(...v.o);
           return o.join('\n');
         },
@@ -230,8 +244,8 @@ module.exports = (h) => {
           const yh = G - 1.7 * u;
           const A = [xh, yh + 10];
           return [
-            { n: 6, rond: [f(xh + 0.82 * u), f(yh - 40)], cible: [f(A[0] + 0.3 * u), f(A[1] + 0.45 * u)], texte: 'couverture tenue à deux, agitée' },
-            { n: 7, rond: [f(z.l - 22), f(G - 30)], cible: [f(z.l - 22), f(G - 3.5)], texte: 'toile sous tout le poste' },
+            { n: 6, rond: [f(xh + 0.82 * u), f(yh - 40)], cible: [f(A[0] + 0.3 * u), f(A[1] + 0.45 * u)], texte: 'couverture tenue par deux coins, agitée' },
+            { n: 7, rond: [f(z.l - 22), f(G - 30)], cible: [f(z.l - 22), f(G - 2)], texte: 'toile sous tout le poste' },
           ];
         },
       },

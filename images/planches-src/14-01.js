@@ -1,7 +1,19 @@
-// Planche 14-01 — le poste à galène (chapitre 19, section 9, « Écouter sans une seule pile »).
+// Planche 14-01. Le poste à galène (chapitre 14, section 7, « Écouter sans pile : le poste à galène »).
 // Trois vues : le poste monté sur sa planche (le circuit), la branche détecteur-écouteur de près,
-// l'antenne et le contrepoids dehors. Aucun chiffre : le chapitre n'en donne pas qui ne soit
-// [À VÉRIFIER] (spires, diamètre du support, longueur d'antenne).
+// l'antenne et le contrepoids dehors. Aucune cote sur la planche : les chiffres du chapitre (80 spires
+// sur un support de 10 cm, une prise toutes les 10 spires sur les 70 premières, puis une à chaque spire sur les 10
+// dernières, l'antenne) sont sourcés depuis le 24 septembre
+// 2026 (sources/19-nbs-circulaire-120-poste-recepteur.md ; suivi/14-redaction.md, levée du 24 septembre).
+// Le 19 octobre 2026 : recomposée sans la ligne « Planche 14-01. … » dans le dessin (le moteur de pages
+// pose le numéro et le titre). Le même jour, le renvoi 14 vise le cercle rouge de l'entrée de la descente (règle 11 :
+// chaque rouge a son repère). Au second regard, le même jour : la bobine suit le texte (« L'accord », repère 3). Les
+// 80 spires sont dessinées une à une, une prise toutes les 10 spires sur les 70 premières, puis une bande d'émail
+// gratté en travers des 10 dernières, où chaque spire se voit : c'est là qu'on règle la station.
+//
+// La charte : les deux épinettes, qui portent l'antenne sans être le sujet, en gris loin ; pas
+// de gris sur le poste ni sur le détecteur, vus à plat. Le rouge : la pointe qu'on promène sur
+// la lame (le geste) ; la résistance en travers des fils du piézo (sans elle, rien) et l'entrée
+// de la descente, qui ne doit frotter ni le mur ni un clou, cerclées.
 module.exports = (h) => {
   const blanc = (a) => a.replace('fill="none"', 'fill="#FFFFFF"');
   const noir = (a) => a.replace('fill="none"', 'fill="#1A1A1A"');
@@ -67,7 +79,7 @@ module.exports = (h) => {
       if (i < niv) gauche.unshift([x - w * 0.4, y - 2]);
     }
     pts.push([x + 4, pied - 16], [x + 4, pied], [x - 4, pied], [x - 4, pied - 16]);
-    return h.chemin(pts.concat(gauche), blanc(h.a.arete), true);
+    return h.chemin(pts.concat(gauche), h.a.arete.replace('fill="none"', h.a.loin.split(' ')[0]), true);
   };
 
   // Résistance récupérée, couchée en travers de deux fils verticaux (x1 à gauche, x2 à droite),
@@ -117,10 +129,13 @@ module.exports = (h) => {
     g.cx = 172; g.r = 32;
     g.yT = g.by0 + 46; g.yB = g.by1 - 104;
     g.yW0 = g.yT + 12; g.yW1 = g.yB - 8;
-    g.pas = 3.2;
+    // 80 spires dessinées une à une ; une prise toutes les 10 spires sur les 70 premières, puis la bande
+    // grattée qui découvre chacune des 10 dernières
+    g.pas = (g.yW1 - g.yW0) / 80;
     g.xPrise = g.cx - 14;
     g.prises = [];
-    for (let y = g.yW0 + 14; y < g.yW1 - 6; y += 26) g.prises.push(y);
+    for (let k = 1; k <= 7; k++) g.prises.push(g.yW0 + 10 * k * g.pas);
+    g.bande = [g.prises[6] + 4.2, g.yW1 - 1];
     g.yPince = g.prises[3];
     g.lame = [z.l - 88, g.by0 + 92];
     g.visMine = [z.l - 44, g.by0 + 170];
@@ -131,7 +146,7 @@ module.exports = (h) => {
   return {
     ref: '14-01',
     titre: 'Le poste à galène',
-    desc: 'Un récepteur AM sans pile monté sur une planche : bobine de fil de cuivre sur une bouteille, pince promenée sur les prises grattées, détecteur fait d’une lame de rasoir et d’une mine de crayon, pastille piézo en écouteur, une résistance de carte morte tordue en travers de ses deux fils ; dehors, un fil tendu haut entre deux épinettes et un contrepoids déroulé sur la neige sous lui.',
+    desc: 'Un récepteur AM sans pile monté sur une planche : bobine de fil de cuivre sur une bouteille, une prise grattée toutes les dix spires puis une bande grattée en travers des dix dernières, pince promenée de prise en prise, détecteur fait d’une lame de rasoir et d’une mine de crayon, pastille piézo en écouteur, une résistance de carte morte tordue en travers de ses deux fils ; dehors, un fil tendu haut entre deux épinettes et un contrepoids déroulé sur la neige sous lui.',
     format: 'pleine',
     disposition: [['poste', 'detecteur'], ['antenne']],
     hauteurs: [3, 2],
@@ -168,13 +183,18 @@ module.exports = (h) => {
           ], blanc(h.a.contour), true));
           o.push(h.rect(cx - col - 3, g.yB + 40, 2 * col + 6, 9, blanc(h.a.arete)));
           // les spires, serrées
-          for (let y = g.yW0; y <= g.yW1; y += g.pas) o.push(h.ligne(cx - r, y, cx + r, y, h.a.detail));
+          for (let k = 0; k <= 80; k++) { const y = g.yW0 + k * g.pas; o.push(h.ligne(cx - r, y, cx + r, y, h.a.detail)); }
           o.push(h.ligne(cx - r, g.yW0, cx + r, g.yW0, h.a.arete));
           o.push(h.ligne(cx - r, g.yW1, cx + r, g.yW1, h.a.arete));
           // bout de fil de fin de bobine, rentré dans un trou
           o.push(h.chemin([[cx + r, g.yW1], [cx + r + 10, g.yW1 + 6]], h.a.arete));
-          // prises grattées dans l'émail
+          // prises grattées dans l'émail ; sur les 10 dernières spires, une bande grattée qui les découvre toutes
           for (const y of g.prises) o.push(h.rect(g.xPrise - 5, y - 3, 10, 6, blanc(h.a.fin)));
+          o.push(h.rect(g.xPrise - 5, g.bande[0], 10, g.bande[1] - g.bande[0], blanc(h.a.fin)));
+          for (let k = 71; k < 80; k++) {
+            const y = g.yW0 + k * g.pas;
+            if (y > g.bande[0] + 0.6 && y < g.bande[1] - 0.6) o.push(h.ligne(g.xPrise - 5, y, g.xPrise + 5, y, h.a.fin));
+          }
           // la pince crocodile, mâchoire sur une prise
           const y = g.yPince;
           const xp = g.xPrise;
@@ -263,7 +283,7 @@ module.exports = (h) => {
           }
           o.push(vis(V[0], V[1], 7));
           // on promène la pointe
-          o.push(h.fleche(`M ${P[0] - 4} ${P[1] - 24} Q ${P[0] + 20} ${P[1] - 28} ${P[0] + 24} ${P[1] - 6}`, h.a.detail));
+          o.push(h.geste(`M ${P[0] - 4} ${P[1] - 24} Q ${P[0] + 20} ${P[1] - 28} ${P[0] + 24} ${P[1] - 6}`));
 
           // la pastille piézo, et ses deux fils
           const pz = [cx, z.h - 56];
@@ -278,6 +298,8 @@ module.exports = (h) => {
           o.push(h.cercle(xF1, pz[1] - 2, 4, noir(h.a.fin)));
           o.push(h.cercle(xF2, pz[1] - 26, 4, noir(h.a.fin)));
           o.push(resistance(xF2, xF1, pz[1] - 64, 26, 10, 6, 5.5, h.a.arete, true));
+          // la résistance en travers des deux fils : sans elle, le piézo ne rend rien
+          o.push(h.controle((xF1 + xF2) / 2, pz[1] - 64, 15));
           return o.join('\n');
         },
         renvois: (z) => {
@@ -301,7 +323,7 @@ module.exports = (h) => {
           const yA = 34;                       // hauteur du fil
           const tA = 44, tB = z.l - 36;       // troncs des deux épinettes
           // neige
-          o.push(h.rect(0, G + 18, z.l, z.h - G - 18, h.a.hachure('neige', 'detail').replace(/stroke="[^"]*"/, 'stroke="none"')));
+          o.push(h.rect(0, G + 3, z.l, z.h - G - 3, h.a.hachure('neige', 'detail').replace(/stroke="[^"]*"/, 'stroke="none"')));
           o.push(h.path(`M 0 ${G + 2} C 120 ${G - 3}, 300 ${G + 4}, 420 ${G} S ${z.l - 60} ${G - 2}, ${z.l} ${G + 1}`, h.a.contour));
           // les épinettes
           o.push(epinette(tA, 6, G + 1, 26));
@@ -329,9 +351,11 @@ module.exports = (h) => {
           const d0 = [iA[0] + 12, iA[1] + 1];
           const fenE = [fen[0] + fen[2] - 4, fen[1] + 4];
           o.push(h.path(`M ${d0[0]} ${d0[1]} Q ${d0[0] + 150} ${G - 40}, ${fen[0] + 2} ${fen[1] + 6}`, h.a.contour));
+          // l'entrée de la descente : elle ne frotte ni le mur ni un clou
+          o.push(h.controle(fen[0] + 2, fen[1] + 6, 11));
           // le contrepoids : sort par la fenêtre, se couche sur la neige, dans l'axe de l'antenne
           const fenB = [fen[0] + fen[2] - 4, fen[1] + fen[3] - 3];
-          o.push(h.path(`M ${fen[0] + 2} ${fen[1] + fen[3] - 4} C ${c0 - 10} ${G - 20}, ${c0 - 14} ${G + 8}, ${c0 - 30} ${G + 9} C ${c0 - 120} ${G + 12}, ${iA[0] + 90} ${G + 6}, ${iA[0] + 6} ${G + 10}`, h.a.contour));
+          o.push(h.path(`M ${fen[0] + 2} ${fen[1] + fen[3] - 4} C ${c0 - 8} ${G - 20}, ${c0 - 14} ${G - 2}, ${c0 - 30} ${G - 2} C ${c0 - 120} ${G - 6}, ${iA[0] + 120} ${G + 1}, ${iA[0] + 6} ${G - 3}`, h.a.contour));
           return o.join('\n');
         },
         renvois: (z) => {
@@ -339,11 +363,12 @@ module.exports = (h) => {
           const tA = 44, tB = z.l - 36;
           const iA = [tA + 30, yA + 8], iB = [tB - 48, yA + 8];
           const xm = (iA[0] + iB[0]) / 2;
+          const fen = [416 + 6, G - 52];       // la fenêtre du chalet ; le cercle rouge de l'entrée est en (fen[0] + 2, fen[1] + 6)
           return [
             { n: 12, rond: [xm, yA - 12], cible: [xm, yA + 15], texte: 'fil long et haut, tendu' },
             { n: 13, rond: [iB[0] - 30, yA - 14], cible: [iB[0] - 4, iB[1] - 4], texte: 'isolateur : bout de bois sec' },
-            { n: 14, rond: [230, G - 30], cible: [245.5, 0.75 * G - 20.75], texte: 'descente qui ne touche rien' },
-            { n: 15, rond: [140, G - 22], cible: [140, G + 7], texte: 'contrepoids sur la neige' },
+            { n: 14, rond: [fen[0] - 40, fen[1] - 22], cible: [fen[0] + 2, fen[1] + 6], texte: 'descente qui ne touche rien' },
+            { n: 15, rond: [140, G - 22], cible: [140, G - 3], texte: 'contrepoids sur la neige' },
           ];
         },
       },

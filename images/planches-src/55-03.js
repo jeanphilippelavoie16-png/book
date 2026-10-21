@@ -190,6 +190,14 @@ module.exports = (h) => {
             h.chemin(P([[0, 78], [0, 214]]), h.a.detail),
             h.chemin(P(lisse([[4, 84], [14, 120], [12, 180]])), h.a.detail),
             h.chemin(P(lisse([[-4, 84], [-14, 120], [-12, 180]])), h.a.detail),
+            // le fourreau est un tube : son côté droit, à l'ombre (sous le repli, au-dessus des rabats)
+            (() => {
+              // le bord droit du fourreau, du repli jusqu'au bas ; le haut suit le dessous du repli
+              const bord = lisse([[0, 221], [27, 220], [32, 232], [34, 280], [34, 330], [32, 368], [0, 372]]).filter(([x, y]) => y >= 229 && x > 1);
+              const sousRepli = x => [x, 226 + 5 * Math.sqrt(Math.max(0, 1 - (x / 30) ** 2))];
+              const x0 = bord[0][0], arc = [0.6, 0.7, 0.8, 0.9, 1].map(k => sousRepli(x0 * k));
+              return h.chemin(P([...arc, ...bord, ...bord.slice().reverse().map(([x, y]) => [x * 0.6, y])]), h.a.ombre, true);
+            })(),
             // le repli : la peau tourne sur elle-même
             h.ellipse(...T([0, 226]), 30 * s, 5 * s, h.a.arete),
             // cuir
@@ -198,7 +206,8 @@ module.exports = (h) => {
               [[-8, 326], [0, 334], [7, 330]], [[-20, 350], [-12, 356]], [[14, 348], [22, 354]]]
               .map(l => h.chemin(P(lisse(l)), h.a.detail)),
             h.path(baton, h.a.blanc), h.path(baton, h.a.arete),
-            h.fleche(fleche(1)), h.fleche(fleche(-1)),
+            // le geste : tirer à deux mains, vers la tête
+            h.geste(fleche(1)), h.geste(fleche(-1)),
           ].join('\n');
         },
         renvois: z => {

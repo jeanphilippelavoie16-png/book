@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="340" height="413" viewBox="0 0 340 413" role="img">
+<title>Planche 01-02. Le témoin de dégel</title>
+<desc>En haut, en partant : un verre d’eau, puis le même verre gelé ; une pièce de monnaie, au-dessus de la glace, et une flèche rouge qui la pose sur la glace. En bas, au retour : trois verres de glace pareils. Dans le premier, la pièce est restée sur la glace : rien n’a dégelé. Dans le deuxième, elle est prise à mi-hauteur dans la glace : le dégel a été partiel. Dans le troisième, elle est couchée au fond : tout a dégelé puis regelé.</desc>
+<defs>
+<pattern id="h-eau" width="64" height="22" patternUnits="userSpaceOnUse"><rect width="64" height="22" fill="#DCEAF2"/><path d="M4 7 q4 -2.4 8 0 t8 0 M36 18 q4 -2.4 8 0 t8 0" fill="none" stroke="#4F7A93" stroke-width="0.6" stroke-linecap="round"/></pattern>
+<marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#1A1A1A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<marker id="fl-r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 Z" fill="#9B2C1E" stroke="#9B2C1E" stroke-width="1" stroke-linejoin="round"/></marker>
+</defs>
+<rect x="0" y="0" width="340" height="413" fill="#FFFFFF"/>
+<text x="22" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">En partant</text>
+<g transform="translate(22 46)" data-vue="partant">
+<g transform="translate(8 -7)">
+<path d="M 22.1 61.2 L 25.6 106 A 19.4 6.2 0 0 0 64.4 106 L 67.9 61.2 A 22.9 7.3 0 0 0 22.1 61.2 Z" fill="url(#h-eau)" stroke="none"/>
+</g>
+<ellipse cx="53" cy="54.2" rx="22.9" ry="7.3" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 26 34 L 31.5 106 A 21.5 6.9 0 0 0 74.5 106 L 80 34" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="53" cy="34" rx="27" ry="8.6" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 33.6 99 A 19.4 6.2 0 0 0 72.4 99" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="34" y1="66.5" x2="35.9" y2="91.6" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 243.1 54.2 L 246.6 99 A 19.4 6.2 0 0 0 285.4 99 L 288.9 54.2 A 22.9 7.3 0 0 0 243.1 54.2 Z" fill="#E6E6E6" stroke="none"/>
+<path d="M 278.1 71 L 282.6 65 M 281.6 73 L 285.1 68.5" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="266" cy="54.2" rx="22.9" ry="7.3" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 239 34 L 244.5 106 A 21.5 6.9 0 0 0 287.5 106 L 293 34" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="266" cy="34" rx="27" ry="8.6" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 246.6 99 A 19.4 6.2 0 0 0 285.4 99" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="247" y1="66.5" x2="248.9" y2="91.6" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 92 73.6 L 227 73.6" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
+<path d="M 255.7 16 L 255.7 18.2 A 10.3 3.3 0 0 0 276.3 18.2 L 276.3 16 Z" fill="#CFCFCF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
+<ellipse cx="266" cy="16" rx="10.3" ry="3.3" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 266 24.5 L 266 52.7" fill="none" stroke="#9B2C1E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl-r)"/>
+</g>
+<text x="22" y="192.2" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Au retour</text>
+<g transform="translate(22 200.2)" data-vue="retour">
+<path d="M 30.1 31.2 L 33.6 76 A 19.4 6.2 0 0 0 72.4 76 L 75.9 31.2 A 22.9 7.3 0 0 0 30.1 31.2 Z" fill="#E6E6E6" stroke="none"/>
+<path d="M 65.1 48 L 69.6 42 M 68.6 50 L 72.1 45.5" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="53" cy="31.2" rx="22.9" ry="7.3" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 26 11 L 31.5 83 A 21.5 6.9 0 0 0 74.5 83 L 80 11" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="53" cy="11" rx="27" ry="8.6" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 33.6 76 A 19.4 6.2 0 0 0 72.4 76" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="34" y1="43.5" x2="35.9" y2="68.6" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 42.7 29 L 42.7 31.2 A 10.3 3.3 0 0 0 63.3 31.2 L 63.3 29 Z" fill="#CFCFCF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
+<ellipse cx="53" cy="29" rx="10.3" ry="3.3" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 137.1 31.2 L 140.6 76 A 19.4 6.2 0 0 0 179.4 76 L 182.9 31.2 A 22.9 7.3 0 0 0 137.1 31.2 Z" fill="#E6E6E6" stroke="none"/>
+<path d="M 172.1 48 L 176.6 42 M 175.6 50 L 179.1 45.5" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="160" cy="31.2" rx="22.9" ry="7.3" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 133 11 L 138.5 83 A 21.5 6.9 0 0 0 181.5 83 L 187 11" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="160" cy="11" rx="27" ry="8.6" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 140.6 76 A 19.4 6.2 0 0 0 179.4 76" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="141" y1="43.5" x2="142.9" y2="68.6" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 149.7 54.7 L 149.7 56.9 A 10.3 3.3 0 0 0 170.3 56.9 L 170.3 54.7 Z" fill="#CFCFCF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
+<ellipse cx="160" cy="54.7" rx="10.3" ry="3.3" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 243.1 31.2 L 246.6 76 A 19.4 6.2 0 0 0 285.4 76 L 288.9 31.2 A 22.9 7.3 0 0 0 243.1 31.2 Z" fill="#E6E6E6" stroke="none"/>
+<path d="M 278.1 48 L 282.6 42 M 281.6 50 L 285.1 45.5" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="266" cy="31.2" rx="22.9" ry="7.3" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 239 11 L 244.5 83 A 21.5 6.9 0 0 0 287.5 83 L 293 11" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="266" cy="11" rx="27" ry="8.6" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 246.6 76 A 19.4 6.2 0 0 0 285.4 76" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="247" y1="43.5" x2="248.9" y2="68.6" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 255.7 73.8 L 255.7 76 A 10.3 3.3 0 0 0 276.3 76 L 276.3 73.8 Z" fill="#CFCFCF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
+<ellipse cx="266" cy="73.8" rx="10.3" ry="3.3" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<line x1="40.3" y1="92.4" x2="63.6" y2="116.2" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="40.3" y1="92.4" x2="63.6" y2="116.2" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="63.6" cy="116.2" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="34" cy="86" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="partant"/>
+<text x="34" y="90" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">1</text>
+<line x1="262.5" y1="59.9" x2="276.7" y2="63" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="262.5" y1="59.9" x2="276.7" y2="63" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="276.7" cy="63" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="253.7" cy="58" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="partant"/>
+<text x="253.7" y="62" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">2</text>
+<line x1="42.8" y1="225.9" x2="64.2" y2="230.2" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="42.8" y1="225.9" x2="64.2" y2="230.2" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="64.2" cy="230.2" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="34" cy="224.2" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="retour"/>
+<text x="34" y="228.2" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">3</text>
+<line x1="149.8" y1="251.7" x2="171.2" y2="255.9" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="149.8" y1="251.7" x2="171.2" y2="255.9" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="171.2" cy="255.9" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="141" cy="249.9" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="retour"/>
+<text x="141" y="253.9" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">4</text>
+<line x1="255.8" y1="270.8" x2="277.2" y2="275" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="255.8" y1="270.8" x2="277.2" y2="275" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="277.2" cy="275" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<circle cx="247" cy="269" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="retour"/>
+<text x="247" y="273" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">5</text>
+<text x="32" y="323" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">1</text>
+<text x="38" y="323" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">faire geler un verre d’eau</text>
+<text x="32" y="340" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">2</text>
+<text x="38" y="340" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">puis poser une pièce sur la glace</text>
+<text x="32" y="357" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">3</text>
+<text x="38" y="357" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">en surface : rien n’a dégelé</text>
+<text x="32" y="374" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">4</text>
+<text x="38" y="374" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">à mi-hauteur : le dégel a été partiel</text>
+<text x="32" y="391" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">5</text>
+<text x="38" y="391" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">au fond : tout a dégelé puis regelé</text>
+</svg>

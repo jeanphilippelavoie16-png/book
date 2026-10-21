@@ -56,7 +56,7 @@ module.exports = (h) => {
 
   // butte vue de dessus : pied, haut plat, hachures de talus
   const buttePlan = (cx, cy, rP, rT, n) => {
-    const o = [h.cercle(cx, cy, rP, BL(h.a.arete)), h.cercle(cx, cy, rT, h.a.fin)];
+    const o = [h.cercle(cx, cy, rP, BL(h.a.contour)), h.cercle(cx, cy, rT, h.a.fin)];   // la charte : la butte pèse
     for (let i = 0; i < n; i++) {
       const a = 2 * Math.PI * i / n, c = Math.cos(a), s = Math.sin(a);
       const r2 = i % 2 ? rT + (rP - rT) * 0.5 : rP - 2.5;
@@ -89,7 +89,7 @@ module.exports = (h) => {
   // terre en coupe sous un profil, bord du bas en onde
   const terre = (dProfil, x0, x1, yB) => [
     h.path(`${dProfil} L${r1(x1)} ${r1(yB)}${onde(x0, x1, yB)} Z`, h.a.hachure('terre', 'aucun')),
-    h.path(dProfil, h.a.arete),
+    h.path(dProfil, h.a.contour),   // la charte : le profil de la butte pèse (2,4)
     h.path(`M${r1(x1)} ${r1(yB + 2.5 * Math.sin(x1 / 7))}${onde(x0, x1, yB).replace(/^ L/, ' L')}`, h.a.detail),
   ].join('\n');
 
@@ -240,10 +240,10 @@ module.exports = (h) => {
           // cotes : dans le rang et entre les rangs
           const yc = y0 - 34;
           o.push(seg(x0, y0 - rb - 3, x0, yc - 4, h.a.fin), seg(x0 + P, y0 - rb - 3, x0 + P, yc - 4, h.a.fin));
-          o.push(h.cote(x0, yc, x0 + P, yc, '900 à 1 200'));
+          o.push(h.cote(x0, yc, x0 + P, yc, '900 à 1 200 mm'));
           const xc = x0 - 34;
           o.push(seg(x0 - rb - 3, y0, xc - 4, y0, h.a.fin), seg(x0 - rb - 3, y0 + P, xc - 4, y0 + P, h.a.fin));
-          o.push(h.cote(xc, y0, xc, y0 + P, '900 à 1 200', { cote: 'gauche' }));
+          o.push(h.cote(xc, y0, xc, y0 + P, '900 à 1 200 mm', { cote: 'gauche' }));
           return o.join('\n');
         },
         renvois: z => {
@@ -274,17 +274,19 @@ module.exports = (h) => {
           const k = 3, fx0 = cx - 66, fx1 = cx + 66, fy0 = planY + R + 22, fy1 = fy0 + 84, ys = fy0 + 18;
           for (const x of [cx - R, cx + R]) o.push(seg(x, planY + 4, x, fy0 - 4, RAPPEL), seg(x, fy1 + 4, x, yG - 3, RAPPEL));
           for (const x of [cx - RM, cx + RM]) o.push(seg(x, planY + R + 6, x, fy0 - 4, RAPPEL), seg(x, fy1 + 4, x, yG - hM - 4, RAPPEL));
-          o.push(h.rect(fx0, ys, fx1 - fx0, fy1 - ys, h.a.hachure('terre', 'aucun')));
-          o.push(h.rect(fx0, fy0, fx1 - fx0, fy1 - fy0, h.a.detail));
-          o.push(seg(fx0, ys, fx1, ys, h.a.arete));
-          const kx = cx - 14, ky = ys + prof * k;
-          o.push(h.rect(kx - 9, ky - 11, 18, 22, h.a.blanc));
-          o.push(grain(kx, ky, 0, 1.6));
-          o.push(seg(kx + 7, ky, cx + 10, ky, h.a.fin));
-          o.push(h.cote(cx + 6, ys, cx + 6, ky, '25 à 40', { cote: 'droite' }));
-          // bulle sur la coupe et renvoi vers le détail
+          const mR = 44, mcy = fy0 + 42, hc = Math.sqrt(mR * mR - (mcy - ys) ** 2);
+          o.push(h.path(`M${r1(cx - hc)} ${r1(ys)} A${mR} ${mR} 0 1 0 ${r1(cx + hc)} ${r1(ys)} Z`, h.a.hachure('terre', 'aucun')));
+          o.push(h.cercle(cx, mcy, mR, h.a.detail));
+          o.push(seg(cx - hc, ys, cx + hc, ys, h.a.arete));
+          const kx = cx + 12, ky = ys + prof * k;
+          // bulle sur la coupe, trait jusqu'à la graine du médaillon
           o.push(h.cercle(cx + RM, yg - 3, 12, h.a.fin));
-          o.push(seg(cx + RM, yg - 15, cx + RM, fy1, h.a.fin));
+          o.push(seg(cx + RM, yg - 15, kx + 3, ky + 7, h.a.fin));
+          o.push(grain(kx, ky, 0, 1.6));
+          // la cote rapprochée du médaillon : à gauche de lui, son chiffre sortait du cadre de la vue
+          const xq = cx - mR + 6;
+          o.push(seg(kx - 7, ky, xq - 5, ky, h.a.fin), seg(cx - hc - 2, ys, xq - 5, ys, h.a.fin));
+          o.push(h.cote(xq, ys, xq, ky, '25 à 40 mm', { cote: 'gauche' }));
           return o.join('\n');
         },
         renvois: z => {
@@ -307,9 +309,11 @@ module.exports = (h) => {
           for (const a of ANG_HAR) o.push(haricot(cx + RH * Math.cos(rad(a)), planY + RH * Math.sin(rad(a)), a + 90, 1.3));
           for (const a of ANG_MAIS) o.push(maisDessus(cx + RM * Math.cos(rad(a)), planY + RM * Math.sin(rad(a)), a + 20));
           o.push(percheDessus(cx, planY));
-          for (const a of [45, 135, 225, 315]) {
+          // La charte : une seule flèche du geste par vue, en rouge, celle que vise le renvoi 7 ; la
+          // terre se ramène de même tout autour
+          for (const a of [45]) {
             const c = Math.cos(rad(a)), s = Math.sin(rad(a));
-            o.push(h.fleche(`M${r1(cx + (R + 12) * c)} ${r1(planY + (R + 12) * s)} L${r1(cx + (R - 12) * c)} ${r1(planY + (R - 12) * s)}`));
+            o.push(h.geste(`M${r1(cx + (R + 12) * c)} ${r1(planY + (R + 12) * s)} L${r1(cx + (R - 12) * c)} ${r1(planY + (R - 12) * s)}`));
           }
           o.push(traitCoupe(cx - R - 10, cx + R + 10, planY));
           // coupe : la terre ramenée, l'ancien profil en tireté
@@ -328,16 +332,18 @@ module.exports = (h) => {
             for (const [dx, dy] of [[-7, 12], [-2, 16], [4, 14], [8, 9]]) o.push(h.path(`M${r1(x)} ${r1(ysem + 2)} q${r1(dx * 0.4)} ${r1(dy * 0.6)} ${r1(dx)} ${r1(dy)}`, h.a.fin));
             o.push(seg(x, ysem - 2, x, ys, h.a.detail));
             o.push(h.chemin([[x - 1.4, ys], [x - 0.8, ys - Hm * 0.55], [x + 0.8, ys - Hm * 0.55], [x + 1.4, ys]], BL(h.a.detail), true));
-            const fe = [[s, 0.15, 17], [-s, 0.32, 19], [s, 0.5, 18], [-s, 0.72, 14]];
+            const fe = [[s, 0.12, 22], [-s, 0.3, 24], [s, 0.5, 21], [-s, 0.72, 16]];
             for (const [d, k, L] of fe) {
               const yn = ys - Hm * k;
-              o.push(fuseau([x + d * 1, yn], [x + d * L * 0.35, yn - L * 0.75], [x + d * L * 0.8, yn - L * 0.35], 6));
+              // feuille en ruban : monte, puis retombe en arc
+              o.push(fuseau([x + d * 1, yn], [x + d * L * 0.45, yn - L * 0.7], [x + d * L, yn + L * 0.1], 2.2));
             }
           }
           // haricot semé dans le plan de coupe (à 180°)
           o.push(haricot(cx - RH, yG - hM + 11, 0, 1.1));
           // terre ramenée des deux côtés
-          for (const s of [-1, 1]) o.push(h.fleche(`M${r1(cx + s * (R + 14))} ${r1(yG - 5)} Q${r1(cx + s * (R - 6))} ${r1(yG - 30)} ${r1(cx + s * (rT + 8))} ${r1(yG - hM - 7)}`));
+          // (la charte : en coupe aussi, une seule flèche du geste, en rouge, du même côté que dans le plan)
+          for (const s of [1]) o.push(h.geste(`M${r1(cx + s * (R + 14))} ${r1(yG - 5)} Q${r1(cx + s * (R - 6))} ${r1(yG - 30)} ${r1(cx + s * (rT + 8))} ${r1(yG - hM - 7)}`));
           // rappels
           for (const x of [cx - R, cx + R]) o.push(seg(x, planY + 4, x, yG - 3, RAPPEL));
           return o.join('\n');
@@ -348,7 +354,7 @@ module.exports = (h) => {
             { n: 5, rond: [z.l - 12, 14], cible: [cx + 4, planY - 3], texte: 'la perche, plantée au centre avec le haricot' },
             { n: 6, rond: [12, 14], cible: [cx + RH * Math.cos(rad(252)), planY + RH * Math.sin(rad(252)) - 3], texte: 'quatre ou cinq graines de haricot' },
             { n: 7, rond: [z.l - 12, planY + R + 30], cible: [cx + (R + 4) * 0.707, planY + (R + 4) * 0.707], texte: 'rechausser : la terre ramenée aux plants' },
-            { n: 8, rond: [12, yG - 44], cible: [cx - R + 16, yG - 8], texte: 'en tireté, la butte avant le rechaussage' },
+            { n: 8, rond: [z.l - 12, yG - 44], cible: [cx + 47, yG - 7.5], texte: 'en tireté, la butte avant le rechaussage' },
           ];
         },
       },
@@ -394,7 +400,11 @@ module.exports = (h) => {
           o.push(h.path(`M${r1(base[0])} ${r1(base[1])} C${r1(cx + 10)} ${r1(yG - 6)} ${r1(cx - 40)} ${r1(yG + 1)} ${r1(2)} ${r1(yG - 2)}`, h.a.arete));
           o.push(h.path(`M${r1(cx + 86)} ${r1(yG - 3)} q4 -6 0 -9 q-4 -3 -1 -7`, h.a.detail));
           const fr = [cx + 78, yG - 13];
-          o.push(h.ellipse(fr[0], fr[1], 19, 13, BL(h.a.arete)));
+          // La charte : la courge est un volume, son flanc d'en bas à droite est à l'ombre (croissant)
+          o.push(h.ellipse(fr[0], fr[1], 19, 13, h.a.blanc));
+          o.push(`<clipPath id="om-9901-courge"><ellipse cx="${fr[0]}" cy="${fr[1]}" rx="19" ry="13"/></clipPath>`);
+          o.push(`<g clip-path="url(#om-9901-courge)">${h.ellipse(fr[0], fr[1], 19, 13, h.a.ombre)}${h.ellipse(fr[0] - 5, fr[1] - 4, 19, 13, h.a.blanc)}</g>`);
+          o.push(h.ellipse(fr[0], fr[1], 19, 13, h.a.arete));
           for (const dx of [-11, -4, 4, 11]) o.push(h.path(`M${r1(fr[0] + dx * 0.6)} ${r1(fr[1] - 12.6)} Q${r1(fr[0] + dx * 1.35)} ${r1(fr[1])} ${r1(fr[0] + dx * 0.6)} ${r1(fr[1] + 12.6)}`, h.a.fin));
           o.push(h.rect(fr[0] - 1.5, fr[1] - 17, 3, 5, h.a.plein));
           for (const [x, y, Rf, rot] of [[14, yG - 22, 20, -8], [cx - 30, yG - 20, 21, 6], [cx + 40, yG - 36, 20, -4], [z.l - 18, yG - 26, 19, 10]]) {

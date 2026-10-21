@@ -1,8 +1,13 @@
 // Planche 89-07 — Les lunettes à fente (ch. 89, §9)
+// La charte : la pièce au contour fort, le reste fin ; pas de gris (le devant noirci a déjà sa
+// trame, la coupe est hachurée) ; pas de rouge : ni geste ni point à vérifier.
+// Les têtes passent de profil (JP, 14 octobre) : la vue de dessus sur une tête devient la tête de
+// profil (la tête simple de la bibliothèque, tetes/moteur.js), lunettes portées : on y voit la pièce qui revient sur la tempe en suivant
+// le visage, la fente, la visière, la lanière qui passe au-dessus de l'oreille et le nœud derrière.
 module.exports = (h) => ({
   ref: '89-07',
   titre: 'Les lunettes à fente',
-  desc: 'À gauche, les lunettes vues de face : une pièce de bois allongée, le devant noirci, une fente étroite qui court d’un œil à l’autre sous une petite visière, une encoche en bas au milieu pour le nez, et à chaque bout une lanière de peau arrêtée par un nœud. Au centre, vue de dessus sur une tête : la pièce un peu courbée qui épouse le visage, la visière qui avance, le creux de l’intérieur en tireté, les deux lanières qui font le tour de la tête et se nouent derrière. À droite, en coupe à la hauteur d’un œil : la visière au-dessus de la fente, l’intérieur creusé qui laisse bouger les cils, la pièce appuyée au front et à la pommette.',
+  desc: 'À gauche, les lunettes vues de face : une pièce de bois allongée, le devant noirci, une fente étroite qui court d’un œil à l’autre sous une petite visière, une encoche en bas au milieu pour le nez, et à chaque bout une lanière de peau arrêtée par un nœud. Au centre, portées, une tête de profil : la pièce un peu courbée qui revient sur la tempe en suivant le visage, la fente à la hauteur de l’œil, la visière qui avance, la lanière qui passe au-dessus de l’oreille et se noue derrière la tête. À droite, en coupe à la hauteur d’un œil : la visière au-dessus de la fente, l’intérieur creusé qui laisse bouger les cils, la pièce appuyée au front et à la pommette.',
   format: 'demi',
   disposition: [['face', 'dessus', 'coupe']],
   largeurs: [[2.6, 2, 1.6]],
@@ -16,7 +21,7 @@ module.exports = (h) => ({
           ...[-1, 1].map(s => lanière(h, F.lan(s))),
           // la pièce : noircie au devant
           h.path(F.p(CORPS), h.a.blanc),
-          h.path(F.p(CORPS), h.a.hachure('bois', 'fin')),
+          h.path(F.p(CORPS), h.a.hachure('grillage', 'fin')),
           h.path(F.p(FENTE), h.a.plein),
           h.path(F.p(VISIERE_FACE), h.a.arete),
           h.path(F.p(CORPS), h.a.contour),
@@ -39,31 +44,34 @@ module.exports = (h) => ({
       },
     },
     dessus: {
-      titre: 'Vu de dessus',
+      titre: 'Portées, de profil',
       dessin: z => {
-        const D = dessus(z);
+        const D = porte(z);
+        const P = pts => pts.map(D.T), Q = pts => pts.map(D.TP);
         return [
-          // la tête, en silhouette
-          h.ellipse(D.cx, D.cyT, 56, 66, h.a.fin),
-          // lanières autour de la tête, nœud derrière
-          ...[-1, 1].map(s => lanière(h, D.lan(s), 4)),
-          ...[-1, 1].map(s => lanière(h, D.bout(s), 4)),
-          h.ellipse(D.cx, D.yN, 5.5, 4.5, h.a.blanc),
-          h.ellipse(D.cx, D.yN, 5.5, 4.5, h.a.arete),
-          // la pièce, courbée
-          h.path(D.arc(74, 84, -40, 40), h.a.blanc),
-          h.path(D.arc(84, 91, -35, 35), h.a.blanc),
-          h.path(D.arc(84, 91, -35, 35), h.a.arete),
-          h.path(D.arc(74, 84, -40, 40), h.a.contour),
-          // le creux de l'intérieur, caché sous le dessus
-          h.path(D.ligne(78.5, -33, 33), h.a.cache),
+          // la tête simple de profil, regard à droite, repère à l'oreille
+          String(h.formes.teteSimple({ x: D.x0, y: D.y0, echelle: D.e })),
+          // les bouts de la lanière, qui pendent derrière la tête, puis le nœud
+          lanière(h, { pts: P(BOUT_1) }, 3.5),
+          lanière(h, { pts: P(BOUT_2) }, 3.5),
+          // la lanière, de la tempe à l'arrière de la tête, au-dessus de l'oreille
+          lanière(h, { pts: P(LANIERE_P) }, 3.5),
+          h.ellipse(...D.T(NOEUD_P), 5, 4.2, h.a.blanc),
+          h.ellipse(...D.T(NOEUD_P), 5, 4.2, h.a.arete),
+          // la pièce, vue de côté : elle revient du devant jusqu'à la tempe
+          h.chemin(Q(BANDE_P), h.a.blanc, true),
+          h.chemin(Q(FENTE_P), h.a.plein, true),
+          h.chemin(Q(VISIERE_P), h.a.arete),
+          h.chemin(Q(VISIERE_BOUT), h.a.blanc, true),
+          h.chemin(Q(VISIERE_BOUT), h.a.arete, true),
+          h.chemin(Q(BANDE_P), h.a.contour, true),
         ].join('\n');
       },
       renvois: z => {
-        const D = dessus(z);
+        const D = porte(z);
         return [
-          { n: 5, rond: [16, 22], cible: D.pol(79, -22), texte: 'bois un peu courbé, épouse le visage' },
-          { n: 6, rond: [z.l - 16, 222], cible: [D.cx + 5, D.yN + 2], texte: 'lanières nouées derrière la tête' },
+          { n: 5, rond: [z.l - 12, 22], cible: D.TP([78, -40.5]), texte: 'bois un peu courbé, épouse le visage' },
+          { n: 6, rond: [14, z.h - 40], cible: D.T([NOEUD_P[0] - 4, NOEUD_P[1] + 4]), texte: 'lanières nouées derrière la tête' },
         ];
       },
     },
@@ -131,35 +139,32 @@ function face(z) {
   };
 }
 
-// ─── Vu de dessus ────────────────────────────────────────────────────────────────────────
-// Le visage regarde vers le haut de la page. La pièce suit un arc de centre (cx, 150).
-function dessus(z) {
-  const cx = r1(z.l / 2), cyA = 150, cyT = 142, yN = 214;
-  const pol = (r, deg) => { const a = deg * Math.PI / 180; return [r1(cx + r * Math.sin(a)), r1(cyA - r * Math.cos(a))]; };
-  const pas = (a0, a1, n = 24) => Array.from({ length: n + 1 }, (_, i) => a0 + (a1 - a0) * i / n);
-  const ligne = (r, a0, a1) => 'M' + pas(a0, a1).map(a => pol(r, a).join(',')).join(' L');
-  const arc = (ri, re, a0, a1) => {
-    const ext = pas(a0, a1).map(a => pol(re, a));
-    const int = pas(a0, a1).reverse().map(a => pol(ri, a));
-    // bouts arrondis
-    const b1 = pol((ri + re) / 2 + 0, a1 + 2.2), b0 = pol((ri + re) / 2, a0 - 2.2);
-    return 'M' + ext.map(p => p.join(',')).join(' L') + ` Q${b1.join(',')} ${int[0].join(',')} L` + int.map(p => p.join(',')).join(' L') + ` Q${b0.join(',')} ${ext[0].join(',')} Z`;
-  };
-  // lanière : du bout de la pièce, le long de la tête, jusqu'au nœud derrière
-  const ell = phi => { const a = phi * Math.PI / 180; return [r1(cx + 62 * Math.sin(a)), r1(cyT - 72 * Math.cos(a))]; };
-  const lan = s => {
-    const e = pol(79, s * 38);
-    const tour = pas(52, 172, 30).map(p => ell(s * p));
-    return { pts: [e, ...tour, [r1(cx + s * 4), yN - 1]] };
-  };
-  const bout = s => ({ pts: bez([cx + s * 3, yN + 2], [cx + s * 6, yN + 8], [cx + s * 9, yN + 12], [cx + s * 12, yN + 20], 12).map(p => p.map(r1)) });
-  return { cx, cyT, yN, yF: r1(cyA - 74), pol, ligne, arc, lan, bout };
+// ─── Portées, de profil ──────────────────────────────────────────────────────────────────
+// Repère de la tête : millimètres, l'oreille en 0,0, regard vers +x, y vers le bas. La pièce est
+// dessinée pour un œil en (80, -24) et le haut du nez en (98, -33) ; la tête simple a son œil en
+// (92,4, -16) : la pièce se décale de DEC (TP). La lanière et le nœud sont posés sur la tête simple :
+// la lanière passe au-dessus de l'oreille (son haut en y = -30), le nœud sur l'arrière du crâne.
+// La pièce mesure environ 4 cm de haut devant l'œil et s'amincit vers la tempe, comme de face.
+const BANDE_P = [[110, -47], [96, -46.5], [80, -43], [66, -37], [55, -31], [49, -27.5], [47.5, -24.5], [49, -21.5],
+  [56, -19.5], [70, -15], [88, -9.5], [107, -6], [109, -26]];
+const FENTE_P = [[109.5, -27.8], [92, -27.4], [74, -26.4], [60, -25.4], [58, -24.2], [60, -22.8], [74, -22.4], [92, -21.8], [109.5, -21.2]];
+const VISIERE_P = [[109, -31.5], [92, -31.2], [76, -30], [64, -28.8]];
+const VISIERE_BOUT = [[109.5, -35], [119, -31.5], [119, -29.5], [109.5, -28.2]];
+const DEC = [12.4, 8];
+const LANIERE_P = [[64, -17], [40, -26], [12, -37], [-20, -41], [-52, -36], [-78, -28], [-89, -24]];
+const NOEUD_P = [-90, -24];
+const BOUT_1 = [[-91, -21], [-97, -10], [-101, 2]];
+const BOUT_2 = [[-88, -21], [-90, -8], [-89, 4]];
+function porte(z) {
+  const e = 0.7, x0 = r1(z.l / 2 - 8 * e + 2), y0 = r1(30 + 129 * e);
+  const T = ([u, v]) => [r1(x0 + e * u), r1(y0 + e * v)];
+  return { e, x0, y0, T, TP: ([u, v]) => T([u + DEC[0], v + DEC[1]]) };
 }
 
 // ─── En coupe ────────────────────────────────────────────────────────────────────────────
 // Visage tourné vers la droite ; l'œil en (56,120). Le devant de la pièce en x = 84.
 const PROFIL = 'M55,44 C60,62 64,76 67,88 C68,94 64,102 61,107 M61,133 C66,138 69,144 69,150 C69,164 67,176 64,188';
-const OEIL = 'M61,107 C64,111 66,115 66,120 C66,125 64,129 61,133 M61,108 C57,110 55,114 55,120 C55,126 57,130 61,132';
+const OEIL = 'M61,107 C64,111 66,115 66,120 C66,125 64,129 61,133';
 const CILS = 'M63,109 L68,106 M64.5,112 L70,110.5 M65.5,115 L71,114.5 M63.5,131 L67.5,133.5';
 const HAUT = 'M70,76 L80,76 Q84,76 84,80 L84,101 L100,106 L100,111 L86,114 L84,116 L75.5,116 C75.5,104 72,96 68,94 L68,78 Q68,76 70,76 Z';
 const BAS = 'M75.5,124 L84,124 L84,152 Q84,155 81,155 L70,155 Q68,155 68,153 L68,146 C72,144 75.5,136 75.5,124 Z';

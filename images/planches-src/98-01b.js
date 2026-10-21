@@ -10,6 +10,9 @@
 // une gerbe de chaque rangée sur sa longueur, les épis qui se croisent au milieu, le battoir
 // couché dessus), et de dessus, alignée dessous (les deux rangées, les pieds en empreintes, le
 // fléau). Aucune cote : le chapitre ne donne aucune mesure du fléau ni de la couche.
+// 13 oct. : le batteur est le corps simple (pose « fleau »), les bras recalculés pour que les deux
+// poings se ferment sur la ligne du manche ; la charte : le fléau pèse, la gerbe du fond et la toile
+// en gris, le rouge sur la tête du battoir qui tombe et sur le battoir à plat (le point à voir).
 module.exports = (h) => {
   const A = h.a, F = h.formes;
   const f1 = v => Math.round(v * 10) / 10;
@@ -27,35 +30,39 @@ module.exports = (h) => {
 
   // ── proportions du dessin, en mm (aucune n'est cotée) ──
   const K = 0.17;                                   // px par mm, les deux vues
-  const X0 = 546;                                   // mm à gauche des pieds
+  // le manche : sa pente (degrés sous l'horizontale), la main arrière (mm devant les chevilles),
+  // l'écart des deux mains sur le manche ; la hauteur de la main arrière se déduit pour que le
+  // battoir tombe à plat sur une couche de gerbes de la même épaisseur, et la vue se recale pour
+  // que la couche reste à la même place sur la page
+  const AM = 21, GRX = 310, EC = 120, GRY = 690;
+  const X0 = 546 - ((GRX + 1300 * Math.cos(AM * Math.PI / 180)) - 1316.4);   // mm à gauche des pieds
   const LM = 1350, LB = 750, RM = 18, RB = 25, G = 139;
   const LG = 850, RECOUV = 120;                     // gerbe : longueur ; les épis dépassent le milieu de tant
   const PY = [0, 1020], GW = 200, YM = 455;          // plan : longueur de toile montrée, largeur d'une gerbe, axe du fléau
   const GYB = [110, 340, 570, 800], GYA = [225, 455, 685, 915];      // les gerbes des deux rangées, en quinconce
 
   const X = x => (x + X0) * K;
+  // Le batteur : le corps simple, pose « fleau » ; les bras recalculés pour que les deux poings tombent
+  // sur la ligne du manche, la main proche (arrière) à GRX devant les chevilles et GRY du sol, la main
+  // loin (avant) EC plus loin sur le manche, l'axe des deux prises le long du manche.
+  const BRAS = { brasP: -26.6, avantbrasP: 28.7, mainP: -21, brasL: -2.9, avantbrasL: 24.3, mainL: -21 };
 
   // ── le batteur, le manche et le battoir : calculés une fois, pour les deux vues ──
   // Les poignets sont placés pour que le creux de chaque main tombe sur la ligne du manche.
   function batteur(yS) {
     const V = (x, y) => [X(x), yS + y * K];
-    const Gr = [240, -885], Gf = [339, -818];       // prises voulues (mm) : main arrière au ventre, main avant
-    // la main arrière est le bras proche (coude plié, devant le corps) ; la main avant, le bras loin, tendu
-    let cibles = { proche: V(...Gr), loin: V(...Gf) }, p = null;
-    for (let i = 0; i < 4; i++) {
-      p = F.personnage({ x: X(0), y: yS, pose: 'debout', echelle: K, penche: 30, regard: 26, mains: cibles });
-      const creux = c => [p.poignets[c][0] + 0.42 * (p.mains[c][0] - p.poignets[c][0]), p.poignets[c][1] + 0.42 * (p.mains[c][1] - p.poignets[c][1])];
-      const cr = creux('proche'), cf = creux('loin');
-      const vr = V(...Gr), vf = V(...Gf);
-      cibles = { proche: [cibles.proche[0] + vr[0] - cr[0], cibles.proche[1] + vr[1] - cr[1]], loin: [cibles.loin[0] + vf[0] - cf[0], cibles.loin[1] + vf[1] - cf[1]] };
-    }
-    p = F.personnage({ x: X(0), y: yS, pose: 'debout', echelle: K, penche: 30, regard: 26, mains: cibles });
+    // le batteur est plié sur le coup, les bras qui tombent des épaules : la main arrière près du
+    // bout du manche, la main avant plus bas sur le manche ; le manche descend de AM degrés
+    const am = AM * Math.PI / 180, Gr = [GRX, -GRY];
+    const Gf = [Gr[0] + Math.cos(am), Gr[1] + Math.sin(am)];
+    // la main arrière est la main proche ; la main avant, la main loin
     const u = [Gf[0] - Gr[0], Gf[1] - Gr[1]], n = Math.hypot(...u); u[0] /= n; u[1] /= n;
     const bout = [Gr[0] - 50 * u[0], Gr[1] - 50 * u[1]];              // le bout du manche, derrière la main arrière
     const J = [bout[0] + LM * u[0], bout[1] + LM * u[1]];              // le bout avant du manche (mm)
     const B0 = J[0] + G * 0.9;                                         // le bout du battoir, à plat
     const yB = J[1];                                                   // l'axe du battoir
-    return { p, u, bout, J, B0, yB, V };
+    const Gl = [Gr[0] + EC * u[0], Gr[1] + EC * u[1]];              // la main avant, écartée de la main arrière
+    return { u, bout, J, B0, yB, V, Gr, Gf: Gl };
   }
   const geo = (() => {
     const b = batteur(0);
@@ -69,7 +76,7 @@ module.exports = (h) => {
     const nn = [-d[1], d[0]], Q = (x, y) => [P0[0] + x * d[0] + y * nn[0], P0[1] + x * d[1] + y * nn[1]];
     const c = Math.min(4, r * 0.4);
     const pts = [Q(c, -r), Q(l - c, -r), Q(l, -r + c), Q(l, r - c), Q(l - c, r), Q(c, r), Q(0, r - c), Q(0, -r + c)];
-    return h.path(pl(pts) + ' Z', blanc(A.arete));
+    return h.path(pl(pts) + ' Z', blanc(A.contour));
   }
 
   // ── un épi d'orge : grains en chevrons, barbes devant ──
@@ -92,14 +99,14 @@ module.exports = (h) => {
   const NEPIS = 7, EPI = 105;                     // épis par gerbe dans la vue ; longueur d'un épi (mm)
 
   // vue de côté : du pied (xb) au bout des barbes (xt), posée sur y = yS ; hc : épaisseur (mm)
-  function gerbeCote(xb, xt, yS, hc, graine) {
+  function gerbeCote(xb, xt, yS, hc, graine, loin = false) {
     const s = Math.sign(xt - xb), L = Math.abs(xt - xb);
     const at = f => X(xb + s * L * f), Y = f => yS - f * hc * K;
     let r = graine; const rnd = () => { r = (r * 9301 + 49297) % 233280; return r / 233280; };
     const haut = CORPS.map(([f, e]) => [at(f), Y(e)]);
     const out = [];
     // le corps : le blanc sans trait, puis le dessus et le pied au trait
-    out.push(h.path(lisse(haut) + ` L${f1(at(0.8))} ${f1(yS)} L${f1(at(0))} ${f1(yS)} Z`, 'fill="#FFFFFF" stroke="none"'));
+    out.push(h.path(lisse(haut) + ` L${f1(at(0.8))} ${f1(yS)} L${f1(at(0))} ${f1(yS)} Z`, loin ? A.loin : 'fill="#FFFFFF" stroke="none"'));
     out.push(h.path(lisse(haut), A.arete));
     out.push(h.path(pl([[at(0), yS], [at(0) - s * 1.2, Y(0.22)], [at(0) + s * 0.8, Y(0.45)], [at(0), Y(0.66)]]), A.arete));
     // les tiges
@@ -153,7 +160,7 @@ module.exports = (h) => {
   return {
     ref: '98-01b',
     titre: 'Le fléau : battre sur la toile',
-    desc: 'Encadré danger : le coup mal pris. En haut, de côté, dans l’axe des rangées : le batteur penché tient le manche à deux mains, le battoir est tombé à plat sur les épis ; une gerbe de chaque rangée, couchée sur la toile, les épis qui se croisent au milieu ; la flèche suit la tête du battoir qui descend. En bas, vue de dessus, alignée : la toile, les deux rangées de gerbes, épis vers le milieu, le fléau couché sur les épis, et les pieds du batteur en empreintes.',
+    desc: 'Encadré danger : le coup mal pris. En haut, de côté, dans l’axe des rangées : le batteur, plié sur le coup, les bras qui tombent des épaules, tient le manche à deux mains, les deux poings refermés dessus et écartés, la main arrière près du bout du manche ; le battoir est tombé à plat sur les épis (cerclé de rouge) ; une gerbe de chaque rangée, couchée sur la toile, celle du fond en gris, les épis qui se croisent au milieu ; la flèche rouge suit la tête du battoir qui descend. En bas, vue de dessus, alignée : la toile en gris, les deux rangées de gerbes, épis vers le milieu, le fléau couché sur les épis, et les pieds du batteur en empreintes.',
     format: 'pleine',
     disposition: [['coup'], ['plan']],
     hauteurs: [1720, 1180],
@@ -165,26 +172,24 @@ module.exports = (h) => {
           // le sol, la toile
           out.push(h.rect(4, yS, z.l - 8, 7, A.hachure('terre', 'aucun')), h.ligne(4, yS, z.l - 4, yS, A.arete));
           out.push(h.path(`M${f1(X(TOILE[0]) - 4)} ${f1(yS - 5)} Q${f1(X(TOILE[0]))} ${f1(yS - 1.5)} ${f1(X(TOILE[0]) + 8)} ${f1(yS - 1.5)} L${f1(X(TOILE[1]) - 8)} ${f1(yS - 1.5)} Q${f1(X(TOILE[1]))} ${f1(yS - 1.5)} ${f1(X(TOILE[1]) + 4)} ${f1(yS - 5)}`, A.detail));
-          // une gerbe de chaque rangée : celle du fond d'abord, épis vers la gauche
-          out.push(gerbeCote(geo.rangA[0], geo.rangA[1], yS - 1.5, hc, 11));
+          // une gerbe de chaque rangée : celle du fond d'abord, épis vers la gauche, en gris (le plan loin)
+          out.push(gerbeCote(geo.rangA[0], geo.rangA[1], yS - 1.5, hc, 11, true));
           out.push(gerbeCote(geo.rangB[0], geo.rangB[1], yS - 1.5, hc, 5));
           // le battoir couché sur les épis, l'attache, le manche
           const J = V(...b.J), B0 = V(b.B0, b.yB), u = b.u;
           out.push(baton(B0, [1, 0], LB * K, RB * K));
           out.push(h.chemin([J, B0], A.arete));
           const pM = V(...b.bout);
-          out.push(baton(pM, u, LM * K, RM * K));
-          // le batteur
-          out.push(b.p.toString());
-          // la main avant (bras loin) est derrière le manche : le manche repasse devant elle
-          const gf = V(b.bout[0] + b.u[0] * 170, b.bout[1] + b.u[1] * 170), rr = RM * K, nn = [-u[1], u[0]];
-          const q = (t, e) => [gf[0] + u[0] * t + nn[0] * e, gf[1] + u[1] * t + nn[1] * e];
-          out.push(h.path(pl([q(-11, -rr), q(11, -rr), q(11, rr), q(-11, rr)]) + ' Z', 'fill="#FFFFFF" stroke="none"'));
-          out.push(h.chemin([q(-11.6, -rr), q(11.6, -rr)], A.arete), h.chemin([q(-11.6, rr), q(11.6, rr)], A.arete));
+          const manche = baton(pM, u, LM * K, RM * K);
+          // le batteur : le corps simple ; le manche passe devant le poing loin et dans le poing proche
+          const pers = F.corps({ x: X(0), y: yS, pose: 'fleau', echelle: K, angles: BRAS, objetP: manche });
+          out.push(String(pers));
           // la tête du battoir descend autour de l'attache et tombe à plat
           const Rr = LB * K * 0.93, a0 = -58 * Math.PI / 180, a1 = -10 * Math.PI / 180;
           const p0 = [B0[0] + Rr * Math.cos(a0), B0[1] + Rr * Math.sin(a0)], p1 = [B0[0] + Rr * Math.cos(a1), B0[1] + Rr * Math.sin(a1)];
-          out.push(h.fleche(`M${f1(p0[0])} ${f1(p0[1])} A${f1(Rr)} ${f1(Rr)} 0 0 1 ${f1(p1[0])} ${f1(p1[1])}`, A.arete));
+          out.push(h.geste(`M${f1(p0[0])} ${f1(p0[1])} A${f1(Rr)} ${f1(Rr)} 0 0 1 ${f1(p1[0])} ${f1(p1[1])}`));
+          // le point à contrôler : le battoir couché à plat sur les épis, pas du bout
+          out.push(h.controle(B0[0] + LB * K * 0.72, B0[1], 12));
           return out.join('\n');
         },
         renvois: z => {
@@ -203,7 +208,8 @@ module.exports = (h) => {
         dessin: z => {
           const y0 = (z.h - (PY[1] - PY[0]) * K) / 2, Yp = y => y0 + y * K, out = [];
           // la toile
-          out.push(h.rect(X(TOILE[0]), Yp(PY[0]) - 6, X(TOILE[1]) - X(TOILE[0]), (PY[1] - PY[0]) * K + 12, blanc(A.detail)));
+          out.push(h.rect(X(TOILE[0]), Yp(PY[0]) - 6, X(TOILE[1]) - X(TOILE[0]), (PY[1] - PY[0]) * K + 12, A.loin),
+            h.rect(X(TOILE[0]), Yp(PY[0]) - 6, X(TOILE[1]) - X(TOILE[0]), (PY[1] - PY[0]) * K + 12, A.detail));
           // les deux rangées : celle du fond (épis vers la gauche) d'abord
           GYA.forEach((gy, i) => out.push(gerbeDessus(geo.rangA[0], geo.rangA[1], Yp(gy), 21 + i * 7)));
           GYB.forEach((gy, i) => out.push(gerbeDessus(geo.rangB[0], geo.rangB[1], Yp(gy), 3 + i * 5)));

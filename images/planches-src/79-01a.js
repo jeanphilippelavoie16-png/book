@@ -1,4 +1,7 @@
 // Planche 79-01a — la cave de talus : plan, trou en travers, cave finie en long.
+// La charte : le plan et les coupes hachurées restent sans gris, sauf la chambre vue en long, en
+// gris loin (l'intérieur, vu par la coupe). Le rouge : les deux bouches qui font balayer le fond,
+// la prise au ras du plancher et la sortie au point le plus haut du plafond. Pas de geste.
 module.exports = (h) => {
   const A = h.a;
   // une couche : fond blanc qui masque ce qui est dessous, puis sa hachure
@@ -12,6 +15,18 @@ module.exports = (h) => {
   const yI = x => yC(x) - 22;                    // dessus de l'isolant
   const S1 = [[0, 40], [90, 50], [140, 70.5], [200, 84], [300, 97], [410, 106], [452, yI(452)]];
   const sol = [[452, 232], [468, 232], [510, 238], [566, 256], [576, 262], [576, 274], [600, 277]];
+
+  // rappel d'un renvoi de la vue en long (même numéro, pas de nouvelle ligne de légende)
+  const rappel = (n, rx, ry, cx, cy) => {
+    const dx = cx - rx, dy = cy - ry, d = Math.hypot(dx, dy), sx = rx + 9 * dx / d, sy = ry + 9 * dy / d;
+    return [
+      `<line x1="${sx}" y1="${sy}" x2="${cx}" y2="${cy}" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>`,
+      `<line x1="${sx}" y1="${sy}" x2="${cx}" y2="${cy}" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>`,
+      `<circle cx="${cx}" cy="${cy}" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>`,
+      `<circle cx="${rx}" cy="${ry}" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4"/>`,
+      h.texte(rx, ry + 4, String(n)),
+    ].join('\n');
+  };
 
   return {
     ref: '79-01a',
@@ -41,6 +56,8 @@ module.exports = (h) => {
           // têtes des deux conduits
           h.cercle(80, 98, 5, A.arete),
           h.cercle(180, 98, 5, A.arete),
+          rappel(7, 30, 98, 74.5, 98),
+          rappel(8, 180, 52, 180, 92.5),
         ].join('\n'),
         renvois: z => [
           { n: 1, rond: [264, 12], cible: [246, 27.3], texte: 'rigole de tête en fer à cheval' },
@@ -62,9 +79,14 @@ module.exports = (h) => {
           // profil du trou
           h.chemin([[0, 90], [104, 90], [156, 134], [156, 170], [220, 170], [220, 134], [272, 90], [289, 90]], A.contour),
           // cotes
-          h.cote(68, 80, 104, 80, '1,2 m'),
-          h.ligne(200, 134, 219, 134, A.fin),
-          h.cote(206, 134, 206, 169, '1,2 m', { cote: 'gauche' }),
+          h.cote(68, 80, 104, 80, '1200'),
+          // cote de la paroi droite, décollée de la paroi, rappels haut et bas, traits d'arrêt obliques
+          h.ligne(190, 134, 218, 134, A.fin),
+          h.ligne(190, 170, 218, 170, A.fin),
+          h.ligne(198, 134, 198, 170, A.detail),
+          h.ligne(193, 139, 203, 129, A.detail),
+          h.ligne(193, 175, 203, 165, A.detail),
+          h.texte(178, 156, '1200', { lisere: true }),
           h.ligne(155, 134, 126, 134, A.fin),
           h.path('M132 134 A24 24 0 0 1 137.7 118.5', A.fin),
           h.texte(108, 129, '< 45°', { lisere: true }),
@@ -87,7 +109,7 @@ module.exports = (h) => {
           // structure de bois
           zone([[130, 232], [130, yT(130)], [438, yT(438)], [438, 175], [430, 175], [430, yC(430)], [138, yC(138)], [138, 232]], 'bois'),
           // la chambre
-          h.chemin([[138, 232], [138, yC(138)], [430, yC(430)], [430, 232]], A.blanc, true),
+          h.chemin([[138, 232], [138, yC(138)], [430, yC(430)], [430, 232]], A.loin, true),
           h.chemin([[138, 232], [138, yC(138)], [430, yC(430)], [430, 176]], A.contour),
           h.ligne(138, 232, 452, 232, A.contour),
           // porte isolée
@@ -113,6 +135,10 @@ module.exports = (h) => {
           h.fleche('M406 34 L406 12', A.cache),
           // l'eau sort du drain
           h.fleche('M580 268 L597 272', A.cache),
+          // les deux points qui décident : la prise débouche au ras du plancher, la sortie au
+          // point le plus haut du plafond
+          h.controle(150, 222, 11),
+          h.controle(406, yC(406) - 1, 11),
         ].join('\n'),
         renvois: z => [
           { n: 4, rond: [492, 205], cible: [462, 233], texte: 'lit de pierre nette sous le plancher' },

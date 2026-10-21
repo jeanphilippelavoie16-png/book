@@ -30,9 +30,18 @@ Normes et durée de vie :
 > [les avertisseurs ont une] durée de vie limitée, vous devez les remplacer selon les
 > recommandations du fabricant
 
+Les deux phrases exactes sur le lithium, relevées sur la page par le vérificateur technique du ch. 5 le
+19 octobre 2026 (`suivi/05-redaction.md`, « Corrections après la vérification technique », point 10). L'extrait
+entre crochets plus haut les mêlait : les 10 ans sont ceux du **modèle**, pas d'une pile qu'on change.
+
+> Privilégiez les modèles avec des piles au lithium qui ont une durée de vie de 10 ans
+
+> Privilégiez des piles longue durée comme celles au lithium et n'utilisez pas de piles rechargeables
+> à moins qu'elles soient recommandées par le fabricant
+
 ## Chiffres retenus
 
 | Valeur | Objet |
 | --- | --- |
 | 2 m | distance minimale entre l'avertisseur et un appareil de cuisson ou de combustion |
-| 10 ans | durée de vie d'une pile au lithium d'avertisseur |
+| 10 ans | durée de vie d'un avertisseur à pile au lithium (le modèle) ; dans un modèle à piles qu'on change, des piles au lithium |

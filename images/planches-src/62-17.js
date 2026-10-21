@@ -326,7 +326,7 @@ module.exports = (h) => {
           let s;
           try {
             s = C.dessiner(h, p, {
-              id: 'v1', fondOs: false, loin: 'fin',
+              id: 'v1', fondOs: false, loin: 'gris',
               os: ['C1', 'C2', 'C3', 'C4', 'C5', 'C6', 'C7', 'T1', 'T2', 'T3', 'T4', 'T5', 'T6', 'cote1', 'cote2', 'cote3', 'cote4',
                 'sternum', 'omoplate', 'cartilageOmoplate', 'humerus'],
               osForts: ['C7', 'cote1'],
@@ -357,7 +357,7 @@ module.exports = (h) => {
           out.push(`<defs><clipPath id="v2-cx"><path d="${dP(COUCHES[2].face.map(T[2]), true)}" fill="${BLANC}"/></clipPath></defs>`);
           out.push(`<g clip-path="url(#v2-cx)">${INTERSECTIONS.map(l => `<path d="${dP(l.map(T[2]), false)}" ${trait(1.4)}/>`).join('')}</g>`);
           out.push(ligament(T[3], 'v2-lig', COUCHES[3].epais));
-          out.push(h.fleche(dP(LAME.map(T[4]), false), h.a.arete));
+          out.push(h.geste(dP(LAME.map(T[4]), false)));   // la charte : la lame qui fait le tour de l'os, en rouge
           CERVICALES.forEach(v => {
             if (v.epine) out.push(`<path d="${dP(v.epine.map(T[4]), true)}" fill="${BLANC}" ${trait(1.4).replace('fill="none" ', '')}/>`);
             out.push(`<path d="${dP(v.corps.map(T[4]), true)}" fill="${BLANC}" ${trait(1.4).replace('fill="none" ', '')}/>`);

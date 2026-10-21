@@ -10,6 +10,10 @@
 // profondeur des rigoles ne sont pas dans le chapitre : dessinés en proportion, jamais cotés. La
 // rigole est dessinée large de la moitié de la planche, pour que ses mottes, d'une épaisseur,
 // couvrent la moitié de la planche : le volume se tient. Au buttage, elle est creusée plus bas.
+// La charte : pas de gris (coupes en trame, vue de dessus à plat). Le rouge : le tubercule le plus
+// haut, sous sa terre (le point à vérifier : pas un à la lumière), et l'herbe de la motte posée,
+// en dessous (le sens qui compte). Les flèches des mottes et de la terre disent ce qui bouge, elles
+// restent noires, comme sur les 95-40.
 module.exports = (h) => {
   const A = h.a;
 
@@ -75,10 +79,14 @@ module.exports = (h) => {
 
   // ─── Les quatre coupes : même échelle, même axe, même sol ───────────────────────────────
   const LARG = 2 * BORD, BAS = 0.36, HAUT = 0.76;
-  const geoC = z => {
+  // Les deux premières coupes n'ont rien au-dessus du varech : leur rangée est plus basse (sinon un
+  // vide sous le titre), même échelle et même axe que les deux suivantes.
+  const HAUT_BAS = 0.42;
+  const geoC = (z, etat = 3) => {
+    const haut = etat <= 2 ? HAUT_BAS : HAUT;
     const s = (z.l - 6) / LARG;
-    if ((BAS + HAUT) * s > z.h - 2) throw new Error(`coupe trop basse : ${z.h} < ${(BAS + HAUT) * s}`);
-    const xc = z.l / 2, y0 = z.h - 3 - BAS * s - ((z.h - 5) - (BAS + HAUT) * s) * 0.35;
+    if ((BAS + haut) * s > z.h - 2) throw new Error(`coupe trop basse : ${z.h} < ${(BAS + haut) * s}`);
+    const xc = z.l / 2, y0 = z.h - 3 - BAS * s - ((z.h - 5) - (BAS + haut) * s) * 0.35;
     return { s, X: m => xc + m * s, Y: m => y0 - m * s };
   };
 
@@ -98,7 +106,7 @@ module.exports = (h) => {
   };
 
   const coupe = (z, etat) => {
-    const { s, X, Y } = geoC(z);
+    const { s, X, Y } = geoC(z, etat);
     const o = [];
     const d = etat >= 4 ? P_BUT : etat >= 3 ? EP_M : 0;
     const Lh = 0.04 * s;
@@ -113,9 +121,12 @@ module.exports = (h) => {
     o.push(h.chemin(fondPts, A.fin));
     if (etat >= 4) for (const sg of [-1, 1]) {
       // l'eau qui s'égoutte au fond des rigoles
-      const r = rig(sg, d), ep = 0.03, xa = r[1] - sg * 0.18 * ep, xb = r[2] + sg * 0.18 * ep;
+      const r = rig(sg, d), ep = 0.07, xa = r[1] - sg * 0.18 * ep, xb = r[2] + sg * 0.18 * ep;
       const de = `M${f(X(r[1]))} ${f(Y(-d))} L${f(X(r[2]))} ${f(Y(-d))} L${f(X(xb))} ${f(Y(-d + ep))} L${f(X(xa))} ${f(Y(-d + ep))} Z`;
-      o.push(h.path(de, A.blanc), h.path(de, A.hachure('eau', 'aucun')), h.ligne(X(xa), Y(-d + ep), X(xb), Y(-d + ep), A.fin));
+      o.push(h.path(de, A.blanc), h.ligne(X(xa), Y(-d + ep), X(xb), Y(-d + ep), A.detail));
+      // l'eau : sa ligne de niveau, deux courts traits dessous
+      const xm = X((r[1] + r[2]) / 2), yl = Y(-d + ep) + 3.5;
+      o.push(h.ligne(xm - 9, yl, xm - 3, yl, A.fin), h.ligne(xm + 3, yl + 0.4, xm + 8, yl + 0.4, A.fin));
       // le fond de la rigole avant le buttage, en tireté
       const r0 = rig(sg, EP_M);
       o.push(h.ligne(X(r0[1]), Y(-EP_M), X(r0[2]), Y(-EP_M), A.cache));
@@ -170,7 +181,13 @@ module.exports = (h) => {
       }
       // l'eau qui s'égoutte de la planche vers les rigoles
       for (const sg of [-1, 1]) {
-        o.push(h.fleche(`M${f(X(sg * 0.42))} ${f(Y(-0.03))} C${f(X(sg * 0.56))} ${f(Y(-0.08))} ${f(X(sg * 0.66))} ${f(Y(-0.15))} ${f(X(sg * 0.74))} ${f(Y(-0.25))}`, A.cache));
+        const r = rig(sg, d), xa = X(sg * 0.665), ya = Y(0.012), xb = X((r[1] + r[2]) / 2 - sg * 0.04), yb = Y(-d + 0.07) - 1.5;
+        o.push(h.fleche(`M${f(xa)} ${f(ya)} C${f(X(sg * 0.72))} ${f(Y(-0.12))} ${f(xb - sg * 4)} ${f(yb - 10)} ${f(xb)} ${f(yb)}`, A.fin));
+        // deux gouttes le long du trajet
+        [[0.69, -0.08], [0.74, -0.17]].forEach(([gx, gy]) => {
+          const x = X(sg * gx) + sg * 4, y = Y(gy);
+          o.push(`<path d="M${f(x)} ${f(y - 2.6)} C${f(x + 1.6)} ${f(y - 0.4)} ${f(x + 1.6)} ${f(y + 1.6)} ${f(x)} ${f(y + 1.6)} C${f(x - 1.6)} ${f(y + 1.6)} ${f(x - 1.6)} ${f(y - 0.4)} ${f(x)} ${f(y - 2.6)} Z" ${A.plein}/>`);
+        });
       }
       // les tiges, les jeunes tubercules, le feuillage
       RANGS.forEach((x, k) => {
@@ -196,6 +213,8 @@ module.exports = (h) => {
         };
         o.push(feuille(xt, Y(0.53), -150, 0.13 * s), feuille(xt, Y(0.57), -30, 0.13 * s), feuille(xtop, yhaut, -90, 0.07 * s));
       });
+      // le point à vérifier : le tubercule le plus haut, encore sous la terre
+      o.push(h.controle(X(0.37), Y(0.385), 0.085 * s));
     }
 
     if (etat === 1) {
@@ -210,13 +229,17 @@ module.exports = (h) => {
   // v : le long de la planche, en mètres depuis le bas de la vue. En bas, les semences sur la
   // mousse ; au milieu, le varech ; en haut, les mottes posées et les rigoles creusées à mesure.
   // Les deux bouts de la vue sont des lignes de coupure : la planche continue.
-  const plan = z => {
+  const geoP = z => {
     const s = (z.l - 6) / LARG, xc = z.l / 2;
     const X = m => xc + m * s, V = v => z.h - 3 - v * s;
     const vbas = 0.05, vhaut = (z.h - 8) / s;          // les deux lignes de coupure
     const V_D = vhaut - 0.03 - 2.5 * 0.3;              // front des mottes à droite : deux rangées et demie jusqu'à la coupure
     const V_G = V_D - 0.3;                             // à gauche, une rangée de plus, en cours
     const V_VAR = V_G - 0.42;                          // front du varech
+    return { s, X, V, vbas, vhaut, V_D, V_G, V_VAR };
+  };
+  const plan = z => {
+    const { s, X, V, vbas, vhaut, V_D, V_G, V_VAR } = geoP(z);
     const o = [];
     // la mousse partout où elle se voit
     const pts = []; const pas = 0.1; let k = 0;
@@ -270,6 +293,22 @@ module.exports = (h) => {
       const lc = []; for (let i = 0; i <= 27; i++) { const m = -BORD + i * 0.1; lc.push([X(m), V(v) + 1.6 * Math.sin(i * 1.9)]); }
       o.push(h.chemin(lc, A.fin));
     }
+    // les renvois repris des coupes (2 à 5) : même pastille, même ligne de rappel
+    const rappel = (n, rx, ry, cx, cy) => {
+      const dx = cx - rx, dy = cy - ry, d = Math.hypot(dx, dy), sx = rx + 9 * dx / d, sy = ry + 9 * dy / d;
+      return `<line x1="${f(sx)}" y1="${f(sy)}" x2="${f(cx)}" y2="${f(cy)}" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/>`
+        + `<line x1="${f(sx)}" y1="${f(sy)}" x2="${f(cx)}" y2="${f(cy)}" fill="none" stroke="#000" stroke-width="0.5" stroke-dasharray="3 2.5"/>`
+        + `<circle cx="${f(cx)}" cy="${f(cy)}" r="1.8" fill="#000" stroke="#fff" stroke-width="0.7"/>`
+        + `<circle cx="${f(rx)}" cy="${f(ry)}" r="9" fill="#fff" stroke="#000" stroke-width="1.4"/>`
+        + `<text x="${f(rx)}" y="${f(ry + 4)}" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#000">${n}</text>`;
+    };
+    const vs = vbas + 0.17;
+    o.push(rappel(2, X(0.95), V(vbas + 0.32), X(0.3) + 4, V(vs)));
+    o.push(rappel(3, X(0.95), V(V_VAR + 0.16), X(0.42), V(V_VAR + 0.16)));
+    o.push(rappel(4, X(-0.95), V(V_G - 0.2), X(-0.95), V(V_G + 0.25)));
+    o.push(rappel(5, X(0.95), V(V_D - 0.12), X(0.3), V(V_D + 0.15)));
+    // le sens d'avancement, hors du dessin : vers la partie encore nue
+    o.push(h.fleche(`M-7 ${f(V(V_G))} L-7 ${f(V(vbas + 0.2))}`, A.contour));
     return o.join('\n');
   };
 
@@ -277,16 +316,18 @@ module.exports = (h) => {
   const X0m = -1.35, X1m = 0.03, Y0m = -0.26, Y1m = 0.72;
   const geoMotte = z => {
     const s = Math.min((z.l - 6) / (X1m - X0m), (z.h - 6) / (Y1m - Y0m));
-    const ox = (z.l - (X1m - X0m) * s) / 2, y0 = z.h - 3 - (-Y0m) * s - ((z.h - 6) - (Y1m - Y0m) * s) / 2;
-    return { s, X: m => ox + (m - X0m) * s, Y: m => y0 - m * s };
+    // le dessin près de son titre ; une part de la hauteur qui reste va au sol, coupé un peu plus bas
+    const libre = (z.h - 6) - (0.64 - Y0m) * s, y0 = 3 + 0.64 * s + libre * 0.3;   // 0,64 : le haut de la motte levée
+    const fondY = Math.max(-0.45, Math.min(Y0m, -(z.h - 3 - y0) / s + 0.04));
+    return { s, fondY, X: m => (z.l - (X1m - X0m) * s) / 2 + (m - X0m) * s, Y: m => y0 - m * s };
   };
   const motte = z => {
-    const { s, X, Y } = geoMotte(z);
+    const { s, X, Y, fondY } = geoMotte(z);
     const o = [];
     const d = EP_M, g = rig(-1, d), Lh = 0.04 * s;
     // le sol, la rigole ouverte
     const surf = [[X0m, 0], [g[3], 0], [g[2], -d], [g[1], -d], [g[0], 0], [X1m, 0]];
-    const fond = []; for (let i = 0; i <= 14; i++) { const m = X1m - i * (X1m - X0m) / 14; fond.push([X(m), Y(Y0m + 0.02 + 0.015 * Math.sin(i * 1.9))]); }
+    const fond = []; for (let i = 0; i <= 14; i++) { const m = X1m - i * (X1m - X0m) / 14; fond.push([X(m), Y(fondY + 0.02 + 0.015 * Math.sin(i * 1.9))]); }
     o.push(`<path d="M${surf.map(([x, y]) => `${f(X(x))} ${f(Y(y))}`).join(' L')} L${fond.map(p => p.map(f).join(' ')).join(' L')} Z" ${A.hachure('terre', 'aucun')}/>`);
     o.push(h.chemin(fond, A.fin));
     o.push(h.chemin(surf.map(([x, y]) => [X(x), Y(y)]), A.contour));
@@ -316,6 +357,8 @@ module.exports = (h) => {
     };
     const yPose = Y(Y_M + EP_M / 2);
     o.push(bloc(X(-0.45), yPose, 0, 'posee'));          // déjà posée au bord, l'herbe sur le varech
+    // le sens qui compte : l'herbe en dessous, contre le varech
+    o.push(h.controle(X(-0.45), Y(Y_M - 0.005), 0.065 * s));
     o.push(bloc(X(-0.15), yPose, 0, 'arrivee'));        // la place de celle qui vole
     o.push(bloc(X(-1.1), Y(-EP_M / 2), 0, 'depart'));   // d'où elle vient, dans la rigole
     // le trajet : du creux de la rigole, par-dessus, jusqu'à sa place
@@ -331,13 +374,15 @@ module.exports = (h) => {
     desc: 'Quatre coupes à la même échelle, en travers d’une planche d’environ 1,2 m : les pommes de terre de semence posées en rangs sur la mousse, sans labour ; couvertes d’une couche épaisse de varech ; une rigole creusée de chaque côté, ses mottes posées à l’envers sur le varech ; puis la terre des rigoles montée autour des tiges, les jeunes tubercules sous la terre, l’eau qui s’égoutte vers les rigoles. Dessous, la planche vue de dessus, en trois bandes (semences, varech, mottes et rigoles creusées à mesure), et une motte grossie qui passe de la rigole à la planche en se retournant.',
     format: 'pleine',
     disposition: [['poser', 'couvrir'], ['retourner', 'butter'], ['plan', 'motte']],
-    hauteurs: [1, 1, 1.5],
+    hauteurs: [0.62, 0.84, 1.9],
+    // la motte prend plus de largeur que la vue de dessus, qui s'allonge seule dans la hauteur
+    largeurs: [[1, 1], [1, 1], [0.88, 1.12]],
     vues: {
       poser: {
         titre: 'Poser les semences sur le sol non retourné',
         dessin: z => coupe(z, 1),
         renvois: z => {
-          const { X, Y } = geoC(z);
+          const { X, Y } = geoC(z, 1);
           return [
             { n: 1, rond: [12, Y(0.34)], cible: [X(-1.0), Y(0.015)], texte: 'le sol non retourné : mousse, herbe ou gazon' },
             { n: 2, rond: [z.l - 12, Y(0.34)], cible: [X(0.3) + 2, Y(0.03)], texte: 'les semences, en rangs, sur la surface' },
@@ -348,7 +393,7 @@ module.exports = (h) => {
         titre: 'Couvrir d’une couche épaisse de varech',
         dessin: z => coupe(z, 2),
         renvois: z => {
-          const { X, Y } = geoC(z);
+          const { X, Y } = geoC(z, 2);
           return [
             { n: 3, rond: [z.l - 12, Y(0.36)], cible: [X(0.44), Y(0.08)], texte: 'varech rincé, et fumier composté s’il y en a' },
           ];
@@ -374,7 +419,7 @@ module.exports = (h) => {
             { n: 6, rond: [12, Y(0.6)], cible: [X(-0.46), Y(0.4)], texte: 'la terre des rigoles, au pied des tiges' },
             { n: 7, rond: [z.l - 12, Y(0.66)], cible: [X(0.37) + 0.026 * geoC(z).s + 1, Y(0.365)], texte: 'pas un tubercule à la lumière' },
             { n: 8, rond: [12, Y(-0.22)], cible: [X(-1.0), Y(-EP_M)], texte: 'en tireté, le fond avant le buttage' },
-            { n: 9, rond: [z.l - 12, Y(-0.08)], cible: [X(0.7), Y(-0.2)], texte: 'l’eau s’égoutte vers les rigoles' },
+            { n: 9, rond: [z.l - 12, Y(-0.08)], cible: [X(1.02), Y(-P_BUT + 0.07)], texte: 'l’eau s’égoutte vers les rigoles' },
           ];
         },
       },
@@ -388,7 +433,7 @@ module.exports = (h) => {
         renvois: z => {
           const { X, Y } = geoMotte(z);
           return [
-            { n: 10, rond: [z.l - 12, Y(-0.14)], cible: [X(-0.4), Y(Y_M - 0.012)], texte: 'l’herbe en dessous, la terre au-dessus' },
+            { n: 10, rond: [z.l - 12, Y(Y_M - 0.03)], cible: [X(-0.4), Y(Y_M - 0.03)], texte: 'l’herbe en dessous, la terre au-dessus' },
           ];
         },
       },

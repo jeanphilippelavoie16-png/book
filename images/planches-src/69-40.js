@@ -12,6 +12,22 @@ module.exports = (h) => {
   const Tr = (ox, oy, s) => p => [ox + p[0] * s, oy + p[1] * s];
   const lisseD = (pts, tr, ferme = true) => I.ser(I.lisse(pts, ferme), tr);
 
+  // ─── mains simples : la boîte d'une vue, et l'angle qui met l'axe de la prise sur `axe` (degrés à l'écran)
+  // avec l'avant-bras du côté de `vers`
+  const BORD = z => ({ x0: 0, y0: 0, x1: z.l, y1: z.h });
+  const poser = (o, axe, vers) => {
+    const base = Object.assign({}, o, { angle: 0, avantbras: { longueur: 100 } });
+    delete base.objet;
+    const e0 = F.mainSimple(base);
+    let best = null;
+    for (const k of [0, 180]) {
+      const a = axe - e0.prise.angle + k, e = F.mainSimple(Object.assign({}, base, { angle: a }));
+      const d = [e.coude[0] - e.poignet[0], e.coude[1] - e.poignet[1]], w = [vers[0] - e.poignet[0], vers[1] - e.poignet[1]];
+      const c = (d[0] * w[0] + d[1] * w[1]) / ((Math.hypot(d[0], d[1]) * Math.hypot(w[0], w[1])) || 1);
+      if (!best || c > best.c) best = { a, c };
+    }
+    return best.a;
+  };
   // ─── géométrie commune ────────────────────────────────────────────────────────────────
   // points d'une courbe lissée, pour trouver les bords et tester l'intérieur
   const echant = (pts, ferme = true, n = 10) => {
@@ -155,9 +171,9 @@ module.exports = (h) => {
 
     // les deux mouvements : le piston entre, l'aiguille sort
     const f1 = P([612, 96]), f2 = P([694, 96]);
-    out.push(h.fleche(`M${r1(f1[0])} ${r1(f1[1])} L${r1(f2[0])} ${r1(f2[1])}`));
+    out.push(h.geste(`M${r1(f1[0])} ${r1(f1[1])} L${r1(f2[0])} ${r1(f2[1])}`));
     const g1 = P([834, 150]), g2 = P([786, 150]);
-    out.push(h.fleche(`M${r1(g1[0])} ${r1(g1[1])} L${r1(g2[0])} ${r1(g2[1])}`));
+    out.push(h.geste(`M${r1(g1[0])} ${r1(g1[1])} L${r1(g2[0])} ${r1(g2[1])}`));
 
     const Q = p => P(p).map(r1);
     return {
@@ -193,7 +209,7 @@ module.exports = (h) => {
     out.push(h.path(lisseD(FEM, tr), A.cache));
 
     // la coupe en travers : prise derrière le couteau, là où la fente est déjà faite
-    const xs = 175;
+    const xs = 362;                                       // dans la fente : entre l'entrée du couteau et le bout de la flèche
     const c1 = P([xs, -16]), c2 = P([xs, 304]);
     out.push(h.ligne(c1[0], c1[1], c2[0], c2[1], mixte));
     for (const c of [c1, c2]) {
@@ -220,20 +236,28 @@ module.exports = (h) => {
     out.push(h.path(lisseD(CUI, tr), A.contour));
     // le manche et la main qui le tient
     const cm = at(Lb + Lm / 2, lb / 2 - 1);
-    out.push(h.chemin([at(Lb, -3), at(Lb + Lm, -3), at(Lb + Lm + 4, lb / 2 - 1), at(Lb + Lm, lb + 1), at(Lb, lb + 1)].map(P), bA, true));
+    const manche = h.chemin([at(Lb, -3), at(Lb + Lm, -3), at(Lb + Lm + 4, lb / 2 - 1), at(Lb + Lm, lb + 1), at(Lb, lb + 1)].map(P), bA, true);
     const C = P(cm);
-    out.push(F.main({ x: C[0], y: C[1], pose: 'prise', vue: 'dos', angle: 215, diametre: (lm + 6) * s, echelle: s, bras: 50 }));
+    // la main (mains simples), côté paume, serre le manche (18 mm) : la lame sort côté pouce et index, vers la
+    // pointe ; le manche entre d'un côté du poing et son bout ressort de l'autre ; l'avant-bras part vers la droite,
+    // au-dessus de la pièce, et sort du cadre
+    const vers = [C[0] + 0.92 * 400, C[1] - 0.38 * 400], axe = Math.atan2(u[1], u[0]) * 180 / Math.PI;
+    const faire = cote => { const o = { x: C[0], y: C[1], pose: 'prise-manche', vue: 'paume', cote, echelle: s, diametre: 18 };
+      return F.mainSimple({ ...o, angle: poser(o, axe, vers), avantbras: { vers, bord: BORD(z), longueur: 'bord' } }); };
+    let mK = faire('gauche');
+    if ((mK.pouce[0] - C[0]) * -u[0] + (mK.pouce[1] - C[1]) * -u[1] < 0) mK = faire('droite');
+    out.push(mK.couches.main, mK.couches.masque, manche, mK.couches.devant);
 
     // le couteau avance le long du fût
     const f1 = P([292, 76]), f2 = P([392, 86]);
-    out.push(h.fleche(`M${r1(f1[0])} ${r1(f1[1])} L${r1(f2[0])} ${r1(f2[1])}`));
+    out.push(h.geste(`M${r1(f1[0])} ${r1(f1[1])} L${r1(f2[0])} ${r1(f2[1])}`));
 
     const Q = p => P(p).map(r1);
     return {
       svg: out.join('\n'),
       renvois: [
         { n: 6, rond: Q([200, -80]), cible: Q(at(tSurf + 16, 5)), texte: 'couteau mince, la pointe jusqu’à l’os' },
-        { n: 7, rond: Q([560, 262]), cible: Q([380, 83]), texte: 'la fente suit l’os sur sa longueur' },
+        { n: 7, rond: Q([560, 262]), cible: Q([330, 80]), texte: 'la fente suit l’os sur sa longueur' },
       ],
     };
   };
@@ -302,11 +326,12 @@ module.exports = (h) => {
     // la fente de couteau, et la saumure qui n'avance que de quelques centimètres autour du fond
     const yf = 38;
     out.push(semis([0, yf], [0, yf + 1], 30, tr, polyDal));
-    out.push(h.chemin([[-6, -1], [6, -1], [1, yf], [-1, yf]].map(P), A.blanc, true));
-    out.push(h.chemin([[-6, -1], [-1, yf], [1, yf], [6, -1]].map(P), A.arete));
+    const fV = [[-13, 0], [13, 0], [1.2, yf], [-1.2, yf]];       // la fente en V, ouverte dans le dessus
+    out.push(h.chemin(fV.map(P), A.blanc, true));
+    out.push(h.chemin([fV[0], fV[3], fV[2], fV[1]].map(P), A.arete));
     // la seringue, verticale : l'embout conique au fond de la fente
     const bx = 17, yBas = -3, yHaut = -112;
-    out.push(h.chemin([[-5.5, yBas], [5.5, yBas], [2, yf - 3], [-2, yf - 3]].map(P), bA, true));
+    out.push(h.chemin([[-4.5, yBas], [4.5, yBas], [1, yf - 1], [-1, yf - 1]].map(P), bA, true));
     out.push(h.path(`M${Q2(P([-bx, yHaut]))} L${Q2(P([-bx, yBas - 6]))} Q${Q2(P([-bx, yBas]))} ${Q2(P([-bx + 7, yBas]))} L${Q2(P([bx - 7, yBas]))} Q${Q2(P([bx, yBas]))} ${Q2(P([bx, yBas - 6]))} L${Q2(P([bx, yHaut]))} Z`, bA));
     // la saumure dans le cylindre, sous le joint du piston
     const yj = -62;
@@ -324,14 +349,14 @@ module.exports = (h) => {
     out.push(h.chemin([[-20, -150], [20, -150], [20, -157], [-20, -157]].map(P), bA, true));
     // le poussoir descend
     const g1 = P([34, -176]), g2 = P([34, -136]);
-    out.push(h.fleche(`M${r1(g1[0])} ${r1(g1[1])} L${r1(g2[0])} ${r1(g2[1])}`));
+    out.push(h.geste(`M${r1(g1[0])} ${r1(g1[1])} L${r1(g2[0])} ${r1(g2[1])}`));
 
     const Q = p => P(p).map(r1);
     return {
       svg: out.join('\n'),
       renvois: [
         { n: 9, rond: Q([-68, -100]), cible: Q([-bx, -86]), texte: 'grosse seringue sans aiguille' },
-        { n: 10, rond: Q([-68, -36]), cible: Q([-3, 24]), texte: 'le bout au fond d’une fente de couteau' },
+        { n: 10, rond: Q([-68, -36]), cible: Q([-1.6, yf - 1]), texte: 'le bout au fond d’une fente de couteau' },
         { n: 11, rond: Q([64, 118]), cible: Q([22, 52]), texte: 'saumure : quelques centimètres, pas plus' },
       ],
     };

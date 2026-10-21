@@ -1,15 +1,19 @@
 // Planche 89-05b — Tirer les planches et cintrer la tête du toboggan (ch. 89, étapes 43, 49, 53)
 // Page a (89-05a) : le toboggan monté.
+// Refaite le 13 octobre 2026 : les deux personnes sont les corps simples de profil (assis-penche,
+// genou-tire), les bras posés par le calcul (la main à plat sur la planche et le poing sur la pince ;
+// les deux poings sur la traverse de tête). Le rouge : le geste dans chaque vue où on plie (tirer
+// la pince autour du genou, tirer la tête vers soi) et la zone de pli sur le genou, à surveiller.
 module.exports = (h) => {
   const G = geom();
   return {
     ref: '89-05b',
     titre: 'Tirer les planches, cintrer la tête',
-    desc: 'En haut à gauche, le bout d’un tronc d’épinette fendu en deux par le cœur, les deux moitiés écartées ; contre la face fendue de chaque moitié, une planche de 17 cm de large et de 2,5 à 3,2 cm d’épais, le reste de la moitié à enlever à la hache. En haut à droite, le bout d’une planche vu de biais : une pince de deux bâtons, un dessus et un dessous, liés serré aux deux bouts, en travers du bout de la planche ; plus loin, deux traits en travers qui bornent la zone de pli ; une brosse, bâton fendu avec un chiffon coincé dedans, passe l’eau bouillante sur la zone, dans un sens et dans l’autre. En bas à gauche, une personne assise sur une bûche, vue de face : la planche couchée sur ses deux genoux, une main qui la tient sur un genou, la zone de pli, entre ses deux traits, sur l’autre genou, et l’autre main qui tient la pince et la tire lentement vers le bas. En bas à droite, de côté : le toboggan à plat, une personne à genoux dessus, un pied appuyé contre la zone de pli, les mains qui tirent la tête vers elle ; la traverse de tête au bout des planches, et les liens qui la tiennent à la traverse où commence la courbe.',
+    desc: 'En haut à gauche, le bout d’un tronc d’épinette fendu en deux par le cœur, les deux moitiés écartées ; contre la face fendue de chaque moitié, une planche de 17 cm de large et de 2,5 à 3,2 cm d’épais, le reste de la moitié à enlever à la hache. En haut à droite, le bout d’une planche vu de biais : une pince de deux bâtons, un dessus et un dessous, liés serré aux deux bouts, en travers du bout de la planche ; plus loin, deux traits en travers qui bornent la zone de pli ; une brosse, bâton fendu avec un chiffon coincé dedans, passe l’eau bouillante sur la zone, dans un sens et dans l’autre. En bas à gauche, de côté : une personne assise sur une bûche, penchée sur son genou ; la planche couchée sur la cuisse, une main à plat qui la tient sur la cuisse, la zone de pli, entre ses deux traits, sur le genou, et l’autre main qui serre la pince et la tire lentement vers le bas. En bas à droite, de côté : le toboggan à plat, une personne à un genou dessus, un pied appuyé contre la zone de pli, les deux mains serrées sur la traverse de tête, qui la tirent vers elle ; la traverse de tête au bout des planches, et les liens qui la tiennent à la traverse où commence la courbe.',
     format: 'pleine',
     disposition: [['bille', 'pince'], ['genou', 'tete']],
-    hauteurs: [1, 1.3],
-    largeurs: [[1, 1.45], [1, 1.45]],
+    hauteurs: [1, 1.4],
+    largeurs: [[1, 1.45], [1.12, 1.33]],
     vues: {
       // ─── Le tronc, en bout ────────────────────────────────────────────────────────────
       bille: {
@@ -100,50 +104,41 @@ module.exports = (h) => {
       },
 
       // ─── Sur le genou ─────────────────────────────────────────────────────────────────
+      // de côté, assis sur la bûche : la planche couchée sur la cuisse, pliée sur le genou ;
+      // la main proche la tient à plat sur la cuisse, la main loin tire la pince vers le bas ;
+// gros plan rogné au cadre de la vue : le dos sort à gauche
       genou: {
         titre: 'Sur le genou, lentement',
         dessin: z => {
-          const F = face(z);
-          const o = [];
-          // la bûche, derrière les jambes
-          const b = [F.pt(-190, 0), F.pt(190, 0), F.pt(190, 430), F.pt(-190, 430)];
-          o.push(h.chemin(b, h.a.blanc, true), h.chemin(b, h.a.arete, true));
-          // le corps : tronc et tête ; le tronc s'arrête à la planche (le bas suit la planche qui plie)
-          o.push(groupe(h, [
-            F.poly([[-180, 1110], [180, 1110], [173, 500], [130, 540], [-173, 540]]),
-            F.rond(0, 1235, 100, 112),
-          ]));
-          // les jambes : genou, jambe, pied
-          o.push(groupe(h, [-1, 1].flatMap(s => [
-            F.caps([s * 112, 455], [s * 122, 95], 55),
-            F.rond(s * 128, 42, 62, 42),
-            F.rond(s * 110, 470, 64, 64),
-          ])));
-          // le bras droit : l'avant-bras finit derrière la pince, qui passe devant lui
-          const S = F.pinceMm(), EL = [330, 785];
-          const u = [S[0][0] - EL[0], S[0][1] - EL[1]], lu = Math.hypot(u[0], u[1]);
-          const W = [S[0][0] - u[0] / lu * 24, S[0][1] - u[1] / lu * 24];   // le bout de l'avant-bras arrive sur le bâton du dehors
-          o.push(groupe(h, [F.caps([205, 1060], EL, 50), F.caps(EL, W, 42)]));
-          // la planche : couchée sur les deux genoux, pliée sur le droit
-          o.push(h.path(F.planche(), h.a.plein));
-          F.traits().forEach(t => o.push(h.ligne(...t[0], ...t[1], h.a.arete)));
-          // la main gauche tient la planche sur le genou gauche
-          o.push(groupe(h, [F.caps([-205, 1060], [-285, 780], 50), F.caps([-285, 780], [-135, 600], 45), F.rond(-120, 590, 60, 48)]));
-          // la pince vue en bout : un bâton de chaque côté de l'épaisseur, collés contre elle, et la ligature
+          const F = cote(z, h);
+          const o = ['<clipPath id="rogne-genou-8905b"><rect x="0" y="0" width="' + z.l + '" height="' + z.h + '"/></clipPath>', '<g clip-path="url(#rogne-genou-8905b)">', h.ligne(0, F.sol, z.l, F.sol, h.a.fin)];
+          // la planche couchée sur la cuisse et pliée sur le genou, ses deux traits, la pince au bout :
+          // devant le tronc, sous le bras proche (objetP) ; la main loin, derrière, serre la pince
           const [c1, c2] = F.pince(), rb = F.rb;
-          o.push(h.path(capsule(c1, c2, rb + 2.8), h.a.blanc));
-          o.push(h.chemin(F.bout(), h.a.plein, true));
-          o.push(h.path(capsule(c1, c2, rb + 1.3), h.a.detail), h.path(capsule(c1, c2, rb + 2.6), h.a.fin));
-          [c1, c2].forEach(c => o.push(h.cercle(...c, rb, h.a.blanc), h.cercle(...c, rb, h.a.arete)));
-          // tirer lentement vers le bas, autour du genou
-          o.push(h.fleche(F.arc(200, -30, -58)));
+          const objetP = [h.path(F.planche(), h.a.plein), ...F.traits().map(t => h.ligne(...t[0], ...t[1], h.a.arete)),
+            h.path(capsule(c1, c2, rb + 2.8), h.a.blanc), h.chemin(F.bout(), h.a.plein, true),
+            h.path(capsule(c1, c2, rb + 1.3), h.a.detail), h.path(capsule(c1, c2, rb + 2.6), h.a.fin),
+            h.cercle(...c2, rb, h.a.blanc), h.cercle(...c2, rb, h.a.arete), h.cercle(...c1, rb, h.a.blanc), h.cercle(...c1, rb, h.a.arete)].join('\n');
+          const p0 = F.perso(objetP);
+          // la bûche, debout, sous la fesse
+          const sy = p0.siege[1], bx0 = F.X(-230), bx1 = F.X(200);
+          const buche = [[bx0, sy], [bx1, sy], [bx1, F.sol], [bx0, F.sol]];
+          o.push(h.chemin(buche, h.a.blanc, true), h.chemin(buche, h.a.arete, true));
+          o.push(p0.toString());
+          // le geste : tirer lentement vers le bas, autour du genou ; le point à contrôler : la zone de
+          // pli sur le genou, entre les deux traits (si la planche fend, on arrête tout)
+          o.push(h.geste(F.arc(215, -15, -55)));
+          const t = F.traits();
+          o.push(h.controle(...lerp(lerp(t[0][0], t[0][1], 0.5), lerp(t[1][0], t[1][1], 0.5), 0.5), 13));
+          o.push('</g>');
           return o.join('\n');
         },
         renvois: z => {
-          const F = face(z);
+          const F = cote(z, h);
+          const t = F.traits();
           return [
-            { n: 7, rond: [F.pt(0, 0)[0], F.pt(0, 760)[1]], cible: F.pt(150, 512), texte: 'le genou entre les deux traits' },
-            { n: 8, rond: [z.l - 12, F.pt(0, 620)[1]], cible: F.pince()[0], texte: 'tirer par la pince' },
+            { n: 7, rond: [z.l - 14, 16], cible: lerp(t[1][0], t[1][1], 0.5), texte: 'le genou entre les deux traits' },
+            { n: 8, rond: [z.l - 14, z.h - 16], cible: F.pince()[0], texte: 'tirer par la pince' },
           ];
         },
       },
@@ -153,7 +148,8 @@ module.exports = (h) => {
         titre: 'La tête, à genoux dessus',
         dessin: z => {
           const E = prof(z, G);
-          const o = [];
+          // gros plan rogné au cadre de la vue : le pied du genou au sol sort à droite
+          const o = ['<clipPath id="rogne-tete-8905b"><rect x="0" y="0" width="' + z.l + '" height="' + z.h + '"/></clipPath>', '<g clip-path="url(#rogne-tete-8905b)">'];
           o.push(h.ligne(0, E.pt([0, 0])[1] + 1.5, z.l, E.pt([0, 0])[1] + 1.5, h.a.fin));
           // la planche, bout arrière cassé
           const XB = 1000;
@@ -167,22 +163,21 @@ module.exports = (h) => {
             const q = [[x - 16, T], [x + 16, T], [x + 16, T + 22], [x - 16, T + 22]].map(E.pt);
             o.push(h.chemin(q, h.a.blanc, true), h.chemin(q, h.a.arete, true));
           });
+          // la personne, un genou sur le toboggan, le pied proche contre la zone de pli, les deux
+          // mains serrées sur la traverse de tête ; la traverse, vue en bout, passe devant les doigts
           const tq = G.tete.poly.map(E.pt);
-          o.push(h.chemin(tq, h.a.blanc, true), h.chemin(tq, h.a.arete, true));
-          // la personne : la jambe à genou, le corps, la jambe au pied appuyé, le bras
-          o.push(groupe(h, [E.caps([1600, 470], [1655, 75], 75), E.caps([1655, 75], [1255, 70], 55), E.caps([1255, 62], [1150, 50], 38)]));
-          o.push(groupe(h, [E.caps([1610, 500], [1820, 930], 125), E.caps([1830, 960], [1905, 1060], 50), E.rond(1935, 1140, 92, 104)]));
-          o.push(groupe(h, [E.caps([1600, 480], [1985, 560], 75), E.caps([1985, 560], [2060, 175], 55), E.caps([2045, 150], [2150, 70], 40)]));
-          o.push(groupe(h, [E.caps([1840, 930], [2105, 700], 48), E.caps([2105, 700], [2290, 385], 42), E.rond(2300, 345, 50, 45)]));
-          // on tire la tête vers soi
-          const f0 = E.pt([2365, 475]), f1 = E.pt([2249, 673]);
-          o.push(h.fleche(`M${f0[0]},${f0[1]} L${f1[0]},${f1[1]}`));
+          o.push(agenouille(h, E, G, [h.chemin(tq, h.a.blanc, true), h.chemin(tq, h.a.arete, true)].join('\n')).toString());
+          // le geste : on tire la tête vers soi
+          const f0 = E.pt([2500, 400]), f1 = E.pt([2360, 600]);
+          o.push(h.geste(`M${f0[0]},${f0[1]} L${f1[0]},${f1[1]}`));
+          o.push('</g>');
           return o.join('\n');
         },
         renvois: z => {
           const E = prof(z, G);
+          const P = agenouille(h, E, G);
           return [
-            { n: 9, rond: [E.pt([2250, 0])[0] + 4, z.h - 11], cible: E.pt([2140, 60]), texte: 'un pied contre la zone de pli' },
+            { n: 9, rond: [P.pied[0] + 4, z.h - 11], cible: P.pied, texte: 'un pied contre la zone de pli' },
             { n: 10, rond: [E.pt([1500, 0])[0] + 30, E.pt([0, 330])[1]], cible: E.pt(lerp(add(add(G.E, mul(G.u, -6)), mul(G.n, 22)), [XS[3] + 16, T + 22], 0.8)), texte: 'deux liens doubles de chaque côté' },
           ];
         },
@@ -253,66 +248,126 @@ function baton(h, O, u, t, devant) {
   return [h.cercle(...c1, r, h.a.blanc), h.cercle(...c1, r, h.a.arete), h.chemin(band, h.a.blanc, true),
     h.ligne(...band[0], ...band[1], h.a.arete), h.ligne(...band[3], ...band[2], h.a.arete)].join('\n');
 }
-// vue de face, assis : x vers la droite, y vers le haut, en mm
-function face(z) {
-  const k = Math.min(0.25, (z.h - 14) / 1345), cx = z.l * 0.56, gy = z.h - 6;
-  const pt = (x, y) => [r1(cx + k * x), r1(gy - k * y)];
-  // planche sur les genoux (dessus à 547), pliée autour du genou droit (centre 110, 470) ;
-  // le bout descend de LB après le genou, la pince à LP, au niveau du bas du genou
-  const RK = 64, ANG = 30 * Math.PI / 180, LB = 142, LP = 112, RB = 17;
+// de côté, assis sur la bûche, tourné vers la droite : x vers l'avant, y vers le haut, en mm,
+// la hanche en x = 0. La planche (dessus de la cuisse) se plie autour du genou proche.
+function cote(z, hh) {
+  const k = 0.26, x0 = z.l - 106 - 470 * k, sol = z.h * 0.635 + 470 * k;   // gros plan : la cuisse, le genou, les mains
+  const X = x => r1(x0 + k * x), Y = y => r1(sol - k * y);
+  const pt = (x, y) => [X(x), Y(y)];
+  // le corps simple assis, penché sur le genou (assis-penche), posé la hanche en x0 : on le rend une
+  // fois pour savoir où sont la hanche et le genou ; puis repris avec ses deux mains posées
+  const base = H => { const c0 = H.formes.corps({ x: x0, y: sol, pose: 'assis-penche', vue: 'profil', age: 'adulte', echelle: k });
+    return { x: x0 + (x0 - c0.articulations.hancheP[0]), y: sol, pose: 'assis-penche', vue: 'profil', age: 'adulte', echelle: k }; };
+  let geo = null;
+  const G0 = H => {
+    if (geo) return geo;
+    const p = H.formes.corps(base(H)), K = p.articulations.genouP, Hh = p.articulations.hancheP;
+    const kv = [(K[0] - x0) / k, (sol - K[1]) / k], hv = [(Hh[0] - x0) / k, (sol - Hh[1]) / k];
+    geo = { K: kv, H: hv };
+    return geo;
+  };
+  const RJ = 56, RK = RJ + 5, ANG = 38 * Math.PI / 180, LB = 175, LP = 140, RB = 17;
   const n = [Math.cos(ANG), Math.sin(ANG)], d = [Math.sin(ANG), -Math.cos(ANG)];
+  const Hcache = hh;
+  const api = {
+    k, sol, X, Y, pt, rb: RB * k,
+  };
+  const g = () => G0(Hcache);
   const courbe = e => {
-    const R = RK + e, pts = [];
-    pts.push([-1400, 470 + R]);
-    for (let i = 0; i <= 12; i++) { const a = Math.PI / 2 - (Math.PI / 2 - ANG) * i / 12; pts.push([110 + R * Math.cos(a), 470 + R * Math.sin(a)]); }
-    const a = [110 + R * Math.cos(ANG), 470 + R * Math.sin(ANG)];
+    const { K, H } = g(), R = RK + e, pts = [];
+    pts.push([H[0] + 175, K[1] + R]);
+    for (let i = 0; i <= 12; i++) { const a = Math.PI / 2 - (Math.PI / 2 - ANG) * i / 12; pts.push([K[0] + R * Math.cos(a), K[1] + R * Math.sin(a)]); }
+    const a = [K[0] + R * Math.cos(ANG), K[1] + R * Math.sin(ANG)];
     pts.push([a[0] + LB * Math.sin(ANG), a[1] - LB * Math.cos(ANG)]);
     return pts;
   };
-  const bord = x => Math.max(x, (-cx + 3) / k);   // la planche sort de la vue à gauche
-  const mil = [110 + (RK + T / 2) * Math.cos(ANG), 470 + (RK + T / 2) * Math.sin(ANG)];   // milieu de l'épaisseur, fin de la courbe
-  const P = add(mil, mul(d, LP));
-  const S = [add(P, mul(n, T / 2 + RB)), add(P, mul(n, -T / 2 - RB))];   // bâton du dehors, bâton du dedans
-  return {
-    pt,
-    caps: (a, b, r) => capsule(pt(...a), pt(...b), r * k),
-    rond: (x, y, rx, ry) => ovale(pt(x, y), rx * k, ry * k),
-    poly: pts => 'M' + pts.map(p => pt(...p).join(',')).join(' L') + ' Z',
+  const P = () => { const { K } = g(); const mil = [K[0] + (RK + T / 2) * Math.cos(ANG), K[1] + (RK + T / 2) * Math.sin(ANG)]; return add(mil, mul(d, LP)); };
+  const S = () => [add(P(), mul(n, T / 2 + RB)), add(P(), mul(n, -T / 2 - RB))];
+  Object.assign(api, {
+    // la main proche à plat sur la planche, sur la cuisse ; la main loin fermée sur le bâton du dehors
+    // de la pince (34 mm) ; la planche et la pince passent devant le tronc et sous le bras proche
+    perso: (objetP) => {
+      const { K } = g();
+      const s = S().map(p => pt(...p));
+      const o = { ...base(Hcache), mains: { P: 'plat', L: 'prise' }, prise: { L: 2 * RB }, objetP };
+      return poseBras(Hcache, o, { P: pt(K[0] - 130, K[1] + RK + T + 9), L: s[0] }, { P: 92 });
+    },
     planche: () => {
-      const b = courbe(0).map(p => [bord(p[0]), p[1]]), t = courbe(T).map(p => [bord(p[0]), p[1]]);
+      const b = courbe(0), t = courbe(T);
+      // le bout coupé devant le ventre : un trait droit d'équerre
       return 'M' + b.concat(t.reverse()).map(p => pt(...p).join(',')).join(' L') + ' Z';
     },
     traits: () => {
-      const out = [];
-      out.push([pt(60, 470 + RK - 8), pt(60, 470 + RK + T + 8)]);
-      const a = [110 + RK * Math.cos(ANG), 470 + RK * Math.sin(ANG)];
+      const { K, H } = g(), out = [];
+      out.push([pt(K[0] - 60, K[1] + RK - 8), pt(K[0] - 60, K[1] + RK + T + 8)]);
+      const a = [K[0] + RK * Math.cos(ANG), K[1] + RK * Math.sin(ANG)];
       const q = add(a, mul(d, 45));
       out.push([pt(...add(q, mul(n, -8))), pt(...add(q, mul(n, T + 8)))]);
       return out;
     },
-    k,
-    rb: RB * k,
-    // le bout de planche entre les deux bâtons, repeint par-dessus le blanc de la ligature
-    bout: () => [add(P, add(mul(d, -RB - 4), mul(n, -T / 2))), add(P, add(mul(d, LB - LP), mul(n, -T / 2))),
-      add(P, add(mul(d, LB - LP), mul(n, T / 2))), add(P, add(mul(d, -RB - 4), mul(n, T / 2)))].map(p => pt(...p)),
-    // les deux bâtons de la pince, vus en bout, de part et d'autre de la planche
-    pinceMm: () => S,
-    pince: () => S.map(p => pt(...p)),
-    // un arc de flèche autour du genou droit, de a0 à a1 degrés (sens horaire quand a1 < a0)
+    bout: () => [add(P(), add(mul(d, -RB - 4), mul(n, -T / 2))), add(P(), add(mul(d, LB - LP), mul(n, -T / 2))),
+      add(P(), add(mul(d, LB - LP), mul(n, T / 2))), add(P(), add(mul(d, -RB - 4), mul(n, T / 2)))].map(p => pt(...p)),
+    pince: () => S().map(p => pt(...p)),
     arc: (R, a0, a1) => {
-      const p = a => pt(110 + R * Math.cos(a * Math.PI / 180), 470 + R * Math.sin(a * Math.PI / 180));
-      const [x0, y0] = p(a0), [x1, y1] = p(a1);
-      return `M${x0},${y0} A${r1(R * k)},${r1(R * k)} 0 0 ${a1 < a0 ? 1 : 0} ${x1},${y1}`;
+      const { K } = g();
+      const p = a => pt(K[0] + R * Math.cos(a * Math.PI / 180), K[1] + R * Math.sin(a * Math.PI / 180));
+      const [xa, ya] = p(a0), [xb, yb] = p(a1);
+      return `M${xa},${ya} A${r1(R * k)},${r1(R * k)} 0 0 ${a1 < a0 ? 1 : 0} ${xb},${yb}`;
     },
-  };
+  });
+  return api;
 }
 // de côté, la tête à gauche, comme la page a
 function prof(z, G) {
-  const k = Math.min(0.22, (z.l - 46) / 1345), X0 = 40, gy = z.h - 30;
+  const k = Math.min(0.205, (z.l - 46) / 1345), X0 = 40, gy = z.h - 30;
   const pt = p => [r1(X0 + k * (G.maxX - p[0])), r1(gy - k * p[1])];
   return {
-    pt,
+    pt, k,
     caps: (a, b, r) => capsule(pt(a), pt(b), r * k),
     rond: (x, y, rx, ry) => ovale(pt([x, y]), rx * k, ry * k),
   };
+}
+
+// le pictogramme à un genou sur le toboggan, tourné vers la tête (à gauche) : le genou loin sur les
+// planches, le pied proche contre la courbe, les deux mains sur la traverse de tête
+function agenouille(h, E, G, objet) {
+  // où la face du dessus de la courbe monte à 45 mm au-dessus des planches : le bout du pied
+  const q = G.haut.find(p => p[0] > 1900 && p[1] > T + 45) || [2100, T + 45];
+  const tc = G.tete.poly.reduce((a, p) => add(a, mul(p, 0.25)), [0, 0]);
+  const m = E.pt(tc), m2 = E.pt(add(tc, mul(G.u, -4)));
+  // le corps simple à un genou (genou-tire), tourné vers la tête du toboggan : le pied loin, devant,
+  // posé contre la courbe ; les deux mains fermées sur la traverse de tête (26 mm)
+  const yG = E.pt([0, T])[1];
+  const o0 = { x: 0, y: yG, pose: 'genou-tire', vue: 'profil', cote: 'gauche', age: 'adulte', echelle: E.k, angles: { piedP: -20 } };
+  const c0 = h.formes.corps(o0);
+  const pied = E.pt([q[0] - 10, T + 30]);
+  const o = { ...o0, x: pied[0] - c0.pieds.L.pointe[0] + 2, objet };
+  const p = poseBras(h, o, { P: m, L: [m2[0] + 2, m2[1] - 2] });
+  p.pied = [p.pieds.L.pointe[0] + 3, p.pieds.L.pointe[1] - 4];
+  return p;
+}
+
+// Les deux bras d'un corps simple de profil, posés pour que les prises tombent sur les cibles (vue) :
+// le calcul se fait dans le repère du corps (x vers l'avant), le coude plie vers le bas. main : l'angle
+// de la main imposé (sinon dans le prolongement de l'avant-bras).
+function poseBras(h, o, cibles, main = {}) {
+  const RD = Math.PI / 180, m = o.cote === 'gauche' ? -1 : 1, M = q => [m * (q[0] - o.x), q[1]];
+  const dir = a => [Math.sin(a * RD), Math.cos(a * RD)], angle = v => Math.atan2(v[0], v[1]) / RD;
+  let c = h.formes.corps(o);
+  const A = c.articulations, S0 = M(A.epauleP);
+  const L1 = Math.hypot(A.coudeP[0] - A.epauleP[0], A.coudeP[1] - A.epauleP[1]), L2 = Math.hypot(A.poignetP[0] - A.coudeP[0], A.poignetP[1] - A.coudeP[1]);
+  const ang = {};
+  for (let it = 0; it < 4; it++) {
+    for (const k of Object.keys(cibles)) {
+      const Wr = M(c.articulations['poignet' + k]), Mn = M([c['main' + k].x, c['main' + k].y]), T_ = M(cibles[k]);
+      const W = [T_[0] - (Mn[0] - Wr[0]), T_[1] - (Mn[1] - Wr[1])];
+      const d = [W[0] - S0[0], W[1] - S0[1]], D = Math.min(L1 + L2 - 0.2, Math.hypot(d[0], d[1]));
+      const al = Math.acos(Math.max(-1, Math.min(1, (L1 * L1 + D * D - L2 * L2) / (2 * L1 * D)))) / RD;
+      const bras = angle(d) - al, Eb = [S0[0] + dir(bras)[0] * L1, S0[1] + dir(bras)[1] * L1];
+      const avb = angle([W[0] - Eb[0], W[1] - Eb[1]]);
+      ang['bras' + k] = bras; ang['avantbras' + k] = avb; ang['main' + k] = main[k] != null ? main[k] : avb + 8;
+    }
+    c = h.formes.corps({ ...o, angles: { ...(o.angles || {}), ...ang } });
+  }
+  return c;
 }

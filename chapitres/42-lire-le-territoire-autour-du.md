@@ -337,7 +337,7 @@ paye en heures perdues et parfois en accidents.
 | Une décharge de lac encore ouverte en plein janvier | Courant sous-jacent permanent | Marquer ce point en rouge définitivement. Le contourner large chaque année, même par grands froids |
 | Bois taillés en crayon, hutte, barrage : le niveau de l'eau a monté depuis la dernière visite | Castor actif, unité en train de changer | Redater l'unité. Vérifier que l'ancien chemin d'hiver n'est pas devenu de la glace sur eau vive |
 | Un chemin neuf qui n'est pas sur la carte papier | Coupe ou exploration en cours | Refaire la couche datée. Les bêtes ont déjà bougé, et d'autres usagers arrivent |
-| Des rubans de marquage qui ne sont pas les siens, des collets, un mirador | Le territoire est partagé, et c'est normal | Ne rien toucher. Écrire «secteur partagé » sur la carte. Appliquer la cohabitation (ch. 16) |
+| Des rubans de marquage qui ne sont pas les siens, des collets, un mirador | Le territoire est partagé, et c'est normal | Ne rien toucher. Écrire «secteur partagé » sur la carte. Appliquer la cohabitation (ch. 16, étape 22) |
 | Personne au chalet ne sait où est la personne partie | Faille d'organisation, pas de terrain | Rétablir la règle d'itinéraire écrit avant toute autre sortie |
 
 ---

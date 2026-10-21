@@ -3,6 +3,7 @@
 <desc>Quatre vues. Le coton bouilli séché à cheval sur une corde, replié sur lui-même pendant qu’il sèche, plié en quatre avec la face du dedans jamais touchée, rangé dans un sac fermé. La sphaigne séchée posée lâche sur un carré de coton bouilli dont on rabat les quatre coins en sachet. Un clou tenu à la pince, chauffé dans la flamme d’une chandelle, perce le bouchon d’une bouteille souple qu’on presse pour faire un jet. Un bâton planté dans une cuisse, laissé en place, calé entre deux rouleaux de linge tenus par deux bandes nouées de part et d’autre, en perspective et en coupe.</desc>
 <defs>
 <marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#1A1A1A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<marker id="fl-r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 Z" fill="#9B2C1E" stroke="#9B2C1E" stroke-width="1" stroke-linejoin="round"/></marker>
 </defs>
 <rect x="0" y="0" width="680" height="826" fill="#FFFFFF"/>
 <text x="40" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Le coton</text>
@@ -17,7 +18,7 @@
 <path d="M147 99 L152.6 99.9 L158.3 100.8 L163.9 101.4 L169.5 102 L175.1 102.4 L180.8 102.8 L186.4 102.9 L192 103 L197.6 102.9 L203.3 102.8 L208.9 102.4 L214.5 102 L220.1 101.4 L225.8 100.8 L231.4 99.9 L237 99 L241 60 L232.8 61.3 L224.7 61.3 L216.5 60 L208.3 58.7 L200.2 58.7 L192 60 L183.8 61.3 L175.7 61.3 L167.5 60 L159.3 58.7 L151.2 58.7 L143 60 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M170 62 L169.5 64.3 L169.1 66.5 L168.8 68.8 L168.6 71 L168.4 73.3 L168.3 75.5 L168.2 77.8 L168.3 80 L168.3 82.3 L168.5 84.5 L168.8 86.8 L169.1 89 L169.4 91.3 L169.9 93.5 L170.4 95.8 L171 98" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M214 62 L214.6 64.5 L215.1 66.9 L215.5 69.4 L215.9 71.8 L216.1 74.1 L216.3 76.4 L216.5 78.7 L216.5 81 L216.5 83.2 L216.3 85.4 L216.1 87.6 L215.9 89.8 L215.5 91.9 L215.1 93.9 L214.6 96 L214 98" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M246,146 Q276,104 249,66" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
+<path d="M246,146 Q276,104 249,66" fill="none" stroke="#9B2C1E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl-r)"/>
 <path d="M26 262 L122 262 L122 268 L26 268 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M122 262 L138 214 L138 220 L122 268 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M26 265 L122 265 L138 217" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
@@ -133,7 +134,9 @@
 </g>
 <text x="40" y="370.5" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">La bouteille</text>
 <g transform="translate(40 378.5)" data-vue="bouteille">
-<rect x="20" y="80" width="24" height="64" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="20" y="80" width="24" height="64" fill="#FFFFFF" stroke="none"/>
+<rect x="36" y="80" width="8" height="64" fill="#CFCFCF" stroke="none"/>
+<rect x="20" y="80" width="24" height="64" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <ellipse cx="32" cy="80" rx="12" ry="3" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M40,82 Q42,90 40,98 Q38,102 39,106" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M32,78 Q31,74 32,70" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
@@ -146,7 +149,9 @@
 <path d="M60 54.8 L100 54.8 L112 59 L108 65 L96 63 L74 58.5 L60 56.4 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="110" cy="53" r="7.5" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="110" cy="53" r="2.5" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M216,48 L216,64 A22,8 0 0 0 260,64 L260,48 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M216,48 L216,64 A22,8 0 0 0 260,64 L260,48 Z" fill="#FFFFFF" stroke="none"/>
+<path d="M246 55.5 L247.8 55.2 L249.5 54.8 L251.3 54.4 L253 53.9 L254.8 53.2 L256.5 52.3 L258.3 51.1 L260 48 L260 64 L258.3 67.1 L256.5 68.3 L254.8 69.2 L253 69.9 L251.3 70.4 L249.5 70.8 L247.8 71.2 L246 71.5 Z" fill="#CFCFCF" stroke="none"/>
+<path d="M216,48 L216,64 A22,8 0 0 0 260,64 L260,48 Z" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="220" y1="54.1" x2="220" y2="67.6" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="224.5" y1="55.8" x2="224.5" y2="69.3" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="229" y1="56.8" x2="229" y2="70.3" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
@@ -175,8 +180,8 @@
 <path d="M113.3 241.3 L119.5 238" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M114.7 243.9 L120.9 240.6" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M116.2 246.6 L122.3 243.3" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M214,241.6 L204,223.1" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
-<path d="M168.5,157.1 L178.4,175.6" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
+<path d="M214,241.6 L204,223.1" fill="none" stroke="#9B2C1E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl-r)"/>
+<path d="M168.5,157.1 L178.4,175.6" fill="none" stroke="#9B2C1E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl-r)"/>
 <path d="M111.1,242.5 Q68.9,265.2 40,280" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <ellipse cx="33" cy="287" rx="1.8" ry="2.4" fill="#1A1A1A" stroke="none"/>
 <ellipse cx="45" cy="290" rx="1.5" ry="2" fill="#1A1A1A" stroke="none"/>

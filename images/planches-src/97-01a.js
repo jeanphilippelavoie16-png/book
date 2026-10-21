@@ -21,7 +21,7 @@ module.exports = (h) => {
   const XL = -10, XR = 283, ZB = -54;               // terre montrée autour
   const PE = 181, CY0 = 45, CY1 = 136;              // plan : fosse est-ouest, coffre est-ouest
   const TX = 170;                                   // le thermomètre
-  const ZT = 97, ZBAS = -66, YH = -8, YB = 206;      // étendue des deux vues
+  const ZT = 97, ZBAS = -66, YH = -15, YB = 218;      // étendue des deux vues
   const XG = -18, XD = 291;                         // colonnes de cotes
 
   const blanc = (a) => a.replace('fill="none"', 'fill="#FFFFFF"');
@@ -57,6 +57,22 @@ module.exports = (h) => {
     return h.chemin(pts, A.detail);
   };
 
+  // une cote à traits d'arrêt longs et fond blanc sous le chiffre, pour la poser sur une trame
+  const coteF = (x1, y1, x2, y2, t, o = {}) => {
+    const vert = Math.abs(y2 - y1) > Math.abs(x2 - x1), w = h.largeur(t, 12) + 6;
+    const out = [];
+    if (vert) {
+      const cx = (x1 + x2) / 2 + (o.cote === 'gauche' ? -(8 + w / 2 - 3) : 8 + w / 2 - 3), cy = (y1 + y2) / 2;
+      out.push(h.rect(cx - w / 2, cy - 9, w, 16, 'fill="#FFFFFF" stroke="none"'));
+      out.push(h.ligne(x1 - 9, y1, x1 + 9, y1, A.detail), h.ligne(x2 - 9, y2, x2 + 9, y2, A.detail));
+    } else {
+      const cx = (x1 + x2) / 2, cy = (y1 + y2) / 2 + (o.cote === 'dessous' ? 11 : -9);
+      out.push(h.rect(cx - w / 2, cy - 9, w, 16, 'fill="#FFFFFF" stroke="none"'));
+    }
+    out.push(h.cote(x1, y1, x2, y2, t, o));
+    return out.join('\n');
+  };
+
   const fleche = (a, b) => [
     h.ligne(a[0], a[1], b[0], b[1], 'fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"'),
     h.fleche(`M${a[0]} ${a[1]} L${b[0]} ${b[1]}`, A.arete),
@@ -79,9 +95,13 @@ module.exports = (h) => {
     o.push(h.rect(...p(CX0 + EP, FI), (CX1 - CX0 - 2 * EP) * S, (FI - BT) * S, A.hachure('isolant', 'detail')));
     o.push(h.rect(...p(CX0 + EP, TE), (CX1 - CX0 - 2 * EP) * S, (TE - FI) * S, A.hachure('neige', 'detail')));
     o.push(h.chemin([p(CX0 + EP, FI), p(CX1 - EP, FI)], A.detail));
+    // La charte : au-dessus du terreau, on voit par l'ouverture la paroi du fond du coffre (le
+    // côté ouest, derrière le plan de coupe) : gris loin, sous le châssis.
+    o.push(poly([p(CX0 + EP, TE), p(CX1 - EP, TE), p(CX1 - EP, glace(CX1 - EP)), p(CX0 + EP, glace(CX0 + EP))], A.loin));
     o.push(h.chemin([p(CX0 + EP, TE), p(CX1 - EP, TE)], A.arete));
-    // contours : fosse, lit, rechaussage
-    o.push(h.chemin([p(XL, 0), p(0, 0), p(0, -PD), p(PW, -PD), p(PW, 0), p(XR, 0)], A.arete));
+    // contours : le sol à côté, puis la fosse, qui est le contour du lit (objet principal, 2,4)
+    o.push(h.chemin([p(XL, 0), p(0, 0)], A.arete), h.chemin([p(PW, 0), p(XR, 0)], A.arete));
+    o.push(h.chemin([p(0, 0), p(0, -PD), p(PW, -PD), p(PW, 0)], A.contour));
     o.push(h.chemin([p(0, -PD + GR), p(PW, -PD + GR)], A.detail));
     o.push(h.chemin([p(0, 0), p(RF, FT), p(CX0, FT)], A.contour));
     o.push(h.chemin([p(CX1, BK), p(RB, BK), p(PW, 0)], A.contour));
@@ -98,13 +118,17 @@ module.exports = (h) => {
     o.push(h.chemin([c(RL, CH * 0.55), c(L - RL, CH * 0.55)], A.arete));
     // la chaleur monte du fumier dans le terreau
     for (const x of [122, 206]) o.push(fleche(p(x, 22), p(x, 53)));
-    // le thermomètre à sonde, planté à 8 cm
+    // le thermomètre à sonde, planté à 8 cm ; le liseré blanc seulement dans le terreau, pour ne
+    // pas faire de halo sur le gris du fond
     const tige = [p(TX, TE - 8), p(TX, TE + 4)];
-    o.push(h.ligne(...tige[0], ...tige[1], 'fill="none" stroke="#FFFFFF" stroke-width="4"'));
+    o.push(h.ligne(...tige[0], ...p(TX, TE), 'fill="none" stroke="#FFFFFF" stroke-width="4"'));
     o.push(h.ligne(...tige[0], ...tige[1], A.arete));
     const cad = p(TX, TE + 4 + 3.4);
     o.push(h.cercle(cad[0], cad[1], 3.4 * S, blanc(A.arete)));
     o.push(h.chemin([cad, [cad[0] + 2 * S, cad[1] - 1.8 * S]], A.detail));
+    // La charte : le point à contrôler. « C'est le thermomètre qui décide, pas le nombre de jours »
+    // (étape 12) : on sème quand il est redescendu vers 30 °C.
+    o.push(h.controle(cad[0], cad[1], 3.4 * S + 3));
     // niveau du dessus du devant, reporté à l'arrière
     o.push(h.ligne(...p(CX0, FT), ...p(XD + 3, FT), 'fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="4 3"'));
     // rappels
@@ -119,8 +143,8 @@ module.exports = (h) => {
     o.push(h.cote(...p(XD, -PD + GR), ...p(XD, BT), '600 à 750', { cote: 'droite' }));
     o.push(h.cote(...p(XD, FT), ...p(XD, BK), '150 min.', { cote: 'droite' }));
     o.push(h.cote(...p(RF, FT + 5), ...p(CX0, FT + 5), '300 à 380'));
-    o.push(h.cote(...p(CX0 + 14, BT), ...p(CX0 + 14, FI), '100 à 150', { cote: 'droite' }));
-    o.push(h.cote(...p(CX0 + 14, FI), ...p(CX0 + 14, TE), '130 à 150', { cote: 'droite' }));
+    o.push(coteF(...p(CX0 + 14, BT), ...p(CX0 + 14, FI), '100 à 150', { cote: 'droite' }));
+    o.push(coteF(...p(CX0 + 14, FI), ...p(CX0 + 14, TE), '130 à 150', { cote: 'droite' }));
     o.push(h.cote(...p(TX + 7, TE), ...p(TX + 7, TE - 8), '80', { cote: 'droite' }));
     return o.join('\n');
   };
@@ -149,17 +173,23 @@ module.exports = (h) => {
     // rappels et cotes
     const rap = (a, b) => h.ligne(...q(...a), ...q(...b), A.fin);
     o.push(rap([CX1, CY0], [XD + 3, CY0]), rap([CX1, CY1], [XD + 3, CY1]));
-    o.push(rap([CX0, CY1], [CX0, YB - 7]), rap([CX1, CY1], [CX1, YB - 7]));
+    o.push(rap([CX0, CY1], [CX0, YB - 19]), rap([CX1, CY1], [CX1, YB - 19]));
+    o.push(rap([CX0 + EP, CY1 - EP], [CX0 + EP, YB - 7]), rap([CX1 - EP, CY1 - EP], [CX1 - EP, YB - 7]));
     o.push(h.cote(...q(XD, CY0), ...q(XD, CY1), '910 (3 pi)', { cote: 'droite' }));
-    o.push(h.cote(...q(CX0, YB - 10), ...q(CX1, YB - 10), '1830 (6 pi)', { cote: 'dessous' }));
-    o.push(h.cote(...q(CX0 + EP, 112), ...q(CX1 - EP, 112), '1730 (5 pi 8 po)'));
+    o.push(coteF(...q(CX0, YB - 22), ...q(CX1, YB - 22), '1830 (6 pi)', { cote: 'dessous' }));
+    o.push(coteF(...q(CX0 + EP, YB - 10), ...q(CX1 - EP, YB - 10), '1730 (5 pi 8 po)', { cote: 'dessous' }));
+    // l'écart entre le coffre et le bord de la fosse, sur un côté long et un côté court
+    o.push(rap([0, 0], [0, -10]), rap([CX0, CY0], [CX0, -10]));
+    o.push(h.cote(...q(0, -7), ...q(CX0, -7), 'env. 450'));
+    o.push(rap([PW, 0], [XD + 3, 0]));
+    o.push(h.cote(...q(XD, 0), ...q(XD, CY0), 'env. 450', { cote: 'droite' }));
     return o.join('\n');
   };
 
   return {
     ref: '97-01a',
     titre: 'La couche chaude au fumier, en coupe',
-    desc: 'Coupe nord-sud d’une couche chaude à un châssis, le sud à gauche, à l’échelle, et la même couche vue de dessus, châssis enlevé, alignée dessous. Une fosse d’au moins 460 mm creusée dans la terre, 10 cm de gros gravier au fond ; le fumier frais y est chargé par lits tassés sur 600 à 750 mm, jusqu’au-dessus du sol ; le coffre de madriers est posé sur le lit, l’arrière au moins 150 mm plus haut que le devant ; 100 à 150 mm de fumier tassé dans le coffre, puis 130 à 150 mm de terreau qui arrive presque au bord du devant ; du fumier empilé contre l’extérieur du coffre jusqu’en haut, sur 300 à 380 mm, descend en talus jusqu’au bord de la fosse. La vieille fenêtre porte sur le devant et l’arrière ; le thermomètre à sonde est planté à 80 mm dans le terreau ; deux flèches montrent la chaleur qui monte du fumier. De dessus : le rechaussage fait le tour du coffre ; le coffre mesure 910 sur 1830 mm à l’extérieur, 1730 mm à l’intérieur du devant à l’arrière, un poteau dans chaque coin ; la fosse déborde le coffre de tous côtés.',
+    desc: 'Coupe nord-sud d’une couche chaude à un châssis, le sud à gauche, à l’échelle, et la même couche vue de dessus, châssis enlevé, alignée dessous. Une fosse d’au moins 460 mm creusée dans la terre, 10 cm de gros gravier au fond ; le fumier frais y est chargé par lits tassés sur 600 à 750 mm, jusqu’au-dessus du sol ; le coffre de madriers est posé sur le lit, l’arrière au moins 150 mm plus haut que le devant ; 100 à 150 mm de fumier tassé dans le coffre, puis 130 à 150 mm de terreau qui arrive presque au bord du devant ; du fumier empilé contre l’extérieur du coffre jusqu’en haut, sur 300 à 380 mm, descend en talus jusqu’au bord de la fosse. La vieille fenêtre porte sur le devant et l’arrière ; le thermomètre à sonde est planté à 80 mm dans le terreau ; deux flèches montrent la chaleur qui monte du fumier ; au-dessus du terreau, la paroi du fond du coffre en gris ; le thermomètre est cerclé de rouge : c’est lui qui dit quand semer. De dessus : le rechaussage fait le tour du coffre ; le coffre mesure 910 sur 1830 mm à l’extérieur, 1730 mm à l’intérieur du devant à l’arrière, un poteau dans chaque coin ; la fosse déborde le coffre de tous côtés.',
     format: 'pleine',
     disposition: [['coupe'], ['plan']],
     hauteurs: [ZT - ZBAS, YB - YH],
@@ -175,7 +205,7 @@ module.exports = (h) => {
             { n: 3, rond: p(140, 90), cible: p(140, TE - 5) },
             { n: 4, rond: p(-8, 44), cible: p(24, 44) },
             { n: 5, rond: p(-8, 16), cible: p(34, 8) },
-            { n: 6, rond: p(118, -60), cible: p(118, -40.5) },
+            { n: 6, rond: p(118, -56), cible: p(118, -40.5) },
           ].map((r, i) => ({ ...r, texte: [
             'vieille fenêtre, posée sur le coffre',
             'thermomètre à sonde, planté dans le terreau',

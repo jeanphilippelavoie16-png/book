@@ -7,6 +7,10 @@
 // main ; la fente s'ouvre à x = 0. Vue de dessus : y = 0 sur l'axe de la fente. Vue de côté :
 // y = 0 à la surface du poil, y = EP sous la paroi, vers le bas = dans le ventre.
 // Main gauche, paume vers le haut ; le couteau dans l'autre main, qu'on ne dessine pas.
+// La main vient de la bibliothèque de mains simples (pose deux-doigts-v) : vue de dessus côté paume, la
+// pointe du V au bord de la fente ; de côté, la vue est prise du côté du pouce (le x de la vue de dessus va
+// vers la droite : on regarde depuis le bas de la vue de dessus, côté index), les pulpes sous la paroi.
+// Hors de la fente, sous la peau, la main ne se voit pas : son contour passe en tireté.
 
 // ─── géométrie ───────────────────────────────────────────────────────────────────────
 const lisse = (pts, n = 8) => {
@@ -49,17 +53,6 @@ const TRANCHE_H = lisse([[7, -3], [14, -9.5], [25, -19], [42, -29], [63, -37.5],
 const TRANCHE_B = mir(TRANCHE_H).map(p => [p[0], p[1] + 0.8]);
 const FENTE = [...LEVRE_H, [170, -70], [170, 70], ...LEVRE_B.slice().reverse()];
 
-// la main gauche, paume en l'air : majeur en haut, index en bas, pouce en bas
-const MAJEUR = doigt([15, -9], [-64, -28], 17, 15);
-const INDEX = doigt([15, 9.5], [-57, 26], 16, 14);
-const PAUME_H = lisse([[15, -17.5], [22, -26], [34, -30], [50, -29.5], [72, -25], [104, -21], [152, -20]]);
-// le bord bas de la paume passe par la base du pouce : il continue en bord du pouce, sans bout libre
-const PAUME_B = lisse([[152, 21], [118, 25], [94, 29.4], [81.4, 31.9], [62, 28], [44, 22.5], [15, 17.5]]);
-const PAUME = PAUME_H.concat(PAUME_B);
-const POUCE = doigt([80, 23], [36, 30], 18, 15);
-const REPLIS = [   // annulaire et auriculaire repliés dans la paume
-  lisse([[17, -18.5], [30, -21.5], [44, -22], [58, -27.5]]),
-];
 // le couteau vu de dessus : le dos de la lame en bas, le fil tourné vers l'œil
 const LAME_P = [[-38, 0], [-30, -1.3], [0, -1.8], [56, -1.8], [56, 1.8], [0, 1.8], [-30, 1.3]];   // pointe au même x que dans la vue de côté
 const GARDE_P = [[56, -6.5], [62, -6.5], [62, 6.5], [56, 6.5]];
@@ -82,8 +75,9 @@ const POILS = (() => {
   for (let k = 0; k < 400 && out.length < 36; k++) {
     const p = [X0 + 4 + r() * (X1 - X0 - 8), -42 + r() * 84];
     if (dans(p, FENTE) || !loin(p, LEVRE_H.concat(LEVRE_B), 6)) continue;
-    if ([MAJEUR, INDEX, POUCE].some(d => dans(p, d.contour)) || dans(p, PAUME)) continue;
     if (p[0] > 50 && Math.abs(p[1]) < 14) continue;
+    if (p[0] < 20 && Math.abs(p[1] + (p[0] - 20) * 0.27) < 14 && p[0] > -88) continue;   // le long des deux doigts
+    if (p[0] < 20 && Math.abs(p[1] - (p[0] - 20) * 0.27) < 14 && p[0] > -88) continue;
     if (Math.hypot(p[0] + 70, p[1]) < 13) continue;              // la pastille 1, dans le V
     if (!loin(p, out, 11)) continue;
     out.push(p);
@@ -109,21 +103,42 @@ const traverse = y => {
   }
 };
 const F_DESSOUS = traverse(EP), F_DESSUS = traverse(0);
-// la main vue du côté du majeur : pulpe contre le dessous de la paroi, dos vers le ventre
-// le bout du doigt est rond : les deux moitiés arrivent à la verticale en (-66, 20)
-const MAIN_HAUT = lisse([[-66, 20], [-65.6, 16.4], [-62.6, 13.3], [-54, 12.2], [-30, 12], [-5, 12], [12, 11.5], [26, 9.5],
-  [42, 7], [62, 3], [90, -1.5], [120, -4.5], [148, -6.5]]);
-const MAIN_C = MAIN_HAUT
-  .concat(lisse([[148, 23], [120, 28], [90, 33], [62, 37], [36, 36], [18, 30.5], [2, 28.5], [-12, 29], [-24, 27.8],
-    [-38, 28], [-50, 26.8], [-58, 26.3], [-63.2, 25], [-65.6, 23.5], [-66, 20]]));
-const MAIN_N = MAIN_HAUT.length;                // points du dessus de la main
-const PLIS_C = [
-  lisse([[-60.5, 25], [-55, 26.8], [-48, 26.9]]),              // ongle, du côté du dos
-  lisse([[-36, 12.4], [-35, 15]]), lisse([[-11, 12.4], [-10, 15.5]]),   // plis de la pulpe
-];
-
 module.exports = (h) => {
   const blanc = a => a.replace('fill="none"', 'fill="#fff"');
+  const F = h.formes;
+  // les chemins d'une main simple : la silhouette pleine (le premier aplat, pour une découpe), ses bords haut et
+  // bas à l'abscisse x (lus sur le trait à 1,5 : le moteur n'expose pas son contour), et sa version en tireté
+  const pleinDe = svg => (String(svg).match(/<path d="([^"]+)" fill="#FFFFFF" fill-rule="nonzero" stroke="none"\/>/) || [])[1];
+  const bords = svg => {
+    const segs = [];
+    for (const mm of String(svg).matchAll(/<path d="([^"]+)"[^>]*stroke-width="1\.5"/g)) for (const sp of mm[1].split('M').filter(Boolean)) {
+      const n = sp.match(/-?\d+(\.\d+)?/g).map(Number), Q = [];
+      for (let i = 0; i + 1 < n.length; i += 2) Q.push([n[i], n[i + 1]]);
+      for (let i = 1; i < Q.length; i++) segs.push([Q[i - 1], Q[i]]);
+    }
+    const coupe = x => segs.filter(([a, b]) => (a[0] - x) * (b[0] - x) <= 0 && a[0] !== b[0]).map(([a, b]) => a[1] + (b[1] - a[1]) * (x - a[0]) / (b[0] - a[0]));
+    return { haut: x => Math.min(...coupe(x)), bas: x => Math.max(...coupe(x)) };
+  };
+  const enTirets = svg => String(svg).replace(/<path d="[^"]*" fill="#(FFFFFF|E6E6E6)"[^>]*\/>/g, '')
+    .replace(/stroke-width="(1\.5|0\.7)"/g, 'stroke-width="0.7" stroke-dasharray="5 3.5"');
+  // la main gauche, vue de dessus côté paume, la pointe du V (entre l'index et le majeur, à leur racine) en V0
+  const mainDessus = (s, T) => {
+    const o = { pose: 'deux-doigts-v', vue: 'paume', cote: 'gauche', echelle: s, angle: 180, ancre: 'poignet', avantbras: { longueur: 120 } };
+    const m0 = F.mainSimple({ ...o, x: 0, y: 0 }), a = m0.articulations;
+    const V = [(a['index.mcp'][0] + a['majeur.mcp'][0]) / 2, (a['index.mcp'][1] + a['majeur.mcp'][1]) / 2], V0 = T([22, 0]);
+    return F.mainSimple({ ...o, x: V0[0] - V[0], y: V0[1] - V[1] });
+  };
+  // la main gauche, de côté (côté pouce), paume en haut : le dessus des doigts tendus contre le dessous de la
+  // paroi, le bout à x = -60 ; la paume ressort par la fente, l'avant-bras monte vers la droite et sort du cadre.
+  // De côté, l'index cache le majeur et le V ne se voit pas : la main à plat (pose plat) le dit aussi bien, sans
+  // les doigts repliés qui, dressés vers l'œil, sortiraient de la vue.
+  const mainCote = (s, T, z) => {
+    const o = { pose: 'plat', vue: 'pouce', cote: 'gauche', echelle: s, angle: 168, ancre: 'bout',
+      avantbras: { vers: T([400, -60]), bord: { x0: 0, y0: 0, x1: z.l, y1: z.h }, longueur: 'bord' } };
+    const P0 = T([-60, EP + 6]), m0 = F.mainSimple({ ...o, x: P0[0], y: P0[1] });
+    const dy = T([0, EP])[1] - bords(m0.svg).haut(T([-40, 0])[0]);
+    return F.mainSimple({ ...o, x: P0[0], y: P0[1] + dy });
+  };
   const place = (z, y0, y1) => {
     const s = Math.min(z.l / (X1 - X0), z.h / PAN);
     const ox = (z.l - (X1 - X0) * s) / 2 - X0 * s, oy = (z.h - (y1 - y0) * s) / 2 - y0 * s;
@@ -149,20 +164,10 @@ module.exports = (h) => {
         dessin: z => {
           const { s, M } = place(z, ...DESSUS);
           const fente = D(M(FENTE), true);
-          // le pouce par-dessus le bord de la paume ; son bord intérieur part en pli, pas en bout coupé
-          const [p0, p1] = POUCE.contour;
-          const pli = [p0[0] + (p1[0] - p0[0]) * 0.45, p0[1] + (p1[1] - p0[1]) * 0.45];
-          const main = [
-            h.path(D(M(PAUME), true), h.a.blanc),
-            h.path(D(M(PAUME_H)) + ' ' + D(M(PAUME_B)), h.a.arete),
-            h.path(D(M(POUCE.contour)) + ' Z', h.a.blanc),
-            h.path(D(M([pli, ...POUCE.contour.slice(1)])), h.a.arete),
-            ...[MAJEUR, INDEX].map(d => h.path(D(M(d.contour)) + ' Z', h.a.blanc)),
-            ...[MAJEUR, INDEX].map(d => h.path(D(M(d.contour)), h.a.arete)),
-            h.path([...MAJEUR.plis, ...INDEX.plis, ...REPLIS].map(p => D(M(p))).join(' '), h.a.detail),
-          ];
-          const cache = [PAUME_H, PAUME_B, POUCE.contour, MAJEUR.contour, INDEX.contour]
-            .map(p => h.path(D(M(p)), h.a.cache)).concat([h.path(D(M(LAME_P), true), h.a.cache)]);
+          // la main : entière dans la fente ; sous la peau, son contour en tireté
+          const mD = mainDessus(s, p => M([p])[0]);
+          const main = [mD.svg];
+          const cache = [enTirets(mD.svg), h.path(D(M(LAME_P), true), h.a.cache)];
           return [`<clipPath id="zcadre"><rect fill="none" x="0" y="0" width="${z.l}" height="${z.h}"/></clipPath><g clip-path="url(#zcadre)">`,
             clip('zfente', fente, false, z),
             clip('zpeau', fente, true, z),
@@ -191,7 +196,8 @@ module.exports = (h) => {
         titre: 'De côté, la paroi coupée dans l’axe',
         dessin: z => {
           const { s, M } = place(z, ...COTE);
-          const mainD = D(M(MAIN_C), true);
+          const mC = mainCote(s, p => M([p])[0], z);
+          const mainD = pleinDe(mC.svg);
           const paroi = [[X0, 0], F_DESSUS, F_DESSOUS, [X0, EP]];
           const coupe = h.path(D(M(paroi.slice(0, 3))) + ' L' + M([paroi[3]])[0].map(v => v.toFixed(1)).join(','), h.a.contour);
           const casse = h.path(D(M([[X0, -1], [X0 + 2, 3], [X0 - 1.5, 6], [X0 + 1.5, 9], [X0, EP + 1]])), h.a.fin);
@@ -204,9 +210,7 @@ module.exports = (h) => {
             // la lame devant la lèvre, derrière le majeur
             `<g clip-path="url(#zhors)">${h.path(D(M(LAME), true), blanc(h.a.arete))}
 ${h.path(D(M(BISEAU)), h.a.detail)}</g>`,
-            h.path(mainD, h.a.blanc),
-            h.path(D(M(MAIN_C.slice(0, MAIN_N))) + ' ' + D(M(MAIN_C.slice(MAIN_N))), h.a.arete),
-            h.path(PLIS_C.map(p => D(M(p))).join(' '), h.a.detail),
+            mC.svg,
             `<g clip-path="url(#zmain)">${h.path(D(M(LAME), true), h.a.cache)}</g>`,
             h.path(D(M(GARDE), true), blanc(h.a.arete)),
             h.path(D(M(MANCHE)) + ' Z', blanc(h.a.arete)),
@@ -218,15 +222,16 @@ ${h.path(D(M(BISEAU)), h.a.detail)}</g>`,
             h.path(D(M([[X0, 3.2], [peauX, 3.2]])), h.a.fin),
             h.path(poils.join(' '), h.a.fin),
             // les gestes : on avance vers le sternum ; les doigts appuient vers le bas
-            h.fleche(`M${M([[-22, -15]])[0].join(' ')} L${M([[-62, -15]])[0].join(' ')}`),
-            h.fleche(`M${M([[-38, 31.5]])[0].join(' ')} L${M([[-38, 43]])[0].join(' ')}`),
+            h.geste(`M${M([[-22, -15]])[0].join(' ')} L${M([[-62, -15]])[0].join(' ')}`),
+            (() => { const x = M([[-38, 0]])[0][0], y = bords(mC.svg).bas(x) + 3; return h.geste(`M${x.toFixed(1)} ${y.toFixed(1)} L${x.toFixed(1)} ${(y + 11 * s).toFixed(1)}`); })(),
           ].join('\n');
         },
         renvois: z => {
           const { M } = place(z, ...COTE);
           return [
             { n: 2, rond: M([[-6, -34]])[0], cible: M([K(24, 0.2)])[0], texte: 'tranchant vers le haut' },
-            { n: 3, rond: M([[-68, 34]])[0], cible: M([[-47, 28]])[0], texte: 'les doigts repoussent la panse' },
+            (() => { const { s } = place(z, ...COTE), mC = mainCote(s, p => M([p])[0], z), x = M([[-50, 0]])[0][0];
+              return { n: 3, rond: M([[-73, 32]])[0], cible: [x, bords(mC.svg).bas(x)], texte: 'les doigts repoussent la panse' }; })(),
           ];
         },
       },

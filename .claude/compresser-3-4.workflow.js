@@ -10,7 +10,7 @@ export const meta = {
 const ROOT = 'C:\\Users\\jeanp\\New folder'
 const S = { type: 'object', properties: { fichier: { type: 'string' }, motsAvant: { type: 'number' }, motsApres: { type: 'number' }, materielGarde: { type: 'array', items: { type: 'string' } }, materielCoupe: { type: 'array', items: { type: 'string' } }, deplace: { type: 'array', items: { type: 'string' }, description: 'ce qui a ete deplace ailleurs dans le chapitre plutot que coupe, et ou' } }, required: ['fichier', 'motsAvant', 'motsApres', 'materielGarde', 'materielCoupe', 'deplace'] }
 
-const P = (f) => `Tu travailles sur « Le Grand Livre du Chalet », un manuel de survie imprimé pour JP et sa famille (Côte-Nord). Projet : ${ROOT}. **CLAUDE.md est dans ton contexte et prime.** Ton chapitre : \`chapitres/${f}\`.
+const P = (f) => `Tu travailles sur « Le Manuel du Nord », un manuel de survie imprimé pour JP et sa famille (Côte-Nord). Projet : ${ROOT}. **CLAUDE.md est dans ton contexte et prime.** Ton chapitre : \`chapitres/${f}\`.
 
 **JP, aujourd'hui :** « La liste de matériel à chaque chapitre, pas essentielle : on garde seulement ce qui est absolument nécessaire et on explique c'est quoi. Pourquoi ça marche, je veux ça compressé. C'est long pour rien. »
 

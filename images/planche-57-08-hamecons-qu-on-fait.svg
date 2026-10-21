@@ -7,6 +7,7 @@
 <pattern id="h-gravier" width="10" height="9" patternUnits="userSpaceOnUse"><circle cx="2.5" cy="2.5" r="1.7" fill="none" stroke="#1A1A1A" stroke-width="0.5"/><circle cx="7.5" cy="7" r="1.3" fill="none" stroke="#1A1A1A" stroke-width="0.5"/></pattern>
 <pattern id="h-eau" width="16" height="7" patternUnits="userSpaceOnUse"><line x1="1" y1="2" x2="8" y2="2" stroke="#1A1A1A" stroke-width="0.5"/><line x1="9" y1="5.5" x2="15" y2="5.5" stroke="#1A1A1A" stroke-width="0.5"/></pattern>
 <marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#1A1A1A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<marker id="fl-r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 Z" fill="#9B2C1E" stroke="#9B2C1E" stroke-width="1" stroke-linejoin="round"/></marker>
 </defs>
 <rect x="0" y="0" width="680" height="826" fill="#FFFFFF"/>
 <text x="40" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Ce qui se plie</text>
@@ -39,13 +40,15 @@
 <text x="293.2" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Rougir, puis plier froid</text>
 <g transform="translate(293.2 46)" data-vue="plier">
 <rect x="20.8" y="143" width="304.5" height="34" fill="url(#h-bois)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
-<path d="M113.6 143 L115.6 135 L115.6 85 L133.6 85 L133.6 135 L135.6 143 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M113.6 143 L115.6 135 L115.6 85 L133.6 85 L133.6 135 L135.6 143 Z" fill="#FFFFFF" stroke="none"/>
+<path d="M127.6 85 L133.6 85 L133.6 135 L135.6 143 L128.1 143 Z" fill="#CFCFCF" stroke="none"/>
+<path d="M113.6 143 L115.6 135 L115.6 85 L133.6 85 L133.6 135 L135.6 143 Z" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M119.6 85 L119.6 75 L129.6 75 L129.6 85 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="124.6" cy="64" r="14" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <rect x="8" y="103" width="107.6" height="13" fill="url(#h-bois)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
 <path d="M46.6 46.8 L 124.6 46.8 A 17.2 17.2 0 0 1 135.6 77.2" fill="none" stroke="#1A1A1A" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M46.6 46.8 L 124.6 46.8 A 17.2 17.2 0 0 1 135.6 77.2" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M152.1 69.9 A 28.2 28.2 0 0 1 134.2 90.5" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
+<path d="M152.1 69.9 A 28.2 28.2 0 0 1 134.2 90.5" fill="none" stroke="#9B2C1E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl-r)"/>
 <path d="M259.9 115 A 10 4 0 0 1 279.9 115" fill="none" stroke="#1A1A1A" stroke-width="5.4" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M259.9 115 A 10 4 0 0 1 279.9 115" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M267.7 143 L267.7 91 L272.1 91 L272.1 143 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
@@ -54,17 +57,17 @@
 <path d="M279.9 115 A 10 4 0 0 1 259.9 115 Q 257.9 113 257.9 109" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M279.9 115 L 335.6 115" fill="none" stroke="#1A1A1A" stroke-width="5.4" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M279.9 115 L 335.6 115" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M284.9 126 A 15 5 0 0 1 254.9 126" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
+<path d="M284.9 126 A 15 5 0 0 1 254.9 126" fill="none" stroke="#9B2C1E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl-r)"/>
 </g>
 <text x="40" y="259.7" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Limer la pointe et la barbe</text>
 <g transform="translate(40 267.7)" data-vue="limer">
-<path d="M16 30 a 11 11 0 1 0 0.1 0" fill="none" stroke="#1A1A1A" stroke-width="13.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M16 30 a 11 11 0 1 0 0.1 0" fill="none" stroke="#1A1A1A" stroke-width="15.8" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M16 30 a 11 11 0 1 0 0.1 0" fill="none" stroke="#FFFFFF" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M38 30 L 214.5 30 A 28 28 0 0 1 214.5 86 L 212.5 86" fill="none" stroke="#1A1A1A" stroke-width="13.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M38 30 L 214.5 30 A 28 28 0 0 1 214.5 86 L 212.5 86" fill="none" stroke="#1A1A1A" stroke-width="15.8" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M38 30 L 214.5 30 A 28 28 0 0 1 214.5 86 L 212.5 86" fill="none" stroke="#FFFFFF" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M215.5 80.5 L156.5 80.5 L156.5 85 L126.5 83.5 L108.5 85.6 L108.5 85.6 L160.5 91.5 L215.5 91.5 Z" fill="#FFFFFF" stroke="none"/>
-<path d="M214.5 80.5 L156.5 80.5 L156.5 85 L126.5 83.5 L108.5 85.6" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M108.5 85.6 L160.5 91.5 L214.5 91.5" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M214.5 80.5 L156.5 80.5 L156.5 85 L126.5 83.5 L108.5 85.6" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M108.5 85.6 L160.5 91.5 L214.5 91.5" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M126.5 83.5 L154.5 79.9 L157.1 75.1 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="126.5" y1="84.8" x2="112.5" y2="85.6" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M40 143.8 L60 143.8 L50 126.5 Z" fill="url(#h-metal)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
@@ -72,7 +75,7 @@
 <line x1="90.5" y1="88.1" x2="270.5" y2="111" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M270.5 108 L282.5 109.5 L282.5 112.5 L270.5 114 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M282.5 103 L 326.5 103 Q 330.5 103 330.5 107 L 330.5 115 Q 330.5 119 326.5 119 L 282.5 119 Z" fill="url(#h-bois)" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"/>
-<path d="M238.5 126.4 L 150.5 116.4" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
+<path d="M238.5 126.4 L 150.5 116.4" fill="none" stroke="#9B2C1E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl-r)"/>
 </g>
 <text x="408.8" y="259.7" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Rendre la dureté</text>
 <g transform="translate(408.8 267.7)" data-vue="tremper">
@@ -108,6 +111,7 @@
 <path d="M112.7 170.3 L110.7 162.3" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M104.7 148.3 L 122.7 166.3" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
 <path d="M66.7 56 L 66.7 30" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
+<circle cx="61.7" cy="128.3" r="19" fill="none" stroke="#9B2C1E" stroke-width="1.6"/>
 </g>
 <text x="217.1" y="481.3" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">La broche avalée, d’os ou de bois dur</text>
 <g transform="translate(217.1 489.3)" data-vue="broche">

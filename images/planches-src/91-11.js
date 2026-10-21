@@ -5,11 +5,16 @@
 // Ajouts de construction que le chapitre ne nomme pas, pour que la chose se bâtisse et marche :
 // les bûches (le bas ouvert doit respirer), les tasseaux (la claie doit reposer sur quelque
 // chose), la porte à l'avant (les claies doivent sortir pour être tournées).
+// La charte : la caisse et sa claie au contour fort ; le poêle, qui n'est là que pour dire « à
+// côté », recule en gris loin, en coupe comme de dessus ; la claie du haut, vue par la part
+// ouverte du trou, en gris loin aussi. Le rouge : la tôle qu'on avance ou recule (le geste), et
+// la perle de jus du fruit pas prêt (le point que le test vérifie). Les flèches d'air restent
+// noires.
 
 module.exports = (h) => {
   const f = v => Math.round(v * 10) / 10;
   const blanc = a => a.replace('fill="none"', 'fill="#FFFFFF"');
-  const deuxBouts = a => `${a} marker-start="url(#fl)" marker-end="url(#fl)"`;
+  const gris = a => a.replace('fill="none"', 'fill="#E6E6E6"');
   const fleAir = d => h.fleche(d, h.a.cache);
 
   // Proportions communes à la coupe et au plan, en fractions de la largeur de la coupe.
@@ -41,13 +46,13 @@ module.exports = (h) => {
 
     // poêle, en élévation
     const { xs0, ws, ybB, ybT, hs } = c;
-    o.push(h.rect(xs0 + 6, ybB, 7, c.pattes, blanc(h.a.arete)));
-    o.push(h.rect(xs0 + ws - 13, ybB, 7, c.pattes, blanc(h.a.arete)));
+    o.push(h.rect(xs0 + 6, ybB, 7, c.pattes, gris(h.a.arete)));
+    o.push(h.rect(xs0 + ws - 13, ybB, 7, c.pattes, gris(h.a.arete)));
     const xp = xs0 + ws * 0.62, wp = 16;
-    o.push(h.rect(xp, 0, wp, ybT - 6, blanc(h.a.arete)));
+    o.push(h.rect(xp, 0, wp, ybT - 6, gris(h.a.arete)));
     o.push(h.ligne(xp, f((ybT - 6) * 0.45), xp + wp, f((ybT - 6) * 0.45), h.a.detail));
-    o.push(h.rect(xs0, ybT, ws, hs, blanc(h.a.arete)));
-    o.push(h.rect(xs0 - 4, ybT - 6, ws + 8, 6, blanc(h.a.arete)));
+    o.push(h.rect(xs0, ybT, ws, hs, gris(h.a.arete)));
+    o.push(h.rect(xs0 - 4, ybT - 6, ws + 8, 6, gris(h.a.arete)));
     const px = xs0 + ws * 0.14, pw = ws * 0.6, py = ybT + hs * 0.24, ph = hs * 0.48;
     o.push(h.rect(f(px), f(py), f(pw), f(ph), h.a.detail));
     o.push(h.ligne(f(px + pw - 9), f(py + ph * 0.4), f(px + pw - 9), f(py + ph * 0.6), h.a.arete));
@@ -119,21 +124,28 @@ module.exports = (h) => {
   const dessinPlan = z => {
     const p = plan(z), o = [];
     // poêle, vu de dessus
-    o.push(h.rect(p.xs0, p.ySt, p.ws, p.dS, blanc(h.a.arete)));
+    o.push(h.rect(p.xs0, p.ySt, p.ws, p.dS, gris(h.a.arete)));
     o.push(h.rect(p.xs0 + 5, p.ySt + 5, p.ws - 10, p.dS - 10, h.a.detail));
-    o.push(h.cercle(f(p.xs0 + p.ws * 0.66), f(p.ySt + p.dS * 0.36), 8, blanc(h.a.arete)));
+    o.push(h.cercle(f(p.xs0 + p.ws * 0.66), f(p.ySt + p.dS * 0.36), 8, gris(h.a.arete)));
 
     // dessus de la caisse, percé
     o.push(h.rect(p.xB, p.yBk, p.wB, p.dB, blanc(h.a.contour)));
-    o.push(h.rect(p.xO1, p.yO1, p.xO2 - p.xO1, p.yO2 - p.yO1, blanc(h.a.arete)));
-    // la claie du haut, vue par la part ouverte
+    // l'ouverture : en tireté sous la tôle, en trait plein là où elle est découverte
+    o.push(h.rect(p.xO1, p.yO1, p.xO2 - p.xO1, p.yO2 - p.yO1, h.a.cache));
+    // la claie du haut, vue par la part ouverte : l'intérieur, en gris loin
+    o.push(h.rect(p.xT1, p.yO1, p.xO2 - p.xT1, p.yO2 - p.yO1, h.a.loin));
     for (let y = p.yO1 + 8; y < p.yO2 - 4; y += 10) {
       for (let x = p.xT1 + 7; x < p.xO2 - 4; x += 10) o.push(h.cercle(x, y, 3.8, h.a.detail));
     }
-    // tôle posée à moitié sur le trou ; elle glisse
-    o.push(h.rect(p.xO1 - 12, p.yO1 - 8, p.xT1 - p.xO1 + 12, p.yO2 - p.yO1 + 16, h.a.hachure('metal', 'arete')));
+    // tôle posée par-dessus, à moitié sur le trou ; elle glisse
+    const tx = p.xO1 - 12, ty = p.yO1 - 8, tw = p.xT1 - p.xO1 + 12, th = p.yO2 - p.yO1 + 16;
+    o.push(h.rect(tx, ty, tw, th, blanc(h.a.arete)));
+    o.push(h.rect(tx, ty, tw, th, h.a.hachure('metal', 'arete')));
+    o.push(h.path(`M ${p.xT1} ${p.yO1} L ${p.xO1} ${p.yO1} L ${p.xO1} ${p.yO2} L ${p.xT1} ${p.yO2}`, h.a.cache));
+    o.push(h.path(`M ${p.xT1} ${p.yO1} L ${p.xO2} ${p.yO1} L ${p.xO2} ${p.yO2} L ${p.xT1} ${p.yO2}`, h.a.arete));
     const yf = p.yBk - 16;
-    o.push(h.path(`M ${p.xO1 - 10} ${yf} L ${p.xT1 + 14} ${yf}`, deuxBouts(h.a.arete)));
+    // le geste : avancer ou reculer la tôle
+    o.push(h.geste(`M ${p.xO1 - 10} ${yf} L ${p.xT1 + 14} ${yf}`, { double: true }));
 
     // porte à l'avant, charnière du côté opposé au poêle
     const ep = 5, xH = p.xB + p.wB, yH = p.yF + ep;
@@ -209,12 +221,12 @@ module.exports = (h) => {
       o.push(h.chemin(pts, blanc(h.a.arete), true));
       const yk = yc - Rs * 0.92 + 8;
       // plis courts et croisés, comme un raisin sec
-      [[-0.55, -0.15, 0.5, 0.2], [0.15, -0.35, 0.45, 0.25], [-0.3, 0.3, 0.55, -0.35], [0.35, 0.45, 0.4, 0.3], [-0.7, 0.35, 0.35, 0.5], [0.55, -0.05, 0.3, 1.2]].forEach(([u, v, L, r]) => {
+      [[-0.75, -0.3, 0.4, 0.2], [0.1, -0.45, 0.45, 0.25], [-0.45, 0.4, 0.5, -0.2], [0.3, 0.5, 0.35, 0.3], [-0.85, 0.2, 0.3, 0.9], [0.6, -0.2, 0.3, 1.2]].forEach(([u, v, L, r]) => {
         const x1 = x + u * Rs, y1 = yc + v * Rs, dx = Math.cos(r) * L * Rs, dy = Math.sin(r) * L * Rs;
         o.push(h.path(`M ${f(x1)} ${f(y1)} Q ${f(x1 + dx / 2 - dy * 0.25)} ${f(y1 + dy / 2 + dx * 0.25)} ${f(x1 + dx)} ${f(y1 + dy)}`, h.a.detail));
       });
-      // la fente, fermée et sèche
-      o.push(h.path(`M ${f(x - Rs * 0.28)} ${f(yc + Rs * 0.7)} L ${f(x + Rs * 0.2)} ${f(yc + Rs * 0.66)}`, h.a.arete));
+      // la même fente qu'au fruit pas prêt, au centre, fermée et sèche
+      o.push(h.path(`M ${f(x - Rs * 0.4)} ${yc} Q ${x} ${yc - 3} ${f(x + Rs * 0.4)} ${yc} Q ${x} ${yc + 3} ${f(x - Rs * 0.4)} ${yc} Z`, blanc(h.a.arete)));
       o.push(couronne(x, f(yk)));
     }
     // 2. pas prêt : rond, la fente pressée laisse une perle de jus
@@ -225,14 +237,20 @@ module.exports = (h) => {
       const gx = x + 2, gy = yc + 1;
       o.push(h.path(`M ${gx} ${gy} C ${gx + 8} ${gy + 6} ${gx + 10} ${gy + 14} ${gx} ${gy + 18} C ${gx - 10} ${gy + 14} ${gx - 8} ${gy + 6} ${gx} ${gy} Z`, blanc(h.a.arete)));
       o.push(h.path(`M ${gx - 4} ${gy + 10} Q ${gx - 4} ${gy + 14} ${gx - 0.5} ${gy + 15}`, h.a.fin));
+      // le point que le test vérifie : la fente pressée qui laisse sortir le jus
+      o.push(h.controle(gx, gy + 9, 14));
       o.push(couronne(x, yc - R + 7));
     }
     // 3. séché trop chaud, coupé en deux : croûte dehors, humide au centre
     {
-      const x = xs[2], ri = R - 4.5;
-      o.push(h.path(`M ${x - R} ${yc} A ${R} ${R} 0 1 0 ${x + R} ${yc} A ${R} ${R} 0 1 0 ${x - R} ${yc} Z M ${x - ri} ${yc} A ${ri} ${ri} 0 1 1 ${x + ri} ${yc} A ${ri} ${ri} 0 1 1 ${x - ri} ${yc} Z`, `${h.a.plein} fill-rule="evenodd"`));
-      o.push(h.cercle(x, yc, ri, h.a.hachure('eau', 'fin')));
-      o.push(h.cercle(x, yc, R, h.a.arete));
+      const xm = xs[2], ri = R - 4.5, d = 6;
+      [[-1, 0], [1, 1]].forEach(([sg, sw]) => {
+        const x = xm + sg * d;
+        o.push(h.path(`M ${x} ${yc - R} A ${R} ${R} 0 0 ${sw} ${x} ${yc + R} Z`, h.a.plein));
+        o.push(h.path(`M ${x} ${yc - ri} A ${ri} ${ri} 0 0 ${sw} ${x} ${yc + ri} Z`, blanc(h.a.fin)));
+        o.push(h.path(`M ${x} ${yc - ri} A ${ri} ${ri} 0 0 ${sw} ${x} ${yc + ri} Z`, h.a.hachure('eau', 'fin')));
+        o.push(h.path(`M ${x} ${yc - R} A ${R} ${R} 0 0 ${sw} ${x} ${yc + R} Z`, h.a.arete));
+      });
     }
     return o.join('\n');
   };
@@ -289,9 +307,9 @@ module.exports = (h) => {
         renvois: z => {
           const t = test(z), yr = Math.max(14, t.yc - t.R - 26);
           return [
-            { n: 10, rond: [t.xs[0] + t.R * 0.9, yr], cible: [t.xs[0] + t.R * 0.52, t.yc - t.R * 0.5], texte: `sec${nb}: dur, la fente reste sèche` },
+            { n: 10, rond: [t.xs[0] + t.R * 0.9, yr], cible: [t.xs[0] + t.R * 0.15, t.yc - 1], texte: `sec${nb}: dur, la fente reste sèche` },
             { n: 11, rond: [t.xs[1] + t.R + 14, t.yc + t.R - 2], cible: [t.xs[1] + 7, t.yc + 14], texte: `perle de jus${nb}: retour au séchoir` },
-            { n: 12, rond: [t.xs[2] + t.R * 0.9, yr], cible: [t.xs[2] + 4, t.yc - 6], texte: `croûté dehors, humide dedans${nb}: trop chaud` },
+            { n: 12, rond: [t.xs[2] + t.R * 0.9, yr], cible: [t.xs[2] + 14, t.yc - 6], texte: `croûté dehors, humide dedans${nb}: trop chaud` },
           ];
         },
       },

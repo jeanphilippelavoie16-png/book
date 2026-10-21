@@ -3,7 +3,7 @@
 <desc>La mèche de la largeur du peigne vue de dos, le peigne fin enfoncé au ras du cuir chevelu, incliné, tiré jusqu’au bout de la mèche, trempé dans l’eau chaude après chaque passage ; sans peigne fin, la lente pincée entre deux ongles et glissée jusqu’au bout du cheveu.</desc>
 <defs>
 <pattern id="h-eau" width="16" height="7" patternUnits="userSpaceOnUse"><line x1="1" y1="2" x2="8" y2="2" stroke="#1A1A1A" stroke-width="0.5"/><line x1="9" y1="5.5" x2="15" y2="5.5" stroke="#1A1A1A" stroke-width="0.5"/></pattern>
-<marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#1A1A1A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<marker id="fl-r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 Z" fill="#9B2C1E" stroke="#9B2C1E" stroke-width="1" stroke-linejoin="round"/></marker>
 </defs>
 <rect x="0" y="0" width="680" height="826" fill="#FFFFFF"/>
 <text x="40" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">La mèche, vue de dos</text>
@@ -65,7 +65,7 @@
 <path d="M234.8 185.2 C234.8 188.5 234.6 196.8 234.7 205.1 C234.7 213.5 235.1 224.7 235.2 235.3 C235.3 245.8 235.3 256.4 235.3 268.4 C235.2 280.5 234.8 301.1 234.7 307.7" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M240.8 185.2 C240.8 188.5 241 196.8 240.8 205.1 C240.6 213.5 240.1 224.7 239.7 235.3 C239.3 245.8 238.6 257.1 238.3 268.4 C238 279.8 237.9 297.4 237.8 303.1" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M144.5 232.3 L144.5 289.6" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M144.5 232.3 L144.5 292.6" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
+<path d="M144.5 232.3 L144.5 292.6" fill="none" stroke="#9B2C1E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl-r)"/>
 <path d="M128.8 185.8 L160.2 185.8 L160.2 212.9 L128.8 212.9 Z" fill="#FFFFFF" stroke="none"/>
 <path d="M129.4 212.9 L129.4 186.3" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M132.2 212.9 L132.2 186.3" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
@@ -111,7 +111,7 @@
 <path d="M133.3 298.9 L191.8 347.9" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 3.5"/>
 <path d="M148.1 281.2 L206.6 330.2" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 3.5"/>
 <path d="M206 328.6 L190 347.6 L208.4 363 L224.4 343.9 Z" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 3.5"/>
-<path d="M237.3 188.5 L237.3 317.1" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
+<path d="M237.3 188.5 L237.3 317.1" fill="none" stroke="#9B2C1E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl-r)"/>
 </g>
 </g>
 <text x="40" y="453" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Après chaque passage</text>
@@ -145,7 +145,7 @@
 <path d="M144.5 85 L144.5 143.3" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M146.8 85 L146.8 143.3" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <rect x="97.9" y="66.4" width="51.3" height="18.6" rx="2.8" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M167.8 33.8 L167.8 113" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
+<path d="M167.8 33.8 L167.8 113" fill="none" stroke="#9B2C1E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl-r)"/>
 </g>
 <text x="351" y="453" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Sans peigne fin : aux ongles</text>
 <g transform="translate(351 461)" data-vue="ongles">
@@ -153,22 +153,12 @@
 <g clip-path="url(#pl3402-loupe)">
 <path d="M35.5 -42.7 C35.9 -27.8 37.4 19.7 37.9 46.8 C38.5 73.9 38.7 95.6 38.7 120 C38.7 144.4 38.5 166.1 37.9 193.2 C37.4 220.3 35.9 267.8 35.5 282.7" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M38.7 121.8 C46.9 121.9 67.2 122.4 87.6 122.2 C107.9 122.1 135 120.6 160.8 120.8 C186.5 121 217.7 123.1 242.1 123.3 C266.5 123.4 296.4 121.9 307.2 121.6" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M37.1 75.3 C46.9 74.8 73.7 73.8 95.7 72.8 C117.7 71.9 144.5 69.8 168.9 69.6 C193.3 69.3 219.1 71.6 242.1 71.2 C265.2 70.8 296.4 67.8 307.2 67.1" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M37.5 166.8 C47.2 167.3 73.8 168.9 95.7 169.6 C117.6 170.4 144.5 170.4 168.9 171.3 C193.3 172.1 219.1 174.2 242.1 174.5 C265.2 174.8 296.4 173.2 307.2 172.9" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M80.9 112.5 C80.9 113.5 80.4 114.5 79.6 115.5 C78.8 116.5 77.6 117.5 76.2 118.3 C74.8 119.2 73.1 119.9 71.3 120.5 C69.6 121.1 67.6 121.5 65.7 121.8 C63.8 122 61.7 122.1 59.9 121.9 C58 121.8 56.2 121.4 54.6 121 C53.1 120.5 51.7 119.8 50.6 119.1 C49.6 118.3 48.9 117.4 48.6 116.5 C48.4 115.6 48.5 114.6 49.1 113.6 C49.6 112.7 50.7 111.7 52.1 110.9 C53.5 110 55.3 109.2 57.3 108.6 C59.3 108 61.7 107.5 63.9 107.2 C66.1 107 68.5 106.9 70.6 107 C72.6 107.1 74.7 107.4 76.2 107.9 C77.7 108.4 79 109.1 79.8 109.8 C80.6 110.6 81 111.6 80.9 112.5 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M75.8 107.6 C75.6 108.6 74.2 111.5 74.5 113.3 C74.7 115.1 76.7 117.7 77.1 118.5" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M53.4 121.6 C52.4 122 49.6 123.7 47.9 123.8 C46.1 123.8 43.6 122.2 42.8 121.8" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M250.7 303.6 L114.3 214.8 C111.1 212.8 111.4 213.1 109.1 210.2 L65.9 149.9 C48.9 128.5 81 109.6 94.8 126.9 Q120.8 143.4 135.2 169.1 Q210.4 208.3 278.8 258.6" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M250.7 303.6 L250.7 303.6 L114.3 214.8 C111.1 212.8 111.4 213.1 109.1 210.2 L65.9 149.9 C48.9 128.5 81 109.6 94.8 126.9 Q120.8 143.4 135.2 169.1 Q210.4 208.3 278.8 258.6 L278.8 258.6 Z" fill="#FFFFFF" stroke="none"/>
-<path d="M250.7 303.6 L114.3 214.8 C111.1 212.8 111.4 213.1 109.1 210.2 L65.9 149.9 C48.9 128.5 81 109.6 94.8 126.9 Q120.8 143.4 135.2 169.1 Q210.4 208.3 278.8 258.6" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M135.2 169.1 L130.9 181.4" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M91.8 186 C94.8 174.2 77.8 151.8 61.3 139.9" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M63.4 146 L60.5 143.9 L58.8 140.9 L58 137.6 L58.2 134.2 L59.2 131 L61.1 128.2 L63.7 126.1 L67.1 125.2 L67.1 125.2 L65.1 127.1 L63.5 129.3 L62.3 131.7 L61.5 134.3 L61.1 137 L61.3 139.9 L62 142.9 L63.4 146 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M242.7 -56.7 L106 31.5 C103.5 33 103.3 33.2 101.5 35.5 L66.2 83.9 C50.9 103.2 79.9 120.3 92.3 104.6 Q114.1 92 124.4 70.3 Q199 31.5 266.6 -18.4" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M242.7 -56.7 L242.7 -56.7 L106 31.5 C103.5 33 103.3 33.2 101.5 35.5 L66.2 83.9 C50.9 103.2 79.9 120.3 92.3 104.6 Q114.1 92 124.4 70.3 Q199 31.5 266.6 -18.4 L266.6 -18.4 Z" fill="#FFFFFF" stroke="none"/>
-<path d="M242.7 -56.7 L106 31.5 C103.5 33 103.3 33.2 101.5 35.5 L66.2 83.9 C50.9 103.2 79.9 120.3 92.3 104.6 Q114.1 92 124.4 70.3 Q199 31.5 266.6 -18.4" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M124.4 70.3 L120.4 59.6" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M87.4 54.9 C91.2 65.5 77.1 83.4 62 92.9" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M63.9 87.3 L61.2 89.1 L59.6 91.8 L58.8 94.8 L58.9 97.9 L59.9 100.9 L61.6 103.5 L64 105.5 L67.3 106.2 L67.3 106.2 L65.5 104.4 L64 102.5 L62.9 100.3 L62.2 98 L61.8 95.5 L62 92.9 L62.7 90.1 L63.9 87.3 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M124.2 103.7 L213.7 103.7" fill="none" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl)"/>
+<path d="M91.6 101.7 L205.5 101.7" fill="none" stroke="#9B2C1E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#fl-r)"/>
 </g>
 <circle cx="144.5" cy="120" r="113.9" fill="none" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 </g>
@@ -202,9 +192,9 @@
 <circle cx="406" cy="576.5" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
 <circle cx="363.3" cy="666.4" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="ongles"/>
 <text x="363.3" y="670.4" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">6</text>
-<line x1="620.4" y1="500.9" x2="532.1" y2="564.7" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
-<line x1="620.4" y1="500.9" x2="532.1" y2="564.7" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
-<circle cx="532.1" cy="564.7" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
+<line x1="620.3" y1="500.7" x2="532.1" y2="562.7" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<line x1="620.3" y1="500.7" x2="532.1" y2="562.7" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-dasharray="3 2.5"/>
+<circle cx="532.1" cy="562.7" r="1.8" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="0.7"/>
 <circle cx="627.7" cy="495.6" r="9" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.4" data-vue="ongles"/>
 <text x="627.7" y="499.6" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#1A1A1A">7</text>
 <text x="40" y="732" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#1A1A1A">Planche 34-02 — Le peignage mouillé contre les poux.</text>

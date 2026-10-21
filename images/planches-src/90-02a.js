@@ -11,6 +11,11 @@
 // piquet nommé sur le plan et en coupe. Une vue n'a droit qu'à six renvois et un numéro ne
 // sert qu'une fois : le plan prend le trou (6), la demi-coupe garde la pierre (7) et redit le
 // trou en coupe (8) ; la suite est décalée d'un numéro.
+//
+// La charte : en travers, le creux de la coque, vu par la coupe, en gris loin ; au pli de la
+// première pince, la face à l'ombre en aplat (elle était hachurée de traits). Pas de gris sur le
+// plan, sur la demi-coupe hachurée ni sur le plat-bord grossi (la peau en cache le dessous). Le rouge : le
+// bord de la peau qui roule (le signe à guetter, étape 6). Pas de geste fléché sur cette page.
 
 module.exports = (h) => {
   const f = (v) => Math.round(v * 10) / 10;
@@ -168,6 +173,8 @@ module.exports = (h) => {
     const peau = `M ${f(X(-0.1))} ${yP} H ${f(X(0.84))} C ${f(X(0.93))} ${yP} ${f(X(0.975))} ${f(yP - 6)} ${f(X(0.975))} ${f(yP - 15)} ` +
       `C ${f(X(0.975))} ${f(yP - 24)} ${f(X(0.92))} ${f(yP - 25)} ${f(X(0.915))} ${f(yP - 17)} C ${f(X(0.912))} ${f(yP - 12)} ${f(X(0.94))} ${f(yP - 11)} ${f(X(0.945))} ${f(yP - 15)}`;
     o.push(h.path(peau, h.a.contour));
+    // le signe à guetter : le bord de la peau qui roule
+    o.push(h.controle(X(0.947), yP - 14, 15));
     // Plat-bord en coupe, pierre dessus.
     o.push(h.cercle(X(xP), yP - 1.5 - rP, rP, h.a.hachure('bois', 'aucun')), h.cercle(X(xP), yP - 1.5 - rP, rP, h.a.arete));
     o.push(pierre(X(xP) - 4, yP - 1.5 - 2 * rP - 0.052 * s, 0.1 * s, 0.055 * s, 2.2));
@@ -208,6 +215,8 @@ module.exports = (h) => {
     o.push(h.ligne(gx0, Y, dx0, Y, h.a.arete));
     // Peau : fond à plat sur le sol, bouchains, flancs montés jusqu'au haut du plat-bord.
     const demi = (sx) => [P(0, 0.002), P(sx * 0.36, 0.002), P(sx * 0.47, 0.03), P(sx * 0.497, 0.12), P(sx * 0.502, 0.3), P(sx * 0.503, H)];
+    // le creux de la coque, vu par la coupe : gris loin, sous la peau et les plats-bords
+    o.push(h.path(lisse([...demi(-1)].reverse().concat(demi(1).slice(1)), false) + ' Z', h.a.loin));
     [-1, 1].forEach(sx => o.push(h.path(lisse(demi(sx), false), h.a.contour)));
     [-1, 1].forEach(sx => {
       const c = cote(sx);
@@ -263,11 +272,8 @@ module.exports = (h) => {
         const A = [xm - lv, haut(xm - lv)], B = [xm + lv, haut(xm + lv)];
         const T = [xm, Math.min(A[1], B[1]) - 6], C = [xm, bas - 2];
         o.push(h.chemin([A, T, B, C], h.a.blanc, true));
-        for (let x = xm + 2; x < B[0] - 1; x += 2.2) {
-          const t = (x - xm) / (B[0] - xm);
-          const yH = T[1] + (B[1] - T[1]) * t, yB = C[1] + (B[1] - C[1]) * t;
-          if (yB - yH > 3) o.push(h.ligne(x, yH + 1.2, x, yB - 1.2, h.a.fin));
-        }
+        // la face à l'ombre du pli : un aplat (la charte), plus de hachure
+        o.push(h.chemin([T, B, C], h.a.ombre, true));
         o.push(h.chemin([A, C, B], h.a.arete));
         o.push(h.ligne(T[0], T[1], C[0], C[1], h.a.arete));
         o.push(h.chemin([A, T, B], h.a.contour));

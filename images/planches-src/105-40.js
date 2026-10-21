@@ -2,6 +2,9 @@
 // Chapitre 105, §5-A (le test du marqueur, le cuir dos en premier) et §9 (le marqueur qu'on n'a
 // plus, trouver l'abrasif, le cuir et la pâte). Aucune cote : le chapitre n'en donne pas pour ces
 // gestes, et le seul angle chiffré (la hache) n'est pas ici.
+// La main du galet est la main simple (mains/moteur.js), le poing droit vu du dos. La charte : la face à
+// l'ombre de la chandelle et de la tasse ; le rouge sur cinq gestes (lever et baisser le dos, du talon à la
+// pointe, les passes sur la tasse, la lame tirée dos en premier).
 module.exports = (h) => {
   const A = h.a, F = h.formes;
   const RAD = Math.PI / 180;
@@ -28,6 +31,19 @@ module.exports = (h) => {
     return d + ' Z';
   };
   const hasard = s => () => (s = (s * 16807) % 2147483647) / 2147483647;
+  // l'angle d'une main simple qui met l'axe de sa prise sur axe (degrés écran) et son avant-bras vers vers [x, y]
+  const poser = (o, axe, vers) => {
+    const base = Object.assign({}, o, { angle: 0, avantbras: { longueur: 100 } }); delete base.objet;
+    const e0 = F.mainSimple(base); let best = null;
+    for (const k of [0, 180]) {
+      const a = axe - e0.prise.angle + k, m = F.mainSimple(Object.assign({}, base, { angle: a }));
+      const d = [m.coude[0] - m.poignet[0], m.coude[1] - m.poignet[1]], v = [vers[0] - m.poignet[0], vers[1] - m.poignet[1]];
+      const c = (d[0] * v[0] + d[1] * v[1]) / ((Math.hypot(d[0], d[1]) * Math.hypot(v[0], v[1])) || 1);
+      if (!best || c > best.c) best = { a, c };
+    }
+    return best.a;
+  };
+  const MAIN_GALET = { vue: 'paume', cote: 'gauche', rot: [-25, 0, 0], vers: [420, 330] };
   const dans = (p, poly) => {
     let c = false;
     for (let i = 0, j = poly.length - 1; i < poly.length; j = i++) {
@@ -121,7 +137,7 @@ module.exports = (h) => {
       const a = deg * i / 10 * RAD, dx = p[0] - pivot[0], dy = p[1] - pivot[1];
       pts.push([pivot[0] + dx * Math.cos(a) - dy * Math.sin(a), pivot[1] + dx * Math.sin(a) + dy * Math.cos(a)]);
     }
-    return h.fleche(D(pts));
+    return h.geste(D(pts));
   };
 
   // ─── Le couteau vu de plat, en entier ou rompu au manche ───────────────────────────────
@@ -205,7 +221,8 @@ module.exports = (h) => {
           const xc = 8 + 0.52 * lf.L, yFil = FACE_Y + lf.H, yCire = yFil + 50, yBas = z.h - 6;
           const flamme = (ht, lg, y0) => `M${xc},${y0 - ht} C${xc + lg},${y0 - ht * 0.55} ${xc + lg},${y0 - 3} ${xc},${y0} C${xc - lg},${y0 - 3} ${xc - lg},${y0 - ht * 0.55} ${xc},${y0 - ht} Z`;
           return [
-            // la chandelle : la cire, la mèche, la flamme qui lèche le biseau
+            // la chandelle : sa face de droite à l'ombre, la cire, la mèche, la flamme qui lèche le biseau
+            h.rect(xc + 3.5, yCire + 4, 6.5, yBas - yCire - 4, A.ombre),
             h.path(`M${xc - 10},${yBas} L${xc - 10},${yCire + 2} Q${xc},${yCire + 6} ${xc + 10},${yCire + 2} L${xc + 10},${yBas}`, A.arete),
             h.path(`M${xc - 10},${yCire + 2} Q${xc},${yCire - 2} ${xc + 10},${yCire + 2}`, A.detail),
             h.path(`M${xc - 10},${yCire + 14} q3,5 0,12`, A.fin),
@@ -278,62 +295,85 @@ module.exports = (h) => {
   function galet(z) {
     const e = 0.75, xh = Math.min(z.l - 70, 262), yh = 82;
     const cx = xh - 112, cy = yh + 12;
+    // tout le dessin tourne de ROT autour du centre du galet : la lame en biais sur la pierre,
+    // l'avant-bras qui vient d'en bas à droite, comme on voit sa propre main droite
+    const ROT = -22, TG = 4;
+    const rc = Math.cos(ROT * RAD), rs = Math.sin(ROT * RAD);
+    const R = ([x, y]) => [cx + (x - cx) * rc - (y - cy) * rs, cy + (x - cx) * rs + (y - cy) * rc];
     // le galet : un ovale irrégulier, un peu tourné
     const bord = [];
     const rayons = [1, 0.97, 1.02, 0.95, 0.99, 1.03, 0.96, 1.01, 0.98, 1.02, 0.97, 1];
     for (let i = 0; i < 12; i++) {
-      const a = i * 30 * RAD, r = rayons[i], t = -8 * RAD;
+      const a = i * 30 * RAD, r = rayons[i], t = TG * RAD;
       const px = 98 * r * Math.cos(a), py = 40 * r * Math.sin(a);
       bord.push([cx + px * Math.cos(t) - py * Math.sin(t), cy + px * Math.sin(t) + py * Math.cos(t)]);
     }
     const bordPts = [];
     for (let i = 0; i < 72; i++) {
-      const a = i * 5 * RAD, k = Math.floor(i / 6), f = (i % 6) / 6, r = rayons[k] * (1 - f) + rayons[(k + 1) % 12] * f, t = -8 * RAD;
+      const a = i * 5 * RAD, k = Math.floor(i / 6), f = (i % 6) / 6, r = rayons[k] * (1 - f) + rayons[(k + 1) % 12] * f, t = TG * RAD;
       const px = 98 * r * Math.cos(a), py = 40 * r * Math.sin(a);
       bordPts.push([cx + px * Math.cos(t) - py * Math.sin(t), cy + px * Math.sin(t) + py * Math.cos(t)]);
     }
     // le rebord arrondi : un second trait fin en dedans, du côté de l'ombre
     const dedans = bordPts.slice(8, 34).map(([x, y]) => [cx + (x - cx) * 0.9, cy + (y - cy) * 0.86]);
-    const kn = couteau({ x: xh - 50 * e, y: yh, k: e, miroir: true });
+    const kn = couteau({ x: xh - 50 * e, y: yh, k: e, miroir: true, manche: 135 });   // le bout du manche dépasse du poing
     // la boue grise : une traînée le long du fil, sur la pierre
     const yF = yh - 13 * e, xa = xh - 170 * e - 22, xb = xh - 50 * e - 4;
     const boueIn = [];
     for (let i = 0; i <= 16; i++) { const t = i / 16; boueIn.push([xa + (xb - xa) * t, yF - 1.5 - 11 * Math.sin(Math.PI * t) ** 0.7 - 2 * Math.sin(9 * t)]); }
     for (let i = 16; i >= 0; i--) { const t = i / 16; boueIn.push([xa + (xb - xa) * t, yF + 3]); }
-    const m = F.main({ x: xh, y: yh, pose: 'prise', vue: 'dos', angle: -90, echelle: e, diametre: 24 * e, bras: 34, objet: kn.svg });
-    const svg = [
+    // la main : la main simple, le poing sur le manche (24 mm) vu côté paume (14 oct. : le poing vu du dos faisait
+    // une moufle) ; la lame sort du côté du pouce, l'avant-bras descend et sort du cadre. Posée hors du groupe
+    // tourné, à la place et à l'angle du manche ; le manche, tourné avec elle, est l'objet tenu. La vue se dessine
+    // comme avant (la main gauche, l'avant-bras à droite), puis se retourne en miroir : c'est la main droite.
+    const pm = R([xh, yh]);
+    const kM = couteau({ x: xh - 50 * e, y: yh, k: e, miroir: true, manche: 135 });
+    const oM = { x: pm[0], y: pm[1], pose: 'prise-manche', vue: MAIN_GALET.vue, cote: MAIN_GALET.cote, echelle: e, diametre: 24, ...(MAIN_GALET.rot ? { rotation: MAIN_GALET.rot } : {}) };
+    const vM = MAIN_GALET.vers;
+    const m = F.mainSimple({ ...oM, angle: poser(oM, ROT, vM), objet: `<g transform="rotate(${ROT} ${f1(cx)} ${f1(cy)})">${kM.svg}</g>`,
+      avantbras: { vers: vM, bord: { x0: 0, y0: 0, x1: z.l, y1: z.h }, bras: { pli: 0 } } }).svg;
+    const svg = [`<g transform="rotate(${ROT} ${f1(cx)} ${f1(cy)})">`,
       h.path(lisseFerme(bord), A.blanc),
       semis(bordPts, 7, 0.55, 11),
       h.path(D(dedans), A.fin),
       h.path(D(boueIn, true), A.blanc),
       semis(boueIn, 2.2, 0.6, 5),
       h.path(lisseFerme(bord), A.contour),
+      kn.svg,
+      // du talon (près de la mitre) à la pointe, sur la pierre, en suivant le fil
+      h.geste(`M${f1(xb - 8)},${f1(yF - 10)} L${f1(xa + 70)},${f1(yF - 10)} Q${f1(xa + 20)},${f1(yF - 10)} ${f1(xa + 4)},${f1(yh - 4 * e - 4)}`),
+      '</g>',
       m,
-      h.fleche(`M${f1(xa + 34)},${f1(yF - 20)} Q${f1(xa + 80)},${f1(yF - 30)} ${f1(xa + 122)},${f1(yF - 50)}`),
     ].join('\n');
+    const miroir = ([x, y]) => [z.l - x, y];
     return {
-      svg,
+      svg: `<g transform="matrix(-1 0 0 1 ${f1(z.l)} 0)">\n${svg}\n</g>`,
       renvois: [
-        { n: 8, rond: [14, cy + 30], cible: [cx - 55, cy + 18], texte: 'grès : il raye l’acier' },
-        { n: 9, rond: [14, yh - 30], cible: [xa + 22, yF - 6], texte: 'boue grise : ne pas la rincer' },
-        { n: 10, rond: [xa + 146, yF - 52], cible: [xa + 124, yF - 50], texte: 'du talon à la pointe' },
-      ],
+        { n: 8, rond: [14, cy + 30], cible: R([cx - 55, cy + 18]), texte: 'grès : il raye l’acier' },
+        { n: 9, rond: [14, yh - 30], cible: R([xa + 22, yF - 6]), texte: 'boue grise : ne pas la rincer' },
+        { n: 10, rond: [cx - 20, 14], cible: R([xa + 100, yF - 10]), texte: 'du talon à la pointe' },
+      ].map(r => ({ ...r, rond: miroir(r.rond), cible: miroir(r.cible) })),
     };
   }
 
   // ─── La tasse retournée : l'anneau non émaillé du pied ─────────────────────────────────
   function tasse(z) {
-    const cx = z.l * 0.46, cy = 78, rx = 44, ry = 17, yb = z.h - 20;
+    const cx = z.l * 0.46, cy = 78, rx = 44, ry = 17, yb = z.h - 30;
     const out = [];
     // le corps émaillé, lisse : deux reflets
-    const flanc = [[cx - rx, cy], ...ellipsePts(cx, yb, rx + 3, ry, 180, 0, 24), [cx + rx, cy]];
+    const flanc = [[cx - rx, cy], ...ellipsePts(cx, yb, rx + 4, ry, 180, 0, 24), [cx + rx, cy]];
     const corps = [...flanc, ...ellipsePts(cx, cy, rx, ry, 0, -180, 24)];
-    // l'anse, du côté droit
-    const anseExt = `M${f1(cx + rx + 1)},${f1(cy + 16)} C${f1(cx + rx + 30)},${f1(cy + 14)} ${f1(cx + rx + 32)},${f1(yb - 12)} ${f1(cx + rx + 3)},${f1(yb - 14)}`;
-    const anseInt = `M${f1(cx + rx + 1)},${f1(cy + 26)} C${f1(cx + rx + 20)},${f1(cy + 26)} ${f1(cx + rx + 21)},${f1(yb - 24)} ${f1(cx + rx + 2)},${f1(yb - 25)}`;
-    out.push(h.path(`${anseExt} L${f1(cx + rx + 2)},${f1(yb - 25)} C${f1(cx + rx + 21)},${f1(yb - 24)} ${f1(cx + rx + 20)},${f1(cy + 26)} ${f1(cx + rx + 1)},${f1(cy + 26)} Z`, A.blanc));
+    // la table, sous la lèvre
+    out.push(h.path(`M8,${f1(yb + ry)} L${f1(z.l - 8)},${f1(yb + ry)}`, A.arete));
+    // l'anse retournée : l'attache large en bas, vers la table
+    const anseExt = `M${f1(cx + rx + 1)},${f1(cy + 18)} C${f1(cx + rx + 16)},${f1(cy + 18)} ${f1(cx + rx + 36)},${f1(yb - 34)} ${f1(cx + rx + 3)},${f1(yb - 4)}`;
+    const anseInt = `M${f1(cx + rx + 1)},${f1(cy + 25)} C${f1(cx + rx + 10)},${f1(cy + 27)} ${f1(cx + rx + 22)},${f1(yb - 34)} ${f1(cx + rx + 2)},${f1(yb - 22)}`;
+    out.push(h.path(`${anseExt} L${f1(cx + rx + 2)},${f1(yb - 22)} C${f1(cx + rx + 22)},${f1(yb - 34)} ${f1(cx + rx + 10)},${f1(cy + 27)} ${f1(cx + rx + 1)},${f1(cy + 25)} Z`, A.blanc));
     out.push(h.path(anseExt, A.contour), h.path(anseInt, A.arete));
     out.push(h.path(D(corps, true), A.blanc));
+    // la face de droite du corps, à l'ombre
+    const t0 = 63;
+    out.push(h.path(D([...ellipsePts(cx, cy, rx, ry, 0, t0, 12), ...ellipsePts(cx, yb, rx + 4, ry, t0, 0, 12)], true), A.ombre));
     out.push(h.path(D(flanc), A.contour));
     out.push(h.path(D([[cx - rx + 9, cy + 24], [cx - rx + 8, yb - 4]]), A.fin), h.path(D([[cx - rx + 14, cy + 30], [cx - rx + 13, yb - 12]]), A.fin));
     // le fond : l'anneau non émaillé (grain) et le creux émaillé au centre
@@ -348,13 +388,14 @@ module.exports = (h) => {
     }
     out.push(h.path(d, A.plein));
     out.push(h.path(D(int, true), A.blanc), h.path(D(int, true), A.detail));
-    out.push(h.path(D(ellipsePts(cx, cy + 1.5, rx - 20, ry - 8, 200, 340, 20)), A.fin));
+    // la lèvre posée sur la table : un bourrelet
+    out.push(h.path(D(ellipsePts(cx, yb - 5, rx + 3.6, ry, 180, 0, 24)), A.fin));
     out.push(h.path(D(ext, true), A.contour));
     // la lame posée sur l'arrière de l'anneau, le fil vers soi
     const yFil = cy - ry * 0.55;
     const kn = couteau({ x: cx + 58, y: yFil - 13 * 0.95 * 0.55, k: 0.95, ky: 0.55, rompu: 42 });
     out.push(kn.svg);
-    out.push(h.fleche(`M${f1(cx - 40)},${f1(yFil - 26)} L${f1(cx + 30)},${f1(yFil - 26)}`));
+    out.push(h.geste(`M${f1(cx - 40)},${f1(yFil - 26)} L${f1(cx + 30)},${f1(yFil - 26)}`));
     return {
       svg: out.join('\n'),
       renvois: [
@@ -392,7 +433,7 @@ module.exports = (h) => {
     const kn = couteau({ x: bx, y: by, angle: 60, k, rompu: 40 });
     out.push(kn.svg);
     const yA = yb + 13, xA = bx + (yA - by) * Math.tan(30 * RAD) + 13 * k / Math.cos(30 * RAD) + 8;
-    out.push(h.fleche(`M${f1(xA)},${yA} L${f1(xA + 52)},${yA}`));
+    out.push(h.geste(`M${f1(xA)},${yA} L${f1(xA + 52)},${yA}`));
     return {
       svg: out.join('\n'),
       renvois: [

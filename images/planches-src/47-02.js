@@ -3,6 +3,10 @@
 // Aucune cote : le chapitre ne donne ni la taille de la cache ni la distance des appelants, seulement
 // la portée du tir. Deux plans (le C et le J), l'affût de côté dans le sens du vent, et l'appelant
 // de fortune. Le vent souffle partout de gauche à droite : du dos du chasseur vers les appelants.
+// Refaite le 13 octobre 2026 : le chasseur est le corps simple de profil (assis au fond du canot ;
+// le buste de face est sorti, JP ne veut plus de corps de face). La charte : la coque à 2,4 avec sa
+// face à l'ombre ; un seul rouge, le cercle du trou à garder à portée (étape 32). Les flèches du vent
+// et de l'arrivée des oiseaux restent noires.
 
 module.exports = (h) => {
   const f = v => Math.round(v * 10) / 10;
@@ -99,8 +103,8 @@ module.exports = (h) => {
     const T = rep(x, y, s, ang);
     return [
       h.path(crFerme([[-9.5, 0], [-6, -3.8], [0, -4.6], [5, -3.8], [7.4, 0], [5, 3.8], [0, 4.6], [-6, 3.8]].map(T)), blanc(h.a.detail)),
-      h.path(crFerme([[4.6, 0], [7, -2.5], [9.4, 0], [7, 2.5]].map(T)), blanc(h.a.detail)),
-      h.path(`M${P(T([9.2, -0.9]))} L${P(T([11.8, -0.6]))} L${P(T([11.8, 0.6]))} L${P(T([9.2, 0.9]))}`, blanc(h.a.fin)),
+      h.path(crFerme([[4.2, 0], [7, -3.2], [10, 0], [7, 3.2]].map(T)), blanc(h.a.detail)),
+      h.path(`M${P(T([9.7, -1.3]))} L${P(T([13.4, -0.9]))} L${P(T([13.4, 0.9]))} L${P(T([9.7, 1.3]))}`, blanc(h.a.fin)),
     ].join('\n');
   };
 
@@ -165,9 +169,9 @@ module.exports = (h) => {
     } else {
       R = z.l * 0.16; trou = [z.l * 0.62, yc + 12];
       arc(-90, -300, 10, R);
-      for (let i = 1; i <= 6; i++) A.push([trou[0] + i * 15 + (ra() - 0.5) * 3, trou[1] - R - i * 2.2 + (ra() - 0.5) * 3]);
+      for (let i = 1; i <= 6; i++) A.push([trou[0] + i * 16 + (ra() - 0.5) * 3, trou[1] - R - i * 2.2 + (ra() - 0.5) * 3]);
     }
-    A.forEach(([x, y]) => out.push(appelantDessus(x, y, 0.64, Math.PI + (ra() - 0.5) * 0.35)));
+    A.forEach(([x, y]) => out.push(appelantDessus(x, y, 0.85, Math.PI + (ra() - 0.5) * 0.35)));
     // l'arrivée des oiseaux, face au vent, par l'ouverture
     const xe = z.l - 4;
     if (forme === 'C') {
@@ -177,6 +181,8 @@ module.exports = (h) => {
       out.push(h.fleche(`M${f(xe)},${f(trou[1] + z.h * 0.3)} C${f(z.l * 0.92)},${f(trou[1] + z.h * 0.15)} ${f(trou[0] + 30)},${f(trou[1] + 2)} ${f(trou[0] + 6)},${f(trou[1])}`, h.a.cache));
     }
     out.push(vent(z.l * 0.34, 10, z.l * 0.34));
+    // le point à contrôler (étape 32) : le trou doit rester à portée de l'affût — en C seulement
+    if (forme === 'C') out.push(h.controle(trou[0] - 4, trou[1] + 2, R * 0.3));
     return { svg: out.join('\n'), yc, x0, x1, trou, R, A };
   };
 
@@ -228,14 +234,19 @@ module.exports = (h) => {
     out.push(h.ligne(0, ym, z.l, ym, h.a.detail));
     // la quenouillère, derrière le canot
     for (let m = 1.33; m < 2.0; m += 0.08) out.push(quenouilleCote(X(m) + rq() * 5, yw, S * (1.25 + rq() * 0.4), rq, S, rq() < 0.5));
-    // le chasseur, assis au fond du canot, le regard vers l'eau
+    // le chasseur, assis au fond du canot, le regard vers les appelants : le corps simple de profil
+    // (assis-sol, le dos redressé) ; le canot, peint après lui, cache tout ce qui est sous le plat-bord
     const xh = X(2.05);
-    out.push(h.formes.buste({ x: xh, y: Y(-0.27), echelle: S / 1000 }).toString());
+    out.push(h.formes.corps({ x: xh, y: Y(0.09), pose: 'assis-sol', vue: 'profil', age: 'adulte', echelle: S / 1000,
+      angles: { tronc: 4, cou: 10, tete: 2 } }).toString());
     // le canot
     const G = [[0, -0.55], [0.25, -0.36], [0.8, -0.25], [2.15, -0.21], [3.5, -0.25], [4.05, -0.36], [4.3, -0.55]].map(([a, b]) => [X(a), Y(b)]);
     const F = [[4.3, -0.55], [4.33, -0.4], [4.25, -0.15], [4.1, 0], [3.8, 0.1], [2.15, 0.13], [0.5, 0.1], [0.2, 0], [0.05, -0.15], [-0.03, -0.4], [0, -0.55]].map(([a, b]) => [X(a), Y(b)]);
     const Gc = garde(echant(G)), Fc = garde(echant(F));
-    out.push(h.chemin([...Gc, ...Fc], h.a.blanc, true));
+    // la coque : le blanc, la face à l'ombre (le bas du flanc, la lumière venant d'en haut à gauche)
+    const dCoque = 'M' + [...Gc, ...Fc].map(P).join(' L') + ' Z';
+    out.push(`<clipPath id="coque-47-02"><path d="${dCoque}" fill="#FFFFFF"/></clipPath>`, h.path(dCoque, h.a.blanc),
+      `<g clip-path="url(#coque-47-02)">${h.path(dCoque, h.a.ombre)}<path d="${dCoque}" transform="translate(-3 -7)" ${h.a.blanc}/></g>`);
     out.push(h.chemin(Fc, h.a.contour));
     const bordure = h.chemin(Gc, h.a.contour);
     out.push(h.ligne(0, yw, z.l, yw, h.a.detail));
@@ -298,11 +309,11 @@ module.exports = (h) => {
   return {
     ref: '47-02',
     titre: 'L’affût et les appelants',
-    desc: 'Deux plans vus de dessus : le canot tiré dans le bord de la quenouillère, entouré de branches plantées, le vent dans le dos ; les appelants posés à découvert en C ou en J, avec un trou devant l’affût, ouvert sous le vent, où les oiseaux se posent en arrivant face au vent. En détail : un oiseau déjà pris, la tête calée droite sur un bâton fourchu planté dans la vase. De côté : le chasseur bas dans le canot, derrière des branches plantées dans la vase et des quenouilles couchées sur le plat-bord, et l’oiseau qui arrive de face.',
+    desc: 'Deux plans vus de dessus : le canot tiré dans le bord de la quenouillère, entouré de branches plantées, le vent dans le dos ; les appelants posés à découvert en C ou en J, avec un trou devant l’affût, ouvert sous le vent, où les oiseaux se posent en arrivant face au vent. De côté : le chasseur bas dans le canot, derrière des branches plantées dans la vase et des quenouilles couchées sur le plat-bord, et l’oiseau qui arrive de face.',
     format: 'pleine',
-    disposition: [['planC', 'planJ', 'fortune'], ['cote']],
-    hauteurs: [1.05, 1],
-    largeurs: [[5, 5, 3], [1]],
+    disposition: [['planC', 'planJ'], ['cote']],
+    hauteurs: [0.8, 0.8],
+    largeurs: [[1, 1], [1]],
     vues: {
       planC: {
         titre: 'Vu de dessus, en C',
@@ -315,7 +326,7 @@ module.exports = (h) => {
             { n: 2, rond: [14, z.h - 14], cible: [p.x0 + (p.x1 - p.x0) * 0.3, p.yc + 3], texte: 'le canot dans le bord' },
             { n: 3, rond: [z.l * 0.12, z.h * 0.22], cible: [p.x1 - 22, p.yc - 16], texte: 'branches plantées' },
             { n: 4, rond: [bas[0] - 26, z.h - 14], cible: [bas[0] - 2, bas[1] + 2], texte: 'appelants à découvert' },
-            { n: 5, rond: [p.trou[0] - 8, p.trou[1] - 26], cible: [p.trou[0] - 4, p.trou[1] + 2], texte: 'le trou, à portée du fusil' },
+            { n: 5, rond: [p.trou[0] - 10, p.trou[1] - p.R * 0.3 - 22], cible: [p.trou[0] - 4, p.trou[1] + 2], texte: 'le trou, à portée du fusil' },
             { n: 6, rond: [z.l - 10, p.yc + 3], cible: [p.trou[0] + p.R * 0.7, p.yc + 3], texte: 'l’ouverture sous le vent' },
           ];
         },
@@ -330,29 +341,17 @@ module.exports = (h) => {
           ];
         },
       },
-      fortune: {
-        titre: 'L’appelant de fortune',
-        dessin: z => fortune(z).svg,
-        renvois: z => {
-          const q = fortune(z);
-          return [
-            { n: 8, rond: [z.l - 14, q.yw - 90], cible: q.T([-12, -24]), texte: 'un oiseau déjà pris' },
-            { n: 9, rond: [14, q.yw - 100], cible: q.T([50, -34]), texte: 'la tête calée dans la fourche' },
-            { n: 10, rond: [z.l - 14, z.h - 12], cible: [q.base[0] + 1, q.base[1] - 8], texte: 'le bâton planté dans la vase' },
-          ];
-        },
-      },
       cote: {
         titre: 'De côté, le vent dans le dos',
         dessin: z => cote(z).svg,
         renvois: z => {
           const c = cote(z);
           return [
-            { n: 11, rond: [16, 30], cible: [c.X(1.55), c.Y(-1.0)], texte: 'la quenouillère' },
-            { n: 12, rond: [c.X(3.05) + 40, 46], cible: [c.X(3.05) + 4, c.Y(-0.95)], texte: 'branches piquées au fond' },
-            { n: 13, rond: [c.X(2.6), z.h - 12], cible: [c.X(2.6), c.gw(2.6) - c.S * 0.03], texte: 'quenouilles sur le plat-bord' },
-            { n: 14, rond: [c.X(5.0), z.h - 12], cible: [c.X(5.0), c.yw - c.S * 0.12], texte: 'un appelant, bec au vent' },
-            { n: 15, rond: [z.l - 16, c.Y(-0.75)], cible: [c.oiseau[0] + 4, c.oiseau[1] + 2], texte: 'l’oiseau arrive face au vent' },
+            { n: 8, rond: [16, 30], cible: [c.X(1.55), c.Y(-1.0)], texte: 'la quenouillère' },
+            { n: 9, rond: [c.X(3.05) + 40, 46], cible: [c.X(3.05) + 4, c.Y(-0.95)], texte: 'branches piquées au fond' },
+            { n: 10, rond: [c.X(2.6), z.h - 12], cible: [c.X(2.6), c.gw(2.6) - c.S * 0.03], texte: 'quenouilles sur le plat-bord' },
+            { n: 11, rond: [c.X(5.0), z.h - 12], cible: [c.X(5.0), c.yw - c.S * 0.12], texte: 'un appelant, bec au vent' },
+            { n: 12, rond: [z.l - 16, c.Y(-0.75)], cible: [c.oiseau[0] + 4, c.oiseau[1] + 2], texte: 'l’oiseau arrive face au vent' },
           ];
         },
       },

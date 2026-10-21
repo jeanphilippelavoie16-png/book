@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Compose une planche du Grand Livre du Chalet à partir d'une description en JavaScript.
+// Compose une planche du Manuel du Nord à partir d'une description en JavaScript.
 //
 //   node .claude/skills/planches/scripts/composer-planche.js images/planches-src/28-01.js
 //   node .claude/skills/planches/scripts/composer-planche.js images/planches-src/28-01.js --zones
@@ -49,6 +49,13 @@
 // h.ellipse(cx, cy, rx, ry, attrs) · h.path(d, attrs)
 // h.chemin([[x, y], …], attrs, ferme = false)   polyligne ; ferme = true pour une forme
 // h.fleche(d, attrs = h.a.arete)      un mouvement ou un écoulement, jamais pour désigner
+//
+// La charte : deux poids, deux gris, un rouge (voir SKILL.md, « La charte »)
+// h.a.loin    aplat gris clair #E6E6E6 : le plan d'arrière, ce qui est derrière (sans trait)
+// h.a.ombre   aplat gris #CFCFCF : la face à l'ombre d'un volume, lumière en haut à gauche
+// h.geste(d, { double })   LA flèche rouge du geste à faire (une, deux au plus par vue)
+// h.controle(cx, cy, r = 8)   le cercle rouge du point à contrôler
+// h.a.zone    filet rouge tireté : la zone dangereuse · h.a.danger : l'encadré danger
 // h.cote(x1, y1, x2, y2, '1,2 m', { cote: 'dessus' | 'dessous' | 'gauche' | 'droite' })
 // h.barre(x, y, longueur, '1 m')      barre d'échelle
 // h.texte(x, y, 'N', { ancre: 'middle' })   rare : un mot sur le dessin le salit
@@ -66,6 +73,13 @@ const { encadre } = require('./encadre');
 
 const RACINE = path.resolve(__dirname, '../../../..');
 const NOIR = '#1A1A1A', ROUGE = '#9B2C1E', BLANC = '#FFFFFF';
+// La charte (JP, 13 octobre 2026) : deux poids de trait, deux gris, un rouge.
+//   GRIS_LOIN   le plan d'arrière, le membre du côté loin (le même gris que les corps simples)
+//   GRIS_OMBRE  la face à l'ombre d'un volume, la lumière venant d'en haut à gauche
+// Le rouge marque ce qui compte, et rien d'autre : la flèche du geste, la zone dangereuse, le
+// point à contrôler, l'encadré danger.
+const GRIS_LOIN = '#E6E6E6', GRIS_OMBRE = '#CFCFCF';
+const EAU = '#DCEAF2', EAU_TRAIT = '#4F7A93';   // l'eau, seule couleur hors du noir, des gris et du rouge
 const FONTE = "Georgia, 'Times New Roman', serif";
 
 const FORMATS = { pleine: [680, 826], demi: [680, 413], quart: [340, 413] };
@@ -86,6 +100,11 @@ const A = {
   fin: trait(0.5),
   cache: trait(0.7, ' stroke-dasharray="5 3.5"'),
   danger: `fill="none" stroke="${ROUGE}" stroke-width="2" stroke-linejoin="round"`,
+  loin: `fill="${GRIS_LOIN}" stroke="none"`,
+  ombre: `fill="${GRIS_OMBRE}" stroke="none"`,
+  geste: `fill="none" stroke="${ROUGE}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"`,
+  zone: `fill="none" stroke="${ROUGE}" stroke-width="1.4" stroke-dasharray="5 3.5" stroke-linejoin="round"`,
+  controle: `fill="none" stroke="${ROUGE}" stroke-width="1.6"`,
   plein: `fill="${NOIR}" stroke="none"`,
   blanc: `fill="${BLANC}" stroke="none"`,
   hachure: (nom, t = 'arete') => {
@@ -104,12 +123,14 @@ const MOTIFS = {
   terre:    `<pattern id="h-terre" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">${L(0, 0, 0, 5.5)}${L(4.5, 4.5, 4.5, 9, 0.5)}</pattern>`,
   gravier:  `<pattern id="h-gravier" width="10" height="9" patternUnits="userSpaceOnUse"><circle cx="2.5" cy="2.5" r="1.7" fill="none" stroke="${NOIR}" stroke-width="0.5"/><circle cx="7.5" cy="7" r="1.3" fill="none" stroke="${NOIR}" stroke-width="0.5"/></pattern>`,
   isolant:  `<pattern id="h-isolant" width="12" height="8" patternUnits="userSpaceOnUse"><path d="M0 6 Q3 0 6 4 T12 2" fill="none" stroke="${NOIR}" stroke-width="0.5"/></pattern>`,
-  eau:      `<pattern id="h-eau" width="16" height="7" patternUnits="userSpaceOnUse">${L(1, 2, 8, 2, 0.5)}${L(9, 5.5, 15, 5.5, 0.5)}</pattern>`,
+  // l'eau (JP, 18 octobre 2026 : « fais l'eau plus belle ») : une teinte d'eau pâle et des vaguelettes fines en quinconce
+  eau:      `<pattern id="h-eau" width="64" height="22" patternUnits="userSpaceOnUse"><rect width="64" height="22" fill="${EAU}"/><path d="M4 7 q4 -2.4 8 0 t8 0 M36 18 q4 -2.4 8 0 t8 0" fill="none" stroke="${EAU_TRAIT}" stroke-width="0.6" stroke-linecap="round"/></pattern>`,
   neige:    `<pattern id="h-neige" width="8" height="8" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="0.7" fill="${NOIR}" stroke="none"/><circle cx="6" cy="6" r="0.7" fill="${NOIR}" stroke="none"/></pattern>`,
   paille:   `<pattern id="h-paille" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(20)">${L(1, 1, 1, 7, 0.5)}${L(6, 4, 6, 10, 0.5)}</pattern>`,
   grillage: `<pattern id="h-grillage" width="5" height="5" patternUnits="userSpaceOnUse">${L(0, 0, 5, 0, 0.5)}${L(0, 0, 0, 5, 0.5)}</pattern>`,
   pierre:   `<pattern id="h-pierre" width="14" height="10" patternUnits="userSpaceOnUse"><path d="M1 3 L5 1 L9 3 L8 7 L3 8 Z M10 9 L13 7" fill="none" stroke="${NOIR}" stroke-width="0.5"/></pattern>`,
 };
+const MARQUEUR_ROUGE = `<marker id="fl-r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 Z" fill="${ROUGE}" stroke="${ROUGE}" stroke-width="1" stroke-linejoin="round"/></marker>`;
 const MARQUEUR = `<marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="${NOIR}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>`;
 
 // liseré : un contour blanc peint sous le texte, pour qu'une cote reste lisible sur une hachure
@@ -129,6 +150,8 @@ const h = {
   chemin: (pts, at = A.arete, ferme = false) =>
     `<path d="${pts.map((p, i) => `${i ? 'L' : 'M'}${f1(p[0])} ${f1(p[1])}`).join(' ')}${ferme ? ' Z' : ''}" ${at}/>`,
   fleche: (d, at = A.arete) => `<path d="${d}" ${at} marker-end="url(#fl)"/>`,
+  geste: (d, { double = false } = {}) => `<path d="${d}" ${A.geste} marker-end="url(#fl-r)"${double ? ' marker-start="url(#fl-r)"' : ''}/>`,
+  controle: (cx, cy, r = 8) => `<circle cx="${f1(cx)}" cy="${f1(cy)}" r="${f1(r)}" ${A.controle}/>`,
   texte: (x, y, s, o = {}) => txt(x, y, s, { corps: 12, ancre: 'middle', ...o }),
   cote(x1, y1, x2, y2, s, { cote } = {}) {
     const horiz = Math.abs(x2 - x1) >= Math.abs(y2 - y1);
@@ -198,15 +221,23 @@ function composer(fichierSpec, { zonesSeulement = false } = {}) {
     const lignes = Math.ceil(N / k);
     if (largeurs.every(w => w <= colL) && (lignes <= 6 || k === 3)) break;
   }
+  // Repli : une ligne que JP a voulue entière ne tient pas sur trois colonnes ; on prend le plus de colonnes où
+  // toutes les lignes tiennent (deux, ou une), plutôt que de refuser la planche. Une planche qui passait ne change pas.
+  if (!largeurs.every(w => w <= (utile - (ncol - 1) * 24) / ncol)) {
+    for (const k of [2, 1]) { if (largeurs.every(w => w <= (utile - (k - 1) * 24) / k)) { ncol = k; break; } }
+  }
   const colL = (utile - (ncol - 1) * 24) / ncol;
   largeurs.forEach((w, i) => { if (w > colL) fautes.push(`renvoi ${brouillon[i].n} trop long pour sa colonne (${Math.round(w)} > ${Math.round(colL)}) : « ${brouillon[i].texte} ». Cinq ou six mots`); });
   brouillon.forEach(r => { if (r.texte.split(/\s+/).length > 8) avis.push(`renvoi ${r.n} : ${r.texte.split(/\s+/).length} mots, c'est une phrase, pas un renvoi`); });
   const rangs = N ? Math.ceil(N / ncol) : 0;
 
-  const piedTexte = `Planche ${spec.ref} — ${spec.titre.replace(/\.$/, '')}.`;
+  // « Planche 04-40. Le sas… » : un point après le numéro, aucun tiret (JP, 15 octobre 2026 : plus aucun tiret)
+  const piedTexte = `Planche ${spec.ref}. ${spec.titre.replace(/\.$/, '')}.`;
   if (largeur(piedTexte, 13) > utile) fautes.push(`le pied « ${piedTexte} » ne tient pas sur une ligne : raccourcis le titre`);
 
-  const piedH = 13 + (rangs ? 8 + rangs * PAS_LEGENDE : 0);
+  // Le numéro et le titre ne s'impriment plus dans le dessin : le moteur de pages les pose en haut de la page,
+  // en évidence (JP, 16 octobre 2026 : « là, ils sont comme tout cachés »). Le SVG les garde dans <title>.
+  const piedH = rangs ? 4 + rangs * PAS_LEGENDE : 0;
   const yPied = H - MB - piedH;
   let yBasDessin = yPied - 18;
   let dangerSvg = '';
@@ -276,18 +307,19 @@ function composer(fichierSpec, { zonesSeulement = false } = {}) {
   }
 
   // Pied : titre, puis la légende en colonnes
-  const pied = [txt(MX, yPied + 13, piedTexte)];
+  const pied = [];
   const triés = renvois.slice().sort((a, b) => a.n - b.n);
   triés.forEach((r, i) => {
     const c = Math.floor(i / rangs), l = i % rangs;
     const x = MX + c * (colL + 24);
-    const yl = yPied + 13 + 8 + (l + 1) * PAS_LEGENDE;
+    const yl = yPied + (l + 1) * PAS_LEGENDE;
     pied.push(txt(x + retrait - 6, yl, String(r.n), { ancre: 'end' }));
     pied.push(txt(x + retrait, yl, r.texte));
   });
 
   const defsUtiles = Object.entries(MOTIFS).filter(([n]) => corps.join('').includes(`url(#h-${n})`)).map(([, m]) => m);
   if (corps.join('').includes('url(#fl)')) defsUtiles.push(MARQUEUR);
+  if (corps.join('').includes('url(#fl-r)')) defsUtiles.push(MARQUEUR_ROUGE);
 
   const svg = [
     `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img">`,

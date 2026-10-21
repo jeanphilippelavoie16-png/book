@@ -2,6 +2,11 @@
 // section 3). Même géométrie de voûte que 12-05a. Aucune cote : le chapitre ne donne ni diamètre, ni
 // hauteur, ni profondeur de fosse ou de passage ; seules comptent les hauteurs relatives : passage plus
 // bas que le plancher, porte plus basse que le banc, trou d'aération près du sommet.
+//
+// La charte : le dedans de la maison et du passage, vus par la coupe (la voûte au-delà, les
+// blocs debout au bord de la tranchée, la paroi de la tranchée), en gris loin ; la neige coupée
+// garde sa trame, sans gris. Le rouge : les deux ouvertures qu'une poudrerie bouche et qu'on
+// dégage — le trou d'aération et l'entrée du passage. Les flèches d'air restent noires.
 
 module.exports = (h) => {
   // ─── La voûte : chaînette, en cm. Surface moyenne du mur, demi-largeur a au pied, hauteur hm.
@@ -78,12 +83,19 @@ module.exports = (h) => {
     desc: 'Maison de neige en blocs (iglou) finie, en deux coupes. Dans l’axe du passage : la voûte en arc, chaque rang penché un peu plus que le précédent, la clé au sommet ; le trou d’aération près du sommet ; la fosse devenue plancher ; d’un côté, le banc de neige laissée en place, couvert de sapinage en écailles et de peaux, plus haut que la porte ; la porte creusée sous le premier rang ; le passage couvert, creusé en tranchée plus bas que le plancher, où l’air froid reste ; l’air entre par le passage, au ras du sol, traverse la maison et sort par le trou d’aération. En travers du passage : la tranchée, les blocs posés debout sur ses deux bords et le toit en arc de deux blocs appuyés l’un sur l’autre. Encadré danger : aucune flamme dedans ; le passage et le trou d’aération dégagés après une poudrerie.',
     format: 'pleine',
     disposition: [['coupe'], ['passage']],
-    hauteurs: [2.1, 1],
+    hauteurs: [1.65, 1.35],
     vues: {
       coupe: {
         titre: 'Dans l’axe du passage',
         dessin: z => {
           const { P } = kG(z), Pp = pts => pts.map(P), out = [];
+          // le dedans, vu par la coupe : sous la voûte, par la porte, dans le passage et la tranchée
+          { let l = 0, r = ST;
+            for (let i = 0; i < 40; i++) { const m = (l + r) / 2; if (surf(m, 1)[1] < PI0) l = m; else r = m; }
+            const dedans = courbe(0, ST, -1, -1, 40).concat(courbe(ST, 0, 1, -1, 40))
+              .concat([[150, -20], [172, -20]]).concat(courbe(0, l, 1, 1, 16))
+              .concat([[330, PI0], [330, 0], [430, 0], [370, -95], [150, -95], [150, -55], [-40, -55], [-40, 0]]);
+            out.push(h.chemin(Pp(dedans), h.a.loin, true)); }
           // le manteau de neige coupé : banc laissé en place, fosse, marche, passage, rampe
           const profil = [[-200, 0], [-40, 0], [-40, -55], [150, -55], [150, -95], [370, -95], [430, 0], [470, 0]];
           out.push(h.chemin(Pp(profil.concat([[470, -135], [-200, -135]])), neige, true));
@@ -96,8 +108,9 @@ module.exports = (h) => {
           out.push(h.chemin(Pp([[330, 0], [430, 0]]), h.a.detail));
           // le dessous du toit en arc, vu au-delà : un joint, puis le bout du toit
           out.push(h.chemin(Pp([[250, PB], [250, PI0]]), h.a.detail), h.chemin(Pp([[330, PB], [330, PI0]]), h.a.detail));
-          // les jambages de la porte, au-delà du plan de coupe
-          out.push(h.chemin(Pp([[172, -95], [172, -20]]), h.a.detail), h.chemin(Pp([[150, -55], [150, -20]]), h.a.detail));
+          // l'ouverture de la porte, vue au-delà de la coupe : jambages, linteau, seuil au plancher de la fosse
+          out.push(h.chemin(Pp([[150, -55], [150, -20], [172, -20], [172, -55]]), h.a.contour));
+          out.push(h.chemin(Pp([[148, -55], [174, -55]]), h.a.contour));
           // le toit en arc, coupé à son faîte
           out.push(h.chemin(Pp([[zAt(PI0, 1) - 2, PI0], [330, PI0], [330, PE0], [zAt(PE0, 1) - 2, PE0]]), neigeB, true));
           // la voûte, rang par rang, le trou d'aération et la clé
@@ -114,15 +127,27 @@ module.exports = (h) => {
           }
           // le banc : sapinage en écailles, puis les peaux
           const x0 = -zAt(12, -1) + 2;
-          for (let X = x0; X < -52; X += 7) out.push(h.chemin(Pp([[X, 1], [X + 12, 8]]), h.a.detail));
-          out.push(h.chemin(Pp([[x0, 8], [-40, 8], [-40, 11.5], [x0, 11.5]]), h.a.plein, true));
+          { const n = Math.max(2, Math.round((-40 - x0) / 9)), w = (-40 - x0) / n;
+            const pp = [P([x0, 0]), P([x0, 5])];
+            let d = `M ${pp[0][0].toFixed(1)} ${pp[0][1].toFixed(1)} L ${pp[1][0].toFixed(1)} ${pp[1][1].toFixed(1)}`;
+            for (let i = 0; i < n; i++) { const c = P([x0 + (i + 0.5) * w, 10]), q = P([x0 + (i + 1) * w, 5]);
+              d += ` Q ${c[0].toFixed(1)} ${c[1].toFixed(1)} ${q[0].toFixed(1)} ${q[1].toFixed(1)}`; }
+            out.push(h.path(d, h.a.detail)); }
+          out.push(h.chemin(Pp([[x0 + 3, 8.5], [-43, 8.5], [-43, 11], [x0 + 3, 11]]), h.a.plein, true));
           // l'air : entre par le passage, au ras du sol, et sort par le trou d'aération
           const air = [[452, 34], [426, 6], [398, -40], [372, -74], [330, -82], [250, -83], [184, -78], [164, -68], [146, -44], [122, -6], [86, 80],
             [ventI[0] - mv.nx * 8, ventI[1] - mv.nz * 8], [ventE[0] + mv.nx * 22, ventE[1] + mv.nz * 22]];
           out.push(h.fleche(lisse(Pp(air)), h.a.cache));
+          // trois pointes dans le sens de l'air : descente de la rampe, passage, montée vers le trou
+          for (const [a1, a2] of [[[412, -18], [398, -40]], [[260, -83], [240, -83]], [[110, 22], [102, 42]]])
+            out.push(h.fleche(`M ${P(a1).map(v => v.toFixed(1)).join(' ')} L ${P(a2).map(v => v.toFixed(1)).join(' ')}`, h.a.detail));
           // l'épaisseur du mur, au pied
-          const [c1x, c1y] = P([-172, -12]), [c2x] = P([-150, -12]);
-          out.push(h.cote(c1x, c1y, c2x, c1y, '20 à 25 cm', { cote: 'dessous' }));
+          const [c1x, c1y] = P([-172, -12]), [c2x] = P([-150, -12]), [, r0] = P([0, 0]);
+          out.push(h.chemin([[c1x, r0 + 2], [c1x, c1y + 4]], h.a.detail), h.chemin([[c2x, r0 + 2], [c2x, c1y + 4]], h.a.detail));
+          out.push(h.cote(c1x, c1y, c2x, c1y, '200–250', { cote: 'dessous' }));
+          // à dégager après une poudrerie : le trou d'aération, l'entrée du passage
+          out.push(h.controle(...P([mv.x, mv.z]), 13));
+          out.push(h.controle(...P([418, -6]), 14));
           return out.join('\n');
         },
         renvois: z => {
@@ -130,14 +155,15 @@ module.exports = (h) => {
           const m3 = mid(150), voute = P([-m3.x, m3.z]);
           const vent = P([mv.x, mv.z]);
           const banc = P([-95, -22]);
-          const porte = P([161, -21]);
+          const porte = P([161, -38]);
           const passage = P([290, -95]);
           return [
             { n: 1, rond: [voute[0] - 44, voute[1] - 34], cible: voute, texte: 'chaque rang penche un peu plus' },
             { n: 2, rond: [vent[0] + 70, vent[1] - 16], cible: vent, texte: 'trou d’aération, ouvert toute la nuit' },
             { n: 3, rond: [banc[0] - 30, banc[1] + 40], cible: banc, texte: 'banc plus haut que la porte' },
             { n: 4, rond: [porte[0] + 44, porte[1] - 10], cible: porte, texte: 'porte sous le premier rang' },
-            { n: 5, rond: [passage[0] + 10, passage[1] + 26], cible: passage, texte: 'passage plus bas : le froid y reste' },
+            { n: 8, rond: [P([-70, 10])[0] - 10, P([-70, 10])[1] - 60], cible: P([-70, 9]), texte: 'sapinage, puis peaux, sur le banc' },
+            { n: 5, rond: [passage[0] + 60, passage[1] + 18], cible: passage, texte: 'passage plus bas : le froid y reste' },
           ];
         },
       },
@@ -145,6 +171,8 @@ module.exports = (h) => {
         titre: 'Le passage, en travers',
         dessin: z => {
           const { P } = pG(z), Pp = pts => pts.map(P), out = [];
+          // le passage qui file vers la maison, vu par la coupe
+          out.push(h.chemin(Pp([[-35, 0], [-35, -95], [35, -95], [35, 0]].concat(arc(35, PI0 - PB, 1)).concat(arc(35, PI0 - PB, -1).reverse())), h.a.loin, true));
           const profil = [[-120, 0], [-35, 0], [-35, -95], [35, -95], [35, 0], [120, 0]];
           out.push(h.chemin(Pp(profil.concat([[120, -128], [-120, -128]])), neige, true));
           out.push(h.chemin(Pp(profil), h.a.contour));

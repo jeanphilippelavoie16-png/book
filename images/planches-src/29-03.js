@@ -19,6 +19,10 @@
 // bas, derrière en haut. Les deux torsades tournent en sens contraire : c'est un nœud plat, pas un
 // nœud de vache. Le dessus / dessous de chaque croisement vient de la profondeur (z de
 // h.formes.cordes), pas d'un choix à l'œil.
+//
+// La charte : pas de gris (le cordon et le ventre sont un corps ; le lien est une corde). Le rouge :
+// les deux bouts qu'on tire, à chaque temps du nœud, et le cercle sur le bout coupé qui suinte, ce
+// qu'on regarde après la coupe.
 module.exports = (h) => {
   const RAD = Math.PI / 180;
   const f1 = v => Math.round(v * 10) / 10;
@@ -186,6 +190,7 @@ module.exports = (h) => {
     // le sang qui perle sur la coupe, coule sur le devant, une goutte qui tombe
     const c = P(0, YC, 0), yF = c[1] + Ro * Math.sin(Eo * RAD), x = c[0];
     o.push(h.path(`M${f1(x - 4.2)} ${f1(yF - 1.2)} C${f1(x - 4.2)} ${f1(yF + 5)} ${f1(x - 2.4)} ${f1(yF + 9)} ${f1(x - 2.6)} ${f1(yF + 12)} C${f1(x - 2.8)} ${f1(yF + 15.5)} ${f1(x + 1.4)} ${f1(yF + 15.5)} ${f1(x + 1.1)} ${f1(yF + 12)} C${f1(x + 0.9)} ${f1(yF + 8)} ${f1(x + 1.4)} ${f1(yF + 4)} ${f1(x + 1)} ${f1(yF - 1.6)} Z`, h.a.plein));
+    o.push(h.controle(x, c[1] + 3, 15));          // le bout coupé : s'il suinte, un troisième lien
     return o.join('\n');
   };
 
@@ -195,7 +200,7 @@ module.exports = (h) => {
   // Le cordon, la boucle du lien derrière lui, puis les brins devant.
   // A, B : les deux moitiés du lien, chacune du milieu de la boucle (derrière le cordon) au bout.
   // nDer : combien de points de chaque brin sont derrière (le reste est devant).
-  const scene = (o, P, z, A, B, nDer, RL, Yr) => {
+  const scene = (o, P, z, A, B, nDer, RL, Yr, cache = 0) => {
     const brin = (pts, debut, fin = 'libre') => ({ pts: pts.map(p => P(...p)), ep: EP, debut, fin });
     const As = lisse3(A), Bs = lisse3(B), kA = As.findIndex(p => p[2] >= 0), kB = Bs.findIndex(p => p[2] >= 0);
     // la moitié arrière de la boucle, seule : le cordon la cache au milieu, on la voit sur les côtés
@@ -206,15 +211,17 @@ module.exports = (h) => {
     o.push(h.rect(xl, 0, 2 * R, z.h, h.a.blanc));
     tube(o, P, R, yB - 20, yH + 20, PAS, { yMin: 0, yMax: z.h });
     o.push(h.ligne(xl, 0, xl, z.h), h.ligne(xr, 0, xr, z.h));
-    const der = [];
-    for (let psi = 90; psi <= 270; psi += 4) {
+    // le tireté de la boucle arrière ; il s'arrête aux bords du nœud serré posé devant (cache)
+    let der = [];
+    const fin = () => { if (der.length > 1) o.push(h.chemin(der, h.a.cache)); der = []; };
+    for (let psi = 90; psi <= 270; psi += 2) {
       const X = RL * Math.sin(psi * RAD), Z = RL * Math.cos(psi * RAD);
-      if (Math.abs(X) <= R - 2) der.push(P(X, Yr, Z));
+      if (Math.abs(X) <= R - 2 && Math.abs(X) >= cache) der.push(P(X, Yr, Z)); else fin();
     }
-    o.push(h.chemin(der, h.a.cache));
+    fin();
     o.push(h.formes.cordes([brin(As.slice(kA), 'ouvert'), brin(Bs.slice(kB), 'ouvert')]).toString());
   };
-  const fleche = (o, a, b) => o.push(h.fleche(`M${f1(a[0])} ${f1(a[1])} L${f1(b[0])} ${f1(b[1])}`, h.a.arete));
+  const fleche = (o, a, b) => o.push(h.geste(`M${f1(a[0])} ${f1(a[1])} L${f1(b[0])} ${f1(b[1])}`));
   // la flèche de tirage, dans le prolongement du bout
   const tirer = (o, P, pts) => {
     const a = P(...pts[pts.length - 2]), b = P(...pts[pts.length - 1]);
@@ -247,20 +254,23 @@ module.exports = (h) => {
   };
 
   // Second temps : la boucle serrée, le premier temps serré contre le cordon, le second lâche
+  // Agrandi 1,4 fois par rapport au premier temps (le cordon garde sa largeur). Le premier temps
+  // serré est un nœud compact posé à plat sur le devant ; un vide d'au moins un diamètre de lien
+  // le sépare du premier croisement du second temps.
   const g2 = z => {
-    const P = vue3(z.l / 2, z.h - 50, E);
-    const RL = R + EP / 2 + 0.6, Yr = 0, zt1 = R + 3 + EP / 2 + 1.5, zt2 = zt1 + 5;
-    const T1 = torsade({ ya: 10, yb: 50, zt: zt1, w: 7, d: 3, sens: 1 });
-    const T2 = torsade({ ya: 74, yb: 162, zt: zt2, w: 16, d: 7, sens: -1 });
+    const P = vue3(z.l / 2, z.h - 34, E);
+    const RL = R + EP / 2 + 0.6, Yr = 0, zt1 = R + 3 + EP / 2 + 1.5, zt2 = zt1 + 6;
+    const T1 = torsade({ ya: 6, yb: 50, zt: zt1, w: 11, d: 3.5, sens: 1 });
+    const T2 = torsade({ ya: 68, yb: 188, zt: zt2, w: 22, d: 10, sens: -1 });
     const ba = boucle(RL, Yr, 36, -1), bb = boucle(RL, Yr, 36, 1);
     const nDer = ba.findIndex(p => p[2] >= 0);
-    const A = [...ba, [-RL * 0.3, 3, RL * 0.95 + 2], ...T1.A.slice(0, 32), [-12, 64, (zt1 + zt2) / 2], ...T2.A.slice(5, 32), [-24, 168, zt2], [-46, 188, zt2 - 1], [-74, 204, zt2 - 2], [-98, 214, zt2 - 4]];
-    const B = [...bb, [RL * 0.3, 3, RL * 0.95 + 2], ...T1.B.slice(0, 32), [12, 64, (zt1 + zt2) / 2], ...T2.B.slice(5, 32), [24, 168, zt2], [46, 188, zt2 - 1], [74, 204, zt2 - 2], [98, 214, zt2 - 4]];
-    return { P, RL, Yr, T1, T2, zt1, zt2, A, B, nDer };
+    const A = [...ba, [-RL * 0.3, 3, RL * 0.95 + 2], ...T1.A.slice(0, 32), [-15, 59, (zt1 + zt2) / 2], ...T2.A.slice(5, 32), [-28, 192, zt2], [-50, 205, zt2 - 1], [-74, 214, zt2 - 2], [-96, 220, zt2 - 4]];
+    const B = [...bb, [RL * 0.3, 3, RL * 0.95 + 2], ...T1.B.slice(0, 32), [15, 59, (zt1 + zt2) / 2], ...T2.B.slice(5, 32), [28, 192, zt2], [50, 205, zt2 - 1], [74, 214, zt2 - 2], [96, 220, zt2 - 4]];
+    return { P, RL, Yr, T1, T2, zt1, zt2, A, B, nDer, cache: 11 + EP };
   };
   const dessinTemps2 = z => {
-    const { P, RL, Yr, A, B, nDer } = g2(z), o = [];
-    scene(o, P, z, A, B, nDer, RL, Yr);
+    const { P, RL, Yr, A, B, nDer, cache } = g2(z), o = [];
+    scene(o, P, z, A, B, nDer, RL, Yr, cache);
     tirer(o, P, A); tirer(o, P, B);
     return o.join('\n');
   };
@@ -311,7 +321,7 @@ module.exports = (h) => {
           return [
             { n: 4, rond: [z.l - 24, c[1] + 4], cible: [c[0] + 1, c[1] + 12], texte: 'le bout suinte' },
             { n: 5, rond: [22, P(0, Y3, 0)[1] + 6], cible: xy(P(-Ro - 4, Y3, 0)), texte: 'troisième lien, entre le premier et la peau' },
-            { n: 6, rond: [22, c[1] - 26], cible: [c[0] - Ro, P(0, (Y1 + Y3) / 2, 0)[1]], texte: 'le moignon reste à l’air, sans rien dessus' },
+            { n: 6, rond: [22, c[1] - 26], cible: [c[0] - 6, c[1] - 1.5], texte: 'le moignon reste à l’air, sans rien dessus' },
           ];
         },
       },
@@ -333,7 +343,7 @@ module.exports = (h) => {
         dessin: dessinTemps2,
         renvois: z => {
           const { P, T1, T2, zt1, zt2, A } = g2(z);
-          const serre = P(-7, (T1.y1 + T1.y2) / 2, zt1), bas = P(0, T2.y1, zt2);
+          const serre = P(-11, (T1.y1 + T1.y2) / 2, zt1), bas = P(0, T2.y1, zt2);
           return [
             { n: 10, rond: [30, serre[1] + 30], cible: [serre[0] - 3, serre[1]], texte: 'le premier temps, serré contre le cordon' },
             { n: 11, rond: [z.l - 30, bas[1] + 34], cible: xy(bas), texte: 'le bout de gauche passe devant, puis derrière' },

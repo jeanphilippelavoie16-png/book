@@ -80,10 +80,13 @@ function casser(h) {
   const arcY = (y0, x) => y0 + RY * Math.sqrt(Math.max(0, 1 - ((x - CX) / RB) ** 2));
   // billot du bas
   const bas = `M${xl},${J} L${xl},${BOT} A${RB},${RY} 0 0 0 ${xr},${BOT} L${xr},${J} A${RB},${RY} 0 0 1 ${xl},${J} Z`;
-  g.push(h.path(bas, h.a.blanc), h.path(bas, h.a.contour));
+  // la face de droite d'un billot, à l'ombre : de x0 au bord, entre deux arcs de face
+  const flanc = (yH, yB) => { const q = []; for (let x = CX + RB * 0.45; x <= xr + 0.01; x += RB * 0.55 / 8) q.push([x, arcY(yH, x)]);
+    for (let x = xr; x >= CX + RB * 0.45 - 0.01; x -= RB * 0.55 / 8) q.push([x, arcY(yB, x)]); return 'M' + pts(q) + ' Z'; };
+  g.push(h.path(bas, h.a.blanc), h.path(flanc(J, BOT), h.a.ombre), h.path(bas, h.a.contour));
   // billot du dessus, posé sur la lame
   const haut = `M${xl},${TOPU} L${xl},${J} A${RB},${RY} 0 0 0 ${xr},${J} L${xr},${TOPU} Z`;
-  g.push(h.path(haut, h.a.blanc), h.path(haut, h.a.contour));
+  g.push(h.path(haut, h.a.blanc), h.path(flanc(TOPU, J), h.a.ombre), h.path(haut, h.a.contour));
   g.push(h.ellipse(CX, TOPU, RB, RY, h.a.blanc), h.ellipse(CX, TOPU, RB, RY, h.a.contour));
   g.push(h.ellipse(CX, TOPU, 31, 8.4, h.a.fin), h.ellipse(CX, TOPU, 16, 4.3, h.a.fin), h.ellipse(CX, TOPU, 4, 1.1, h.a.fin));
   g.push(h.path(`M${CX + 4},${TOPU + 0.6} L${CX + 42},${TOPU + 5.5}`, h.a.detail));
@@ -106,9 +109,9 @@ function casser(h) {
   const plie = 'M' + pts([[xr, J - 4], B1, F1, [xr, J + 4]]) + ' Z';
   g.push(h.path(plie, h.a.blanc), h.path(plie, h.a.arete));
   g.push(h.path(dents(xr, J + 4, F1[0], F1[1]), h.a.detail));
-  // le geste
+  // le geste : plier net vers le bas
   const r = 66, a0 = -8 * Math.PI / 180, a1 = 50 * Math.PI / 180;
-  g.push(h.fleche(`M${f(xr + r * Math.cos(a0))},${f(J + r * Math.sin(a0))} A${r},${r} 0 0 1 ${f(xr + r * Math.cos(a1))},${f(J + r * Math.sin(a1))}`));
+  g.push(h.geste(`M${f(xr + r * Math.cos(a0))},${f(J + r * Math.sin(a0))} A${r},${r} 0 0 1 ${f(xr + r * Math.cos(a1))},${f(J + r * Math.sin(a1))}`));
   return g.join('\n');
 }
 
@@ -134,7 +137,8 @@ function emoudre(h) {
   g.push(h.rect(136, 44, 52, 52, h.a.hachure('eau', 'aucun')));
   g.push(h.ligne(136, 44, 188, 44, h.a.detail));
   g.push(h.path('M136,18 L136,96 L188,96 L188,18', h.a.contour));
-  g.push(h.fleche('M' + pts([Q(5, -15), Q(32, -15)])));
+  // le geste : tremper la lame, souvent
+  g.push(h.geste('M' + pts([Q(5, -15), Q(32, -15)])));
   return g.join('\n');
 }
 
@@ -148,6 +152,8 @@ function bleui(h) {
   const m = 'M84,95 C76,100 68,108 67,118 C66,128 74,136 84,141 Z';
   g.push(h.path(m, h.a.hachure('grillage', 'detail')), h.path(m, h.a.detail));
   g.push(h.path('M84,105 C79,108 75,113 75,118 C75,123 79,127 84,130 Z', h.a.plein));
+  // là où ça casse : le fil bleui
+  g.push(h.controle(78, 118, 32));
   return g.join('\n');
 }
 
@@ -168,7 +174,8 @@ function manche(h) {
   g.push(h.path(lame, h.a.blanc), h.path(lame, h.a.contour));
   g.push(h.ligne(106, 115.5, 330, 115.5, h.a.detail));
   const mch = 'M330,95 L575,95 Q584,110 575,125 L330,125 Z';
-  g.push(h.path(mch, h.a.blanc), h.path(mch, h.a.contour));
+  // le dessous du manche, à l'ombre
+  g.push(h.path(mch, h.a.blanc), h.path('M330,117 L578.5,117 L577.3,120.5 L575,125 L330,125 Z', h.a.ombre), h.path(mch, h.a.contour));
   for (const y of [101, 107, 113, 119]) g.push(h.path(`M406,${y} Q480,${y + 1.5} 566,${y}`, h.a.fin));
   g.push(h.path('M330,99 L404,99 L404,121 L330,121', h.a.cache));
   for (let k = 0; k < 8; k++) {
@@ -185,7 +192,8 @@ function couvercle(h) {
   // à plat, avec ses deux lignes de pli
   g.push(h.cercle(62, 96, 50, h.a.blanc), h.cercle(62, 96, 50, h.a.contour), h.cercle(62, 96, 44, h.a.detail));
   g.push(h.ligne(30.7, 57, 93.3, 57, h.a.cache), h.ligne(20.6, 68, 103.4, 68, h.a.cache));
-  g.push(h.fleche('M102,46 C122,46 125,68 113,77'));
+  // le geste : replier le bord
+  g.push(h.geste('M102,46 C122,46 125,68 113,77'));
   // replié, emmailloté d'écorce côté dos, fil affûté sur le pourtour
   const D = 'M148.6,68 L231.4,68 A50,50 0 1 1 148.6,68 Z';
   g.push(h.path(D, h.a.blanc), h.path(D, h.a.contour));
@@ -216,6 +224,10 @@ function ferblanc(h) {
   // la boîte, une bande enlevée dans sa paroi
   const corps = `M${C - R},${T} L${C - R},${B} A${R},${RYc} 0 0 0 ${C + R},${B} L${C + R},${T} Z`;
   g.push(h.path(corps, h.a.blanc));
+  // la face de droite de la boîte, à l'ombre
+  { const q = []; for (let x = C + R * 0.5; x <= C + R + 0.01; x += R * 0.5 / 8) q.push([x, arcY(T, x)]);
+    for (let x = C + R; x >= C + R * 0.5 - 0.01; x -= R * 0.5 / 8) q.push([x, arcY(B, x)]);
+    g.push(h.path('M' + pts(q) + ' Z', h.a.ombre)); }
   g.push(h.path(`M${C - R},${T} A${R},${RYc} 0 0 1 ${C + R},${T}`, h.a.contour));
   g.push(h.path(`M${C - R},${T} L${C - R},${B} M${C + R},${T} L${C + R},${B}`, h.a.contour));
   g.push(h.path(seg(T, C - R, s1) + ' ' + seg(T, s2, C + R), h.a.contour));
@@ -226,7 +238,8 @@ function ferblanc(h) {
   // la bande à plat, sa ligne de pli
   g.push(h.rect(92, 22, 114, 36, h.a.blanc), h.rect(92, 22, 114, 36, h.a.arete));
   g.push(h.ligne(92, 40, 206, 40, h.a.cache));
-  g.push(h.fleche('M211,54 C225,52 225,30 211,27'));
+  // le geste : plier en long
+  g.push(h.geste('M211,54 C225,52 225,30 211,27'));
   // la bande pliée : le pli fait le dos, en haut ; sa coupe au bout
   g.push(h.rect(92, 100, 114, 18, h.a.blanc), h.rect(92, 100, 114, 18, h.a.arete));
   g.push(h.ligne(92, 100, 206, 100, h.a.contour));

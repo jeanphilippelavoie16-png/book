@@ -27,8 +27,8 @@ tient des décennies, alors que la farine complète rancit vite dès que le grai
 **C'est le bon choix quand :**
 
 - Il reste de la farine et plus de levure. La farine est une réserve de fond du stock : un sac de
- 2,5 kg porte une journée de la famille (ch. 5). Une fournée d'un kilo de farine porte environ
- 3 600 kcal, soit à peu près 40 % des 9 000 kcal de la journée des quatre. Sans pain, cette
+ 2,5 kg porte presque une journée de la famille (ch. 5). Une fournée d'un kilo de farine porte environ
+ 3 600 kcal, soit un peu moins de 40 % des 9 500 kcal de la journée des quatre. Sans pain, cette
  farine se mange en sauce et en bouillie ; avec du pain, elle se mange à chaque repas.
 - L'hiver se passe au lièvre et à l'orignal. **La viande maigre seule donne le mal de caribou,
  mortel en quelques semaines**, et tant que la farine tient, la part des protéines reste
@@ -244,7 +244,7 @@ la cuisinière à bois d'un voisin, ou n'importe quel four dont le cadran ne dit
  guère qu'à la loupe : le nez, à la chaudière, ne la trouve pas forcément. Sentir quand même :
  un grain qui sent le moisi ou le renfermé, ou qui colle en mottes, ne se moud pas (section 8).
  Dans le doute sur une tache qu'on ne s'explique pas, le grain est contaminé.
-37. Le grain doit être sec : il casse net sous l'ongle au lieu de s'écraser (ch. 5 §9). Un grain
+37. Le grain doit être sec : il casse net sous l'ongle au lieu de s'écraser (ch. 5, section 7). Un grain
  humide encrasse les meules et moisit une fois en farine.
 38. Au moulin à main, faire un premier passage réglé gros, puis un second réglé fin. On moud
  pour la fournée, pas pour le mois : la farine complète rancit vite à la température d'une

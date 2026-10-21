@@ -2,6 +2,10 @@
 // Cotes : seulement celles que le chapitre donne pour bâtir — trou « large comme une chaudière,
 // profond jusqu'au genou » ; tranchée « large et profonde comme un avant-bras ». La longueur
 // de 3 à 4 m est [À VÉRIFIER] dans le chapitre : elle ne va pas sur la planche.
+// La charte : la toile du fond du tipi et le vide de la tranchée en travers en gris loin ; pas
+// d'ombre sur la perche ni le bâton du détail, trop minces (elle y a l'air d'un trait doublé).
+// Un rouge : la fuite de fumée à reboucher.
+// La fumée reste en noir.
 
 module.exports = (h) => {
   const blanc = t => t.replace('fill="none"', h.a.blanc.split(' ')[0]);
@@ -84,6 +88,8 @@ module.exports = (h) => {
           ];
           o.push(h.chemin(vide, h.a.blanc, true));
           o.push(h.chemin(vide, h.a.contour));
+          // dans le tipi, la toile du fond : en gris loin, sous tout ce qui pend
+          o.push(h.chemin([B1, T1, T2, B2], h.a.loin, true));
           // la surface, de part et d'autre
           o.push(h.chemin([[4, S(4)], [pL - 26, S(pL - 26)]], h.a.contour));
           o.push(h.chemin([[xT + 12, S(xT + 12)], [L - 4, S(L - 4)]], h.a.contour));
@@ -127,6 +133,8 @@ module.exports = (h) => {
           const yF = S(xF) - 19;
           o.push(h.path(`M${P(xF, yF)} c-6 -6 6 -12 0 -18 c-6 -6 6 -12 0 -18`, h.a.detail));
           o.push(h.path(`M${P(xF + 7, yF + 1)} c-5 -5 5 -10 0 -15 c-5 -5 5 -10 0 -12`, h.a.detail));
+          // le point à surveiller : la fuite dans le couvert de terre
+          o.push(h.controle(xF + 3, yF + 2, 11));
           // cotes du trou
           o.push(h.cote(pL, yb + 11, pR, yb + 11, 'une chaudière', { cote: 'dessous' }));
           o.push(h.ligne(pL, yb - 6, pL, yb + 17, h.a.fin), h.ligne(pR, yb - 6, pR, yb + 17, h.a.fin));
@@ -155,7 +163,7 @@ module.exports = (h) => {
           const { cx, gy, W, D } = Tz(z), o = [];
           const x0 = 10, x1 = z.l - 10;
           o.push(h.rect(x0, gy, x1 - x0, D + 20, h.a.hachure('terre', 'aucun')));
-          o.push(h.chemin([[cx - W / 2, gy], [cx - W / 2 + 3, gy + D], [cx + W / 2 - 3, gy + D], [cx + W / 2, gy]], h.a.blanc, true));
+          o.push(h.chemin([[cx - W / 2, gy], [cx - W / 2 + 3, gy + D], [cx + W / 2 - 3, gy + D], [cx + W / 2, gy]], h.a.loin, true));
           o.push(h.chemin([[cx - W / 2, gy], [cx - W / 2 + 3, gy + D], [cx + W / 2 - 3, gy + D], [cx + W / 2, gy]], h.a.contour));
           o.push(h.ligne(x0, gy, cx - W / 2, gy, h.a.contour), h.ligne(cx + W / 2, gy, x1, gy, h.a.contour));
           // la terre tassée

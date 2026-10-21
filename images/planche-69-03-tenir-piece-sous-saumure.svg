@@ -9,6 +9,7 @@
 <rect x="0" y="0" width="680" height="413" fill="#FFFFFF"/>
 <text x="40" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Disque et pierre</text>
 <g transform="translate(40 46)" data-vue="disque">
+<path d="M45.4 48 L243.6 48 L235.5 132 L53.5 132 Z" fill="#E6E6E6" stroke="none"/>
 <path d="M53.5 132 L235.5 132 L227.5 215.5 L61.5 215.5 Z" fill="url(#h-eau)" stroke="none"/>
 <path d="M 78.084 215.5 C 72.084 180.61599999999999 104.6504 157.35999999999999 137.8584 159.1042 C 171.0664 160.267 214.916 168.988 210.916 203.87199999999999 Q 209.916 215.5 196.916 215.5 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M 94.688 200.965 Q 117.9336 183.523 141.1792 179.45319999999998" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>
@@ -34,6 +35,7 @@
 </g>
 <text x="351" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" fill="#1A1A1A">Sac de saumure</text>
 <g transform="translate(351 46)" data-vue="sac">
+<path d="M45.4 48 L243.6 48 L235.1 136.8 L53.9 136.8 Z" fill="#E6E6E6" stroke="none"/>
 <path d="M53.9 136.8 L235.1 136.8 L227.5 215.5 L61.5 215.5 Z" fill="url(#h-eau)" stroke="none"/>
 <path d="M 78.084 215.5 C 72.084 180.61599999999999 104.6504 157.35999999999999 137.8584 159.1042 C 171.0664 160.267 214.916 168.988 210.916 203.87199999999999 Q 209.916 215.5 196.916 215.5 Z" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M 94.688 200.965 Q 117.9336 183.523 141.1792 179.45319999999998" fill="none" stroke="#1A1A1A" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round"/>

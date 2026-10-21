@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="37.7 102.5 359.6 190.5" role="img">
+<title>Trait tiré de la planche 55-08 — L’assommoir et sa gâchette à trois bâtons — vue « arme », sans renvois</title>
+<defs>
+<pattern id="h-bois" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#E9F0EA" stroke-width="0.85"/></pattern>
+<pattern id="h-terre" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="5.5" stroke="#E9F0EA" stroke-width="0.85"/><line x1="4.5" y1="4.5" x2="4.5" y2="9" stroke="#E9F0EA" stroke-width="0.61"/></pattern>
+<pattern id="h-pierre" width="14" height="10" patternUnits="userSpaceOnUse"><path d="M1 3 L5 1 L9 3 L8 7 L3 8 Z M10 9 L13 7" fill="none" stroke="#E9F0EA" stroke-width="0.61"/></pattern>
+<marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#E9F0EA" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<marker id="fl-r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 Z" fill="#E9F0EA" stroke="#E9F0EA" stroke-width="1" stroke-linejoin="round"/></marker>
+</defs>
+<g transform="translate(40 46)" data-vue="arme">
+<path d="M0 236.2 L355 236.2 L355 245.4 L0 245.4 Z" fill="url(#h-terre)" stroke="none"/>
+<path d="M0 236.2 L355 236.2" fill="none" stroke="#E9F0EA" stroke-width="1.69" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M166 236.2 L166 67.9 L168.4 66.1 L171.4 67.4 L174.2 66.7 L174.2 236.2 Z" fill="#314B41" stroke="none"/>
+<path d="M166 236.2 L166 67.9 L168.4 66.1 L171.4 67.4 L174.2 66.7 L174.2 236.2 Z" fill="none" stroke="#E9F0EA" stroke-width="1.69" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M103.6 96.4 L334.2 234.8 L338.1 232.8 L342.7 227 L346 218.2 L344.5 210.4 L340 205.3 L333.4 200.1 L326.1 196 L318.9 191.9 L312.2 186.8 L305.5 181.9 L298.2 177.9 L291 173.7 L284.4 168.5 L277.6 163.7 L270 160 L262.6 156.2 L256.1 150.9 L249.5 145.7 L241.9 142.2 L234 139.1 L227.3 134.1 L221 128.4 L213.6 124.6 L205.3 122.2 L198.1 118.1 L192 112.1 L185 107.4 L176.7 105.1 L168.8 102.2 L162.4 96.7 L155.9 91.2 L148 88.2 L139.6 86 L132.6 81.5 L126.4 75.7 L122.4 74.5 L116.3 75.2 L109.8 80.7 L105.3 89.9 Z" fill="#1D392E" stroke="none"/>
+<path d="M103.6 96.4 L334.2 234.8 L338.1 232.8 L342.7 227 L346 218.2 L344.5 210.4 L340 205.3 L333.4 200.1 L326.1 196 L318.9 191.9 L312.2 186.8 L305.5 181.9 L298.2 177.9 L291 173.7 L284.4 168.5 L277.6 163.7 L270 160 L262.6 156.2 L256.1 150.9 L249.5 145.7 L241.9 142.2 L234 139.1 L227.3 134.1 L221 128.4 L213.6 124.6 L205.3 122.2 L198.1 118.1 L192 112.1 L185 107.4 L176.7 105.1 L168.8 102.2 L162.4 96.7 L155.9 91.2 L148 88.2 L139.6 86 L132.6 81.5 L126.4 75.7 L122.4 74.5 L116.3 75.2 L109.8 80.7 L105.3 89.9 Z" fill="url(#h-pierre)" stroke="#E9F0EA" stroke-width="2.91" stroke-linejoin="round"/>
+<path d="M91.3 236.2 L91.3 132.7 L96.1 125.3 L101 132.7 L101 236.2 Z" fill="#1D392E" stroke="none"/>
+<path d="M91.3 236.2 L91.3 132.7 L96.1 125.3 L101 132.7 L101 236.2 Z" fill="none" stroke="#E9F0EA" stroke-width="2.91" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M21.9 179.8 L93.1 130 L96.1 125.3 L97.3 127 L120.4 110.9 L115.1 103.3 L21.9 168.5 Z" fill="#1D392E" stroke="none"/>
+<path d="M21.9 179.8 L93.1 130 L96.1 125.3 L97.3 127 L120.4 110.9 L115.1 103.3 L21.9 168.5 Z" fill="none" stroke="#E9F0EA" stroke-width="2.91" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M12.9 176.1 L21.9 176.1 L21.9 179.8 L27.2 179.8 L27.2 176.1 L203.4 176.1 L214.5 180.7 L203.4 185.4 L12.9 185.4 Z" fill="#1D392E" stroke="none"/>
+<path d="M12.9 176.1 L21.9 176.1 L21.9 179.8 L27.2 179.8 L27.2 176.1 L203.4 176.1 L214.5 180.7 L203.4 185.4 L12.9 185.4 Z" fill="none" stroke="#E9F0EA" stroke-width="2.91" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M212.1 180.7 L211.8 182.6 L210.6 184.1 L209.1 185.3 L207.7 186.3 L206.3 187.3 L204.7 188 L203 188.3 L201.2 188.3 L199.4 188.2 L197.4 188 L195.5 187.3 L194.1 186 L193.6 184.1 L193.9 182.3 L194.3 180.7 L194.4 179.3 L194.3 177.6 L194.7 175.9 L195.8 174.5 L197.4 173.5 L199.2 172.9 L201.1 172.5 L203.1 172.4 L204.9 173 L206.3 174.2 L207.3 175.5 L208.4 176.6 L209.8 177.7 L211.3 179 Z" fill="#1D392E" stroke="none"/>
+<path d="M212.1 180.7 L211.8 182.6 L210.6 184.1 L209.1 185.3 L207.7 186.3 L206.3 187.3 L204.7 188 L203 188.3 L201.2 188.3 L199.4 188.2 L197.4 188 L195.5 187.3 L194.1 186 L193.6 184.1 L193.9 182.3 L194.3 180.7 L194.4 179.3 L194.3 177.6 L194.7 175.9 L195.8 174.5 L197.4 173.5 L199.2 172.9 L201.1 172.5 L203.1 172.4 L204.9 173 L206.3 174.2 L207.3 175.5 L208.4 176.6 L209.8 177.7 L211.3 179 Z" fill="none" stroke="#E9F0EA" stroke-width="1.69" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M147.5 236.2 L147.5 60.6 L150 58.7 L152.9 60 L155.7 59.3 L155.7 236.2 Z" fill="#1D392E" stroke="none"/>
+<path d="M147.5 236.2 L147.5 60.6 L150 58.7 L152.9 60 L155.7 59.3 L155.7 236.2 Z" fill="none" stroke="#E9F0EA" stroke-width="1.69" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+</svg>

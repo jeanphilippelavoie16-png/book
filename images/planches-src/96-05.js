@@ -12,6 +12,9 @@
 // Vues alignées : le plan et la coupe A-A partagent leurs x (le bois à gauche, en haut de la
 // pente ; le point bas à droite). B-B coupe la tranchée en travers, à l'échelle vraie ; la rigole
 // en travers est un détail, deux fois plus gros.
+// La charte : pas de gris (un plan à plat, trois coupes en trame). Le rouge : le fond de la tranchée,
+// cerclé (le point à vérifier : il descend sans contre-pente, sinon l'eau s'y arrête). Les flèches
+// d'eau restent noires ; il n'y a pas de geste dessiné.
 module.exports = (h) => {
   const N = '#1A1A1A', B = '#FFFFFF';
   const f = (v) => Math.round(v * 10) / 10;
@@ -199,6 +202,8 @@ module.exports = (h) => {
       ouvert([[a, mi(a)], [b, mi(b)]], 'fill="none" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round"'),
       h.fleche(`M ${f(a)} ${f(mi(a))} L ${f(b)} ${f(mi(b))}`)));
     out.push(h.fleche(`M ${f(xo - 1)} ${f(yo - 2.5)} L ${f(xo + 22)} ${f(yG(xo + 22) - 4)}`));
+    // le point à vérifier : le fond descend partout, sans contre-pente
+    { const xm = xs + 60; out.push(h.controle(xm, yB(xm), 11)); }
     return out.join('\n');
   };
 
@@ -224,11 +229,25 @@ module.exports = (h) => {
     pts.push([x1, dansPlanche(x1) ? yS - lev : yS]);
     return pts;
   };
+  // La couche bêchée de chaque planche : de la surface bombée jusqu'à environ un fer de bêche, trame lâche.
+  const bechee = (surf, x0, x1, yS, cx, cc, aw, pw, prof) => {
+    const out = [];
+    for (let c = cx - 3 * cc; c <= cx + 3 * cc; c += cc) {
+      const g = Math.max(x0, c - aw / 2 - pw), d = Math.min(x1, c - aw / 2);
+      if (d - g < 4) continue;
+      const top = surf.filter(([x]) => x >= g && x <= d);
+      const fond = []; for (let i = 0; i <= 8; i++) { const x = d - (d - g) * i / 8; fond.push([x, yS + prof * (0.8 + 0.2 * Math.sin(Math.PI * (x - g) / (d - g)))]); }
+      const pg = [...top, ...fond];
+      out.push(poly(pg, h.a.blanc), poly(pg, BECH), ouvert(fond, `${h.a.fin} stroke-dasharray="3 2"`));
+    }
+    return out.join('\n');
+  };
   const trans = (z) => {
     const { cx, cc, aw, pw, yS, tw, t1, t2, td } = Bgeo(z), rnd = alea(517), yb = yS + td;
     const out = [DEFS];
     const surf = profil(0, z.l, yS, cx, cc, aw, pw, (c) => Math.abs(c - cx) > 1, aw * 0.58, aw * 0.2, 4);
     out.push(poly([...surf, [z.l, z.h], [0, z.h]], SOL));
+    out.push(bechee(surf, 0, z.l, yS, cx, cc, aw, pw, td * 0.42));
     const xl = cx - tw / 2, xr = cx + tw / 2;
     out.push(h.rect(xl, yS, tw, td, h.a.blanc));
     // l'eau qui court au fond, entre les pierres
@@ -260,7 +279,8 @@ module.exports = (h) => {
     // l'eau de surface qui entre
     [cx - 8, cx + 8].forEach((x) => out.push(h.fleche(`M ${f(x)} ${f(yS - 20)} L ${f(x)} ${f(yS - 3)}`)));
     // 1200 de centre à centre des planches
-    [cx - cc / 2, cx + cc / 2].forEach((x) => out.push(h.ligne(x, 10, x, yS - 7, h.a.fin)));
+    // l'axe de chaque planche, en trait mixte, du fond de la vue jusqu'à la ligne de cote
+    [cx - cc / 2, cx + cc / 2].forEach((x) => out.push(ouvert([[x, z.h - 2], [x, 10]], `${h.a.fin} ${MIXTE}`)));
     out.push(h.cote(cx - cc / 2, 16, cx + cc / 2, 16, '1200'));
     return out.join('\n');
   };
@@ -271,6 +291,7 @@ module.exports = (h) => {
     const rw = aw * 0.58, rd = aw * 0.2, out = [DEFS];
     const surf = profil(0, z.l, yS, cx, cc, aw, pw, (c) => Math.abs(c - cx) < 1, rw, rd, 8);
     out.push(poly([...surf, [z.l, z.h], [0, z.h]], SOL));
+    out.push(bechee(surf, 0, z.l, yS, cx, cc, aw, pw, rd * 2.2));
     // la terre rejetée par la charrue, de chaque côté
     [-1, 1].forEach((sg) => {
       const a = cx + sg * (rw / 2), b = cx + sg * (rw / 2 + rw * 0.36), a0 = cx + sg * (rw / 2 - 0.12 / 1.2 * (rw / 2 - rw * 0.08));

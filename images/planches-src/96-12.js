@@ -13,6 +13,8 @@
 //
 // Trois matières, trois trames qui ne se ressemblent pas : le tas en débris (feuilles, brindilles,
 // grumeaux), la paille en brins couchés le long de la surface, la terre du sol en hachure oblique.
+// 14 oct. : la main qui tient la tige retirée est une main simple (mains/moteur.js, prise-manche vue côté
+// paume), à la taille de la vue, au lieu du calque s11 grossi avec la tige ; la tige y pèse (contour 2,4).
 
 // Un hasard reproductible : la planche sort pareille à chaque composition.
 const hasard = (graine) => {
@@ -133,7 +135,10 @@ module.exports = (h) => ({
         o.push(h.chemin(tige, h.a.arete, true));
 
         // ── la cote : la seule que donne le chapitre
-        o.push(h.cote(cx - W / 2, yg + 30, cx + W / 2, yg + 30, 'environ 1000 mm ou plus', { cote: 'dessous' }));
+        // deux lignes de rappel des pieds du tas (sous la paille), à travers la bande de sol
+        o.push(h.ligne(cx - W / 2, yg + 1, cx - W / 2, yg + 34, h.a.fin));
+        o.push(h.ligne(cx + W / 2, yg + 1, cx + W / 2, yg + 34, h.a.fin));
+        o.push(h.cote(cx - W / 2, yg + 30, cx + W / 2, yg + 30, '≈ 1 000', { cote: 'dessous' }));
         return o.join('\n');
       },
       renvois: z => {
@@ -141,7 +146,7 @@ module.exports = (h) => ({
         const { cx, yg, W, H, t, xTige, yTete } = g;
         const xd = cx + W / 2 + t;
         return [
-          { n: 1, rond: [xd + 26, yg - H * 0.25], cible: [cx + W * 0.36, yg - H * 0.25], texte: 'le tas, vert et brun mêlés' },
+          { n: 1, rond: [xd + 26, yg - H * 0.25], cible: [cx + W * 0.36, yg - H * 0.25], texte: 'le tas, vert et brun mêlés : au moins 1 m de côté' },
           { n: 2, rond: [xd + 26, yg - H * 0.78], cible: [cx + W * 0.47, yg - H * 0.78], texte: 'paille ou foin, dessus et sur les côtés' },
           { n: 3, rond: [xTige + 44, yTete + 6], cible: [xTige + g.ec, yTete + 12], texte: 'tige de fer ou piquet de métal' },
           { n: 4, rond: [cx - W / 2 - t - 22, g.yCoeur - H * 0.35], cible: [cx - W * 0.17, g.yCoeur - H * 0.1], texte: 'le cœur : la pointe y reste une heure' },
@@ -156,9 +161,12 @@ module.exports = (h) => ({
         // le haut est rompu : la tige continue plus haut que la vue (elle traverse tout le tas)
         const tige = [[x - ec, yh + 4], [x - ec / 3, yh - 1], [x + ec / 3, yh + 6], [x + ec, yh + 1],
           [x + ec, yp - 13], [x, yp], [x - ec, yp - 13]];
-        const objet = h.chemin(tige, h.a.blanc, true) + '\n' + h.chemin(tige, h.a.arete, true);
-        const m = h.formes.main({ x, y: ym, pose: 'prise', vue: 'dos', diametre: 2 * ec, echelle: g.e, objet, bras: 70 });
-        return String(m);
+        const objet = h.chemin(tige, h.a.blanc, true) + '\n' + h.chemin(tige, h.a.contour, true);   // la charte : l'objet pèse
+        // la main simple (main gauche, prise-manche vue côté paume, penchée de 25°) fermée sur la tige : la
+        // tige entre par le haut du poing et ressort par le bas, derrière les doigts ; l'avant-bras part à
+        // gauche et sort de la vue. La main garde la taille de la vue (e), la prise se ferme sur la tige.
+        const vers = [x - 600, ym], o = { x, y: ym, pose: 'prise-manche', vue: 'paume', cote: 'gauche', echelle: g.e, diametre: 2 * ec / g.e, rotation: [-25, 0, 0] };
+        return h.formes.mainSimple({ ...o, angle: poser(h, o, 90, vers), objet, avantbras: { vers, bord: { x0: 0, y0: 0, x1: z.l, y1: z.h }, bras: { pli: 0 } } }).svg;
       },
       renvois: z => {
         const g = geoTige(z);
@@ -182,8 +190,22 @@ function geo(z) {
   return { yg, W, H, t, cx, yCoeur, ec, xTige: cx, yPointe: yCoeur + 4, yTete: yg - H - t - 38 };
 }
 
+// l'angle de la main simple qui met l'axe de sa prise sur `axe` (degrés à l'écran) et son avant-bras du
+// côté de `vers` (le même outil que 104-40 et 50-40)
+function poser(h, o, axe, vers) {
+  const F = h.formes, base = Object.assign({}, o, { angle: 0, avantbras: { longueur: 100 } }); delete base.objet;
+  const e0 = F.mainSimple(base); let best = null;
+  for (const k of [0, 180]) {
+    const a = axe - e0.prise.angle + k, m = F.mainSimple(Object.assign({}, base, { angle: a }));
+    const d = [m.coude[0] - m.poignet[0], m.coude[1] - m.poignet[1]], v = [vers[0] - m.poignet[0], vers[1] - m.poignet[1]];
+    const c = (d[0] * v[0] + d[1] * v[1]) / ((Math.hypot(d[0], d[1]) * Math.hypot(v[0], v[1])) || 1);
+    if (!best || c > best.c) best = { a, c };
+  }
+  return best.a;
+}
+
 // La géométrie de la tige retirée.
 function geoTige(z) {
-  const e = 0.78;
-  return { e, x: z.l * 0.66, yh: 12, yp: z.h - 16, ec: 7, ym: z.h - 16 - 82 };
+  const e = 0.95;
+  return { e, x: z.l * 0.62, yh: 12, yp: z.h - 16, ec: 10, ym: z.h - 16 - 100 };
 }

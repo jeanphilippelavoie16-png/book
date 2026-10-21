@@ -1,4 +1,4 @@
-# Plan maître — Le Grand Livre du Chalet
+# Plan maître — Le Manuel du Nord
 
 # Six tomes — 24 septembre 2026
 

@@ -13,3 +13,19 @@ design/epreuves-livre/*.html
 
 __pycache__/
 node_modules/
+
+# Lecteur de relecture : pages rendues, notes téléchargées (design/outils/relecture/)
+livre/relecture/
+livre/apercus-*/travail/
+livre/apercus-*/apercus/
+livre/apercus-*/pg/
+livre/apercus-*/interieur.pdf
+livre/apercus-*/planche-contact.png
+
+# journaux des tâches du générateur d'images (AI Horde) : écrits en continu pendant les essais
+images/tomes/essais-ia/tome-*/log-*.txt
+images/tomes/essais-ia/tome-*/*.log
+images/tomes/essais-ia/**/log-*.txt
+
+# Présentation du projet : images réduites et HTML (design/outils/presentation.py)
+livre/presentation/travail/

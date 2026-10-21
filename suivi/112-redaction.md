@@ -302,3 +302,11 @@ Verdicts de `suivi/verifications/89-verifications.md`, appliqués au chapitre.
   semaines »** (décision prise pour tout le livre).
 
 Compression §3 et §4 — 27 septembre 2026 : 1468 mots → 248 mots (§3 : 466 → 117 ; §4 : 1002 → 131, tableau de 21 lignes et trois notes → 7 lignes) ; matériel coupé : gants longs, manches longues et souliers fermés, cuillère ou fouet d'inox, extincteur ABC, avertisseur de CO, thermomètre à tige, passoire et coton à fromage, moule à savon, moules à chandelles, bâton de trempage et support, papier pH, contenant métallique et pelle pour les cendres, étiquettes et marqueur, notes « Sur l'aluminium » et « Sur le vinaigre » (déjà en 8.2 et 8.1) ; déplacé : laine et cuir interdits → étape 14 ; thuyone du cèdre → nouvel encadré 8.6.
+
+## Planche du 15 octobre 2026 (lot t6b)
+
+- **112-42, la chandelle de jonc** (§9-H), dans `images/a-valider/`, appelée dans le texte. Tout
+  vient du chapitre et de `sources/89-gilbert-white-selborne-chandelles-de-jonc.md` (une seule côte
+  d'écorce qui tient la moelle ; deux côtes éclairent mal). Seule cote : 70 cm. L'angle « presque
+  couché » est dessiné à environ 8° sur l'horizontale, sans source. Le plat de trempage est un plat
+  long quelconque : le chapitre dit seulement « tremper dans le gras fondu ».

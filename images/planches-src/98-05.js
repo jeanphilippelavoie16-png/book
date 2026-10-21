@@ -4,6 +4,10 @@
 // marchant dans un sens, l'autre moitié en travers, à pleine main, d'un geste égal. Deux passages
 // croisés comblent les bandes claires qu'un seul passage laisse toujours.
 // Aucune cote : le chapitre ne donne ni la largeur des bandes ni la taille du carré.
+// 13 oct. : le semeur de profil est le corps simple (pose « semer ») ; vu de dessus, il n'est plus que
+// ses empreintes (un corps ne se montre plus que de profil). Rouge : l'arc du bras (première moitié), le niveau.
+// 14 oct. : le médaillon des mains passe aux mains simples (mains/moteur.js) : le poing plein (poing, vu côté
+// paume) au lieu du calque s05, la main ouverte (plat, de profil) au lieu du calque s10-plat.
 module.exports = (h) => {
   const A = h.a, F = h.formes;
   const f = v => Math.round(v * 10) / 10;
@@ -80,8 +84,8 @@ module.exports = (h) => {
   const volee = (b, P, dir, graine, L) => {
     const u = [Math.cos(dir * RAD), Math.sin(dir * RAD)], g = [u[1], -u[0]];   // g : la gauche
     const pt = (av, ga) => [P[0] + u[0] * av + g[0] * ga, P[1] + u[1] * av + g[1] * ga];
-    const seau = pt(L * 0.95, L * 0.6);
-    const epaule = pt(0, -L * 0.35);
+    const seau = pt(L * 1.0, L * 0.5);
+    const epaule = pt(0, -L * 0.62);
     const R = L * 1.9, arc = [];
     for (let a = -56; a <= 50; a += 4) {
       const d = [Math.cos((dir + a) * RAD), Math.sin((dir + a) * RAD)];
@@ -93,8 +97,25 @@ module.exports = (h) => {
       const x = epaule[0] + Math.cos(a) * rr, y = epaule[1] + Math.sin(a) * rr;
       if (y > b.yh + 3 && y < b.yb - 3 && x > b.x0 + 3 && x < b.x1 - 3) grains.push(grain(x, y, r() * 180));
     }
-    return { seau, arc, epaule, svg: [grains.join('\n'), seauDessus(seau[0], seau[1], L * 0.42, dir),
-      h.fleche('M ' + arc.map(P2).join(' L '), A.arete)].join('\n') };
+    // le semeur vu de dessus, en pictogramme : les épaules en bande, la tête ronde par-dessus,
+    // le bras gauche qui tient le bord du contenant, le bras droit tendu sur l'arc, la main au bout
+    const bandeP = (q1, q2, w) => {
+      const d = Math.hypot(q2[0] - q1[0], q2[1] - q1[1]) || 1, ux = (q2[0] - q1[0]) / d, uy = (q2[1] - q1[1]) / d, r = w / 2;
+      const a1 = [q1[0] - uy * r, q1[1] + ux * r], a2 = [q2[0] - uy * r, q2[1] + ux * r], b2 = [q2[0] + uy * r, q2[1] - ux * r], b1 = [q1[0] + uy * r, q1[1] - ux * r];
+      const dd = `M ${P2(a1)} L ${P2(a2)} A ${f(r)} ${f(r)} 0 0 0 ${P2(b2)} L ${P2(b1)} A ${f(r)} ${f(r)} 0 0 0 ${P2(a1)} Z`;
+      return `<path d="${dd}" ${A.blanc}/><path d="${dd}" ${A.arete}/>`;
+    };
+    const eG = pt(-L * 0.08, L * 0.62), eD = pt(-L * 0.08, -L * 0.62);
+    const aMain = (dir + 12) * RAD, mainD = [epaule[0] + Math.cos(aMain) * L * 1.75, epaule[1] + Math.sin(aMain) * L * 1.75];
+    const bordS = [seau[0] + (eG[0] - seau[0]) * 0.55, seau[1] + (eG[1] - seau[1]) * 0.55];
+    const corps = [bandeP(eG, bordS, L * 0.3), bandeP(eD, mainD, L * 0.3),
+      h.cercle(mainD[0], mainD[1], L * 0.22, A.blanc), h.cercle(mainD[0], mainD[1], L * 0.22, A.arete), bandeP(eG, eD, L * 0.72)].join('\n');
+    // (13 oct. au soir : un corps ne se montre plus que de profil.) Vu de dessus, le semeur n'est plus
+    // que ses deux pieds, côte à côte, et l'arc que balaie sa main ; le grain tombe devant.
+    const piedG = pt(0, L * 0.3), piedD = pt(0, -L * 0.3);
+    const pieds = empreinte(piedG[0], piedG[1], dir, L) + empreinte(piedD[0], piedD[1], dir, L);
+    const fl = rouge => (rouge ? h.geste('M ' + arc.map(P2).join(' L ')) : h.fleche('M ' + arc.map(P2).join(' L '), A.arete));
+    return { seau, arc, epaule, svg: rouge => [grains.join('\n'), pieds, fl(rouge)].join('\n') };
   };
 
   // ── le geste, de profil ────────────────────────────────────────────────────────────────
@@ -102,18 +123,45 @@ module.exports = (h) => {
     const y0 = z.h - 8, x = z.l * 0.2, e = (z.h - 18) / 1760;
     const V = (p) => [x + p[0] * e, y0 + p[1] * e];
     // le seau, contre le ventre (mm, repère au sol entre les pieds)
-    const hautS = -1100, basS = -840, avS = 104, arS = 104 + 260;
+    // le contenant, sous l'avant-bras loin (mm, repère au sol entre les chevilles) ; l'anse passe sur
+    // l'avant-bras
+    const hautS = -1010, basS = -770, avS = 196, arS = 196 + 250;
     const s1 = V([avS, hautS]), s2 = V([arS, hautS]), s3 = V([arS - 16, basS]), s4 = V([avS + 16, basS]);
-    const anse = h.path(`M ${P2(V([avS + 6, hautS + 30]))} Q ${P2(V([(avS + arS) / 2, hautS + 150]))} ${P2(V([arS - 6, hautS + 30]))}`, A.detail);
+    const anse = h.path(`M ${P2(V([avS + 6, hautS + 26]))} Q ${P2(V([(avS + arS) / 2, hautS - 210]))} ${P2(V([arS - 6, hautS + 26]))}`, A.arete);
+    const ombre = [s2, s3, V([arS - 16 - 70, basS]), V([arS - 70, hautS])];
     const seau = [
-      h.chemin([s1, s2, s3, s4], A.blanc, true), anse,
+      h.chemin([s1, s2, s3, s4], A.blanc, true), h.chemin(ombre, A.ombre, true), anse,
       h.chemin([s1, s2, s3, s4], A.contour, true),
       h.ligne(...V([avS + 2, hautS + 24]), ...V([arS - 2, hautS + 24]), A.detail),
-      h.ligne(...V([avS + 12, basS - 36]), ...V([arS - 12, basS - 36]), A.fin),
     ].join('\n');
-    const p = F.personnage({ x, y: y0, pose: 'debout', echelle: e,
-      mains: { proche: V([400, -1070]), loin: V([196, -1092]) } });
-    const main = p.mains.proche;
+    // le semeur : le corps simple, pose « semer ». Le contenant pend à l'avant-bras loin, plié devant
+    // le ventre ; la main proche, ouverte, balaie devant soi à hauteur de taille. Le contenant passe
+    // devant le tronc et devant le bras loin, derrière le bras proche.
+    const p = F.corps({ x, y: y0, pose: 'semer', echelle: e, objetP: seau });
+    const main = [p.mainP.x + 30 * e, p.mainP.y];
+    // le médaillon, grossi : deux mains simples (mains/moteur.js), à une même échelle, coupées par le
+    // cercle. En haut, le poing vu côté paume (tourné de 35°), le pouce en bas : il est plein, le grain
+    // affleure entre le pouce et l'index. En bas, la même main ouverte à plat, penchée : le grain part
+    // du bout des doigts.
+    const mR = Math.min(50, z.l * 0.22), mx = z.l - mR - 4, my = mR + 4, eM = 0.3, rg = alea(9811);
+    const idC = 'med-9805', clip = `<clipPath id="${idC}"><circle cx="${f(mx)}" cy="${f(my)}" r="${f(mR - 1.2)}"/></clipPath>`;
+    const pPoing = [mx + mR * 0.1, my - mR * 0.45];
+    const mPoing = F.mainSimple({ x: pPoing[0], y: pPoing[1], pose: 'poing', vue: 'paume', cote: 'droite', echelle: eM, angle: 0, rotation: [0, 35, 0],
+      avantbras: { vers: [mx - 400, pPoing[1]], longueur: 140 } });
+    const pBout = [mx + mR * 0.45, my + mR * 0.34];
+    const mOuv = F.mainSimple({ x: pBout[0], y: pBout[1], ancre: 'bout', pose: 'plat', vue: 'pouce', cote: 'droite', echelle: eM, angle: 22,
+      rotation: [-25, 0, 0], avantbras: { vers: [mx - 400, pBout[1] - 30], longueur: 140 } });
+    // le grain qui affleure du poing, entre le pouce et l'index
+    const gP = [], pb = mPoing.articulations['pouce.bout'], im = mPoing.articulations['index.mcp'];
+    const c0 = [(pb[0] + im[0]) / 2 + 2, Math.max(pb[1], im[1]) + 2];
+    for (const [dx, dy, a] of [[-2.5, 0, 70], [0.5, 1.2, 100], [3, 0.2, 80], [-0.8, 3.4, 95], [1.6, 4.8, 85], [0.2, 7.5, 90]])
+      gP.push(grain(c0[0] + dx, c0[1] + dy, a, 0.95));
+    // le grain qui part du bout des doigts de la main ouverte, en filet qui s'élargit vers le bas
+    const ouv = [], bo = mOuv.bout;
+    for (let i = 0; i < 12; i++) { const t = (i + 0.5) / 12; ouv.push(grain(bo[0] - 1 + t * mR * 0.04 + (i % 3 - 1) * 5 * t, bo[1] + 4 + t * mR * 0.32 + (i % 2) * 1.5, 50 + rg() * 80, 1.1)); }
+    const med = [h.cercle(mx, my, mR, A.blanc), clip, `<g clip-path="url(#${idC})">`, mPoing.svg, gP.join(''), mOuv.svg, ouv.join('\n'), '</g>',
+      h.cercle(mx, my, mR, A.arete),
+      h.fleche(`M ${f(mx + mR * 0.55)} ${f(my - mR * 0.5)} Q ${f(mx + mR * 0.78)} ${f(my - mR * 0.2)} ${f(mx + mR * 0.6)} ${f(my + mR * 0.12)}`, A.detail)].join('\n');
     // le grain qui quitte la main ouverte, en éventail, et tombe devant
     const r = alea(9805), vol = [];
     for (let i = 0; i < 60; i++) {
@@ -124,14 +172,14 @@ module.exports = (h) => {
       vol.push(grain(xa, y, Math.atan2(y - main[1], xa - main[0]) / RAD, 1.25));
     }
     for (let i = 0; i < 16; i++) vol.push(grain(main[0] + 30 + r() * (z.l - 16 - main[0] - 30), y0 - 1.5, r() * 30 - 15, 1.1));
-    return { svg: [h.ligne(6, y0, z.l - 6, y0, A.arete), seau, p, vol.join('\n')].join('\n'),
+    return { svg: [h.ligne(6, y0, z.l - 6, y0, A.arete), String(p), vol.join('\n'), med].join('\n'), med: [mx, my, mR],
       seau: V([(avS + arS) / 2 + 40, (hautS + basS) / 2 + 40]), main,
       eventail: [main[0] + (z.l - main[0]) * 0.6, main[1] + (y0 - main[1]) * 0.55] };
   };
 
   // ── le carré, vu de dessus ─────────────────────────────────────────────────────────────
   const carre = (z) => {
-    const c = Math.min(z.l - 56, z.h - 64), x0 = (z.l - c) / 2 + 6, y0 = 22, n = 4, w = c / n;
+    const c = Math.min(z.l - 56, z.h - 64), x0 = (z.l - c) / 2 + 6, y0 = 44, n = 4, w = c / n;
     const out = [h.ligne(x0, y0, x0 + c, y0, A.fin), h.ligne(x0, y0 + c, x0 + c, y0 + c, A.fin)];
     for (let i = 0; i <= n; i++) {
       const xi = x0 + w * i;
@@ -145,7 +193,7 @@ module.exports = (h) => {
   // ── le contenant, en coupe ─────────────────────────────────────────────────────────────
   const dose = (z) => {
     const lh = Math.min(z.l - 44, 104), hb = Math.min(z.h - 60, 128), cx = z.l / 2 - 4, yb = z.h - 14, yt = yb - hb;
-    const ep = 5, ret = 10;                                // épaisseur de paroi, retrait du fond
+    const ep = 8, ret = 10;                                // épaisseur de paroi, retrait du fond
     const gh = [cx - lh / 2, yt], dh = [cx + lh / 2, yt], gb = [cx - lh / 2 + ret, yb], db = [cx + lh / 2 - ret, yb];
     const niv = yt + hb * 0.3;                             // le niveau marqué
     const xg = y => gh[0] + (gb[0] - gh[0]) * (y - yt) / hb, xd = y => dh[0] + (db[0] - dh[0]) * (y - yt) / hb;
@@ -155,13 +203,16 @@ module.exports = (h) => {
       for (let x = xg(y) + ep + 1.5; x < xd(y) - ep - 1.5; x += 4.2) gr.push(grain(x + r() * 2, y + r() * 2, r() * 180, 1.15));
     const paroi = (a, b, s) => h.chemin([a, b, [b[0] + s * ep, b[1]], [a[0] + s * ep, a[1]]], A.plein, true);
     // l'encoche au couteau dans la paroi de droite, au niveau
-    const xe = xd(niv) - ep;
-    const encoche = h.chemin([[xe - 0.5, niv - 5], [xe + 3.2, niv], [xe - 0.5, niv + 5]], A.blanc, true);
+    const xe = xd(niv) - ep, xf = xg(niv) + ep;
+    const encoche = h.chemin([[xe - 0.5, niv - 5], [xe + 6, niv], [xe - 0.5, niv + 5]], A.blanc, true) +
+      h.chemin([[xf + 0.5, niv - 5], [xf - 6, niv], [xf + 0.5, niv + 5]], A.blanc, true);
     const anse = h.path(`M ${P2([gh[0] + 2, yt + 8])} Q ${P2([cx, yt - 58])} ${P2([dh[0] - 2, yt + 8])}`, A.detail);
     const out = [gr.join('\n'), h.ligne(xg(niv) + ep, niv, xd(niv) - ep, niv, A.fin), anse,
       paroi(gh, gb, 1), paroi(dh, db, -1),
       h.rect(gb[0], yb - ep, db[0] - gb[0], ep, A.plein),
-      encoche];
+      encoche,
+      // le point à contrôler : la semence arasée au niveau marqué
+      h.controle(xd(niv) - ep - 4, niv, 11)];
     return { svg: out.join('\n'), niv, xe, cx, yb, yt };
   };
 
@@ -169,7 +220,7 @@ module.exports = (h) => {
   return {
     ref: '98-05',
     titre: 'Semer le grain à la volée',
-    desc: 'Le geste de profil : le contenant de semence tenu contre soi, la main pleine qui s’ouvre en balayant, le grain qui part en éventail. Le carré divisé en bandes au cordeau, vu de dessus, la semence de chaque bande à part. La semence d’une bande, au niveau marqué au couteau dans le contenant. Les deux passages croisés vus de dessus : la première moitié en marchant dans le sens de la bande, qui laisse des traînées claires ; la seconde en travers, d’un cordeau à l’autre, qui les comble.',
+    desc: 'Le geste de profil : le contenant de semence pendu à l’avant-bras plié devant le ventre, la main pleine qui s’ouvre en balayant devant soi, le grain qui part en éventail ; un médaillon grossit la main fermée sur le grain, puis ouverte. Le carré divisé en bandes au cordeau, vu de dessus, la semence de chaque bande à part. La semence d’une bande, arasée au niveau marqué au couteau dans le contenant (cerclé de rouge). Les deux passages croisés vus de dessus, le semeur réduit à ses empreintes : la première moitié en marchant dans le sens de la bande, la main qui balaie l’arc rouge, et les traînées claires qui restent ; la seconde en travers, d’un cordeau à l’autre, qui les comble.',
     format: 'pleine',
     disposition: [['geste', 'carre', 'dose'], ['sens'], ['travers']],
     hauteurs: [1.75, 1, 1],
@@ -180,7 +231,7 @@ module.exports = (h) => {
         dessin: z => geste(z).svg,
         renvois: z => { const g = geste(z); return [
           { n: 1, rond: [g.seau[0] + 22, g.seau[1] + 62], cible: g.seau, texte: 'le contenant de semence' },
-          { n: 2, rond: [g.main[0] + 4, g.main[1] - 52], cible: [g.main[0] - 3, g.main[1] - 4], texte: 'la main pleine s’ouvre' },
+          { n: 2, rond: [g.main[0] - 6, g.main[1] + 34], cible: [g.main[0] - 3, g.main[1] + 4.6], texte: 'la main pleine s’ouvre' },
           { n: 3, rond: [z.l - 14, g.eventail[1] - 50], cible: g.eventail, texte: 'le grain part en éventail' },
         ]; },
       },
@@ -188,7 +239,7 @@ module.exports = (h) => {
         titre: 'Le carré en bandes',
         dessin: z => carre(z).svg,
         renvois: z => { const c = carre(z); return [
-          { n: 4, rond: [c.x0 + c.w + 22, c.y0 - 9], cible: [c.x0 + c.w + 3, c.y0 - 7], texte: 'piquet' },
+          { n: 4, rond: [c.x0 + c.w, c.y0 - 31], cible: [c.x0 + c.w, c.y0 - 11], texte: 'piquet' },
           { n: 5, rond: [c.x0 + 2.5 * c.w, c.y0 + c.c * 0.28], cible: [c.x0 + 3 * c.w, c.y0 + c.c * 0.28], texte: 'cordeau tendu' },
           { n: 6, rond: [12, c.y0 + c.c * 0.6], cible: [c.x0 + 0.5 * c.w, c.y0 + c.c * 0.6], texte: 'une bande' },
           { n: 7, rond: [12, c.ys + 4], cible: [c.x0 + 0.5 * c.w - 9, c.ys], texte: 'sa semence, pesée à part' },
@@ -199,7 +250,7 @@ module.exports = (h) => {
         dessin: z => dose(z).svg,
         renvois: z => { const d = dose(z); return [
           { n: 8, rond: [14, d.yb - 60], cible: [d.cx - 18, d.yb - 40], texte: 'la semence d’une bande' },
-          { n: 9, rond: [z.l - 12, d.niv - 40], cible: [d.xe + 2.2, d.niv - 5.5], texte: 'niveau marqué au couteau' },
+          { n: 9, rond: [z.l - 12, d.niv - 40], cible: [d.xe + 3, d.niv - 2], texte: 'niveau marqué au couteau' },
         ]; },
       },
       sens: {
@@ -209,8 +260,8 @@ module.exports = (h) => {
           const n = Math.floor((P[0] - b.x0 - 16) / (L * 1.45)) + 1;
           return [b.svg,
             semis(b, b.x0 + 4, P[0] - L * 0.6, densite1, 9808),
-            pas(P[0] - (n - 1) * L * 1.45, b.c, P[0], b.c, n, L),
-            v.svg,
+            pas(P[0] - (n - 1) * L * 1.45, b.c, P[0] - L * 1.45, b.c, n - 1, L),
+            v.svg(true),
             h.fleche(`M ${f(P[0] + L * 5.6)} ${f(b.c)} L ${f(P[0] + L * 8)} ${f(b.c)}`, A.arete)].join('\n');
         },
         renvois: z => { const b = bande(z), P = [z.l * 0.52, b.c], v = volee(b, P, 0, 9807, L); return [
@@ -236,7 +287,7 @@ module.exports = (h) => {
             if (k < 6 && k !== 1) out.push(h.ligne(xs(k), yz, xs(k + 1), yz, A.cache));
           }
           out.push(h.ligne(xs(1), y1, xs(2) - 8, y1, A.cache), h.ligne(xs(2), y2, xs(3), y2, A.cache));
-          out.push(pas(P[0], P[1] + L * 0.5, P[0], P[1] - L * 0.3, 2, L), v.svg);
+          out.push(v.svg(false));
           return out.join('\n');
         },
         renvois: z => { const b = bande(z), s = (z.l - 44) / 6, xs = k => 22 + s * k; return [

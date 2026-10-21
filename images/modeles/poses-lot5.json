@@ -1,0 +1,110 @@
+{
+ "s19-poing-l5": {
+  "source": "s19",
+  "note": "le poing au pouce levé de s19, tel quel, le poignet refermé pour que la paume soit blanche",
+  "parties": []
+ },
+ "s03-dos-l5": {
+  "source": "s03",
+  "note": "la main relâchée de s03 sans les plis de la paume : posée à plat, elle se lit vue du dos (la main au dos du bébé, 29-06)",
+  "effacer": [
+   [
+    38,
+    54,
+    95,
+    101
+   ],
+   [
+    30,
+    65,
+    47,
+    88
+   ],
+   [
+    31.8,
+    84,
+    48,
+    91.6
+   ],
+   [
+    35.2,
+    93.8,
+    48,
+    99
+   ],
+   [
+    63,
+    29,
+    75,
+    38
+   ],
+   [
+    94,
+    38,
+    106,
+    43
+   ]
+  ],
+  "parties": []
+ },
+ "s11-gant-l5": {
+  "source": "s11",
+  "note": "le poing fermé de s11 sans ongles ni plis de paume : la main gantée (47-05)",
+  "effacer": [
+   [
+    44,
+    11.6,
+    55.5,
+    15.5
+   ],
+   [
+    70,
+    11.3,
+    78,
+    15.5
+   ],
+   [
+    94.5,
+    12.3,
+    101.5,
+    15.5
+   ],
+   [
+    47.5,
+    47.5,
+    52.5,
+    51.6
+   ],
+   [
+    27,
+    59.6,
+    74.5,
+    84
+   ],
+   [
+    50,
+    56.8,
+    60,
+    63
+   ],
+   [
+    88,
+    63.3,
+    118,
+    78
+   ],
+   [
+    19,
+    99,
+    39,
+    110
+   ]
+  ],
+  "parties": []
+ },
+ "s08-l5": {
+  "source": "s08",
+  "note": "la main ouverte de s08 telle quelle, le poignet refermé pour que la paume soit blanche ; couchée, la paume en l'air (79-40)",
+  "parties": []
+ }
+}

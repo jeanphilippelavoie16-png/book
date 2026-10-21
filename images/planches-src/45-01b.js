@@ -1,6 +1,9 @@
 // 45-01b — L’arc de bille : égaliser les bras sur la perche à crans, câbler le dos (chapitre 45, §9)
 // Aucun chiffre sur le dessin : le chapitre n’en donne ni pour la perche ni pour le câble,
 // hormis les huit allers-retours et les deux tours, qui vont dans la légende.
+// La charte : pas de gris (l'arc est mince, vu de côté ou du dos à plat ; la torsion est en coupe
+// hachurée). Le rouge : le point plat du bras droit, celui qui fait casser le voisin (le point à
+// contrôler), et le bâtonnet qu'on tourne (le geste).
 
 const r1 = v => Math.round(v * 10) / 10;
 const vague = (a, b, amp) => {
@@ -119,6 +122,9 @@ module.exports = (h) => {
           const zone = Dr.slice(48, 103);
           o.push(h.chemin(zone.map((p, i) => auVentre(p, 1, ep(48 + i) + 5)), h.a.arete));
           for (const i of [0, zone.length - 1]) o.push(h.ligne(...auVentre(zone[i], 1, ep(48 + i) + 2), ...auVentre(zone[i], 1, ep(48 + i) + 8), h.a.arete));
+          // le point à contrôler : le point plat, qui ne plie pas et fait casser son voisin
+          const pc = auVentre(Dr[75], 1, ep(75) / 2);
+          o.push(h.controle(pc[0], pc[1], 13));
           // la perche, devant la poignée
           o.push(h.path(`M${cx - 7} ${y0 + 6} L${cx + 7} ${y0 + 6} L${cx + 7} ${yF} ${vague([cx + 7, yF], [cx - 7, yF], 3)} Z`, BL));
           o.push(h.ligne(cx - 7, y0 + 12, cx + 7, y0 + 12, h.a.cache));
@@ -223,7 +229,7 @@ module.exports = (h) => {
           const b = k => [c[0] + 14 * k * dir[0], c[1] + 14 * k * dir[1]];
           o.push(h.chemin([[b(1)[0] + e * n[0], b(1)[1] + e * n[1]], [b(1)[0] - e * n[0], b(1)[1] - e * n[1]], [b(-1)[0] - e * n[0], b(-1)[1] - e * n[1]], [b(-1)[0] + e * n[0], b(-1)[1] + e * n[1]]], h.a.plein, true));
           const a0 = -160 * Math.PI / 180, a1 = -20 * Math.PI / 180, r = 23;
-          o.push(h.fleche(`M${r1(c[0] + r * Math.cos(a0))} ${r1(c[1] + r * Math.sin(a0))} A${r} ${r} 0 0 1 ${r1(c[0] + r * Math.cos(a1))} ${r1(c[1] + r * Math.sin(a1))}`));
+          o.push(h.geste(`M${r1(c[0] + r * Math.cos(a0))} ${r1(c[1] + r * Math.sin(a0))} A${r} ${r} 0 0 1 ${r1(c[0] + r * Math.cos(a1))} ${r1(c[1] + r * Math.sin(a1))}`));
           return o.join('\n');
         },
         renvois: z => {

@@ -1,6 +1,10 @@
 // Planche 94-31 — l'auge au billot et les pierres chaudes (ch. 60, §9, « Faire bouillir sans casserole »).
 // Séquence : creuser aux braises, gratter le charbon entre deux passes, bouillir aux pierres.
 // Aucune cote : le chapitre ne donne aucune dimension d'auge. L'échelle, c'est le couteau.
+// La charte : la demi-bille au contour fort, son bout (la face de droite, lumière en haut à gauche)
+// à l'ombre. Le rouge : le raclage du couteau et la pierre qu'on plonge à la pince (les gestes), et
+// le niveau de sève contre le bord (le point à vérifier : il ne descend jamais). Le souffle, la
+// pierre refroidie qu'on ressort restent en noir.
 
 module.exports = (h) => {
   const r1 = (n) => Math.round(n * 10) / 10;
@@ -51,8 +55,12 @@ module.exports = (h) => {
       while (x < x1) { const l = 14 + 30 * R2(); seg.push(h.ligne(r1(x), r1(y), r1(Math.min(x + l, x1)), r1(y), h.a.detail)); x += l + 6 + 10 * R2(); }
       return seg.join('\n');
     });
+    const tour = [P(0, 0), P(0, 1), P(L, 1), ...arc(L, 1, ts), ...arc(0, ts, 0)];
     const svg = [
-      h.chemin([P(0, 0), P(0, 1), P(L, 1), ...arc(L, 1, ts), ...arc(0, ts, 0)], B(h.a.contour), true),
+      h.chemin(tour, h.a.blanc, true),
+      // le bout de la bille, la face de droite, à l'ombre
+      h.chemin([P(L, 0), P(L, 1), ...arc(L, 1, 0)], h.a.ombre, true),
+      h.chemin(tour, h.a.contour, true),
       h.ligne(...P(0, 0), ...P(L, 0), h.a.arete),
       h.chemin(arc(L, ts, 0), h.a.arete),
       h.chemin(arc(L, 0, 1, 0.9), h.a.detail),
@@ -129,10 +137,14 @@ module.exports = (h) => {
       h.chemin(trace, h.a.detail, true),
       h.chemin(rim, h.a.arete, true),
       paroi(bl, cu, 0.5, 60, 0.29, 44, 0.16, 18, 0.05, 1.64, h.a.plein),
-      paroi(bl, cu, 0.5, 60, 0.29, 44, 0.16, 18, 1.64, Math.PI - 0.05, h.a.hachure('bois', 'detail')),
+      paroi(bl, cu, 0.5, 60, 0.29, 44, 0.16, 18, 1.64, Math.PI - 0.05, B(h.a.detail)),
+      // fil du bois dans la zone déjà grattée
+      ...[[0.27, 2.4, 6], [0.24, 2.0, 11], [0.21, 2.8, 14]].map(([b, th, dh]) => h.chemin(bl.creux(cu, 0.5, 52, b, dh, th - 0.35, th + 0.3, 12), h.a.detail)),
       h.chemin(bl.creux(cu, 0.5, 44, 0.16, 18, 0.12, Math.PI - 0.12), h.a.detail),
       ...eclats,
       couteau(tip[0], tip[1], -0.62, 72, 62),
+      // sens du raclage : parallèle à la lame, vers la zone grattée
+      h.geste(`M${r1(tip[0] + 70)},${r1(tip[1] - 92)} L${r1(tip[0] + 70 - 40 * Math.cos(0.62))},${r1(tip[1] - 92 + 40 * Math.sin(0.62))}`),
     ].join('\n');
   };
 
@@ -162,7 +174,7 @@ module.exports = (h) => {
     const dir = [-0.74, -0.67], nl = [0.67, -0.74], Lp = 200;
     const H = [pB[0] + dir[0] * Lp, pB[1] - 4 + dir[1] * Lp];
     const bord = (off0, off1) => [[H[0] + nl[0] * off0, H[1] + nl[1] * off0], [pB[0] + nl[0] * off1, pB[1] - 4 + nl[1] * off1]];
-    const o1 = bord(9, rs + 7), i1 = bord(3, rs + 1), o2 = bord(-9, -rs - 7), i2 = bord(-3, -rs - 1);
+    const o1 = bord(9, 17), i1 = bord(3, 11), o2 = bord(-9, -17), i2 = bord(-3, -11);
     const tour = (r) => { const a = []; for (let i = 0; i <= 14; i++) { const th = i / 14 * Math.PI; a.push([r1(H[0] + nl[0] * r * Math.cos(th) + dir[0] * r * Math.sin(th)), r1(H[1] + nl[1] * r * Math.cos(th) + dir[1] * r * Math.sin(th))]); } return a; };
     const pinceSvg = h.chemin([o1[1], o1[0], ...tour(9).slice(1, -1), o2[0], o2[1], i2[1], i2[0], ...tour(3).slice(1, -1).reverse(), i1[0], i1[1]].map(p => [r1(p[0]), r1(p[1])]), B(h.a.arete), true);
     const noeud = (k, cote) => { const p = [H[0] + (pB[0] - H[0]) * k + nl[0] * 9 * cote, H[1] + (pB[1] - 4 - H[1]) * k + nl[1] * 9 * cote]; return h.ligne(r1(p[0]), r1(p[1]), r1(p[0] + nl[0] * 7 * cote + dir[0] * 5), r1(p[1] + nl[1] * 7 * cote + dir[1] * 5), h.a.arete); };
@@ -191,7 +203,9 @@ module.exports = (h) => {
       h.ellipse(r1(pB[0]), r1(pB[1] + 4), 20, 4.5, h.a.detail),
       pinceSvg, noeud(0.34, 1), noeud(0.55, -1),
       // la pierre descend : flèche parallèle à la pince, dégagée de sa branche du dessus
-      h.fleche(`M${r1(pB[0] - 66)},${r1(pB[1] - 117)} L${r1(pB[0] - 18)},${r1(pB[1] - 74)}`, h.a.arete),
+      h.geste(`M${r1(pB[0] - 66)},${r1(pB[1] - 117)} L${r1(pB[0] - 18)},${r1(pB[1] - 74)}`),
+      // le point à vérifier : le niveau tenu haut contre le bord
+      h.controle(...bl.P(cu + 60, 0.24, 6), 11),
       // pierre refroidie, ressortie
       pierre(C.xa + C.L + C.ox + 34, g - 12, 17, 12, 65),
       h.fleche(`M${r1(bl.P(C.L - 10, 0.9)[0])},${r1(bl.P(C.L - 10, 0.9)[1] - 16)} Q${r1(C.xa + C.L + C.ox + 40)},${r1(yf - 96)} ${r1(C.xa + C.L + C.ox + 36)},${r1(g - 34)}`, h.a.cache),

@@ -15,6 +15,10 @@
 // ce qui se voit de devant est le dessous ; le dessus ne se devine qu'entre les feuilles, dedans.
 // Les tours de saule : un brin rond suivi par son axe, les tours vus de devant (un peu d'en haut),
 // ce qui passe dessous en tireté. Aucune main : l'objet et la flèche du geste.
+//
+// La charte : la pousse de saule, objet du geste dans les trois vues du bas, a son contour à 2,4.
+// Pas de gris : la hachure du dessus des feuilles donne déjà le foncé. Le rouge : les gestes —
+// tordre (les deux sens, une seule torsion), enrouler, tirer le bout repassé.
 module.exports = (h) => {
   const N = '#1A1A1A', B = '#FFFFFF';
   const f = v => Math.round(v * 10) / 10;
@@ -346,7 +350,7 @@ module.exports = (h) => {
     const rotation = (yc, sens) => {
       const rx = 24, ry = 6, pt = th => [XS + sens * rx * Math.sin(th), yc + ry * Math.cos(th)];
       const pts = (a, b, n = 24) => Array.from({ length: n + 1 }, (_, i) => pt(a + (b - a) * i / n));
-      return { dos: poly(pts(0.72 * Math.PI, 1.5 * Math.PI), h.a.arete, false), face: h.fleche(`M${pts(1.5 * Math.PI, 2.42 * Math.PI).map(P).join(' L')}`) };
+      return { dos: poly(pts(0.72 * Math.PI, 1.5 * Math.PI), h.a.geste, false), face: h.geste(`M${pts(1.5 * Math.PI, 2.42 * Math.PI).map(P).join(' L')}`) };
     };
     const hautR = rotation(Y1 - 20, 1), basR = rotation(Y2 + 20, -1);
     out.push(hautR.dos, basR.dos);
@@ -358,7 +362,7 @@ module.exports = (h) => {
       g.push([XS - r - tw * Math.sin((y - Y1) / 9 * TAU), y]);
       d.push([XS + r + tw * Math.sin((y - Y1) / 9 * TAU + Math.PI), y]);
     }
-    out.push(poly([[XS - r0 + 0.5, 6], [XS + r0 - 0.5, 4.5], ...d, ...g.reverse()], tr(1.4, B)));
+    out.push(poly([[XS - r0 + 0.5, 6], [XS + r0 - 0.5, 4.5], ...d, ...g.reverse()], tr(2.4, B)));
     // les fibres tordues, qui s'ouvrent un peu
     for (let y = Y1 + 5; y < Y2 - 3; y += 8.5) {
       out.push(h.path(`M${f(XS - r0 + 0.8)} ${f(y + 3.4)} Q${f(XS)} ${f(y + 1.2)} ${f(XS + r0 - 0.8)} ${f(y - 3.4)}`, tr(0.5)));
@@ -376,32 +380,59 @@ module.exports = (h) => {
   };
 
   // ─── 5 et 6. le lien, de près ────────────────────────────────────────────────────────
-  const CX = 128, RR = 36, TT = 12, YL = 80;
-  let ligE = null, ligF = null;
+  // Trois tours jointifs, chacun un brin rond distinct : le passage de devant descend en léger
+  // biais de gauche à droite, le retour derrière se devine au bord (bout arrondi). Le tour du
+  // haut part du début, couché sous les tours ; il descend tour après tour.
+  const CX = 128, RR = 36, TT = 12, YL = 80, RB = TT / 2 + 1.5;
+  const XG = CX - RR, XD = CX + RR, XDB = CX - 24, XT = CX + 15;
+  const yTour = (k, x) => YL + k * TT + (x - XG) / (XD - XG) * TT / 2 + 2.5 * Math.sin(Math.PI * (x - XG) / (XD - XG));
+  const mk = arr => arr.map((p, i) => ({ p, o: oDe(uni(sub(arr[Math.min(i + 1, arr.length - 1)], arr[Math.max(i - 1, 0)]))) }));
+  const passe = (k, x1, x2, n = 30) => Array.from({ length: n + 1 }, (_, i) => { const x = x1 + (x2 - x1) * i / n; return [x, yTour(k, x)]; });
+  const arcPts = (C, r, a1, a2, n = 10) => Array.from({ length: n + 1 }, (_, i) => { const a = a1 + (a2 - a1) * i / n; return add(C, [r * Math.cos(a), r * Math.sin(a)]); });
+  const yDebutBas = yTour(2, XDB) + TT / 2 + 30;
+  const lien = fini => {
+    const out = [], opt = { debut: 'rond', vDebut: [-1, 0], fin: 'rond', vFin: [1, 0], ep: 2.4 };
+    // le début : monte sous les tours, tourne et devient le tour du haut
+    const y0s = yTour(0, XDB + RB);
+    const deb = [[XDB, yDebutBas], [XDB, y0s + RB], ...arcPts([XDB + RB, y0s + RB], RB, Math.PI, 1.5 * Math.PI).slice(1), ...passe(0, XDB + RB, XD).slice(1)];
+    // le bout repassé : la fin du dernier tour tourne vers le haut, passe sous les deux tours
+    const yE = yTour(2, XT - RB), yHautBout = yTour(0, XT) - TT / 2 - 34;
+    if (fini) out.push(brin(mk([[XT, yTour(1, XT) + TT / 2 + 2], [XT, yHautBout]]), TT, { fin: 'biseau', ep: 2.4 }));
+    out.push(brin(mk(deb), TT, { debut: 'biseau', fin: 'rond', vFin: [1, 0], ep: 2.4 }));
+    if (fini) {
+      const der = [...passe(2, XG, XT - RB), ...arcPts([XT - RB, yE - RB], RB, Math.PI / 2, 0).slice(1), [XT, yTour(1, XT) + TT / 2 - 3]];
+      out.push(brin(mk(der), TT, { debut: 'rond', vDebut: [-1, 0], ep: 2.4 }));
+    }
+    out.push(brin(mk(passe(1, XG, XD)), TT, opt));
+    // ce qui passe dessous, en tireté
+    const c = h.a.cache, cach = [];
+    const a1 = yTour(1, XDB) - TT / 2 + 1, a2 = yTour(2, XDB) + TT / 2 - 1;
+    cach.push(h.ligne(XDB - TT / 2, a1, XDB - TT / 2, a2, c), h.ligne(XDB + TT / 2, a1, XDB + TT / 2, a2, c));
+    if (fini) {
+      const b1 = yTour(0, XT) - TT / 2 + 1, b2 = yTour(1, XT) + TT / 2 - 1;
+      cach.push(h.ligne(XT - TT / 2, b1, XT - TT / 2, b2, c), h.ligne(XT + TT / 2, b1, XT + TT / 2, b2, c));
+    }
+    return { svg: out.join('\n'), caches: cach.join('\n'), yHautBout };
+  };
+  let ligF = null;
   const enrouler = () => {
-    const out = [];
-    ligE = ligature(CX, RR, TT, YL, { etape: 'enrouler', ecart: 15 });
-    // la pousse libre : elle quitte le manche derrière, à gauche, et attend le tour suivant
-    const y3 = ligE.H.at(TAU * 3 - Math.PI / 2)[1];
-    const libre = echant([[CX - RR + 8, y3 - 2], [CX - RR - 6, y3 - 3], [CX - RR - 30, y3 - 12], [CX - RR - 54, y3 - 34], [CX - RR - 70, y3 - 62]], 2);
-    const pl = libre.map((p, i) => ({ p, o: oDe(uni(sub(libre[Math.min(i + 1, libre.length - 1)], libre[Math.max(i - 1, 0)]))) }));
-    out.push(brin(pl, TT));
-    out.push(manche(CX, RR, 6, 202, 5));
-    out.push(ligE.svg);
-    // le tour qui vient : il passe devant, de gauche à droite
-    const ya = ligE.yS1 + 38, ra = RR + 16;
+    const out = [manche(CX, RR, 6, 202, 5)];
+    const L = lien(false);
+    // la partie libre : la suite du tour du bas, tenue de côté, qui va passer derrière
+    const y2 = yTour(2, XD);
+    const libre = echant([...passe(2, XG, XD - 10, 6), [XD + 2, y2 + 1], [XD + 22, y2 + 8], [XD + 42, y2 + 26], [XD + 52, y2 + 58]], 2);
+    out.push(L.svg, brin(mk(libre), TT, { debut: 'rond', vDebut: [-1, 0], fin: 'biseau', ep: 2.4 }), L.caches);
+    // le tour qui vient : derrière de droite à gauche, puis devant de gauche à droite
+    const ya = yDebutBas + 14, ra = RR + 14;
     const pts = Array.from({ length: 29 }, (_, i) => { const th = -Math.PI / 2 - 0.3 + (Math.PI + 0.45) * i / 28; return [CX + ra * Math.sin(th), ya + 0.22 * ra * Math.cos(th)]; });
-    out.push(h.fleche(`M${pts.map(P).join(' L')}`));
+    out.push(h.geste(`M${pts.map(P).join(' L')}`));
     return out.join('\n');
   };
   const repasser = () => {
-    const out = [];
-    ligF = ligature(CX, RR, TT, YL, { etape: 'fini', ecart: 15 });
-    out.push(manche(CX, RR, 6, 202, 5));
-    out.push(ligF.svg);
-    // tirer le bout vers le haut pour serrer
-    const yt = ligF.yE2 - 22;
-    out.push(h.fleche(`M${ligF.xT} ${f(yt - 5)} L${ligF.xT} ${f(yt - 27)}`));
+    const out = [manche(CX, RR, 6, 202, 5)];
+    ligF = lien(true);
+    out.push(ligF.svg, ligF.caches);
+    out.push(h.geste(`M${XT} ${f(ligF.yHautBout - 6)} L${XT} ${f(ligF.yHautBout - 30)}`));
     return out.join('\n');
   };
 
@@ -442,14 +473,14 @@ module.exports = (h) => {
       enrouler: {
         titre: 'Enrouler serré', dessin: enrouler,
         renvois: z => [
-          { n: 8, rond: [z.l - 14, 60], cible: ligE ? [CX + 18, ligE.H.at(TAU)[1]] : [60, 60], texte: 'les tours, par-dessus le début' },
-          { n: 9, rond: [24, ligE ? f(ligE.yS1 + 16) : 150], cible: ligE ? [ligE.xL - 4.5, ligE.yS1 + 16] : [80, 80], texte: 'le début, couché le long du manche' },
+          { n: 8, rond: [z.l - 14, 60], cible: [CX + 20, yTour(1, CX + 20)], texte: 'les tours, par-dessus le début' },
+          { n: 9, rond: [24, f(yDebutBas - 12)], cible: [XDB - 4.5, yDebutBas - 12], texte: 'le début, couché le long du manche' },
         ],
       },
       repasser: {
         titre: 'Repasser le bout, tirer', dessin: repasser,
         renvois: z => [
-          { n: 10, rond: [z.l - 14, 46], cible: ligF ? [ligF.xT + 4, ligF.yE2 - 12] : [80, 80], texte: 'le bout repassé dans le manche' },
+          { n: 10, rond: [z.l - 14, 46], cible: [XT + 4, yTour(0, XT) - TT / 2 - 14], texte: 'le bout repassé dans le manche' },
         ],
       },
     },

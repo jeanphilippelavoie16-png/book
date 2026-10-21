@@ -8,6 +8,9 @@
 // Chapitre 42 : le contenant enfoncé dans la neige tassée jusqu'au bord, couvercle à demi,
 // contre le chaudron posé sur la croûte.
 // Aucune dimension au chapitre : aucune cote sur la planche. Le linge mouillé est en 50-08.
+// La charte : coupes hachurées sans gris ; l'épinette recule en gris loin, l'intérieur de la
+// chaudière en gris loin derrière les filets. Un seul rouge : le couvercle bien assis, que le
+// chapitre dit de ne pas prendre pour un détail.
 
 module.exports = (h) => {
   const f = v => Math.round(v * 10) / 10;
@@ -135,7 +138,7 @@ module.exports = (h) => {
     }
     droite.pop(); gauche.pop();
     const pts = [[x, yHaut]].concat(droite, [[x + 2.5, y1 + 3], [x + 2.5, ySol], [x - 2.5, ySol], [x - 2.5, y1 + 3]], gauche.reverse());
-    return h.chemin(pts.map(T), blanc(h.a.arete), true);
+    return [h.chemin(pts.map(T), h.a.loin, true), h.chemin(pts.map(T), h.a.arete, true)].join('\n');
   };
 
   // Chaudron en coupe : paroi, contenu, couvercle glissé à demi, oreilles.
@@ -246,8 +249,9 @@ module.exports = (h) => {
       h.chemin([[piquet[0] - 2.5, piquet[1]], [piquet[0] + 2.5, piquet[1]], [piquet[0] + 2.5, 124], [piquet[0], 129], [piquet[0] - 2.5, 124]].map(T), blanc(h.a.arete), true),
       // la corde
       h.path(`M${pt(T(sommet))} C${pt(T(c1))} ${pt(T(c2))} ${pt(T(piquet))}`, h.a.arete),
-      // la chaudière en coupe
-      h.chemin([[cx - wt / 2, yT], [cx - wb / 2, yB], [cx + wb / 2, yB], [cx + wt / 2, yT]].map(T), blanc(h.a.contour), true),
+      // la chaudière en coupe : l'intérieur en gris loin, les filets devant
+      h.chemin([[cx - wt / 2, yT], [cx - wb / 2, yB], [cx + wb / 2, yB], [cx + wt / 2, yT]].map(T), h.a.loin, true),
+      h.chemin([[cx - wt / 2, yT], [cx - wb / 2, yB], [cx + wb / 2, yB], [cx + wt / 2, yT]].map(T), h.a.contour, true),
       filet(yB - 17, 40, 14),
       filet(yB - 32, 44, 14),
       filet(yB - 47, 48, 14),
@@ -259,6 +263,8 @@ module.exports = (h) => {
       h.path(`M${pt(T(oreilleG))} C${pt(T([oreilleG[0], oreilleG[1] - 44]))} ${pt(T([oreilleD[0], oreilleD[1] - 44]))} ${pt(T(oreilleD))}`, h.a.arete),
       h.cercle(...T(oreilleG), 1.6, h.a.plein),
       h.cercle(...T(oreilleD), 1.6, h.a.plein),
+      // le point qui décide : le couvercle assis sur la lèvre (ouverte, c'est de la viande lavée)
+      h.controle(...T([cx + wt / 2 + 1, yT + 1]), 9),
     ].join('\n');
     const renvois = [
       { n: 1, rond: T([298, 84]), cible: T([cx + 15, yT - 9]), texte: 'Couvercle bien assis, roche en lest dessus' },

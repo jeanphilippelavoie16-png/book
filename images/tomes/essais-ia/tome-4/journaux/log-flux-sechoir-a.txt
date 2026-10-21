@@ -1,0 +1,31 @@
+{'id': 'a3f09f97-1831-4bf0-ac6b-2e6047dac6ff', 'kudos': 7.0}
+0 0 0 False
+15 374 188 False
+31 354 171 False
+46 338 164 False
+62 322 152 False
+77 296 136 False
+93 272 124 False
+109 266 115 False
+125 239 104 False
+140 199 91 False
+156 191 86 False
+171 172 80 False
+188 153 73 False
+203 136 67 False
+218 122 60 False
+234 106 53 False
+249 93 46 False
+264 78 40 False
+280 62 34 False
+295 53 30 False
+310 29 19 False
+326 18 13 False
+341 13 11 False
+357 13 7 False
+373 13 5 False
+388 0 0 False
+404 0 0 True
+ok t4-flux-sechoir-a 0 Flux.1-Schnell fp8 (Compact)
+ok t4-flux-sechoir-a 1 Flux.1-Schnell fp8 (Compact)
+FIN

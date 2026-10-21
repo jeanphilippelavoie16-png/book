@@ -27,7 +27,9 @@ const coins = (x0, x1, y0, y1, z0, z1) => {
 const dessus = (x0, x1, y0, y1, z) => [[x0, y0, z], [x1, y0, z], [x1, y1, z], [x0, y1, z]];
 const faceX = (x, y0, y1, z0, z1) => [[x, y0, z0], [x, y1, z0], [x, y1, z1], [x, y0, z1]];
 const faceY = (y, x0, x1, z0, z1) => [[x0, y, z0], [x1, y, z0], [x1, y, z1], [x0, y, z1]];
-const boite = (x0, x1, y0, y1, z0, z1) => [dessus(x0, x1, y0, y1, z1), faceX(x1, y0, y1, z0, z1), faceY(y1, x0, x1, z0, z1)];
+// La charte, comme 110-01a : la lumière vient d'en haut à gauche, les faces +x sont à l'ombre.
+const ombre = f => Object.assign(f, { ombre: true });
+const boite = (x0, x1, y0, y1, z0, z1) => [dessus(x0, x1, y0, y1, z1), ombre(faceX(x1, y0, y1, z0, z1)), faceY(y1, x0, x1, z0, z1)];
 const rond3 = (c, r, plan, n = 32) => {
   const o = [];
   for (let i = 0; i < n; i++) {
@@ -71,6 +73,7 @@ const repEn = z => {
 
 module.exports = (h) => {
   const BLANC = h.a.arete.replace('fill="none"', 'fill="#FFFFFF"');
+  const OMBRE = h.a.arete.replace('fill="none"', 'fill="#CFCFCF"');   // h.a.ombre, avec son arête
   const SOUS = h.a.contour.replace('fill="none"', 'fill="#FFFFFF"').replace('stroke-width="2.4"', 'stroke-width="3.4"');
   const PLEIN_BLANC = h.a.contour.replace('fill="none"', 'fill="#FFFFFF"');
   const AXE = h.a.fin + ' stroke-dasharray="8 3 1.5 3"';
@@ -78,7 +81,7 @@ module.exports = (h) => {
   const t3 = (P, a, b, at = h.a.detail) => h.ligne(...P(...a), ...P(...b), at);
   const piece = (P, groupes) =>
     groupes.flatMap(g => g[0]).map(f => poly(P, f, SOUS)).join('\n') + '\n' +
-    groupes.map(([faces, extra]) => faces.map(f => poly(P, f, BLANC)).join('\n') + '\n' + (extra || '')).join('\n');
+    groupes.map(([faces, extra]) => faces.map(f => poly(P, f, f.ombre ? OMBRE : BLANC)).join('\n') + '\n' + (extra || '')).join('\n');
   const trou = (P, c, r, plan) => poly(P, rond3(c, r, plan), h.a.plein);
   const cheville = (P, anneaux, plan, extra) => {
     const env = enveloppe(anneaux.flatMap(([c, r]) => rond3(c, r, plan).map(q => P(...q))));
@@ -122,7 +125,7 @@ module.exports = (h) => {
           const axe = t3(P, [99, 45, 170], [99, 45, 60 + LC], AXE);
           const cle = piece(P, [[[
             [[90, 52, 60 + LC], [90 + w(60), 52, 60 + LC], [90 + w(220), 52, 220 + LC], [90, 52, 220 + LC]],
-            [[90 + w(60), 38, 60 + LC], [90 + w(60), 52, 60 + LC], [90 + w(220), 52, 220 + LC], [90 + w(220), 38, 220 + LC]],
+            ombre([[90 + w(60), 38, 60 + LC], [90 + w(60), 52, 60 + LC], [90 + w(220), 52, 220 + LC], [90 + w(220), 38, 220 + LC]]),
             dessus(90, 90 + w(220), 38, 52, 220 + LC),
           ], [96, 102].map(x => t3(P, [x, 52, 66 + LC], [x, 52, 214 + LC])).join('\n')]]);
           return [traverse, montant, tenon, axe, cle].join('\n');
@@ -157,7 +160,9 @@ module.exports = (h) => {
           o.push(h.chemin([K(90 + w(170), 170), K(160, 170), K(160, 90), K(90 + w(90), 90)], h.a.contour));
           o.push(h.chemin([K(90, 60), K(90 + w(60), 60), K(90 + w(220), 220), K(90, 220)], PLEIN_BLANC, true));
           for (const x of [96, 102]) o.push(h.ligne(...K(x, 64), ...K(x, 216), h.a.detail));
-          o.push(h.fleche(`M${K(100, 258)} L${K(100, 226)}`));
+          o.push(h.geste(`M${K(100, 258)} L${K(100, 226)}`));   // la charte : chasser la clé, le geste en rouge
+          // le point à contrôler : la face droite de la clé porte contre le poteau
+          o.push(h.controle(...K(90, 200), 11));
           return o.join('\n');
         },
         renvois: z => {
@@ -177,9 +182,9 @@ module.exports = (h) => {
         dessin: z => {
           const [E, M] = repEn(z), g = GE;
           const bas = piece(E, [[[
-            dessus(80, 200, 0, 40, 20), faceX(80, 0, 40, 20, 40), dessus(0, 80, 0, 40, 40),
+            dessus(80, 200, 0, 40, 20), ombre(faceX(80, 0, 40, 20, 40)), dessus(0, 80, 0, 40, 40),
             [[0, 40, 0], [200, 40, 0], [200, 40, 20], [80, 40, 20], [80, 40, 40], [0, 40, 40]],
-            faceX(200, 0, 40, 0, 20),
+            ombre(faceX(200, 0, 40, 0, 20)),
           ], [
             t3(E, [3, 40, 30], [77, 40, 30]), t3(E, [3, 40, 10], [197, 40, 10]),
             trou(E, [110, 12, 20], 5, 'xy'), trou(E, [170, 28, 20], 5, 'xy'),
@@ -188,7 +193,7 @@ module.exports = (h) => {
           const haut = piece(E, [[[
             dessus(80, 280, 0, 40, g + 40),
             [[80, 40, g + 20], [200, 40, g + 20], [200, 40, g], [280, 40, g], [280, 40, g + 40], [80, 40, g + 40]],
-            faceX(280, 0, 40, g, g + 40),
+            ombre(faceX(280, 0, 40, g, g + 40)),
           ], [
             t3(E, [83, 40, g + 30], [277, 40, g + 30]), t3(E, [203, 40, g + 10], [277, 40, g + 10]),
             trou(E, [110, 12, g + 40], 5, 'xy'), trou(E, [170, 28, g + 40], 5, 'xy'),
@@ -204,7 +209,7 @@ module.exports = (h) => {
             dessus(0, 80, 0, 40, 40), dessus(80, 280, 0, 40, 40),
             [[0, 40, 0], [200, 40, 0], [200, 40, 20], [80, 40, 20], [80, 40, 40], [0, 40, 40]],
             [[80, 40, 20], [200, 40, 20], [200, 40, 0], [280, 40, 0], [280, 40, 40], [80, 40, 40]],
-            faceX(280, 0, 40, 0, 40),
+            ombre(faceX(280, 0, 40, 0, 40)),
           ], [
             t3(M, [3, 40, 30], [77, 40, 30]), t3(M, [83, 40, 30], [277, 40, 30]),
             t3(M, [3, 40, 10], [197, 40, 10]), t3(M, [203, 40, 10], [277, 40, 10]),

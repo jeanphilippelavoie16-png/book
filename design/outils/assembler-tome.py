@@ -1,15 +1,18 @@
 # -*- coding: utf-8 -*-
-"""Assemble un tome entier en un PDF intérieur prêt pour Blurb (livre photo « 20 × 25 cm »,
-Standard Portrait 8 × 10 po, téléversé par PDF to Book).
+"""Assemble un tome entier en un PDF intérieur prêt pour l'imprimeur : Lulu, Print Book, US Letter 8,5 × 11 po,
+couverture rigide Case Wrap (choix de JP, 19 octobre 2026 ; sources/lulu-specifications.md), ou Blurb, livre photo
+Standard Portrait 8 × 10 po (--format blurb-8x10 ; sources/blurb-specifications.md).
 
     python design/outils/assembler-tome.py 6
     python design/outils/assembler-tome.py 6 --chapitres 102,103      (essai sur quelques chapitres)
 
 Options :
-    --verso                un chapitre peut ouvrir sur une page de gauche (sinon : toujours à droite,
-                           avec une page blanche devant au besoin — c'est le cas actuel du design)
-    --couverture souple|imagewrap|jaquette   type de couverture pour la tranche (défaut : souple)
-    --hors-ligne           ne pas interroger le calculateur de Blurb pour la tranche
+    --format lulu-letter|blurb-8x10   format d'impression (défaut : lulu-letter ; build_chapitre.py, FORMATS)
+    --recto                un chapitre ouvre toujours à droite, avec une page blanche devant au besoin
+                           (par défaut depuis le 18 octobre 2026 : un chapitre peut ouvrir à gauche)
+    --couverture souple|imagewrap|jaquette   Blurb : type de couverture pour la tranche (défaut : souple) ;
+                           Lulu : couverture rigide Case Wrap, tranche lue au tableau du guide de Lulu
+    --hors-ligne           Blurb : ne pas interroger le calculateur pour la tranche
     --sans-apercus         pas de PNG de contrôle
     --refaire              ignorer le travail déjà fait (cache de livre/tome-N/travail/)
     --placements FICHIER   placements supplémentaires, priorité sur tout le reste (pour un essai)
@@ -31,7 +34,11 @@ les planches de images/a-valider/ (build_chapitre.DOSSIERS_PLANCHES : JP les rel
     les pages ne sortent pas de chapitre.js (le 00 d'ancrage.py), un script de secours le pose ;
   - le côté de la première page (?par=0 : recto ; ?par=1 : verso), pour --verso ; un chapitre à
     pages fixes ouvre toujours au recto ;
-  - un rapport (#tome-rapport) : pages, avertissements du paginateur, figures posées, sections.
+  - un rapport (#tome-rapport) : pages, avertissements du paginateur, figures posées (un logigramme en double page,
+    clé « logigramme » des placements, compte comme une figure « double page » ; l'assembleur vérifie qu'il commence
+    sur une page de gauche, ce que chapitre.js garantit), sections, et les pages de la
+    série des premières minutes (encadré orange, marqueur {.orange} : CLAUDE.md), qui donnent la colonne orange du
+    sommaire, la section « Premières minutes » du rapport et l'aperçu 05.
 L'onglet de tranche à 12 pt des chapitres à trois chiffres est dans couleur.css depuis le 28 septembre 2026
 (variante.py pose .chn3). Le folio de chapitre « 102-7 » du design reste tel quel.
 
@@ -43,12 +50,23 @@ Placements : design/epreuves-livre/placements.json, puis placements-tome-N.json 
 élément par élément : planche par « id », photo par « fichier »), puis --placements. Une planche marquée
 « poser »: false n'est pas posée, même à valider (34-01).
 
+Exigences de Lulu : sources/lulu-specifications.md (page 8,75 × 11,25 po, fond perdu de 0,125 po sur les quatre
+côtés ; zone sûre de 0,5 po pour tout ce qui compte, numéros de page compris ; marge intérieure recommandée de 1 po
+de 151 à 400 pages ; 24 à 800 pages en Case Wrap ; polices incorporées ; transparence aplatie).
 Exigences de Blurb : sources/blurb-specifications.md (page 8,125 × 10,25 po avec fond perdu en tête,
 en pied et au bord extérieur ; nombre de pages pair, 20 à 440 en papier Standard ; polices incorporées).
 """
 import sys, os, re, io, json, glob, time, shutil, html, base64, hashlib, contextlib, urllib.parse
 
-ROOT = r"C:\Users\jeanp\New folder"
+def _racine_livre():
+    # Windows (le PC de JP) : le dossier d'origine ; ailleurs (session dans le nuage) : le dépôt qui contient ce fichier
+    if os.name == "nt":
+        return r"C:\Users\jeanp\New folder"
+    d = os.path.dirname(os.path.abspath(__file__))
+    while d != os.path.dirname(d) and not os.path.exists(os.path.join(d, "CLAUDE.md")):
+        d = os.path.dirname(d)
+    return d
+ROOT = _racine_livre()
 VAR_TOOLS = os.path.join(ROOT, "design", "variantes-couleur", "outils")
 sys.path.insert(0, VAR_TOOLS)
 import variante as v          # noqa: E402  (variante C : couleur.css, pictogrammes, étapes marquées)
@@ -57,16 +75,45 @@ bc = v.bc                     # build_chapitre.py : moteur, table des tomes, Edg
 import pypdf                                   # noqa: E402
 from pypdf.generic import RectangleObject      # noqa: E402
 
-# ------------------------------------------------------------------ Blurb (sources/blurb-specifications.md)
+# ------------------------------------------------------------------ format d'impression
+# La grille (CSS) et les boîtes du PDF viennent de build_chapitre.py (FORMATS, boites) ; ici, ce que l'imprimeur
+# exige du fichier, pour le contrôle du rapport. regler_format() pose les valeurs du format choisi.
 PT = 72
-PAGE_W, PAGE_H = 585, 738          # 8,125 × 10,25 po : « Final, exported PDF should measure »
-TRIM_W, TRIM_H = 576, 720          # 8,0 × 10,0 po
-BLEED = 9                          # 0,125 po, en tête, en pied et au bord extérieur seulement
-SAFE_OUT = 18                      # 0,25 po : tête, pied, bord extérieur
-SAFE_BIND = 36                     # 0,5 po au petit fond (tableau du calculateur ; son texte dit 0,625)
-PAGES_MIN, PAGES_MAX, MULTIPLE = 20, 440, 2   # papier Standard ; « Even number of pages »
+IMPRIMEURS = {
+    # sources/lulu-specifications.md : 24 à 800 pages en Case Wrap (« Book Sizes ») ; le nombre pair est un choix du
+    # livre (la dernière page est une page de gauche), pas une exigence de Lulu
+    "lulu-letter": dict(imprimeur="Lulu", source="sources/lulu-specifications.md", releve="19 octobre 2026",
+                        pages_min=24, pages_max=800, sur=36, rel=72),   # zone sûre 0,5 po ; petit fond 1 po
+    # sources/blurb-specifications.md : « Even number of pages », 20 à 440 en papier Standard ; zone sûre 0,25 po,
+    # 0,5 po au petit fond (tableau du calculateur ; son texte dit 0,625)
+    "blurb-8x10": dict(imprimeur="Blurb", source="sources/blurb-specifications.md", releve="27 septembre 2026",
+                       pages_min=20, pages_max=440, sur=18, rel=36),
+}
+MULTIPLE = 2
+
+def regler_format(nom):
+    global PAGE_W, PAGE_H, PAGES_MIN, PAGES_MAX, IMP
+    bc.FORMAT = nom
+    PAGE_W, PAGE_H = bc.fmt()["page_pt"]
+    IMP = IMPRIMEURS[nom]
+    PAGES_MIN, PAGES_MAX = IMP["pages_min"], IMP["pages_max"]
+
 CALC_URL = "https://www.blurb.com/make/pdf_to_book/booksize_calculator"
 COUVERTURES = {"souple": "softcover", "imagewrap": "lithowrap", "jaquette": "hardcover"}
+# Lulu, couverture rigide : la tranche se lit au tableau du guide (p. 14), par paliers de pages
+# (sources/lulu-specifications.md, §3) : (dernière page du palier, tranche en po)
+TRANCHE_LULU_RIGIDE = [(84, "0.25"), (140, "0.5"), (168, "0.625"), (194, "0.688"), (222, "0.75"), (250, "0.813"),
+                       (278, "0.875"), (306, "0.938"), (334, "1"), (360, "1.063"), (388, "1.125"), (416, "1.188"),
+                       (444, "1.25"), (472, "1.313"), (500, "1.375"), (528, "1.438"), (556, "1.5"), (582, "1.563"),
+                       (610, "1.625"), (638, "1.688"), (666, "1.75"), (694, "1.813"), (722, "1.875"), (750, "1.938"),
+                       (778, "2"), (799, "2.063"), (800, "2.125")]
+
+def tranche_lulu(pages):
+    if pages < 24:
+        return None
+    return next((t for fin, t in TRANCHE_LULU_RIGIDE if pages <= fin), None)
+
+regler_format(bc.FORMAT)
 
 EPR = os.path.join(ROOT, "design", "epreuves-livre")
 
@@ -123,20 +170,23 @@ def placements(tome, extra=None):
 
 # ------------------------------------------------------------------ ce que l'assembleur ajoute au HTML d'un chapitre
 TOME_JS = ("<script>var TOME=(function(){var q=new URLSearchParams(location.search);"
-           "return {off:q.has('off')?+q.get('off'):null,par:+(q.get('par')||0)};})();</script>\n")
+           "var dg={};(q.get('dg')||'').split(',').forEach(function(x){var p=x.split('.');if(p[1])dg[p[0]]=p[1];});"
+           "return {off:q.has('off')?+q.get('off'):null,par:+(q.get('par')||0),dg:dg};})();</script>\n")
 SIDE_OLD = "const n = PAGES.length + 1, side = n % 2 ? 'recto' : 'verso';"
 SIDE_NEW = "const n = PAGES.length + 1, side = (n + TOME.par) % 2 ? 'recto' : 'verso';"
 FIN_OLD = "function finishPages(){"
-FIN_NEW = ("function finishPages(){\n  if(TOME.off !== null) PAGES.forEach(p => { if(p.kind === 'open') return;"
+FIN_NEW = ("function finishPages(){\n  document.querySelectorAll('.pnum').forEach(s => { const n = TOME.dg[s.dataset.pg]; if(n) s.textContent = 'p. ' + n; });\n  if(TOME.off !== null) PAGES.forEach(p => { if(p.kind === 'open') return;"
            " const f = document.createElement('div'); f.className = 'fcont'; f.textContent = TOME.off + p.n; p.el.appendChild(f); });")
-# numéro de page du tome : en pied, à la hauteur de l'échelle des sections, dans la marge extérieure,
-# entre le bloc (0,5 po du rognage) et la limite sûre de Blurb (0,25 po du rognage)
+# numéro de page du tome : en pied, à la hauteur de l'échelle des sections, au bord extérieur. Blurb : dans la marge
+# extérieure, entre le bloc (0,5 po du rognage) et la limite sûre (0,25 po). Lulu : la marge extérieure est la zone
+# sûre (0,5 po, « page numbers » compris) ; le numéro entre dans la largeur du bloc, au bout du pied, que le format
+# raccourcit d'autant (build_chapitre.py, FORMATS : fc-r, fc-v, ft-r, ft-v, ftw)
 FCONT_CSS = """
 /* assembler-tome.py : numéro de page continu du tome */
-.fcont{position:absolute;top:9.52in;height:0.2in;width:0.2in;display:flex;align-items:center;
+.fcont{position:absolute;top:var(--ftt);height:0.2in;width:0.2in;display:flex;align-items:center;
   font:600 8pt/1 var(--sans);letter-spacing:.01em;color:var(--k70);white-space:nowrap;font-variant-numeric:lining-nums tabular-nums}
-.recto .fcont{left:7.565in;justify-content:flex-start}
-.verso .fcont{left:0.36in;justify-content:flex-end}
+.recto .fcont{left:var(--fc-r);justify-content:var(--fc-jr)}
+.verso .fcont{left:var(--fc-v);justify-content:var(--fc-jv)}
 """
 FOLIO_SECOURS_JS = r"""<script>
 (function(){
@@ -156,14 +206,22 @@ RAPPORT_JS = r"""<script>
     if(document.documentElement.dataset.ready !== '1') return; clearInterval(t);
     const st = JSON.parse(document.getElementById('stats').textContent);
     const num = el => { const p = el.closest('.page'); return p ? +p.id.slice(p.id.lastIndexOf('-') + 1) : null; };
-    const out = {pages: st.pages || document.querySelectorAll('#book > .page').length, warn: st.warn || [], mots: st.mots || {}, figs: [], secs: {}, cotes: ''};
+    const out = {pages: st.pages || document.querySelectorAll('#book > .page').length, warn: st.warn || [], mots: st.mots || {}, figs: [], secs: {}, cotes: '', notes: st.notes || []};
     document.querySelectorAll('#book > .page').forEach(p => out.cotes += p.classList.contains('recto') ? 'r' : 'v');
     document.querySelectorAll('.page img.planche').forEach(i => out.figs.push({id: (i.alt || '').replace(/^Planche\s*/, ''), page: num(i), taille: 'pleine', src: i.getAttribute('src')}));
     document.querySelectorAll('.page figure.fig.pl').forEach(f => { const i = f.querySelector('img'); out.figs.push({id: f.dataset.id, page: num(f), taille: 'demi', src: i ? i.getAttribute('src') : ''}); });
+    // logigramme en double page : sa première page seulement (la seconde suit)
+    document.querySelectorAll('.page.spread.verso, .page.spread.recto').forEach(pg => { if(pg.previousElementSibling && pg.previousElementSibling.classList.contains('spread')) return;
+      out.figs.push({id: pg.dataset.spread, page: +pg.id.slice(pg.id.lastIndexOf('-') + 1), taille: 'double', src: '', cote: pg.classList.contains('verso') ? 'v' : 'r'}); });
     document.querySelectorAll('.page figure.fig.ph img').forEach(i => { const r = i.getBoundingClientRect();
       out.figs.push({id: 'photo', src: i.getAttribute('src'), page: num(i), taille: i.closest('figure').classList.contains('demi') ? 'demi' : 'quart',
                      w: r.width / 96, h: r.height / 96, nw: i.naturalWidth, nh: i.naturalHeight}); });
     document.querySelectorAll('.page h2.sec[data-n]').forEach(h => { const n = h.dataset.n; if(!(n in out.secs)) out.secs[n] = num(h); });
+    // la Danger et la variante d'urgence par leur classe : leur numéro passe de 8 et 9 à 7 et 8 (gabarit à huit sections)
+    const hd = document.querySelector('.page h2.sec.s8'), hv = document.querySelector('.page h2.sec.s9');
+    if(hd) out.secs.d = num(hd); if(hv) out.secs.v = num(hv);
+    // la série des premières minutes (encadré orange) : ses pages, dans le chapitre
+    out.orange = Array.from(new Set(Array.from(document.querySelectorAll('.page .orange')).map(num)));
     const b = btoa(unescape(encodeURIComponent(JSON.stringify(out))));
     document.body.className = '';
     document.body.innerHTML = '<pre style="font:9px/1.25 \'Courier New\',monospace;white-space:pre-wrap;word-break:break-all;margin:0.4in">@@' + b + '@@</pre>';
@@ -249,11 +307,13 @@ def pdf_args(page_url, cible):
     return ["--no-pdf-header-footer", "--print-to-pdf-no-header", f"--print-to-pdf={cible}", page_url]
 
 def png_args(page_url, cible):
-    return ["--force-device-scale-factor=2", "--window-size=768,960", f"--screenshot={cible}", page_url]
+    return ["--force-device-scale-factor=2", "--window-size=%d,%d" % bc.fmt()["px"], f"--screenshot={cible}", page_url]
 
 def lire_rapport(pdf):
-    txt = "".join((pg.extract_text() or "") for pg in pypdf.PdfReader(pdf).pages)
-    m = re.search(r"@@(.*?)@@", txt, re.S)
+    # le texte du rapport revient coupé en lignes, parfois au milieu du « @@ » de fin (ch. 16, 19 octobre 2026) :
+    # le base64 n'a pas de blanc, on les enlève tous avant de chercher
+    txt = re.sub(r"\s+", "", "".join((pg.extract_text() or "") for pg in pypdf.PdfReader(pdf).pages))
+    m = re.search(r"@@(.*?)@@", txt)
     if not m:
         return None
     try:
@@ -386,22 +446,28 @@ def tranche_blurb(pages, couverture):
 # ------------------------------------------------------------------ pages hors chapitres (titre, sommaire, crédits)
 ANNEXE_CSS = """
 /* assembler-tome.py : page de titre, sommaire, crédits */
-.tp-aplat{position:absolute;left:0;right:0;top:0;height:5.55in;background:repeating-linear-gradient(135deg,var(--tx) 0 1.1px,transparent 1.1px 5px),var(--tf)}
-.tp .block{justify-content:flex-start}
-.tp-head{position:relative;display:flex;justify-content:space-between;align-items:flex-end;padding-bottom:6pt;border-bottom:3pt solid var(--tfi);
-  color:var(--tfi);font:700 12pt/1 var(--sans);letter-spacing:.16em;text-transform:uppercase}
-.tp-head span:last-child{font-weight:600;font-size:10pt;letter-spacing:.14em}
-.tp-title{position:relative;margin:0.32in 0 0;width:4.3in;color:var(--tfi);font:700 58pt/1.02 var(--sans);text-transform:uppercase;letter-spacing:.005em;hyphens:manual}
-.tp-num{position:absolute;right:-0.05in;top:1.05in;color:var(--tfn);font:700 330pt/0.72 var(--sans);letter-spacing:-.03em}
-.tp-chap{position:absolute;left:0;right:0;top:4.95in;display:flex;justify-content:space-between;align-items:baseline;
-  padding-top:7pt;border-top:0.75pt solid var(--k);font:600 10pt/1.2 var(--sans);letter-spacing:.06em;text-transform:uppercase}
-.tp-chap b{font-weight:700}
-.tp-serie{position:absolute;left:0;right:0;bottom:0.02in;display:flex;gap:3pt}
-.tp-serie div{display:flex;flex-direction:column;gap:4pt;min-width:0}
-.tp-serie i{display:block;height:0.3in;border:1.25pt solid var(--k);font:700 12pt/0.28in var(--sans);font-style:normal;padding-left:5pt}
-.tp-serie div.on i{background:var(--tf);border-color:var(--tf);color:var(--tfi)}
-.tp-serie small{font:600 7.5pt/1.15 var(--sans);letter-spacing:.04em;text-transform:uppercase}
-.tp-serie div.on small{font-weight:700}
+/* page de titre : l'affiche du Nord, la nuit d'hiver (JP, 18 octobre 2026, plan de match point 30). L'image couvre la
+   page entière, fond perdu compris. Le texte se pose sur le repère de la page rognée (.tp-sc : 768 × 960 px en Blurb,
+   816 × 1056 px chez Lulu), à 0,5 po au moins du rognage chez Lulu et à 1 po du petit fond (--tp-g ; FORMATS de
+   build_chapitre.py). L'ancienne scène dessinée (images/tomes/titre-tome-N.svg) est en px de la page Blurb. */
+.page.tp{background:#15222B}
+.tp-sc{position:absolute;left:var(--tp-x);top:var(--tp-y);width:var(--tp-w);height:var(--tp-h);font-family:"Barlow Condensed",var(--sans)}
+.tp-sc>svg{position:absolute;left:0;top:0;overflow:visible}
+.tp-img{position:absolute;left:0;top:0;width:var(--pw);height:var(--ph);object-fit:cover;object-position:center top;display:block}
+.tp-head{position:absolute;left:var(--tp-g);right:56px;top:52px;display:flex;justify-content:space-between;padding-bottom:12px;
+  border-bottom:1px solid #4A6476;color:#E2E7EA;font-weight:600;font-size:16px;letter-spacing:.24em;text-transform:uppercase}
+.tp-haut{position:absolute;left:var(--tp-gh);right:56px;top:104px;display:flex;flex-direction:column;color:#E2E7EA}
+.tp-title{margin:0;font-weight:800;font-size:var(--tpt,236px);line-height:.84;letter-spacing:.01em;text-transform:uppercase;hyphens:manual}
+.tp-haut.c .tp-title{align-self:stretch}
+.tp-haut.c .tp-sous{margin-left:0;max-width:480px}
+.tp-sous{margin:26px 0 0 8px;max-width:380px;text-indent:0;font-weight:500;font-size:23px;line-height:1.28;letter-spacing:.01em;color:#B9C7D1}
+.tp-bas{--bas:#15222B;--bas-txt:#fff;position:absolute;left:176px;right:176px;bottom:var(--tp-b);display:flex;flex-direction:column;gap:12px;color:var(--bas)}
+.tp-chap{display:flex;justify-content:space-between;font-weight:700;font-size:14px;letter-spacing:.16em;text-transform:uppercase}
+.tp-serie{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px;font-weight:600;font-size:10.5px;line-height:1.15;
+  letter-spacing:.03em;text-transform:uppercase}
+.tp-serie div{display:flex;flex-direction:column;gap:4px}
+.tp-serie i{display:block;height:20px;border:1px solid var(--bas);font-style:normal;font-size:13px;line-height:20px;padding-left:6px}
+.tp-serie div.on i{height:22px;border:0;background:var(--bas);color:var(--bas-txt);line-height:22px}
 
 .ax-top{display:flex;justify-content:space-between;padding-bottom:5pt;border-bottom:0.75pt solid var(--ta);
   font:600 8pt/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
@@ -422,10 +488,15 @@ table.som td.no{width:0.62in}
 table.som td.no span{display:inline-block;min-width:25pt;padding:0 3pt;height:21pt;background:var(--tsq);color:#fff;text-align:center;font:700 13pt/21pt var(--sans)}
 table.som td.ti{font-weight:700;font-size:12pt}
 table.som td.li{white-space:nowrap;color:var(--k70);font-size:8.6pt;letter-spacing:.06em;text-transform:uppercase}
-table.som td.li i{display:inline-block;width:17pt;height:11pt;margin-right:4pt;vertical-align:-1.5pt;background:currentColor;-webkit-mask:center/contain no-repeat;mask:center/contain no-repeat}
-table.som td.li i.m{-webkit-mask-image:var(--i-maison);mask-image:var(--i-maison)}
-table.som td.li i.c{-webkit-mask-image:var(--i-chalet);mask-image:var(--i-chalet)}
-table.som td.li i.d{-webkit-mask-image:var(--i-deux);mask-image:var(--i-deux)}
+/* pictogramme de lieu (option A, 15 octobre 2026) : 13 px (9,75 pt), image de fond déjà en noir --k (variante.py,
+   icon_vars ; pas de masque : le PDF d'Edge en faisait un masque de transparence à filet gris). Tailles en px entiers :
+   Edge cale l'image de fond sur le pixel CSS à l'impression, une taille fractionnaire donne des pictos de 12 ou 13 px
+   d'une ligne à l'autre. La boîte a la largeur du dessin ; la marge complète jusqu'à la largeur de « Les deux »
+   (30 px) pour que les mots restent alignés */
+table.som td.li i{display:inline-block;width:30px;height:13px;margin-right:4pt;vertical-align:-2px;background:center/100% 100% no-repeat}
+table.som td.li i.m{width:11px;margin-right:calc(4pt + 19px);background-image:var(--i-maison-k)}
+table.som td.li i.c{width:18px;margin-right:calc(4pt + 12px);background-image:var(--i-chalet-k)}
+table.som td.li i.d{background-image:var(--i-deux-k)}
 table.som td.pg{text-align:right;font:700 13pt/1 var(--sans);width:0.55in}
 table.som td.s8,table.som td.s9{text-align:right;width:0.95in;font:600 10pt/1 var(--sans)}
 table.som th{white-space:nowrap}
@@ -433,6 +504,17 @@ table.som th.r{text-align:right}
 table.som th .sq{display:inline-block;width:11pt;height:11pt;margin-right:3pt;background:var(--k);color:#fff;text-align:center;font:700 7.5pt/11pt var(--sans);letter-spacing:0}
 table.som th .sq.d{background:var(--red)}
 table.som th.s9 .sq{background:var(--t9)}
+/* premières minutes (15 octobre 2026) : la page où commence la série orange, en pastille pleine, chiffre noir ;
+   colonne posée seulement si un chapitre du tome a sa série. Pictogramme noir en image de fond (pas de masque),
+   boîte en px entiers */
+table.som.or td.s8,table.som.or td.s9{width:0.8in}
+table.som td.sor{text-align:right;width:0.82in}
+table.som td.sor span{display:inline-block;min-width:26pt;padding:0 4pt;background:var(--or);color:#000;text-align:center;font:700 11.5pt/17pt var(--sans)}
+table.som th.sor{line-height:1.05}
+table.som th .sq.o{width:15px;height:15px;vertical-align:-3px;background-color:var(--or);background-image:var(--i-minuteur-k);
+  background-position:center;background-size:11px 11px;background-repeat:no-repeat}
+table.som.serre td.sor span{font-size:10.5pt;line-height:15pt}
+table.som.serre2 td.sor span{font-size:9.5pt;line-height:13pt;min-width:22pt}
 table.som tr.cr td{border-top:1.5pt solid var(--ta)}
 table.som tr.cr td.ti{font-weight:600;font-size:10.5pt}
 table.cred{font-size:8pt;line-height:10.4pt}
@@ -440,6 +522,9 @@ table.cred td{padding-top:4pt;padding-bottom:4pt}
 table.cred td.pg{font:700 9pt/10.4pt var(--sans);white-space:nowrap}
 table.cred td.ln{font:500 7.2pt/9.4pt var(--sans);word-break:break-all;color:var(--k70)}
 .page.ax::after,.page.tp::after{content:none;display:none}
+.dd .block{justify-content:flex-start}
+.dd-txt{margin:2.6in 0 0;text-align:center;text-indent:0;font:italic 400 21pt/1.45 var(--serif);color:var(--k)}
+.dd-2{font-size:15pt}
 .ax-vide{margin-top:18pt;padding:10pt 12pt;background:var(--tp);border-left:3pt solid var(--ta);font:500 10pt/13.5pt var(--sans)}
 """
 
@@ -458,9 +543,21 @@ ANNEXE_JS = r"""<script>
     for(const rp of [3, 2.5, 2, 1.5, 1]){ t.style.setProperty('--rp', rp + 'pt'); if(!over()) return; }
   };
   const faces = ['700 12pt "IBM Plex Sans Condensed"', '600 10pt "IBM Plex Sans Condensed"', '500 10pt "IBM Plex Sans Condensed"',
-                 '700 58pt "IBM Plex Sans Condensed"', '500 9pt "IBM Plex Serif"'];
+                 '500 9pt "IBM Plex Serif"', '800 60px "Barlow Condensed"', '600 16px "Barlow Condensed"', '500 23px "Barlow Condensed"'];
+  // page de titre : le nom du tome rapetisse tant qu'il dépasse la largeur de la page ou deux lignes
+  const titre = () => {
+    const h = document.querySelector('.tp-title'); if(!h) return;
+    const lh = px => px * 0.84;
+    const bloc = h.closest('.tp-haut'), sc = h.closest('.tp-sc');
+    const max = bloc && bloc.dataset.max ? parseFloat(bloc.dataset.max) : Infinity;
+    for(let px = 236; px >= 60; px -= 4){
+      h.style.setProperty('--tpt', px + 'px');
+      const bas = bloc ? bloc.getBoundingClientRect().bottom - sc.getBoundingClientRect().top : 0;
+      if(h.scrollWidth <= h.clientWidth + 0.5 && h.getBoundingClientRect().height <= 2 * lh(px) + 1 && bas <= max) return;
+    }
+  };
   Promise.all(faces.map(f => document.fonts.load(f))).then(() => document.fonts.ready).then(() => {
-    fit(); document.documentElement.dataset.ready = '1';
+    fit(); titre(); document.documentElement.dataset.ready = '1';
   });
   const h = location.hash;
   if(h.startsWith('#page=')){
@@ -485,59 +582,379 @@ def pied(page_no, cote):
 def tete_html(titre_doc):
     """<head> des pages hors chapitres : gabarit, chapitre.css, couleur.css, pictogrammes, CSS de l'assembleur."""
     head_tpl = open(os.path.join(os.path.dirname(bc.__file__), "interieur.tpl.html"), encoding="utf-8").read()
-    head = head_tpl[:head_tpl.index("</style>")]
+    head = bc.appliquer_format(head_tpl[:head_tpl.index("</style>")])
     head = re.sub(r"<title>.*?</title>", f"<title>{e(titre_doc)}</title>", head)
+    # la page de titre est en Barlow Condensed (direction B, 18 octobre 2026)
+    head = head.replace("<style>", '<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&display=block" rel="stylesheet">\n<style>', 1)
     css = (open(os.path.join(os.path.dirname(bc.__file__), "chapitre.css"), encoding="utf-8").read()
            + open(os.path.join(VAR_TOOLS, "couleur.css"), encoding="utf-8").read()
            + "\n" + v.icon_vars() + "\n" + FCONT_CSS + ANNEXE_CSS)
     return head + css + "</style>\n</head>\n"
+
+# le bas de la page de titre (chapitres, série des tomes) se lit mal sur une image chargée (les lignes de l'eau du
+# tome 3) : un aplat de la couleur du papier de l'image, derrière le bloc
+# l'aplat papier sous le bloc des tomes, seulement là où l'image est trop chargée pour le lire sans lui (les lignes de
+# l'eau au tome 3, le feu et l'herbe au tome 4, les épinettes au tome 6) ; ailleurs, le bloc se pose sur l'image comme au
+# tome 1 (JP, 18 octobre 2026 : la disposition du tome 1)
+TP_BAS_FOND = {3: "#E4DCBD", 4: "#F5EACD", 6: "#F7EBD3"}
+# l'encre du titre quand l'image de titre a un fond clair (tome 2 : le mur couleur papier, JP, 18 octobre 2026)
+TP_ENCRE = {}           # titre, sous-titre, filet de l'en-tête
+
+# ce que le tome couvre, sous son nom sur la page de titre (les tomes 2 à 6 viendront avec leur scène)
+SOUS_TITRES = {1: "Rester ou partir, la panne, les retombées, le feu de forêt, l'eau, le froid, se déplacer, les voisins.",
+               # la même disposition aux six tomes (JP, 18 octobre 2026 : « adapte-les comme on a fait pour le tome 1,
+               # je parle de la disposition ») : les sujets du tome, tirés de son sommaire
+               2: "Manger pour passer l'hiver, soigner sans personne, les plantes qui soignent, l'hygiène, le moral, les enfants.",
+               3: "Lire le territoire, pister, le petit gibier, l'ours, les oiseaux d'eau, le phoque, la truite, les filets.",
+               4: "Abattre et découper, le sel, le fumage, le pemmican, le poisson, les conserves, le caveau, la fermentation.",
+               5: "Le poêle, la lumière, le pain, les raquettes et le canot, la cueillette, le jardin, les semences, l'élevage.",
+               6: "Le cuir, coudre, affûter, la scie à chaîne, souder, le bois, le métal, le savon."}
+# le bas du bloc du titre et du sous-titre, en px du repère de la page de titre : au-dessus de ce que l'image dessine
+# à gauche (mesuré sur chaque image) ; le titre rapetisse s'il le faut
+TP_HAUT_MAX = {2: 509, 3: 420, 4: 432, 5: 405, 6: 345}
+# la place du titre selon l'image (JP, 18 octobre 2026 : « adapte la grosseur et le positionnement des titres en fonction
+# de leur image ») : droite = la marge droite du bloc en px (le titre rapetisse pour tenir dans la largeur qui reste),
+# centre = titre et sous-titre centrés. Tome 3 : le soleil au milieu du lac ; tome 4 : les épinettes montent à droite ;
+# tome 6 : la lune dans le coin, en haut à droite.
+TP_MISE = {3: dict(centre=True), 4: dict(droite=215), 6: dict(droite=150)}
+# le sous-titre : une teinte claire du ciel de chaque image (le gris-bleu du tome 1 jure sur le rouge et le brun)
+TP_SOUS = {2: "#E8C8BC", 3: "#C9D8CC", 4: "#C3D5D9", 5: "#E3CDAE", 6: "#CDD1CF"}
+# le bloc des tomes en bas, posé sur l'image sans aplat, comme au tome 1 : encre foncée sur une image claire, encre
+# claire sur une image foncée (texte, puis texte de la case du tome)
+TP_BAS_ENCRE = {2: ("#F1E3CF", "#5E1B15"), 5: ("#F2E4CC", "#3E2913")}
 
 def annexe_html(tome, chaps, plan, work):
     """Page de titre et sommaire du tome (les seules pages du livre hors chapitres)."""
     titre_t, fond, encre = bc.TOMES[tome]
     pages = []
     cote = lambda n: "recto" if n % 2 else "verso"
-    # --- page de titre (page 1, recto)
-    comptes = {t: len(chapitres_du_tome(t)) for t in bc.TOMES}
-    serie = "".join(f'<div class="{"on" if t == tome else ""}" style="flex:{comptes[t]}"><i>{t}</i><small>{e(bc.TOMES[t][0])}</small></div>'
+    # --- page de titre (recto) : l'affiche du Nord, la nuit d'hiver (JP, 18 octobre 2026). La scène est propre au
+    #     tome (images/tomes/titre-tome-N.svg) ; un tome qui n'a pas encore la sienne prend celle du tome 1
+    serie = "".join(f'<div class="{"on" if t == tome else ""}"><i>{t}</i><span>{e(bc.TOMES[t][0])}</span></div>'
                     for t in sorted(bc.TOMES))
     premier, dernier = chaps[0]["num"], chaps[-1]["num"]
     nb = len(chaps)
-    pages.append(f'''<section class="page recto tp" id="a-titre"><div class="tp-aplat"></div>
-<div class="block"><div class="tp-head"><span>Le Grand Livre du Chalet</span><span>Tome {tome}</span></div>
-<h1 class="tp-title">{e(titre_t)}</h1><div class="tp-num">{tome}</div>
-<div class="tp-chap"><span>Chapitres <b>{aff(premier)}</b> à <b>{aff(dernier)}</b></span><span>{nb} chapitres</span></div>
-<div class="tp-serie">{serie}</div></div></section>''')
+    # l'image retenue par JP (titre-tome-N.jpg, linogravure repeinte et agrandie, 18 octobre 2026) passe devant la
+    # scène dessinée ; elle couvre la page entière, fond perdu compris
+    jpg = os.path.join(ROOT, "images", "tomes", f"titre-tome-{tome}.jpg")
+    sc = os.path.join(ROOT, "images", "tomes", f"titre-tome-{tome}.svg")
+    if not os.path.exists(sc):
+        sc = os.path.join(ROOT, "images", "tomes", "titre-tome-1.svg")
+    scene = re.sub(r"<!--.*?-->\s*", "", open(sc, encoding="utf-8").read(), flags=re.S)
+    if os.path.exists(jpg):
+        scene = ""
+    sous = SOUS_TITRES.get(tome, "")
+    fond = f'<img class="tp-img" src="{url(jpg)}" alt="">' if os.path.exists(jpg) else ""
+    # les retraits mesurés sur chaque image (TP_HAUT_MAX, TP_MISE) sont en px de la page Blurb de 10,25 po de haut ;
+    # l'image couvre la hauteur de la page, ils suivent son agrandissement (Lulu : 11,25 / 10,25)
+    k = bc.fmt()["page_pt"][1] / 738
+    def mise_haut(t):
+        st = []
+        if t in TP_ENCRE: st.append(f"color:{TP_ENCRE[t][0]}")
+        m = TP_MISE.get(t, {})
+        if m.get("droite"): st.append(f"right:{round(m['droite'] * k)}px")
+        if m.get("centre"): st.append("align-items:center;text-align:center;left:var(--tp-g)")
+        return f' style="{";".join(st)}"' if st else ""
+    pages.append(f'''<section class="page recto tp" id="a-titre">{fond}<div class="tp-sc">{scene}
+<div class="tp-head"{f' style="color:{TP_ENCRE[tome][0]};border-bottom-color:{TP_ENCRE[tome][2]}"' if tome in TP_ENCRE else ""}><span>Le Manuel du Nord</span><span>Tome {tome}</span></div>
+<div class="tp-haut{' c' if TP_MISE.get(tome, {}).get('centre') else ''}"{mise_haut(tome)}{f' data-max="{round(TP_HAUT_MAX[tome] * k)}"' if tome in TP_HAUT_MAX else ""}><h1 class="tp-title">{e(titre_t)}</h1>{f'<p class="tp-sous"{chr(32) + "style=" + chr(34) + "color:" + (TP_ENCRE[tome][1] if tome in TP_ENCRE else TP_SOUS[tome]) + chr(34) if (tome in TP_ENCRE or tome in TP_SOUS) else ""}>{il(sous)}</p>' if sous else ""}</div>
+<div class="tp-bas"{f' style="background:{TP_BAS_FOND[tome]};padding:9px 12px 8px;margin:0 -12px"' if tome in TP_BAS_FOND else (f' style="--bas:{TP_BAS_ENCRE[tome][0]};--bas-txt:{TP_BAS_ENCRE[tome][1]}"' if tome in TP_BAS_ENCRE else "")}><div class="tp-chap"><span>{f"Chapitres {aff(premier)} à {aff(dernier)}" if nb > 1 else f"Chapitre {aff(premier)}"}</span><span>{nb} chapitre{"s" if nb > 1 else ""}</span></div>
+<div class="tp-serie">{serie}</div></div></div></section>''')
+    # --- dédicace (recto, après la page de titre ; JP, 14 octobre 2026 : « la première page, comme dans les livres »)
+    pages.append(f'''<section class="page recto ax dd" id="a-dedicace"><div class="block">
+<p class="dd-txt">{il(DEDICACE[0])}<br><span class="dd-2">{il(DEDICACE[1])}</span></p></div></section>''')
     # --- sommaire
     icone = {"Maison": "m", "Chalet": "c"}
     rangs = []
+    avec_or = any(c["rapport"].get("orange") for c in chaps)
+    # la colonne Danger part avec la section Danger (JP, 18 octobre 2026) ; elle reste tant qu'un chapitre du tome l'a
+    avec_d = any("d" in c["secs"] for c in chaps)
+    n_urg = 9 if avec_d else 7
     for c in chaps:
-        s8 = c["debut"] + c["secs"]["8"] - 1 if "8" in c["secs"] else ""
-        s9 = c["debut"] + c["secs"]["9"] - 1 if "9" in c["secs"] else ""
+        kd = "d" if "d" in c["secs"] else "8"
+        kv = "v" if "v" in c["secs"] else "9"
+        s8 = c["debut"] + c["secs"][kd] - 1 if kd in c["secs"] else ""
+        s9 = c["debut"] + c["secs"][kv] - 1 if kv in c["secs"] else ""
+        so = c["rapport"].get("orange") or []
+        sor = (f'<td class="sor">{"<span>%d</span>" % (c["debut"] + so[0] - 1) if so else ""}</td>' if avec_or else "")
         n = aff(c["num"])
         rangs.append(f'<tr><td class="no"><span>{n}</span></td><td class="ti">{il(c["titre"])}</td>'
                      f'<td class="li"><i class="{icone.get(c["lieu"], "d")}"></i>{e(c["lieu"])}</td>'
-                     f'<td class="pg">{c["debut"]}</td><td class="s8">{s8}</td><td class="s9">{s9}</td></tr>')
+                     f'<td class="pg">{c["debut"]}</td>{sor}{f"<td class=s8>{s8}</td>" if avec_d else ""}<td class="s9">{s9}</td></tr>')
     som_no = plan["sommaire"]
     ex = chaps[-1]["num"]
     note_sommaire = il(f"Deux numéros sur chaque page. **En tête, le folio du chapitre** : {ex}-4, c'est la page 4 du "
                        f"chapitre {ex} ; chaque chapitre ouvre sur le sommaire de ses neuf sections, dans ces folios. "
                        "**En pied, la page du tome**, celle de ce sommaire. Le 8, c'est le danger ; le 9, la variante "
                        "d'urgence, celle qui se fait sans rien."
+                       + (" **En orange, les premières minutes** : la page où commencent les gestes urgents, dans l'ordre "
+                          "où ils se font ; la même couleur marque leurs pages sur la tranche." if avec_or else "")
                        + (" **Le chapitre 00 ouvre le livre, en page 1, devant la page de titre** : il se trouve sans chercher."
                           if chaps and chaps[0]["num"] == "00" and chaps[0]["debut"] < plan["titre"] else ""))
     pages.append(f'''<section class="page {cote(som_no)} ax" id="a-sommaire"><div class="block">
-<div class="ax-top"><span>Tome {tome} · {e(titre_t)}</span><span>Le Grand Livre du Chalet</span></div>
+<div class="ax-top"><span>Tome {tome} · {e(titre_t)}</span><span>Le Manuel du Nord</span></div>
 <h1>Sommaire</h1>
 <p class="ax-note">{note_sommaire}</p>
-<table class="som"><thead><tr><th>Ch.</th><th>Chapitre</th><th>Lieu</th><th class="r">Page</th><th class="r s8"><span class="sq d">8</span>Danger</th><th class="r s9"><span class="sq">9</span>Urgence</th></tr></thead>
+<table class="som{' or' if avec_or else ''}"><thead><tr><th>Ch.</th><th>Chapitre</th><th>Lieu</th><th class="r">Page</th>{'<th class="r sor"><span class="sq o"></span>Premières<br>minutes</th>' if avec_or else ''}{'<th class="r s8"><span class="sq d">8</span>Danger</th>' if avec_d else ''}<th class="r s9"><span class="sq">{n_urg}</span>Urgence</th></tr></thead>
 <tbody>{"".join(rangs)}</tbody></table></div>{pied(som_no, cote(som_no))}</section>''')
-    out = (tete_html(f"Tome {tome} — pages hors chapitres — Le Grand Livre du Chalet")
+    ids = ["a-titre", "a-dedicace", "a-sommaire"]
+    if tome == 1 and "mode1" in plan:
+        pages.extend(mode_emploi(tome, titre_t, plan))
+        ids += ["a-mode1", "a-mode2"]
+    out = (tete_html(f"Tome {tome} — pages hors chapitres — Le Manuel du Nord")
            + f'<body class="vA vB vC t{tome} lieu-2">\n<div id="book">\n'
            + "\n".join(pages) + "\n</div>\n" + ANNEXE_JS + "</body>\n</html>\n")
     dst = os.path.join(work, "html", f"annexes-tome-{tome}.html")
     open(dst, "w", encoding="utf-8").write(out)
-    return dst, ["a-titre", "a-sommaire"]
+    return dst, ids
+
+MODE_CSS = """
+.md .block{display:flex;flex-direction:column}
+.md h1{font-size:30pt}
+.md-row{display:grid;grid-template-columns:1.85in 1fr;gap:0 16pt;padding:8.5pt 0;border-top:0.6pt solid #C9C9C9}
+.md-row:first-of-type{border-top:none}
+.md-spec{display:flex;flex-direction:column;align-items:flex-start;gap:5pt;font:600 8.5pt/1.2 var(--sans)}
+.md-txt h2{margin:0 0 3pt;font:700 10.5pt/1.2 var(--sans);text-transform:uppercase;letter-spacing:.04em}
+.md-txt p{margin:0 0 4pt;text-indent:0;font:400 9.4pt/12.6pt var(--serif)}
+.md-txt p b{font-weight:700}
+.md .lieu .opts{width:1.85in}
+.md .lieu .opts span{font-size:7.4pt;line-height:15pt}
+.md .lad li{width:13pt;height:13pt;font:600 7.5pt/12pt var(--sans);text-align:center;list-style:none;border:0.75pt solid #000}
+.md .lad li.on{background:var(--tsq);border-color:var(--tsq);color:#fff}
+.md .lad li.d{background:var(--red);border-color:var(--red);color:#fff}
+.md-or{border:1.5pt solid var(--or);background:var(--orp);padding:5pt 6pt;width:1.8in}
+.md-or .otag{font-size:15pt}
+.md-q{border:1.2pt solid var(--tsq);border-radius:8pt;padding:4pt 7pt;font:700 8.5pt/1.2 var(--sans);text-align:center}
+.md-a{border:1pt solid var(--tsq);background:#EEF2F4;padding:4pt 6pt;font:600 8pt/1.25 var(--sans);position:relative;width:1.7in}
+.md-a i{display:block;margin-top:3pt;text-align:right;font:700 7pt/1 var(--sans);font-style:normal}
+.md-a i span{background:var(--tsq);color:#fff;padding:1.5pt 4pt}
+.md-oui{display:inline-block;border-radius:7pt;background:var(--tsq);color:#fff;padding:1pt 7pt;font:700 7.5pt/1.2 var(--sans)}
+.md-ic{display:inline-flex;align-items:center;gap:6pt}
+.md-ic i{display:inline-block;width:15pt;height:15pt;background:center/100% 100% no-repeat}
+.md-ic i.t{background-image:var(--i-minuteur-tsq)} .md-ic i.c{background-image:var(--i-thermo-tsq)} .md-ic i.d{background-image:var(--i-danger-red)}
+.md-tab{display:inline-block;width:20pt;height:26pt;color:#fff;font:700 11pt/26pt var(--sans);text-align:center}
+.md-fn{font:400 8pt/1.2 var(--serif)} .md-fn sup{font-size:6.5pt}
+.md-rep{font-size:12pt}
+"""
+
+def mode_emploi(tome, titre_t, plan):
+    """Les deux pages qui expliquent comment le livre fonctionne, au début du tome 1 (JP, 16 octobre 2026 : « dans les
+    premières pages, je veux une page explicative de comment le livre fonctionne : pictogrammes, chapitres,
+    symboles »). Chaque spécimen est l'élément du livre lui-même, avec ses classes."""
+    cote = lambda n: "recto" if n % 2 else "verso"
+    fl = '<span class="appel"><svg viewBox="0 0 18 10"><path d="M0 3.4 H10.2 V0 L18 5 L10.2 10 V6.6 H0 Z"/></svg><span>planche&nbsp;13-40</span></span>'
+    lad = '<div class="lad"><ol>' + "".join(
+        f'<li class="{"on" if k == 4 else ""}">{k}</li>' for k in range(1, 8)) + '</ol></div>'
+    rang = lambda spec, titre, txt: (f'<div class="md-row"><div class="md-spec">{spec}</div>'
+                                     f'<div class="md-txt"><h2>{titre}</h2>{txt}</div></div>')
+    p = lambda t: f"<p>{il(t)}</p>"
+    g = [
+        rang('<div class="lieu"><div class="opts"><span>Maison</span><span class="on">Chalet</span><span>Les deux</span></div></div>',
+             "Le lieu",
+             p("Sous le titre de chaque chapitre, la case foncée dit où il se passe. **Maison** : en ville, avec le courant, "
+               "l'aqueduc et l'égout du réseau, et des voisins. **Chalet** : hors réseau, avec le bois, l'eau et le territoire. "
+               "**Les deux** : le chapitre sert aux deux endroits ; ce qui change de l'un à l'autre est dit dans l'étape qui change.")),
+        rang(lad + '<span>13-4</span>',
+             "Les sept sections et les pages",
+             p("Tous les chapitres ont les mêmes sept sections, dans le même ordre : **1** En une ligne, **2** Quand l'utiliser, "
+               "**3** Matériel, **4** Procédure, **5** Points de contrôle, **6** Signes d'échec, **7** Variante d'urgence. "
+               "En bas de chaque page, la case pleine dit dans quelle section on est. La **7** dit comment faire sans courant, "
+               "sans matériel acheté et sans personne à appeler.")
+             + p("En haut de la page, **13-4** veut dire la page 4 du chapitre 13 ; en bas, le numéro de la page dans le tome, "
+                 "celui du sommaire. Dans le texte, **ch. 25** renvoie au chapitre 25, **section 7** à la section 7 du même "
+                 "chapitre, **étape 12** à l'étape 12 de la procédure.")),
+        rang('<div class="md-or"><h3 class="sub or"><span class="otag">10<small>min</small></span><span class="ot">Il faut un feu tout de suite</span></h3></div>',
+             "Les premières minutes",
+             p("Quand un chapitre a des gestes urgents, sa procédure commence par un encadré orange. **La pastille dit le temps "
+               "qu'on a** pour faire la série, à partir de ce qui la déclenche. Les gestes sont dans l'ordre où on les fait, avec "
+               "leur raison et ce qu'il faut savoir pour les faire. Une marque orange au bord de ces pages permet de les trouver "
+               "livre fermé.")),
+        rang('<div class="md-q">Il fait plus froid que −17,5 °C ?</div><span class="md-oui">Oui</span>'
+             '<div class="md-a">Allumer à la pile ou à la batterie.<i><span>ch. 13, étapes 18 à 21</span></i></div>',
+             "Le logigramme",
+             p("Sur deux pages, juste après le Matériel : des questions auxquelles on répond **oui** ou **non**, qui mènent au "
+               "geste à faire. Chaque case dit l'étape où le geste est expliqué. C'est la version courte ; l'encadré orange et "
+               "la procédure donnent le détail.")),
+    ]
+    d = [
+        rang('<span class="pl-tete" style="border:none;height:auto;margin:0"><span class="pl-num">Planche 13-40</span></span>'
+             + f'<span style="font:400 9.4pt var(--serif)">… le tipi ({fl}) …</span>',
+             "Les planches",
+             p("Une planche montre comment faire ou fabriquer. Son numéro est en rouge en haut de la page, avec son titre. Dans "
+               "le texte, la **flèche rouge** renvoie à la planche : elle pointe à droite quand la planche est en face ou plus "
+               "loin, à gauche quand elle est en face ou sur la page d'avant. La planche est sur la même page que son appel, ou "
+               "sur la suivante. Une **petite planche**, d'une colonne de large, se place dans le paragraphe qui en parle.")),
+        rang('<span class="md-rep"><span class="reps"><svg class="rep" viewBox="0 0 20 20"><rect x=".7" y=".7" width="18.6" height="18.6" rx="9.3" fill="#fff" stroke="#1A1A1A" stroke-width="1.2"/><text x="10.0" y="10.6" text-anchor="middle" dominant-baseline="middle">3</text></svg></span></span>'
+             '<span style="font:400 9.4pt var(--serif)">(planche 13-40, <span class="reps"><svg class="rep" viewBox="0 0 20 20"><rect x=".7" y=".7" width="18.6" height="18.6" rx="9.3" fill="#fff" stroke="#1A1A1A" stroke-width="1.2"/><text x="10.0" y="10.6" text-anchor="middle" dominant-baseline="middle">5</text></svg> <svg class="rep" viewBox="0 0 20 20"><rect x=".7" y=".7" width="18.6" height="18.6" rx="9.3" fill="#fff" stroke="#1A1A1A" stroke-width="1.2"/><text x="10.0" y="10.6" text-anchor="middle" dominant-baseline="middle">6</text></svg></span>)</span>',
+             "Les repères",
+             p("Sur la planche, chaque détail porte un numéro dans un cercle ; la légende, sous le dessin, dit ce qu'on doit y "
+               "voir. Dans le texte, le même cercle renvoie au même détail : **③**, c'est le 3 de la planche.")
+             + p("Ce qui est en **rouge** sur une planche est le geste (une flèche), le point à vérifier (un cercle) ou la zone "
+                 "dangereuse ; il a toujours son numéro. Une vignette titrée **« Sans… »** ou **« Autre façon »** remplace une "
+                 "autre vignette ; sa légende dit au lieu de quel numéro.")),
+        rang('<span class="md-ic"><i class="t"></i>un temps</span><span class="md-ic"><i class="c"></i>une température</span>',
+             "Les pictogrammes des étapes",
+             p("Sous le numéro d'une étape : le **minuteur**, un temps à respecter ou à surveiller ; le **thermomètre**, une "
+               "température à atteindre ou à vérifier.")),
+        rang('<span style="display:flex;gap:8pt;align-items:flex-start;padding:4pt 6pt;background:#F6E7E3;border-left:2.5pt solid #9B2C1E;font:400 9.4pt var(--serif)">'
+             '<span><b style="font:700 11pt var(--sans)">12</b> Laisser la génératrice dehors…</span>'
+             '<span style="display:flex;flex-direction:column;align-items:center;gap:1.5pt">'
+             + il("{!generatrice}").replace('class="picto"', 'class="picto" style="width:26pt;height:26pt;margin:0"')
+             + '<b style="font:700 6.6pt var(--sans);color:#9B2C1E;text-transform:uppercase">Génératrice</b>'
+             '<b style="font:700 7.4pt var(--sans)">p. 9</b></span></span>',
+             "Les dangers",
+             p("Une étape sur **fond rose**, avec un **carré rouge** à droite, veut dire qu'un danger se présente à cette étape ; sous le carré, le nom du danger et sa page. Chaque danger a "
+               "le sien. L'étape dit ce qui est propre à la situation : la distance, la dose, la durée. Le danger lui-même "
+               "(ce qu'il fait, comment le reconnaître, quoi faire) est expliqué une seule fois, dans **les pages des "
+               "dangers** qui suivent celle-ci.")),
+        # les encadrés « En plus » (JP, 18 octobre 2026 : « ajoute-le dans la page d'explication comme pour le orange et
+        # le rouge ») : chapitre.css, .extra
+        # le pictogramme « i » (JP, 19 octobre 2026 : « ajoute-le à la page d'explication »)
+        rang('<div class="extra" style="margin:7pt 4pt 2pt 7pt;padding:6pt 9pt 6pt"><div class="xhead">' + bc.XICO
+             + '<span class="xlab">En plus</span> <span class="xtit">La façon des Innus</span></div></div>',
+             "En plus",
+             p("Une note **vert pâle**, marquée des mots **En plus** et du **i** dans sa bulle, en haut à gauche, est une note d'information : ce qui "
+               "est bon à savoir sans être nécessaire au geste, comme une façon de faire des Innus ou d'une autre nation du "
+               "Nord, un fait, une photo pour reconnaître un arbre ou une plante. Elle se pose là où la page a de la place, "
+               "près de l'étape dont elle parle. On peut la sauter sans rien manquer de la procédure.")),
+        rang('<span class="md-fn">… la peau prend une tache blanche<sup>1</sup> …</span>',
+             "Les notes",
+             p("Un signe qu'il faut savoir reconnaître (une couleur, une odeur, un son, un test) est décrit en note, en bas de "
+               "la même page.")),
+        rang('<span style="display:flex;gap:4pt"><span class="md-tab" style="background:var(--tsq)">13</span>'
+             '<span class="md-tab" style="background:var(--or);color:#000">13</span>'
+             '<span class="md-tab" style="background:var(--red)">13</span></span>',
+             "Le bord des pages",
+             p("Le numéro du chapitre est imprimé au bord de chaque page : livre fermé, on voit où commence chaque chapitre. "
+               "Le bord est **orange** sur les pages des premières minutes.")),
+    ]
+    n1, n2 = plan["mode1"], plan["mode2"]
+    tete = f'<div class="ax-top"><span>Tome {tome} · {e(titre_t)}</span><span>Le Manuel du Nord</span></div>'
+    return [
+        f'<section class="page {cote(n1)} ax md" id="a-mode1"><style>{MODE_CSS}</style><div class="block">{tete}'
+        f'<h1>Comment le livre fonctionne</h1>{"".join(g)}</div>{pied(n1, cote(n1))}</section>',
+        f'<section class="page {cote(n2)} ax md" id="a-mode2"><div class="block">{tete}'
+        f'{"".join(d)}</div>{pied(n2, cote(n2))}</section>',
+    ]
+
+# ------------------------------------------------------------------ les pages des dangers
+# JP, 18 octobre 2026 : « les dangers sont expliqués une fois dans le livre, dans la section qui explique les symboles et
+# pictogrammes ; chaque fois qu'un danger est présent, on affiche le pictogramme ». Les pages vont dans chaque tome,
+# après « Comment le livre fonctionne » (ou après le sommaire) ; un tome n'imprime que les dangers que ses chapitres
+# marquent ({!id}). Le texte est dans dangers/*.md (« ## {!id} Nom », puis le corps) ; l'ordre est celui du tableau
+# de plan/dangers-inventaire.md. Les pages se coupent dans Chromium (DANGERS_JS) : une première passe compte les
+# pages, la seconde les imprime avec leurs folios.
+DANGERS_CSS = """
+.dgp .block{display:flex;flex-direction:column}
+.dgp h1{font-size:26pt;margin:10pt 0 6pt;padding-bottom:6pt}
+.dg-intro{margin:0 0 8pt;text-indent:0;font:500 9pt/12pt var(--sans)}
+.dg-intro svg.picto{height:1.4em;width:1.4em;vertical-align:-.4em}
+.dg-e{flex:1 1 0;min-height:0;display:flex;flex-direction:column}
+.dg-h{flex:none;display:flex;align-items:center;gap:14pt;margin:8pt 0 10pt;padding:0 0 10pt;border-bottom:3pt solid #9B2C1E}
+.dg-h svg.picto-g{flex:none;width:0.95in;height:0.95in}
+.dg-h h2{margin:0;font:700 22pt/1.05 var(--sans);text-transform:uppercase;letter-spacing:.02em}
+.dg-h h2 small{display:block;margin-top:5pt;font:600 8.5pt/1.2 var(--sans);letter-spacing:.08em;color:#555}
+.dg-b{flex:1 1 0;min-height:0;columns:2;column-gap:0.24in;column-fill:auto;column-rule:0.5pt solid #BBB;overflow:hidden;font-size:var(--fs,9.4pt)}
+.dg-b p{margin:0 0 4pt;text-indent:0;font-family:var(--serif);font-size:1em;line-height:1.36}
+.dg-b p.li{padding-left:11pt}
+.dg-b p.step{padding-left:17pt}
+.dg-b table.tcol{font-size:.92em}
+"""
+
+DANGERS_JS = r"""<script>
+(function(){
+  // une page par danger, jamais plus (JP, 18 octobre 2026 : « les dangers, chacun sa propre page, pas plus qu'une
+  // page ») : le texte se resserre jusqu'à tenir sur sa page ; s'il ne tient pas à 8 pt, la page le signale
+  const src = document.getElementById('dg-src'); if(!src) return;
+  const debut = +src.dataset.debut, tete = src.dataset.tete;
+  const book = document.getElementById('book');
+  const ents = Array.from(src.querySelectorAll('.dg-e'));
+  const go = () => {
+    src.remove();
+    ents.forEach((en, k) => {
+      const no = debut + k;
+      const s = document.createElement('section');
+      s.className = 'page ' + ((debut ? no : k + 1) % 2 ? 'recto' : 'verso') + ' ax dgp'; s.id = 'a-dg-' + k;
+      s.innerHTML = '<div class="block">' + tete + (k === 0 ? src.dataset.h1 : '') + '</div>' + (debut ? '<div class="fcont">' + no + '</div>' : '');
+      s.querySelector('.block').appendChild(en); book.appendChild(s);
+      const b = en.querySelector('.dg-b');
+      const deborde = () => b.scrollWidth > b.clientWidth + 1 || b.scrollHeight > b.clientHeight + 1;
+      for(const fs of [9.4, 9.1, 8.8, 8.5, 8.2, 8.0]){ b.style.setProperty('--fs', fs + 'pt'); if(!deborde()) break; }
+      if(deborde()) s.dataset.deborde = '1';
+    });
+    document.documentElement.dataset.ready = '1';
+  };
+  document.fonts.ready.then(() => Promise.all(['700 22pt "IBM Plex Sans Condensed"', '400 9.4pt "IBM Plex Serif"'].map(f => document.fonts.load(f)))).then(go);
+})();
+</script>
+"""
+
+def dangers_entrees():
+    """dangers/*.md -> {id: (nom, corps Markdown)} ; l'ordre canonique vient du tableau de l'inventaire."""
+    entrees = {}
+    for f in sorted(glob.glob(os.path.join(ROOT, "dangers", "*.md"))):
+        cur = None
+        for l in open(f, encoding="utf-8").read().splitlines():
+            m = re.match(r"^##\s+\{!([a-z-]+)\}\s*(.+)$", l)
+            if m:
+                cur = m.group(1); entrees[cur] = [m.group(2).strip(), []]; continue
+            if re.match(r"^#{1,2}\s", l):
+                cur = None; continue
+            if cur:
+                entrees[cur][1].append(l)
+    ordre = []
+    inv = os.path.join(ROOT, "plan", "dangers-inventaire.md")
+    if os.path.exists(inv):
+        for m in re.finditer(r"^\|\s*\d+\s*\|\s*`([a-z-]+)`", open(inv, encoding="utf-8").read(), re.M):
+            ordre += ["ours", "orignal"] if m.group(1) == "bete-qui-charge" else [m.group(1)]
+    rang = {k: i for i, k in enumerate(ordre)}
+    return dict(sorted(entrees.items(), key=lambda kv: rang.get(kv[0], 999)))
+
+def dangers_du_tome(tome, chap_ids):
+    """Les ids marqués {!id} dans les chapitres du tome, et le nombre de chapitres où chacun paraît."""
+    vus = {}
+    for num in chap_ids:
+        for f in glob.glob(os.path.join(ROOT, "chapitres", f"{num}-*.md")):
+            for pid in set(re.findall(r"\{!([a-z][a-z-]*)\}", open(f, encoding="utf-8").read())):
+                vus.setdefault(pid, []).append(num)
+    return vus
+
+def dangers_html(tome, chap_ids, debut, work, nom="dangers"):
+    """Écrit le HTML des pages des dangers du tome, une page par danger ; debut = folio de la première (0 : passe de
+    comptage). Rend (chemin, [ids dans l'ordre des pages])."""
+    titre_t = bc.TOMES[tome][0]
+    vus = dangers_du_tome(tome, chap_ids)
+    ent = dangers_entrees()
+    import md2blocks as mb
+    ents, ids = [], []
+    for pid, (nomd, corps) in ent.items():
+        if pid not in vus:
+            continue
+        chs = ", ".join(aff(c) for c in vus[pid])
+        corps_html = "".join(h for h, _ in bc.render(bc.parse(corps)))
+        ents.append(f'<section class="dg-e" data-id="{pid}"><div class="dg-h">{mb.picto_svg(pid, "picto-g")}<h2>{il(nomd)}'
+                    f'<small>{"Chapitre" if len(vus[pid]) == 1 else "Chapitres"} {chs}</small></h2></div>'
+                    f'<div class="dg-b">{corps_html}</div></section>')
+        ids.append(pid)
+    manquent = sorted(set(vus) - set(ent))
+    if manquent:
+        log("  ATTENTION : dangers marqués sans page d'explication : " + ", ".join(manquent))
+    if not ents:
+        return None, []
+    tete = f'<div class="ax-top"><span>Tome {tome} · {e(titre_t)}</span><span>Le Manuel du Nord</span></div>'
+    h1 = ('<h1>Les dangers</h1><p class="dg-intro">' + il(
+        "Dans un chapitre, une étape sur fond rose avec ce carré rouge {!" + ids[0] + "} veut dire qu'un danger se présente "
+        "à cette étape ; sous le carré, le nom du danger et sa page. L'étape dit ce qui est propre à la situation (la distance, la "
+        "dose, la durée) ; la page du danger dit ce qu'il fait, comment le reconnaître et quoi faire.") + "</p>")
+    src = (f'<div id="dg-src" data-debut="{debut}" data-tete="{e(tete)}" data-h1="{e(h1)}" '
+           'style="display:none">' + "".join(ents) + "</div>")   # caché : à hauteur nulle, les colonnes se multiplient sans fin
+    out = (tete_html(f"Tome {tome} — les dangers — Le Manuel du Nord").replace("</style>", DANGERS_CSS + "</style>", 1)
+           + f'<body class="vA vB vC t{tome} lieu-2">\n<div id="book">\n</div>\n' + src + "\n" + DANGERS_JS + "</body>\n</html>\n")
+    dst = os.path.join(work, "html", f"{nom}-tome-{tome}.html")
+    open(dst, "w", encoding="utf-8").write(out)
+    return dst, ids
+
+DEDICACE = ("À Pierre-Alexis et à Louis-Charles,", "pour qu’il y ait toujours quelqu’un qui sait.")
 
 CREDITS_PAR_PAGE = 16
 
@@ -566,9 +983,9 @@ def credits_html(tome, credits_lignes, total, work):
         h1 = (f'<h1>Crédits des images</h1><p class="ax-note">{intro}</p>' if k == 0
               else '<h1 style="font-size:24pt">Crédits des images (suite)</h1>')
         pages.append(f'''<section class="page {cote(no)} ax" id="a-credits-{k + 1}"><div class="block">
-<div class="ax-top"><span>Tome {tome} · {e(titre_t)} · hors du livre</span><span>Le Grand Livre du Chalet</span></div>
+<div class="ax-top"><span>Tome {tome} · {e(titre_t)} · hors du livre</span><span>Le Manuel du Nord</span></div>
 {h1}{tab}</div></section>''')
-    out = (tete_html(f"Tome {tome} — crédits des images (hors du livre) — Le Grand Livre du Chalet")
+    out = (tete_html(f"Tome {tome} — crédits des images (hors du livre) — Le Manuel du Nord")
            + f'<body class="vA vB vC t{tome} lieu-2">\n<div id="book">\n'
            + "\n".join(pages) + "\n</div>\n" + ANNEXE_JS + "</body>\n</html>\n")
     dst = os.path.join(work, "html", f"credits-tome-{tome}.html")
@@ -621,7 +1038,38 @@ def polices(reader):
                 non.add(nom)
     return vues, non
 
-POLICES_DU_LIVRE = ("IBMPlex", "NotoSans", "NotoSerif")   # interieur.tpl.html : Plex, et ses voisins pour les
+def pages_transparentes(reader):
+    """Pages (numéros du tome) qui portent de la transparence : état graphique à opacité < 1 ou à masque doux, image
+    à masque doux, groupe de transparence. Lulu demande de l'aplatir (« Flatten all transparent layers ») et dit en
+    réparer une partie (sources/lulu-specifications.md, §4 et §5)."""
+    def a_transp(res, vus):
+        res = res.get_object() if res is not None else None
+        if not res:
+            return False
+        for _, gs in (res.get("/ExtGState") or {}).items():
+            gs = gs.get_object()
+            sm = gs.get("/SMask")
+            if (sm is not None and str(sm) != "/None") or float(gs.get("/ca", 1)) < 1 or float(gs.get("/CA", 1)) < 1:
+                return True
+        for _, xo in (res.get("/XObject") or {}).items():
+            ident = getattr(xo, "idnum", None)
+            if ident is not None:
+                if ident in vus:
+                    continue
+                vus.add(ident)
+            x = xo.get_object()
+            if "/SMask" in x:
+                return True
+            if str(x.get("/Subtype")) == "/Form":
+                g = x.get("/Group")
+                if g is not None and str(g.get_object().get("/S")) == "/Transparency":
+                    return True
+                if a_transp(x.get("/Resources"), vus):
+                    return True
+        return False
+    return [i + 1 for i, pg in enumerate(reader.pages) if a_transp(pg.get("/Resources"), set())]
+
+POLICES_DU_LIVRE = ("IBMPlex","NotoSans", "NotoSerif", "BarlowCondensed")   # interieur.tpl.html : Plex, et ses voisins pour les
                                                           # caractères qu'il n'a pas (28 septembre 2026)
 
 def glyphes_de_secours(reader, pages_planche):
@@ -654,7 +1102,13 @@ def main():
         sys.exit(__doc__)
     tome = int(a[0])
     opt = lambda k: a[a.index(k) + 1] if k in a else None
-    verso = "--verso" in a
+    # un chapitre peut ouvrir à gauche : plus de page blanche devant une ouverture (JP, 18 octobre 2026 : « beaucoup de
+    # pages vides, faut optimiser l'espace ») ; --recto remet l'ouverture toujours à droite
+    verso = "--recto" not in a
+    nom_format = opt("--format") or "lulu-letter"
+    if nom_format not in bc.FORMATS:
+        sys.exit(f"format inconnu : {nom_format} (connus : {', '.join(bc.FORMATS)})")
+    regler_format(nom_format)
     couverture = opt("--couverture") or "souple"
     extra = opt("--placements")
     if extra and not os.path.isabs(extra):
@@ -693,34 +1147,46 @@ def main():
         chaps.append(c)
         log(f"  {num} monté ({len(h) // 1024} Ko)" + (" — déjà paginé" if "rapport" in c else ""))
     garder()
-    a_faire = [c for c in chaps if "rapport" not in c]
+    # Un chapitre se pagine des deux côtés (ouverture à droite, par=0 ; à gauche, par=1) : le côté change la place
+    # des doubles pages et des planches en face ; le plan prend ensuite le rapport du côté où le chapitre tombe.
+    cotes = ("0", "1") if verso else ("0",)
+    manque = lambda c: [k for k in cotes if k not in c.get("rapports", {})]
+    a_faire = [c for c in chaps if manque(c)]
     for essai in range(2):
         if not a_faire:
             break
         log(f"pagination de {len(a_faire)} chapitre(s)…")
-        cibles = [os.path.join(work, "pdf", f"{c['num']}-rapport.pdf") for c in a_faire]
-        edge_lot([(pdf_args(url(c["dst"], "", "#tome-rapport"), t), t) for c, t in zip(a_faire, cibles)])
-        for c in a_faire:
-            r = lire_rapport(os.path.join(work, "pdf", f"{c['num']}-rapport.pdf"))
+        lot = [(c, k, os.path.join(work, "pdf", f"{c['num']}-rapport-{k}.pdf")) for c in a_faire for k in manque(c)]
+        edge_lot([(pdf_args(url(c["dst"], f"par={k}", "#tome-rapport"), t), t) for c, k, t in lot])
+        for c, k, t in lot:
+            r = lire_rapport(t)
             if r:
-                c["rapport"] = r
-                log(f"  {c['num']} : {r['pages']} pages, {len(r['warn'])} avertissement(s)")
+                c.setdefault("rapports", {})[k] = r
+                log(f"  {c['num']} ({'gauche' if k == '1' else 'droite'}) : {r['pages']} pages, {len(r['warn'])} avertissement(s)")
         garder()
-        a_faire = [c for c in chaps if "rapport" not in c]
+        a_faire = [c for c in chaps if manque(c)]
     if a_faire:
         sys.exit("pagination impossible pour : " + ", ".join(c["num"] for c in a_faire))
+    for c in chaps:
+        c["rapport"] = c["rapports"]["0"]
+
+    # 1 b. les pages des dangers : une passe pour les compter
+    dg_n = 0
+    dg_html, dg_ids = dangers_html(tome, chap_ids, 0, work, "dangers-compte")
+    if dg_html:
+        dg_n = len(dg_ids)   # une page par danger
+        log(f"pages des dangers : {dg_n} dangers, une page chacun")
 
     # 2. plan du tome : titre (recto), blanche, sommaire, puis les chapitres (chacun au recto), puis les
     #    blanches de fin. Tome 1 : le chapitre 00 d'abord, en page 1, avant la page de titre (il se trouve
     #    sans chercher). Pas de crédits : ils vont hors du livre (livre/credits/), JP, 28 septembre 2026.
     credits_map = registre_credits()
-    photos = []
-    for c in chaps:
-        for f in c["rapport"]["figs"]:
-            if f["id"] == "photo":
-                photos.append((c, f))
     en_tete = [c for c in chaps if tome == 1 and c["num"] == "00"]
-    ordre = ([("chap", c) for c in en_tete] + [("annexe", "a-titre"), ("blanche", "titre"), ("annexe", "a-sommaire")]
+    # la page de titre d'abord, la dédicace après (JP, 18 octobre 2026 : « le texte va après la page couverture » ;
+    # avant, le 15 octobre, la dédicace était en première page)
+    ordre = ([("chap", c) for c in en_tete] + [("annexe", "a-titre"), ("blanche", "titre"), ("annexe", "a-dedicace"), ("blanche", "dedicace"), ("annexe", "a-sommaire")]
+             + ([("annexe", "a-mode1"), ("annexe", "a-mode2")] if tome == 1 else [])
+             + [("dg", k) for k in range(dg_n)]
              + [("chap", c) for c in chaps if c not in en_tete])
     plan, seq, lignes_plan = {}, [], []
     blanches, blanches_ouv = 0, 0
@@ -730,7 +1196,16 @@ def main():
             c = x
             if (not verso or "recto" in c["notes"]) and prochaine % 2 == 0:
                 seq.append(("blanche", None)); blanches += 1; blanches_ouv += 1; prochaine += 1
+            elif verso and len(c.get("rapports", {})) == 2:
+                # le côté d'ouverture qui coûte le moins : une page blanche devant le chapitre vaut mieux qu'une page
+                # blanche au milieu (la procédure attend le logigramme, qui commence toujours à gauche)
+                cout = lambda k, plus: (c["rapports"][k]["pages"] + plus,
+                                        any("page blanche" in w for w in c["rapports"][k]["warn"]))
+                nat, aut = ("1", "0") if prochaine % 2 == 0 else ("0", "1")
+                if cout(aut, 1) < cout(nat, 0):
+                    seq.append(("blanche", None)); blanches += 1; blanches_ouv += 1; prochaine += 1
             c["debut"] = prochaine
+            c["rapport"] = c["rapports"]["1" if prochaine % 2 == 0 and "1" in c["rapports"] else "0"]
             c["secs"] = c["rapport"]["secs"]
             for k in range(c["rapport"]["pages"]):
                 seq.append(("chap", (c["num"], k)))
@@ -738,12 +1213,18 @@ def main():
             lignes_plan.append((f"{prochaine}–{prochaine + n - 1}", f"ch. {c['num']} — {c['titre']}", n))
         elif kind == "blanche":
             seq.append(("blanche", None)); blanches += 1
+        elif kind == "dg":
+            if x == 0:
+                plan["dangers"] = prochaine
+                lignes_plan.append((f"{prochaine}–{prochaine + dg_n - 1}", "Les dangers", dg_n))
+            seq.append(("dg", x))
         else:
-            if x == "a-titre" and prochaine % 2 == 0:     # la page de titre est toujours à droite
+            if x in ("a-titre", "a-dedicace") and prochaine % 2 == 0:     # titre et dédicace toujours à droite
                 seq.append(("blanche", None)); blanches += 1; prochaine += 1
-            plan["titre" if x == "a-titre" else "sommaire"] = prochaine
+            plan[x[2:]] = prochaine
             seq.append(("annexe", x))
-            lignes_plan.append((str(prochaine), "Page de titre" if x == "a-titre" else "Sommaire", 1))
+            lignes_plan.append((str(prochaine), {"a-titre": "Page de titre", "a-dedicace": "Dédicace", "a-sommaire": "Sommaire", "a-mode1": "Comment le livre fonctionne (1)", "a-mode2": "Comment le livre fonctionne (2)"}[x], 1))
+    photos = [(c, f) for c in chaps for f in c["rapport"]["figs"] if f["id"] == "photo"]
     while len(seq) % MULTIPLE or len(seq) < PAGES_MIN:
         seq.append(("blanche", None)); blanches += 1
     total = len(seq)
@@ -772,17 +1253,19 @@ def main():
     rel = lambda p: os.path.relpath(p, ROOT).replace("\\", "/")
     open(cred_md, "w", encoding="utf-8").write(credits_md(tome, credits_lignes, credits_manques, total, rel(cred_pdf)))
 
-    # 4. rendu PDF des chapitres (numéro de page continu et côté passés dans l'URL)
+    # 4. rendu PDF des chapitres (numéro de page continu et côté passés dans l'URL ; la page de chaque danger, que le
+    #    chapitre écrit sous le pictogramme)
+    dg_q = ",".join(f"{pid}.{plan['dangers'] + k}" for k, pid in enumerate(dg_ids)) if dg_n else ""
     jobs = []
     for c in chaps:
         off, par = c["debut"] - 1, (0 if c["debut"] % 2 else 1)
-        cle = f"{c['html']}|{off}|{par}"
+        cle = f"{c['html']}|{off}|{par}|{dg_q}"
         c["pdf"] = os.path.join(work, "pdf", f"{c['num']}.pdf")
         c["off"], c["par"] = off, par
         if c.get("pdf_cle") == cle and os.path.exists(c["pdf"]):
             continue
         c["pdf_cle_voulue"] = cle
-        jobs.append((pdf_args(url(c["dst"], f"off={off}&par={par}"), c["pdf"]), c["pdf"]))
+        jobs.append((pdf_args(url(c["dst"], f"off={off}&par={par}&dg={dg_q}"), c["pdf"]), c["pdf"]))
     if jobs:
         log(f"impression de {len(jobs)} chapitre(s)…")
         edge_lot(jobs)
@@ -798,12 +1281,20 @@ def main():
     ann, ann_ids = annexe_html(tome, chaps, plan, work)
     ann_pdf = os.path.join(work, "pdf", f"annexes-tome-{tome}.pdf")
     cred_html, cred_ids = credits_html(tome, credits_lignes, total, work)
-    edge_lot([(pdf_args(url(ann), ann_pdf), ann_pdf), (pdf_args(url(cred_html), cred_pdf), cred_pdf)])
+    jobs = [(pdf_args(url(ann), ann_pdf), ann_pdf), (pdf_args(url(cred_html), cred_pdf), cred_pdf)]
+    dg_pdf = os.path.join(work, "pdf", f"dangers-tome-{tome}.pdf")
+    if dg_n:
+        dg_final, _ = dangers_html(tome, chap_ids, plan["dangers"], work)
+        jobs.append((pdf_args(url(dg_final), dg_pdf), dg_pdf))
+    edge_lot(jobs)
 
     # 6. assemblage
     avert = []
     lecteurs = {c["num"]: pypdf.PdfReader(c["pdf"]) for c in chaps}
     ann_r = pypdf.PdfReader(ann_pdf)
+    dg_r = pypdf.PdfReader(dg_pdf) if dg_n else None
+    if dg_r and len(dg_r.pages) != dg_n:
+        avert.append(f"pages des dangers : {len(dg_r.pages)} pages imprimées pour {dg_n} comptées")
     if len(ann_r.pages) != len(ann_ids):
         avert.append(f"pages hors chapitres : {len(ann_r.pages)} pages imprimées pour {len(ann_ids)} prévues")
     if not os.path.exists(cred_pdf):
@@ -814,13 +1305,45 @@ def main():
         n = len(lecteurs[c["num"]].pages)
         if n != c["rapport"]["pages"]:
             avert.append(f"ch. {c['num']} : {n} pages imprimées, {c['rapport']['pages']} au rapport de pagination")
+        # une double page (logigramme) commence sur une page de gauche, paire dans le tome
+        for f in c["rapport"]["figs"]:
+            if f.get("taille") == "double" and (c["debut"] + f["page"] - 1) % 2:
+                avert.append(f"ch. {c['num']} : la double page {f['id']} commence à la page {c['debut'] + f['page'] - 1}, "
+                             f"une page de droite")
     w = pypdf.PdfWriter()
+    # les pages blanches prennent une photo de la nature du Québec, en pleine page, fond perdu compris (JP, 19 octobre
+    # 2026 : « les pages complètement blanches, les remplir avec des photos de la nature québécoise » ; « genre pleine
+    # page, pas de blanc ») ; images/pleine-page/tome-N/, dans l'ordre des fichiers
+    photos_pp = sorted(glob.glob(os.path.join(ROOT, "images", "pleine-page", f"tome-{tome}", "*.jpg")))
+    n_photo = 0
+    def page_photo(f):
+        from PIL import Image
+        dst = os.path.join(work, "pdf", "photo-" + os.path.splitext(os.path.basename(f))[0] + f"-{PAGE_W:.0f}x{PAGE_H:.0f}-v3.pdf")
+        if not os.path.exists(dst) or os.path.getmtime(dst) < os.path.getmtime(f):
+            im = Image.open(f).convert("RGB")
+            r = PAGE_W / PAGE_H
+            if im.width / im.height > r:
+                lw = round(im.height * r); im = im.crop(((im.width - lw) // 2, 0, (im.width - lw) // 2 + lw, im.height))
+            else:
+                lh = round(im.width / r); im = im.crop((0, (im.height - lh) // 2, im.width, (im.height - lh) // 2 + lh))
+            im.save(dst, "PDF", resolution=im.width / (PAGE_W / 72), quality=92)
+        pg = pypdf.PdfReader(dst).pages[0]
+        sx, sy = PAGE_W / float(pg.mediabox.width), PAGE_H / float(pg.mediabox.height)
+        if abs(sx - 1) > 1e-3 or abs(sy - 1) > 1e-3:
+            pg.scale(sx, sy)
+        return pg
     for i, (kind, ref) in enumerate(seq):
-        if kind == "blanche":
+        if kind == "blanche" and n_photo < len(photos_pp):
+            pg = w.add_page(page_photo(photos_pp[n_photo])); n_photo += 1
+        elif kind == "blanche":
             pg = w.add_blank_page(PAGE_W, PAGE_H)
         else:
             if kind == "annexe":
                 src = ann_r.pages[ann_ids.index(ref)]
+            elif kind == "dg":
+                if ref >= len(dg_r.pages):
+                    w.add_blank_page(PAGE_W, PAGE_H); continue
+                src = dg_r.pages[ref]
             else:
                 rd = lecteurs[ref[0]]
                 if ref[1] >= len(rd.pages):
@@ -832,12 +1355,14 @@ def main():
             if abs(float(mb.width) - PAGE_W) > 0.5 or abs(float(mb.height) - PAGE_H) > 0.5:
                 avert.append(f"page {i + 1} : imprimée à {float(mb.width):.1f} × {float(mb.height):.1f} pt")
             pg = w.add_page(src)
-        full = RectangleObject([0, 0, PAGE_W, PAGE_H])
+        page_b, rog_b = bc.boites(i)
+        full = RectangleObject(page_b)
         pg.mediabox = full; pg.cropbox = full; pg.bleedbox = full
-        # recto (page impaire) : reliure à gauche, fond perdu à droite ; verso : l'inverse
-        pg.trimbox = RectangleObject([0, BLEED, TRIM_W, BLEED + TRIM_H] if (i + 1) % 2 else [BLEED, BLEED, PAGE_W, BLEED + TRIM_H])
-    w.add_metadata({"/Title": f"Le Grand Livre du Chalet — Tome {tome} · {bc.TOMES[tome][0]} — intérieur",
-                    "/Author": "Le Grand Livre du Chalet", "/Creator": "design/outils/assembler-tome.py"})
+        # recto (page impaire) : reliure à gauche ; verso : à droite (Blurb : fond perdu au bord extérieur seulement ;
+        # Lulu : sur les quatre côtés)
+        pg.trimbox = RectangleObject(rog_b)
+    w.add_metadata({"/Title": f"Le Manuel du Nord — Tome {tome} · {bc.TOMES[tome][0]} — intérieur",
+                    "/Author": "Le Manuel du Nord", "/Creator": "design/outils/assembler-tome.py"})
     pdf_final = os.path.join(sortie, "interieur.pdf")
     tmp = pdf_final + ".tmp"
     with open(tmp, "wb") as f:
@@ -850,10 +1375,12 @@ def main():
     r = pypdf.PdfReader(pdf_final)
     tailles = {(round(float(p.mediabox.width), 2), round(float(p.mediabox.height), 2)) for p in r.pages}
     vues, non_inc = polices(r)
-    trims_ok = all([round(float(x)) for x in p.trimbox] == ([0, 9, 576, 729] if (i + 1) % 2 else [9, 9, 585, 729]) for i, p in enumerate(r.pages))
+    trims_ok = all([round(float(x)) for x in p.trimbox] == bc.boites(i)[1] for i, p in enumerate(r.pages))
+    transp = pages_transparentes(r)
     pages_planche = {c["debut"] + f["page"] - 1 for c in chaps for f in c["rapport"]["figs"] if f["id"] != "photo"}
     secours = glyphes_de_secours(r, pages_planche)
-    tr = None if "--hors-ligne" in a else tranche_blurb(total, couverture)
+    lulu = IMP["imprimeur"] == "Lulu"
+    tr = None if lulu or "--hors-ligne" in a else tranche_blurb(total, couverture)
 
     # 8. aperçus PNG
     apercus = []
@@ -875,8 +1402,11 @@ def main():
             nom = "04-planche-pleine-page" if f["taille"] == "pleine" else "04-demi-planche"
             vues_png.append((f"{nom}-{f['id']}", c["dst"], f"off={c['off']}&par={c['par']}", f"p{c['num']}-{f['page']}"))
         else:
-            c = next((c for c in chaps if "8" in c["secs"]), c0)
-            vues_png.append((f"04-danger-ch{c['num']}", c["dst"], f"off={c['off']}&par={c['par']}", f"p{c['num']}-{c['secs'].get('8', 1)}"))
+            c = next((c for c in chaps if "d" in c["secs"] or "8" in c["secs"]), c0)
+            vues_png.append((f"04-danger-ch{c['num']}", c["dst"], f"off={c['off']}&par={c['par']}", f"p{c['num']}-{c['secs'].get('d', c['secs'].get('8', 1))}"))
+        c = next((c for c in chaps if c["rapport"].get("orange")), None)
+        if c:
+            vues_png.append((f"05-premieres-minutes-ch{c['num']}", c["dst"], f"off={c['off']}&par={c['par']}", f"p{c['num']}-{c['rapport']['orange'][0]}"))
         jobs = [(png_args(url(src, q, "#page=" + pid), os.path.join(adir, nom + ".png")), os.path.join(adir, nom + ".png"))
                 for nom, src, q, pid in vues_png]
         edge_lot(jobs)
@@ -887,10 +1417,11 @@ def main():
     L = []
     L.append(f"# Tome {tome} · {bc.TOMES[tome][0]} — rapport d'assemblage\n")
     L.append(f"- **Produit le :** {time.strftime('%Y-%m-%d %H:%M')}, par `design/outils/assembler-tome.py {' '.join(a)}`")
-    L.append(f"- **Fichier :** `livre/tome-{tome}/interieur.pdf` — {total} pages, {taille / 1e6:.1f} Mo")
+    L.append(f"- **Fichier :** `{rel(pdf_final)}` — {total} pages, {taille / 1e6:.1f} Mo")
     L.append(f"- **Ouvertures :** {'au recto ou au verso (--verso)' if verso else 'toujours au recto (page de droite), une page blanche devant au besoin'}")
     L.append(f"- **Placements :** {', '.join(pl_sources)}")
-    L.append(f"- **Exigences de Blurb :** `sources/blurb-specifications.md` (relevées le 27 septembre 2026)\n")
+    L.append(f"- **Format :** `{bc.FORMAT}` : {bc.fmt()['nom']}")
+    L.append(f"- **Exigences de {IMP['imprimeur']} :** `{IMP['source']}` (relevées le {IMP['releve']})\n")
     L.append("## Pages\n")
     L.append("| Pages du tome | Contenu | Pages |\n| --- | --- | ---: |")
     for pp, lab, n in lignes_plan:
@@ -904,19 +1435,57 @@ def main():
         n_v += n_v % 2
         L.append(f"Les chapitres seuls font {somme} pages ; {blanches_ouv} blanche(s) servent à faire ouvrir chaque "
                  f"chapitre à droite. Avec `--verso` (un chapitre peut ouvrir à gauche), le tome ferait {n_v} pages.\n")
-    L.append("## Contrôle Blurb\n")
+    series = [(c, c["rapport"].get("orange") or []) for c in chaps]
+    if any(so for _, so in series):
+        L.append("## Premières minutes (série orange)\n")
+        L.append("Marqueur `{.orange}` sur l'intertitre ### de la série, dans le Markdown (CLAUDE.md, « Les premières "
+                 "minutes, en orange ») : encadré orange, repère orange sur la tranche, colonne orange au sommaire.\n")
+        L.append("| Ch. | Pages du tome |\n| --- | --- |")
+        for c, so in series:
+            if so:
+                L.append(f"| {c['num']} | {', '.join(str(c['debut'] + x - 1) for x in so)} |")
+        L.append("")
+    # où chaque note « En plus » s'est posée (chapitre.js, stats.notes) : la page, l'étape qui la précède, dans le fil du
+    # texte ou dans un trou de la page (JP, 18-19 octobre 2026 : une par page, près de l'étape qu'elle nomme)
+    lignes_notes = [(c, x) for c in chaps for x in c["rapport"].get("notes") or []]
+    if lignes_notes:
+        L.append("## Notes « En plus »\n")
+        L.append("| Ch. | Note | Page du tome (du chapitre) | Renvoie à | Posée après | Où |\n| --- | --- | --- | --- | --- | --- |")
+        for c, x in lignes_notes:
+            ren = ", ".join(map(str, x.get("renvoie") or [])) or "—"
+            apr = (f"étape {x['apres']}" if x.get("apres") else "") + (f" ({x['sous']})" if x.get("sous") else "")
+            L.append(f"| {c['num']} | {x.get('titre', '')} | {c['debut'] + x['page'] - 1} ({c['num']}-{x['page']}) | étape(s) {ren} | "
+                     f"{apr or '—'} | {'dans le fil du texte' if x.get('fil') else 'dans un trou de la page'} |")
+        L.append("")
+    L.append(f"## Contrôle {IMP['imprimeur']}\n")
     ok = lambda b: "oui" if b else "**NON**"
+    (pw_, ph_), (tw_, th_) = bc.fmt()["page_pt"], bc.fmt()["rog_pt"]
+    po = lambda x: f"{x / PT:g}".replace(".", ",")
     L.append("| Exigence | Valeur voulue | Ce fichier | Conforme |\n| --- | --- | --- | --- |")
-    L.append(f"| Taille de chaque page | 585 × 738 pt (8,125 × 10,25 po) | {', '.join(f'{x} × {y} pt' for x, y in sorted(tailles))} | {ok(tailles == {(585.0, 738.0)})} |")
-    L.append(f"| Rognage (TrimBox) | 8 × 10 po, fond perdu au bord extérieur | recto : reliure à gauche ; verso : à droite | {ok(trims_ok)} |")
-    L.append(f"| Nombre de pages | pair, de {PAGES_MIN} à {PAGES_MAX} (papier Standard) | {total} | {ok(total % 2 == 0 and PAGES_MIN <= total <= PAGES_MAX)} |")
-    L.append(f"| Page 1 | à droite | {'ouverture du chapitre 00' if plan['titre'] > 1 else 'page de titre'} | oui |")
-    L.append(f"| Polices incorporées | toutes | {len(vues)} police(s), {len(non_inc)} non incorporée(s) | {ok(not non_inc)} |")
-    L.append(f"| Taille du fichier | 2 Go au plus | {taille / 1e6:.1f} Mo | {ok(taille < 2e9)} |")
-    L.append("| Marques d'imprimeur | aucune | aucune | oui |")
-    L.append("| Couleur | CMJN ou sRVB, sans ton direct | sRVB (Edge) | oui |")
-    L.append("| Noir du texte | 100 % K | noir sRVB (0, 0, 0) : la conversion est faite chez Blurb | à juger sur épreuve |")
-    L.append("| PDF/X | plus exigé en 2026 (le guide de 2010 le demandait) | PDF 1.4 d'Edge, pas PDF/X | à surveiller au téléversement |\n")
+    L.append(f"| Taille de chaque page | {pw_} × {ph_} pt ({po(pw_)} × {po(ph_)} po) | {', '.join(f'{x} × {y} pt' for x, y in sorted(tailles))} | {ok(tailles == {(float(pw_), float(ph_))})} |")
+    if lulu:
+        L.append(f"| Rognage (TrimBox) | {po(tw_)} × {po(th_)} po, fond perdu de 0,125 po sur les quatre côtés | 9 pt de chaque bord, recto et verso | {ok(trims_ok)} |")
+        L.append(f"| Nombre de pages | de {PAGES_MIN} à {PAGES_MAX} (couverture rigide Case Wrap) ; pair par choix du livre | {total} | {ok(PAGES_MIN <= total <= PAGES_MAX and total % 2 == 0)} |")
+        L.append(f"| Page 1 | à droite ; les impaires à droite | {'ouverture du chapitre 00' if plan['titre'] > 1 else 'page de titre'} | oui |")
+        L.append("| Zone sûre | 0,5 po du rognage pour le texte, les images et les numéros de page | bloc, titre courant, pied et numéro du tome à 0,5 po au moins ; seuls les aplats de bord (onglets, repères de section, page de titre) vont au fond perdu | oui (grille) |")
+        L.append("| Petit fond | 0,2 po au moins ; 1 po recommandé de 151 à 400 pages | bloc à 1 po du rognage au petit fond | oui (grille) |")
+        L.append(f"| Polices incorporées | toutes | {len(vues)} police(s), {len(non_inc)} non incorporée(s) | {ok(not non_inc)} |")
+        L.append(f"| Transparence | aplatie (« Flatten all transparent layers ») ; Lulu en répare une partie | {len(transp)} page(s) avec transparence | {'oui' if not transp else 'à surveiller au téléversement'} |")
+        L.append("| Une page par page, sans marques de coupe ni mot de passe | oui | oui | oui |")
+        L.append("| Couleur | sRVB préféré, CMJN accepté ; noir plein à 100 % ; teintes de moins de 20 % à éviter | sRVB (Edge) ; aplats pâles (rose des étapes de danger, orange pâle, vert des notes) | à juger sur épreuve |\n")
+        if transp:
+            L.append("Pages avec transparence (ombre douce des notes « En plus », trames ou dessins à opacité) : "
+                     + ", ".join(map(str, transp)) + ".\n")
+    else:
+        L.append(f"| Rognage (TrimBox) | 8 × 10 po, fond perdu au bord extérieur | recto : reliure à gauche ; verso : à droite | {ok(trims_ok)} |")
+        L.append(f"| Nombre de pages | pair, de {PAGES_MIN} à {PAGES_MAX} (papier Standard) | {total} | {ok(total % 2 == 0 and PAGES_MIN <= total <= PAGES_MAX)} |")
+        L.append(f"| Page 1 | à droite | {'ouverture du chapitre 00' if plan['titre'] > 1 else 'page de titre'} | oui |")
+        L.append(f"| Polices incorporées | toutes | {len(vues)} police(s), {len(non_inc)} non incorporée(s) | {ok(not non_inc)} |")
+        L.append(f"| Taille du fichier | 2 Go au plus | {taille / 1e6:.1f} Mo | {ok(taille < 2e9)} |")
+        L.append("| Marques d'imprimeur | aucune | aucune | oui |")
+        L.append("| Couleur | CMJN ou sRVB, sans ton direct | sRVB (Edge) | oui |")
+        L.append("| Noir du texte | 100 % K | noir sRVB (0, 0, 0) : la conversion est faite chez Blurb | à juger sur épreuve |")
+        L.append("| PDF/X | plus exigé en 2026 (le guide de 2010 le demandait) | PDF 1.4 d'Edge, pas PDF/X | à surveiller au téléversement |\n")
     if non_inc:
         L.append("Polices non incorporées : " + ", ".join(sorted(non_inc)) + "\n")
     L.append("Polices du fichier : " + ", ".join(sorted({re.sub(r"^/[A-Z]{6}\+", "", x).replace("?", "Type 3 sans nom (texte des planches)") for x in vues})) + "\n")
@@ -930,7 +1499,14 @@ def main():
                 L.append(f"| {ch} | U+{ord(ch):04X} | {nom} | {', '.join(map(str, sorted(pp)))} |")
         L.append("")
     L.append("## Tranche et couverture\n")
-    if tr:
+    if lulu:
+        t_l = tranche_lulu(total)
+        L.append(f"Couverture rigide Case Wrap, **{total} pages** : tranche de **{(t_l or '—').replace('.', ',')} po** au tableau du guide de "
+                 f"Lulu (p. 14 ; `sources/lulu-specifications.md`, §3)" + ("" if t_l else ", qui commence à 24 pages") + ". "
+                 "Le PDF de couverture est un seul fichier (plat arrière, tranche, plat avant), fond perdu de 0,125 po, "
+                 "**zone sûre de 0,75 po** en Case Wrap ; Lulu donne le gabarit à la taille exacte après le téléversement "
+                 "de l'intérieur. La couverture se fait **après** le dernier assemblage.\n")
+    elif tr:
         L.append(f"Calculateur de Blurb interrogé le {tr['date']} pour **{total} pages**, papier Standard, couverture "
                  f"**{couverture}** (`{COUVERTURES[couverture]}`), en pouces :\n")
         tranche = next((v2 for k2, v2 in tr["lignes"] if k2.startswith("Gutter / Spine")), "?")
@@ -956,7 +1532,8 @@ def main():
         figs = c["rapport"]["figs"]
         a_val = set(planches_a_valider(c["num"])) - set(planches_validees(c["num"]))
         poses = ", ".join(f"{f['id'] if f['id'] != 'photo' else os.path.basename(f['src'])} ({c['debut'] + f['page'] - 1}"
-                          f"{', pleine' if f['taille'] == 'pleine' else ''}{', à valider' if f['id'] in a_val else ''})" for f in figs) or "—"
+                          f"{', pleine' if f['taille'] == 'pleine' else ', double page' if f['taille'] == 'double' else ''}"
+                          f"{', à valider' if f['id'] in a_val else ''})" for f in figs) or "—"
         valides = {f["id"] for f in figs}
         attente = [i for i in sorted(a_val) if i not in valides]     # à valider mais pas dans les pages : à regarder
         sans = [i for i in planches_mentionnees(c["num"]) if i not in valides and i not in a_val]
@@ -972,14 +1549,38 @@ def main():
                     manq.append(f"ch. {c['num']} : {f['src']}")
     if manq:
         L.append("**Fichiers de figure introuvables :** " + "; ".join(manq) + "\n")
-    faibles = []
+    faibles, sous300 = [], []
     for c, f in photos:
         if f.get("nw") and f.get("w"):
             ppi = f["nw"] / f["w"]
             if ppi < 150:
                 faibles.append(f"{os.path.basename(f['src'])} : {ppi:.0f} PPI")
+            elif ppi < 300:
+                sous300.append(f"{os.path.basename(f['src'])} : {ppi:.0f} PPI")
     if faibles:
         L.append("**Photos sous 150 PPI à la taille imprimée :** " + "; ".join(faibles) + "\n")
+    if sous300 and lulu:
+        L.append("**Photos entre 150 et 300 PPI** (Lulu demande 300 PPI ; 150, c'est son minimum pour un dessin "
+                 "simple) : " + "; ".join(sous300) + "\n")
+    if lulu:
+        # planches pleine page et demi-page : PNG posé sur la largeur du bloc (7 po), au plus
+        pl_ppi = {}
+        for c in chaps:
+            for f in c["rapport"]["figs"]:
+                if f["id"] == "photo" or f.get("taille") not in ("pleine", "demi") or not str(f.get("src", "")).endswith(".png"):
+                    continue
+                pth = os.path.normpath(os.path.join(os.path.dirname(c["dst"]), urllib.parse.unquote(f["src"])))
+                try:
+                    with open(pth, "rb") as fh:
+                        fh.seek(16); larg = int.from_bytes(fh.read(4), "big")      # en-tête IHDR du PNG
+                    pl_ppi[f["id"]] = round(larg / 7)
+                except OSError:
+                    pass
+        bas = {k: v for k, v in pl_ppi.items() if v < 300}
+        if bas:
+            L.append(f"**Planches sous 300 PPI à la largeur du bloc (7 po)** : {len(bas)} sur {len(pl_ppi)} "
+                     f"({', '.join(f'{k} : {v}' for k, v in sorted(bas.items()))}). Lulu demande 300 PPI : refaire le "
+                     "PNG depuis le SVG à 2100 px de large au moins.\n")
     L.append("## Crédits des images — hors du livre\n")
     L.append(f"Rien ne s'imprime (JP, 28 septembre 2026). Copie de sauvegarde : `{rel(cred_md)}` et `{rel(cred_pdf)}`.\n")
     if credits_lignes:
@@ -1015,16 +1616,27 @@ def main():
     L += [f"- {x}" for x in tous] or ["- aucun"]
     L.append("")
     L.append("## À savoir avant de téléverser\n")
-    L.append("- **Onglet de tranche.** Le numéro de chapitre de l'onglet (en haut, au bord extérieur) est imprimé à moins "
-             "de 0,1 po du rognage, hors de la zone sûre de Blurb (0,25 po) ; la coupe varie de 1/16 po. L'onglet est fait "
-             "pour déborder, mais le chiffre peut être entamé. À voir sur l'épreuve papier. Pour les chapitres à trois "
-             "chiffres (100 à 112), le chiffre est à 12 pt au lieu de 15 (à 15 pt, « 102 » dépasse le rognage) : réglage "
-             "de `couleur.css` depuis le 28 septembre 2026, le même dans les rendus de chapitre seuls.")
-    L.append("- **Petit fond.** Le bloc de texte est à 0,5 po de la reliure : conforme au tableau du calculateur (0,5), "
-             "pas au paragraphe de la même page (0,625). Le livre de 440 pages ouvre mal au centre : à juger sur épreuve.")
-    L.append("- **Page du logo Blurb.** Blurb ajoute une page de logo à la fin, hors compte, sauf option payante.")
-    L.append("- **Aperçus.** Les PNG de `apercus/` sont pris sur les pages HTML qui ont servi à l'impression, rognées "
-             "à 8 × 10 po (sans fond perdu).\n")
+    if lulu:
+        L.append("- **Onglet de tranche.** Le numéro de chapitre de l'onglet (en haut, au bord extérieur) est à environ "
+                 "0,1 po du rognage, hors de la zone sûre de Lulu (0,5 po) ; Lulu donne 0,125 po de tolérance de coupe. "
+                 "L'onglet est fait pour déborder, mais le chiffre peut être entamé : il se répète au titre courant de "
+                 "chaque page. À voir sur l'épreuve papier.")
+        L.append("- **Logigrammes en double page.** `design/outils/logigramme.py` les dessine encore en 8 × 10 po ; le "
+                 "moteur pose chaque moitié centrée en hauteur et écartée de 0,375 po du pli (colonnes à 1 po du pli, "
+                 "0,625 po du bord extérieur). Ils ne s'agrandissent pas avec la page.")
+        L.append("- **Aperçus.** Les PNG de `apercus/` sont pris sur les pages HTML qui ont servi à l'impression, rognées "
+                 "à 8,5 × 11 po (sans fond perdu).\n")
+    else:
+        L.append("- **Onglet de tranche.** Le numéro de chapitre de l'onglet (en haut, au bord extérieur) est imprimé à moins "
+                 "de 0,1 po du rognage, hors de la zone sûre de Blurb (0,25 po) ; la coupe varie de 1/16 po. L'onglet est fait "
+                 "pour déborder, mais le chiffre peut être entamé. À voir sur l'épreuve papier. Pour les chapitres à trois "
+                 "chiffres (100 à 112), le chiffre est à 12 pt au lieu de 15 (à 15 pt, « 102 » dépasse le rognage) : réglage "
+                 "de `couleur.css` depuis le 28 septembre 2026, le même dans les rendus de chapitre seuls.")
+        L.append("- **Petit fond.** Le bloc de texte est à 0,5 po de la reliure : conforme au tableau du calculateur (0,5), "
+                 "pas au paragraphe de la même page (0,625). Le livre de 440 pages ouvre mal au centre : à juger sur épreuve.")
+        L.append("- **Page du logo Blurb.** Blurb ajoute une page de logo à la fin, hors compte, sauf option payante.")
+        L.append("- **Aperçus.** Les PNG de `apercus/` sont pris sur les pages HTML qui ont servi à l'impression, rognées "
+                 "à 8 × 10 po (sans fond perdu).\n")
     rap = os.path.join(sortie, "rapport.md")
     open(rap, "w", encoding="utf-8").write("\n".join(L))
     log("rapport :", rap)

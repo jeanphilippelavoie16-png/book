@@ -1,163 +1,181 @@
-// Planche 24-01 — Lever près, lever sans tourner. Chapitre 24, « Le dos est un levier » et §B-8.
-// De profil : la même caisse serrée contre le ventre (bon) et tenue à bout de bras (raté).
-// Vu de dessus : pour changer de direction, les pieds tournent (bon) ; les pieds plantés et le
-// tronc qui tourne sous la charge (raté).
+// Planche 24-01 — Lever près, lever sans tourner. Chapitre 24, « Le dos est un levier » (section 3),
+// étape 8 et le point de contrôle « Chaque lever : distance entre les mains et les chevilles ».
+// De profil : la même caisse portée sur les paumes, serrée contre le ventre (bon) et à bout de bras
+// (raté). Vu de dessus, pour porter la caisse de côté : les pieds tournent avec elle (bon) ; les
+// pieds restent plantés et le tronc tourne sous la charge (raté).
+//
+// Corps simples (h.formes.corps), de profil seulement (JP, 13 octobre au soir) : debout-charge-ventre
+// et debout-bras-tendus (bras retouchés : mains à 250 et à 500 mm de la cheville proche). D'en haut,
+// plus de corps : les deux bottes et la caisse, avant le tour en gris tireté, après en trait. La
+// charte : la caisse de profil est l'objet (contour 2,4, arêtes 1,4, clous), les jours entre ses
+// planches à l'ombre ; d'en haut, les bottes sont l'objet (2,4). Rouge (3) : le point à contrôler du
+// bon (la caisse contre le ventre), l'endroit où le raté casse (le bas du dos), la flèche du geste
+// (le quart de tour des pieds). La caisse qui tourne sans les pieds, sur le raté, reste en noir.
 module.exports = (h) => {
   const A = h.a, F = h.formes;
-  const W = at => at.replace('fill="none"', 'fill="#FFFFFF"');
   const f1 = v => Math.round(v * 10) / 10;
-  const pt = p => `${f1(p[0])},${f1(p[1])}`;
+  const pt = p => `${f1(p[0])} ${f1(p[1])}`;
   const RAD = Math.PI / 180;
   const tourne = (p, a) => { const c = Math.cos(a * RAD), s = Math.sin(a * RAD); return [p[0] * c - p[1] * s, p[0] * s + p[1] * c]; };
-  const milieu = (a, b, t = 0.5) => [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t];
 
-  // courbe lisse par les points (Catmull-Rom → Bézier), fermée ou non
-  const lisse = (P, ferme) => {
-    const N = P.length, g = i => ferme ? P[(i + N) % N] : P[Math.max(0, Math.min(N - 1, i))];
-    let d = `M${pt(P[0])}`;
-    for (let i = 0; i < (ferme ? N : N - 1); i++) {
-      const p0 = g(i - 1), p1 = g(i), p2 = g(i + 1), p3 = g(i + 2);
-      const c1 = [p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6];
-      const c2 = [p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6];
-      d += ` C${pt(c1)} ${pt(c2)} ${pt(p2)}`;
-    }
-    return d + (ferme ? ' Z' : '');
+  // le bord avant du corps (sans les bras) entre deux hauteurs : la caisse s'y appuie
+  const bordAvant = (svg, y0, y1) => {
+    const m = /<path d="([^"]+)" fill="#FFFFFF" stroke="none"\/>/.exec(svg);
+    let x = -Infinity;
+    for (const [, a, b] of m[1].matchAll(/(-?[\d.]+) (-?[\d.]+)/g)) { const y = +b; if (y >= y0 && y <= y1) x = Math.max(x, +a); }
+    return x;
   };
 
   // ─── De profil ─────────────────────────────────────────────────────────────────────────
-  const E = 0.205;                        // unités de vue par mm, la même dans les deux vues de profil
+  const E = 0.196;                         // unités de vue par mm, la même dans les deux vues de profil
   const mm = v => v * E;
+  const CL = 300, CH = 300;                // la caisse : 300 × 300 mm de côté
   const sol = (x0, x1, y) => [h.rect(x0, y, x1 - x0, 8, A.hachure('terre', 'aucun')), h.ligne(x0, y, x1, y, A.arete)].join('\n');
 
-  // la caisse de planches, vue de côté : deux montants aux bouts, trois planches à claire-voie
-  const caisse = (x, y, l, ht) => {
-    const out = [h.rect(x, y, l, ht, W(A.arete))];
-    const m = mm(40), jeu = mm(14), pl = (ht - 2 * jeu) / 3;
-    for (let i = 0; i < 3; i++) {
-      const yy = y + i * (pl + jeu);
-      if (i > 0) out.push(h.rect(x + m, yy - jeu, l - 2 * m, jeu, A.plein));
-      for (const k of [0.3, 0.62]) out.push(h.ligne(x + m + 4, yy + pl * k, x + l - m - 4, yy + pl * k + (k > 0.5 ? 1 : -1), A.fin));
+  // la caisse de planches, vue de côté : deux montants aux bouts, trois planches, deux jours
+  // (l'intérieur, à l'ombre, se voit entre les planches)
+  const caisse = (x, y, l, ht, k = E) => {
+    const m = 40 * k, jeu = 16 * k, pl = (ht - 2 * jeu) / 3;
+    const out = [h.rect(x, y, l, ht, A.blanc)];
+    for (let i = 1; i < 3; i++) out.push(h.rect(x + m, y + i * pl + (i - 1) * jeu, l - 2 * m, jeu, A.ombre));
+    for (let i = 1; i < 3; i++) {
+      const yy = y + i * pl + (i - 1) * jeu;
+      out.push(h.ligne(x + m, yy, x + l - m, yy, A.arete), h.ligne(x + m, yy + jeu, x + l - m, yy + jeu, A.arete));
     }
-    out.push(h.ligne(x + m, y, x + m, y + ht, A.detail), h.ligne(x + l - m, y, x + l - m, y + ht, A.detail));
-    for (const cx of [x + m / 2, x + l - m / 2]) for (const cy of [y + mm(45), y + ht - mm(45)]) out.push(h.cercle(cx, cy, 0.9, A.plein));
+    out.push(h.ligne(x + m, y, x + m, y + ht, A.arete), h.ligne(x + l - m, y, x + l - m, y + ht, A.arete));
+    for (const cx of [x + m / 2, x + l - m / 2]) for (let i = 0; i < 3; i++) out.push(h.cercle(cx, y + i * (pl + jeu) + pl / 2, 1.1, A.plein));
+    out.push(h.rect(x, y, l, ht, A.contour));
     return out.join('\n');
   };
 
-  // un homme debout qui tient la caisse par les côtés ; le bras loin est caché derrière le proche
-  const profil = (z, o) => {
-    const G = z.h - 12, x0 = z.l * 0.34;
-    const bx = x0 + mm(o.arriere), by = G - mm(1235), bl = mm(300), bh = mm(300);
-    const poignet = [x0 + mm(o.poignet[0]), G - mm(o.poignet[1])];
-    const pers = F.personnage({ x: x0, y: G, pose: 'debout', echelle: E, penche: o.penche, regard: o.regard,
-      mains: { proche: poignet, loin: [poignet[0] - 1, poignet[1] - 1] } });
-    const main = milieu(pers.poignets.proche, pers.mains.proche, 0.55);
-    return { svg: [sol(4, z.l - 4, G), caisse(bx, by, bl, bh), pers].join('\n'), G, x0, bx, by, bl, bh, main };
+  // un homme debout porte la caisse sur ses deux paumes ; la caisse passe entre le tronc et le bras
+  // proche. cle : 'ventre' (le dos de la caisse contre le ventre) ou 'poignet' (la caisse au bout des
+  // mains, son dos au ras des poignets)
+  const profil = (z, pose, cle, angles) => {
+    const G = z.h - 12, x0 = z.l * 0.27;
+    const base = { x: x0, y: G, pose, echelle: E, angles, trait: 'fort' };
+    const sonde = F.corps({ ...base, objetP: '<g/>' });
+    const yb = sonde.mainP.y;                                    // le fond de la caisse, sur les paumes
+    const bx = cle === 'ventre' ? bordAvant(sonde.svg, yb - mm(CH), yb) - 0.6 : sonde.poignetP[0] + mm(12);
+    const by = yb - mm(CH);
+    const c = F.corps({ ...base, objetP: caisse(bx, by, mm(CL), mm(CH)) });
+    // l'aplomb des mains : du dessous des mains au sol, pour lire leur distance aux chevilles
+    const plomb = h.ligne(c.mainP.x, yb + mm(40), c.mainP.x, G - 1, A.fin + ' stroke-dasharray="3 2.5"');
+    return { svg: [sol(4, z.l - 4, G), c.svg, plomb].join('\n'), G, c, bx, by, yb, art: c.articulations };
   };
-  const V = {
-    ventre: { arriere: 96, poignet: [178, 1085], penche: 2, regard: 6 },
-    bras: { arriere: 350, poignet: [430, 1150], penche: -5, regard: 4 },
-  };
+  // les angles retouchés pour que les mains tombent à 250 et à 500 mm de la cheville proche (le
+  // point de contrôle du chapitre) ; à bout de bras, les bras tendus, la caisse presque à la même
+  // hauteur que contre le ventre : seule la distance change
+  const pV = z => profil(z, 'debout-charge-ventre', 'ventre', { brasP: -3, brasL: -6 });
+  const pB = z => profil(z, 'debout-bras-tendus', 'poignet', { brasP: 55, brasL: 55, avantbrasP: 62, avantbrasL: 62, mainP: 92, mainL: 92 });
 
-  // ─── Vu de dessus ──────────────────────────────────────────────────────────────────────
-  const S = 0.27;                         // unités de vue par mm, les deux vues de dessus
-  const ici = (c, p, ang) => { const q = tourne(p, ang); return [c[0] + q[0] * S, c[1] + q[1] * S]; };
-  const pol = (c, r, a) => ici(c, [0, -r], a);
-  // la botte vue de dessus, pied droit, pointe vers le haut ; repère à la cheville
-  const BOTTE = [[0, 68], [30, 60], [44, 30], [45, -30], [53, -110], [50, -165], [32, -205], [6, -220],
-    [-20, -214], [-44, -188], [-53, -135], [-42, -70], [-37, -10], [-40, 35], [-26, 62]];
-  const botte = (c, ang, droit, at) => {
-    const T = p => { const q = tourne([droit ? p[0] : -p[0], p[1]], ang); return [c[0] + q[0] * S, c[1] + q[1] * S]; };
-    return [h.path(lisse(BOTTE.map(T), true), at), h.path(lisse([[-39, 18], [0, 24], [42, 18]].map(T), false), A.fin)].join('\n');
-  };
-  // les deux bottes ; ang : où regardent les pieds (0 = vers le haut, 90 = vers la droite)
-  const pieds = (c, ang, at) => [botte(ici(c, [112, 0], ang), ang + 8, true, at), botte(ici(c, [-112, 0], ang), ang - 8, false, at)].join('\n');
-  // la caisse, les bras, les épaules et la tête vus de dessus, peints en blanc : ils cachent les
-  // pieds ; ce qui dépasse se voit en trait plein, le reste se redessine en tireté par-dessus
-  const corps = (c, ang) => {
-    const T = p => ici(c, p, ang);
-    const out = [];
-    const bw = 170, b0 = -112, b1 = -412;
-    out.push(h.chemin([[-bw, b0], [bw, b0], [bw, b1], [-bw, b1]].map(T), W(A.arete), true));
-    for (const y of [-212, -312]) out.push(h.chemin([[-bw + 30, y], [bw - 30, y]].map(T), A.fin));
-    for (const x of [-bw + 30, bw - 30]) out.push(h.chemin([[x, b0], [x, b1]].map(T), A.detail));
-    // les avant-bras le long des côtés de la caisse, la main à plat sur le côté
-    const BRAS = [[196, -96], [206, -180], [198, -248], [178, -266], [171, -300], [171, -382], [177, -396], [185, -384],
-      [197, -300], [224, -262], [250, -180], [262, -96], [240, -40]];
-    for (const sg of [-1, 1]) out.push(h.path(lisse(BRAS.map(p => T([sg * p[0], p[1]])), true), W(A.arete)));
-    const ep = [];
-    for (let k = 0; k < 36; k++) {
-      const t = k / 36 * 2 * Math.PI, cs = Math.cos(t), sn = Math.sin(t), n = 2.6;
-      ep.push([238 * Math.sign(cs) * Math.pow(Math.abs(cs), 2 / n), 10 + 118 * Math.sign(sn) * Math.pow(Math.abs(sn), 2 / n)]);
+  // ─── Vu de dessus : les empreintes et la caisse, sans le corps ───────────────────────────
+  // JP, 13 octobre au soir : un corps ne se montre que de profil. D'en haut, il reste ce qui dit le
+  // geste : les deux bottes au sol et la caisse devant elles. Avant le tour, en gris : la caisse droit
+  // devant, vers le haut. Après : la caisse à droite ; les pieds l'ont suivie (bon) ou sont restés
+  // plantés (raté).
+  const S = 0.25;                          // unités de vue par mm, les deux vues de dessus
+  const centre = z => [z.l * 0.50, z.h * 0.64];
+  const POSE = 'debout-charge-ventre';
+  // la caisse vue de dessus, devant les pieds : le couvercle de trois planches, deux jours à l'ombre ;
+  // ang : où elle est (0 = à droite des pieds, -90 = devant, vers le haut) ; gris : avant le tour.
+  // Portée, elle est juste au-dessus des orteils ; sans le corps, on la pose juste devant, pour que
+  // les bottes restent lisibles
+  const caisseDessus = (c, ang, gris = false) => {
+    const T = p => { const q = tourne(p, ang); return [c[0] + q[0] * S, c[1] + q[1] * S]; };
+    const x0 = 250, x1 = 550, w = 170, jeu = 16, pl = (2 * w - 2 * jeu) / 3;
+    const bord = [[x0, -w], [x1, -w], [x1, w], [x0, w]].map(T);
+    if (gris) return h.chemin(bord, `fill="#E6E6E6" ${A.cache.replace('fill="none" ', '')}`, true);
+    const out = [h.chemin(bord, A.blanc, true)];
+    for (let i = 1; i < 3; i++) {
+      const y = -w + i * pl + (i - 1) * jeu;
+      out.push(h.chemin([[x0, y], [x1, y], [x1, y + jeu], [x0, y + jeu]].map(T), A.ombre, true));
+      out.push(h.chemin([[x0, y], [x1, y]].map(T), A.detail), h.chemin([[x0, y + jeu], [x1, y + jeu]].map(T), A.detail));
     }
-    out.push(h.path(lisse(ep.map(T), true), W(A.arete)));
-    const P = [];
-    for (let k = 0; k < 28; k++) { const t = k / 28 * 2 * Math.PI; P.push([74 * Math.cos(t), -8 + 96 * Math.sin(t)]); }
-    out.push(h.path(lisse([[-12, -100], [-3, -120], [3, -120], [12, -100]].map(T), false), W(A.arete)), h.path(lisse(P.map(T), true), W(A.arete)));
+    out.push(h.chemin(bord, A.arete, true));
     return out.join('\n');
   };
-  const POINTS = A.detail + ' stroke-dasharray="0.1 2.6"';   // la place des pieds avant le tour
-  // un arc fléché autour de c, de a0 à a1 degrés (0 = vers le haut, sens horaire), rayon r en mm
-  const arc = (c, r, a0, a1) => {
-    const P = []; for (let k = 0; k <= 18; k++) P.push(pol(c, r, a0 + (a1 - a0) * k / 18));
-    return h.fleche('M' + P.map(pt).join(' L'));
+  // les deux bottes vues de dessus (le contour des pieds du corps simple, rien d'autre) ; angle : où
+  // elles pointent (0 = vers la droite, -90 = vers le haut)
+  const bottes = (c, angle, gris = false) => {
+    const g = F.corps({ x: c[0], y: c[1], pose: POSE, vue: 'dessus', echelle: S, angle, fantome: 'pieds' });
+    const svg = g.svg.replace(/fill="none" stroke="#1A1A1A" stroke-width="[\d.]+"([^>]*) stroke-dasharray="3 2.2"/g,
+      gris ? 'fill="#E6E6E6" stroke="#1A1A1A" stroke-width="0.7"$1 stroke-dasharray="5 3.5"' : 'fill="#FFFFFF" stroke="#1A1A1A" stroke-width="2.4"$1');
+    return { svg, P: g.pieds.P.cheville, L: g.pieds.L.cheville };
   };
-  const centre = z => [z.l * 0.40, z.h * 0.60];
-  const ARC_BON = [300, -85, -15], ARC_RATE = [460, -25, 52];
+  const pol = (c, r, a) => { const q = tourne([r, 0], a); return [c[0] + q[0] * S, c[1] + q[1] * S]; };
+  // un arc autour de c, de a0 à a1 degrés (0 = vers la droite, sens horaire à l'écran), rayon r en mm
+  const arcD = (c, r, a0, a1) => { const P = []; for (let k = 0; k <= 24; k++) P.push(pol(c, r, a0 + (a1 - a0) * k / 24)); return 'M' + P.map(pt).join(' L'); };
+  const AVANT = [-300, 70];              // où étaient les pieds, en mm, par rapport à où ils sont : un pas en tournant
+  const ARC_PIEDS = [300, -168, -28];     // le quart de tour des pieds, autour du milieu du pas
+  const ARC_CAISSE = [500, -64, -24];     // le quart de tour de la caisse, d'une place à l'autre, autour des pieds plantés
+
+  const vueBon = z => {
+    const c = centre(z), b = [c[0] + AVANT[0] * S, c[1] + AVANT[1] * S];
+    const avant = bottes(b, -90, true), apres = bottes(c, 0);
+    const m = [(b[0] + c[0]) / 2, (b[1] + c[1]) / 2 - 20 * S];
+    return { c, b, m, avant, apres, svg: [caisseDessus(b, -90, true), avant.svg, caisseDessus(c, 0), apres.svg, h.geste(arcD(m, ...ARC_PIEDS))].join('\n') };
+  };
+  const vueRate = z => {
+    const c = centre(z);
+    const g = bottes(c, -90);
+    return { c, g, svg: [caisseDessus(c, -90, true), caisseDessus(c, 0), g.svg, h.fleche(arcD(c, ...ARC_CAISSE))].join('\n') };
+  };
 
   return {
     ref: '24-01',
     titre: 'Lever près, lever sans tourner',
-    desc: 'De profil, le même homme tient la même caisse serrée contre le ventre, puis à bout de bras. Vu de dessus, pour porter la caisse de côté : les pieds tournent avec elle, pas à pas ; le raté garde les pieds plantés et tourne le tronc d’un quart de tour.',
+    desc: 'De profil, le même homme porte la même caisse sur ses deux paumes : serrée contre le ventre, les mains à 25 cm des chevilles, puis à bout de bras, les mains à 50 cm ; un tireté descend de ses mains au sol. Vu de dessus, les deux bottes et la caisse seules : pour porter la caisse de côté, les bottes font un quart de tour avec elle, en un pas, la place d’avant en gris ; sur le raté, les bottes restent plantées et la caisse passe de devant à côté, le tronc tourné d’un quart de tour sous la charge.',
     format: 'pleine',
     disposition: [['ventre', 'bras'], ['pieds', 'tronc']],
     hauteurs: [3, 2],
     vues: {
       ventre: {
         titre: 'Bon : contre le ventre',
-        dessin: z => profil(z, V.ventre).svg,
+        dessin: z => {
+          const p = pV(z);
+          return [p.svg, h.controle(p.bx, p.by + mm(CH) * 0.5, 13)].join('\n');
+        },
         renvois: z => {
-          const p = profil(z, V.ventre);
+          const p = pV(z);
           return [
-            { n: 1, rond: [p.bx + p.bl + 30, p.main[1] + 34], cible: p.main, texte: 'mains à 25 cm des chevilles' },
-            { n: 2, rond: [p.x0 - mm(330), p.G - mm(1200)], cible: [p.x0 - mm(112), p.G - mm(1200)], texte: 'dos droit, ni cambré ni rond' },
+            { n: 1, rond: [p.bx + mm(CL) + 34, p.yb + 46], cible: [p.c.mainP.x + 6, p.yb + 3], texte: 'mains à 25 cm des chevilles' },
+            { n: 2, rond: [p.art.bassin[0] - mm(330), p.G - mm(1250)], cible: [p.art.bassin[0] - mm(150), p.G - mm(1250)], texte: 'dos droit, ni cambré ni rond' },
           ];
         },
       },
       bras: {
         titre: 'Raté : à bout de bras',
-        dessin: z => profil(z, V.bras).svg,
+        dessin: z => {
+          const p = pB(z);
+          return [p.svg, h.controle(p.art.bassin[0] - mm(105), p.G - mm(1060), 13)].join('\n');
+        },
         renvois: z => {
-          const p = profil(z, V.bras);
+          const p = pB(z);
           return [
-            { n: 3, rond: [Math.min(z.l - 14, p.bx + p.bl + 24), p.main[1] + 40], cible: p.main, texte: 'mains à 50 cm des chevilles' },
+            { n: 3, rond: [Math.min(z.l - 14, p.bx + mm(CL) + 10), p.yb + 50], cible: [p.c.mainP.x + 6, p.yb + 3], texte: 'mains à 50 cm des chevilles' },
           ];
         },
       },
       pieds: {
         titre: 'Bon : les pieds tournent',
-        dessin: z => {
-          const c = centre(z);
-          return [pieds(c, 0, POINTS), pieds(c, 90, W(A.arete)), corps(c, 90), pieds(c, 90, A.cache), arc(c, ...ARC_BON)].join('\n');
-        },
+        dessin: z => vueBon(z).svg,
         renvois: z => {
-          const c = centre(z);
+          const v = vueBon(z), c = v.c;
           return [
-            { n: 4, rond: ici(c, [-250, 250], 0), cible: ici(c, [-20, 157], 0), texte: 'les pieds tournent, pas à pas' },
-            { n: 5, rond: ici(c, [-330, 90], 0), cible: ici(c, [-155, 10], 0), texte: 'les pieds avant le tour' },
+            { n: 4, rond: [c[0] + 40 * S, z.h - 12], cible: [v.apres.P[0] + 70 * S, v.apres.P[1] + 48 * S], texte: 'les pieds tournent, pas à pas' },
+            { n: 5, rond: [v.b[0] - 210 * S, z.h - 12], cible: [v.avant.L[0] - 4 * S, v.avant.L[1] + 52 * S], texte: 'les pieds avant le tour' },
           ];
         },
       },
       tronc: {
         titre: 'Raté : le tronc tourne',
-        dessin: z => {
-          const c = centre(z);
-          return [pieds(c, 0, W(A.arete)), corps(c, 90), pieds(c, 0, A.cache), arc(c, ...ARC_RATE)].join('\n');
-        },
+        dessin: z => vueRate(z).svg,
         renvois: z => {
-          const c = centre(z);
+          const v = vueRate(z), c = v.c;
           return [
-            { n: 6, rond: ici(c, [-300, -70], 0), cible: ici(c, [-160, -160], 0), texte: 'les pieds plantés' },
-            { n: 7, rond: pol(c, 470, -48), cible: pol(c, 460, -12), texte: 'le tronc tourne d’un quart de tour' },
+            { n: 6, rond: [c[0] - 330 * S, c[1] + 150 * S], cible: [v.g.L[0] - 40 * S, v.g.L[1] + 40 * S], texte: 'les pieds plantés' },
+            { n: 7, rond: pol(c, 640, -40), cible: pol(c, ARC_CAISSE[0], -44), texte: 'le tronc tourne d’un quart de tour' },
           ];
         },
       },

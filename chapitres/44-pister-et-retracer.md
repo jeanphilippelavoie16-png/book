@@ -340,7 +340,7 @@ côté pour que les gouttes et les foulées fassent ombre. L'arme chargée vient
 la bête qu'on croit morte peut se relever, et une bête laissée la nuit attire l'ours, le coyote et
 les chiens — on revient vers elle comme vers un endroit occupé (§8, bloc 7). Les deux mains vont à
 l'arme : à deux, l'un éclaire et l'autre tient l'arme ; seul, la frontale et rien dans les mains.
-Prévenir le voisinage d'abord, d'un mot au rendez-vous (ch. 16, étape 19) : des lumières et une
+Prévenir le voisinage d'abord, d'un mot au rendez-vous (ch. 16, étape 37) : des lumières et une
 arme qui bougent dans le bois la nuit se lisent comme une menace par des voisins armés.
 
 **36. Dans la neige.** Tout est plus facile, sauf le début : sur la neige fraîche, les premiers

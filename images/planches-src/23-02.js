@@ -1,4 +1,7 @@
 // Planche 23-02 — retourner et gratter un boyau (chapitre 42, section 4).
+// 14 octobre : les deux mains passent aux mains simples (prise-manche vue de la paume pour gratter ; pour vider,
+// repris le même jour, le gros plan des deux bouts de doigts sur le boyau, la pince entière faisait boîte) ; la charte : les gestes (glisser, pousser le bâton, racler) en rouge, la face de côté de la
+// planche à l'ombre.
 module.exports = (h) => {
   // ── outils de géométrie ──────────────────────────────────────────────────────────────
   const f = n => (+n).toFixed(1);
@@ -50,43 +53,47 @@ module.exports = (h) => {
   const FOND = h.a.blanc.match(/fill="[^"]*"/)[0];
   const plein = attrs => attrs.replace('fill="none"', FOND);
 
-  // ── vue 1 : vider (600 × 118) ────────────────────────────────────────────────────────
-  const pince = [298, 62];
-  const plat = bez([22, 72], [110, 50], [215, 72], pince);
-  const gras = bez(pince, [370, 57], [450, 71], [520, 63], 60);
-  const rPlat = 3.5;
-  const rGras = t => { const m = Math.min(1, t / 0.14), s = m * m * (3 - 2 * m); return rPlat + s * (7.5 + 1.8 * Math.sin(t * 23)); };
+  // ── vue 1 : vider, en gros plan (600 × 162) ───────────────────────────────────────────
+  // Le gros plan des deux bouts de doigts (mains simples, le doigt tendu vu de côté, à grande échelle, coupés
+  // par le bord de la vue) : l'index par-dessus, le pouce par-dessous, les pulpes qui écrasent le boyau. À
+  // gauche, la part vidée, plate ; à droite, la part encore pleine, que les doigts poussent vers le bout ouvert.
+  const EV = 2.6;                                             // gros plan : unités de vue par mm
+  const yG = 81, xPince = 280;
+  const rPlat = 1.2 * EV, rPlein = t => 12.5 * EV + 2.2 * EV * Math.sin(t * 19);
+  const plat = droite([0, yG], [xPince, yG]);
+  const gras = bez([xPince, yG], [xPince + 30, yG], [xPince + 40, yG], [xPince + 90, yG], 24)
+    .concat(droite([xPince + 90, yG], [520, yG], 60).slice(1));
+  const rGras = t => { const m = Math.min(1, t / 0.2), s = m * m * (3 - 2 * m); return rPlat + s * (rPlein(t) - rPlat); };
   const boyauVide = () => {
     const hautP = decale(plat, -rPlat), basP = decale(plat, rPlat);
     const hautG = decale(gras, t => -rGras(t)), basG = decale(gras, rGras);
     const contour = suite(hautP, hautG).concat(basG.slice().reverse(), basP.slice().reverse());
-    const rFin = rGras(1);
     return [
       h.path(D(contour, true), plein(h.a.contour)),
-      h.ellipse(520, 63, 3.5, f(rFin), plein(h.a.arete)),
+      h.ellipse(520, yG, 9, f(rGras(1)), plein(h.a.arete)),
     ].join('\n');
   };
-  const main = [
-    // la main passe derrière le boyau : l'index dessus, le pouce dessous
-    // (le poignet sort par le haut de la vue : le tracé reste ouvert là)
-    h.path('M 150 0 C 175 12 215 16 244 22 C 262 25 276 28 288 38 C 297 45 303 51 301 55'
-      + ' C 299 58.5 292 58.5 284 57 C 272 55 258 52 246 54 C 238 56 236 62 240 66'
-      + ' C 252 69 278 66 294 66 C 303 66 308 70 305 75 C 301 81 290 84 276 86'
-      + ' C 258 89 240 96 222 96 C 196 96 176 82 160 60 C 150 44 118 20 105 0', plein(h.a.arete)),
-    // ongles et plis
-    h.path('M 286 40 C 291 41 296 46 297 50', h.a.detail),
-    h.path('M 291 80 C 297 79 302 77 304 74', h.a.detail),
-    h.path('M 268 27 C 265 33 265 38 268 44', h.a.detail),
-    h.path('M 270 68 C 267 73 267 79 270 85', h.a.detail),
+  // les deux doigts : la pose « pointe » (l'index tendu), vue du côté du pouce, posée par son bout ; le doigt du
+  // dessous, en miroir et un peu plus large, fait le pouce. Seuls les bouts entrent dans la vue.
+  const doigt = (z, cote, angle, y, k) => h.formes.mainSimple({ pose: 'pointe', vue: 'pouce', cote, angle, echelle: EV * k, ancre: 'bout',
+    x: xPince + 6, y, avantbras: { longueur: 'bord', bord: { x0: 0, y0: 0, x1: z.l, y1: z.h } } }).svg;
+  const mainVide = z => [
+    `<clipPath id="p2302-vider"><rect x="0" y="0" width="${z.l}" height="${z.h}"/></clipPath>`,
+    `<g clip-path="url(#p2302-vider)">`,
+    boyauVide(),
+    doigt(z, 'droite', 35, yG - rPlat - 4 * EV, 1),
+    doigt(z, 'gauche', -35, yG + rPlat + 4 * EV, 1.1),
+    '</g>',
   ].join('\n');
+  // ce qui sort par le bout ouvert
   const crottes = [
-    h.path('M 530 67 C 536 64 541 68 539 73 C 537 78 530 77 529 72 Z', h.a.arete),
-    h.path('M 540 85 C 545 83 548 87 546 91 C 543 94 538 92 538 88 Z', h.a.arete),
-    h.path('M 534 102 C 538 100 541 103 539 106 C 537 109 533 107 533 104 Z', h.a.arete),
+    h.path('M 534 70 C 546 64 556 72 552 82 C 548 92 534 90 532 80 Z', h.a.arete),
+    h.path('M 556 100 C 566 96 573 104 569 112 C 564 119 553 115 553 107 Z', h.a.arete),
+    h.path('M 548 132 C 556 129 562 135 559 141 C 555 147 546 144 546 138 Z', h.a.arete),
   ].join('\n');
 
   // ── vue 2 : retourner, en coupe (600 × 237) ──────────────────────────────────────────
-  const y0 = 105, xP = 110, rB = 10, xB = 320, rI = 16, rE = 27;
+  const y0 = 92, xP = 110, rB = 10, xB = 320, rI = 16, rE = 27;
   const baton = [
     h.path(`M 15 ${y0 - rB} L ${xB} ${y0 - rB} A ${rB} ${rB} 0 0 1 ${xB} ${y0 + rB} L 15 ${y0 + rB}`, plein(h.a.arete)),
     h.path(`M 15 ${y0 - rB} C 11 ${y0 - 4} 19 ${y0 + 4} 15 ${y0 + rB}`, h.a.arete),
@@ -95,7 +102,7 @@ module.exports = (h) => {
   // couche intérieure : déjà retournée, muqueuse dehors ; elle coiffe le bout du bâton
   const interieur = suite(droite([xP, y0 - rI], [xB, y0 - rI], 40), arc(xB, y0, rI, -90, 90, 30), droite([xB, y0 + rI], [xP, y0 + rI], 40));
   // couche extérieure : encore à l'endroit, muqueuse dedans ; elle continue en boyau vide
-  const centre = suite(droite([xP, y0], [375, y0], 40), bez([375, y0], [450, y0], [505, 120], [545, 178], 50));
+  const centre = suite(droite([xP, y0], [375, y0], 40), bez([375, y0], [450, y0], [505, y0 + 12], [545, y0 + 60], 50));
   const rExt = t => { const x = t * (centre.length - 1) <= 40 ? 0 : (t * (centre.length - 1) - 40) / 50; return rE - 5 * x; };
   const extHaut = decale(centre, t => -rExt(t)), extBas = decale(centre, rExt);
   const pliHaut = arc(xP, y0 - (rE + rI) / 2, (rE - rI) / 2, -90, -270, 16);
@@ -115,7 +122,8 @@ module.exports = (h) => {
     fil,
     h.path('M 15 172 L 135 172 L 135 188 L 15 188 Z', plein(h.a.arete)),
     h.path('M 32 188 Q 75 168 118 188 M 46 188 Q 75 175 104 188 M 60 188 Q 75 181 90 188', h.a.detail),
-    h.path('M 135 172 L 330 62 L 330 78 L 135 188 Z', plein(h.a.arete)),
+    h.path('M 135 172 L 330 62 L 330 78 L 135 188 Z', h.a.ombre),          // la face de côté, à l'ombre (la charte)
+    h.path('M 135 172 L 330 62 L 330 78 L 135 188 Z', h.a.arete),
     h.path('M 140 180 L 326 75', h.a.detail),
     h.path('M 15 188 L 15 172 L 210 62 L 330 62 L 330 78 L 135 188 Z', h.a.contour),
   ].join('\n');
@@ -145,11 +153,18 @@ module.exports = (h) => {
     h.ligne(f(xPointe), f(yk), f(xTalon), f(yk), h.a.contour),
   ].join('\n');
 
+  // la main droite tient le manche par-dessus, le poing fermé, le pouce vers la lame (mains simples, prise-manche,
+  // vue de la paume) : le manche passe dans le poing, l'avant-bras qui monte et sort du cadre
+  const mainCouteau = z => {
+    const o = { pose: 'prise-manche', vue: 'paume', cote: 'droite', diametre: 27, echelle: 0.62, x: xTalon + 41, y: yk - 9.5 };   // le manche dessiné fait 17 de haut : 27 mm à cette échelle
+    const a = 0 - h.formes.mainSimple({ ...o, angle: 0, avantbras: false }).prise.angle;   // l'axe du moteur (du pouce à l'auriculaire) vers la droite
+    return h.formes.mainSimple({ ...o, angle: a, objet: couteau, avantbras: { bord: { x0: 0, y0: 0, x1: z.l, y1: z.h }, longueur: 'bord' } }).svg;
+  };
   // ── vue 4 : saler (231 × 194) ───────────────────────────────────────────────────────
   const pot = [
     h.path('M 53 72 Q 115 62 177 72 L 177 174 L 53 174 Z', h.a.hachure('gravier', 'aucun')),
     ...[[76, 92, -8], [114, 90, 6], [153, 94, -4], [95, 111, 10], [136, 113, -6], [72, 131, 4], [114, 133, -10], [156, 130, 8], [94, 153, -4], [137, 154, 6]]
-      .map(([x, y, a]) => ovale(x, y, 11, 3.8, a, plein(h.a.arete))),
+      .map(([x, y, a]) => ovale(x, y + 6, 11, 3.8, a, plein(h.a.arete))),
     h.path('M 53 72 Q 115 62 177 72', h.a.arete),
     h.path('M 45 58 L 45 182 L 185 182 L 185 58 L 177 58 L 177 174 L 53 174 L 53 58 Z', h.a.hachure('metal', 'contour')),
   ].join('\n');
@@ -168,14 +183,14 @@ module.exports = (h) => {
     desc: 'On vide le boyau en le faisant glisser entre deux doigts ; on plie son bout sur le bout d’un bâton lisse et on pousse : le boyau passe dans le pli et se retourne, la muqueuse dehors. On la gratte au dos du couteau sur une planche mouillée jusqu’à ce que le boyau soit mince et translucide, puis on l’enterre dans le sel sec.',
     format: 'pleine',
     disposition: [['vider'], ['retourner'], ['gratter', 'saler']],
-    hauteurs: [1.3, 2.4, 2],
+    hauteurs: [1.6, 1.8, 1.95],
     largeurs: [[1], [1], [3, 2]],
     vues: {
       vider: {
         titre: 'Vider',
-        dessin: z => [main, boyauVide(), crottes, h.fleche('M 330 30 L 400 30')].join('\n'),
+        dessin: z => [mainVide(z), crottes, h.geste(`M 370 22 L 460 22`)].join('\n'),
         renvois: z => [
-          { n: 1, rond: [350, 100], cible: [305, 76], texte: 'deux doigts serrés qu’on fait glisser' },
+          { n: 1, rond: [420, 146], cible: [xPince + 3, yG + rPlat + 1], texte: 'deux doigts serrés qu’on fait glisser' },
         ],
       },
       retourner: {
@@ -190,28 +205,28 @@ module.exports = (h) => {
           h.path(D(pliHaut), h.a.contour),
           h.path(D(pliBas), h.a.contour),
           h.path(D(arc(xB, y0, 12.8, -55, 55, 12)), h.a.detail),
-          h.fleche('M 22 72 L 82 72'),
-          h.fleche('M 300 56 L 205 56'),
+          h.geste(`M 22 ${y0 - 33} L 82 ${y0 - 33}`),                       // le geste : pousser le bâton
+          h.fleche(`M 300 ${y0 - 49} L 205 ${y0 - 49}`),
         ].join('\n'),
         renvois: z => [
           { n: 2, rond: [362, y0], cible: [xB + rI + 1.2, y0], texte: 'bout plié, coiffé sur le bâton' },
-          { n: 3, rond: [60, 36], cible: [106.1, 79.6], texte: 'ici le boyau se retourne' },
-          { n: 4, rond: [230, 200], cible: [230, y0 + rI + 1.2], texte: 'muqueuse passée dehors' },
-          { n: 5, rond: [490, 40], cible: [+f(cibleReste[0]), +f(cibleReste[1] - 1.2)], texte: 'le reste suit tout seul' },
+          { n: 3, rond: [60, y0 - 58], cible: [106.1, +(y0 - 25.4).toFixed(1)], texte: 'ici le boyau se retourne' },
+          { n: 4, rond: [230, y0 + 58], cible: [230, y0 + rI + 1.2], texte: 'muqueuse passée dehors' },
+          { n: 5, rond: [490, y0 - 56], cible: [+f(cibleReste[0]), +f(cibleReste[1] - 1.2)], texte: 'le reste suit tout seul' },
         ],
       },
       gratter: {
         titre: 'Gratter',
-        dessin: z => [planche, boyauPlat, tas, couteau, h.fleche(`M ${f(c(0.26)[0] - 48)} ${f(c(0.26)[1])} L ${f(c(0.1)[0] - 48)} ${f(c(0.1)[1])}`)].join('\n'),
+        dessin: z => [planche, boyauPlat, tas, mainCouteau(z), h.geste(`M ${f(c(0.26)[0] - 48)} ${f(c(0.26)[1])} L ${f(c(0.1)[0] - 48)} ${f(c(0.1)[1])}`)].join('\n'),
         renvois: z => [
           { n: 6, rond: [240, 168], cible: [+f(xs + 30), +f(yk + 1.2)], texte: 'dos du couteau qui racle' },
           { n: 7, rond: [40, 70], cible: [130.2, 107], texte: 'planche mouillée' },
-          { n: 8, rond: [290, 30], cible: [+f(bord(0.82, 20)[0] + 0.7), +f(bord(0.82, 20)[1])], texte: 'raclé : mince et translucide' },
+          { n: 8, rond: [305, 26], cible: [+f(bord(0.9, 20)[0] + 0.7), +f(bord(0.9, 20)[1])], texte: 'raclé : mince et translucide' },
         ],
       },
       saler: {
         titre: 'Saler',
-        dessin: z => [pot, bout].join('\n'),
+        dessin: z => pot,  // tout sous le sel : une couche de sel sans boyau par-dessus
         renvois: z => [
           { n: 9, rond: [26, 30], cible: [70, 69], texte: 'enterré dans le sel sec, en excès' },
         ],

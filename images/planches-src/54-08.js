@@ -6,6 +6,10 @@
 module.exports = (h) => {
   const f = v => Math.round(v * 10) / 10;
   const blanc = a => a.replace('fill="none"', 'fill="#FFFFFF"');
+  // La charte : la face à l'ombre d'un volume (lumière en haut à gauche) et ce qui est derrière.
+  const GRIS_OMBRE = h.a.ombre.match(/fill="([^"]+)"/)[1], GRIS_LOIN = h.a.loin.match(/fill="([^"]+)"/)[1];
+  const ombre = a => a.replace(/fill="[^"]*"/, `fill="${GRIS_OMBRE}"`);
+  const loin = a => a.replace('fill="none"', `fill="${GRIS_LOIN}"`);
   const C30 = Math.cos(Math.PI / 6), R2 = Math.SQRT2;
   const gen = s => { let g = s; return () => (g = (g * 16807) % 2147483647) / 2147483647; };
 
@@ -20,7 +24,7 @@ module.exports = (h) => {
   const cx = W * 0.42, cy = D * 0.5;       // la chaudière
   const rb = 0.14, rt = 0.17, hb = 0.25;
   const th = 1.83;                         // ouverture de la porte (rad)
-  const dx = 0.5;                          // la tablette, tirée hors du cadre
+  const dx = 0.85;                         // la tablette, tirée hors du cadre
   const dw = D - 2 * t, sn = Math.sin(th), cs = Math.cos(th);
 
   // ── Axonométrie : x vers la droite-avant, y vers la gauche-avant, z vers le haut ─────
@@ -33,10 +37,11 @@ module.exports = (h) => {
     return { s, P: iso(r.x + (r.l - (b - a) * s) / 2 - a * s, r.y + (r.h - (d - c) * s) / 2 - c * s, s) };
   };
   const quad = (P, q, a) => h.chemin(q.map(p => P(...p)), a, true);
-  // Un bloc de bois : les trois faces qu'on voit (dessus, face x1, face y1).
+  // Un bloc de bois : les trois faces qu'on voit (dessus, face x1, face y1). La face x1 regarde
+  // à droite : elle est à l'ombre.
   const bloc = (P, x0, y0, z0, x1, y1, z1, a = blanc(h.a.arete)) => [
     quad(P, [[x0, y0, z1], [x1, y0, z1], [x1, y1, z1], [x0, y1, z1]], a),
-    quad(P, [[x1, y0, z0], [x1, y1, z0], [x1, y1, z1], [x1, y0, z1]], a),
+    quad(P, [[x1, y0, z0], [x1, y1, z0], [x1, y1, z1], [x1, y0, z1]], ombre(a)),
     quad(P, [[x0, y1, z0], [x1, y1, z0], [x1, y1, z1], [x0, y1, z1]], a),
   ].join('\n');
   // Un panneau de grillage : pt(u, v) donne le point écran ; fond blanc, mailles au trait fin.
@@ -55,7 +60,15 @@ module.exports = (h) => {
       h.chemin([pt(0, z0), pt(dw, z0), pt(dw, z1), pt(0, z1)], blanc(h.a.arete), true),
       grille(pt, td, dw - td, z0 + td, z1 - td),
       h.chemin([pt(td, z0 + td), pt(dw - td, z0 + td), pt(dw - td, z1 - td), pt(td, z1 - td)], h.a.arete, true),
-      ...[0.2, H - 0.2].map(zc => h.chemin([P(W, 0, zc - 0.04), pt(0.12, zc - 0.04), pt(0.12, zc + 0.04), P(W, 0, zc + 0.04)], h.a.plein, true)),
+      // chaque lanière : une boucle plate autour du montant, puis autour du montant de la porte
+      ...[0.2, H - 0.2].map(zc => { const w = 0.045, ep = 0.014; return [
+        h.chemin([P(W, 0, zc - w), P(W, t, zc - w), P(W, t, zc + w), P(W, 0, zc + w)], blanc(h.a.contour), true),
+        h.chemin([P(W, t, zc - w), P(W, t, zc + w)], h.a.arete),
+        h.chemin([P(W + ep, -ep, zc - w), P(W + ep, -ep, zc + w)], h.a.arete),
+        h.chemin([pt(0, zc - w), pt(td + 0.05, zc - w), pt(td + 0.05, zc + w), pt(0, zc + w)], blanc(h.a.contour), true),
+        h.chemin([pt(td + 0.05 + ep, zc - w + ep), pt(td + 0.05 + ep, zc + w + ep), pt(td + 0.05, zc + w)], h.a.arete),
+        h.chemin([P(W, 0, zc - w), pt(0, zc - w)], h.a.contour), h.chemin([P(W, 0, zc + w), pt(0, zc + w)], h.a.contour),
+      ].join('\n'); }),
     ].join('\n');
   };
 
@@ -131,8 +144,11 @@ module.exports = (h) => {
     const [bx, by] = B.c, [tx, ty] = T.c;
     const corps = `M ${f(tx - T.rx)} ${f(ty)} L ${f(bx - B.rx)} ${f(by)} A ${f(B.rx)} ${f(B.ry)} 0 0 0 ${f(bx + B.rx)} ${f(by)} L ${f(tx + T.rx)} ${f(ty)} A ${f(T.rx)} ${f(T.ry)} 0 0 1 ${f(tx - T.rx)} ${f(ty)} Z`;
     const anse = `M ${f(tx - T.rx)} ${f(ty + 3)} C ${f(tx - T.rx)} ${f(ty + 0.3 * s)} ${f(tx + T.rx)} ${f(ty + 0.3 * s)} ${f(tx + T.rx)} ${f(ty + 3)}`;
+    const flanc = [...[50, 40, 30, 20, 10, 0].map(d => surEllipse(T, d * Math.PI / 180)), ...[0, 10, 20, 30, 40, 50].map(d => surEllipse(B, d * Math.PI / 180))];
     return { T, Wt, svg: [
-      h.path(corps, blanc(h.a.contour)),
+      h.path(corps, h.a.blanc),
+      h.chemin(flanc, h.a.ombre, true),
+      h.path(corps, h.a.contour),
       h.ellipse(tx, ty, T.rx, T.ry, h.a.arete),
       h.path(`M ${f(Wt.c[0] - Wt.rx)} ${f(Wt.c[1])} A ${f(Wt.rx)} ${f(Wt.ry)} 0 0 1 ${f(Wt.c[0] + Wt.rx)} ${f(Wt.c[1])}`, h.a.detail),
       h.path(anse, h.a.arete),
@@ -166,7 +182,7 @@ module.exports = (h) => {
     }
     // le tronc, derrière la glacière
     const [tx, ty] = P(-0.35, 0.05, 0), hc = haut * 0.7;
-    out.push(h.path(`M ${f(tx - 10)} ${f(ty)} L ${f(tx + 10)} ${f(ty)} C ${f(tx + 9)} ${f(ty - 60)} ${f(tx + 7)} ${f(hc + 50)} ${f(tx + 6)} ${f(hc)} L ${f(tx - 6)} ${f(hc)} C ${f(tx - 7)} ${f(hc + 40)} ${f(tx - 9)} ${f(ty - 60)} ${f(tx - 10)} ${f(ty)} Z`, blanc(h.a.arete)));
+    out.push(h.path(`M ${f(tx - 10)} ${f(ty)} L ${f(tx + 10)} ${f(ty)} C ${f(tx + 9)} ${f(ty - 60)} ${f(tx + 7)} ${f(hc + 50)} ${f(tx + 6)} ${f(hc)} L ${f(tx - 6)} ${f(hc)} C ${f(tx - 7)} ${f(hc + 40)} ${f(tx - 9)} ${f(ty - 60)} ${f(tx - 10)} ${f(ty)} Z`, loin(h.a.arete)));
     for (const [ex, ey, el] of [[-3, haut + 8, 16], [2, haut + 30, 12], [-1, haut + 50, 14], [3, haut + 70, 10]]) out.push(h.ligne(f(tx + ex), f(ey), f(tx + ex + 0.5), f(ey + el), h.a.fin));
     out.push(h.path(`M ${f(tx + 5)} ${f(hc + 40)} C ${f(tx + 18)} ${f(hc + 25)} ${f(tx + 30)} ${f(hc + 12)} ${f(tx + 40)} ${f(hc)}`, h.a.arete));
     out.push(h.path(`M ${f(tx + 5.5)} ${f(hc + 52)} C ${f(tx + 18)} ${f(hc + 36)} ${f(tx + 32)} ${f(hc + 22)} ${f(tx + 44)} ${f(hc + 4)}`, h.a.arete));
@@ -185,7 +201,7 @@ module.exports = (h) => {
     out.push(
       quad(P, [[X0, Y0, Ht], [X1, Y0, Ht], [X1, Y1, Ht], [X0, Y1, Ht]], blanc(h.a.arete)),
       h.chemin([P(X0, Y1, Ht), P(X1, Y1, Ht), ...hemG.slice().reverse()], blanc(h.a.arete), true),
-      h.chemin([P(X1, Y1, Ht), P(X1, Y0, Ht), ...hemD.slice().reverse()], blanc(h.a.arete), true),
+      h.chemin([P(X1, Y1, Ht), P(X1, Y0, Ht), ...hemD.slice().reverse()], ombre(blanc(h.a.arete)), true),
     );
     // les plis
     const plisG = [[X0 + 0.07, 0.03], [X1 - 0.07, -0.02], [X1 - 0.15, -0.05], [W * 0.5, 0.0]];
@@ -199,7 +215,7 @@ module.exports = (h) => {
     out.push(ch.svg, coinIso(P, s, ch));
     // le vent, qui arrive sur la face grillagée
     for (const [y, zz] of vents) {
-      const [x1, y1] = P(W + 0.8, y, zz), [x2, y2] = P(W + 0.24, y, zz);
+      const [x1, y1] = P(W + 0.8, y, zz), [x2, y2] = P(W + (y < 0.3 ? 0.36 : 0.24), y, zz);
       out.push(h.fleche(`M ${f(x1)} ${f(y1)} L ${f(x2)} ${f(y2)}`));
     }
     // la ramure, par-dessus
@@ -248,10 +264,11 @@ module.exports = (h) => {
       rect(x0m, z0m, x1m, 0, h.a.hachure('terre', 'aucun')),
       L([[x0m, 0], [x1m, 0]], h.a.contour),
       // au-delà de la coupe : montants, traverses, tasseau et longeron du fond
-      rect(0, t, t, H - t, blanc(h.a.arete)), rect(W - t, t, W, H - t, blanc(h.a.arete)),
-      rect(t, 0, W - t, t, blanc(h.a.arete)), rect(t, H - t, W - t, H, blanc(h.a.arete)),
-      rect(t, zt - 0.035, W - t, zt, blanc(h.a.arete)),
-      rect(t + 0.012, zt, W - t - 0.012, zt + 0.03, blanc(h.a.arete)),
+      // (au-delà du plan de coupe : ils reculent en gris loin)
+      rect(0, t, t, H - t, loin(h.a.arete)), rect(W - t, t, W, H - t, loin(h.a.arete)),
+      rect(t, 0, W - t, t, loin(h.a.arete)), rect(t, H - t, W - t, H, loin(h.a.arete)),
+      rect(t, zt - 0.035, W - t, zt, loin(h.a.arete)),
+      rect(t + 0.012, zt, W - t - 0.012, zt + 0.03, loin(h.a.arete)),
     ];
     // les traverses coupées, aux quatre coins
     for (const [x, zz] of [[0, 0], [0, H - t], [W - t, 0], [W - t, H - t]]) out.push(rect(x, zz, x + t, zz + t, h.a.blanc), rect(x, zz, x + t, zz + t, h.a.hachure('bois')));
@@ -309,7 +326,7 @@ module.exports = (h) => {
     const [rx, rz] = paroi(1), R = 0.013 + ep;
     for (let a = 0; a <= Math.PI; a += Math.PI / 10) out.push([rx + R * Math.cos(a), rz + R * Math.sin(a)]);
     for (let k = 0.96; k >= 0.08; k -= 0.12) out.push(dehors(k, -0.013 - ep));
-    out.push([cx + rb - 0.02 - ep, zF + 0.012 + ep], [cx - 0.03, zF + 0.012 + ep]);
+    out.push([cx + rb - 0.02 - ep, zF + 0.012 + ep], [cx - 0.085, zF + 0.012 + ep]);
     return out;
   };
   const dessinD = z => {
@@ -362,7 +379,7 @@ module.exports = (h) => {
             { n: 1, rond: [16, z.h * 0.72], cible: q([W * 0.3, D, H * 0.45]), texte: 'grillage fin sur les quatre côtés' },
             { n: 2, rond: [16, 22], cible: q([W * 0.2, D * 0.4, H + tr]), texte: 'toit de planches, qui porte la chaudière' },
             { n: 3, rond: [z.l - 16, z.h - 18], cible: q([W - t + dx - 0.12, D * 0.6, zt + 0.05]), texte: 'tablette à claire-voie, sur deux tasseaux' },
-            { n: 4, rond: [z.l - 16, 22], cible: ptPorte(P)(dw * 0.6, H * 0.6).map(f), texte: 'porte grillagée, pendue à des lanières de cuir' },
+            { n: 4, rond: [z.l - 16, 22], cible: ptPorte(P)(0.06, H - 0.2).map(f), texte: 'porte grillagée, pendue à des lanières de cuir' },
           ];
         },
       },

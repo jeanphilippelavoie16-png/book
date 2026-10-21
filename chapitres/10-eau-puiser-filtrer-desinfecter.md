@@ -2,720 +2,640 @@
 
 *Tome 1 — Tenir*
 
-**Les deux.** À la maison, l'eau arrive au robinet et le problème est sa qualité : un
-avis d'ébullition, une conduite qui casse, du plomb dans l'entrée de service. Au chalet,
-il n'y a pas de robinet qui tienne tout seul : le problème est toute la chaîne, du lac
-au bidon. Les sections 5-A à 5-I sont celles du chalet ; la section 5-J est celle de la
-maison.
+**Les deux**
 
 ---
 
 ## 1. En une ligne
 
-Trois gestes dans l'ordre — décanter, filtrer, désinfecter — qui rendent buvable l'eau
-d'un lac, d'un ruisseau ou d'un puits, et dont le dernier seul est absolu : une eau
-portée à gros bouillons pendant au moins 1 minute est débarrassée de tous les
-micro-organismes pathogènes. La durée monte à **cinq
-minutes** là où vivent le castor, le rat musqué ou le lièvre — la tularémie, et presque
-tous les lacs d'ici. L'arbitrage entre ces deux durées est rendu à la section 5-E.
+Rendre buvable l'eau d'un lac, d'un ruisseau, de la neige ou d'un puits, et l'eau du robinet quand elle devient
+douteuse : on la laisse reposer, on la filtre, puis on la désinfecte. On peut sauter les deux premières étapes,
+jamais la désinfection.
 
 ---
 
 ## 2. Quand l'utiliser
 
-### C'est le bon choix
-
-**À la maison, au village :**
-
-- Avis d'ébullition. Il s'émet notamment pour un «entretien, réparation ou
- bris d'équipement du réseau de distribution pouvant, par exemple, mener à une baisse
- de pression ou à une intrusion de microorganismes ». Le mécanisme est là :
- une conduite sous pression repousse ce qui l'entoure ; une conduite qui perd sa
- pression aspire l'eau du sol par ses joints. L'avis arrive donc souvent **avant** le
- moindre résultat de laboratoire, et c'est ce qui fait sa valeur.
-- Baisse de pression franche au robinet pendant des travaux ou un incendie de quartier,
- même sans avis émis. L'analyse vient après coup ; la famille boit pendant.
-- Panne d'Hydro assez longue pour arrêter les pompes de l'aqueduc (ch. 3).
-- Eau transportée dans un contenant dont on ne connaît pas l'historique. C'est le
- contenant qui est suspect, pas l'eau qu'on y a versée.
-
-**Au chalet :**
-
-- Eau de surface, toujours et sans exception : lac, ruisseau, étang, neige fondue,
- glace de lac. Le bassin versant d'un chalet boréal contient du castor
- (*Castor canadensis*), du rat musqué (*Ondatra zibethicus*) et de l'orignal
- (*Alces americanus*), et ces trois-là défèquent en amont de la prise d'eau.
- Le castor et le rat musqué sont des réservoirs reconnus de *Giardia lamblia*.
-- Puits jamais analysé : il se traite comme un puits positif, pas comme un puits
- négatif. Une eau de puits qui n'a jamais vu de laboratoire n'est pas une eau réputée
- bonne, c'est une eau inconnue.
-- Puits après une crue, une inondation, un dégel violent, des travaux d'excavation
- à proximité, ou le remplacement d'une pompe.
-- Panne prolongée où la pompe ne tourne plus et où l'on redescend puiser à la main.
-
-### C'est un mauvais choix
-
-- **Contamination chimique.** L'ébullition «n'est généralement d'aucune utilité dans
- la gestion d'une contamination chimique (p. ex. plomb) ». Pire : l'eau
- s'évapore, le contaminant reste, la concentration monte. Bouillir une eau chargée
- en nitrate ou en arsenic la rend plus dangereuse, pas moins. Le cas courant à la
- maison est justement le plomb de l'entrée de service : le réflexe de faire bouillir
- «pour être sûr » est exactement le mauvais geste, et la réponse est à la
- section 5-J.
-- **Eau salée.** Aucune des trois étapes n'enlève un sel dissous. Le fleuve, à la
- hauteur de la Côte-Nord, est de l'eau de mer pour ce qui nous concerne : de 27 à
- 29 g de sels dissous par litre, un peu moins en surface au printemps, quand la
- fonte et la crue l'adoucissent. Seules la
- distillation et l'osmose inverse enlèvent le sel : les deux seules
- méthodes qui font passer l'eau ailleurs que le sel, au lieu de retenir ce qui est
- plus gros qu'un pore.
-- **Chloration seule d'une eau de surface.** «L'efficacité du chlore seul envers le
- Cryptosporidium est presque nulle » — voir la section 8.
-- **Chloration d'une eau froide.** Le chlore ralentit avec le froid dans des
- proportions qui rendent le dosage domestique illusoire : contre les kystes de
- *Giardia*, le CT requis est «inférieur à 12 pour une eau à 25 °C, mais varierait
- de 65 à 360 pour désinfecter une eau de 3 à 5 °C ». Un lac boréal est à
- 4 °C une bonne partie de l'année.
-- **Chloration d'une eau trouble.** Les particules abritent les micro-organismes et
- consomment le chlore avant qu'il les atteigne.
-- **Eau de pluie ou de neige recueillie sous le vent d'un feu, d'un moteur ou d'une
- cheminée.** Les suies ne s'enlèvent ni à l'ébullition ni à la javel.
-- **Fonte de retombées.** Ni l'ébullition ni la filtration ordinaire n'enlèvent les
- radionucléides — voir le chapitre 4.
+- **Un avis d'ébullition est donné, ou la pression baisse franchement au robinet**, après un bris, des travaux, un
+ incendie dans le quartier ou une longue panne de courant (étapes 42 à 47 ; ch. 3).
+- **L'avis dit de ne pas consommer l'eau** (étape 43).
+- **L'eau ne coule plus au robinet** (étape 49).
+- **La maison est sur l'aqueduc et a été bâtie avant les années 1970** (étape 48).
+- **On boit l'eau d'un lac, d'un ruisseau, de la neige ou de la glace**, au chalet ou en forêt (étapes 1 à 26, 36
+ à 41).
+- **Le puits n'a jamais été analysé**, ou il vient d'y avoir une crue, une inondation, un dégel brusque ou des
+ travaux d'excavation à côté, ou on vient de remplacer la pompe (étapes 27 à 35).
+- **On a rapporté de l'eau dans un contenant dont on ne sait pas ce qu'il a contenu**, même si l'eau était bonne
+ (étapes 14 à 22).
+- **La pompe du puits ne marche plus**, et il faut puiser l'eau à la main (section 7, « Puiser un puits quand la pompe est
+ morte »).
+- **Il n'y a plus de javel, plus de filtre ou plus de feu**, ou il ne reste que l'eau du fleuve (section 7).
 
 ---
 
-## 3. Pourquoi ça marche
+## 3. Matériel
 
-La chaleur détruit les protéines des micro-organismes bien avant 100 °C ; le gros
-bouillon ne sert qu'à prouver, sans thermomètre, qu'on a dépassé toutes les cibles.
-
-Le chlore, lui, doit toucher l'organisme pour l'oxyder : l'argile, la matière organique
-et les tanins le consomment ou l'abritent, le froid le ralentit, et une dose ne vaut
-qu'avec son temps de contact.
-
-La filtration est un tamis mécanique : le pore retient ce qui est plus gros que lui,
-donc les protozoaires et la plupart des bactéries, jamais les virus.
-
-Aucune des trois étapes n'enlève ce qui est dissous, et l'ébullition le concentre : une
-eau de puits se juge à l'analyse, pas au goût.
+- **Eau de Javel non parfumée, 5,25 %** : sans épaississant ni détergent, avec sa date de fabrication lue sur le contenant (étape 18).
+- **Seringue de 1 mL** : dose la javel au dixième de millilitre ; un compte-gouttes convient si on a compté combien de ses gouttes font 1 mL.
+- **Bandelettes de chlore libre, 0 à 200 mg/L** : mesurent le chlore dans le puits qu'on désinfecte et dans le chlore fait maison.
+- **Filtre à 1 µm ou moins** : arrête *Cryptosporidium* et *Giardia* sans faire bouillir ; une partie des bactéries et les virus passent.
 
 ---
 
-## 4. Matériel
+## 4. Procédure
 
-- **Eau de Javel non parfumée, 5,25 %** — sans épaississant ni détergent ; datée, parce qu'elle perd son titre en mois (→ §9).
-- **Compte-gouttes ou seringue de 1 mL** — dose la javel ; tout embout convient une fois ses gouttes comptées au millilitre.
-- **Bandelettes de chlore libre, 0 à 200 mg/L** — seules à doser le choc du puits et l'hypochlorite ; ne se fabriquent pas.
-- **Filtre à 1 µm ou moins** — seule protection contre *Cryptosporidium* sans bouillir ; arrête aussi *Giardia*, jamais les virus.
+### Choisir l'eau
 
----
+1. **Prendre de l'eau douce** : un lac, un ruisseau, un puits, la neige ou la glace d'un lac. Face à la Côte-Nord,
+ le fleuve est de l'eau de mer, avec de 27 à 29 g de sel par litre, un peu moins en surface au printemps, à la
+ fonte. Faire bouillir l'eau, la chlorer ou la filtrer n'enlève pas le sel. Boire de l'eau salée oblige les reins à
+ rejeter plus d'eau qu'elle n'en apporte, et on se déshydrate plus vite. Quand il ne reste que le fleuve, on enlève
+ le sel avec un appareil d'osmose inverse, sinon on passe l'eau à l'alambic ou on la dessale par le gel (section 7).
+ Après des retombées radioactives, faire bouillir ou chlorer l'eau n'enlève rien de ce qui est radioactif. Après une
+ détonation, on en enlève presque tout en décantant l'eau avec de l'argile et en la passant au filtre de terre ;
+ après le panache d'une centrale, la terre retient le césium, mais mal l'iode radioactif (ch. 4, étape 22 et
+ section 7).
+2. **Puiser en amont de tout ce qui peut salir l'eau** : le camp, la fosse septique, l'enclos, le sentier de
+ motoneige, la hutte de castor. {!selles} Il faut traiter toute eau de surface, même claire, froide et sans odeur.
+ Le castor et le rat musqué portent *Giardia*. Avec l'orignal, ils vivent autour des lacs et des ruisseaux du chalet
+ et font leurs besoins dans l'eau, en amont de l'endroit où on puise. Dix kystes de *Giardia* (la forme sous laquelle
+ le parasite vit dans l'eau) peuvent suffire à rendre quelqu'un malade, et un kyste mesure 8 × 14 µm : une eau qui
+ en contient a l'air parfaitement propre.
+3. **Pour un puits, mesurer la distance qui le sépare des eaux usées** : il faut au moins 30 m entre le puits et
+ une installation d'eaux usées qui n'est pas étanche, ou 15 m si le puits est scellé. Un puits scellé a été foré au moins 10 cm
+ plus large que son tubage (le tuyau d'acier qui sort du sol), et cet espace a été rempli de bentonite ou de
+ ciment-bentonite sur au moins 5 m de profondeur. Ce bouchon d'argile oblige l'eau de surface à descendre à travers le
+ sol, qui la filtre, au lieu de couler le long du tubage jusqu'à la nappe. Les eaux usées du chalet sont au ch. 31.
+ Si le puits est trop proche des eaux usées, ou si on ne sait pas s'il est scellé, on traite son eau comme une eau
+ de surface (étape 14).
+4. **Prendre l'eau sous la surface, sans racler le fond** : on laisse ce qui flotte en haut et la vase en bas.
 
-## 5. Procédure
+### Puiser et rentrer l'eau
 
-### A — Choisir la prise d'eau
+5. **Descendre la chaudière lestée l'ouverture vers le bas, et la retourner une fois sous l'eau.**
+6. {!generatrice} **Si la pompe tourne sur une génératrice, faire tourner la génératrice dehors**, à au moins 6 m de
+ tout bâtiment, l'échappement tourné à l'opposé des portes et des fenêtres ; jamais dans un bâtiment, un
+ garage ou sous un auvent.
+7. **Rentrer l'eau brute (l'eau qui n'est pas encore traitée) dans des contenants marqués « eau brute »**, qui ne
+ servent jamais à l'eau traitée : un fond d'eau brute laissé dans un bidon suffit à contaminer l'eau traitée qu'on y
+ verse ensuite.
 
-1. Puiser **en amont** de tout ce qui vit : camp, fosse septique, enclos, sentier de
- motoneige, hutte de castor. Une hutte visible dans la baie ne disqualifie pas le
- lac ; elle disqualifie l'idée de boire sans traiter.
-2. Pour un puits, compter la distance aux eaux usées : au moins 30 m d'un système de
- traitement non étanche, 15 m si le puits est scellé — foré au moins 10 cm plus
- large que son tubage, et cet espace autour du tubage rempli de bentonite ou de
- ciment-bentonite sur 5 m de profondeur au moins. Ce qui fait la différence entre les
- deux chiffres, ce n'est pas la paperasse, c'est le chemin de l'eau : ce bouchon
- autour du tuyau oblige l'eau de surface à descendre par le sol filtrant au lieu de
- couler le long du tubage. Voir le chapitre 31 pour l'autre bout du problème.
-3. Prendre l'eau à 20 ou 30 cm sous la surface, jamais en raclant le fond : la couche
- superficielle concentre les pollens et les hydrocarbures, le fond concentre les
- sédiments.
+### Décanter et passer au tissu
 
-### B — Puiser
+8. **Laisser reposer l'eau dans une chaudière, sans y toucher, avec le couvercle dessus, de quelques heures à un
+ jour**, plus longtemps si elle est trouble (planche 10-01, repère 1). Le sable et le limon tombent au fond, avec une
+ partie des parasites ; l'argile la plus fine ne tombe pas. En un jour, une partie des bactéries meurt aussi. Ce qui
+ reste en suspension abrite les microbes, use la javel avant qu'elle les atteigne et bouche le filtre.
+9. **Tendre un linge de coton serré, plié en plusieurs épaisseurs, sur une seconde chaudière**, posée plus bas que
+ la première : une taie d'oreiller pliée en deux et attachée sous le bord fait l'affaire (repère 2). Le coton retient ce qui
+ n'est pas tombé au fond ; quand on passe ensuite l'eau au filtre à 1 µm, la cartouche dure plus longtemps.
+10. **Tirer l'eau claire par-dessus le dépôt, à travers le coton, sans remettre le dépôt en suspension** : tenir le
+ bout du boyau au-dessus du dépôt, et arrêter quand le dépôt commence à monter vers le boyau (repère 3).
+ - **Amorcer le siphon sans la bouche** (planche 10-08, repère 1). Plonger le boyau dans la chaudière pleine, sans
+ toucher le dépôt, jusqu'à ce qu'il n'en sorte plus de bulle. Boucher un bout avec le pouce (repère 2), et laisser l'autre bout dans
+ la chaudière, au-dessus du dépôt. Descendre le bout bouché sur le coton de la chaudière du bas, et lâcher le pouce
+ (repère 3) : l'eau coule seule tant que ce bout reste plus bas que le niveau de l'eau de la chaudière du haut.
+ - **Autre façon, sans boyau.** Verser l'eau doucement sur le coton, d'un seul mouvement, sans redresser la
+ chaudière, et arrêter quand le dépôt arrive au bord.
 
-4. Descendre la chaudière lestée, ouverte vers le bas, et la retourner sous l'eau.
-5. Si la pompe est entraînée par une génératrice, l'installer dehors, loin des portes
- et des fenêtres. Jamais dans un bâtiment, un garage, un abri ou sous un auvent.
- Le mécanisme est à la section 8.
-6. Rentrer l'eau brute dans des contenants réservés à l'eau brute, marqués, jamais
- mélangés avec ceux de l'eau traitée. La recontamination croisée est la façon la
- plus courante de perdre une journée de travail.
+### Filtrer
 
-### C — Décanter
+11. **Passer l'eau au filtre à 1 µm.** Le filtre retient ce qui est plus gros que ses trous. À 1 µm, il arrête
+ *Cryptosporidium* (4 à 6 µm) et les kystes de *Giardia*. Il laisse passer une partie des
+ bactéries : *E. coli* mesure 0,5 µm de large, et il faut des trous de 0,2 à 0,4 µm pour la retenir. Les virus
+ (0,03 µm) passent les filtres portatifs courants ; seuls les filtres à membrane les plus fins (ultrafiltration,
+ trous de 0,01 à 0,1 µm) les retiennent. Après un filtre à 1 µm, il faut donc désinfecter l'eau : la faire
+ bouillir (étape 14) ou la chlorer (étape 19).
+12. **Viser une eau limpide avant le filtre.** Une eau trouble bouche vite le filtre, et le filtre retient le
+ mieux les kystes quand le trouble de l'eau ne dépasse pas 0,3 UNT (l'unité dans laquelle on mesure le trouble). Sans
+ appareil de mesure, regarder une feuille imprimée à travers 20 cm d'eau : on ne doit voir aucun voile. On voit un
+ voile à l'œil à partir d'environ 5 UNT ; une eau qui a l'air limpide peut donc être plusieurs fois au-dessus de
+ 0,3 UNT. Quand le filtre ralentit, le récurer (section 7, « Réparer plutôt
+ que remplacer »).
+13. **Autre façon, quand il y a du courant : le stérilisateur à ultraviolet.** Il tue les bactéries, les virus,
+ *Giardia* et *Cryptosporidium*. Les particules dans l'eau font de l'ombre à ses rayons : l'eau doit être à moins de
+ 5 UNT, donc décantée et filtrée avant. Changer la lampe chaque année.
 
-7. Laisser reposer sans bouger, couvercle posé, de 12 à 24 h. Le sable tombe en
- quelques minutes, l'argile et la matière organique fine prennent des heures.
-8. Siphonner ou transvaser **par-dessus** le dépôt, sans le remettre en suspension.
- Sacrifier les deux ou trois derniers centimètres.
+### Faire bouillir
 
-### D — Filtrer
+14. **Porter l'eau à gros bouillons et chronométrer à partir du moment où toute la surface roule** (planche 10-01, repère 4) : au
+ moins 1 minute pour une eau de puits ou de robinet ; 5 minutes pour une eau de lac, de ruisseau, de neige ou de
+ glace, et pour toute eau prise en forêt. Si le bouillon tombe, recommencer le compte à
+ zéro.
+ - **La minute.** Les microbes meurent bien avant 100 °C. Quand l'eau roule à gros bouillons, on sait sans
+ thermomètre qu'elle a dépassé la température qui les tue : les bactéries courantes de l'eau meurent en moins d'une
+ minute sous 65 °C, *Cryptosporidium* en une minute à 73 °C, et le virus de l'hépatite A vers 85 °C.
+ - **Les cinq minutes.** On fait bouillir 5 minutes l'eau prise en forêt à cause de la tularémie, une maladie que
+ portent le castor, le rat musqué et le lièvre. Sa bactérie survit des mois dans l'eau froide et au gel. Dans l'eau
+ chaude, elle meurt en une minute à 56 °C, et il n'en reste aucune vivante après 45 secondes à 94 °C ; on garde
+ quand même 5 minutes, la durée recommandée pour l'eau des endroits où la tularémie circule (ch. 50). Filtrer l'eau
+ ne dispense pas de ces 5 minutes : le filtre à 1 µm laisse passer des bactéries (étape 11).
+15. **Couvrir la marmite pendant l'ébullition** (repère 5) : on perd moins d'eau et moins de bois.
+16. **Laisser refroidir l'eau dans la marmite couverte**, puis la verser dans un contenant lavé, avec des ustensiles
+ propres.
+17. **Transvaser l'eau bouillie plusieurs fois d'un contenant à l'autre avant de la donner aux enfants** :
+ l'ébullition en a chassé l'air, et elle a un goût plat qu'ils refusent.
 
-9. Préfiltrer à travers trois ou quatre épaisseurs de coton serré. Cette étape ne
- désinfecte rien ; elle protège le filtre fin et fait durer la cartouche.
-10. Passer au filtre à 1 µm. Ce seuil retient les oocystes de *Cryptosporidium*
- (4 à 6 µm) et les kystes de *Giardia* (8 × 14 µm). Il ne retient pas les
- virus (0,03 µm) : un filtre ne remplace donc jamais une désinfection quand l'eau
- peut avoir reçu des matières fécales humaines.
-11. Viser une eau limpide. La filtration donne son plein rendement — «en moyenne un
- enlèvement de 3 log » — «lorsque la turbidité de l'eau ne dépasse pas 0,3 UNT ». Sans turbidimètre, le critère de terrain est : aucun voile visible en
- regardant à travers 20 cm d'eau contre une feuille imprimée. Ce test ne dit pas
- qu'on est à 0,3 UNT : l'œil ne voit un voile qu'au-dessus d'environ 5 UNT. Une eau
- limpide à l'œil peut donc être encore à plusieurs fois le seuil — le filtre y
- travaille, sans la garantie des 3 log.
+### Désinfecter à la javel
 
-### E — Désinfecter : l'ébullition, méthode de référence
+18. **Prendre une javel de 4 à 6 %, et lire sa date de fabrication** ; les doses qui suivent sont pour de la
+ javel à 5,25 %.
+ - Trouver la date de fabrication dans le code imprimé sur le contenant. Chez un grand fabricant, le code commence
+ par les lettres de l'usine, suivies des deux derniers chiffres de l'année, puis du numéro du jour dans l'année
+ (234, c'est le 22 août).
+ - La javel garde sa force environ un an après sa fabrication, puis elle perd son chlore de plus en plus vite.
+ Écrire la date de fabrication en gros sur le contenant, le ranger au frais et à l'obscurité, et le remplacer avant
+ qu'il ait un an, même s'il est plein.
+19. **Juger l'eau avant de la chlorer.** Le chlore tue un microbe en l'oxydant, et il doit le toucher pour le faire :
+ la saleté qui use le chlore ou qui cache le microbe le rend moins efficace.
+ - {!selles} **Passer une eau de lac, de ruisseau ou de neige au filtre à 1 µm avant de la chlorer, ou la faire
+ bouillir.** Le chlore ne fait presque rien contre *Cryptosporidium* : pour le tuer, la concentration de chlore, en
+ mg/L, multipliée par le temps de contact, en minutes, devrait atteindre 7 000 mg-min/L, et aucune eau qu'on peut
+ boire n'en approche.
+ - **Faire bouillir une eau froide plutôt que la chlorer, si on a du feu.** Le froid ralentit le chlore : contre
+ les kystes de *Giardia*, il suffit d'un produit de la concentration par le temps de moins de 12 dans une
+ eau à 25 °C, mais il en faut de 65 à 360 dans une eau de 3 à 5 °C. Sans feu, prendre la température de l'eau dans la chaudière, et
+ allonger l'attente en conséquence (étape 21).
+ - **Faire bouillir une eau franchement trouble, ou une eau de lac froide et colorée.** Les particules cachent les
+ microbes, et la matière organique et les tanins consomment le chlore : de 1 à 10 UNT, le chlore est huit fois
+ moins efficace, et doubler la dose ne suffit ni à compenser le trouble ni à tuer *Cryptosporidium*.
+ - La javel convient donc à l'eau du robinet sous avis, à l'eau d'un puits, et à une eau de surface limpide
+ passée au filtre à 1 µm.
+20. **Mesurer la dose à la seringue et la verser dans l'eau** : 0,2 mL de javel à 5,25 % par litre, soit 2 mL pour
+ 10 L. Pour une eau un peu trouble, un peu colorée ou froide, mettre le double : 0,4 mL par litre. {!chimie} Ne jamais mélanger la javel avec autre chose que de l'eau : ni vinaigre, ni détartrant, ni
+ nettoyant à cuvette, ni ammoniaque, ni urine ; le mélange dégage un gaz qui brûle les poumons. La mesurer avec une
+ seringue qui ne sert qu'à elle, dans un contenant qui n'a jamais contenu autre chose que de
+ l'eau.
+21. **Brasser et laisser reposer, avec le couvercle dessus** : 30 minutes dans une eau à plus de 20 °C ; au moins 1 heure
+ dans une eau plus froide, et 2 heures ou plus sous 10 °C.
+22. **Sentir l'eau au bout de l'attente** : elle doit garder une légère odeur de chlore, ou la bandelette doit
+ montrer du chlore libre. Si l'eau ne sent pas le chlore, la matière organique l'a consommé : remettre la même dose
+ une fois et attendre 15 minutes de plus. Si l'odeur ne revient pas, faire bouillir l'eau.
+23. **Autre façon, quand il n'y a ni feu ni javel : l'iode.** Mettre cinq gouttes de teinture
+ d'iode à 2 %, ou un comprimé, par litre, puis attendre 30 minutes dans une eau à plus de 20 °C, 60 minutes entre
+ 15 et 20 °C, et 120 minutes entre 5 et 15 °C. Ne pas donner d'eau traitée à l'iode à une personne qui a une maladie
+ de la thyroïde mal contrôlée ou une allergie à l'iode. N'en donner que peu de temps à une femme enceinte, à cause
+ de la thyroïde du bébé, et à personne pendant plus de quelques semaines. L'iode ne tue pas
+ *Cryptosporidium*, même avec une attente plus longue : passer d'abord une eau de surface au filtre à 1 µm.
 
-12. Porter à **gros bouillons** et maintenir **au moins 1 minute**,
- et **5 minutes** dès que l'eau sort d'un bassin où vivent le castor, le rat musqué ou
- le lièvre, ou qu'on la boit en forêt sans le reste de la chaîne.
- Sur la Côte-Nord, ça donne cinq minutes pour toute eau de surface, et une minute pour
- un puits ou un avis d'ébullition au village. Un frémissement ne compte pas : on
- chronomètre à partir du moment où la surface roule.
-13. Couvrir pendant l'ébullition : on perd moins d'eau et moins de bois.
-14. Laisser refroidir dans la même marmite couverte. Ne pas remuer avec une cuillère
- qui a traîné, ne pas verser dans un contenant non lavé : tout le travail se perd
- dans les cinq dernières secondes.
-15. Le goût plat de l'eau bouillie vient de l'air chassé. Transvaser deux ou trois
- fois d'un contenant à l'autre le rend potable au palais des enfants.
+### Entreposer
 
-**Une minute ou cinq minutes : l'arbitrage.** Une minute à gros bouillons suffit contre les
-organismes pathogènes courants de l'eau : le plus coriace, l'oocyste de *Cryptosporidium*,
-tombe à 73 °C en une minute, et 100 °C dépasse toutes ces cibles. La tularémie ne change
-pas ce calcul. Sa bactérie, *Francisella tularensis*, «survit plusieurs mois dans un
-environnement humide et froid tel que l'eau » et «résiste également très bien à la
-congélation », mais pas à la chaleur : dans l'eau, elle meurt en une minute à 56 °C, et il
-n'en reste aucune de vivante après 45 secondes à 94 °C. Une minute à gros bouillons la tue
-comme le reste. La consigne pour l'eau bue en forêt, là où la tularémie circule, est
-pourtant de cinq minutes. **Le livre retient donc cinq minutes partout
-où la tularémie est présente** — castor, rat musqué, lièvre, soit le bassin versant décrit à
-la section 2 — parce que c'est la plus haute des deux durées et que les quatre minutes de
-plus se paient en bois, pas en risque. Le filtre ne remplace pas ces cinq minutes : un pore
-de 1 µm arrête la plupart des bactéries, pas toutes, et celle-ci est un très petit
-coccobacille. Devant la tularémie, on bout. Les chapitres 48 (lièvre) et 50 (castor)
-appliquent la même durée.
+24. **Remplir des contenants alimentaires opaques, à goulot étroit, à ras bord, et les boucher.** Dans un contenant
+ opaque, les algues ne poussent pas ; un goulot étroit empêche d'y plonger les mains ou une tasse. Si le contenant
+ risque de geler, dans un hangar, une auto ou une remise, laisser un vide d'air et le coucher : plein, il fend en
+ gelant, et on le retrouve vide au dégel.
+25. **Écrire la date du traitement sur le contenant.** Le contenant et les mains recontaminent l'eau traitée. On
+ peut garder l'eau bouillie dans un contenant propre et fermé jusqu'à 3 jours au réfrigérateur, ou 24 h à la
+ température de la pièce ; après, il faut la faire bouillir de nouveau avant de la boire. L'eau chlorée comme aux
+ étapes 20 à 22 reste bonne plus longtemps : il lui reste du chlore, qui tue les microbes qui entrent dans le
+ contenant. L'eau bouillie n'en a pas.
+26. **Viser 4 L par personne et par jour** : pour 72 heures, 6 L pour boire et 6 L pour cuisiner et se laver, soit
+ 12 L par personne (ch. 6). Pour une famille de quatre, ça donne 16 L par jour, 48 L pour 72 heures, et environ 480 L
+ pour un mois, soit 24 bidons de 20 L. Garder en réserve l'eau de 72 heures et traiter le reste chaque jour ;
+ choisir la taille de la marmite et la réserve de bois d'après ce volume de chaque jour.
 
-### F — Désinfecter : la javel, méthode d'appoint
+### Le puits : analyser, puis désinfecter
 
-16. Utiliser de l'eau de Javel **non parfumée**, sans agent épaississant ni détergent.
- Titre accepté : 5,25 % ou 4 % à 6 %.
-17. Dose : «environ 2 gouttes (0,2 millilitre) d'eau de Javel 5,25 % non parfumée à
- 1 litre ». Soit 20 gouttes, ou 2 mL, pour 10 L.
-18. Brasser et laisser reposer **30 minutes**. Ces 30 minutes valent pour une eau à plus
- de 20 °C. Une eau à 8 °C sortie du lac ne remplit pas cette condition.
-19. Eau trouble, colorée ou très froide : doubler la dose, soit 4 gouttes par litre, et
- allonger le temps de contact. Le doublement ne rattrape ni une eau franchement
- trouble — de 1 à 10 UNT, le chlore devient huit fois moins efficace — ni le
- *Cryptosporidium* : devant une eau de lac froide et colorée, **bouillir plutôt que
- chlorer**.
-20. Après 30 minutes, l'eau doit garder une légère odeur de chlore. Si elle n'en a
- plus, la matière organique a tout consommé : redoser une fois et attendre encore
- 30 minutes. Si elle n'en a toujours pas, changer de méthode.
-21. La javel perd son titre en entreposage, d'autant plus vite qu'il fait chaud : à
- l'abri de la chaleur et du soleil, elle tient environ un an depuis sa fabrication,
- puis se dégrade de plus en plus vite. Dater le contenant à l'achat, le garder au
- frais et à l'obscurité, et le remplacer avant l'année — le temps passé en magasin
- compte aussi — par principe et non parce qu'il est vide.
-
-**Quand l'eau est froide et qu'il n'y a pas de feu.** C'est le trou de la chloration, et
-il se bouche par le temps de contact, pas par la dose. Pour l'iode, l'échelle est
-explicite : «cinq gouttes de teinture d'iode à 2 % ou
-un comprimé […] par litre d'eau », puis 30 minutes à plus de 20 °C, **60 minutes entre
-15 et 20 °C, et 120 minutes entre 5 et 15 °C**. Deux heures d'attente pour une eau de
-lac boréale, mais deux heures qui sont documentées, alors que la consigne de la javel en
-eau froide — doubler la dose — ne donne pas de durée. L'iode est contre-indiqué chez «les femmes enceintes (goitre néonatal) »,
-chez «les voyageurs avec une maladie thyroïdienne, même si contrôlée par médication » et
-en cas d'allergie connue ; et «l'utilisation quotidienne d'iode à des dosages
-élevés devrait se limiter à une courte période, soit moins d'un mois ». Ce n'est donc pas
-une méthode de fond : c'est un dépannage de quelques jours, et c'est pour ça que la javel et la marmite restent les deux moyens du chalet. L'iode est un halogène comme le chlore et travaille par la même oxydation, à laquelle la paroi de l'oocyste de
-*Cryptosporidium* résiste : aux doses qu'on peut boire, l'iode ne l'inactive pas plus que
-le chlore, même en allongeant le contact. Contre ce parasite, il reste la chaleur ou le
-filtre à 1 µm.
-
-**L'ultraviolet.** Un stérilisateur UV couvre «bactéries, virus et
-protozoaires », donc plus large que le chlore et que le filtre. Il a deux
-défauts qu'il faut connaître avant d'y mettre de l'argent : il demande du courant, et
-«les particules dans l'eau peuvent bloquer les rayons ultraviolets et empêcher la
-désinfection ». Une eau trouble le met hors service sans prévenir, sans
-odeur ni goût pour le signaler — un UV se place donc toujours après la décantation et
-la filtration, jamais avant.
-
-### G — Entreposer
-
-22. Contenants alimentaires, opaques, à goulot étroit, remplis à ras bord, bouchés.
- L'opacité empêche les algues, le goulot étroit empêche les mains. Seule exception
- au «à ras bord » : un contenant qui risque de geler, dans un hangar, un véhicule ou
- une remise. L'eau prend de l'expansion en gelant et fend le contenant plein, qui ne
- se découvre qu'au dégel, vide. Laisser un vide d'air, et coucher le bidon.
-23. Étiqueter la date de traitement. Une eau traitée n'est pas stérile et se
- recontamine par le contenant et par les mains. Durée à respecter : «Conservez l'eau
- bouillie dans des contenants hermétiques et propres jusqu'à trois jours au
- réfrigérateur ou pendant 24 heures à la température de la pièce ».
- Ces 24 heures sont courtes et ce sont elles qui commandent : une eau bouillie la
- veille et laissée sur le comptoir se rebout, elle ne se boit pas sur la foi qu'elle
- a déjà été traitée. Une eau chlorée dans les règles tient plus longtemps, parce
- qu'il lui reste un résiduel (section 9).
-24. Réserve visée, deux chiffres officiels qui ne mesurent pas la même chose :
- **4 L par personne par jour** pour une trousse qui couvre tout, et **6 L pour la consommation plus 6 L pour «la préparation des aliments
- et l'hygiène personnelle »** quand c'est précisément l'eau qui manque ou qui est
- contaminée, soit 12 L. Le premier est le plancher de la trousse de
- 72 heures et il est calculé au chapitre 6 ; le second est la cible quand le
- problème est l'eau elle-même, et c'est celui de ce chapitre-ci. Pour
- quatre personnes : 48 L par jour, 144 L pour 72 heures, environ 1 440 L pour un
- mois. À 20 L par bidon, c'est 72 bidons pour le mois : personne ne stocke ça. Ce
- qui se stocke, c'est les 72 heures ; le reste se produit chaque jour, et c'est ce
- débit quotidien — pas le volume total — qui dicte la taille de la marmite et la
- réserve de bois.
-
-### H — Le puits : analyser, puis désinfecter
-
-25. Tant qu'il y a un laboratoire qui reçoit des échantillons, faire analyser l'eau du
- puits : c'est le seul geste de ce chapitre qui voit ce qui est dissous. Fréquence :
- «L'analyse des paramètres microbiologiques devrait se faire au moins deux fois par
- année et l'analyse des contaminants chimiques devrait être effectuée au moins une
- fois ». Paramètres chimiques visés : uranium, baryum, arsenic,
- nitrates/nitrites, fer, fluorures, manganèse.
-26. Désinfection choc d'un puits existant : viser une concentration de chlore libre de
- **50 mg/L** ; pour un puits neuf, **250 mg/L**, avec de l'«eau de Javel non
- parfumée à 5,25 % ».
-27. Calcul de la dose à partir de cette cible : une javel à 5,25 % titre
- 52 500 mg de chlore par litre. Pour amener 1 000 L d'eau à 50 mg/L, il faut
- 50 × 1 000 ÷ 52 500 ≈ 0,95 L de javel, soit environ **1 L de javel par 1 000 L
- d'eau**. Le chiffre difficile n'est pas celui-là : c'est le volume réel d'eau dans
- le puits et la plomberie.
-28. Ce volume se calcule, il ne s'estime pas. La hauteur à utiliser n'est pas la
- profondeur du puits mais la colonne d'eau, soit «la profondeur du puits moins la
- profondeur de l'eau » : un puits de 40 m dont le
- niveau statique est à 12 m porte 28 m d'eau. Le reste est de la géométrie, π r² h :
+27. **Faire analyser l'eau du puits tant qu'un laboratoire reçoit des échantillons** : on ne voit ce qui est dissous
+ dans l'eau que par l'analyse. Faire faire l'analyse microbiologique au moins deux fois par année, et l'analyse chimique au
+ moins une fois : uranium, baryum, arsenic, nitrates et nitrites, fer, fluorures, manganèse.
+ - {!poison} **Ne préparer aucun biberon avec l'eau d'un puits jamais analysé, même bouillie.** Au-delà de 10 mg/L
+ de nitrate (mesuré en azote, ou 45 mg/L mesuré en nitrate), le nitrate empêche le sang du bébé de porter
+ l'oxygène, surtout avant 3 mois[^1]. Bouillir n'enlève ni le nitrate, ni l'arsenic, ni l'uranium : l'eau qui part
+ en vapeur laisse le reste plus concentré qu'au départ. L'alambic enlève une partie de ce qui est dissous
+ (section 7) ; pour le reste, il faut une autre source.
+28. **Désinfecter le puits au chlore** quand l'analyse trouve des bactéries, et après une crue, une inondation, des
+ travaux ou le remplacement de la pompe : viser **50 mg/L** de chlore libre dans l'eau d'un puits existant,
+ **250 mg/L** dans un puits neuf, avec de la javel non parfumée à 5,25 %. La bandelette mesure jusqu'à 200 mg/L :
+ pour un puits neuf, mélanger un volume d'eau du puits à un volume d'eau bouillie, lire la bandelette et doubler le
+ chiffre. Mettre de l'eau traitée de côté avant de commencer : il ne faut pas boire l'eau du robinet pendant les
+ étapes 31 à 34.
+29. **Calculer la javel.** Une javel à 5,25 % contient 52 500 mg de chlore par litre. Pour amener 1 000 L d'eau à
+ 50 mg/L, il faut 50 × 1 000 ÷ 52 500 ≈ 0,95 L de javel, soit environ **1 L de javel par 1 000 L d'eau**, et
+ 5 L par 1 000 L pour un puits neuf.
+30. **Calculer le volume d'eau du puits.**
+ - Mesurer la colonne d'eau, c'est-à-dire la profondeur du puits moins la profondeur où commence l'eau.
+ Attacher un poids au bout d'une ficelle avec deux nœuds, descendre la ficelle jusqu'à ce que le poids touche le fond, puis la remonter : la longueur mouillée de la ficelle est la colonne d'eau. Un puits de 40 m dont l'eau
+ commence à 12 m contient une colonne de 28 m d'eau.
+ - Multiplier la colonne par l'eau que contient chaque mètre :
 
  | Diamètre intérieur | Eau par mètre de colonne |
  | --- | --- |
  | 100 mm | 7,9 L/m |
- | 150 mm (tubulaire courant) | 17,7 L/m |
+ | 150 mm (puits tubulaire courant) | 17,7 L/m |
  | 900 mm (puits de surface) | 636 L/m |
 
- Nos 28 m dans un tubage de 150 mm font donc 28 × 17,7 ≈ 495 L, soit environ 0,5 L de
- javel à 5,25 % pour atteindre 50 mg/L. Le calcul se refait pour n'importe quel
- diamètre sans table ni outil : le volume par mètre, en litres, c'est le rayon en
- centimètres au carré, multiplié par 3,14, divisé par 10. Mesurer la colonne avec une
- ficelle lestée et un nœud, et arrondir vers le bas plutôt que vers le haut «pour
- être sûr » : une surchloration se paie en purge, et la purge se paie en eau qu'il
- faut ensuite aller chercher ailleurs.
-29. Faire circuler l'eau chlorée dans toute la plomberie en ouvrant chaque robinet
- jusqu'à ce qu'il sente le chlore, puis fermer. Laisser l'eau reposer dans la
- plomberie de 12 à 24 heures, et prendre les 24 heures : c'est la plus longue des deux
- durées et elle ne coûte qu'une nuit de plus sans eau courante.
-30. Purger ensuite jusqu'à disparition complète du chlore au robinet, bandelette à
- l'appui — «une purge prolongée en laissant couler l'eau d'un robinet jusqu'à ce que
- l'odeur du chlore disparaisse ». Ne pas rejeter cette
- eau dans le champ d'épuration ni dans un plan d'eau. Le mécanisme : une fosse
- septique traite les eaux usées par une population bactérienne vivante, et cette eau
- de purge est dosée pour tuer des bactéries — elle stérilise la fosse, qui cesse de
- traiter (ch. 31), et elle fait la même chose au ruisseau. Purger au loin, sur un sol
- nu, en étalant.
-31. Refaire analyser «une semaine suivant la désinfection et quatre semaines plus
- tard ». Les deux analyses sont nécessaires et ne
- disent pas la même chose : celle d'une semaine dit si le choc a fonctionné, celle de
- quatre semaines dit s'il tient. Une désinfection choc traite l'épisode, pas la
- cause. Un puits qui redevient positif deux fois de suite a un défaut d'étanchéité
- ou un voisin de contamination, et c'est le puits qu'il faut reprendre.
+ Pour un autre diamètre : le volume par mètre, en litres, est le rayon en centimètres au carré × 3,14 ÷ 10.
+ - Avec un tubage de 150 mm, les 28 m font 28 × 17,7 ≈ 495 L, soit environ 0,5 L de javel pour atteindre
+ 50 mg/L. Arrondir le volume vers le haut : avec trop peu de javel, l'eau n'atteint pas 50 mg/L, et le puits
+ n'est pas désinfecté.
+31. **Verser la javel dans le puits et la mélanger à toute l'eau.**
+ - Enlever le couvercle au haut du tubage. Dans un puits de surface, retirer d'abord à la puisette ce qui est
+ tombé au fond : feuilles, dépôt, bête morte.
+ - Verser la javel dans le tubage.
+ - Brancher un boyau d'arrosage au robinet le plus proche du puits, faire marcher la pompe et arroser la paroi
+ intérieure du puits par l'ouverture : l'eau chlorée tourne en rond, rince la paroi et se mélange à toute l'eau du
+ puits. Arroser jusqu'à ce que l'eau du boyau sente le chlore, puis remettre le couvercle.
+32. **Faire entrer l'eau chlorée dans toute la plomberie.** Ouvrir chaque robinet de la maison, l'eau chaude comme la
+ froide, et le fermer quand l'eau qui en sort sent le chlore. Quand l'eau sent le chlore à tous les robinets, arrêter
+ la pompe.
+33. **Laisser l'eau chlorée dans le puits et la plomberie pendant 24 heures** avant de faire couler l'eau.
+34. **Vider l'eau chlorée loin du puits et de la fosse.** Faire couler le boyau d'arrosage sur un sol nu, loin de la fosse
+ septique, du champ d'épuration et du ruisseau, en déplaçant le bout pour étaler l'eau, jusqu'à ce que l'eau ne sente
+ plus le chlore et que la bandelette ne montre plus rien. Ouvrir ensuite chaque robinet pour rincer la plomberie.
+ La fosse septique traite les eaux usées avec des bactéries vivantes ; l'eau chlorée les tue, et la fosse cesse de
+ traiter les eaux usées (ch. 31). L'eau chlorée fait le même tort au ruisseau.
+35. **Refaire analyser l'eau une semaine, puis quatre semaines après la désinfection** : la première montre
+ si la désinfection a marché, la seconde si le puits reste propre. Si l'analyse redevient positive, chercher la
+ cause et la réparer avant de désinfecter de nouveau : un couvercle ou un scellement qui laisse entrer l'eau, un
+ terrain sans butte autour du puits pour éloigner l'eau de ruissellement, une fosse septique qui fuit, du fumier
+ épandu à côté.
 
-### I — L'hiver
+### L'hiver
 
-32. Sous la glace : percer à l'écart des courants et des bouches de ruisseau, là où la
- glace est la plus épaisse et la plus régulière. La sécurité sur la glace est traitée
- au chapitre 58 ; elle ne se résume pas à une épaisseur, elle se lit.
-33. Garder le trou ouvert avec un couvercle isolé et un matelas de neige plutôt que de
- le repercer chaque jour.
-34. Fondre la neige coûte cher en bois et donne peu : la neige fraîche ne contient que
- 4 à 10 % d'eau, soit de 10 à 25 L de neige pour un litre. Et la fonte elle-même
- coûte presque autant de chaleur que de porter ensuite l'eau à ébullition : un litre
- de neige bouilli demande près de deux fois le bois d'un litre d'eau du lac. La neige
- tassée et vieillie, et mieux encore la glace, rendent beaucoup plus pour le même
- effort. Mettre toujours un fond d'eau liquide dans la marmite avant d'y ajouter la neige,
- sinon le métal surchauffe à sec et la neige brûle au fond avec un goût qui ne part
- plus.
-35. La glace de lac donne plus d'eau que la neige à volume égal et se manipule mieux.
- Elle exige le même traitement : la glace n'est pas une désinfection.
-36. Neige et glace passent par l'ébullition comme le reste. Une hutte de castor à
- 300 m en amont contamine la glace comme elle contamine l'eau libre.
+36. {!glace} **Percer la glace à l'écart des courants et de l'embouchure des ruisseaux**, là où elle est la plus
+ épaisse et la plus régulière. Mesurer l'épaisseur de la glace sur le chemin qui mène au trou avant d'y marcher
+ (ch. 15, étapes 40 à 42). Pour percer et entretenir le trou, voir le ch. 58.
+37. **Garder le trou ouvert sous un couvercle isolé et un matelas de neige**, plutôt que de le repercer chaque jour.
+38. **Prendre la glace du lac plutôt que la neige** : à volume égal, elle donne plus d'eau, et on la transporte plus facilement.
+39. **Faire fondre la neige seulement quand il n'y a ni eau libre ni glace.**
+ - Prendre la neige tassée et vieillie : la neige fraîche ne contient que 4 à 10 % d'eau, et il en faut de 10 à
+ 25 L pour un litre d'eau. La neige tassée rend beaucoup plus pour le même effort.
+ - La prendre du côté où la fumée ne va pas, loin de la cheminée, d'un moteur ou d'un feu, sous la croûte de
+ surface : faire bouillir l'eau ou la chlorer n'enlève pas la suie.
+ - Toujours mettre un fond d'eau dans la marmite avant d'y mettre la neige : sans eau, le métal surchauffe, et la
+ neige roussit au fond, ce qui donne un goût qui ne part plus.
+ - Prévoir le bois : il faut presque autant de chaleur pour fondre la neige que pour faire bouillir l'eau ensuite,
+ et un litre d'eau de neige bouilli prend près de deux fois le bois d'un litre d'eau du lac.
+40. {!froid} **Faire fondre la neige et la glace avant de les boire** : les manger fait baisser la température du
+ corps, et on se déshydrate davantage (ch. 25).
+41. **Faire bouillir l'eau de neige et de glace comme l'eau du lac** (étape 14) : la neige et la glace ne sont pas
+ plus propres que l'eau qui les a formées, et une hutte de castor en amont contamine la glace autant que l'eau.
 
-### J — À la maison : l'avis d'ébullition, la coupure, le plomb
+### À la maison : l'avis, la coupure, le plomb
 
-37. Pendant un avis, l'eau du robinet ne se bout pas pour tout : seulement pour ce qui
- finit dans la bouche. La liste est courte et elle se colle sur l'armoire.
+42. **Dès un avis d'ébullition, ou dès que la pression baisse franchement au robinet, même sans avis, faire bouillir
+ l'eau du robinet 1 minute à gros bouillons.** Une conduite sous pression repousse ce qui l'entoure ; une conduite
+ qui perd sa pression aspire l'eau du sol par ses joints et ses fuites. C'est pour ça que l'avis est souvent donné
+ avant le moindre résultat d'analyse, alors que l'eau a l'air normale.
+43. **Si l'avis dit de ne pas consommer l'eau, ne pas la faire bouillir : boire la réserve** (étape 26). Ce type
+ d'avis vise un produit chimique, que l'ébullition n'enlève pas. Se servir de l'eau du robinet seulement pour la
+ chasse d'eau de la toilette.
+44. **Pendant un avis d'ébullition, faire bouillir seulement l'eau qui finit dans la bouche.**
 
- | Exige l'eau bouillie | Ne l'exige pas |
+ | Avec de l'eau bouillie | Avec l'eau du robinet |
  | --- | --- |
- | Boire, et les breuvages | «se laver les mains, à condition d'utiliser du savon » |
- | «préparer le lait maternisé, les biberons » | «prendre un bain ou une douche, à condition de ne pas avaler de l'eau » |
- | «laver les légumes et les fruits qui se mangent crus » | «laver la vaisselle avec du détergent » |
- | «faire des glaçons » | «laver les vêtements » |
- | «vous brosser les dents » | Cuisson des plats qui bouillent longtemps |
+ | Boire, et faire les breuvages | Se laver les mains, avec du savon |
+ | Préparer le lait maternisé, les biberons | Prendre un bain ou une douche, sans avaler d'eau |
+ | Laver les légumes et les fruits qu'on mange crus | Laver la vaisselle avec du détergent |
+ | Faire des glaçons | Laver les vêtements |
+ | Se brosser les dents | Cuire les plats qui bouillent longtemps |
 
- La ligne du bain suppose un adulte. Un enfant de 4 ans avale l'eau du bain, boit au
- gant de toilette et se rince la bouche au robinet par habitude : pendant un avis,
- c'est le robinet de la salle de bain qu'on ferme et un verre d'eau bouillie qu'on
- laisse à côté de la brosse à dents.
+ Un bébé ou un jeune enfant avale l'eau du bain : pendant l'avis, le laver à la débarbouillette au lieu de lui
+ donner un bain. Laisser un verre d'eau bouillie à côté des brosses à dents.
+45. **Faire bouillir l'eau de la journée le matin** : hors du réfrigérateur, on la garde 24 heures (étape 25).
+46. **Laver la vaisselle et les mains à l'eau du robinet avec du savon ou du détergent** : le savon décolle les
+ microbes de la peau, et le rinçage les emporte. Sans savon, prendre de l'eau bouillie.
+47. **À la levée de l'avis, chasser de la plomberie l'eau qui y est restée pendant l'avis.**
+ - Ouvrir chaque robinet d'eau froide, les robinets extérieurs et les boyaux compris, et le laisser couler quelques
+ minutes avant de s'en servir.
+ - Jeter la glace, les breuvages et les aliments crus préparés avec l'eau du robinet pendant l'avis ; vider, laver
+ et désinfecter la machine à glaçons et la cafetière.
+ - Changer la cartouche de la carafe filtrante, du filtre de robinet ou du filtre du réfrigérateur.
+ - Il n'est pas nécessaire de vider le chauffe-eau.
+48. {!plomb} **Dans une vieille maison, laisser couler le robinet d'eau froide avant de boire.** Des entrées de
+ service en plomb (le tuyau qui amène l'eau de la rue à la maison) ont été posées dans des maisons unifamiliales et
+ des immeubles de moins de 8 logements, surtout entre 1940 et 1955, et jusque dans les années 1970 ; il faut une
+ analyse pour savoir s'il y en a une. Le plomb se dissout dans l'eau qui reste la nuit dans l'entrée de service ; la
+ concentration à ne pas dépasser est de 0,005 mg/L. Les enfants de moins de 6 ans et les femmes
+ enceintes (pour l'enfant à naître) y sont les plus sensibles.
+ - Laisser couler l'eau du robinet quelques minutes après qu'elle est devenue froide (fraîche l'été) avant de la
+ boire, le matin et au retour à la maison.
+ - Prendre seulement l'eau froide du robinet pour les aliments, les biberons et les breuvages : l'eau chaude fait sortir plus de plomb et d'autres métaux de la plomberie.
+ - Enlever et nettoyer souvent l'aérateur, le petit filtre au bout du robinet.
+ - Prendre une carafe ou un filtre de robinet fait pour retenir le plomb : les autres filtres ne retiennent pas un
+ métal dissous.
+ - Ne pas faire bouillir l'eau pour enlever le plomb : l'ébullition le concentre (étape 27).
+49. **Quand l'eau ne coule plus** (conduite gelée, bris majeur, pompes du réseau arrêtées par une panne), boire la
+ réserve de l'étape 26, puis l'eau du chauffe-eau : il en contient de 180 à 280 L (40 ou 60 gallons). Pour le vider,
+ voir le ch. 6, section 7, « Tirer l'eau du chauffe-eau ». Si la coupure dure, partir au chalet (ch. 2).
 
-38. La durée, ici, est **une** minute à gros bouillons, pas cinq : «Faites bouillir
- l'eau du robinet au moins une minute à gros bouillons ». Les cinq
- minutes de la section 5-E visent la tularémie d'une eau de surface prise sur le
- territoire, pas une eau traitée par une usine puis rendue douteuse par une baisse de
- pression.
-39. Conserver l'eau bouillie «jusqu'à trois jours au réfrigérateur ou pendant
- 24 heures à la température de la pièce », dans des contenants
- hermétiques et propres. Bouillir le matin pour la journée fonctionne ; bouillir le
- dimanche pour la semaine, non.
-40. Deux consignes divergent, et la divergence se tranche par le mécanisme, pas par la
- sévérité : l'une interdit l'eau contaminée pour laver la vaisselle et se laver les
- mains, l'autre l'autorise **avec du savon ou du détergent**. C'est la condition qui fait toute
- la différence — le savon décolle les organismes de la peau et le rinçage les emporte,
- ce que l'eau seule ne fait pas. Sans savon, la position sévère est la bonne ; avec
- savon, la souple. Ce qui reste indiscutable des deux côtés, c'est la bouche : rien
- de non bouilli n'y entre.
-41. À la levée de l'avis, la plomberie de la maison contient encore l'eau de l'avis.
- Faire couler chaque robinet froid, jeter la glace faite par le congélateur pendant
- l'épisode, vider et rincer le réservoir de la machine à glaçons et la carafe
- filtrante, changer la cartouche si elle a filtré de l'eau sous avis.
-42. **Le plomb, quand la maison est vieille.** «Des entrées de service en plomb ont été
- installées dans des maisons unifamiliales et des immeubles de moins de 8 logements,
- particulièrement entre 1940 et 1955 et même jusque dans les années 1970 ». Le seuil est de 5 µg/L, soit 0,005 mg/L : «la concentration de plomb à
- ne pas dépasser dans l'eau potable ». Une maison bâtie hors de cette
- période peut encore avoir des soudures ou de la robinetterie au plomb, alors la
- seule réponse ferme est l'analyse. Ce n'est pas un problème d'eau de l'aqueduc, c'est
- un problème de tuyau : le plomb se dissout dans l'eau qui stagne la nuit dans
- l'entrée de service. Quatre gestes, aucun ne coûte rien :
- - «laisser couler l'eau du robinet quelques minutes après qu'elle soit devenue
- froide (fraîche l'été) avant de la boire » — le matin et au retour du
- travail. Une chasse d'eau, une douche ou un lave-vaisselle font la même purge.
- - «Pour la préparation des aliments, des préparations commerciales pour nourrissons
- et des breuvages, utilisez seulement l'eau froide du robinet ».
- L'eau chaude fait sortir davantage de plomb et d'autres métaux de la plomberie.
- - «Enlevez et nettoyez régulièrement l'aérateur (petit filtre) placé dans le bec du
- robinet » : les particules de plomb s'y accumulent.
- - Une carafe ou un filtre de robinet, à condition que son média soit fait pour
- **réduire le plomb** et pas seulement pour clarifier l'eau et en
- corriger le goût. Un filtre à sédiments, si fin soit-il, ne fait rien contre un
- métal dissous : il n'y a rien à tamiser.
-
- «Les enfants de moins de 6 ans et les femmes enceintes (pour l'enfant à naître)
- sont […] plus sensibles aux effets du plomb » — donc les deux enfants de
- la maison. Et pour ce contaminant-là, on ne bout pas : voir la section 8.
-43. **Quand l'eau ne coule plus du tout** — conduite gelée, bris majeur, pompes du
- réseau arrêtées par une panne. Cible de réserve : «six litres d'eau par personne
- pour la consommation » plus «six litres d'eau supplémentaires pour la préparation
- des aliments et l'hygiène personnelle », soit 48 L par jour pour la
- famille. La réserve de la maison couvre l'événement court ; si la coupure s'étire,
- c'est la bascule du chapitre 2 qui s'applique, et le chalet a de l'eau parce qu'il a
- un lac et un poêle, pas parce qu'il a un réseau.
+[^1]: Chez le nourrisson, la peau et les lèvres prennent une teinte bleutée. Si ça s'aggrave, il respire avec
+ difficulté et réagit de moins en moins, puis il tombe dans le coma. Son sang, quand on le voit, est brun chocolat
+ au lieu de rouge.
 
 ---
 
-## 6. Points de contrôle
+## 5. Points de contrôle
 
 | Moment | Ce qu'on vérifie | Cible chiffrée | Si c'est hors cible |
 | --- | --- | --- | --- |
-| Avant de puiser | Position de la prise par rapport aux eaux usées | ≥ 30 m d'un système non étanche, ou 15 m si le puits est scellé (bouchon de bentonite de 5 m autour du tubage) | Déplacer la prise ou traiter l'eau comme une eau de surface contaminée |
-| Après décantation | Dépôt au fond, limpidité | Aucun voile visible à travers 20 cm d'eau — ce qui veut dire moins d'environ 5 UNT, pas 0,3 | Prolonger le repos de 12 h, puis préfiltrer |
-| Avant filtration fine | Turbidité | ≤ 0,3 UNT pour un enlèvement de 3 log | Préfiltrer encore ; sinon bouillir au lieu de filtrer |
-| Pendant l'ébullition | Aspect de la surface, chronomètre | Gros bouillons, ≥ 1 min chronométrée ; **5 min** pour toute eau de surface d'un bassin à castors, rats musqués ou lièvres — voir 5-E | Recommencer le chronométrage à zéro |
-| Avec thermomètre, si l'on économise le bois | Température tenue | ≥ 73 °C pendant 1 min détruit les oocystes de *Cryptosporidium* ; 65 °C exige 5 min. Ne remplace pas les 5 min à gros bouillons sur un bassin à castors | Prolonger la durée ou monter la température |
-| Chloration — température de l'eau | Thermomètre dans le seau | > 20 °C pour que les 30 min valent | Bouillir plutôt que chlorer |
-| Chloration — temps de contact | Montre | 30 min | Attendre ; ne pas raccourcir |
-| Chloration — résiduel | Odeur, ou bandelette de chlore libre | Odeur de chlore encore perceptible à 30 min | Redoser 2 gouttes/L, attendre 30 min de plus |
-| Désinfection du puits | Chlore libre dans l'eau du puits | 50 mg/L (puits existant), 250 mg/L (puits neuf) | Ajouter de la javel et remesurer |
-| Volume à chlorer | Colonne d'eau × section du tubage | Colonne = profondeur du puits moins profondeur de l'eau ; 17,7 L/m pour un tubage de 150 mm, ou rayon en cm au carré × 3,14 ÷ 10 pour tout autre diamètre | Recalculer : une dose posée sur un volume deviné ne vaut rien |
-| Contact dans la plomberie | Durée | 12 à 24 h — retenir 24 h | Prolonger |
-| Purge après le choc | Chlore libre au robinet | Plus rien de détectable, ni à la bandelette ni à l'odeur | Continuer à purger avant tout usage |
-| Après une désinfection choc | Analyses de contrôle | Une à 1 semaine, une à 4 semaines | Les deux, pas une seule : la première dit si le choc a marché, la seconde s'il tient |
-| Eau bouillie mise de côté | Âge de l'eau dans le contenant | 3 jours au réfrigérateur, 24 h à la température de la pièce | Rebouillir. Ne pas rallonger un vieux bidon avec de l'eau fraîche |
-| Deux fois l'an | Analyse microbiologique | *E. coli* : «Aucun microorganisme détectable par 100 mL » | Avis d'ébullition maison, désinfection choc, nouvelle analyse |
-| Une fois par période d'usage | Analyse chimique, en mg/L | Nitrate 10 en azote ou 45 en nitrate ; nitrite 1 en azote ou 3 en nitrite ; arsenic 0,010 ; uranium 0,02 ; fluorure 1,5 ; plomb 0,005 ; baryum 2,0 | Distillation ou osmose inverse pour l'eau de boisson, ou une autre source. Rien d'autre du chapitre n'y touche |
-| Une fois par période d'usage | Manganèse | 0,12 mg/L ; valeur guide 0,06 mg/L pour les nourrissons ; taches sur la lessive dès 0,02 mg/L | Au-dessus de 0,12 mg/L : pas d'eau du puits pour un nourrisson |
-| Avant l'hiver | Réserve traitée | 4 L par personne par jour pour la trousse (ch. 6) ; 6 L + 6 L par personne par jour quand c'est l'eau qui manque, soit 48 L/jour pour quatre | Compléter avant que le lac prenne |
-| Maison d'avant les années 1970 | Purge du robinet avant de boire | Laisser couler «quelques minutes après qu'elle soit devenue froide » ; plomb ≤ 0,005 mg/L à l'analyse | Purger plus longtemps, eau froide seulement, filtre dont le média fixe le plomb, faire analyser |
-| À chaque achat de javel | Date sur le contenant | Moins d'un an depuis la fabrication, gardée au frais et à l'obscurité ; remplacer avant l'année | Remplacer même si le contenant est plein |
+| Avant de boire l'eau d'un puits | Distance aux eaux usées | **30 m** d'une installation d'eaux usées non étanche, ou **15 m** si le puits est scellé (bouchon de bentonite de 5 m autour du tubage) | Traiter l'eau comme une eau de surface |
+| Après la décantation | Dépôt au fond, limpidité | Aucun voile à travers 20 cm d'eau, soit moins d'environ **5 UNT** | Laisser reposer un jour de plus, puis passer au coton |
+| Avant le filtre à 1 µm | Trouble | **0,3 UNT** ou moins : le filtre retient le mieux et se bouche moins | Passer au coton de nouveau ; sinon, faire bouillir au lieu de filtrer |
+| Pendant l'ébullition | Surface, chronomètre | Gros bouillons ; **1 min** pour une eau de puits ou de robinet, **5 min** pour une eau de lac, de ruisseau, de neige ou de glace | Recommencer le compte à zéro |
+| Avant de chlorer | Température de l'eau, au thermomètre dans la chaudière | Plus de **20 °C** pour 30 min ; plus froide, **1 h** ; sous **10 °C**, **2 h** ou plus | Faire bouillir si on a du feu ; sinon, allonger l'attente |
+| Chloration, au bout de l'attente | Odeur, ou bandelette de chlore libre | Légère odeur de chlore | Remettre **0,2 mL/L**, attendre 15 min de plus ; sinon, faire bouillir |
+| À chaque achat de javel | Date de fabrication, dans le code du contenant | Moins d'**un an**, gardée au frais et à l'obscurité | La remplacer, même pleine |
+| Eau bouillie mise de côté | Âge de l'eau | **3 jours** au réfrigérateur, **24 h** à la température de la pièce | La faire bouillir de nouveau ; vider et laver le bidon avant d'y remettre de l'eau |
+| Avant l'hiver | Réserve traitée | **4 L** par personne et par jour, soit **6 L + 6 L** par personne pour 72 h ; **48 L** pour une famille de quatre | La compléter avant que le lac prenne |
+| Deux fois par année | Analyse microbiologique du puits | *E. coli* : aucun par 100 mL | Faire bouillir l'eau qui va à la bouche, désinfecter le puits, refaire analyser |
+| Au moins une fois | Analyse chimique, en mg/L | Nitrate **10** en azote ou **45** en nitrate ; nitrite **1** en azote ou **3** en nitrite ; arsenic **0,010** ; uranium **0,02** ; fluorure **1,5** ; plomb **0,005** ; baryum **2,0** | Changer de source ; pour le nitrate, l'arsenic et le plomb, l'alambic |
+| Au moins une fois | Manganèse | **0,12 mg/L** ; **0,06 mg/L** pour un bébé nourri au biberon ; taches sur la lessive dès **0,02 mg/L** | Au-dessus de 0,06 mg/L, pas d'eau du puits pour les biberons ; au-dessus de 0,12 mg/L, pour aucun nourrisson |
+| Désinfection du puits | Chlore libre dans l'eau du puits | **50 mg/L** (puits existant) ; **250 mg/L** (puits neuf), lu sur l'eau diluée de moitié (étape 28) | Ajouter de la javel et mesurer de nouveau |
+| Volume à chlorer | Colonne d'eau × eau par mètre | **17,7 L/m** pour un tubage de 150 mm, ou rayon en cm au carré × 3,14 ÷ 10 | Refaire le calcul (étape 30) |
+| Après la désinfection du puits | Durée dans la plomberie | **24 h** | Attendre |
+| Vidange de l'eau chlorée | Chlore libre au robinet | Rien à la bandelette, rien à l'odeur | Continuer à faire couler l'eau avant de boire |
+| Après la désinfection du puits | Analyses de contrôle | Une après **1 semaine**, une après **4 semaines** | Faire les deux (étape 35) |
+| Maison d'avant les années 1970 | Robinet d'eau froide qu'on laisse couler avant de boire | Quelques minutes après que l'eau est devenue froide ; plomb **0,005 mg/L** ou moins à l'analyse | Laisser couler plus longtemps, prendre l'eau froide seulement, poser un filtre qui retient le plomb, faire analyser l'eau |
 
 ---
 
-## 7. Signes d'échec
+## 6. Signes d'échec
 
 | Observation | Diagnostic | Action |
 | --- | --- | --- |
-| Analyse positive à *E. coli* | Contamination fécale : fosse, ruissellement, tubage percé | Eau non potable. Bouillir tout usage de bouche, désinfecter le puits, réanalyser. Ne pas se fier au goût |
-| Coliformes totaux présents, *E. coli* absent | Défaut d'étanchéité, intrusion d'eau de surface | Inspecter couvercle et tubage, désinfecter, réanalyser |
-| Diarrhée qui s'installe 3 à 25 jours après avoir bu, médiane 7 à 10 jours | Giardiase (*Giardia lamblia*) | Traiter et réhydrater (ch. 26). Chercher le castor ou le rat musqué en amont (ch. 50). Passer à l'ébullition |
-| Diarrhée malgré une eau chlorée dans les règles | *Cryptosporidium* : le chlore seul est presque sans effet | Bouillir, ou filtrer à 1 µm. La chloration ne reviendra pas comme méthode unique |
-| Eau claire au robinet qui brunit après quelques minutes à l'air | Fer ou manganèse dissous qui s'oxyde | Analyse chimique. Comparer au seuil de 0,12 mg/L pour le manganèse |
-| Taches noires sur la lessive et la porcelaine | Manganèse au-dessus de 0,02 mg/L | Analyse. Seuil esthétique, pas encore sanitaire — mais on veut savoir où on est |
-| Goût salé | Intrusion d'eau salée, ou sel de voirie | Rien dans ce chapitre ne l'enlève. Distillation, osmose inverse, ou autre source |
-| Filtre à 1 µm colmaté en quelques jours | Turbidité trop élevée en amont | Décanter plus longtemps et préfiltrer mieux. Une bougie de céramique se récure (§9) ; une cartouche plissée, non — la brosse ouvre le pli et le filtre laisse tout passer sans le dire |
-| Filtre qui se met à couler beaucoup plus vite qu'avant, sans qu'on l'ait nettoyé | Fêlure de la céramique ou pli crevé. Le débit est le seul témoin : l'eau sort limpide et non filtrée | Mettre la bougie au rebut. Une céramique fendue ne se répare pas : la colle bouche le pore autour et laisse la fissure ouverte |
-| Javel qui ne sent plus rien à l'ouverture du contenant | Perte de titre | Remplacer. Un dosage calculé sur un titre imaginaire ne désinfecte rien |
-| Bandelette à zéro 30 minutes après le dosage | Demande en chlore de la matière organique | Redoser une fois. Si ça recommence, bouillir |
-| Eau bouillie qui garde un goût métallique ou amer | Contaminant chimique, que l'ébullition a concentré | Cesser d'utiliser cette source. Analyse chimique |
-| Neige fondue au goût de fumée ou de suie | Retombées de combustion | Ne pas boire. Prélever la neige au vent du chalet, sous la croûte de surface |
-| Contenant d'eau traitée qui développe un film glissant sur les parois | Biofilm : le contenant est devenu la source de contamination | Vider, laver, désinfecter le contenant, recommencer |
-| Aucun signe, aucun goût, aucune couleur — maison desservie par l'aqueduc, bâtie entre 1940 et les années 1970 | Entrée de service en plomb possible. Le plomb ne se voit pas, et l'ébullition le concentre | Purger le robinet froid avant de boire, eau froide seulement pour les biberons, faire analyser (§5-J) |
-| Bidon de réserve retrouvé vide ou fendu au printemps | Rempli à ras bord et laissé geler : l'eau a pris de l'expansion et a ouvert le contenant | Réserve à garder hors gel, ou vide d'air et bidon couché |
+| Analyse positive à *E. coli* | Contamination fécale : fosse, ruissellement, tubage percé | Faire bouillir toute l'eau qui va à la bouche, désinfecter le puits, refaire analyser |
+| Coliformes totaux présents, *E. coli* absent | Le puits laisse entrer quelque chose ; pas encore de contamination fécale | Chercher la cause (étape 35) et refaire analyser ; au-dessus de 10 par 100 mL à la nouvelle analyse, désinfecter le puits |
+| Diarrhée qui commence de 3 à 25 jours après avoir bu, le plus souvent de 7 à 10 jours | Giardiase (*Giardia*) | Soigner et réhydrater (ch. 26). Chercher le castor ou le rat musqué en amont (ch. 50). Passer à l'ébullition |
+| Diarrhée alors que l'eau a été chlorée comme il faut | *Cryptosporidium* | Faire bouillir, ou passer au filtre à 1 µm |
+| Eau claire au robinet qui brunit après quelques minutes à l'air | Fer ou manganèse dissous, qui s'oxyde | Faire faire une analyse chimique ; comparer à 0,12 mg/L pour le manganèse |
+| Taches noires sur la lessive et la porcelaine | Manganèse au-dessus de 0,02 mg/L | Faire analyser l'eau, et comparer le résultat aux cibles de santé de la section 5 (0,06 et 0,12 mg/L) |
+| Goût salé | Eau salée entrée dans le puits, ou sel de déglaçage | Alambic, osmose inverse ou une autre source |
+| Filtre à 1 µm bouché en quelques jours | Eau trop trouble avant le filtre | Laisser reposer l'eau plus longtemps et la passer au coton. Récurer la bougie de céramique (le cylindre qui filtre) ; rincer la cartouche plissée à l'envers (section 7) |
+| Filtre de céramique qui coule beaucoup plus vite qu'avant, sans qu'on l'ait nettoyé | Fêlure, souvent invisible : l'eau passe par la fente sans être filtrée | Changer la bougie. La changer aussi dès qu'on y voit une fêlure |
+| Javel qui ne sent plus rien à l'ouverture | Elle a perdu son chlore | La remplacer |
+| Bandelette à zéro au bout de l'attente | La matière organique a consommé le chlore | Remettre la même dose une fois ; si ça recommence, faire bouillir |
+| Eau bouillie qui garde un goût métallique ou amer | Produit chimique, que l'ébullition a concentré | Changer de source ; faire faire une analyse chimique |
+| Neige fondue au goût de fumée ou de suie | Suie d'un feu, d'un moteur ou de la cheminée | La jeter ; prendre la neige du côté où la fumée ne va pas, sous la croûte (étape 39) |
+| Film glissant sur les parois d'un contenant d'eau traitée | Des microbes se sont installés sur la paroi : le contenant contamine l'eau | Vider, laver et désinfecter le contenant, puis recommencer |
+| Bidon de réserve retrouvé vide ou fendu au printemps | Rempli à ras bord et laissé geler | Garder la réserve hors gel, ou laisser un vide d'air et coucher le bidon (étape 24) |
 
 ---
 
-## 8. Danger
+## 7. Variante d'urgence
 
-> ### ⚠ DANGER
->
-> **La génératrice, la pompe à essence, le barbecue et le réchaud ne rentrent jamais.**
-> Ni dans la maison, ni dans le chalet, ni dans le garage, ni dans l'appentis, ni sous
-> un auvent, ni dans un abri de toile, même porte ouverte, même cinq minutes. Le mécanisme : le monoxyde de carbone est
-> un gaz «toxique qui ne se voit pas et ne se sent pas. Il n'irrite pas les yeux ni
-> les voies respiratoires ». Il n'y a donc **aucun signal d'alarme** avant
-> les symptômes : «maux de tête ; fatigue ; nausées ; vomissements ; étourdissements »,
-> qui peuvent apparaître «dans les minutes suivant l'exposition ». Quelqu'un qui
-> s'endort n'a plus de symptômes à ressentir. «Seul un avertisseur de monoxyde de
-> carbone peut détecter la présence de ce gaz et vous la signaler ». La
-> génératrice va dehors, le plus loin possible des portes et des fenêtres.
->
-> **Une eau contaminée a l'apparence, l'odeur et le goût d'une eau propre.** Il faut
-> 10 kystes de *Giardia* pour infecter quelqu'un : 10 objets de 8 µm dans un
-> litre. Aucun sens humain ne détecte ça. Un lac clair qui sent bon n'est pas une
-> information. La seule information, c'est l'analyse ou le traitement.
->
-> **Le chlore ne protège pas contre le Cryptosporidium.** «L'efficacité du chlore seul
-> envers le Cryptosporidium est presque nulle » : le CT requis atteint
-> 7 000 mg-min/L, une valeur qu'aucune chloration domestique n'approche. Le mécanisme
-> est la paroi de l'oocyste, qui résiste à l'oxydation. Une eau de lac traitée à la
-> javel et bue sans autre étape est une eau non traitée contre ce parasite-là. Contre
-> lui, il n'y a que la chaleur ou un filtre à 1 µm.
->
-> **Bouillir une eau chimiquement contaminée la rend pire.** L'ébullition «n'est
-> généralement d'aucune utilité dans la gestion d'une contamination chimique
-> (p. ex. plomb) », et comme une partie de l'eau part en vapeur, ce qui reste
-> est plus concentré qu'au départ. Deux cas, un par lieu.
->
-> Au chalet, c'est le nitrate du puits : le seuil à ne pas dépasser est de 10 mg/L en
-> azote, soit 45 mg/L en nitrate, et il est fixé là précisément pour
-> protéger les nourrissons. Le mécanisme :
-> «la toxicité des nitrates résulte de leur transformation en nitrites », ceux-ci
-> «peuvent réagir avec le fer de l'hémoglobine des globules rouges et entraîner la
-> formation subséquente de méthémoglobine », et «la méthémoglobine est une forme
-> d'hémoglobine dans laquelle le fer est présent sous forme oxydée ou ferrique incapable
-> de transporter l'oxygène ». Le cœur pompe, les poumons se remplissent, et
-> l'oxygène ne se rend plus. «La méthémoglobinémie provoquée par les nitrates dans
-> l'eau de boisson a principalement été observée chez les enfants de moins de 3 mois »[^1].
-> Un puits jamais analysé ne sert pas à préparer un biberon, et bouillir son
-> eau pour «la rendre sûre » monte la concentration de nitrate au lieu de la baisser.
->
-> À la maison, c'est le plomb de l'entrée de service, avec le même piège exactement :
-> le geste qui rassure est celui qui empire. La réponse est la purge du robinet froid
-> et un filtre dont le média fixe le plomb, jamais la marmite (§5-J).
->
-> **L'eau de Javel ne se mélange à rien.** Ni vinaigre, ni détartrant, ni nettoyant à
-> cuvette, ni ammoniaque, ni urine. Le mécanisme : un acide libère le chlore de
-> l'hypochlorite sous forme de gaz, et l'ammoniaque forme des chloramines ; les deux
-> brûlent les voies respiratoires, peuvent tuer, et c'est pire dans un espace fermé.
-> Ce qui trompe : l'atteinte des poumons par le chlore — une grande difficulté à
-> respirer — peut n'arriver que 24 à 48 heures plus tard. Quelqu'un qui a toussé la
-> veille et va bien le matin n'est pas sorti d'affaire. La javel se verse dans l'eau, jamais l'inverse, et jamais dans
-> un contenant qui a servi à autre chose.
->
-> **L'eau du fleuve ne se boit pas.** Le sel dissous traverse tous les traitements de
-> ce chapitre. Boire de l'eau salée oblige le rein à excréter plus d'eau qu'elle n'en
-> apporte : la déshydratation s'accélère au lieu de se corriger. Face à la Côte-Nord,
-> le fleuve porte de 27 à 29 g de sels dissous par litre : c'est de l'eau de mer. En
-> manque d'eau douce,
-> c'est la neige, la glace ou l'alambic — jamais le fleuve tel quel.
+### Bouillir à la maison sans cuisinière
 
-[^1]: Chez le nourrisson, la peau et les lèvres prennent une teinte bleutée. Si ça
- s'aggrave, viennent les troubles de la respiration et de la conscience, puis le coma. Le
- sang, lui, est brun chocolat au lieu de rouge.
+Quand la cuisinière électrique ne marche plus, on fait bouillir l'eau sur le barbecue ou le réchaud de camping.
+{!co} On les allume dehors, même pour une longue ébullition par grand froid. Par −20 °C, faire bouillir 20 L dehors
+prend du temps et du combustible : ces jours-là, on boit la réserve de l'étape 26.
+
+### Bouillir quand il n'y a pas de marmite
+
+Tout contenant de métal nu va sur le feu : une boîte de conserve, une chaudière ou un bac d'acier. {!pas-au-feu} On
+ne met pas sur le feu un métal galvanisé ou peint : ses fumées empoisonnent (ch. 111).
+
+**Le contenant d'écorce.** Un contenant d'écorce de bouleau (pour lever l'écorce : ch. 94) va sur les braises tant qu'il est plein : l'eau,
+qui ne dépasse pas 100 °C, l'empêche de prendre feu, et seul le bord au-dessus de l'eau peut brûler.
+
+- Le faire petit : un grand contenant d'écorce plie.
+- Le poser sur les braises, à l'écart des flammes, et garder le niveau de l'eau haut.
+- Il tient des heures sur les braises, et il demande moins de bois et moins de temps que les pierres.
+
+**Les pierres chaudes** servent pour un contenant qui ne va pas sur le feu : un fût de plastique, une caisse de bois,
+une peau tendue dans un trou.
+
+- {!projection} Prendre des pierres denses et sèches, sur un sol sec, loin de l'eau. Une pierre mouillée, poreuse
+ (grès, calcaire) ou feuilletée peut éclater dans le feu et lancer des éclats au visage de la personne penchée
+ dessus : l'eau prise dans la pierre se change en vapeur d'un coup.
+- Faire un feu et y enfouir les pierres.
+- Les sortir une à une avec deux bâtons verts taillés en pince, et les laisser tomber dans l'eau.
+- Sortir chaque pierre refroidie avant d'en mettre une autre : sinon le fond se remplit de pierres, et il ne reste
+ plus de place pour l'eau.
+
+Avec les pierres, l'eau fume sans bouillir à gros bouillons : on ne peut pas savoir si elle a atteint 100 °C, ni si
+elle y est restée les 5 minutes d'une eau de surface.
+
+### Puiser un puits quand la pompe est morte
+
+Dans un tubage de 150 mm, on puise avec une buse : un bout de tuyau rigide avec un clapet au bas et une corde en haut
+(planche 10-02).
+
+- **Le tuyau.** Couper un tuyau rigide qui descend librement dans le tubage, par exemple de 40 mm de diamètre et de
+ 1,5 à 2 m de long.
+- **Le clapet.** Percer un trou au centre d'un bouchon qui ferme le bas du tuyau (repère 1). Découper un carré de
+ chambre à air qui couvre le trou avec de la marge tout autour, et le visser d'un seul côté, par deux vis sur le
+ même bord, pour qu'il se soulève comme une porte (repère 2). Enfoncer le bouchon au bas du tuyau, le carré vers
+ l'intérieur (repère 3).
+- **Puiser.** Enlever le couvercle du tubage et descendre la buse jusque sous l'eau : à la descente, l'eau soulève
+ le carré et entre dans le tuyau (repère 4) ; à la remontée, le poids de l'eau plaque le carré sur le trou (repère 5), et la
+ buse remonte pleine.
+- **Ce qu'elle remonte.** Un tuyau de 40 mm contient environ 1,2 L par mètre, et une buse de 2 m remonte 2,5 L. Pour
+ les 16 L qu'une famille de quatre utilise en une journée, il faut 7 voyages : on les fait d'un coup et on garde l'eau traitée,
+ plutôt que de puiser au fur et à mesure.
+- **Garder le puits propre.** Tout ce qu'on descend dans le tubage touche l'eau qu'on boit : la corde, la buse,
+ les mains. Enrouler la corde sur un bâton posé en travers, hors du sol (repère 6). Attacher la corde au haut du
+ tuyau en la passant dans deux trous, pour ne pas perdre la buse (repère 7) : ce qui tombe au fond d'un puits y reste et y pourrit. Ranger la buse bouchée et
+ suspendue, et remettre le couvercle du tubage entre deux voyages.
+
+### Faire du chlore quand il n'y a plus de javel
+
+**L'hypochlorite de calcium en granules** est le chlore en granules vendu pour traiter l'eau.
+
+- **La solution mère.** Dehors ou dans une pièce aérée, en se protégeant les yeux, dissoudre une cuillère à thé comble
+ de granules (environ 7 g) dans 7,5 L d'eau propre, en brassant jusqu'à ce que les grains disparaissent : la
+ solution contient environ 500 mg de chlore par litre. Les granules jetés directement dans l'eau à boire se
+ dissolvent mal.
+- **La dose.** Mettre 1 volume de solution mère pour 100 volumes d'eau à traiter : 100 mL pour 10 L. Brasser, puis
+ attendre et contrôler comme aux étapes 21 et 22, à la bandelette si on en a.
+- {!incendie} Ranger les granules seuls, au sec et au frais, loin du bois, du papier, de l'huile, des guenilles et
+ du carburant : les granules ne brûlent pas eux-mêmes, mais ils peuvent allumer ces matières, et ils attisent un
+ feu. {!chimie} Ne jamais les mettre
+ en contact avec un acide, qui en dégage du chlore, ni avec de l'urine ou de l'ammoniaque.
+
+**L'électrolyse d'une saumure** fait de l'hypochlorite avec ce qu'il y a au chalet : on fait passer le courant d'une
+batterie de 12 V dans de l'eau salée, entre deux électrodes de carbone. Le courant fait du chlore à une électrode et
+de l'hydrogène à l'autre ; le chlore reste dans l'eau salée sous forme d'hypochlorite.
+
+- Prendre des électrodes de carbone aux deux bornes, parce que le carbone ne réagit pas avec l'eau salée : les tiges
+ de charbon d'une grosse pile sèche, ou des électrodes de gougeage.
+- {!vapeurs} Faire le montage dans un contenant ouvert, dehors, au vent : l'hydrogène explose dès qu'il s'accumule
+ sous un couvercle. {!chimie} Ne pas se pencher au-dessus : le chlore qui s'échappe de la surface brûle les
+ poumons.
+- Doser à la bandelette : la force de la solution dépend du sel, du courant et du temps, et on ne peut pas la
+ deviner. Avec une saumure à 25 g de sel par litre, un appareil fait pour ça donne une solution à 5 g de chlore
+ actif par litre ; un montage de fortune donne moins, sans qu'on sache combien. Ajouter la solution à l'eau à boire peu à peu, en
+ brassant, puis contrôler comme à l'étape 22.
+- Faire la solution le jour où on s'en sert, et l'utiliser dans les 24 heures : elle perd son chlore.
+
+Sans bandelette, faire bouillir l'eau plutôt.
+
+### Le filtre à sable
+
+Un baril debout, rempli de sable, que l'eau traverse lentement de haut en bas, fait un filtre à sable (planche
+10-07). Il rend l'eau claire, mais il ne la désinfecte pas.
+
+- **Le baril et la sortie.** Percer un trou au bas du baril et y passer un bout de boyau (repère 1). Faire remonter le
+ boyau le long du baril et le couper 5 cm plus haut que le dessus du sable (repère 2) : l'eau cesse de couler à
+ cette hauteur, et il reste toujours 5 cm d'eau sur le sable.
+- **Le fond.** Mettre au fond une couche de grosses pierres (repère 3), puis une couche de gravier lavé jusqu'à ce que
+ l'eau de rinçage sorte claire (repère 4).
+- **Le sable.** Le verser en couche épaisse sur le gravier (repère 5). Plus la couche est épaisse et plus l'eau la
+ traverse lentement, mieux le filtre travaille. Le laver d'abord, mais moins que le gravier : le brasser vite à la
+ main dans deux fois son volume d'eau, en touchant le fond de la chaudière, et vider l'eau sale (repère 6) ; recommencer, et
+ arrêter quand l'eau de lavage est encore un peu sale (repère 7). Pour vérifier, secouer un peu de sable avec autant
+ d'eau dans un pot clair : 3 ou 4 secondes après, on doit voir le dessus du sable. Un sable trop lavé laisse passer
+ l'eau trop vite et filtre mal.
+- **Verser l'eau.** La verser doucement sur une assiette percée posée sur le sable (repère 8) : l'assiette empêche
+ l'eau de creuser le sable.
+- **Le film vivant.** Un film de microbes se forme dans le 1 ou 2 cm du dessus du sable, mange ce qui passe et fait
+ la plus grande partie du travail. Il met jusqu'à un mois à se former. On ne le voit pas : quand
+ le sable fonce, c'est seulement la saleté qu'il a retenue. Le film reste vivant tant que le sable reste mouillé et
+ qu'il reçoit de l'eau neuve au moins tous les deux jours : on monte le filtre l'été ou l'automne, avant d'en avoir
+ besoin, et on y verse de l'eau chaque jour.
+- **Le charbon.** Concasser et rincer du charbon de bois du poêle, et en remplir une seconde chaudière percée, posée
+ sous la sortie du filtre (repère 9). Ne pas le mettre sur le sable : il étouffe le film vivant. Le charbon enlève
+ une partie du goût et de la couleur. Le charbon du poêle a de quelques m² à 300 m² de surface par gramme. Le
+ charbon actif, cuit à la vapeur au-dessus de 800 °C pour ouvrir ses pores, en a de 750 à 1 100 m², et il retient
+ trois à cinq fois plus.
+- **Faire bouillir l'eau qui sort** (repère 10), comme toute eau de surface (étape 14).
+- **Quand le débit tombe.** Enlever l'assiette. Sous un peu d'eau, poser la paume à plat sur le dessus du sable et la
+ tourner en rond, en touchant à peine le sable, sans le brasser en profondeur (repère 11). Puiser l'eau sale avec
+ un petit contenant et la jeter dehors (repère 12). Lisser le sable, remettre l'assiette, et recommencer jusqu'à ce
+ que le débit revienne. Le film vivant est dérangé et met du temps à se refaire.
+
+### L'alambic de fortune
+
+L'alambic fait de l'eau douce avec l'eau du fleuve, et enlève le nitrate, l'arsenic, le plomb et le manganèse, que
+rien d'autre n'enlève au chalet (planche 10-03).
+
+- **Le bol.** Poser un bol sur un trépied au centre d'une marmite, hors de l'eau (repère 1).
+- **Le couvercle.** Poser un couvercle bombé à l'envers sur la marmite (repère 2), le creux au-dessus du bol
+ (repère 3) : la vapeur monte, se change en gouttes sur le couvercle froid, et les gouttes coulent vers le creux et
+ tombent dans le bol.
+- **Le joint.** Faire le tour du couvercle avec un boudin de guenille mouillée ou une pâte de farine et d'eau, à
+ refaire chaque fois (repère 4).
+- **Le froid.** Couvrir le couvercle de neige ou d'un linge mouillé, et le renouveler pour que la vapeur continue de
+ se changer en gouttes (repère 5).
+- **Le feu.** Tenir un bouillon doux (repère 6) : un gros bouillon projette des gouttes d'eau sale dans le bol.
+- **Récupérer l'eau.** Sortir le bol quand la marmite a refroidi, avant qu'il soit plein.
+- **Autre façon : le serpentin.** Au lieu du bol, du couvercle à l'envers et de son creux, faire sortir la vapeur par
+ un bout de tuyau de cuivre branché sur le couvercle (repère 7), et enrouler le tuyau dans un banc de neige
+ (repère 8) : l'eau coule au bout du tuyau, dans un bol.
+
+L'alambic brûle beaucoup de bois : faire passer un litre d'eau en vapeur demande plus de cinq fois la chaleur qu'il
+a fallu pour l'amener à ébullition, donc plus de six fois le bois d'une simple ébullition. On le réserve à l'eau à
+boire des enfants. Ce qui ne s'évapore pas reste dans la marmite, mais ce qui s'évapore plus facilement que l'eau
+passe avec la vapeur : l'essence, le solvant ou le naphte se retrouvent dans le bol. Si l'eau sent un de ces
+produits, il faut changer de source.
+
+### Fondre sans gaspiller de bois
+
+Deux façons de faire fondre la neige sans brûler de bois :
+
+- Étaler un prélart noir ou une bâche foncée sur la neige, par une journée claire de mars, en lui donnant une pente
+ et une rigole qui mène à une chaudière.
+- Accrocher un sac souple plein de neige près du poêle : la neige fond à la chaleur du poêle pendant qu'on cuisine.
+
+### Dessaler par le gel, quand il n'y a que le fleuve
+
+Quand l'eau salée gèle, les cristaux de glace laissent le sel de côté : la glace est moins salée que l'eau de
+départ, et le sel reste dans la saumure qui ne gèle pas.
+
+- Laisser geler l'eau salée lentement, et sortir la glace.
+- Rincer la glace à l'eau froide, pour enlever la pellicule de saumure qui l'enrobe, et la faire fondre.
+- Recommencer tant que l'eau goûte le sel : la glace qui vient de se former garde beaucoup de sel, et elle ne
+ s'adoucit qu'en perdant sa saumure, passe après passe. Une eau qui goûte encore un peu le sel est loin d'être buvable.
+
+### Le soleil, l'été
+
+Les rayons du soleil abîment les microbes, et la chaleur aide. La méthode a été mise au point pour des pays
+beaucoup plus au sud (entre 15 et 35 degrés de latitude) : ici, on la garde pour les longues journées claires de
+l'été.
+
+- Prendre une eau limpide, décantée ou passée au linge si elle est trouble : la moindre particule fait de l'ombre.
+- Remplir aux trois quarts une bouteille de plastique incolore, la secouer une vingtaine de secondes, puis finir de
+ la remplir.
+- La coucher sur un toit de tôle ou une autre surface qui renvoie le soleil, à un endroit qui n'est jamais à l'ombre
+ de la journée.
+- La laisser au moins 6 heures si le ciel est dégagé ou à moitié couvert, 2 jours de suite s'il est plus couvert ;
+ pas les jours de pluie.
+- Boire l'eau à même la bouteille. Contre *Cryptosporidium*, ça ne suffit pas : il faut faire bouillir l'eau ou la
+ passer au filtre à 1 µm.
+
+### Réparer plutôt que remplacer
+
+- **Une bougie de céramique bouchée.** La récurer sous l'eau propre avec une brosse dure ou le dos d'un couteau :
+ le débit revient. Chaque nettoyage lui enlève une pelure : mesurer son diamètre quand elle est neuve, l'écrire sur
+ le couvercle et le comparer à chaque nettoyage pour savoir quand la changer.
+- **Une cartouche plissée.** La rincer en faisant passer l'eau à l'envers, sans brosse : la brosse ouvre le pli, et le filtre coule sans
+ plus rien filtrer.
+- **Un fût de plastique fendu.** Le ressouder au fer, avec une bande découpée dans un fût du même plastique : un autre
+ plastique ne se soude pas avec lui.
+- **Un boyau crevé.** Le couper de part et d'autre du trou, et rabouter les deux bouts sur un manchon de tuyau rigide
+ serré au fil de fer.
+- **Une pompe 12 V morte.** Monter un baril sur une plateforme : l'eau en descend toute seule dans les tuyaux. On
+ monte l'eau du lac à bras jusqu'au baril.
+
+### Ce qui ne se remplace pas
+
+- **Les bandelettes de chlore** : sans elles, on ne sait pas combien de chlore il y a dans la solution faite maison
+ ni dans l'eau du puits qu'on désinfecte.
+- **L'analyse chimique** : sans elle, on ne sait pas si l'eau contient de l'arsenic, de l'uranium, du nitrate, du
+ manganèse ou du plomb, et une eau limpide, sans odeur et bonne au goût peut en contenir.
+- **Un filtre qui retient les virus** : on ne peut pas le fabriquer (étape 11).
+
+### Ce qu'on perd
+
+- **Le volume.** Toute l'eau de la journée (étape 26) doit passer par la marmite, et il faut le bois pour ça en plus
+ du chauffage. On réduit d'abord l'eau de l'hygiène (ch. 31).
+- **La protection dans le bidon.** Sans javel, l'eau traitée n'a plus de chlore pour la protéger dans le bidon
+ (étape 25).
+- **Ce qui est dissous.** À part le sel, que le gel enlève aussi, seul l'alambic enlève ce qui est dissous, et il
+ donne très peu d'eau.
+- **Le goût.** L'eau reste teintée par les tanins, et elle est plate (étape 17). Un enfant qui ne la boit pas se
+ déshydrate, même l'hiver (ch. 39 et 40).
+- **La marge d'erreur.** Quand on traite l'eau de deux façons, l'une rattrape une erreur sur l'autre. Avec une seule
+ façon, une ébullition trop courte rend malades toutes les personnes qui boivent l'eau.
 
 ---
 
-## 9. Variante d'urgence
+## En plus
 
-Sans électricité, sans filtre acheté, sans javel : il reste le feu, et le feu suffit,
-à un prix.
+### La sève de bouleau, en mai
 
-**À la maison, le feu n'est pas acquis.** La cuisinière est électrique, et la seule
-source de chaleur qui reste est souvent le barbecue ou le réchaud de camping. Les deux
-brûlent dehors, jamais dans la maison, le garage, l'entrée ni sous un auvent, pour la
-raison donnée à la section 8 : le monoxyde de carbone ne se voit pas, ne se sent pas,
-n'irrite rien, et quelqu'un qui s'endort n'a plus de symptômes à ressentir. Faire
-bouillir vingt litres dehors à -20 °C prend plus de temps que prévu et coûte du
-combustible : le chapitre 87 donne les rendements, et c'est là que la réserve déjà
-traitée de la section 5-G paie sa place.
+En mai, avant que les feuilles sortent, les Dénés de Fisherman Lake, dans les Territoires du Nord-Ouest, entaillaient
+le bouleau à papier et recueillaient la sève dans un panier d'écorce, pour la boire. La sève est presque entièrement
+de l'eau, avec 0,8 à 1,5 % de sucre. Elle se gâte vite : la garder sous 5 °C, la boire en six jours au plus, et la jeter
+si elle n'est plus claire (étape 1 ; entailler : ch. 94).
 
-**La chaîne complète, version dégradée.** Deux chaudières. La première reçoit l'eau
-brute et repose 12 à 24 h sous couvercle. On transvase par-dessus le dépôt dans la
-seconde, à travers quatre épaisseurs de coton, puis on bout à gros bouillons — 1 minute, 5 minutes si le bassin porte des castors, des rats musqués ou des lièvres
-(section 5-E) — et on laisse refroidir couvert. C'est tout. C'est
-suffisant contre les bactéries, les virus, *Giardia* et *Cryptosporidium*.
+### Reconnaître un étang de castor
 
-**Bouillir quand il n'y a pas de marmite.** Un contenant qui ne va pas au feu — boîte
-d'écorce cousue et gommée (ch. 94), fût de plastique, caisse de bois, peau tendue dans
-un trou — se chauffe aux pierres. Faire un feu, y enfouir des pierres, les sortir une à
-une avec deux bâtons verts taillés en pince et les laisser tomber dans l'eau ; sortir
-chaque pierre refroidie avant d'en mettre une autre, sinon le fond se remplit et le
-contenant ne tient plus rien. **Les pierres se prennent au sec, loin de l'eau, et jamais
-une pierre feuilletée ou une pierre ramassée dans le lit d'un ruisseau :** l'eau
-emprisonnée dans les couches se détend d'un coup à la chaleur et la pierre éclate au
-visage de celui qui est penché dessus. Ce qu'on perd : la preuve. Une eau chauffée aux
-pierres fume, elle ne roule pas, et sans gros bouillon il n'y a plus rien qui dise qu'on
-est à 100 °C. C'est une manière de rendre un contenant utilisable, pas une manière de
-certifier de l'eau — devant un bassin à castors, ça ne remplace pas les cinq minutes.
+![Un barrage de castor, au premier plan, et l'étang qu'il retient](images/extras/10-etang-castor.jpg)
 
-**Puiser un puits quand la pompe est morte.** Une chaudière n'entre pas dans un tubage
-de 150 mm. Ce qui entre, c'est une buse : un bout de tuyau rigide de 1,5 à 2 m, un
-clapet au bas, une corde en haut. Le clapet se fait d'un carré de chambre à air vissé
-d'un seul côté au-dessus d'un trou percé dans un bouchon — il s'ouvre à la descente,
-il se plaque à la remontée. Volume par voyage : la longueur immergée multipliée par le
-volume au mètre, soit le rayon en centimètres au carré × 3,14 ÷ 10. Un tuyau de 40 mm
-porte donc environ 1,2 L par mètre, et une buse de 2 m remonte 2,5 L. Pour les 48 L
-d'une journée de famille, c'est une vingtaine de voyages, et c'est pour ça qu'on stocke
-l'eau traitée au lieu de la puiser au fur et à mesure. Le piège n'est pas la fatigue,
-c'est que **tout ce qu'on descend dans le tubage est désormais dans l'eau qu'on boit** :
-corde, buse, mains. La corde s'enroule sur un bâton et ne touche jamais le sol, la buse
-se range bouchée et suspendue, et tout ce qui descend est attaché deux fois — ce qui
-tombe au fond d'un puits y reste et y pourrit.
+Le barrage du castor retient l'eau d'un cours d'eau en étang, parfois sur une grande étendue, et sa hutte est au
+milieu de l'étang ou sur la berge. Autour, on trouve des souches taillées en pointe, avec des traces de dents nettes
+et de gros copeaux au pied, et des bâtons écorcés dans l'eau ou sur le bord. L'été, l'orignal vient y manger les
+plantes qui poussent sous l'eau (étape 2).
 
-**Faire du chlore quand il n'y a plus de javel.** Deux chemins, inégaux.
+### La chaudière d'épinette des Naskapis
 
-L'hypochlorite de calcium en granules se garde des années là où la javel liquide perd
-son titre en mois. Il ne se jette jamais tel quel dans l'eau de boisson : les granules
-ne se dissolvent pas également, et ce qui descend au fond est une concentration qui
-brûle. On dissout d'abord une petite quantité dans un litre d'eau propre pour faire une
-solution mère, on la laisse déposer, on dose l'eau avec le liquide clair au-dessus, et
-**on vérifie à la bandelette** — le titre du produit et son vieillissement font qu'aucune
-recette ne tient. Ces granules s'entreposent seuls, au sec, loin des huiles, des guenilles et du carburant : l'hypochlorite de calcium est un oxydant puissant et s'enflamme au
-contact de matière organique, sans flamme pour l'amorcer.
+Les Naskapis de l'Ungava faisaient leurs chaudières à eau avec des planches d'épinette ou de mélèze, épaisses
+d'environ 8 mm (étape 7). Ils passaient les planches à la vapeur, les pliaient en rond en faisant chevaucher les
+bouts, et les cousaient avec des racines fendues. Le fond, un morceau de bois creusé en plat, entrait dans une
+rainure taillée près du bord du bas. La vapeur rend le bois environ dix fois plus souple que du bois sec, non chauffé.
 
-L'électrolyse d'une saumure donne de l'hypochlorite avec ce qui est déjà au chalet : du
-12 V et deux électrodes de carbone. Le mécanisme : le courant continu arrache le chlore du sel
-dissous à l'anode, où il se recombine en hypochlorite dans l'eau, pendant que l'hydrogène
-se dégage à la cathode. Trois conditions qui ne se négocient pas. **Carbone aux deux
-bornes** — une électrode d'acier ou de cuivre se dissout dans le liquide et on boit le
-métal ; les charbons d'une grosse pile sèche ou des électrodes de gougeage font l'affaire.
-**Contenant ouvert, dehors, au vent.** L'hydrogène qui monte est explosif dès qu'il
-s'accumule sous un couvercle, et le chlore qui s'échappe de la surface brûle les
-poumons : un bidon fermé transforme une bricole utile en bombe. **Et la bandelette**,
-parce qu'on ne sait pas ce qu'on a fabriqué : la concentration dépend du sel, du courant et du temps, et elle ne se devine pas. Un
-appareil conçu pour ça tire d'une saumure à 25 g de sel par litre une solution à 5 g de
-chlore actif par litre ; un montage de fortune fera moins, sans qu'on sache combien. La
-solution perd son chlore en moins d'une journée : on la fait le jour où on s'en sert.
-Sans bandelette, cette méthode est un dosage à l'aveugle, ce qui est
-pire que de bouillir.
+### Le manganèse et l'arsenic du roc
 
-**Le filtre à sable.** Un baril debout, un trou au bas avec un bout de boyau. Du fond
-vers le haut : une main de grosse pierre, une couche de gravier, puis du sable lavé —
-lavé jusqu'à ce que l'eau de rinçage sorte claire, faute de quoi c'est de la boue qu'on
-met dans le filtre. L'eau entre par le haut, doucement, sur une assiette percée qui
-l'empêche de creuser le sable. Plus la couche de sable est épaisse et plus l'eau la
-traverse lentement, mieux ça marche : ce n'est pas le pore du sable qui filtre, c'est le
-film vivant qui s'installe à sa surface et qui mange ce qui passe. Ce film met jusqu'à
-un mois à se faire, et pendant ce temps l'eau qui sort se désinfecte comme le reste ; il
-ne se voit pas — le sable qui fonce, c'est la saleté prise, pas le film. Il meurt si le
-filtre s'assèche ou s'il reste plus de deux jours sans eau neuve à manger, et se détruit
-si le baril gèle — un filtre à sable est un ouvrage d'été et d'automne qu'on ne peut pas
-improviser le jour où on en a besoin, et qu'on nourrit tous les jours une fois parti. Quand le débit
-tombe, on gratte les deux ou trois centimètres du dessus, on ne brasse pas le lit.
-Le charbon du poêle, concassé et rincé, ne se met pas dans ce baril-là : il fait un
-deuxième seau, **après** le sable, parce que déposé sur le sable il étouffe le film
-vivant qui fait tout le travail. Ce deuxième seau corrige le goût et la couleur. Le
-charbon de bois n'est pas du charbon actif. L'activation — une cuisson à la vapeur
-au-dessus de 800 °C qui ouvre ses pores — fait passer un charbon de bois de quelques m² à
-300 m² de surface par gramme à 750 à 1 100 m², et il fixe alors trois à cinq fois plus.
-Le charbon du poêle retient donc un peu, mais il ne faut pas compter sur lui contre un
-métal ou un produit chimique dissous.
-Tout ça clarifie ; rien de tout ça ne désinfecte. On s'en sert avant l'ébullition, jamais
-à la place.
+Le manganèse et l'arsenic sont présents naturellement dans le sol et la roche, et l'eau souterraine les dissout : un
+puits creusé loin de toute pollution peut donc en contenir (étape 27). Plusieurs études ont associé une eau qui
+contient en moyenne de 0,02 à 0,8 mg/L de manganèse, bue longtemps, à des effets chez l'enfant que seuls des
+tests montrent : sur le quotient intellectuel, la mémoire, le comportement, les résultats à l'école et l'habileté
+des mains.
 
-**L'alambic de fortune.** Une marmite, un couvercle bombé posé à l'envers, un bol sur un
-trépied au centre : la vapeur monte, frappe le couvercle froid, glisse vers le creux et
-tombe dans le bol. Quatre détails font la différence entre un alambic et une marmite qui
-fume. Le joint : un boudin de guenille mouillée ou une pâte de farine et d'eau autour du
-couvercle, refait à chaque fois. Le froid : de la neige ou un linge mouillé sur le
-couvercle, renouvelé, sinon la vapeur repart au lieu de condenser. Le feu : un bouillon
-doux, parce qu'un gros bouillon projette des gouttes d'eau sale directement dans le bol et annule tout le travail. Et le bol : sorti à froid, jamais rempli à ras. Avec un bout
-de tuyau de cuivre enroulé dans un banc de neige en guise de serpentin, on récupère plus
-de la vapeur ; sans lui, on en perd beaucoup. Et même bien fait, l'alambic mange du bois :
-vaporiser un litre demande plus de cinq fois la chaleur qu'il a fallu pour l'amener à
-ébullition, donc plus de six fois le bois d'une simple ébullition. C'est la seule réponse d'urgence au sel, à
-l'arsenic, à l'uranium et au manganèse, et on la réserve à l'eau de boisson des enfants,
-pas à la vaisselle. **Son angle mort, qui n'est pas intuitif :** l'alambic laisse derrière
-ce qui est plus lourd que l'eau, mais il emporte avec la vapeur tout ce qui bout plus bas
-qu'elle. Une eau qui sent l'essence, le solvant ou le naphta ressort de l'alambic avec
-son contaminant dans le bol. Contre une contamination chimique volatile, distiller ne
-sert à rien.
+### Le rat musqué sous la glace
 
-**Fondre sans gaspiller de bois.** Toujours un fond d'eau liquide dans la marmite avant
-la neige (§5-I). Au-delà de ça, l'hiver donne deux fontes gratuites : un prélart noir ou
-une bâche foncée étalée sur la neige par une journée claire de mars, avec une pente et
-une rigole vers un seau ; et un sac souple accroché près du poêle, qui fond sur la
-chaleur perdue pendant qu'on cuisine autre chose. La glace de lac rend beaucoup plus
-d'eau que la neige à volume égal et vaut le voyage. **Ce qui ne se fait pas, c'est manger
-la neige pour boire :** la chaleur qu'il faut pour la fondre sort du corps, pas de rien, et un homme qui se rafraîchit l'intérieur pendant qu'il travaille dehors descend vers
-l'hypothermie en croyant s'hydrater (ch. 25). Et fondu ne veut pas dire traité : la neige et la glace passent par la marmite comme le reste.
+![Une hutte de rat musqué dans un marais de quenouilles gelé](images/extras/10-hutte-rat-musque.jpg)
 
-**Dessaler par le gel, quand il n'y a que le fleuve.** L'eau qui gèle se range en cristal et refuse le sel : la glace qui se forme est moins salée que l'eau qu'elle quitte, et la
-saumure rejetée concentre le reste. On laisse donc geler lentement, on sort la glace, on
-la rince à l'eau froide pour emporter la pellicule de saumure qui l'enrobe, et on la fond.
-Ce n'est pas du dessalement, c'est une dilution : la glace qui vient de se former garde
-encore beaucoup de sel, et ne s'adoucit qu'en perdant sa saumure. Une passe ne suffit
-pas, il en faut plusieurs. La tentation,
-c'est de juger au goût et de se dire que ça passe. Une eau encore salée au goût est très
-loin d'être buvable, et la boire assèche plus vite que de ne rien boire (§8). Le gel
-dépanne ; l'alambic tranche.
+Dans un marais, un tas de quenouilles et de joncs séchés mêlés de boue, haut de 0,5 à 1 m, est une hutte de rat
+musqué (étape 2). Peu après le gel, le rat musqué ronge des trous dans la glace des baies, jusqu'à 90 m de sa hutte,
+et les recouvre de boue et de plantes. Un petit tas de plantes posé sur la glace d'une baie couvre donc un de ces
+trous (étape 36).
 
-**Le soleil, l'été.** Une bouteille de plastique transparent, remplie d'eau déjà claire,
-couchée sur le côté sur une surface sombre, en plein soleil : le rayonnement abîme les
-micro-organismes et la chaleur y ajoute. Trois conditions : l'eau doit être limpide,
-parce que la moindre particule fait de l'ombre ; la bouteille doit être claire, de
-plastique ou de verre, jamais teintée brune ou verte ; et il faut du vrai soleil — au
-moins six heures, deux jours de suite si le ciel est couvert —, ce qui raye cette
-méthode en hiver sur la Côte-Nord.
-Contre le *Cryptosporidium*, ça ne change rien à ce que dit la section 8 : il reste la
-chaleur ou le pore de 1 µm.
+### Ce que retient le filtre à sable
 
-**Siphonner sans amorcer à la bouche.** Remplir le boyau complètement dans le contenant
-plein, boucher les deux bouts avec les pouces, en descendre un dans le seau receveur et
-lâcher. Amorcer en aspirant met l'eau brute dans la bouche et la bouche dans le côté
-propre : c'est la manière la plus bête de perdre une journée de bois.
-
-**Réparer plutôt que remplacer.** Une bougie de céramique colmatée se récure sous l'eau
-propre avec une brosse dure ou le dos d'un couteau, et son débit repart ; chaque
-nettoyage lui enlève une pelure, alors on mesure son diamètre quand elle est neuve et on
-l'écrit sur le couvercle, sinon on la récure jusqu'à la percer sans le savoir. Une
-cartouche plissée, elle, ne se brosse jamais : on la rince à contre-courant et c'est
-tout, parce que la brosse ouvre le pli et le filtre continue de couler en ne filtrant
-plus rien. Un fût de plastique fendu se ressoude au fer, avec une bande découpée dans un
-fût du même plastique — un autre plastique ne fusionne pas, il colle et lâche. Un boyau
-crevé se recoupe de part et d'autre du trou et se raboute sur un manchon de tuyau rigide
-serré au fil de fer. Une pompe 12 V morte ne se commande pas : on la remplace par la
-hauteur. Un baril monté sur une plateforme distribue tout seul et la gravité ne tombe
-pas en panne — ce qu'elle ne fait pas, c'est remonter l'eau du lac, et ce bout-là reste
-à bras.
-
-**Ce qui ne se remplace pas, et il faut le dire net.** Les bandelettes de chlore : sans
-elles, l'hypochlorite maison et le choc du puits se dosent à l'aveugle. L'analyse
-chimique : rien dans cette section ne voit l'arsenic, l'uranium, le nitrate, le manganèse
-ni le plomb, et aucun de ces cinq-là ne se goûte. L'avertisseur de monoxyde. Et les
-virus : aucun filtre de terrain ne les arrête, donc partout où des matières fécales
-humaines ont pu entrer dans l'eau, c'est la chaleur ou rien.
-
-**Ce qu'on perd en choisissant cette variante, nommément :**
-
-- **Le volume.** Bouillir 16 L par jour pour quatre personnes — le plancher de la
- trousse — c'est une bûche de plus à fendre chaque jour, tous les jours, en plus du
- chauffage. Viser les 48 L de la cible de la section 5-G en bouillant chaque litre, c'est
- une deuxième corvée à temps plein, et c'est pour ça que l'hygiène redescend au
- minimum en premier (ch. 31). La réserve se construit à l'automne, pas en janvier.
-- **La rémanence.** Une eau chlorée garde un résiduel qui la protège dans le contenant.
- Une eau bouillie n'en a aucun : elle est propre à la seconde où on ferme le couvercle
- et redevient suspecte dès qu'une main sale entre dans le bidon.
-- **Tout ce qui est dissous.** Arsenic, uranium, nitrate, manganèse, sel : la variante
- d'urgence n'y touche pas, sauf par l'alambic et en très petite quantité.
-- **Le confort et la clarté.** L'eau reste teintée par les tanins, plate au goût, et
- les enfants de 4 et 6 ans le remarquent et refusent de boire. C'est un problème réel
- en déshydratation d'hiver, pas un détail : voir les chapitres 39 et 40.
-- **La marge d'erreur.** Avec deux méthodes, un oubli se rattrape. Avec une seule, un
- chronomètre mal parti est une gastro-entérite pour quatre personnes à 90 km du
- premier médecin.
+Sans son film vivant, le sable retient de 30 à 70 % des microbes qui rendent malade : ils restent pris entre les
+grains ou collés à leur surface. Quand le film est formé, le filtre en retient jusqu'à 99 %. Quand on change de
+source d'eau, le film met plusieurs jours à s'adapter : il faut donc toujours remplir le filtre avec l'eau de la même
+source (section 7, « Le filtre à sable »).

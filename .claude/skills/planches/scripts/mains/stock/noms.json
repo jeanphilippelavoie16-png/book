@@ -1,0 +1,213 @@
+{
+ "1-01": {
+  "nom": "poing-barre",
+  "desc": "poing serré sur une barre plate en biais (manche de hache, levier)"
+ },
+ "1-02": {
+  "nom": "pince-boule",
+  "desc": "pouce et index pincent une petite boule, de côté"
+ },
+ "1-03": {
+  "nom": "tige-entre-doigts",
+  "desc": "une tige fine tenue entre l'index et le majeur"
+ },
+ "1-04": {
+  "nom": "crayon",
+  "desc": "tenu comme un crayon, la pointe vers le bas"
+ },
+ "1-05": {
+  "nom": "pince-cylindre",
+  "desc": "pouce et index pincent un petit cylindre, de côté"
+ },
+ "1-06": {
+  "nom": "arme-poing",
+  "desc": "une arme de poing tenue, de côté",
+  "exclue": "arme de poing : pas une prise du livre"
+ },
+ "1-07": {
+  "nom": "tige-bout-doigts",
+  "desc": "une tige debout tenue du bout des doigts"
+ },
+ "1-08": {
+  "nom": "tige-a-plat",
+  "desc": "une tige à plat entre le pouce et les doigts"
+ },
+ "1-09": {
+  "nom": "poing-manche-debout",
+  "desc": "poing autour d'un manche debout, vu de côté"
+ },
+ "2-01": {
+  "nom": "boule-dessous",
+  "desc": "une boule tenue par en dessous, doigts écartés"
+ },
+ "2-02": {
+  "nom": "agripper-bord",
+  "desc": "les doigts repliés agrippent un bord, vus de dos",
+  "exclue": "les doigts en paquet, illisible au trait"
+ },
+ "2-03": {
+  "nom": "crocheter-bord",
+  "desc": "les doigts crochetés par-dessus un bord"
+ },
+ "2-04": {
+  "nom": "plaque-cote",
+  "desc": "une plaque tenue par le côté, le pouce devant"
+ },
+ "2-05": {
+  "nom": "carte-pouce-dessus",
+  "desc": "une carte tenue, le pouce dessus"
+ },
+ "2-06": {
+  "nom": "carte-pincee",
+  "desc": "une carte pincée entre le pouce et les doigts"
+ },
+ "2-07": {
+  "nom": "manche-vers-bas",
+  "desc": "un manche tenu la pointe vers le bas, dos de la main"
+ },
+ "2-08": {
+  "nom": "perche-debout",
+  "desc": "une perche debout tenue dans la paume"
+ },
+ "2-09": {
+  "nom": "poing-tige-face",
+  "desc": "poing autour d'une tige en travers, vu de face"
+ },
+ "2-10": {
+  "nom": "tige-par-dessous",
+  "desc": "une tige en travers tenue par-dessous"
+ },
+ "2-11": {
+  "nom": "pincer-verser",
+  "desc": "pincer et laisser tomber (poudre, sel), le cône dessous"
+ },
+ "2-12": {
+  "nom": "pincer-verser-2",
+  "desc": "pincer et laisser tomber, l'autre angle",
+  "exclue": "la pince se perd sans le trou de la paume ; 2-11 fait le même geste"
+ },
+ "2-13": {
+  "nom": "poing-cylindre",
+  "desc": "poing autour d'un court cylindre, le pouce dessus"
+ },
+ "3-01": {
+  "nom": "poignee-de-main",
+  "desc": "deux mains qui se serrent (aider quelqu'un à monter)"
+ },
+ "3-02": {
+  "nom": "bras-tendu",
+  "desc": "le bras entier tendu, la main ouverte",
+  "exclue": "le bras se lit mal"
+ },
+ "3-03": {
+  "nom": "coupe-gauche",
+  "desc": "une main en coupe (la paire avec coupe-droite)"
+ },
+ "3-04": {
+  "nom": "coupe-droite",
+  "desc": "une main en coupe (la paire avec coupe-gauche)"
+ },
+ "3-05": {
+  "nom": "coeur",
+  "desc": "deux mains en cœur",
+  "exclue": "geste sans usage"
+ },
+ "3-06": {
+  "nom": "coeur-bas",
+  "desc": "deux mains en cœur, vers le bas",
+  "exclue": "geste sans usage"
+ },
+ "3-07": {
+  "nom": "main-posee",
+  "desc": "la main posée à plat, les doigts au bord",
+  "exclue": "les doigts en taches"
+ },
+ "3-08": {
+  "nom": "pouce-leve",
+  "desc": "le pouce levé, de face"
+ },
+ "3-09": {
+  "nom": "main-ouverte-v",
+  "desc": "la main ouverte, le pouce et les doigts écartés en V",
+  "exclue": "forme bizarre"
+ },
+ "3-10": {
+  "nom": "pouce-leve-cote",
+  "desc": "le pouce levé, de côté"
+ },
+ "4-01": {
+  "nom": "deux-doigts",
+  "desc": "deux doigts levés"
+ },
+ "4-02": {
+  "nom": "index-leve",
+  "desc": "l'index levé (un), de face"
+ },
+ "4-05": {
+  "nom": "ok",
+  "desc": "le signe OK"
+ },
+ "5-03": {
+  "nom": "index-montre",
+  "desc": "l'index qui montre, en biais"
+ },
+ "5-09": {
+  "nom": "poing-face",
+  "desc": "le poing, de face"
+ },
+ "5-10": {
+  "nom": "poing-dos",
+  "desc": "le poing, de dos"
+ },
+ "5-11": {
+  "nom": "poing-profil",
+  "desc": "le poing, de profil",
+  "exclue": "le poing de profil se lit comme une tache"
+ },
+ "6-02": {
+  "nom": "paume-ouverte",
+  "desc": "la main ouverte, la paume vers soi"
+ },
+ "6-03": {
+  "nom": "main-ecartee",
+  "desc": "la main grande ouverte, doigts écartés"
+ },
+ "6-09": {
+  "nom": "main-doigts-serres",
+  "desc": "la main ouverte, les doigts serrés"
+ },
+ "8-01": {
+  "nom": "paume-en-lair",
+  "desc": "la main tendue, la paume en l'air (recevoir, présenter)"
+ },
+ "8-04": {
+  "nom": "prise-large",
+  "desc": "la main ouverte en C, prête à saisir un gros objet",
+  "exclue": "se lit comme une lettre F"
+ },
+ "8-09": {
+  "nom": "pince-haut",
+  "desc": "pincer quelque chose de petit, pouce et index en haut"
+ },
+ "8-12": {
+  "nom": "saisir-cote",
+  "desc": "la main qui va saisir, de côté, en C"
+ },
+ "4-08": {
+  "nom": "",
+  "desc": "",
+  "exclue": "le majeur levé"
+ },
+ "6-06": {
+  "nom": "main-ouverte",
+  "desc": "la main ouverte, les doigts écartés, de face"
+ },
+ "6-11": {
+  "nom": "main-ouverte-2",
+  "desc": "la main ouverte, les doigts écartés, l'autre angle"
+ },
+ "5-12": {
+  "nom": "poing-face-2",
+  "desc": "le poing, de face, l'autre angle"
+ }
+}

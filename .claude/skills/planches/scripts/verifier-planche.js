@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Contrôle d'une planche SVG du Grand Livre du Chalet.
+// Contrôle d'une planche SVG du Manuel du Nord.
 // Usage : node verifier-planche.js images/planche-84-09.svg [autres.svg ...]
 //
 // Le script attrape ce qui ne se voit qu'à l'impression. Il ne juge pas le dessin.
@@ -9,6 +9,7 @@ const fs = require('fs');
 const ROUGE_DANGER = '9b2c1e';
 const NOIR = '1a1a1a';
 const BLANC = 'ffffff';
+const GRIS = ['e6e6e6', 'cfcfcf'];   // la charte : le gris du plan loin, le gris de la face à l'ombre
 const EPAISSEURS = [2.4, 1.4, 0.7, 0.5];
 
 function verifier(chemin) {
@@ -41,8 +42,8 @@ function verifier(chemin) {
   if (!/<title>/.test(s)) dur.push('pas de <title> : la planche ne s’annonce pas');
   if (!/<desc>/.test(s)) mou.push('pas de <desc>');
   const t = (s.match(/<title>([^<]*)<\/title>/) || [])[1] || '';
-  if (t && !/^Planche \d+[a-z]?-\d+[a-z]?\s+—/.test(t))
-    mou.push(`titre « ${t.slice(0, 50)} » : attendu « Planche NN-NN — … »`);
+  if (t && !/^Planche \d+[a-z]?-\d+[a-z]?\.\s/.test(t))
+    mou.push(`titre « ${t.slice(0, 50)} » : attendu « Planche NN-NN. Titre » (un point après le numéro, aucun tiret)`);
   if (t && t !== t.charAt(0) + t.slice(1) .replace(/([A-ZÀ-Þ]{3,})/g, m => m))
     ; // casse vérifiée plus bas
 
@@ -59,17 +60,21 @@ function verifier(chemin) {
   // --- couleurs ---
   const couleurs = [...new Set((s.match(/#[0-9A-Fa-f]{3,6}/g) || []).map(c => c.slice(1).toLowerCase()))]
     .map(c => c.length === 3 ? c.split('').map(x => x + x).join('') : c);
-  const interdites = couleurs.filter(c => ![NOIR, BLANC, ROUGE_DANGER, '3a3a3a', '000000'].includes(c));
+  const interdites = couleurs.filter(c => ![NOIR, BLANC, ROUGE_DANGER, ...GRIS, '3a3a3a', '000000', 'dceaf2', '4f7a93'].includes(c));   // + l'eau (JP, 18 octobre)
   if (interdites.length)
-    dur.push(`couleurs hors palette : ${interdites.map(c => '#' + c).join(', ')} — le livre est en noir, blanc, et le rouge #9B2C1E des encadrés danger`);
-  const rouges = (s.match(new RegExp('#' + ROUGE_DANGER, 'gi')) || []).length;
-  if (rouges && !/danger/i.test(s))
-    dur.push('le rouge est employé sans qu’il soit question de danger : il perd son sens partout ailleurs');
+    dur.push(`couleurs hors palette : ${interdites.map(c => '#' + c).join(', ')} — la charte est noir, blanc, deux gris (#E6E6E6, #CFCFCF), le rouge #9B2C1E et l'eau (#DCEAF2, #4F7A93, par la hachure « eau » seulement)`);
+  // Le rouge marque ce qui compte : flèche du geste, zone dangereuse, point à contrôler, encadré
+  // danger. Au-delà de quelques marques, il ne désigne plus rien.
+  const marquesRouges = (s.match(new RegExp('<(?:path|circle|line|rect|ellipse|polyline|polygon)\\b[^>]*stroke="#' + ROUGE_DANGER, 'gi')) || []).length;
+  if (marquesRouges > 8)
+    mou.push(`${marquesRouges} marques rouges : le rouge ne désigne plus rien quand il est partout (une flèche du geste, un point à contrôler, une zone par vue)`);
+  if (new RegExp('<(?:path|circle|rect|ellipse|polygon)\\b[^>]*fill="#' + ROUGE_DANGER + '"(?![^>]*marker)', 'i').test(s.replace(/<marker[\s\S]*?<\/marker>/g, '')))
+    mou.push('aplat rouge : le rouge se met en trait, jamais en surface');
 
   // --- hiérarchie des traits ---
   // Un trait blanc n'est pas un trait : c'est le liseré qui garde une cote ou une ligne de
   // rappel lisible sur une hachure. On ne le compte pas dans la hiérarchie.
-  const sansLiseres = s.replace(/<[a-z]+\b[^>]*stroke="#(?:FFFFFF|fff)"[^>]*>/gi, '');
+  const sansLiseres = s.replace(/<marker[\s\S]*?<\/marker>/g, '').replace(/<[a-z]+\b[^>]*stroke="#(?:FFFFFF|fff)"[^>]*>/gi, '');
   const ep = [...new Set((sansLiseres.match(/stroke-width\s*:\s*([\d.]+)|stroke-width\s*=\s*"([\d.]+)"/g) || [])
     .map(m => Number(m.replace(/[^\d.]/g, ''))))].sort((a, b) => b - a);
   if (ep.length === 0) dur.push('aucune épaisseur de trait déclarée');
@@ -156,7 +161,10 @@ function verifier(chemin) {
   const corps = [...new Set((s.match(/font-size\s*:\s*([\d.]+)px/g) || []).map(m => Number(m.replace(/[^\d.]/g, ''))))];
   const horsCorps = corps.filter(c => c !== 13 && c !== 12);
   if (horsCorps.length) mou.push(`corps de texte hors barème : ${horsCorps.join(', ')} px (le livre n’en a que deux : 13 et 12)`);
-  if (/transform\s*=\s*"[^"]*rotate/.test(s) && /<text/.test(s))
+  // un texte pivoté : sur le <text> lui-même, ou dans un groupe pivoté qui contient du texte
+  // (une main calquée tournée n'en contient pas)
+  const groupesTexte = (s.match(/<g\b[^>]*transform\s*=\s*"[^"]*rotate[^>]*>(?:(?!<\/g>)[\s\S])*?<text/g) || []).length;
+  if (/<text\b[^>]*transform\s*=\s*"[^"]*rotate/.test(s) || groupesTexte)
     mou.push('texte pivoté : illisible sur une planche imprimée, déplace la cote plutôt');
 
   const textes = [...s.matchAll(/<text[^>]*>([^<]+)</g)].map(m => m[1].trim()).filter(Boolean);
@@ -186,7 +194,8 @@ function verifier(chemin) {
   }
 
   // --- renvois et échelle ---
-  const pastilles = s.match(/<circle[^>]*r\s*=\s*"9"[^>]*>/g) || [];
+  // le cercle rouge du point à contrôler n'est pas une pastille, même de rayon 9
+  const pastilles = (s.match(/<circle[^>]*r\s*=\s*"9"[^>]*>/g) || []).filter(c => !/stroke="#9B2C1E"/i.test(c));
   const renvois = pastilles.length;
   // Une construction en plusieurs vues compte six renvois par vue.
   const parVue = {};

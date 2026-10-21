@@ -8,16 +8,29 @@ retenues (mousse, rouille) sont dans archives/ (couvertures-nordique-6-variantes
   couvertures-nordique-6.html     six avants et six couvertures complètes (quatrième | tranche | avant)
   trait-NN-NN-<couleur>.svg       le dessin de chaque quatrième, tiré d'une planche validée, sans renvois, recoloré
 
-  python build_couvertures_6.py              le HTML et les dessins
+  python build_couvertures_6.py              le HTML et les dessins (python3 hors de Windows)
   python build_couvertures_6.py --decouper   après l'impression par Edge de couvertures-nordique-6.pdf : un PDF
                                              par tome, aux mesures exactes de Blurb -> livre/tome-N/couverture.pdf
+  python build_couvertures_6.py --sortie DIR le HTML et les dessins dans DIR, pour un aperçu : rien n'est écrit dans
+                                             design/ ni dans livre/
+  --photo bichromie|couleur                  la photo de JP au bloc des auteurs (PHOTO par défaut)
+  --dessin K:N                               le N-ième candidat (1 à 3, CANDIDATS) pour le tome K, au lieu de CHOIX
 
 Tout le rendu (HTML, PDF, découpe, aperçus) : outils/rendre_couvertures_6.sh
 """
 import re, os, sys, math
 
-D1 = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-ROOT = os.path.abspath(os.path.join(D1, '..', '..', '..'))
+def _racine_livre():
+    # Windows (le PC de JP) : le dossier d'origine ; ailleurs (session dans le nuage) : le dépôt qui contient ce fichier
+    if os.name == 'nt':
+        return r'C:\Users\jeanp\New folder'
+    d = os.path.dirname(os.path.abspath(__file__))
+    while d != os.path.dirname(d) and not os.path.exists(os.path.join(d, 'CLAUDE.md')):
+        d = os.path.dirname(d)
+    return d
+
+ROOT = _racine_livre()
+D1 = os.path.join(ROOT, 'design', 'directions', '1-manuel-de-terrain')
 IMG = os.path.join(ROOT, 'images')
 
 # ------------------------------------------------------------------ tomes
@@ -32,7 +45,7 @@ COUL = {
 }
 # Chapitres : plan/tomes-6-proposition.md (numéros du 27 septembre 2026). Poids de la barre = nombre de chapitres.
 TOMES = {
-    1: dict(titre='Tenir', h1=['Tenir'], taille=86, ch=('00', '18'), n=20),
+    1: dict(titre='Tenir', h1=['Tenir'], taille=86, ch=('00b', '18'), n=19),
     2: dict(titre='Le corps', h1=['Le corps'], taille=86, ch=('19', '40'), n=22),
     3: dict(titre='Prélever', h1=['Prélever'], taille=86, ch=('41', '60'), n=20),
     4: dict(titre='De la bête au garde-manger', h1=['De la bête', 'au garde-manger'], taille=57, ch=('61', '81'), n=21),
@@ -44,7 +57,7 @@ TOMES = {
 # espaces insécables compris (  insécable,   fine devant le deux-points).
 # verifier() compare avec le rapport de chaque tome.
 SOMMAIRE = {
-    1: [('00', 'Le chapitre principal'), ('00b', 'Acheter par priorité'), ('01', 'Les quatre horloges'),
+    1: [('00b', 'Acheter par priorité'), ('01', 'Les quatre horloges'),
         ('02', 'Rester ou partir'), ('03', 'Panne majeure d’Hydro en janvier'), ('04', 'Retombées radioactives'),
         ('05', 'Le stock permanent du chalet'), ('06', 'La liste de 72 heures'), ('07', 'Quand on a un préavis'),
         ('08', 'Listes par scénario'), ('09', 'Ce qui manque toujours'), ('10', 'Eau : puiser, filtrer, désinfecter'),
@@ -58,7 +71,7 @@ SOMMAIRE = {
         ('31', 'Hygiène et eaux usées'), ('32', 'Bâtir la pharmacie'), ('33', 'Plantes médicinales boréales'),
         ('34', 'Soigner avec la forêt, par symptôme'), ('35', 'Ce qu’on ne peut pas soigner'),
         ('36', 'Tenir le moral tout un hiver'), ('37', 'Le sauna et le bien-être'),
-        ('38', 'Le deuil, le choc et la peur des adultes'), ('39', 'Des enfants de 4 et 6 ans'),
+        ('38', 'Le deuil, le choc et la peur des adultes'), ('39', 'Les jeunes enfants'),
         ('40', 'Les enfants, la peur et la routine')],
     3: [('41', 'Calendrier annuel de prélèvement'), ('42', 'Lire le territoire autour du chalet'),
         ('43', 'Les traces et les signes des animaux'), ('44', 'Pister et retracer une bête'),
@@ -97,7 +110,10 @@ BLURB_SOUPLE = [(20, .056), (24, .056), (40, .125), (60, .181), (80, .181), (100
 # sur les noms et le grain, ch. 62 à 64 et 81, réassemblé le même jour : 298, inchangé).
 # Un tome réassemblé qui change de nombre de pages arrête l'outil (verifier) : on remet le compte ici, et la
 # couverture se refait avec sa nouvelle tranche.
-PAGES = {1: 332, 2: 416, 3: 334, 4: 298, 5: 438, 6: 200}
+# Réassemblés le 14 octobre 2026 (hors ligne, calculateur non interrogé) : tome 2, 416 -> 414 (entre les lignes 400 et
+# 420, toutes deux 0,931 : tranche inchangée) ; tome 3, 334 -> 332 (palier de la ligne 320, 0,75 : inchangée) ; les
+# quatre autres ne bougent pas.
+PAGES = {1: 308, 2: 416, 3: 334, 4: 300, 5: 440, 6: 202}
 
 def palier(pages):
     """Paliers du tableau : 1/16 po (4,5 pt) toutes les 28 pages, arrondi au point inférieur. Les 23 lignes du
@@ -133,6 +149,8 @@ def rapport_tome(k):
         return None
     s = open(f, encoding='utf-8').read()
     p = re.search(r'Calculateur de Blurb interrogé .*? pour \*\*(\d+) pages\*\*.*?couverture \*\*souple\*\*', s)
+    # un tome assemblé --hors-ligne n'a pas de réponse du calculateur : le compte se lit à la ligne du fichier
+    p = p or re.search(r'^- \*\*Fichier :\*\* `[^`]*interieur\.pdf` — (\d+) pages', s, re.M)
     t = re.search(r'\*\*Tranche\s*:\s*([\d.]+)\s*x\s*10\.25 po', s)
     ch = re.findall(r'^\|\s*[\d–]+\s*\|\s*ch\.\s*(\w+)\s*—\s*(.+?)\s*\|', s, re.M)
     return (int(p.group(1)) if p else None, float(t.group(1)) if t else None, ch)
@@ -158,17 +176,25 @@ def verifier():
 
 # ------------------------------------------------------------------ dessins des quatrièmes
 # Une vue d'une planche VALIDÉE (images/validees/), sans ses renvois ni sa légende : le groupe data-vue de la planche
-# (les renvois sont hors des groupes), ses motifs de hachure, recolorés à l'encre et au fond du tome.
-# vb : boîte de la vue en unités de la planche (getBBox dans Edge, plus 2,5 de marge pour le trait).
-# Échelle : celle du tome 4 d'avant (612 unités sur 7 po), réduite si la vue dépasse 7 × 2,66 po.
+# (les renvois sont hors des groupes), ses motifs de hachure, recolorés à l'encre et au fond du tome. Une planche sans
+# groupe data-vue (107-09) donne sa vue par deux repères du fichier : « entre » (début compris, fin exclue).
+# vb : boîte de la vue en unités de la planche, mesurée le 14 octobre 2026 sur les planches de la charte du
+# 12 octobre (getBBox dans Chromium, plus 2,5 de marge pour le trait ; contrôlée au pixel près sur le rendu, flèches
+# et bouts de trait compris).
+# Échelle : celle du tome 4 d'avant (612 unités sur 7 po), réduite si la vue dépasse 7 × HMAX po. Depuis le bloc
+# « Les auteurs » (14 octobre 2026, soir), le dessin n'a plus que 1,8 po de haut au plus (JP : pas sous 1,8 po environ).
+# Une vue réduite garde le trait des autres : ses épaisseurs sont multipliées d'autant (_epaissir), sinon l'arc à
+# feu sortait à 1,3 pt au contour contre 2 pt sur les tomes 3 à 6.
 ECH = 7.0 / 612
-LMAX, HMAX = 7.0, 2.66
-TRAIT = {
-    1: dict(planche='planche-13-01-arc-feu.svg', vue='monte', vb=(53.5, 49.5, 573, 354), fic='trait-13-01',
+LMAX, HMAX = 7.0, 1.8
+# Les six vues de la première reprise sur les planches de la charte (14 octobre 2026 : arc à feu, attelle, verveux,
+# fumoir, châssis froid, soudure). JP a trouvé bizarre la main de l'arc à feu et demandé d'autres images : gardées ici pour mémoire.
+PREMIERS = {
+    1: dict(planche='planche-13-01-arc-feu.svg', vue='monte', vb=(53.5, 38.5, 573, 365), fic='trait-13-01',
             cap='Ch. 13 · L’arc à feu'),
     # le repère de coupe A–A (trait mixte, flèches, deux « A » en Georgia), ajouté à la planche le 28 septembre après
     # les couvertures, sort (29 septembre) : il renvoie à la vue « Coupe A–A », absente de la couverture
-    2: dict(planche='planche-26-08-attelle-ecorce-moulee-echarpe.svg', vue='mouler', vb=(300.2, 45.5, 302, 270.5),
+    2: dict(planche='planche-26-08-attelle-ecorce-moulee-echarpe.svg', vue='mouler', vb=(294.7, 45.5, 328.5, 270.5),
             fic='trait-26-08', cap='Ch. 26 · L’attelle d’écorce moulée',
             sans=[r'x1="114" y1="186" x2="114" y2="272"', r'x1="114" y1="186" x2="114" y2="193"',
                   r'x1="114" y1="186" x2="110" y2="186"', r'd="M110\.5,183 L104,186 L110\.5,189 Z"',
@@ -184,18 +210,88 @@ TRAIT = {
                   r'x1="447" y1="106" x2="447" y2="118"', r'>2 ou 3 pas<', r'x1="140" y1="118" x2="140" y2="136.5"']),
     5: dict(planche='planche-95-09-chassis-froid.svg', vue='monte', vb=(165.3, 65.6, 352.1, 182.9), fic='trait-95-09',
             cap='Ch. 95 · Le châssis froid'),
-    # le trait du tome 4 d'avant (planche 84-09, devenue 107-09), déjà nettoyé de ses renvois, à l'encre du fleuve
-    6: dict(source='trait-84-09-clair.svg', encre_source='#EDF2F5', taille=(612, 208), fic='trait-107-09',
-            cap='Ch. 107 · Souder avec deux batteries'),
+    # la vue de côté de la planche 107-09 (12 octobre 2026), sans les deux loupes, les lignes de rappel ni les renvois ;
+    # elle remplace le trait de l'ancienne planche 84-09 (trait-84-09-clair.svg, gardé pour mémoire)
+    6: dict(planche='planche-107-09-soudage-batteries.svg', vue='de côté',
+            entre=('<!-- contours extérieurs -->', '<!-- loupe du serre-joint'), vb=(37.5, 39.9, 605, 190.6),
+            fic='trait-107-09', cap='Ch. 107 · Souder avec deux batteries'),
 }
+
+# Trois candidats par tome (14 octobre 2026, soir) : un objet, une construction ou un montage, en profondeur (perspective ou
+# élévation), typique du tome, sans main, ni corps, ni tête. vb mesurée comme plus haut (getBBox + 2,5, ramenée au rendu
+# à 1,5 près quand une découpe de la planche cache une partie de la vue). Le premier est celui que je recommande ; CHOIX (ou
+# --dessin K:N) en prend un autre. Les marques rouges de contrôle sortent (un cercle sur une couverture ne désigne rien),
+# comme les cotes.
+CANDIDATS = {
+    1: [dict(planche='planche-12-05a-maison-blocs-tailler-monter.svg', vue='spirale', vb=(344.8, 144, 294.4, 190.5), fic='trait-12-05a',
+             cap='Ch. 12 · La maison de blocs',
+             sans=[r'<circle cx="235" cy="207\.3" r="13" fill="none" stroke="#9B2C1E"']),
+        dict(planche='planche-11-03-chalet-pare-aux-braises.svg', vue='chalet', vb=(37.7, 94.8, 604.6, 252.7), fic='trait-11-03',
+             cap='Ch. 11 · Le chalet paré aux braises'),
+        dict(planche='planche-10-03-alambic-fortune.svg', vue='serpentin', vb=(410.5, 117.5, 227.5, 157), fic='trait-10-03',
+             cap='Ch. 10 · L’alambic de fortune')],
+    2: [dict(planche='planche-37-03a-bain-vapeur-sous-bache.svg', vue='armature', vb=(61.2, 91.7, 188.6, 131.3), fic='trait-37-03a',
+             cap='Ch. 37 · Le bain de vapeur : l’armature'),
+        dict(planche='planche-24-03-chevalet-sciage.svg', vue='axo', vb=(95.7, 53.2, 259.1, 261.8), fic='trait-24-03',
+             cap='Ch. 24 · Le chevalet de sciage'),
+        dict(planche='planche-34-03-sirop-pese-fleau-bras.svg', vue='vide', vb=(44.7, 181, 329.6, 162.8), fic='trait-34-03',
+             cap='Ch. 34 · Le fléau à bras égaux'),
+        # JP, 14 octobre 2026 : l'armature laissait du vide à droite ; la cabane du sauna à fumée, pendant la chauffe, en
+        # coupe (le poêle de pierres, la fumée, le banc), sans son cercle de contrôle ; l'encadré danger est hors de la vue
+        dict(planche='planche-37-05-sauna-fumee-poele-pierres.svg', vue='cabane', vb=(37.7, 357.2, 397.6, 199.6), fic='trait-37-05',
+             cap='Ch. 37 · Le sauna à fumée, pendant la chauffe',
+             sans=[r'<circle cx="305\.4" cy="113\.6" r="11" fill="none" stroke="#9B2C1E"'])],
+    3: [dict(planche='planche-55-08-assommoir-sa-gachette-trois.svg', vue='arme', vb=(37.7, 102.5, 359.6, 190.5), fic='trait-55-08',
+             cap='Ch. 55 · L’assommoir armé'),
+        dict(planche='planche-58-07-brimbale-bois.svg', vue='elevation', vb=(37.7, 26.3, 437.6, 260.5), fic='trait-58-07',
+             cap='Ch. 58 · La brimbale de bois',
+             sans=[r'<circle cx="259\.8" cy="52\.8" r="12" fill="none" stroke="#9B2C1E"']),
+        dict(planche='planche-54-08-glaciere-evaporation.svg', vue='cadre', vb=(45.7, 76.5, 276.3, 226.3), fic='trait-54-08',
+             cap='Ch. 54 · La glacière à évaporation')],
+    4: [dict(planche='planche-70-12-cage-viande-grillagee.svg', vue='ens', vb=(91, 58.4, 241.8, 298.3), fic='trait-70-12',
+             cap='Ch. 70 · La cage à viande grillagée'),
+        dict(planche='planche-75-08-glaciere-deux-caisses.svg', vue='eclate', vb=(98, 394.7, 253.9, 268.3), fic='trait-75-08',
+             cap='Ch. 75 · La glacière de deux caisses'),
+        dict(planche='planche-67-09-fleau-ses-etalons-eau.svg', vue='monte', vb=(45.7, 92.5, 421.6, 170.8), fic='trait-67-09',
+             cap='Ch. 67 · Le fléau et ses étalons d’eau')],
+    5: [dict(planche='planche-90-07a-canot-ecorce-epinette-seule.svg', vue='cote', vb=(63.5, 61, 553, 106.7), fic='trait-90-07a',
+             cap='Ch. 90 · Le canot d’écorce d’épinette'),
+        dict(planche='planche-97-04-tunnel-perches.svg', vue='ensemble', vb=(64.7, 72, 567.3, 124.3), fic='trait-97-04',
+             cap='Ch. 97 · Le tunnel de perches'),
+        dict(planche='planche-94-33b-casseau-ecorce-plie-cousu.svg', vue='monte', vb=(62.9, 157.3, 324.3, 161.7), fic='trait-94-33b',
+             cap='Ch. 94 · Le casseau d’écorce')],
+    6: [dict(planche='planche-110-01a-mortaise-tenon-mi-bois.svg', vue='mt', vb=(90, 51.2, 361, 304.6), fic='trait-110-01a',
+             cap='Ch. 110 · La mortaise et le tenon'),
+        dict(planche='planche-110-01b-tenon-passant-cle-enture.svg', vue='enture', vb=(75, 485.7, 534, 173.1), fic='trait-110-01b',
+             cap='Ch. 110 · L’enture à mi-bois',
+             sans=[r'<line x1="207" y1="176\.4" x2="221"', r'<line x1="207" y1="192\.4" x2="221"',
+                   r'<line x1="216" y1="176\.4" x2="216" y2="192\.4"', r'<line x1="210" y1="176\.4" x2="222"',
+                   r'<line x1="210" y1="192\.4" x2="222"', r'>½ ép\.<']),
+        dict(planche='planche-109-12-tourniquet-espagnol.svg', vue='montage', vb=(45.7, 43.5, 588.6, 166.4), fic='trait-109-12',
+             cap='Ch. 109 · Le tourniquet espagnol'),
+        # JP, 14 octobre 2026 : la mortaise laissait du vide à droite ; on reprend la soudure aux deux batteries
+        dict(PREMIERS[6])],
+}
+CHOIX = {1: 2, 2: 4, 3: 1, 4: 3, 5: 1, 6: 4}   # tome 1 : le chalet (JP, 14 oct. : « non, une autre » pour la maison de blocs)
+# tomes 2, 4 et 6 (JP, 14 oct., sur les six couvertures finales) : dessin trop petit, du vide à droite -> le sauna à fumée,
+# le fléau et ses étalons, la soudure aux deux batteries
+
+def choisir(choix=None):
+    """TRAIT : le candidat retenu pour chaque tome (CHOIX, ou les choix donnés)."""
+    c = dict(CHOIX, **(choix or {}))
+    return {k: CANDIDATS[k][c[k] - 1] for k in CANDIDATS}
+
+TRAIT = choisir()
 
 def _sans_commentaires(s):
     return re.sub(r'<!--.*?-->', '', s, flags=re.S)
 
 def _groupe(s, vue):
     """Le <g data-vue="vue"> complet, groupes imbriqués compris."""
-    i = s.index('data-vue="%s"' % vue)
-    a = s.rindex('<g', 0, i)
+    m = re.search(r'<g\b[^>]*\bdata-vue="%s"' % re.escape(vue), s)
+    if not m:
+        raise ValueError('pas de groupe <g data-vue="%s"> dans la planche' % vue)
+    a = m.start()
     d = 0
     for m in re.finditer(r'<(/?)g\b[^>]*?(/?)>', s[a:]):
         if m.group(1):
@@ -206,41 +302,163 @@ def _groupe(s, vue):
             return s[a:a + m.end()]
     raise ValueError('groupe %s non fermé' % vue)
 
-def _recolorer(s, fond, encre):
-    s = re.sub(r'#1A1A1A\b|#000000\b|#000\b', encre, s, flags=re.I)
-    s = re.sub(r'#FFFFFF\b|#FFF\b', fond, s, flags=re.I)
-    reste = set(c.upper() for c in re.findall(r'#[0-9A-Fa-f]{6}\b|#[0-9A-Fa-f]{3}\b', s)) - {fond.upper(), encre.upper()}
-    if reste:
-        raise ValueError('couleurs non prévues dans le dessin : %s' % sorted(reste))
+def _entre(s, debut, fin):
+    """Le morceau de la planche entre deux repères (une planche sans groupes data-vue)."""
+    if s.count(debut) != 1 or s.count(fin) != 1:
+        raise ValueError('repères « %s » / « %s » trouvés %d et %d fois' % (debut, fin, s.count(debut), s.count(fin)))
+    a, b = s.index(debut), s.index(fin)
+    if b <= a:
+        raise ValueError('repère de fin avant le repère de début')
+    return '<g>\n%s\n</g>' % s[a:b].strip()
+
+# La charte des planches (12 octobre 2026) sur le fond du tome. Le noir est l'encre, le blanc est le fond ; les deux
+# gris sont l'encre posée sur le fond à 10 % (#E6E6E6, ce qui est derrière) et à 20 % (#CFCFCF, la face à l'ombre) :
+# essayés à 6/12, 8/16, 10/20 et 12/25 % sur l'épinette, le fleuve et l'écorce (14 octobre 2026), 12/25 faisait une
+# tache claire sur les fonds foncés (la face du châssis froid), 10/20 se lit comme une ombre douce. Le rouge #9B2C1E
+# prend l'encre : sur une couverture, il ne désigne rien. Toute autre couleur arrête l'outil.
+GRIS = (0.10, 0.20)
+
+def _melange(fond, encre, t):
+    f, e = ([int(c[i:i + 2], 16) for i in (1, 3, 5)] for c in (fond, encre))
+    return '#%02X%02X%02X' % tuple(round(a + (b - a) * t) for a, b in zip(f, e))
+
+def palette(fond, encre, gris=GRIS):
+    return {'#1A1A1A': encre, '#000000': encre, '#000': encre, '#9B2C1E': encre,
+            '#FFFFFF': fond, '#FFF': fond,
+            '#E6E6E6': _melange(fond, encre, gris[0]), '#CFCFCF': _melange(fond, encre, gris[1])}
+
+def _recolorer(s, fond, encre, gris=GRIS):
+    table, inconnues = palette(fond, encre, gris), set()
+    def couleur(m):
+        c = m.group(0).upper()
+        if c not in table:
+            inconnues.add(c)
+            return m.group(0)
+        return table[c]
+    # les couleurs seulement : pas les renvois url(#…) ni href="#…"
+    s = re.sub(r'(?<!url\()(?<!href=")#(?:[0-9A-Fa-f]{6}|[0-9A-Fa-f]{3})\b', couleur, s)
+    if inconnues:
+        raise ValueError('couleurs non prévues dans le dessin : %s' % sorted(inconnues))
     return s
 
-def traits():
+def echelle(k, t=None):
+    """Pouces par unité de planche pour le dessin du tome k : ECH, ou moins si la vue dépasse la place."""
+    t = t or TRAIT[k]
+    w, h = t['vb'][2], t['vb'][3]
+    return min(ECH, LMAX / w, HMAX / h)
+
+def _epaissir(s, f):
+    """Traits (et tiretés) multipliés par f, hors des <marker> (leur dessin suit déjà l'épaisseur du trait qui les
+    porte) : une vue réduite pour tenir dans la place garde ainsi le trait des quatre autres quatrièmes."""
+    def mul(m):
+        v = ' '.join('%g' % round(float(x) * f, 2) for x in re.split(r'[\s,]+', m.group(2).strip()))
+        return '%s="%s"' % (m.group(1), v)
+    morceaux = re.split(r'(<marker\b.*?</marker>)', s, flags=re.S)
+    return ''.join(m if m.startswith('<marker') else re.sub(r'(stroke-width|stroke-dasharray)="([^"]*)"', mul, m)
+                   for m in morceaux)
+
+def trait_svg(k, vb=None, t=None):
+    """Le SVG du dessin de la quatrième du tome k, recoloré (vb : une autre boîte, pour la mesure ; t : un autre
+    candidat que celui retenu)."""
+    t = t or TRAIT[k]
+    fond, encre = COUL[k][:2]
+    s = open(os.path.join(IMG, t['planche']), encoding='utf-8').read()
+    titre = re.search(r'<title>(.*?)</title>', s).group(1)
+    defs = re.search(r'<defs>.*?</defs>', s, re.S)
+    corps = _sans_commentaires(_entre(s, *t['entre']) if 'entre' in t else _groupe(s, t['vue']))
+    for motif in t.get('sans', []):
+        corps, n = re.subn(r'^.*%s.*\n?' % motif, '', corps, flags=re.M)
+        if n != 1:
+            raise ValueError('%s : « %s » trouvé %d fois' % (t['planche'], motif, n))
+    out = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="%g %g %g %g" role="img">\n'
+           '<title>Trait tiré de la %s — vue « %s », sans renvois</title>\n%s\n%s\n</svg>\n') % (
+        tuple(vb or t['vb']) + (esc(titre[0].lower() + titre[1:]), t['vue'],
+                                _sans_commentaires(defs.group(0)) if defs else '', corps))
+    f = ECH / echelle(k, t) if t.get('vb') else 1
+    if f > 1.001:
+        out = _epaissir(out, f)
+    return _recolorer(out, fond, encre, t.get('gris', GRIS))
+
+def traits(dest=None):
+    dest = dest or D1
     tailles = {}
     for k, t in TRAIT.items():
-        fond, encre, nom, slug = COUL[k]
-        sortie = os.path.join(D1, '%s-%s.svg' % (t['fic'], slug))
-        if 'source' in t:
-            s = open(os.path.join(D1, t['source']), encoding='utf-8').read()
-            s = s.replace('Trait tiré de la planche 84-09', 'Trait tiré de la planche 107-09')
-            open(sortie, 'w', encoding='utf-8').write(s.replace(t['encre_source'], encre))
-            w, h = t['taille']
-        else:
-            s = open(os.path.join(IMG, t['planche']), encoding='utf-8').read()
-            titre = re.search(r'<title>(.*?)</title>', s).group(1)
-            defs = re.search(r'<defs>.*?</defs>', s, re.S)
-            corps = _sans_commentaires(_groupe(s, t['vue']))
-            for motif in t.get('sans', []):
-                corps, n = re.subn(r'^.*%s.*\n?' % motif, '', corps, flags=re.M)
-                if n != 1:
-                    raise ValueError('%s : « %s » trouvé %d fois' % (t['planche'], motif, n))
-            out = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="%g %g %g %g" role="img">\n'
-                   '<title>Trait tiré de la %s — vue « %s », sans renvois</title>\n%s\n%s\n</svg>\n') % (
-                t['vb'] + (esc(titre[0].lower() + titre[1:]), t['vue'], _sans_commentaires(defs.group(0)) if defs else '', corps))
-            open(sortie, 'w', encoding='utf-8').write(_recolorer(out, fond, encre))
-            w, h = t['vb'][2], t['vb'][3]
-        e = min(ECH, LMAX / w, HMAX / h)
-        tailles[k] = (w * e, h * e)
+        slug = COUL[k][3]
+        open(os.path.join(dest, '%s-%s.svg' % (t['fic'], slug)), 'w', encoding='utf-8').write(trait_svg(k))
+        e = echelle(k)
+        tailles[k] = (t['vb'][2] * e, t['vb'][3] * e)
     return tailles
+
+# ------------------------------------------------------------------ les auteurs (quatrième)
+# JP, 14 octobre 2026 : nos deux photos et un court texte sur chacun, au dos de la couverture, à la place d'une page
+# « Les auteurs » dans le livre (qui ne se fait pas : les comptes de pages ne bougent pas). Textes de JP (cinquième
+# version, 14 octobre 2026), réécrits le 18 octobre 2026 à sa demande (« refais nos textes avec nos règles d'écriture ») :
+# sans image ni personnification, sans maxime, sans opposition fabriquée ni chute ; les mêmes faits. Celui de Claude
+# allongé le 19 octobre (JP : « ajoute-toi du texte dans ta description ») : les chapitres écrits et les planches
+# dessinées avec Jean-Philippe, qui décidait. Refaits le 19 octobre au soir (JP : « il sait que le courant tombera…
+# je l'aime pas », « vit à Baie-Comeau et il aime le bois, c'est dull », « 4 fois Claude en un paragraphe ») : JP a
+# choisi « Le père » et « Le travail » parmi trois versions de chacun.
+AUTEURS = [
+    dict(nom='Jean-Philippe Lavoie', qualite='', image='jp',
+         texte='Jean-Philippe vit à Baie-Comeau et il est père de deux enfants. Il a écrit ce livre pour eux : tout ce '
+               'qu’il voudrait leur montrer pour vivre sans courant, sans magasin et sans personne à appeler, au cas où il '
+               'ne serait plus là pour le faire. Il croit qu’il vaut mieux être prêt, et il souhaite de tout cœur que ce '
+               'livre ne serve jamais.'),
+    dict(nom='Claude', qualite='(intelligence artificielle, Anthropic)', image='claude',
+         texte='Claude a fait la recherche, a écrit les chapitres et a dessiné les planches. Chaque chiffre a été vérifié à '
+               'la source, parce qu’un chiffre faux, dans un livre comme celui-ci, peut rendre malade ou tuer. Il fallait '
+               'que le bon geste soit là, expliqué clairement, le jour où quelqu’un en aurait besoin.'),
+]
+# La photo de JP (images/auteurs/jp.jpg, fond blanc) : « bichromie » (l'ombre à la couleur sombre du tome, la lumière
+# à la claire ; sur la neige, le fond blanc de la photo devient exactement le fond de la couverture) ou « couleur ».
+# L'étincelle de Claude (images/auteurs/claude.svg) passe à l'encre du tome. Les deux dans un cercle filé à l'encre.
+PHOTO = 'bichromie'
+
+def _rgb(c):
+    return tuple(int(c[i:i + 2], 16) for i in (1, 3, 5))
+
+def _clair(c):
+    r, g, b = _rgb(c)
+    return 0.2126 * r + 0.7152 * g + 0.0722 * b
+
+def auteurs_fichiers(k, dest, photo=None):
+    """Les images du bloc des auteurs pour le tome k, écrites dans dest ; rend {image: nom de fichier}."""
+    fond, encre, nom, slug = COUL[k]
+    photo = photo or PHOTO
+    from PIL import Image
+    # recadrée sur le visage (300 px du carré de 400) : dans un cercle de 0,66 po, la photo entière laissait la tête petite
+    src = Image.open(os.path.join(IMG, 'auteurs', 'jp.jpg')).crop((45, 5, 345, 305))
+    if photo == 'couleur':
+        jp = 'auteur-jp.jpg'
+        src.convert('RGB').save(os.path.join(dest, jp), quality=95)
+    elif photo == 'bichromie':
+        im = src.convert('L')
+        im = im.point([min(255, round(v * 255 / 245)) for v in range(256)])   # le fond de la photo (≥ 245) au blanc franc
+        sombre, clair = sorted((_rgb(fond), _rgb(encre)), key=lambda c: 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2])
+        jp = 'auteur-jp-%s.png' % slug
+        Image.merge('RGB', [im.point([round(a + (b - a) * v / 255) for v in range(256)]) for a, b in zip(sombre, clair)]
+                    ).save(os.path.join(dest, jp), optimize=True)
+    else:
+        raise ValueError('photo : « bichromie » ou « couleur », pas « %s »' % photo)
+    s = open(os.path.join(IMG, 'auteurs', 'claude.svg'), encoding='utf-8').read()
+    reste = set(c.upper() for c in re.findall(r'#[0-9A-Fa-f]{6}\b', s)) - {'#D97757'}
+    if reste:
+        raise ValueError('claude.svg : couleurs non prévues %s' % sorted(reste))
+    claude = 'auteur-claude-%s.svg' % slug
+    open(os.path.join(dest, claude), 'w', encoding='utf-8').write(re.sub(r'#D97757', encre, s, flags=re.I))
+    return {'jp': jp, 'claude': claude}
+
+def auteurs_html(fichiers):
+    blocs = []
+    for a in AUTEURS:
+        img = '<img src="%s" alt="">' % fichiers[a['image']]
+        tete = '<b class="nw">%s</b>%s' % (esc(a['nom']), ' ' + esc(a['qualite']) if a['qualite'] else '')
+        # insécable devant les tirets et les deux-points (fine, comme au texte de la série) ; aucun mot coupé, pas même
+        # au trait d'union (Jean-Philippe, Baie-Comeau)
+        texte = esc(a['texte']).replace(' — ', '&nbsp;— ').replace(' :', '&#8239;:').replace(' ;', '&#8239;;')
+        texte = re.sub(r'(\S+-\S+)', r'<span class="nw">\1</span>', texte)
+        blocs.append('<div class="a"><span class="ph %s">%s</span><p>%s&nbsp;— %s</p></div>' % (a['image'], img, tete, texte))
+    return '<div class="auteurs"><h2>Les auteurs</h2><div class="aut">%s</div></div>' % ''.join(blocs)
 
 # ------------------------------------------------------------------ gabarits HTML
 esc = lambda s: s.replace('&', '&amp;').replace('<', '&lt;')
@@ -255,7 +473,7 @@ def serie(on):
 def avant_in(k):
     d = TOMES[k]
     style = 'font-size:%gpt' % d['taille'] + (';line-height:%g' % d['interligne'] if 'interligne' in d else '')
-    return ('<div class="hd"><span>Le Grand Livre du Chalet</span><span class="r">Tome %d sur 6</span></div>\n'
+    return ('<div class="hd"><span>Le Manuel du Nord</span><span class="r">Tome %d sur 6</span></div>\n'
             '  <div class="num">%d</div>\n'
             '  <div class="ttl"><h1 style="%s">%s</h1><div class="ch"><b>Chapitres %s à %s</b>'
             '<span>Conservation, subsistance et autonomie<br>sur la Côte-Nord</span></div></div>\n  %s') % (
@@ -265,15 +483,15 @@ def avant(k):
     return ('<section class="sheet front t%d" id="f%d" data-tome="%d"><div class="panel"><div class="in">\n  %s\n</div></div></section>\n'
             % (k, k, k, avant_in(k)))
 
-def complete(k, tailles):
+def complete(k, tailles, fichiers):
     d = TOMES[k]
     t = TRAIT[k]
     w, h = tailles[k]
-    img = '<img src="%s-%s.svg" alt="" style="width:%.3fin;height:%.3fin;margin-top:auto">' % (t['fic'], COUL[k][3], w, h)
+    img = '<img src="%s-%s.svg" alt="" style="width:%.3fin;height:%.3fin">' % (t['fic'], COUL[k][3], w, h)
     lis = ''.join('<li><b>%s</b>%s</li>' % (n, esc(x)) for n, x in SOMMAIRE[k])
     return f'''<section class="sheet full t{k}" id="full{k}" data-tome="{k}" style="--spine:{SPINE[k]}in;page:full{k}">
   <div class="panel back"><div class="in">
-    <div class="hd"><span>Le Grand Livre du Chalet</span><span class="r">Tome {k} · {esc(d['titre'])}</span></div>
+    <div class="hd"><span>Le Manuel du Nord</span><span class="r">Tome {k} · {esc(d['titre'])}</span></div>
     <div class="txt">
       <p>Six tomes, 114 chapitres sur la conservation des aliments, la subsistance et l’autonomie, faits pour la Côte-Nord&#8239;: forêt boréale, hivers à −35&#8239;°C, saison de jardin de 90 à 100&nbsp;jours, orignal, truite, fleuve salé.</p>
       <p><strong>Le test de chaque page&#8239;: il n’y a personne à appeler.</strong></p>
@@ -281,10 +499,11 @@ def complete(k, tailles):
     <div class="toc"><h2>Dans ce tome · chapitres {d['ch'][0]} à {d['ch'][1]}</h2>
       <ol>{lis}</ol>
     </div>
-    <div class="trait">{img}<div class="cap">{t['cap']}</div></div>
+    <div class="bas"><div class="trait">{img}<div class="cap">{t['cap']}</div></div>
+      {auteurs_html(fichiers)}</div>
     {serie(k)}
   </div></div>
-  <div class="panel spine"><div class="sp"><div class="sn">{k}</div><div class="rule"></div><div class="vt"><b>{esc(d['titre'])}</b><span>Le Grand Livre du Chalet</span></div></div></div>
+  <div class="panel spine"><div class="sp"><div class="sn">{k}</div><div class="rule"></div><div class="vt"><b>{esc(d['titre'])}</b><span>Le Manuel du Nord</span></div></div></div>
   <div class="panel fr"><div class="in">
   {avant_in(k)}
   </div></div>
@@ -366,14 +585,30 @@ body{font-family:var(--sans);color:var(--ink);-webkit-print-color-adjust:exact;p
 .back .txt{position:absolute;top:0.55in;left:0;right:0.3in;font:400 12.5pt/17pt var(--serif)}
 .back .txt p{margin:0 0 8pt}
 .back .txt strong{font-weight:700}
-.back .toc{position:absolute;top:2.2in;left:0;right:0}
+.back .toc{position:absolute;top:1.9in;left:0;right:0}
 .back .toc h2{margin:0 0 5pt;font:700 10pt/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;padding-bottom:4pt;border-bottom:1.25pt solid var(--ink)}
 .back .toc ol{margin:0;padding:0;list-style:none;columns:2;column-gap:0.3in;font:500 10pt/13.2pt var(--sans)}
 .back .toc li{display:flex;gap:6pt;break-inside:avoid;border-bottom:0.5pt solid var(--fil)}
 .back .toc li b{width:22pt;flex:none;font-weight:700}
-.back .trait{position:absolute;left:0;right:0;top:5.05in;height:2.9in;display:flex;flex-direction:column}
+/* le dessin et les auteurs (14 octobre 2026) : posés depuis le bas, au-dessus de la barre de série ; le dessin
+   (1,8 po de haut au plus) prend ce qui reste sous le sommaire, le blanc en trop va au-dessus de lui. Le sommaire
+   remonte de 0,3 po (2,2 -> 1,9 po) pour leur faire de la place ; les textes des auteurs (quatrième version de JP)
+   sont en 8 pt, le demi-point de moins que JP a permis, pour tenir sans couper. */
+.back .bas{position:absolute;left:0;right:0;top:4.35in;bottom:0.72in;display:flex;flex-direction:column;justify-content:flex-end}
+.back .trait{display:flex;flex-direction:column;flex:none}
 .back .trait img{display:block;flex:none}
 .back .trait .cap{font:600 8pt/1 var(--sans);letter-spacing:.06em;margin-top:4pt}
+.back .auteurs{flex:none;margin-top:0.11in}
+.back .auteurs h2{margin:0 0 7pt;font:700 10pt/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;padding-bottom:4pt;border-bottom:1.25pt solid var(--ink)}
+.back .aut{display:grid;grid-template-columns:1fr 1fr;column-gap:0.3in}
+/* le texte coule autour du cercle, puis sous lui : la colonne garde toute sa largeur sous la photo */
+.back .a{display:block}
+.back .ph{float:left;shape-outside:circle(50%);shape-margin:0.1in;margin:1pt 0.1in 0 0;width:0.66in;height:0.66in;border-radius:50%;border:0.75pt solid var(--ink);overflow:hidden;box-sizing:border-box;display:flex;align-items:center;justify-content:center}
+.back .ph img{display:block;width:100%;height:100%;object-fit:cover}
+.back .ph.claude img{width:64%;height:64%}
+.back .a p{margin:0;font:400 8pt/10.5pt var(--serif);hyphens:manual}
+.back .nw{white-space:nowrap}
+.back .a p b{font-weight:700}
 
 /* ---------- aperçus écran ---------- */
 @media screen{
@@ -448,15 +683,23 @@ def page_edge(pouces):
     couverture ne perd rien (la bande en trop est à droite, hors du fond perdu), et --decouper la retire."""
     return math.ceil(pouces * 72 + 0.75 + 0.5)       # le fond déborde d'un pixel (0,75 pt), voir .sheet.full
 
-def main():
+def main(dest=None, photo=None, choix=None):
+    """Le HTML et les dessins dans D1 ; avec dest (--sortie), dans dest, pour un aperçu : les écarts avec les
+    rapports d'assemblage y sont signalés sans arrêter (le fichier pour Blurb, lui, s'arrête)."""
     notes, erreurs = verifier()
     for n in notes:
         print('  note :', n)
     if erreurs:
         for e in erreurs:
-            print('  ERREUR :', e)
-        sys.exit(1)
-    tailles = traits()
+            print('  ERREUR :' if not dest else '  ATTENTION (aperçu seulement) :', e)
+        if not dest:
+            sys.exit(1)
+    dest = dest or D1
+    os.makedirs(dest, exist_ok=True)
+    if choix:
+        TRAIT.update(choisir(choix))
+    tailles = traits(dest)
+    fichiers = {k: auteurs_fichiers(k, dest, photo) for k in COUL}
     couleurs = '\n'.join('.t%d{--c:%s;--ink:%s;--fil:%s} /* %s */' % (
         k, f, i, 'rgba(%d,%d,%d,.45)' % tuple(int(i[j:j + 2], 16) for j in (1, 3, 5)), n) for k, (f, i, n, s) in COUL.items())
     pages_full = '\n'.join('@page full%d { size: %dpt 738pt; margin: 0; }  /* tome %d : %d p. -> tranche %s po (%s) ; PDF %.3f po */' % (
@@ -465,19 +708,19 @@ def main():
     corps = ['<!-- ============ LES SIX AVANTS ============ -->\n']
     corps += [avant(k) for k in range(1, 7)]
     corps.append('<!-- ============ COUVERTURES COMPLÈTES : quatrième | tranche | avant ============ -->\n')
-    corps += [complete(k, tailles) for k in range(1, 7)]
+    corps += [complete(k, tailles, fichiers[k]) for k in range(1, 7)]
     noms = '{' + ','.join("%d:'%s'" % (k, n.capitalize()) for k, (f, i, n, s) in COUL.items()) + '}'
     hexes = '{' + ','.join("%d:'%s'" % (k, f) for k, (f, i, n, s) in COUL.items()) + '}'
     info = '{' + ','.join("%d:'%d p., tranche %s po'" % (k, PAGES[k], str(SPINE[k]).replace('.', ',')) for k in sorted(SPINE)) + '}'
     html = ('<!DOCTYPE html>\n<html lang="fr-CA">\n<head>\n<meta charset="utf-8">\n'
-            '<title>Le Grand Livre du Chalet — couvertures des six tomes</title>\n'
+            '<title>Le Manuel du Nord — couvertures des six tomes</title>\n'
             '<link rel="preconnect" href="https://fonts.googleapis.com">\n'
             '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n' + POLICES +
             '<!-- Généré par outils/build_couvertures_6.py : ne pas modifier à la main. -->\n'
             '<style>' + css + '\n</style>\n</head>\n<body>\n\n'
             + ''.join(corps) + SCRIPT.replace('%NOMS%', noms).replace('%HEX%', hexes).replace('%INFO%', info) + '</body>\n</html>\n')
-    open(os.path.join(D1, 'couvertures-nordique-6.html'), 'w', encoding='utf-8').write(html)
-    print('couvertures-nordique-6.html', len(html), 'octets')
+    open(os.path.join(dest, 'couvertures-nordique-6.html'), 'w', encoding='utf-8').write(html)
+    print(os.path.join(dest, 'couvertures-nordique-6.html'), len(html), 'octets')
     for k in sorted(SPINE):
         print('tome %d : %d p. -> tranche %s po (%s), PDF %.3f x 10.25 po ; dessin %.2f x %.2f po' % (
             k, PAGES[k], SPINE[k], PROV[k], 16.25 + SPINE[k], tailles[k][0], tailles[k][1]))
@@ -528,8 +771,8 @@ def decouper():
         full = RectangleObject([0, h0 - H, W, h0])       # le haut de la page imprimée, sa largeur exacte
         pg.mediabox = full; pg.cropbox = full; pg.bleedbox = full
         pg.trimbox = RectangleObject([9, h0 - H + 9, W - 9, h0 - 9])
-        w.add_metadata({'/Title': 'Le Grand Livre du Chalet — Tome %d · %s — couverture' % (k, TOMES[k]['titre']),
-                        '/Author': 'Le Grand Livre du Chalet',
+        w.add_metadata({'/Title': 'Le Manuel du Nord — Tome %d · %s — couverture' % (k, TOMES[k]['titre']),
+                        '/Author': 'Le Manuel du Nord',
                         '/Creator': 'design/directions/1-manuel-de-terrain/outils/build_couvertures_6.py'})
         cible = os.path.join(ROOT, 'livre', 'tome-%d' % k, 'couverture.pdf')
         with open(cible + '.tmp', 'wb') as f:
@@ -563,4 +806,6 @@ if __name__ == '__main__':
     if '--decouper' in sys.argv:
         decouper()
     else:
-        main()
+        arg = lambda o: sys.argv[sys.argv.index(o) + 1] if o in sys.argv else None
+        choix = dict(map(int, a.split(':')) for i, a in enumerate(sys.argv) if i and sys.argv[i - 1] == '--dessin')
+        main(os.path.abspath(arg('--sortie')) if arg('--sortie') else None, arg('--photo'), choix)

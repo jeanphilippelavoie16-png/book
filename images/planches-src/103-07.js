@@ -1,5 +1,6 @@
 // 80-07 — Le contre-toron. Séquence : plier et tordre, passer par-dessus, rallonger.
 // Vue de face, comme le fabricant voit ses mains : le corps est du côté du lecteur.
+// La charte : les brins au contour, le rouge sur les deux gestes (tordre, passer par-dessus).
 
 const K = 1.25;            // échelle des deux premières vues (la main donne la grandeur)
 const W = 11 * K;          // largeur d'un brin
@@ -104,36 +105,44 @@ const bord = (pts, x, cote, w = W) => {
   return [c[i][0] + n[0] * (w / 2 + 0.6), c[i][1] + n[1] * (w / 2 + 0.6)];
 };
 
-// La main gauche qui pince le pli : pouce dessus, index dessous, trois doigts repliés
-// (repère relatif au pli, avant l'échelle K).
-const MAIN = [[-92, -55], [-70, -49], [-45, -43], [-20, -37], [3, -31], [14, -24], [12, -16], [-4, -12.9],
-  [-26, -13], [-39, -7], [-42, 3], [-33, 12.9], [-12, 12.9], [6, 13.5], [15, 20.5], [9, 28.5], [-4, 29.5],
-  [-1, 35], [-5, 42], [-16, 44.5], [-17, 50], [-23, 56], [-34, 57.5], [-37, 62], [-45, 66], [-56, 66.5],
-  [-72, 68], [-92, 72]];
-const main = (h, P) => {
-  const c = lisse(MAIN.map(P), 8);
-  const creux = (a, b, e) => `M${P(a).join(',')} Q${P(b).join(',')} ${P(e).join(',')}`;
-  return [
-    h.path(D(c) + ' Z', h.a.blanc),
-    h.path(D(c), h.a.arete),
-    h.path([
-      creux([-5, -31.5], [8, -32.5], [13.5, -23.5]),   // ongle du pouce
-      creux([-5, -31.5], [5, -27.5], [13.5, -23.5]),
-      creux([-25, -36.5], [-21, -33], [-23, -29]),     // pli du pouce
-      creux([-19, 13.5], [-16, 18], [-19, 23]),        // pli de l'index
-      creux([-4, 29.5], [-14, 27], [-26, 28]),         // séparation des doigts
-      creux([-16, 44.5], [-25, 42], [-34, 43]),
-      creux([-34, 57.5], [-42, 55], [-50, 56]),
-    ].join(' '), h.a.detail),
-  ].join('\n');
+// La main gauche qui tient le pli (le chapitre dit seulement « tenir le pli ») : la main simple (mains/moteur.js),
+// le poing fermé sur le pli, vu côté paume, penché de 25°. Le fabricant voit ses mains : l'avant-bras vient de lui,
+// sort par le bas de la vue. Les brins sortent du poing à droite ; la boucle du pli est dans le poing. L'objet
+// tenu est le faisceau des deux brins, découpé au cylindre de la prise : les doigts passent devant, la paume
+// derrière. (14 oct. : la pince fine faisait une tête de canard grise, on passe au poing.)
+const poser = (h, o, axe, vers) => {
+  const base = Object.assign({}, o, { angle: 0, avantbras: { longueur: 100 } }); delete base.objet;
+  const e0 = h.formes.mainSimple(base); let best = null;
+  for (const k of [0, 180]) {
+    const a = axe - e0.prise.angle + k, m = h.formes.mainSimple(Object.assign({}, base, { angle: a }));
+    const d = [m.coude[0] - m.poignet[0], m.coude[1] - m.poignet[1]], v = [vers[0] - m.poignet[0], vers[1] - m.poignet[1]];
+    const c = (d[0] * v[0] + d[1] * v[1]) / ((Math.hypot(d[0], d[1]) * Math.hypot(v[0], v[1])) || 1);
+    if (!best || c > best.c) best = { a, c };
+  }
+  return best.a;
+};
+const PINCE = { x: -6, y: 0, pose: 'prise-manche', vue: 'paume', ech: 1.0, d: 28, vers: [-30, 300], rot: [-25, 0, 0], objet: true };
+let nPince = 0;
+const main = (h, P, z, brins) => {
+  const [x, y] = P([PINCE.x, PINCE.y]);
+  const o = { x, y, pose: PINCE.pose, vue: PINCE.vue, cote: 'gauche', echelle: PINCE.ech, diametre: PINCE.d, ...(PINCE.rot ? { rotation: PINCE.rot } : {}) };
+  const vers = P(PINCE.vers);
+  const id = `pince-103-07-${++nPince}`;
+  const bande = g => {
+    const u = [Math.cos(g.angle * Math.PI / 180), Math.sin(g.angle * Math.PI / 180)], v = [-u[1], u[0]], L = 400, r = g.r;
+    const c = (s, t) => `${(g.x + u[0] * s + v[0] * t).toFixed(1)},${(g.y + u[1] * s + v[1] * t).toFixed(1)}`;
+    return `<clipPath id="${id}"><path d="M${c(-L, -r)} L${c(L, -r)} L${c(L, r)} L${c(-L, r)} Z"/></clipPath>\n<g clip-path="url(#${id})">\n${brins}\n</g>`;
+  };
+  return h.formes.mainSimple({ ...o, angle: poser(h, o, 0, vers), ...(PINCE.objet ? { objet: bande, masque: false } : {}),
+    avantbras: { vers, bord: { x0: 0, y0: 0, x1: z.l, y1: z.h }, bras: { pli: 0 } } }).svg;
 };
 
-// Anneau de rotation autour d'un brin : moitié arrière en caché, moitié avant fléchée.
+// Anneau de rotation autour d'un brin : moitié arrière en caché, moitié avant fléchée en rouge (le geste).
 const anneau = (h, cx, cy, rx, ry, sens) => ({
   derriere: h.path(`M${cx},${cy - ry} A${rx} ${ry} 0 0 0 ${cx},${cy + ry}`, h.a.cache),
   devant: sens === 'monte'
-    ? h.fleche(`M${cx},${cy + ry} A${rx} ${ry} 0 0 0 ${cx},${cy - ry}`)
-    : h.fleche(`M${cx},${cy - ry} A${rx} ${ry} 0 0 1 ${cx},${cy + ry}`),
+    ? h.geste(`M${cx},${cy + ry} A${rx} ${ry} 0 0 0 ${cx},${cy - ry}`)
+    : h.geste(`M${cx},${cy - ry} A${rx} ${ry} 0 0 1 ${cx},${cy + ry}`),
 });
 
 // Corde commise : suite de tronçons en « \ », bosses au contour, pli arrondi à gauche.
@@ -151,7 +160,7 @@ const corde = (h, x0, x1, yc, R, p, s) => {
 
 // ─── la planche ──────────────────────────────────────────────────────────────────────
 module.exports = (h) => {
-  const F = { x: 135, y: 92 };
+  const F = { x: 167, y: 92 };
   const P = ([x, y]) => [F.x + K * x, F.y + K * y];
   const Ps = pts => pts.map(P);
   const pli = U(-18, 7);
@@ -175,7 +184,7 @@ module.exports = (h) => {
     ref: '103-07',
     titre: 'Le contre-toron',
     desc: 'Faire une corde à deux brins avec une poignée de fibres, vue comme le fabricant voit ses mains. '
-      + 'Une main pince la poignée pliée hors du milieu ; on tord le brin du dessus en l’éloignant du corps, '
+      + 'Une main tient la poignée pliée hors du milieu, le poing fermé sur le pli ; on tord le brin du dessus en l’éloignant du corps, '
       + 'puis on le passe par-dessus l’autre en le ramenant vers le corps : les deux rotations sont contraires. '
       + 'Pour rallonger, on couche une poignée neuve sur le brin qui faiblit, loin de la reprise de l’autre brin.',
     format: 'pleine',
@@ -186,13 +195,11 @@ module.exports = (h) => {
         titre: 'Plier, puis tordre',
         dessin: z => {
           const r = anneau(h, ...P([110, A1y(110)]), 8 * K, 19 * K, 'monte');
-          return [
-            r.derriere,
+          const brins = [
             brin(h, Ps(B1), { fibres: [[0.02, 0.92]] }),
             brin(h, Ps(A1), { fibres: [[0, 0.1], [0.46, 0.94]], torsade: [0.11, 0.46] }),
-            main(h, P),
-            r.devant,
           ].join('\n');
+          return [r.derriere, brins, main(h, P, z, brins), r.devant].join('\n');
         },
         renvois: z => [
           { n: 1, rond: P([214, 62]), cible: bord(Ps(B1), P([232, 0])[0], 1), texte: 'plier hors du milieu : bouts décalés' },
@@ -204,13 +211,11 @@ module.exports = (h) => {
         titre: 'Passer par-dessus',
         dessin: z => {
           const r = anneau(h, ...P([105, 0]), 11 * K, 34 * K, 'descend');
-          return [
-            r.derriere,
+          const brins = [
             brin(h, Ps(B2), { fibres: [[0.02, 0.92]] }),
             brin(h, Ps(A2), { fibres: [[0, 0.1], [0.5, 0.94]], torsade: [0.11, 0.5] }),
-            main(h, P),
-            r.devant,
           ].join('\n');
+          return [r.derriere, brins, main(h, P, z, brins), r.devant].join('\n');
         },
         renvois: z => [
           { n: 4, rond: P([150, 62]), cible: P([105 + 11 * Math.cos(1.15), 34 * Math.sin(1.15)]), texte: 'le passer par-dessus, vers le corps' },

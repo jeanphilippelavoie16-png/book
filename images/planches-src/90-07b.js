@@ -11,6 +11,10 @@
 // la couture suit le fil, points courts et longs en alternance, ou une latte cousue dans la
 // couture ; deux ou trois tours dans un même trou ; racine, ou babiche.
 // La latte de couture est posée sur la couture, dehors : le chapitre ne dit pas de quel côté.
+// La charte : la coque garde son contour fort, le fil de la couture en travers aussi. Pas de gris :
+// les deux coupes sont hachurées, la couture vue de dehors est à plat, et les lattes sont trop
+// minces pour porter une ombre. Pas de rouge : un montage, sans geste ni point que le chapitre dit
+// de vérifier ; les flèches du trait de coupe disent d'où on regarde et restent noires.
 
 module.exports = (h) => {
   const f = n => Math.round(n * 10) / 10;

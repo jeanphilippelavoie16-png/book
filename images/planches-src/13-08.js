@@ -1,6 +1,18 @@
 // Planche 13-08 — la boîte à braise : chargée en coupe, portée au bout de son anse,
 // et le geste de la percer au clou sur une bûche.
 // Aucune cote : le chapitre ne donne aucune dimension, et la durée porte [À VÉRIFIER].
+//
+// La charte : à l'ombre, la face de droite de la boîte portée, le dessous de la bûche et de la
+// boîte couchée ; la coupe pleine de cendre reste sans gris. Le rouge : le coup de marteau sur
+// le clou (le geste) ; le trou du couvercle, où l'on regarde s'il fume encore, cerclé. Les
+// flèches d'air et de fumée restent noires.
+//
+// La main de « Portée » (refaite le 19 octobre 2026 : c'était une mainSimple, retirée, et la boucle de l'anse qui
+// dépassait du poing se lisait comme un pouce levé) : h.formes.mainStock 1-09 « poing-manche-debout », le poing vu de
+// côté, l'avant-bras à plat qui vient de la gauche, sans l'objet du fichier ; les deux brins de l'anse entrent dans le
+// poing par le bas, sur l'axe de l'objet, et la main les cache. Rien n'est redessiné ni déformé ; l'avant-bras
+// continue tout droit les deux bords de la main jusqu'au bord de la vue (sans courbe de raccord : second regard du
+// 19 octobre 2026).
 
 module.exports = (h) => {
   const f = v => Math.round(v * 10) / 10;
@@ -68,8 +80,39 @@ module.exports = (h) => {
     const ry = Math.round(W * 0.16);
     const xl = cx - W / 2, xr = cx + W / 2;
     const yA = yT + 11;                              // trous de l'anse
-    const poing = { x: cx, y: 66 };
+    // le poing : le centre de l'objet de 1-09 ; le fil sort du poing par le haut (yHaut) et par le bas (yBas), sur l'axe
+    const poing = { x: cx, y: 70 };
+    poing.yHaut = poing.y + (M109_HAUT - M109.objet.y) * K109;
+    poing.yBas = poing.y + (M109_BAS - M109.objet.y) * K109;
     return { W, H, cx, yB, yT, ry, xl, xr, yA, poing };
+  };
+
+  // ─── La main qui porte : h.formes.mainStock 1-09 « poing-manche-debout » ─────────────
+  // Le poing vu de côté, l'avant-bras à plat qui vient de la gauche, sans l'objet du fichier : le fil de l'anse passe
+  // dans le poing sur l'axe de l'objet. Rien n'est redessiné ni déformé ; l'avant-bras continue les bords de la main
+  // jusqu'au bord de la vue.
+  const M109 = require('../../.claude/skills/planches/scripts/mains/stock.js').catalogue['1-09'];
+  const TAILLE_MAIN = 170;
+  const K109 = TAILLE_MAIN / Math.max(M109.boite[2] - M109.boite[0], M109.boite[3] - M109.boite[1]);
+  const M109_HAUT = 378, M109_BAS = 646;           // le dessus et le dessous du poing sur l'axe de l'objet (relevés sur 1-09)
+  const optsMain = P => ({ id: 'poing-manche-debout', objet: false, taille: TAILLE_MAIN, x: P.x, y: P.y });
+  const versVue = P => ([px, py]) => [P.x + K109 * (px - M109.objet.x), P.y + K109 * (py - M109.objet.y)];
+  // l'avant-bras : chaque bord continue tout droit dans la direction du bord de la main (le dessus de (5363,8 ; 440,7),
+  // le dessous de (5364,4 ; 639,9), relevés sur le dessin de 1-09) jusqu'hors de la vue, sans courbe de raccord : la
+  // coupe du fichier tombe à quelques unités du bord de la vue, et une courbe y faisait un crochet. Un fond blanc
+  // couvre la coupe du fichier.
+  const avantBras = (P, L = 200) => {
+    const T = versVue(P);
+    const dir = (p, d) => { const a = T(p), b = T([p[0] + d[0], p[1] + d[1]]), n = Math.hypot(b[0] - a[0], b[1] - a[1]); return [a, [(b[0] - a[0]) / n, (b[1] - a[1]) / n]]; };
+    // les deux départs, pris 2 unités en dedans de la coupe : le fond blanc couvre le trait droit de la coupe du fichier
+    const [t1, dt] = dir([5363.75, 440.741], [-52.5, -7.8]), [b1, db] = dir([5364.38, 639.884], [-109.4, 12.7]);
+    const t0 = [t1[0] - dt[0] * 2, t1[1] - dt[1] * 2], b0 = [b1[0] - db[0] * 2, b1[1] - db[1] * 2];
+    const tf = [t0[0] + dt[0] * L, t0[1] + dt[1] * L], bf = [b0[0] + db[0] * L, b0[1] + db[1] * L], Q = p => `${f(p[0])} ${f(p[1])}`;
+    const trait = 'fill="none" stroke="#1A1A1A" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"';
+    return [
+      h.path(`M ${Q(t0)} L ${Q(tf)} L ${Q(bf)} L ${Q(b0)} Z`, h.a.blanc),
+      h.path(`M ${Q(t0)} L ${Q(tf)} M ${Q(b0)} L ${Q(bf)}`, trait),
+    ].join('\n');
   };
 
   const percer = z => {
@@ -89,11 +132,11 @@ module.exports = (h) => {
   return {
     ref: '13-08',
     titre: 'La boîte à braise',
-    desc: 'Une boîte de conserve percée au clou sur le pourtour et dans le couvercle. En coupe : un lit de cendre au fond, une braise vive au centre, un bloc d’amadouvier ou de bois pourri sec posé dessus, encore de la cendre, et le couvercle enfoncé par-dessus ; l’air entre par les trous du pourtour, la fumée sort par ceux du couvercle. Portée : une anse de fil de broche passée dans deux trous sous le bord, le bout tordu sur son brin, la boîte pendue au bout du fil, loin de la main. Percée : la boîte couchée, enfilée sur le bout d’une bûche, et le clou frappé au marteau à travers la paroi.',
+    desc: 'Une boîte de conserve percée au clou sur le pourtour et dans le couvercle. En coupe : un lit de cendre au fond, une braise vive au centre, un bloc d’amadouvier ou de bois pourri sec posé dessus, encore de la cendre, et le couvercle enfoncé par-dessus ; l’air entre par les trous du pourtour, la fumée sort par ceux du couvercle. Portée : une anse de fil de broche passée dans deux trous sous le bord, le bout tordu sur son brin, la boîte pendue au bout du fil, les deux brins serrés dans un poing vu de côté, le bras tendu loin du corps. Percée : la boîte couchée, enfilée sur le bout d’une bûche, et le clou frappé au marteau à travers la paroi.',
     format: 'pleine',
-    disposition: [['coupe', 'portee'], ['percer']],
-    hauteurs: [3, 1.45],
-    largeurs: [[1, 1], [1]],
+    disposition: [['percer'], ['coupe', 'portee']],
+    hauteurs: [1.35, 3],
+    largeurs: [[1], [1, 1]],
     vues: {
       coupe: {
         titre: 'En coupe, chargée',
@@ -167,12 +210,11 @@ module.exports = (h) => {
           const { cx, yT, yB, xl, xr, yL, yBr, bw, bBas, bHaut, xTrou } = coupe(z);
           const bMid = Math.round((bBas + bHaut) / 2);
           return [
-            { n: 1, rond: [xl - 36, yB - 18], cible: [xl + 20, yB - 20], texte: 'lit de cendre ou de sable' },
-            { n: 2, rond: [xr + 34, yBr + 38], cible: [cx + 14, yBr + 6], texte: 'braise vive, au centre' },
-            { n: 3, rond: [xr + 34, bMid], cible: [cx + Math.round(bw * 0.2), bMid], texte: 'amadouvier ou bois pourri sec' },
-            { n: 4, rond: [xl - 36, Math.round((yL + bHaut) / 2)], cible: [xl + 18, Math.round((yL + bHaut) / 2)], texte: 'encore de la cendre' },
-            { n: 5, rond: [xr + 34, yL - 4], cible: [cx + xTrou + 22, yL], texte: 'couvercle percé au clou' },
-            { n: 6, rond: [xl - 36, yBr - 32], cible: [xl, yBr - 1], texte: 'trous au clou, tout autour' },
+            { n: 3, rond: [xl - 36, yB - 18], cible: [xl + 20, yB - 20], texte: 'lit de cendre ou de sable' },
+            { n: 4, rond: [xr + 34, yBr + 38], cible: [cx + 14, yBr + 6], texte: 'braise vive, au centre' },
+            { n: 5, rond: [xr + 34, bMid], cible: [cx + Math.round(bw * 0.2), bMid], texte: 'amadouvier ou bois pourri sec' },
+            { n: 6, rond: [xl - 36, Math.round((yL + bHaut) / 2)], cible: [xl + 18, Math.round((yL + bHaut) / 2)], texte: 'encore de la cendre' },
+            { n: 7, rond: [xr + 34, yL - 4], cible: [cx + xTrou + 22, yL], texte: 'le couvercle percé, fermé' },
           ];
         },
       },
@@ -183,6 +225,10 @@ module.exports = (h) => {
           const { W, H, cx, yB, yT, ry, xl, xr, yA, poing } = portee(z);
           const out = [];
 
+          // La face de droite, à l'ombre : du bord avant du dessus jusqu'au fond.
+          { const av = x => ry * Math.sqrt(Math.max(0, 1 - ((x - cx) / (W / 2)) ** 2)), xs = [];
+            for (let x = cx + 0.22 * W; x <= xr + 0.01; x += W / 60) xs.push(x);
+            out.push(h.chemin([...xs.map(x => [x, yT + av(x)]), ...xs.slice().reverse().map(x => [x, yB + av(x)])], h.a.ombre, true)); }
           // Le corps de la boîte, ses ondulations, son fond.
           out.push(h.path(`M ${xl} ${yT} L ${xl} ${yB} A ${W / 2} ${ry} 0 0 0 ${xr} ${yB} L ${xr} ${yT}`, h.a.contour));
           for (const k of [0.2, 0.44, 0.9]) {
@@ -207,57 +253,41 @@ module.exports = (h) => {
           // Un filet de fumée au couvercle.
           const sx = cx + 0.22 * W, sy = yT + 4 + 0.4 * (ry - 3);
           out.push(h.path(`M ${f(sx)} ${f(sy - 3)} C ${f(sx - 8)} ${f(sy - 14)} ${f(sx + 8)} ${f(sy - 24)} ${f(sx)} ${f(sy - 34)} S ${f(sx + 6)} ${f(sy - 52)} ${f(sx - 2)} ${f(sy - 60)}`, h.a.fin));
+          // À chaque arrêt : fume-t-il encore au trou ?
+          out.push(h.controle(sx, sy - 1, 9));
 
-          // L'anse : les deux brins montent jusqu'au poing.
-          const py = poing.y + 30;
-          out.push(h.path(`M ${xl + 3} ${yA} L ${xl - 5} ${yA} Q ${xl - 9} ${yA} ${xl - 8} ${yA - 6} L ${poing.x - 5} ${py}`, h.a.arete));
-          out.push(h.path(`M ${xr - 3} ${yA} L ${xr + 5} ${yA} Q ${xr + 9} ${yA} ${xr + 8} ${yA - 6} L ${poing.x + 5} ${py}`, h.a.arete));
-          const kx = (poing.x - 5 - (xl - 8)), ky = (py - (yA - 6)), kL = Math.hypot(kx, ky);
+          // L'anse : les deux brins montent jusqu'au poing, qui tient la boîte au bout du fil, le bras tendu loin du
+          // corps (le corps est à gauche, hors de la vue). Les brins entrent dans le poing par le bas, sur l'axe.
+          const py = poing.yBas - 6;
+          out.push(h.path(`M ${xl + 3} ${yA} L ${xl - 5} ${yA} Q ${xl - 9} ${yA} ${xl - 8} ${yA - 6} L ${poing.x - 3} ${f(py)}`, h.a.arete));
+          out.push(h.path(`M ${xr - 3} ${yA} L ${xr + 5} ${yA} Q ${xr + 9} ${yA} ${xr + 8} ${yA - 6} L ${poing.x + 3} ${f(py)}`, h.a.arete));
+          const kx = (poing.x - 3 - (xl - 8)), ky = (py - (yA - 6)), kL = Math.hypot(kx, ky);
           out.push(torsade(xl - 8, yA - 6, xl - 8 + kx * 24 / kL, yA - 6 + ky * 24 / kL));
           out.push(torsade(xr + 8, yA - 6, xr + 8 - kx * 24 / kL, yA - 6 + ky * 24 / kL));
           out.push(h.cercle(xl, yA, 2.2, h.a.plein), h.cercle(xr, yA, 2.2, h.a.plein));
+          // le haut de l'anse, plié dans le poing : les deux brins y entrent par le bas, la main les cache
+          const fil = h.path(`M ${poing.x - 3} ${f(py)} L ${poing.x - 3} ${f(poing.yHaut + 12)} Q ${poing.x} ${f(poing.yHaut + 6)} ${poing.x + 3} ${f(poing.yHaut + 12)} L ${poing.x + 3} ${f(py)}`, h.a.arete);
+          // le fil d'abord, la main par-dessus : son blanc cache le fil dans le poing ; l'avant-bras sort par le bord
+          out.push(fil);
+          out.push(`<clipPath id="vue-portee-1308"><rect x="0" y="0" width="${z.l}" height="${z.h}" fill="#FFFFFF" stroke="none"/></clipPath>`);
+          out.push(`<g clip-path="url(#vue-portee-1308)">`, String(h.formes.mainStock(optsMain(poing))), avantBras(poing), '</g>');
 
-          // La mitaine fermée sur le fil, la manche qui part vers le haut.
-          const X = poing.x, Y = poing.y, s = 1.55;
-          const p = (dx, dy) => `${f(X + dx * s)} ${f(Y + dy * s)}`;
-          const q = (dx, dy) => [f(X + dx * s), f(Y + dy * s)];
-          const A = q(-28, -12), B = q(-17, 16), v = [-16 * s, -19 * s];
-          const A2 = [f(A[0] + v[0]), f(A[1] + v[1])], B2 = [f(B[0] + v[0]), f(B[1] + v[1])];
-          const pente = v[0] / v[1];
-          const bout = (P, dx) => [f(P[0] + (4 - P[1]) * pente + dx), 4];
-          // la manche du manteau, qui part vers le corps
-          out.push(h.chemin([A2, bout(A2, -3), bout(B2, 6), B2], h.a.blanc, true));
-          out.push(h.ligne(A2[0], A2[1], ...bout(A2, -3), h.a.arete), h.ligne(B2[0], B2[1], ...bout(B2, 6), h.a.arete));
-          // le poignet tricoté en côtes
-          out.push(h.chemin([A, B, B2, A2], h.a.blanc, true));
-          let cotes = '';
-          for (let i = 1; i < 8; i++) {
-            const t = i / 8, px = A[0] + (B[0] - A[0]) * t, py = A[1] + (B[1] - A[1]) * t;
-            cotes += `M ${f(px)} ${f(py)} L ${f(px + v[0])} ${f(py + v[1])} `;
-          }
-          out.push(h.path(cotes, h.a.detail));
-          out.push(h.chemin([A, B, B2, A2], h.a.arete, true));
-          // la mitaine fermée sur le fil
-          const m = `M ${A[0]} ${A[1]} C ${p(-8, -26)} ${p(24, -25)} ${p(32, -8)} C ${p(38, 8)} ${p(28, 23)} ${p(8, 22)} C ${p(-4, 22)} ${p(-12, 20)} ${B[0]} ${B[1]}`;
-          out.push(h.path(m + " Z", h.a.blanc));
-          out.push(h.path(m, h.a.contour));
-          // le pouce de la mitaine, refermé en travers des doigts, le bout qui dépasse devant
-          const pouce = `M ${p(-12, 2)} C ${p(0, -2)} ${p(22, 2)} ${p(32, 8)} C ${p(41, 12)} ${p(39, 25)} ${p(28, 25)} C ${p(16, 26)} ${p(0, 22)} ${p(-12, 14)}`;
-          out.push(h.path(pouce + ' Z', h.a.blanc));
-          out.push(h.path(pouce, h.a.arete));
           return out.join('\n');
         },
         renvois: z => {
-          const { xl, yA, poing, cx } = portee(z);
+          const { xl, xr, yA, poing, cx } = portee(z);
+          // le brin de droite, de sa sortie du poing (poing.yBas − 6) au trou de l'anse
+          const brin = y => poing.x + 3 + (xr + 8 - poing.x - 3) * (y - (poing.yBas - 6)) / (yA - 6 - (poing.yBas - 6));
           return [
-            { n: 7, rond: [xl - 26, yA + 34], cible: [xl - 7, yA - 12], texte: 'fil de broche, bout tordu' },
-            { n: 8, rond: [poing.x + 86, poing.y + 6], cible: [poing.x + 52, poing.y + 2], texte: 'au bout du fil, loin du corps' },
+            { n: 8, rond: [xl - 26, yA + 34], cible: [xl - 7, yA - 12], texte: 'anse de fil de broche' },
+            { n: 9, rond: [poing.x + 76, poing.yBas + 30], cible: [brin(poing.yBas + 30) + 0.8, poing.yBas + 30], texte: 'la porter au bout du fil, loin du corps' },
+            { n: 10, rond: [cx + 0.22 * 116 + 34, portee(z).yT - 46], cible: [cx + 0.22 * 116 + 8, portee(z).yT - 8], texte: 'à chaque arrêt : de la fumée aux trous' },
           ];
         },
       },
 
       percer: {
-        titre: 'Percée au clou, la boîte enfilée sur une bûche',
+        titre: 'Percer au clou, la boîte enfilée sur une bûche',
         dessin: z => {
           const { G, Dc, D, ya, Lc, xo, xf, xb0, xh, yP } = percer(z);
           const out = [];
@@ -268,7 +298,13 @@ module.exports = (h) => {
           out.push(h.rect(12, G, z.l - 24, 8, h.a.hachure('terre', 'aucun')));
 
           // La bûche : le bout scié à gauche, l'écorce, puis la partie cachée dans la boîte.
-          const yb0 = ya - r, yb1 = ya + r;
+          const yb0 = ya - r, yb1 = ya + r, yc0 = ya - R, yc1 = ya + R;
+          // Le dessous de la bûche et de la boîte couchée, à l'ombre.
+          out.push(h.rect(xb0, ya + 0.45 * r, xo - xb0, 0.55 * r, h.a.ombre));
+          { const pts = [[xo, ya + 0.45 * R], [xf, ya + 0.45 * R]];
+            for (let k = 0; k <= 12; k++) { const u = Math.asin(0.45) + (Math.PI / 2 - Math.asin(0.45)) * k / 12; pts.push([xf + exC * Math.cos(u), ya + R * Math.sin(u)]); }
+            pts.push([xo, yc1]);
+            out.push(h.chemin(pts, h.a.ombre, true)); }
           out.push(h.ligne(xb0, yb0, xo, yb0, h.a.contour), h.ligne(xb0, yb1, xo, yb1, h.a.contour));
           out.push(h.ellipse(xb0, ya, ex, r, h.a.blanc));
           out.push(h.ellipse(xb0, ya, ex, r, h.a.contour));
@@ -281,7 +317,6 @@ module.exports = (h) => {
           out.push(h.ligne(xf - 10, yb0, xf - 10, yb1, h.a.cache));
 
           // La boîte couchée : bord ouvert à gauche, fond à droite, ondulations.
-          const yc0 = ya - R, yc1 = ya + R;
           out.push(h.path(`M ${xo} ${yc0} L ${xf} ${yc0} A ${exC} ${R} 0 0 1 ${xf} ${yc1} L ${xo} ${yc1}`, h.a.contour));
           out.push(h.path(`M ${xo} ${yc0} A ${exC} ${R} 0 0 1 ${xo} ${yc1}`, h.a.contour));
           for (const k of [0.12, 0.5]) {
@@ -301,17 +336,31 @@ module.exports = (h) => {
           out.push(h.chemin([[xh - 1.6, yP - 3], [xh + 1.6, yP - 3], [xh, yP + 2]], h.a.plein, true));
           out.push(h.rect(xh - 6, yP - nh - 3, 12, 3, h.a.plein));
           const mh = yP - nh - 12;
-          out.push(h.rect(xh - 12, mh - 22, 24, 22, h.a.hachure('metal', 'contour')));
-          out.push(h.chemin([[xh + 12, mh - 14], [xh + 118, mh - 36], [xh + 120, mh - 26], [xh + 12, mh - 7]], h.a.hachure('bois', 'arete'), true));
-          out.push(h.fleche(`M ${xh - 26} ${mh - 30} L ${xh - 26} ${mh + 4}`));
+          // Le marteau à panne fendue, la tête d'équerre sur le manche : la face qui frappe en bas, sur la tête du
+          // clou ; la panne qui recourbe vers le manche en haut. Repère local : origine au milieu de la face, u le long
+          // du manche (vers la droite), v vers la face (en bas).
+          {
+            const a = Math.atan2(-22, 106), ca = Math.cos(a), sa = Math.sin(a);
+            const M = ([u, v]) => [xh + u * ca - v * sa, mh + u * sa + v * ca];
+            const C = pts => pts.map(M);
+            // le manche : il entre dans l'œil, s'évase vers le bout
+            const manche = [[6, -20.5], [40, -21], [90, -22.5], [116, -23.5], [119, -18], [116, -12.5], [90, -13.5], [40, -15], [6, -15.5]];
+            out.push(h.chemin(C(manche), h.a.hachure('bois', 'arete'), true));
+            // la tête : la face, le col, l'œil, la panne fendue recourbée
+            const tete = [[-8, 0], [8, 0], [8, -3], [6, -6], [6, -11], [8, -13], [8, -24], [10, -29], [14, -33], [19, -36.5],
+              [18, -39.5], [10, -39], [2, -37], [-4, -33], [-7.5, -27], [-8, -24], [-8, -13], [-6, -11], [-6, -6], [-8, -3]];
+            out.push(h.chemin(C(tete), h.a.hachure('metal', 'contour'), true));
+            out.push(h.chemin(C([[-8, -3], [8, -3]]), h.a.detail));
+          }
+          out.push(h.geste(`M ${xh - 26} ${mh - 30} L ${xh - 26} ${mh + 4}`));
 
           return out.join('\n');
         },
         renvois: z => {
           const { ya, xo, xb0, xh, yP, D } = percer(z);
           return [
-            { n: 9, rond: [xh + 50, yP - 12], cible: [xh + 3, yP - 16], texte: 'clou' },
-            { n: 10, rond: [Math.round((xb0 + xo) / 2), ya - D / 2 - 28], cible: [Math.round((xb0 + xo) / 2) + 6, ya - D / 2 + 2], texte: 'bout de bûche dans la boîte' },
+            { n: 2, rond: [xh - 58, yP - 40], cible: [xh - 26, yP - 46], texte: 'percer au clou, tout autour' },
+            { n: 1, rond: [Math.round((xb0 + xo) / 2), ya - D / 2 - 28], cible: [Math.round((xb0 + xo) / 2) + 6, ya - D / 2 + 2], texte: 'un bout de bûche dans la boîte' },
           ];
         },
       },

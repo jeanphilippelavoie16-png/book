@@ -1,12 +1,20 @@
 // 45-01a — L’arc tiré d’une bille fendue (chapitre 45, §9 : fendre, le dos, la forme, les encoches)
+// Refaite au redessin du 14 octobre (groupe E, JP : « pas assez pour le fabriquer ») : la planche suit
+// maintenant l’ordre du chapitre, de la bille à l’arc. Fendre la bille aux coins ; le quart gardé, vu
+// en bout, avec l’arc dedans (le dos sous l’écorce, le ventre côté cœur) ; écorcer le dos au racloir ;
+// dégrossir au ventre, l’arc entier dessiné dans le quart en fantôme, de côté et vu du dos, alignés ;
+// les encoches. La moitié d’arc brisée en trois et ses trois coupes sont retirées : l’arc entier aux
+// vraies proportions les remplace, et la seule section cotée (38 × 25) reste sur le quart vu en bout.
 // Seules cotes : celles du chapitre, en mm : 1200 à 1800 de long, 38 × 25 au centre.
 // La bille est en vue orthogonale de trois quarts, d’un peu au-dessus, pour qu’on voie le dessus :
-// la fente, ouverte en V autour de chaque coin enfoncé.
-// Le demi-arc est aux vraies proportions (1 mm = S px), vue de côté et vue du dos à la même
-// échelle, coupé de deux traits de brisure ; les trois coupes sont à une échelle plus grande, la
-// même pour les trois ; le bout de l’arc, à une troisième. Ailleurs qu’au centre, épaisseurs et
-// largeurs sont des proportions (« à peine plus mince et plus étroit vers les bouts ») : aucune
-// n’est cotée.
+// la fente, ouverte en V autour de chaque coin enfoncé. Le quart écorcé est en perspective cavalière,
+// couché sur une face de fente, l’écorce tournée vers nous. Ailleurs qu’au centre, épaisseurs et
+// largeurs de l’arc sont des proportions (« à peine plus mince et plus étroit vers les bouts ») :
+// aucune n’est cotée. Le rayon de la bille (90 mm) est celui du quart vu en bout : un choix de dessin,
+// pas une cote.
+// La charte : le dessous de la bille et du quart couché, à l'ombre, et le flanc de chaque coin ; le
+// bois à enlever en gris de plan loin, sous un contour tireté. Le rouge : le dos, sur le quart (le
+// point qui casse si on y touche), et le sens du racloir.
 
 const r1 = v => Math.round(v * 10) / 10;
 const arc = (cx, cy, r, a0, a1, n = 60) =>
@@ -26,7 +34,6 @@ const epA = u => u <= 50 ? 25                                                   
   : u <= 110 ? 25 - 5 * (1 - Math.cos(Math.PI * (u - 50) / 60)) / 2             // la transition
   : 20 - 6 * (u - 110) / (BOUT - 110);                                          // le ventre du bras
 const laA = u => u <= 50 ? 38 : 38 - 7 * (u - 50) / (BOUT - 50);
-const U_B = 430, U_C = 695;
 
 // ── la bille, de trois quarts, vue d’un peu au-dessus ──
 // X le long de la bille (elle s’éloigne vers la droite), Y en travers, Z vers le haut ; rayon 1.
@@ -82,36 +89,28 @@ const repQuart = z => {
   return { Rq, H, u, ec, rb, hw, ep, yV, yCoin };
 };
 
-// ── le demi-arc ──
-const S = 0.85;                                    // px par mm
-const PIECES = [[0, 150], [370, 490], [670, BOUT]];
-const BRIS = 12;                                   // l’écart entre deux lèvres de brisure
-const repArc = z => {
-  const AX = 16;
-  const X = u => {
-    let x = AX;
-    for (const [a, b] of PIECES) { if (u <= b) return x + (Math.max(u, a) - a) * S; x += (b - a) * S + BRIS; }
-    return x;
-  };
-  const YB = 22;                                   // le dos, vue de côté
-  const yc = 84;                                   // l’axe, vue du dos
-  const SS = 1.5;                                  // échelle des coupes
-  const secs = [
-    { l: 'A', u: 0, cx: 420 },
-    { l: 'B', u: U_B, cx: 500 },
-    { l: 'C', u: U_C, cx: 572 },
-  ];
-  const ySec = 26;                                 // le dos des coupes
-  return { AX, X, YB, yc, SS, secs, ySec };
+// ── la moitié de l’arc dans le quart, en fantôme : de côté et vu du dos, alignés ──
+// La moitié, de l’axe de la poignée au bout, d’un seul tenant (sans brisure), à la même échelle dans les
+// deux vues. Le quart (rayon 90 mm, celui du quart vu en bout) est en gris : le bois qu’on enlève.
+const LST = 1650;                                  // le quart, un peu plus long que l’arc (mm)
+const RQ = 90, EC = 6.5;                           // rayon du quart ; écorce et couche molle (mm)
+const repDeg = z => {
+  const S3 = 0.68;                                 // px par mm
+  const AX = 18, x = u => AX + u * S3;
+  const R = RQ * S3, ys0 = 4;                      // le dessus de l’écorce, de côté
+  const yd = ys0 + EC * S3;                        // le dos de l’arc, sous l’écorce
+  const yb0 = ys0 + R + 12 + 0.707 * R;            // l’axe, vu du dos
+  const yCo = yb0 + 0.707 * R + 22;
+  return { S3, AX, x, R, ys0, yd, yb0, yCo };
 };
 
 // ── le bout de l’arc, en grand ──
-const K = 2.0;                                     // px par mm
+const K = 1.6;                                     // px par mm
 const repBout = z => {
-  const XT = 320, u0 = 600;                        // le bout ; le bois montré commence à u0
+  const XT = 320, u0 = 561;                        // le bout ; le bois montré commence à u0 (au bord gauche du dégrossi)
   const xu = u => XT - (BOUT - u) * K;
-  const YS = 17;                                   // le dos, vue de côté
-  const yB = 111;                                  // l’axe, vue du dos
+  const YS = 12;                                   // le dos, vue de côté
+  const yB = 84;                                   // l’axe, vue du dos
   const ev = u => YS + epA(u) * K;                 // le ventre, vue de côté
   const hB = u => laA(u) / 2 * K;                  // demi-largeur, vue du dos
   const d1 = 25, pente = 0.7;                      // l’entaille : à 25 du bout au dos, en biais vers la poignée
@@ -152,15 +151,15 @@ module.exports = (h) => {
   return {
     ref: '45-01a',
     titre: 'L’arc tiré d’une bille fendue',
-    desc: 'Première page de l’arc de bille. En haut à gauche, une bille de mélèze vue de trois quarts, d’un peu au-dessus : la fente ouverte par le centre, deux coins enfoncés dans la fente sur le dessus, la fente ouverte en V autour de chacun, et en tireté la seconde fente qui ouvrira chaque moitié par son centre ; les fentes de l’écorce courent droit le long du tronc. En haut à droite, le quart gardé vu en bout : le cœur à la pointe, les cernes, l’écorce ; dedans, la section de l’arc au centre, 38 mm de large sur 25 mm d’épais, cotées hors du quart (38 au-dessus, 25 à gauche), le dos suivant le premier cerne sous l’écorce et le ventre plat tourné vers le cœur. Au milieu, la moitié de l’arc, de l’axe de la poignée jusqu’au bout, aux vraies proportions et coupée de deux traits de brisure : de côté (le dos droit, la poignée droite à pleine épaisseur, une transition douce, puis le ventre du bras qui s’amincit jusqu’au bout) et, dessous, vu du dos, à la même échelle, reliés par des traits de rappel aux limites de la poignée, au début du bras, à l’encoche et au bout ; la longueur de l’arc entier, 1200 à 1800 mm (4 à 6 pi), cotée jusqu’à l’axe de symétrie. À droite, trois coupes à la même échelle : A-A au centre de la poignée, 38 × 25 mm, le dos arrondi en suivant le cerne ; B-B au milieu du bras et C-C près du bout, plus minces et à peine plus étroites. En bas, le bout de l’arc en grand, de côté au-dessus et vu du dos dessous, alignés : l’entaille en biais qui descend du dos vers le ventre en direction de la poignée, sur chaque côté, et la boucle de la corde assise dans les deux entailles, passée sur le dos, la corde partant sous le ventre vers la poignée ; à droite, barrée, la fente dans l’axe du bois, qui s’ouvre et remonte le fil. Encadré danger : le dos ne se touche jamais, une fibre coupée sur le dos est l’endroit où l’arc cassera.',
+    desc: 'Première page de l’arc de bille, dans l’ordre du travail. En haut à gauche, fendre : une bille de mélèze vue de trois quarts, d’un peu au-dessus, la fente ouverte par le centre, deux coins enfoncés dans la fente sur le dessus, la fente ouverte en V autour de chacun, et en tireté la seconde fente qui ouvrira chaque moitié par son centre. En haut à droite, le quart gardé vu en bout : le cœur à la pointe, les cernes, l’écorce et la couche molle à enlever au racloir ; dedans, la section de l’arc au centre, 38 mm de large sur 25 mm d’épais, le dos sur le premier cerne sous l’écorce, le ventre plat tourné vers le cœur. Au milieu, dégrossir : la moitié de l’arc, de l’axe de la poignée jusqu’au bout, d’un seul tenant et aux vraies proportions, dessinée dans le quart en gris (le bois qu’on enlève) ; de côté au-dessus, le dos droit sous l’écorce, la poignée pleine, puis le ventre du bras qui s’amincit jusqu’au bout ; vu du dos dessous, à la même échelle, la largeur qui diminue à peine, le fil droit, les encoches ; des traits de rappel relient les deux vues ; la longueur de l’arc entier, 1200 à 1800 mm (4 à 6 pi), cotée jusqu’à l’axe de symétrie. En bas, les encoches : le bout de l’arc en grand, de côté et vu du dos, l’entaille en biais qui descend du dos vers le ventre en direction de la poignée, la boucle de la corde assise dans les deux entailles ; à droite, barrée, la fente dans l’axe du bois, qui s’ouvre et remonte le fil. Encadré danger : le dos ne se touche jamais, une fibre coupée sur le dos est l’endroit où l’arc cassera.',
     format: 'pleine',
-    disposition: [['bille', 'quart'], ['arc'], ['encoche']],
-    hauteurs: [201, 154, 168],
+    disposition: [['bille', 'quart'], ['degrossir'], ['encoche']],
+    hauteurs: [150, 190, 122],
     largeurs: [[4, 3], [1], [1]],
     danger: 'Danger — le dos ne se touche jamais. Une fibre coupée sur le dos est l’endroit exact où l’arc cassera, au premier bandage. La scie coupe le fil, la fente le suit : on fend la bille, on ne la scie pas.',
     vues: {
       bille: {
-        titre: 'Ouvrir la bille aux coins',
+        titre: 'Fendre la bille aux coins',
         dessin: z => {
           const { R, p } = repBille(z);
           const o = [];
@@ -168,7 +167,15 @@ module.exports = (h) => {
           const ell = k => { const q = []; for (let a = 0; a <= 360; a += 4) q.push(p(0, k * Math.cos(a * Math.PI / 180), k * Math.sin(a * Math.PI / 180))); return q; };
           // la surface de la bille, brisée au bout
           const A = p(0, cs, sn), B = p(LG, cs, sn), Cc = p(LG, -cs, -sn), Dd = p(0, -cs, -sn);
-          o.push(h.path(`M${P(A)} L${P(B)} ${sAller(B, Cc, 7)} L${P(Dd)} Z`, BL));
+          const surf = `M${P(A)} L${P(B)} ${sAller(B, Cc, 7)} L${P(Dd)} Z`;
+          o.push(h.path(surf, BL));
+          // le dessous de la bille, tourné vers le bas à droite : à l'ombre (découpé par la surface)
+          const gen = (X, deg) => p(X, Math.cos(deg * Math.PI / 180), Math.sin(deg * Math.PI / 180));
+          const bande = [];
+          for (let dg = 228; dg >= 168; dg -= 4) bande.push(gen(0, dg));
+          for (let dg = 168; dg <= 228; dg += 4) bande.push(gen(LG + 0.3, dg));
+          o.push(`<defs><clipPath id="zone-bille-45"><path d="${surf}" fill="none"/></clipPath></defs>`);
+          o.push(`<g clip-path="url(#zone-bille-45)">${h.chemin(bande, h.a.ombre, true)}</g>`);
           o.push(h.ligne(...A, ...B, h.a.contour), h.ligne(...Dd, ...Cc, h.a.contour));
           // fentes de l’écorce : droites le long du tronc, le fil est droit
           for (const deg of [60, 72, 110, 128, 148, 170, 194, 214]) {
@@ -200,7 +207,7 @@ module.exports = (h) => {
           for (const sc of COINS) {
             const F = [p(sc, -ws / 2, 1), p(sc, ws / 2, 1), p(sc, wh / 2, Zt), p(sc, -wh / 2, Zt)];
             const K2 = [p(sc + e, -ws / 2, 1), p(sc + e, ws / 2, 1), p(sc + e, wh / 2, Zt), p(sc + e, -wh / 2, Zt)];
-            o.push(h.chemin([F[0], F[3], K2[3], K2[0]], BL, true), h.chemin([F[3], F[2], K2[2], K2[3]], BL, true), h.chemin(F, BL, true));
+            o.push(h.chemin([F[0], F[3], K2[3], K2[0]], h.a.arete.replace('fill="none"', 'fill="#CFCFCF"'), true), h.chemin([F[3], F[2], K2[2], K2[3]], BL, true), h.chemin(F, BL, true));
           }
           return o.join('\n');
         },
@@ -217,7 +224,7 @@ module.exports = (h) => {
       },
 
       quart: {
-        titre: 'Le quart gardé, vu en bout',
+        titre: 'Garder un quart : l’arc dedans, vu en bout',
         dessin: z => {
           const { Rq, H, ec, rb, hw, ep, yV, yCoin } = repQuart(z);
           const o = [];
@@ -250,102 +257,83 @@ module.exports = (h) => {
           const yDos = H[1] - rb, xC25 = H[0] - 0.707 * Rq - 11;
           o.push(h.ligne(H[0] - 4, yDos, xC25 - 4, yDos, h.a.fin), h.ligne(H[0] - hw - 3, yV, xC25 - 4, yV, h.a.fin));
           o.push(h.cote(xC25, yDos, xC25, yV, '25', { cote: 'gauche' }));
+          // le point à contrôler : le dos, qu'on ne touche jamais (celui qui casse)
+          o.push(h.controle(H[0], yDos, 10));
           return o.join('\n');
         },
         renvois: z => {
           const { Rq, H, rb, hw, yV } = repQuart(z);
           const aE = -Math.PI / 2 + 0.35;
           return [
-            { n: 4, rond: [z.l - 13, 44], cible: [r1(H[0] + hw - 6), r1(H[1] - Math.sqrt(rb * rb - (hw - 6) ** 2) + 1)], texte: 'le dos : sous l’écorce, jamais touché' },
-            { n: 5, rond: [z.l - 16, 16], cible: [r1(H[0] + (Rq - 3.5) * Math.cos(aE)), r1(H[1] + (Rq - 3.5) * Math.sin(aE))], texte: 'écorce et couche molle, au racloir' },
-            { n: 6, rond: [22, r1(yV + 32)], cible: [r1(H[0] - hw * 0.4), r1(yV)], texte: 'le ventre, côté cœur : on y gratte' },
-            { n: 7, rond: [z.l - 22, r1(H[1] - 14)], cible: [r1(H[0] + 1), r1(H[1] - 5)], texte: 'cœur et premiers cernes, enlevés' },
+            { n: 4, rond: [z.l - 13, 40], cible: [r1(H[0] + hw - 6), r1(H[1] - Math.sqrt(rb * rb - (hw - 6) ** 2) + 1)], texte: 'le dos : sous l’écorce, jamais touché' },
+            { n: 5, rond: [z.l - 16, 14], cible: [r1(H[0] + (Rq - 3.5) * Math.cos(aE)), r1(H[1] + (Rq - 3.5) * Math.sin(aE))], texte: 'écorce et couche molle, au racloir' },
+            { n: 6, rond: [22, r1(yV + 30)], cible: [r1(H[0] - hw * 0.4), r1(yV)], texte: 'le ventre, côté cœur : on y gratte' },
+            { n: 7, rond: [z.l - 22, r1(H[1] - 12)], cible: [r1(H[0] + 1), r1(H[1] - 5)], texte: 'cœur et premiers cernes, enlevés' },
           ];
         },
       },
 
-      arc: {
-        titre: 'La moitié de l’arc, de la poignée au bout : de côté, vu du dos, et en coupe',
+      degrossir: {
+        titre: 'Dégrossir au ventre, de côté et vu du dos : en gris, le bois qu’on enlève',
         dessin: z => {
-          const { AX, X, YB, yc, SS, secs, ySec } = repArc(z);
+          const { S3, AX, x, R, ys0, yd, yb0, yCo } = repDeg(z);
           const o = [];
-          const ventre = u => YB + epA(u) * S;
-          const bordH = u => yc - laA(u) / 2 * S, bordB = u => yc + laA(u) / 2 * S;
-          // l’encoche, vue du dos : un V sur chaque bord
+          const uF = Math.min(LST / 2, (z.l - 2 - AX) / S3);
+          const n = 120, us = Array.from({ length: n + 1 }, (_, i) => BOUT * i / n);
+          // ── de côté : le quart en gris, l’arc sous le dos ──
+          const fq = [[x(0), ys0], [x(uF), ys0], [x(uF), ys0 + R], [x(0), ys0 + R]];
+          o.push(h.chemin(fq, h.a.loin, true));
+          o.push(h.path(`M${P([x(0), ys0])} L${P([x(uF), ys0])} L${P([x(uF), ys0 + R])} L${P([x(0), ys0 + R])}`, h.a.cache));
+          o.push(h.ligne(x(0) + 2, ys0 + 0.293 * R, x(uF) - 2, ys0 + 0.293 * R, h.a.fin));   // l’arête de l’écorce
+          const ventre = u => yd + epA(u) * S3;
+          const cote = [...us.map(u => [x(u), yd]), ...us.slice().reverse().map(u => [x(u), ventre(u)])];
+          o.push(h.chemin(cote, BL, true));
+          // l’entaille, de côté : en biais du dos vers le ventre, vers la poignée
+          const xe = x(ENC), glis = epA(ENC) * 0.7 * S3;
+          for (const dx of [-2, 2]) o.push(h.ligne(xe + dx, yd, xe + dx - glis, ventre(ENC), h.a.arete));
+          o.push(h.path(`M${P([x(0), yd])} ${us.slice(1).map(u => `L${P([x(u), yd])}`).join(' ')} L${P([x(BOUT), ventre(BOUT)])} ${us.slice().reverse().map(u => `L${P([x(u), ventre(u)])}`).join(' ')}`, h.a.contour));
+          // ── vu du dos : le quart en gris, la largeur de l’arc ──
+          const hq = 0.707 * R;
+          o.push(h.chemin([[x(0), yb0 - hq], [x(uF), yb0 - hq], [x(uF), yb0 + hq], [x(0), yb0 + hq]], h.a.loin, true));
+          o.push(h.path(`M${P([x(0), yb0 - hq])} L${P([x(uF), yb0 - hq])} L${P([x(uF), yb0 + hq])} L${P([x(0), yb0 + hq])}`, h.a.cache));
           const encDos = (pts, sg) => {
-            const xe = X(ENC), dx = 3 * S, prof = 4 * S;
-            const out = [];
+            const xe2 = x(ENC), dx = 3 * S3, prof = 4 * S3, out = [];
             for (const p of pts) {
-              if (Math.abs(p[0] - xe) < dx) continue;
-              if (out.length && out[out.length - 1][0] < xe - dx && p[0] > xe + dx)
-                out.push([xe - dx, p[1]], [xe - 0.8, p[1] - sg * prof], [xe + 0.8, p[1] - sg * prof], [xe + dx, p[1]]);
+              if (Math.abs(p[0] - xe2) < dx) continue;
+              if (out.length && out[out.length - 1][0] < xe2 - dx && p[0] > xe2 + dx)
+                out.push([xe2 - dx, p[1]], [xe2 - 0.8, p[1] - sg * prof], [xe2 + 0.8, p[1] - sg * prof], [xe2 + dx, p[1]]);
               out.push(p);
             }
             return out;
           };
-          PIECES.forEach(([a, b], i) => {
-            const g = i === 0 ? 'axe' : 'bris', d = b === BOUT ? 'bout' : 'bris';
-            // de côté : le dos droit en haut, le ventre dessous
-            o.push(piece(X, a, b, () => YB, ventre, g, d));
-            // vu du dos : la largeur, les encoches
-            o.push(piece(X, a, b, bordH, bordB, g, d, b === BOUT ? encDos : null));
-            // le fil, droit
-            const i0 = a + (i === 0 ? 3 : 7) / S, i1 = b === BOUT ? ENC - 9 : b - 7 / S;
-            for (const k of [-0.27, 0, 0.27]) {
-              const us = Array.from({ length: 21 }, (_, j) => i0 + (i1 - i0) * j / 20);
-              o.push(h.chemin(us.map(u => [X(u), yc + k * laA(u) * S]), h.a.fin));
-            }
-          });
-          // l’entaille, de côté : en biais du dos vers le ventre, vers la poignée
-          const xe = X(ENC), glis = epA(ENC) * 0.7 * S;
-          for (const dx of [-2.5, 2.5]) o.push(h.ligne(xe + dx, YB, xe + dx - glis, ventre(ENC), h.a.arete));
+          const H = encDos(us.map(u => [x(u), yb0 - laA(u) / 2 * S3]), -1), B = encDos(us.map(u => [x(u), yb0 + laA(u) / 2 * S3]), 1);
+          o.push(h.chemin([...H, ...B.slice().reverse()], BL, true));
+          for (const k of [-0.27, 0, 0.27]) o.push(h.chemin(us.filter(u => u > 6 && u < ENC - 12).map(u => [x(u), yb0 + k * laA(u) * S3]), h.a.fin));
+          o.push(h.path(`M${P(H[0])} ${H.slice(1).map(p => `L${P(p)}`).join(' ')} L${P(B[B.length - 1])} ${B.slice().reverse().map(p => `L${P(p)}`).join(' ')}`, h.a.contour));
           // l’axe de symétrie, au milieu de la poignée
-          o.push(h.ligne(AX, YB - 16, AX, bordB(0) + 22, AXE));
-          // les traits de rappel : poignée, début du bras, encoche, bout
-          for (const u of [50, 110, ENC, BOUT]) o.push(h.ligne(X(u), ventre(u) + 3, X(u), bordH(u) - 3, h.a.fin));
-          // les plans de coupe
-          for (const s of secs) {
-            const x = X(s.u);
-            o.push(h.ligne(x, YB - 13, x, YB - 4, h.a.contour), h.ligne(x, ventre(s.u) + 4, x, ventre(s.u) + 13, h.a.contour));
-            o.push(h.texte(x + 9, YB - 5, s.l), h.texte(x + 9, ventre(s.u) + 13, s.l));
-          }
+          o.push(h.ligne(AX, ys0 - 2, AX, yb0 + hq + 22, AXE));
+          // les traits de rappel : la poignée, le début du bras, l’encoche, le bout
+          for (const u of [50, 110, ENC, BOUT]) o.push(h.ligne(x(u), ventre(u) + 3, x(u), yb0 - laA(u) / 2 * S3 - 3, h.a.fin));
           // la longueur de l’arc entier, cotée jusqu’à l’axe de symétrie
-          const yCo = bordB(0) + 14, xb = X(BOUT);
-          o.push(h.ligne(xb, bordB(BOUT) + 3, xb, yCo + 5, h.a.fin));
+          const xb = x(BOUT);
+          o.push(h.ligne(xb, yb0 + laA(BOUT) / 2 * S3 + 3, xb, yCo + 5, h.a.fin));
           o.push(h.ligne(xb, yCo, AX - 10, yCo, h.a.detail), h.ligne(xb, yCo - 6, xb, yCo + 6, h.a.detail));
-          o.push(h.texte((xb + AX) / 2 + 10, yCo + 15, '1200 à 1800 (4 à 6 pi)'));
-          // les trois coupes, à la même échelle entre elles : le dos sur le cerne, le ventre plat
-          const Rc = 83.4;                               // le cerne du dos, en mm (celui du quart)
-          for (const s of secs) {
-            const hwm = laA(s.u) / 2, T = epA(s.u);
-            const fl = m => (Rc - Math.sqrt(Rc * Rc - m * m)) * SS;
-            const dos = Array.from({ length: 25 }, (_, j) => { const m = -hwm + 2 * hwm * j / 24; return [s.cx + m * SS, ySec + fl(m)]; });
-            const sec = [...dos, [s.cx + hwm * SS, ySec + T * SS], [s.cx - hwm * SS, ySec + T * SS]];
-            o.push(h.chemin(sec, h.a.hachure('bois', 'aucun'), true), h.chemin(sec, h.a.contour, true));
-            o.push(h.texte(s.cx, ySec - 10, `${s.l}-${s.l}`));
-            if (s.u === 0) {
-              const xg = s.cx - hwm * SS, yv = ySec + T * SS;
-              o.push(h.ligne(xg, yv + 3, xg, yv + 16, h.a.fin), h.ligne(s.cx + hwm * SS, yv + 3, s.cx + hwm * SS, yv + 16, h.a.fin));
-              o.push(h.cote(xg, yv + 12, s.cx + hwm * SS, yv + 12, '38', { cote: 'dessous' }));
-              o.push(h.ligne(s.cx - 3, ySec, xg - 14, ySec, h.a.fin), h.ligne(xg - 3, yv, xg - 14, yv, h.a.fin));
-              o.push(h.cote(xg - 10, ySec, xg - 10, yv, '25', { cote: 'gauche' }));
-            }
-          }
+          o.push(h.texte((xb + AX) / 2, yCo - 5, 'l’arc entier : 1200 à 1800 (4 à 6 pi)', { lisere: true }));
           return o.join('\n');
         },
         renvois: z => {
-          const { X, YB, yc } = repArc(z);
-          const ventre = u => YB + epA(u) * S;
+          const { S3, x, R, ys0, yd, yb0 } = repDeg(z);
+          const ventre = u => yd + epA(u) * S3;
           return [
-            { n: 8, rond: [42, 64], cible: [34, r1(ventre(20) - 1)], texte: 'la poignée reste pleine' },
-            { n: 9, rond: [r1(X(U_B) + 34), 62], cible: [r1(X(U_B) + 16), r1(ventre(U_B + 16 / S))], texte: 'le ventre des bras, aminci' },
-            { n: 10, rond: [r1(X(150) - 10), 52], cible: [r1(X(120)), r1(yc - 0.27 * laA(120) * S)], texte: 'le fil droit d’un bout à l’autre' },
+            { n: 8, rond: [r1(x(70)), r1(ys0 + R - 12)], cible: [r1(x(24)), r1(ventre(24))], texte: 'la poignée reste pleine' },
+            { n: 9, rond: [r1(x(330)), r1(ys0 + R - 12)], cible: [r1(x(400)), r1(ventre(400))], texte: 'le ventre des bras, aminci' },
+            { n: 10, rond: [r1(x(250)), r1(yb0 + 0.707 * R - 12)], cible: [r1(x(200)), r1(yb0 + 0.27 * laA(200) * S3)], texte: 'le fil droit d’un bout à l’autre' },
           ];
         },
       },
 
       encoche: {
-        titre: 'Le bout de l’arc : l’encoche de côté et vue du dos, et la fente à ne pas faire',
+        titre: 'Tailler les encoches : de côté et vu du dos ; à droite, la fente à ne pas faire',
         dessin: z => {
           const { XT, u0, xu, YS, yB, ev, hB, gHaut, gBas, gL, cordeEp, xF0, xF1 } = repBout(z);
           const o = [];
@@ -362,11 +350,11 @@ module.exports = (h) => {
           o.push(h.cercle(cap[0], cap[1], cordeEp / 2, BL));
           o.push(h.formes.corde([
             cap, [gHaut, YS + 2], [(gHaut + gBas) / 2, (YS + yVg) / 2], [gBas + 1.5, yVg - 2],
-            [gBas - 7, yVg + 4], [gBas - 24, yVg + 8], [gBas - 70, yVg + 15], [gBas - 130, yVg + 24],
+            [gBas - 7, yVg + 3], [gBas - 24, yVg + 6], [gBas - 70, yVg + 11], [gBas - 130, yVg + 17],
           ], { ep: cordeEp, torons: true, debut: 'ouvert', fin: 'fixe' }));
           // la ligature qui ferme la boucle
           const lig0 = gBas - 38, lig1 = gBas - 56;
-          const yAt = x => yVg + 8 + (x - (gBas - 24)) / ((gBas - 70) - (gBas - 24)) * 7;
+          const yAt = x => yVg + 6 + (x - (gBas - 24)) / ((gBas - 70) - (gBas - 24)) * 5;
           const dl = [lig0, lig1].map(x => [x, yAt(x)]);
           const tg = [dl[1][0] - dl[0][0], dl[1][1] - dl[0][1]], lt = Math.hypot(...tg), nx = -tg[1] / lt, ny = tg[0] / lt, w = cordeEp / 2 + 1.2;
           const quad = [[dl[0][0] + nx * w, dl[0][1] + ny * w], [dl[1][0] + nx * w, dl[1][1] + ny * w], [dl[1][0] - nx * w, dl[1][1] - ny * w], [dl[0][0] - nx * w, dl[0][1] - ny * w]];
@@ -417,8 +405,8 @@ module.exports = (h) => {
           const yVg = ev(BOUT - (320 - gBas) / K);
           const t = 0.5, gx = gHaut + gL + (gBas - gHaut) * t, gy = YS + (yVg - YS) * t;
           return [
-            { n: 11, rond: [352, 30], cible: [r1(gx), r1(gy)], texte: 'entaille en biais, limée lisse' },
-            { n: 12, rond: [r1(xF1 - 28), 58], cible: [r1(xF1 - 20), r1(yB)], texte: 'jamais une fente dans l’axe' },
+            { n: 11, rond: [352, 26], cible: [r1(gx), r1(gy)], texte: 'entaille en biais, limée lisse' },
+            { n: 12, rond: [r1(xF1 - 28), 50], cible: [r1(xF1 - 20), r1(yB)], texte: 'jamais une fente dans l’axe' },
           ];
         },
       },

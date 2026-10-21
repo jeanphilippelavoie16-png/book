@@ -138,7 +138,7 @@ module.exports = (h) => {
       ou: {
         titre: 'Où il est',
         dessin: z => C.dessiner(h, place1(z), {
-          id: 'v1', fondOs: false, loin: 'fin',
+          id: 'v1', fondOs: false, loin: 'gris',
           os: ['vertebres', 'cote12', 'cote13', ...osCroupe, 'rotule', 'tibia'],
           osForts: ['bassin', 'sacrum'],
           muscles: ['fessierMoyen'],
@@ -160,7 +160,7 @@ module.exports = (h) => {
         dessin: z => {
           const p = place2(z);
           const out = [C.dessiner(h, p, {
-            id: 'v2', fondOs: false, loin: 'fin',
+            id: 'v2', fondOs: false, loin: 'gris',
             os: ['bassin', 'femur'],
             muscles: musclesCuisse,
           })];
@@ -174,7 +174,9 @@ module.exports = (h) => {
           out.push(`<path d="${dP(coutures.map(p.T), false)}" ${pointille}/>`);
           // le geste : du grand trochanter vers le ligament sacro-iliaque, le long de la couture
           const f = lisseU(p, [[1394, 460], [1398, 432], [1408, 404], [1420, 384]]);
-          out.push(h.fleche(dP(f, false), h.a.arete));
+          // la charte : la flèche du geste en rouge, sur un liseré blanc
+          out.push(`<path d="${dP(f, false)}" fill="none" stroke="${BLANC}" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>`);
+          out.push(h.geste(dP(f, false)));
           return out.join('\n');
         },
         renvois: z => {

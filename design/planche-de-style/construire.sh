@@ -1,5 +1,5 @@
 #!/bin/bash
-# Planche de style — Le Grand Livre du Chalet, direction 1 (manuel de terrain, couleurs nordiques).
+# Planche de style — Le Manuel du Nord, direction 1 (manuel de terrain, couleurs nordiques).
 # 1. Rend les vraies pages (interieur.html, moteur de la direction 1) et les vraies couvertures
 #    (couvertures-nordique.html) en PNG, dans rendus/.
 # 2. Rend planche.html en PNG et en PDF.

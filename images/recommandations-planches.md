@@ -15,6 +15,14 @@ nouvelle numérotation (six tomes).
    replient autour de l'objet, le pouce en face), ou pas de main du tout : l'objet dans sa position et
    la flèche du geste. Même chose pour une tête ou un corps : une silhouette propre et bien
    proportionnée, ou rien. Un personnage raté ruine une planche même quand le geste est juste.
+   **Enlever la main n'est pas la réponse** (JP, 12 octobre, sur 50-40, 28-02, 25-40, 13-09, 104-40,
+   27-04 refaites sans main : « c'est pas ça que je voulais, je les voulais mais bien faites ») : la
+   main, la tête ou le bras qui porte le geste reste, et se dessine bien — proportions justes, doigts
+   de longueur normale, pouce en face, prise qui serre vraiment l'objet.
+   JP, 12 octobre au soir, sur la bibliothèque refaite : « la prise du dos de la main, le pouce est pas
+   à la bonne place, de profil non plus. Les têtes sont dégueulasses. » Trois essais de mains et de
+   têtes construites par calcul ont raté : elles doivent partir d'un vrai modèle (photo ou planche
+   ancienne décalquée), pas d'une construction géométrique.
 3. **Un mécanisme (piège, collet, montage) doit se comprendre au premier regard.** Le dessin remplit
    sa vue, à une échelle où on lit chaque pièce ; les objets se reconnaissent sans la légende (une
    roche est une roche, une perche une perche) ; l'animal ou la charge est montré en place ; on voit
@@ -42,6 +50,49 @@ nouvelle numérotation (six tomes).
    il montre la **position**, rien d'autre ; (b) **le gros plan** sur la seule région qui compte (les
    mains et le bassin, le pied et la cheville), sans le reste du corps. Jamais de ventre, de seins ou de
    visage détaillés. Une grossesse se dit par un ventre arrondi simple dans le pictogramme.
+   **Depuis le 13 octobre 2026, le corps entier passe par la bibliothèque des corps simples**
+   (`h.formes.corps`, `.claude/skills/planches/scripts/corps/`) : JP l'a demandée « pas bonhomme
+   allumette, mais genre silhouette simple mais claire ». C'est une silhouette blanche à un seul
+   contour, avec le côté loin en gris, sans visage ni anatomie. Elle remplace le pictogramme (a) ;
+   le gros plan (b) reste, avec les mains calquées.
+9. **La charte : deux poids, deux gris, un rouge** (JP, 13 octobre 2026). Le contour de ce qui compte
+   pèse, le reste est fin. Le premier gris est pour le plan loin, le second pour la face à l'ombre
+   d'un volume, en aplats francs. Le rouge `#9B2C1E` sert à la flèche du geste, au point à
+   contrôler, à la zone dangereuse et à l'encadré danger, et à rien d'autre. Le détail est dans
+   `.claude/skills/planches/SKILL.md`, à la section « La charte ». **L'eau a sa couleur** (JP, 18 octobre 2026 : « fais
+   l'eau plus belle ») : un bleu pâle `#DCEAF2` et des vaguelettes fines `#4F7A93`, par la hachure `h.a.hachure('eau')`
+   seulement ; plus de tirets gris.
+10. **Une autre façon de faire se marque comme une autre façon** (JP, 16 octobre 2026, planche 03-10 : « la
+   variante à l'huile, faudrait la marquer que c'est une variante »). Dans une séquence de vignettes, une
+   vignette qui remplace une autre (« ou à l'huile ») ne se lit pas comme l'étape suivante : elle porte un
+   titre « Autre façon » ou « Sans… », elle est séparée de la séquence par un filet ou un espace net, et son
+   repère dit « au lieu de 10 », pas « 11 » à la suite. Le texte la dit aussi comme une autre façon. À
+   appliquer à toutes les planches qui ont une variante, à la passe finale.
+11. **Ce qui est en rouge s'explique** (JP, 16 octobre 2026, sur les planches du ch. 3 : « y a des affaires entourées
+   en rouge qu'on sait pas c'est quoi ; si c'est rouge, faut l'expliquer »). Chaque cercle, flèche ou zone rouge
+   porte un repère numéroté, et la légende dit ce qu'on doit y voir ou y vérifier (« le lit épais sous la
+   marmite : c'est par le fond qu'elle perd sa chaleur »), pas seulement le nom de la pièce. Un rouge qu'on ne
+   peut pas expliquer en une ligne sort. Au ch. 3 : 03-08 (le cercle sous la marmite, celui de la marmite à
+   moitié pleine), 03-10 (le robinet de l'étage, le disjoncteur), 03-11 (la fente), 03-12 (les coins et le
+   bas de la couverture). Puis toutes les planches, à la passe finale.
+12. **Une planche n'est pas jugée par l'agent qui l'a dessinée, et une planche que JP a déjà rejetée se refait
+   au complet** (JP, 16 octobre 2026, sur la 13-40 retouchée pour le ch. 13 : « les mains, l'amadou, le tipi, c'est
+   laid en câlisse ; je comprends pas qu'elle ait passé, celle-là »). La 13-40 était dans le tableau des planches
+   signalées (« Tabarnak, ouff ») : l'agent l'a retouchée au lieu de la refaire, s'est jugé lui-même, et je l'ai
+   envoyée sans la juger. Désormais : (1) avant toute retouche, on lit le tableau ci-dessous ; une planche qui y
+   est se refait depuis zéro, pas par retouche ; (2) chaque planche est regardée par un second regard, à la taille
+   d'impression puis de près sur les mains, les matières et le feu, contre la barre de JP (« le sable et la terre
+   dans la main, c'est butcher ») : est-ce qu'un illustrateur professionnel publierait ça ? Si non, elle ne
+   part pas ; (3) une planche retouchée retourne dans `a-valider/` jusqu'à ce que JP la voie.
+   (4) Les mains, les corps et les têtes viennent des moteurs validés (`mainStock`, `corps`, `teteSimple`), jamais
+   d'un dessin à la main (JP, 16 octobre 2026 : « l'agent respecte pas notre nouvelle liste de mains ; on se met des
+   règles et des outils, il faut les utiliser »). Le cadre complet à donner à tout agent de planches est dans
+   `.claude/skills/planches/references/brief-agent.md`.
+13. **Les mains en gros plan sont à refaire** (JP, 16 octobre 2026, devant la palette de `mainSimple` : « c'est pas beau
+   en criss » ; les corps de `corps` : « les corps sont beaux »). Tant que la bibliothèque de mains n'est pas refaite et
+   validée, une planche neuve évite le gros plan de main : la main coupée par le bord, l'objet seul avec le renvoi qui dit
+   la prise, ou le corps entier de profil. Plan de match, point 29. **Refaite le 18 octobre** : `h.formes.mainStock`, les
+   mains Adobe Stock 116570613 choisies par JP ; les planches à mains se refont avec elle.
 7. **La passe finale touche 100 % des planches** (JP, 24 septembre : « va falloir refaire une passe
    sur 100 % des planches à la fin »). Chaque planche, validée ou pas, est reprise contre toutes les
    règles ci-dessus : qualité du trait, mains et personnages, gestes fins, mécanismes, coupes en
@@ -67,3 +118,5 @@ planches de couture et de nœud déjà validées) ; les autres pièges et mécan
 collet, 51-08 l'assommoir, 48-08 et 48-09 les collets, 59-09 la trappe de batture) ; les autres coupes
 en couches (73-07 la glacière de blocs, 13-07 le filtre à sable, 12-06 le quinzhee et la tranchée,
 les caveaux, la cache de gel, la bécosse).
+
+14. **Jamais de cheveux, et le visage seulement quand il sert** (JP, 18 octobre 2026 : « on met jamais les cheveux, je veux plus les voir ; le visage est affiché seulement quand le visage fait une action ou qu'il y a une interaction »). Le moteur des têtes ne dessine plus de cheveux. `visage: true` seulement si la bouche, les yeux ou le nez font le geste (souffler, boire, regarder un point) ou si deux personnes interagissent ; sinon la tête reste nue.

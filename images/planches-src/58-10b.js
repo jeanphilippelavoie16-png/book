@@ -95,8 +95,8 @@ module.exports = (h) => {
           out.push(h.path(`M ${P([B, A, E, D, C])} Z`, h.a.blanc));
           out.push(h.path(`M ${P([B, A, E, D, C])}`, h.a.contour));
           out.push(rupture(B, C));
-          // le coup, le long de l'outil
-          out.push(h.fleche(`M ${P([add(add(tip, w, 150), n, 30), add(add(tip, w, 85), n, 30)])}`));
+          // le geste : le coup, le long de l'outil
+          out.push(h.geste(`M ${P([add(add(tip, w, 150), n, 30), add(add(tip, w, 85), n, 30)])}`));
           // la glace chassée vers le centre
           out.push(h.fleche(`M ${P([add(add(tip, w, 14), n, 16), [cx + 4, fond - 18]])}`, h.a.detail));
           return out.join('\n');
@@ -123,7 +123,10 @@ module.exports = (h) => {
           for (let y = yp - 12; y > top + 6; y -= 12) out.push(h.ligne(xj - 3.5, y, xj + 3.5, y, h.a.detail));
           // on lit au ras du dessus de la glace
           out.push(h.ligne(cx + ht, iceTop, xj + 2, iceTop, h.a.fin));
-          out.push(h.fleche(`M ${P([[xj - 14, iceTop - 22], [xj - 14, iceTop - 58]])}`));
+          // le geste : tirer la broche jusqu'à ce que le pied croche
+          out.push(h.geste(`M ${P([[xj - 14, iceTop - 22], [xj - 14, iceTop - 58]])}`));
+          // le point qu'on lit : l'entaille au ras du dessus de la glace
+          out.push(h.controle(xj, iceTop, 10));
           return out.join('\n');
         },
         renvois: z => {
@@ -180,7 +183,8 @@ module.exports = (h) => {
           out.push(h.path(`M ${P([[mx0, 12], [mx0, cb - 4], [mx1, cb - 4], [mx1, 12]])}`, h.a.arete));
           out.push(h.rect(mx0, 12, mx1 - mx0, cb - 4 - 12, h.a.hachure('bois', 'aucun')));
           out.push(rupture([mx0, 12], [mx1, 12]));
-          // la boîte : paroi, rebord, fond percé
+          // la boîte : l'intérieur, vu par la coupe, en gris loin ; paroi, rebord, fond percé
+          out.push(h.rect(cx - r, ct, 2 * r, cb - ct, h.a.loin));
           out.push(h.chemin([[cx - r, ct], [cx - r, cb], [cx + r, cb], [cx + r, ct]], h.a.contour));
           out.push(h.cercle(cx - r, ct, 2.2, h.a.plein));
           out.push(h.cercle(cx + r, ct, 2.2, h.a.plein));

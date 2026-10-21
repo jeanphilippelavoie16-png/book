@@ -13,7 +13,9 @@
 // Aucune cote : rien ne se construit ici. Le bâton qui enfonce la charge, le panier et la cuve sont
 // des choix de dessin pour « par charges » (on ne met pas la main dans l'eau qui bout) : ce qu'on
 // trouve partout. Le col du sac tordu et noué d'une ficelle est le choix de dessin pour « fermé ».
-// La main vient de la bibliothèque de formes (prise, vue du dos).
+// La main vient de la bibliothèque de formes (prise, vue du dos, main gauche : le bras arrive de droite,
+// à l'horizontale, le poing serré sur le bâton presque droit, le pouce couché dessus) — refaite le
+// 12 octobre sur la remarque de JP (« main »).
 module.exports = (h) => {
   const N = '#1A1A1A', B = '#FFFFFF';
   const f = v => Math.round(v * 10) / 10;
@@ -145,15 +147,31 @@ module.exports = (h) => {
     return flancP(-1).concat(coin(-1), coin(1).reverse(), flancP(1).reverse());
   };
   // le bâton et la main
-  const HM = [344, 46], ANG = 20;
+  // ─── mains simples : la boîte d'une vue, et l'angle qui met l'axe de la prise sur `axe` (degrés à l'écran)
+  // avec l'avant-bras du côté de `vers`
+  const BORD = z => ({ x0: 0, y0: 0, x1: z.l, y1: z.h });
+  const poser = (o, axe, vers) => {
+    const base = Object.assign({}, o, { angle: 0, avantbras: { longueur: 100 } });
+    delete base.objet;
+    const e0 = h.formes.mainSimple(base);
+    let best = null;
+    for (const k of [0, 180]) {
+      const a = axe - e0.prise.angle + k, e = h.formes.mainSimple(Object.assign({}, base, { angle: a }));
+      const d = [e.coude[0] - e.poignet[0], e.coude[1] - e.poignet[1]], w = [vers[0] - e.poignet[0], vers[1] - e.poignet[1]];
+      const c = (d[0] * w[0] + d[1] * w[1]) / ((Math.hypot(d[0], d[1]) * Math.hypot(w[0], w[1])) || 1);
+      if (!best || c > best.c) best = { a, c };
+    }
+    return best.a;
+  };
+  const HM = [300, 50], ANG = -10;
   const HAUT = [Math.sin(ANG * RAD), -Math.cos(ANG * RAD)], DR = [Math.cos(ANG * RAD), Math.sin(ANG * RAD)];
   const surBaton = (t, o = 0) => add(add(HM, mul(HAUT, t)), mul(DR, o));
-  const BOUT = surBaton(-107.4), TETE = surBaton(36);
+  const BOUT = surBaton(-98.5), TETE = surBaton(40);
 
   const baton = () => {
     const u = uni(sub(BOUT, TETE)), n = [-u[1] * 6, u[0] * 6];
     return [
-      h.path(`M${P(add(TETE, n))} L${P(add(BOUT, n))} A6 6 0 0 1 ${P(sub(BOUT, n))} L${P(sub(TETE, n))} A6 6 0 0 1 ${P(add(TETE, n))} Z`, blanc(1.4)),
+      h.path(`M${P(add(TETE, n))} L${P(add(BOUT, n))} A6 6 0 0 0 ${P(sub(BOUT, n))} L${P(sub(TETE, n))} A6 6 0 0 0 ${P(add(TETE, n))} Z`, blanc(1.4)),
       h.path(`M${P(surBaton(12, 1.8))} L${P(surBaton(-30, 1.8))} M${P(surBaton(-44, -2))} L${P(surBaton(-80, -2))}`, h.a.fin),
     ].join('\n');
   };
@@ -163,7 +181,7 @@ module.exports = (h) => {
     // le sol
     out.push(h.ligne(0, SOL, W1, SOL, h.a.contour));
     // le tuyau du poêle, qui monte derrière le chaudron ; coupé en haut par un trait de brisure
-    out.push(h.path('M214 196 L214 18 Q219 12 224 16 Q229 20 234 14 L234 196 Z', blanc(1.4)));
+    out.push(h.path('M214 196 L214 18 Q219 12 224 16 Q229 20 234 14 L234 196 Z', `fill="#E6E6E6" stroke="${N}" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"`));
     [40, 72].forEach(y => out.push(h.ligne(214, y, 234, y, h.a.detail)));
     // le poêle
     out.push(poele(192, 196, 192, 104, 42));
@@ -240,9 +258,14 @@ module.exports = (h) => {
     out.push(h.fleche('M100 232 Q108 96 198 74'));
     out.push(h.fleche('M382 110 Q500 104 508 250'));
     // le geste : enfoncer la charge
-    out.push(h.fleche(`M${P(surBaton(-22, 14))} L${P(surBaton(-52, 14))}`));
-    // la main sur le bâton
-    out.push(String(h.formes.main({ x: HM[0], y: HM[1], pose: 'prise', vue: 'dos', angle: ANG, echelle: 0.42, diametre: 12, bras: 46, objet: baton() })));
+    out.push(h.geste(`M${P(surBaton(-34, 14))} L${P(surBaton(-62, 14))}`));
+    // la main droite (mains simples), côté paume, serre le bâton (12 de large à l'écran, 24 mm à cette
+    // échelle) : le pouce en haut, le bâton entre par le haut du poing et ressort en bas ; l'avant-bras
+    // arrive de droite, court, coupé net
+    const oM = { x: HM[0], y: HM[1], pose: 'prise-manche', vue: 'paume', cote: 'droite', echelle: 0.5, diametre: 24 };
+    const vM = [HM[0] + 400, HM[1]];
+    const mM = h.formes.mainSimple({ ...oM, angle: poser(oM, ANG + 90, vM), avantbras: { vers: vM, longueur: 160 } });
+    out.push(mM.couches.main, mM.couches.masque, baton(), mM.couches.devant);
     return out.join('\n');
   };
 
@@ -377,7 +400,7 @@ module.exports = (h) => {
           return [
             { n: 1, rond: p([30, 214]), cible: p([72, 252]), texte: 'draps, pyjamas, sous-vêtements' },
             { n: 2, rond: p([430, 176]), cible: p([cx + 70, 152]), texte: 'bouillir 10 minutes par charge' },
-            { n: 3, rond: p([406, 22]), cible: surBaton(31).map((v, i) => v + o[i]), texte: 'le bâton enfonce la charge' },
+            { n: 3, rond: p([254, 30]), cible: surBaton(-44).map((v, i) => v + o[i]), texte: 'le bâton enfonce la charge' },
             { n: 4, rond: p([590, 232]), cible: p([552, 266]), texte: 'le linge bouilli, pour la semaine' },
           ];
         },

@@ -276,3 +276,30 @@ Compression §3 et §4 — 27 septembre 2026 : 1 885 mots → 231 mots (§3 : ~7
 ## Corrections du 29 septembre 2026
 
 - §5-A, encadré « Rappels repris d'ailleurs », cadmium des reins : « tolérée par l'Organisation mondiale de la santé » → « jugée tolérable ». Le fait (jusqu'à cent fois) reste ; l'attribution sort (CLAUDE.md : la provenance ne s'imprime pas). Même tournure qu'aux ch. 1, 22 et 63.
+
+## Planches du 15 octobre 2026 (lot t6b)
+
+Quatre planches neuves, rangées dans `images/a-valider/`, appelées dans le texte (« planche NN-NN »).
+
+- **109-41, le trépied de perches qui porte les quartiers** (§5-A). Tout vient du chapitre et de
+  `sources/86-us-army-fm5-125-trepied-chevre-perches.md` (élingue « over the cross », poulie de
+  renvoi au pied d'une patte, pattes reliées). Seule cote : l'écartement ½ à ⅔ de la patte. Le
+  quartier est une silhouette de repère prise sur `images/planches-src/_carcasse-orignal.js`, sans
+  anatomie. Le brêlage n'est que situé : il se dessine au ch. 110.
+- **109-42, les ancrages sans anneau** (§9). Ce que le chapitre ne dit pas et que la planche
+  dessine : les pieux inclinés d'environ 15° sur la verticale, tête loin de la traction ;
+  l'amarrage de la tête au pied du suivant tendu en tordant un bâton passé entre les tours, puis
+  planté ; le câble qui part du dessous de la bille ; la face avant de la tranchée en
+  contre-dépouille. Provenance : US Army FM 5-125, ch. 4, `sources/109-us-army-fm5-125-ancrages-piquets-bille.md`
+  (texte déjà enregistré dans `sources/86-us-army-fm5-125-texte-ocr.txt`). Aucune cote. Le
+  chapitre dit « bien tendu » sans dire comment : quelques mots sur le bâton tordu seraient utiles
+  au texte (à la rédaction de décider).
+- **109-43, rouler une bille à la corde double** (§9). Tout vient du chapitre. La retenue en
+  arrière n'est pas dessinée : le chapitre ne dit pas comment on la grée sur une pièce qui roule.
+  Aucune cote.
+- **109-44, le joint de vérin en cuir gras** (§9). Le mandrin enfoncé dans un trou percé au diamètre
+  du cylindre, le cuir pressé entre les deux : `sources/109-sciam-1911-matrice-cuir-coupelle.md`
+  (Scientific American, 1911). La rondelle et la vis qui tiennent le godet sous le piston sont la
+  façon courante de monter une coupelle, dessinées sans source propre. Aucune cote.
+- **Non faite : remonter quelqu'un d'un trou** (§9). Le texte ne dit pas comment faire la sangle de
+  poitrine et la sangle sous les cuisses ; la planche attend ce texte.

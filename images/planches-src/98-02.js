@@ -56,6 +56,18 @@ module.exports = (h) => {
     }
     return out.map(c => h.path(poly(c), A.cache)).join('\n');
   };
+  // La charte : la pomme de terre est un volume ; son flanc d'en bas à droite est à l'ombre. Le blanc,
+  // puis, découpés par la silhouette, le gris et une copie blanche décalée vers le haut à gauche :
+  // il reste un croissant ; le trait passe par-dessus.
+  let nOm = 0;
+  // masque : la forme décalée (par défaut la silhouette elle-même ; sans le creux d'un œil levé, pour
+  // que le croissant ne s'accroche pas au creux)
+  const ombreRonde = (pts, dx, dy, ep, masque = pts) => {
+    const d = poly(pts, true), dm = poly(masque, true), id = `om-9802-${nOm++}`;
+    return [h.path(d, fond), `<clipPath id="${id}"><path d="${d}" fill="none"/></clipPath>`,
+      `<g clip-path="url(#${id})">${h.path(d, A.ombre)}<path d="${dm}" transform="translate(${-dx} ${-dy})" ${fond}/></g>`,
+      h.path(d, `fill="none" stroke="${NOIR}" stroke-width="${ep}" stroke-linejoin="round"`)].join('\n');
+  };
   const bosse = t => 1 + 0.03 * Math.sin(3 * t + 0.4) + 0.015 * Math.cos(4 * t + 0.3);
 
   // ── la pomme de terre de côté : 100 de long, le dessus bombé, le dessous plus plat ──
@@ -216,11 +228,11 @@ module.exports = (h) => {
           const [xa, ya] = P([10, -90]), [, yb] = P([10, -66]);
           return [
             h.path(poly(QUEUE.forme.map(P), true), blancT(1.4)),
-            h.path(poly(SIL.map(P), true), blancT(2.4)),
+            ombreRonde(SIL.map(P), 14, 11, 2.4),
             h.path(poly(FENTE.map(P)), mixte),
             ...yeux.map(([x, y, r, t]) => oeil(P, k, x, y, r, t || 1)),
             cou.svg,
-            h.fleche(`M${f1(xa)} ${f1(ya)} L${f1(xa)} ${f1(yb)}`, A.arete),
+            h.geste(`M${f1(xa)} ${f1(ya)} L${f1(xa)} ${f1(yb)}`),   // la charte : le geste, la lame qui descend
           ].join('\n');
         },
         renvois: z => {
@@ -273,11 +285,11 @@ module.exports = (h) => {
           return [
             planche(P, k, -58, 60),
             cou.svg,
-            h.path(poly(pdt, true), blancT(2.4)),
+            ombreRonde(pdt, 11, 9, 2.4, ELEV.map(P)),
             bourgeon(P, XE - 0.8, hautA(XE - 0.8) + 0.5),
             ...yeux.map(([x, y, r, t]) => oeil(P, k, x, y, r, t || 1)),
             cache(cou.lame, pdt),
-            h.fleche(poly(arc), A.arete),
+            h.geste(poly(arc)),   // la charte : le geste, la pointe qui tourne autour de l'œil
           ].join('\n');
         },
         renvois: z => {

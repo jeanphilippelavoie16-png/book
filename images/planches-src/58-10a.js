@@ -1,5 +1,5 @@
 // Planche 58-10a — le ciseau à glace (ch. 58, section 9-A, points 1, 2 et 5).
-// Aucune cote : le chapitre ne chiffre ni la barre, ni le tuyau, ni le biseau.
+// Aucune cote : ni le chapitre ni aucune source enregistrée ne chiffre la barre, le tuyau ou le biseau.
 // Même orientation partout : pointe à droite, biseau dessus, face plate dessous.
 
 module.exports = (h) => {
@@ -46,6 +46,9 @@ module.exports = (h) => {
         dessin: z => {
           const cyF = f(z.h * 0.28), cyC = f(z.h * 0.74);
           const out = [];
+          // le dessous du manche (un tuyau), à l'ombre, peint avant tout le reste
+          out.push(h.rect(X0, cyF + R * 0.35, XM - X0, R * 0.65, h.a.ombre));
+          out.push(h.rect(X0, cyC + R * 0.35, XM - X0, R * 0.65, h.a.ombre));
           // ── de face : on regarde le côté du biseau
           const W = 9, WT = 13;
           out.push(blanc(`M ${P([[XM, cyF - W], [XB - 30, cyF - W], [XT, cyF - WT], [XT, cyF + WT], [XB - 30, cyF + W], [XM, cyF + W]])} Z`));
@@ -103,7 +106,8 @@ module.exports = (h) => {
           const pt = (a, b) => [c[0] + u[0] * a + n[0] * b, c[1] + u[1] * a + n[1] * b];
           out.push(blanc(`M ${P([pt(-12, -19), pt(12, -19), pt(12, 19), pt(-12, 19)])} Z`));
           out.push(blanc(`M ${P([pt(12, -4), pt(108, -3), pt(108, 5), pt(12, 6)])} Z`, h.a.arete));
-          out.push(h.fleche(`M ${P([pt(-34, 26), pt(-34, -8)])}`));
+          // le geste : frapper le bout chauffé, dessus seulement
+          out.push(h.geste(`M ${P([pt(-34, 26), pt(-34, -8)])}`));
           return out.join('\n');
         },
         renvois: z => {
@@ -129,7 +133,8 @@ module.exports = (h) => {
           out.push(blanc(`M ${P([pt(-70, 0), pt(160, 0), pt(160, 9), pt(-70, 9)])} Z`));
           out.push(blanc(`M ${P([pt(-70, 2.5), pt(-104, 3.5), pt(-104, 5.5), pt(-70, 6.5)])} Z`, h.a.arete));
           for (let s = -62; s < 156; s += 7) out.push(h.chemin([pt(s, 1), pt(s + 5, 8)], h.a.fin));
-          out.push(h.fleche(`M ${P([pt(-20, 24), pt(70, 24)])}`));
+          // le geste : la lime poussée sur le biseau, vers le fil
+          out.push(h.geste(`M ${P([pt(-20, 24), pt(70, 24)])}`));
           return out.join('\n');
         },
         renvois: z => {
@@ -155,6 +160,13 @@ module.exports = (h) => {
           // la soudure ferme la bouche, dessus et dessous
           out.push(h.path(`M ${P([[MX - 4, cy - RI], [MX, cy - RI], [MX, cy - RO + 1], [MX + 17, cy - TB], [MX - 4, cy - TB]])} Z`, h.a.plein));
           out.push(h.path(`M ${P([[MX - 4, cy + RI], [MX, cy + RI], [MX, cy + RO - 1], [MX + 17, cy + TB], [MX - 4, cy + TB]])} Z`, h.a.plein));
+          // trait de coupe : où la vue en bout est prise, regard vers la droite
+          const XC = 205, mixte = 'fill="none" stroke="#000" stroke-width="0.7" stroke-dasharray="14 3 2 3"';
+          out.push(h.path(`M ${XC} ${f(cy - RO - 16)} L ${XC} ${f(cy + RO + 16)}`, mixte));
+          for (const yy of [cy - RO - 16, cy + RO + 16]) {
+            out.push(h.ligne(XC, yy - 3, XC, yy + 3, h.a.contour));
+            out.push(h.fleche(`M ${XC} ${f(yy)} L ${XC + 20} ${f(yy)}`));
+          }
           // vu en bout, juste en dedans de la bouche
           const cx = 530, hw = Math.sqrt(RI * RI - TB * TB);
           out.push(h.cercle(cx, cy, RO, h.a.hachure('metal')));

@@ -2,7 +2,8 @@
 """Constructeur général d'un chapitre, direction 1 (manuel de terrain).
 
     python build_chapitre.py 10            -> design/epreuves-livre/10.html   (numéros NOUVEAUX, six tomes)
-    python build_chapitre.py 10 --rendu    -> + 10/page-XX.png (768 x 960, x2) + 10.pdf (8,125 x 10,25 po)
+    python build_chapitre.py 10 --rendu    -> + 10/page-XX.png (page rognée, x2) + 10.pdf (fond perdu compris)
+    python build_chapitre.py 10 --rendu --format blurb-8x10   (défaut : lulu-letter, 8,75 x 11,25 po ; FORMATS)
 
 Lit chapitres/NN-*.md (gabarit en neuf sections), réutilise md2blocks.py pour le texte
 (typographie, notes, renvois) et reprend tel quel le CSS et le paginateur de
@@ -14,16 +15,100 @@ Hauteur du SVG : 826 = pleine page, 413 = demi-page. Placement : design/epreuves
 placements.json (« apres » : début du paragraphe qui en parle), sinon la première mention
 « planche NN-0K » du texte, sinon fin de la section 5 (avec un avertissement).
 Photos : même fichier, clé « photos » (fichier, apres, taille quart|demi, legende).
+Logigramme en double page : même fichier, clé « logigramme » (fichier : le SVG de design/outils/logigramme.py
+--sans-entete ; apres ; orange) ; chapitre.js le pose sur la première page de gauche qui suit l'ancre.
 """
 import re, sys, os, glob, json, html, subprocess, time, tempfile, shutil
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from md2blocks import inline, load_notes, notes_html, join_lines
+from md2blocks import inline, load_notes, notes_html, join_lines, pictos
 
-ROOT = r"C:\Users\jeanp\New folder"
+def _racine_livre():
+    # Windows (le PC de JP) : le dossier d'origine ; ailleurs (session dans le nuage) : le dépôt qui contient ce fichier
+    if os.name == "nt":
+        return r"C:\Users\jeanp\New folder"
+    d = os.path.dirname(os.path.abspath(__file__))
+    while d != os.path.dirname(d) and not os.path.exists(os.path.join(d, "CLAUDE.md")):
+        d = os.path.dirname(d)
+    return d
+ROOT = _racine_livre()
 TOOLS = os.path.dirname(os.path.abspath(__file__))
 OUTD = os.path.join(ROOT, "design", "epreuves-livre")
-EDGE = r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
+EDGE = (r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" if os.name == "nt"
+        else (sorted(glob.glob("/opt/pw-browsers/chromium-*/chrome-linux/chrome")) or ["chromium"])[-1])
 REL_ROOT = "../../"          # depuis design/epreuves-livre/ vers la racine du livre
+
+# ------------------------------------------------------------------ formats d'impression
+# Le format choisi par JP le 19 octobre 2026 : Lulu, Print Book, US Letter 8,5 × 11 po, couverture rigide Case Wrap
+# (sources/lulu-specifications.md). Blurb 8 × 10 reste possible (sources/blurb-specifications.md). Toute la grille
+# du livre est en variables CSS (interieur.tpl.html, bloc « format:debut » … « format:fin », remplacé ici) :
+#   pw, ph   page du PDF, fond perdu compris        tw, th   page rognée
+#   fpt      fond perdu en tête (et en pied)        fpi, fpe fond perdu au petit fond (reliure), au bord extérieur
+#   bx-r     bord gauche du bloc au recto           bx-v     au verso (coordonnées de la page PDF)
+#   bw, bt, bh  largeur, haut et hauteur du bloc    rht      haut du titre courant
+#   ftt      haut du pied (0,2 po de haut)          ft-r, ft-v, ftw  bord gauche et largeur du pied
+#   fc-*     numéro de page du tome (assembler-tome.py, FCONT_CSS) : bord gauche et alignement, recto et verso
+#   tp-*     page de titre du tome (assembler-tome.py) : repère de la scène (page rognée, en px) et retraits du texte
+# Lulu : bloc à 0,5 po du rognage au bord extérieur (zone sûre, « 0.50 in Safety Margin for all content ») et à 1 po
+# au petit fond (marge intérieure recommandée de 151 à 400 pages, guide p. 9) ; le titre courant (haut à 0,5 po du
+# rognage) et le pied (bas à 0,5 po) entrent dans la zone sûre, avec le même écart au bloc qu'en Blurb. La colonne
+# garde 7 po de large (la page gagne 0,5 po, la marge intérieure aussi) et passe de 8,5 à 9,14 po de haut.
+# logi : où se pose le logigramme en double page (design/outils/logigramme.py le dessine en 8 × 10 po, colonnes à
+# 0,625 po du pli et 0,5 po du bord) : ecart = écart ajouté au pli, haut = descente, en po ; fpi et pw (fond perdu au
+# petit fond, largeur de page) en découlent. Lulu : écarté de 0,375 po du pli (colonnes à 1 po du pli) et centré en
+# hauteur ; les liens qui passent le pli restent d'un trait (chapitre.js, mkSpread).
+FORMATS = {
+    "lulu-letter": dict(
+        nom="Lulu, US Letter 8,5 × 11 po, couverture rigide Case Wrap",
+        page_pt=(630, 810), rog_pt=(612, 792), fp_pt=9, fp_rel_pt=9, px=(816, 1056),
+        css=dict(pw="8.75in", ph="11.25in", tw="8.5in", th="11in", fpt="0.125in", fpi="0.125in", fpe="0.125in",
+                 **{"bx-r": "1.125in", "bx-v": "0.625in", "bw": "7in", "bt": "1.14in", "bh": "9.14in", "rht": "0.625in",
+                    "ftt": "10.425in", "ft-r": "1.125in", "ft-v": "0.925in", "ftw": "6.7in",
+                    "fc-r": "7.925in", "fc-v": "0.625in", "fc-jr": "flex-end", "fc-jv": "flex-start",
+                    "tp-x": "0.125in", "tp-y": "0.125in", "tp-w": "816px", "tp-h": "1056px",
+                    "tp-g": "96px", "tp-gh": "90px", "tp-b": "52px"}),
+        logi=dict(ecart=0.375, haut=0.5)),
+    "blurb-8x10": dict(
+        nom="Blurb, livre photo Standard Portrait 8 × 10 po",
+        page_pt=(585, 738), rog_pt=(576, 720), fp_pt=9, fp_rel_pt=0, px=(768, 960),
+        css=dict(pw="8.125in", ph="10.25in", tw="8in", th="10in", fpt="0.125in", fpi="0in", fpe="0.125in",
+                 **{"bx-r": "0.5in", "bx-v": "0.625in", "bw": "7in", "bt": "0.875in", "bh": "8.5in", "rht": "0.36in",
+                    "ftt": "9.52in", "ft-r": "0.5in", "ft-v": "0.625in", "ftw": "7in",
+                    "fc-r": "7.565in", "fc-v": "0.36in", "fc-jr": "flex-start", "fc-jv": "flex-end",
+                    "tp-x": "0in", "tp-y": "0.125in", "tp-w": "768px", "tp-h": "960px",
+                    "tp-g": "56px", "tp-gh": "50px", "tp-b": "40px"}),
+        logi=dict(ecart=0, haut=0)),
+}
+FORMAT = "lulu-letter"
+
+def fmt():
+    return FORMATS[FORMAT]
+
+def format_css():
+    f = fmt(); w, h = f["page_pt"]
+    return (f"/* format:debut ({FORMAT}, build_chapitre.py) */\n@page {{ size: {w}pt {h}pt; margin: 0; }}\n:root{{"
+            + ";".join(f"--{k}:{v}" for k, v in f["css"].items()) + "}\n/* format:fin */")
+
+def appliquer_format(head):
+    """Remplace le bloc de format du gabarit (interieur.tpl.html) par celui du format choisi."""
+    out, n = re.subn(r"/\* format:debut.*?/\* format:fin \*/", lambda m: format_css(), head, count=1, flags=re.S)
+    if n != 1:
+        sys.exit("interieur.tpl.html : bloc « format:debut … format:fin » introuvable")
+    return out
+
+def boites(i):
+    """MediaBox et TrimBox (pt) de la page d'indice i (0 = page 1, un recto : reliure à gauche)."""
+    f = fmt(); (W, H), (tw, th), fp, fr = f["page_pt"], f["rog_pt"], f["fp_pt"], f["fp_rel_pt"]
+    return [0, 0, W, H], ([fr, fp, fr + tw, fp + th] if i % 2 == 0 else [fp, fp, fp + tw, fp + th])
+
+def choisir_format(argv):
+    """--format NOM dans la ligne de commande (défaut : lulu-letter)."""
+    global FORMAT
+    if "--format" in argv:
+        nom = argv[argv.index("--format") + 1]
+        if nom not in FORMATS:
+            sys.exit(f"format inconnu : {nom} (connus : {', '.join(FORMATS)})")
+        FORMAT = nom
+    return FORMAT
 
 # Six tomes (24 septembre 2026). Le tome se lit dans plan/renumerotation.json (tomeDuNouveau), jamais
 # dans le numéro. Les photos de images/photos/ gardent l'ancien numéro : on les retrouve par l'inverse
@@ -91,7 +176,77 @@ def il(s):
     s = re.sub("&(gt|lt|amp)[\u202f\u00a0 ];", r"&\1;", s)
     s = re.sub(rf"(\d) ({UNITS})(?![\w/])", "\\1\u202f\\2", s)
     s = re.sub(r"(?<![\d,])(\d{1,3}) (\d{3})(?![\d,])", "\\1\u202f\\2", s)   # 7 000, 1 440
-    return s
+    return pictos(s)
+
+# ------------------------------------------------------------------ premières minutes (la série orange)
+# CLAUDE.md, « Les premières minutes, en orange » (JP, 15 octobre 2026). Dans le Markdown, la série se marque
+# sur son intertitre : « ### Les quinze premières minutes {.orange} ». Chaque intertitre marqué ouvre une partie
+# de la série, qui court jusqu'au prochain intertitre ### non marqué ou au prochain ## ; deux parties marquées
+# qui se suivent font un seul encadré. L'heure du titre sort en gros sur une pastille (« 15 MIN », « 0–1 H ») :
+# elle se lit dans le titre (« Heure 0 à heure 1 », « Les six premières heures », « La première heure »), ou
+# se donne dans le marqueur quand le titre n'en dit pas (« {.orange 15 min} »).
+MARQUE_OR = re.compile(r"\s*\{\s*\.orange\b([^}]*)\}\s*$")
+NOMBRES = {"un": 1, "une": 1, "deux": 2, "trois": 3, "quatre": 4, "cinq": 5, "six": 6, "sept": 7, "huit": 8,
+           "neuf": 9, "dix": 10, "douze": 12, "quinze": 15, "vingt": 20, "trente": 30, "vingt-quatre": 24,
+           "quarante-huit": 48, "soixante-douze": 72}
+
+def marque_orange(t):
+    """« Titre {.orange} » -> (« Titre », "") ; « Titre {.orange 15 min} » -> (« Titre », "15 min") ; sans marqueur : (t, None)."""
+    m = MARQUE_OR.search(t)
+    if not m:
+        return t, None
+    return t[:m.start()].rstrip(), m.group(1).strip()
+
+def repere_heure(titre, donne=""):
+    """-> (chiffre, unité, reste du titre) ; chiffre vide si le titre ne dit pas l'heure."""
+    if donne:
+        m = re.match(r"^([\d–\-→+ ]*\d[+]?)\s*(.*)$", donne)
+        return (m.group(1).strip(), m.group(2).strip(), titre) if m else ("", donne, titre)
+    m = re.match(r"^[Hh]eure\s+(\d+)\s+à\s+heure\s+(\d+)\s*(?:[—–:]\s*(.*))?$", titre)
+    if m:
+        return f"{m.group(1)}–{m.group(2)}", "h", m.group(3) or titre
+    m = re.search(r"\b(?:[Ll]es|[Ll]a)\s+(?:([\w-]+)\s+)?premi[eè]res?\s+(demi-heure|minutes?|heures?|secondes?)\b", titre)
+    if m:
+        mot, unite = (m.group(1) or "").lower(), m.group(2)
+        n = int(mot) if mot.isdigit() else NOMBRES.get(mot)
+        if unite == "demi-heure":
+            return "30", "min", titre
+        if n is None and unite in ("heure", "minute", "seconde"):   # « La première heure »
+            n = 1
+        if n is not None:
+            return str(n), {"m": "min", "h": "h", "s": "s"}[unite[0]], titre
+    return "", "", titre
+
+def h3_orange(t, donne):
+    chiffre, unite, reste = repere_heure(t, donne)
+    if not chiffre:
+        WARN.append(f"série orange : aucune heure lisible dans « {t} » (la donner dans le marqueur : {{.orange 15 min}})")
+    tag = (f'<span class="otag">{html.escape(chiffre)}<small>{html.escape(unite)}</small></span>' if chiffre else "")
+    return f'<h3 class="sub or">{tag}<span class="ot">{il(reste)}</span></h3>'
+
+def segments_orange(items):
+    """Coupe une histoire [(html, src)] en parties [(orange?, items)] aux intertitres de la série. Une figure
+    posée par place() reste dans la partie de son ancre."""
+    segs, cur, etat = [], [], False
+    for h, src in items:
+        if h.startswith("<h2"):
+            nv = False
+        elif h.startswith('<h3 class="sub or"'):
+            nv = True
+        elif h.startswith("<h3"):
+            nv = False
+        else:
+            nv = etat
+        # chaque série orange est sa propre partie, même collée à la précédente : ses planches se posent tout de
+        # suite après elle (JP, 18 octobre 2026 : « quand on traite deux sujets, on les sépare pour permettre aux
+        # planches reliées au sujet d'être plus proches »)
+        if (nv != etat or h.startswith('<h3 class="sub or"')) and cur:
+            segs.append((etat, cur)); cur = []
+        etat = nv
+        cur.append((h, src))
+    if cur:
+        segs.append((etat, cur))
+    return segs
 
 # ------------------------------------------------------------------ blocs
 def parse(lines):
@@ -122,7 +277,11 @@ def parse(lines):
         m = re.match(r"^(#{3,4})\s+(.*)", l)
         if m:
             flush(); ctx = None
-            blocks.append({"k": "h3" if len(m.group(1)) == 3 else "h4", "t": m.group(2).strip()}); i += 1; continue
+            t, orange = marque_orange(m.group(2).strip())
+            b = {"k": "h3" if len(m.group(1)) == 3 else "h4", "t": t}
+            if orange is not None:
+                b["or"] = orange
+            blocks.append(b); i += 1; continue
         m = re.match(r"^(\d+)\.\s+(.*)", l)
         if m:
             flush(); cur = {"k": "step", "n": m.group(1), "t": [m.group(2)]}; ctx = "step"; i += 1; continue
@@ -157,7 +316,10 @@ def table_html(rows, nested):
     body = [split_row(r) for r in rows[2:] if r.strip("| ")]
     nc = len(head)
     body = [(r + [""] * nc)[:nc] for r in body]
-    col = nested or nc <= 2
+    # sous une étape, le tableau reste dans la colonne ; à cinq colonnes et plus, il n'y tient pas et débordait sur
+    # l'autre colonne, par-dessus le texte (JP, 19 octobre 2026, ch. 1, les quatre horloges : « on dirait que le
+    # tableau est enligné sur l'autre texte ») : il prend toute la largeur
+    col = (nested and nc <= 4) or nc <= 2
     if [h.lower() for h in head[:4]] == ["item", "quantité", "substitution possible", "négociable"]:
         widths = [25, 11, 48, 16] + [10] * (nc - 4)
     else:
@@ -179,12 +341,60 @@ def table_html(rows, nested):
     cls = "tcol" + (" nest" if nested else "") if col else "tspan"
     return f'<table class="{cls}">{cg}<thead><tr>{th}</tr></thead><tbody>{"".join(trs)}</tbody></table>'
 
+PICTO_SVG = re.compile(r'<svg class="picto"[^>]*>.*?</svg>[\u00a0 ]?', re.S)
+
+_NOMS_DANGERS = None
+# Le nom court qui s'imprime sous le pictogramme, dans l'étape (JP, 18 octobre 2026 : « C, mais avec texte et page »)
+NOMS_COURTS = {"co": "Monoxyde", "generatrice": "Génératrice", "electrocution": "Électrocution", "vapeurs": "Vapeurs",
+               "huile-en-feu": "Huile en feu", "incendie": "Incendie", "feu-de-foret": "Feu de forêt",
+               "espace-clos": "Espace clos", "chimie": "Produit chimique", "pas-au-feu": "Pas au feu",
+               "projection": "Projection", "ecrasement": "Écrasement", "coupure": "Coupure", "brulure": "Brûlure",
+               "froid": "Froid", "eau-froide": "Eau froide", "glace": "Glace mince", "ours": "Ours", "orignal": "Orignal",
+               "arme": "Arme", "rage": "Rage", "tularemie": "Tularémie", "hantavirus": "Hantavirus", "tetanos": "Tétanos",
+               "cuisson": "Cuisson", "trichine": "Trichine", "abats": "Abats", "botulisme": "Botulisme",
+               "zone-de-danger": "Entre 4 et 60 °C", "mal-de-caribou": "Viande maigre", "thuyone": "Cèdre",
+               "plante": "Plante", "plomb": "Plomb", "selles": "Selles", "poison": "Poison", "vie-en-jeu": "Vie en jeu"}
+
+def nom_danger(pid):
+    """Le nom court d'un danger, tiré des pages des dangers (dangers/*.md : « ## {!id} Nom »)."""
+    global _NOMS_DANGERS
+    if _NOMS_DANGERS is None:
+        import glob as _g
+        _NOMS_DANGERS = {}
+        for f in _g.glob(os.path.join(ROOT, "dangers", "*.md")):
+            for m in re.finditer(r"^##\s+\{!([a-z-]+)\}\s*(.+)$", open(f, encoding="utf-8").read(), re.M):
+                _NOMS_DANGERS[m.group(1)] = m.group(2).strip()
+    return _NOMS_DANGERS.get(pid, pid)
+
+def marge(h):
+    """Les pictogrammes de danger d'un paragraphe sortent dans sa marge de gauche, en gros, l'un sous l'autre (JP,
+    18 octobre 2026 : « j'aimerais mieux les pictogrammes en gros dans la marge »). Le paragraphe prend la classe pc."""
+    if 'class="picto"' not in h or not h.startswith("<p"):
+        return h
+    pics = PICTO_SVG.findall(h)
+    h = PICTO_SVG.sub("", h)
+    m = re.match(r'<p( class="([^"]*)")?>', h)
+    cls = ((m.group(2) or "") + " pc").strip()
+    def item(x):
+        pid = re.search(r'data-picto="([a-z-]+)"', x).group(1)
+        # sous le pictogramme, la page du danger dans le tome (l'assembleur la passe dans l'URL : TOME.dg)
+        return ('<span class="pi">' + x.rstrip("\u00a0 ") + '<span class="pnom">'
+                + html.escape(NOMS_COURTS.get(pid) or nom_danger(pid)) + "</span>"
+                + f'<span class="pnum" data-pg="{pid}">p.\u00a000</span></span>')
+    items = "".join(item(x) for x in pics)
+    return f'<p class="{cls}" style="--np:{len(pics)}"><span class="pmarge">' + items + "</span>" + h[m.end():]
+
 def render(blocks, lead=False):
     """-> liste de (html, texte source) ; le texte source sert à ancrer planches et photos."""
+    return [(marge(h), t) for h, t in _render(blocks, lead)]
+
+def _render(blocks, lead=False):
     out, prev = [], None
     for b in blocks:
         k = b["k"]
-        if k == "h3":
+        if "or" in b:
+            out.append((h3_orange(b["t"], b["or"]), b["t"]))
+        elif k == "h3":
             out.append((f'<h3 class="sub">{il(b["t"])}</h3>', b["t"]))
         elif k == "h4":
             out.append((f'<h4 class="choix">{il(b["t"])}</h4>', b["t"]))
@@ -218,6 +428,49 @@ def render(blocks, lead=False):
                 out.append((f'<p class="{cls}">{il(t)}</p>' if cls else f"<p>{il(t)}</p>", t))
         prev = k
     return out
+
+def extras_html(s):
+    """Section « En plus » (JP, 18 octobre 2026 : « fais un mixte et mets des encadrés pour montrer que c'est de
+    l'extra, en vert pâle ») : une réserve d'encadrés, un par « ### Titre », que chapitre.js pose dans les trous des
+    pages (fillExtras). Une ligne « ![légende](images/...jpg) » met une photo dans l'encadré ; jamais de planche
+    (JP, 18 octobre 2026 : « je veux pas de planche dans les affaires vertes : photo, ou faits, ou façon »)."""
+    out, cur = [], None
+    for l in s["lines"]:
+        if l.startswith("### "):
+            cur = {"t": l[4:].strip(), "lines": []}; out.append(cur); continue
+        if cur is not None:
+            cur["lines"].append(l)
+    boites = []
+    for x in out:
+        imgs = [(m.group(1), m.group(2)) for m in (re.match(r"^\s*!\[([^\]]*)\]\(([^)]+)\)\s*$", l) for l in x["lines"]) if m]
+        for _, src in imgs:
+            if not src.lower().endswith((".jpg", ".jpeg")):
+                print(f"  avertissement : « {x['t']} » : {src} n'est pas une photo, il ne s'imprime pas (pas de planche en encadré)")
+        imgs = [(c, src) for c, src in imgs if src.lower().endswith((".jpg", ".jpeg"))]
+        corps = [l for l in x["lines"] if not re.match(r"^\s*!\[", l)]
+        texte = "".join(h for h, _ in render(parse(corps)))
+        fig = "".join(f'<figure class="xfig"><img src="{REL_ROOT + src}" alt="">'
+                      + (f"<figcaption>{il(cap)}</figcaption>" if cap else "") + "</figure>" for cap, src in imgs)
+        # une note laissée dans le texte, pas une bulle (JP, 18 octobre 2026 : « genre des notes laissées doucement dans
+        # le texte ; la bulle est trop invasive ») : la mention En plus, le titre, la photo s'il y en a une, le texte
+        cls = "extra ximg" if imgs else "extra"
+        # les étapes auxquelles la note renvoie : chapitre.js la pose sur une page qui les porte, ou près (JP, 18 octobre
+        # 2026 : « plus naturel, dispersé »)
+        etapes = []
+        # « étapes 18 à 24 » : toutes ; « étapes 18 et 24 » : ces deux-là
+        for m in re.finditer(r"étapes? (\d+)(?: (à|et) (\d+))?", " ".join(corps)):
+            a, b = int(m.group(1)), int(m.group(3) or m.group(1))
+            etapes += list(range(a, b + 1)) if m.group(2) == "à" and 0 <= b - a <= 12 else sorted({a, b})
+        boites.append(f'<div class="{cls}" data-etapes="{" ".join(map(str, etapes))}"><div class="xhead">{XICO}<span class="xlab">En plus</span> '
+                      f'<span class="xtit">{il(x["t"])}</span></div>{fig}<div class="xtxt">{texte}</div></div>')
+    return boites
+
+# le pictogramme des encadrés « En plus » : un « i » blanc dans une petite bulle verte posée à cheval sur le coin en haut
+# à gauche de l'encadré, pour dire que c'est une note d'information (JP, 19 octobre 2026 : « ajoute un pictogramme dans
+# le haut gauche du texte vert pour dire que c'est une bulle informative » ; puis : « le i genre dans une petite bulle
+# par-dessus notre bulle, en haut à gauche, de quoi de cool »). chapitre.css, .extra .xico
+XICO = ('<span class="xico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="7.1" r="1.9" fill="#fff"/>'
+        '<path d="M9.8 10.2H13.2V16.9H14.5V18.6H9.5V16.9H10.8V11.9H9.8Z" fill="#fff"/></svg></span>')
 
 def h2(n, title):
     if n is None:
@@ -270,6 +523,15 @@ def load_chapter(num):
 MARQUE_PT = re.compile(r"^\*\*\s*(\d{1,2}|[A-H])\s*(?:\.(?!\d)|[—–])\s*(.+?)\*\*\s*(.*)$", re.S)
 # Un intertitre qui porte lui-même le numéro du point : « ### 1. … », « ### 8.1 — … », « ### A. … ».
 MARQUE_TITRE = re.compile(r"^(?:\d{1,2}(?:\.\d{1,2})?|[A-H])\s*[.—–]\s")
+
+NUM_PROC = 5
+
+def sec_num(ch, motif):
+    """Le numéro de la section dont le titre commence par ce motif (sans tenir compte de la casse), ou None."""
+    for sc in ch["secs"]:
+        if sc["n"] and re.match(motif, html.unescape(re.sub("<[^>]+>", "", sc["title"] or "")).strip(), re.I):
+            return sc["n"]
+    return None
 
 def danger_story(sec):
     """Section 8 -> blocs de l'encadré danger. Ne numérote que les vrais points (28 septembre 2026 ; avant,
@@ -326,6 +588,18 @@ def danger_story(sec):
     return out, subject
 
 # ------------------------------------------------------------------ planches et photos
+def svg_titre(p, pid):
+    """Le titre de la planche, pris dans le <title> du SVG (« Planche 13-01. L'arc à feu »), sans le numéro."""
+    try:
+        m = re.search(r"<title>(.*?)</title>", open(p, encoding="utf-8").read(4000), re.S)
+    except OSError:
+        return ""
+    if not m:
+        return ""
+    t = html.unescape(m.group(1)).strip()
+    t = re.sub(rf"^Planche\s+{re.escape(pid)}[.\s]*", "", t)
+    return t.rstrip(". ")
+
 def svg_size(p):
     head = open(p, encoding="utf-8").read(600)
     w = re.search(r'width="([\d.]+)"', head); h = re.search(r'height="([\d.]+)"', head)
@@ -349,17 +623,29 @@ def figures(num):
             svg = os.path.join(ROOT, "images", base + ".svg")
             src = svg if os.path.exists(svg) else png
             w, h = svg_size(svg) if src == svg else (680.0, 826.0)
-            size = "full" if h / w > 0.9 else "demi"
+            # trois tailles (JP, 16 octobre 2026) : pleine page, demi-page sur les deux colonnes, petite planche d'une colonne
+            size = "petite" if w <= 400 else "full" if h / w > 0.9 else "demi"
             rel = REL_ROOT + os.path.relpath(src, ROOT).replace("\\", "/")
-            figs.append(dict(id=pid, src=rel, size=size, ratio=h / w, dossier=dos))
+            titre = svg_titre(svg, pid) if src == svg else ""
+            figs.append(dict(id=pid, src=rel, size=size, ratio=h / w, dossier=dos, titre=titre))
     # l'ordre des numéros, quel que soit le dossier (deux planches ancrées au même paragraphe gardent leur ordre)
     figs.sort(key=lambda f: [int(x) if x.isdigit() else x for x in re.findall(r"\d+|[a-z]+", f["id"])])
     return figs
 
+def pl_tete(f):
+    """Le numéro et le titre de la planche, en évidence au-dessus du dessin (JP, 16 octobre 2026 : « là, ils sont
+    comme tout cachés »). L'étiquette rouge reprend le rouge de l'appel fléché du texte."""
+    t = f'<span class="pl-titre">{html.escape(f["titre"])}</span>' if f.get("titre") else ""
+    return f'<div class="pl-tete"><span class="pl-num">Planche {f["id"]}</span>{t}</div>'
+
 def fig_html(f):
     if f["size"] == "full":
-        return (f'<figure class="fig plf" data-plate="full" data-id="{f["id"]}" data-src="{f["src"]}"></figure>')
-    return (f'<figure class="fig pl demi" data-id="{f["id"]}"><img src="{f["src"]}" alt="Planche {f["id"]}" '
+        return (f'<figure class="fig plf" data-plate="full" data-id="{f["id"]}" data-src="{f["src"]}" '
+                f'data-titre="{html.escape(f.get("titre", ""), quote=True)}"></figure>')
+    if f["size"] == "petite":
+        return (f'<figure class="fig pl petite" data-id="{f["id"]}">{pl_tete(f)}<img src="{f["src"]}" alt="Planche {f["id"]}">'
+                f'</figure>')
+    return (f'<figure class="fig pl demi" data-id="{f["id"]}">{pl_tete(f)}<img src="{f["src"]}" alt="Planche {f["id"]}" '
             f'style="height:{7 * f["ratio"]:.3f}in"></figure>')
 
 def photo_html(p):
@@ -392,10 +678,10 @@ def place(stories, items, num, en_ordre=False):
             if done:
                 break
         if not done:
-            # repli : fin de la section 5
-            idx = next((i for i, (bh, _) in enumerate(stories["main"]) if 'data-n="6"' in bh), len(stories["main"]))
+            # repli : fin de la procédure
+            idx = next((i for i, (bh, _) in enumerate(stories["main"]) if f'data-n="{NUM_PROC + 1}"' in bh), len(stories["main"]))
             stories["main"].insert(idx, (h, ""))
-            WARN.append(f"{label} : aucun ancrage trouvé, placé à la fin de la section 5")
+            WARN.append(f"{label} : aucun ancrage trouvé, placé à la fin de la procédure")
 
 # ------------------------------------------------------------------ assemblage
 def build(num):
@@ -405,11 +691,20 @@ def build(num):
     ch = load_chapter(num)
     stories = {"main": [], "d": [], "e": []}
     dsubject = ""
+    # la Danger et la variante d'urgence se reconnaissent à leur titre, pas à leur numéro : 8 et 9 dans le gabarit
+    # à neuf sections, 7 et 8 depuis que « Comment ça marche » est coupé (JP, 16 octobre 2026)
+    nd, nv = sec_num(ch, r"^danger"), sec_num(ch, r"^variante d.urgence")
+    global NUM_PROC
+    NUM_PROC = sec_num(ch, r"^proc[ée]dure") or 5
+    extras = []
     for s in ch["secs"]:
         n = s["n"]
-        if n == 8:
+        if n is None and re.match(r"(?i)^en plus", s["title"]):
+            extras = extras_html(s)
+            continue
+        if n and n == nd:
             stories["d"], dsubject = danger_story(s)
-        elif n == 9:
+        elif n and n == nv:
             stories["e"] = render(parse(s["lines"]))
         else:
             stories["main"].append((h2(n, s["title"]), ""))
@@ -425,21 +720,90 @@ def build(num):
     items = [(fig_html(f), anchors.get(f["id"]), f["id"]) for f in figs]
     photos = [dict(p, fichier=chemin_photo(p, num)) for p in cfg.get("photos", [])]
     items += [(photo_html(p), p.get("apres"), p["fichier"]) for p in photos]
+    # logigramme en double page (15 octobre 2026) : « logigramme »: {"fichier": SVG de design/outils/logigramme.py
+    # --sans-entete, "apres": ancre, "orange": true}. Le SVG va dans un gabarit, en ligne (en <img>, il perdrait ses
+    # polices) ; chapitre.js le pose sur deux pages « spread », un verso puis un recto
+    spreads = []
+    lg = cfg.get("logigramme")
+    for k, g in enumerate([lg] if isinstance(lg, dict) else (lg or [])):
+        chemin = os.path.join(ROOT, g["fichier"])
+        if not os.path.exists(chemin):
+            WARN.append(f"logigramme introuvable : {g['fichier']}")
+            continue
+        svg = open(chemin, encoding="utf-8").read()
+        svg = re.sub(r"<style>@import[^<]*</style>\s*", "", svg)          # le gabarit charge déjà IBM Plex
+        svg = re.sub(r'\sid="[^"]*"', "", svg)                             # le dessin sert deux fois
+        tid = f"spread-{num}-{k + 1}"
+        nom = os.path.splitext(os.path.basename(g["fichier"]))[0]
+        spreads.append(f'<template id="{tid}">{svg}</template>')
+        dor = ' data-or="1"' if g.get("orange") else ""
+        items.append((f'<figure class="fig spread" data-plate="spread" data-tpl="{tid}" data-id="{html.escape(nom)}"{dor}>'
+                      '</figure>', g.get("apres"), "logigramme " + nom))
     place(stories, items, num, en_ordre=cfg.get("en_ordre") is True)
     dispo = photos_du_chapitre(num)
     if dispo:
         print(f"photos sous l'ancien numéro {ANCIEN.get(num, num)} : {len(dispo)} fichier(s), {len(photos)} placée(s)")
 
+    # la série orange : le texte courant et la variante d'urgence se coupent en parties, chacune son histoire
+    # (story-main, story-o1, story-main2…), que chapitre.js coule dans l'ordre de « flux » ; sans série, rien ne
+    # change (pas de « flux » : main, d, e comme avant)
+    flux, n_or = [], 0
+    for kind in ("main", "d", "e"):
+        segs = segments_orange(stories[kind]) if kind != "d" else []
+        if len(segs) <= 1 or not any(o for o, _ in segs):
+            flux.append([kind, kind, 0])
+            continue
+        del stories[kind]
+        k_suite = 0
+        for est_or, its in segs:
+            if est_or:
+                n_or += 1; sid, sk = f"o{n_or}", "o"
+            else:
+                k_suite += 1; sid, sk = (kind if k_suite == 1 else f"{kind}{k_suite}"), kind
+            stories[sid] = its
+            flux.append([sid, sk, 1 if (sk == kind and k_suite > 1) else 0])
+    # les planches appelées dans une série orange ne coupent pas la série (JP, 18 octobre 2026 : « premières minutes est
+    # scindé, il doit se suivre » ; « après le orange c'est les planches, et ensuite on commence l'essence ; laisse des
+    # trous au pire ») : elles sortent de l'orange et prennent la page d'en face, ou la suivante ; le texte qui suit
+    # la série remplit la page où elle finit (JP, 18 octobre 2026 : « si les planches sont nommées dans le cadre
+    # orange, ça peut occuper la place voisine » ; « sur la page d'en face »). chapitre.js, pendingOr
+    for i, (sid, sk, _) in enumerate(flux):
+        if sk != "o":
+            continue
+        figs_or = [x for x in stories[sid] if x[0].lstrip().startswith("<figure") and 'data-plate="spread"' not in x[0]
+                   and 'data-orpl' not in x[0]]      # pas celles de la série d'avant, déjà posées en tête de celle-ci
+        if not figs_or:
+            continue
+        stories[sid] = [x for x in stories[sid] if x not in figs_or]
+        figs_or = [(x[0].replace("<figure ", '<figure data-orpl="1" ', 1),) + tuple(x[1:]) for x in figs_or]
+        suite = flux[i + 1] if i + 1 < len(flux) else None
+        if suite:
+            stories[suite[0]][0:0] = figs_or
+        else:
+            stories[sid].extend(figs_or)
+    if any('class="sub or"' in h for h, _ in stories.get("d", [])):
+        WARN.append("marqueur {.orange} dans la section 8 : le titre sort en orange, sans encadré")
     present = {s["n"] for s in ch["secs"] if s["n"]}
+    # le sommaire d'ouverture prend le titre de la section 3 tel que le chapitre l'écrit (« Comment ça marche »
+    # remplace « Pourquoi ça marche », JP, 16 octobre 2026)
+    noms = {}
+    for sc in ch["secs"]:
+        if not sc["n"]:
+            continue
+        t = html.unescape(re.sub("<[^>]+>", "", il(sc["title"] or ""))).strip()
+        noms[sc["n"]] = ("Danger" if re.match(r"(?i)danger", t) else t[:1].upper() + t[1:].lower() if t.isupper() else t) or SECNAMES.get(sc["n"], "")
     tn = tome_de(num)
     meta = dict(num=num, title=html.unescape(re.sub("<[^>]+>", "", il(ch["title"]))), tome=ch["tome"],
                 tnum=tn, tfond=TOMES[tn][1], tencre=TOMES[tn][2],
                 lieu=ch["lieu"] or "Les deux", dsub=il(dsubject) if dsubject else "",
-                secs={str(k): v for k, v in SECNAMES.items() if k in present})
+                secs={str(k): v for k, v in noms.items() if k in present}, nd=nd or 8, nv=nv or 9,
+                fmt=dict(nom=FORMAT, logi=dict(fmt()["logi"], fpi=fmt()["fp_rel_pt"] / 72, pw=fmt()["page_pt"][0] / 72)))
+    if n_or:
+        meta["flux"] = flux     # [id de l'histoire, genre (main, o, d, e), 1 si c'est la suite d'une histoire coupée]
     lieu_opts = "".join(f'<span{" class=\"on\"" if o == meta["lieu"] else ""}>{o}</span>' for o in ("Maison", "Chalet", "Les deux"))
     toc = "".join(
-        f'<li class="{"d" if k == 8 else "h" if k == 9 else ""}" data-n="{k}"><span class="n">{k}</span>'
-        f'<span class="t">{v}</span><span class="f"></span></li>' for k, v in SECNAMES.items() if k in present)
+        f'<li class="{"d" if k == nd else "h" if k == nv else ""}" data-n="{k}"><span class="n">{k}</span>'
+        f'<span class="t">{v}</span><span class="f"></span></li>' for k, v in noms.items() if k in present)
     lieu_note = f'<p class="lieu-note">{il(ch["lieu_txt"])}</p>' if ch["lieu_txt"] else ""
     opening = (f'<header class="open"><div class="open-top"><span>{ch["tome"]}</span><span>Chapitre</span></div>'
                f'<div class="open-title"><div class="num">{int(num) if num.isdigit() else num}</div><h1>{il(ch["title"])}</h1></div>'
@@ -447,8 +811,8 @@ def build(num):
                f'<ol class="toc">{toc}</ol></div>{lieu_note}</header>')
 
     tpl = open(os.path.join(TOOLS, "interieur.tpl.html"), encoding="utf-8").read()
-    head = tpl[:tpl.index("</style>")]
-    head = re.sub(r"<title>.*?</title>", f"<title>{num} — {html.escape(meta['title'])} — Le Grand Livre du Chalet</title>", head)
+    head = appliquer_format(tpl[:tpl.index("</style>")])
+    head = re.sub(r"<title>.*?</title>", f"<title>{num} — {html.escape(meta['title'])} — Le Manuel du Nord</title>", head)
     js0 = tpl.index("const OVER"); js1 = tpl.index("/* appels hors cadre")
     helpers = tpl[js0:js1]
     eng = open(os.path.join(TOOLS, "chapitre.css"), encoding="utf-8").read()
@@ -456,9 +820,9 @@ def build(num):
     st = lambda k: "\n".join(h for h, _ in stories[k])
     out = (head + eng + "</style>\n</head>\n<body>\n<div id=\"book\"></div>\n"
            + f'<template id="open">{opening}</template>\n'
-           + f'<template id="story-main">\n{st("main")}\n</template>\n'
-           + f'<template id="story-d">\n{st("d")}\n</template>\n'
-           + f'<template id="story-e">\n{st("e")}\n</template>\n'
+           + "".join(f'<template id="story-{sid}">\n{st(sid)}\n</template>\n' for sid, _, _ in flux)
+           + "".join(t + "\n" for t in spreads)
+           + '<template id="extras">\n' + "\n".join(extras) + "\n</template>\n"
            + f'<template id="notes">\n{notes_html()}\n</template>\n'
            + '<script type="application/json" id="meta">' + json.dumps(meta, ensure_ascii=False) + "</script>\n"
            + '<pre id="stats"></pre>\n<script>\n(function(){\n' + helpers + engine + "\n})();\n</script>\n</body>\n</html>\n")
@@ -482,7 +846,7 @@ def edge(args, target, timeout=120):
     prof = tempfile.mkdtemp(prefix="edgeprof")
     common = ["--headless=new", "--disable-gpu", "--no-first-run", "--no-default-browser-check",
               f"--user-data-dir={prof}", "--hide-scrollbars", "--run-all-compositor-stages-before-draw",
-              "--virtual-time-budget=20000"]
+              "--virtual-time-budget=20000"] + ([] if os.name == "nt" else ["--no-sandbox"])
     p = subprocess.Popen([EDGE] + common + args, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
     return p, prof
 
@@ -502,12 +866,12 @@ def rendu(num, dst):
     time.sleep(1); shutil.rmtree(prof, ignore_errors=True)
     r = pypdf.PdfReader(pdf); w = pypdf.PdfWriter()
     for i, pg in enumerate(r.pages):
-        W, H = 585, 738
-        pg.mediabox = RectangleObject([0, 0, W, H]); pg.cropbox = RectangleObject([0, 0, W, H])
-        pg.bleedbox = RectangleObject([0, 0, W, H])
-        pg.trimbox = RectangleObject([0, 9, 576, 729] if i % 2 == 0 else [9, 9, 585, 729])
+        page, rog = boites(i)
+        pg.mediabox = RectangleObject(page); pg.cropbox = RectangleObject(page)
+        pg.bleedbox = RectangleObject(page)
+        pg.trimbox = RectangleObject(rog)
         w.add_page(pg)
-    w.add_metadata({"/Title": f"Chapitre {num} — Le Grand Livre du Chalet (épreuve de mise en pages)"})
+    w.add_metadata({"/Title": f"Chapitre {num} — Le Manuel du Nord (épreuve de mise en pages)"})
     npages = len(r.pages)
     with open(pdf, "wb") as f:
         w.write(f)
@@ -518,7 +882,7 @@ def rendu(num, dst):
     while jobs or running:
         while jobs and len(running) < 4:
             k = jobs.pop(0); t = os.path.join(pdir, f"page-{k:02d}.png")
-            p, prof = edge(["--force-device-scale-factor=2", "--window-size=768,960", f"--screenshot={t}",
+            p, prof = edge(["--force-device-scale-factor=2", "--window-size=%d,%d" % fmt()["px"], f"--screenshot={t}",
                             url(dst, f"#page=p{num}-{k}")], t)
             running.append((p, prof, t, time.time()))
         time.sleep(0.5)
@@ -529,7 +893,7 @@ def rendu(num, dst):
     ctl = os.path.join(tempfile.gettempdir(), f"controle-{num}.png")
     if os.path.exists(ctl):
         os.remove(ctl)
-    p, prof = edge(["--force-device-scale-factor=1", "--window-size=768,960", f"--screenshot={ctl}", url(dst, "#stats")], ctl)
+    p, prof = edge(["--force-device-scale-factor=1", "--window-size=%d,%d" % fmt()["px"], f"--screenshot={ctl}", url(dst, "#stats")], ctl)
     p.wait(timeout=120)
     for _ in range(90):
         if os.path.exists(ctl) and os.path.getsize(ctl) > 0:
@@ -540,7 +904,8 @@ def rendu(num, dst):
     print("pdf :", pdf, npages, "pages | png :", len(glob.glob(os.path.join(pdir, "page-*.png"))), "dans", pdir)
 
 if __name__ == "__main__":
-    num = sys.argv[1] if len(sys.argv) > 1 else sys.exit("usage : build_chapitre.py NN [--rendu]")
+    num = sys.argv[1] if len(sys.argv) > 1 else sys.exit("usage : build_chapitre.py NN [--rendu] [--format lulu-letter|blurb-8x10]")
+    choisir_format(sys.argv)
     dst = build(num)
     if "--rendu" in sys.argv:
         rendu(num, dst)

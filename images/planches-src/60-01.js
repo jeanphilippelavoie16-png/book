@@ -11,7 +11,7 @@ module.exports = (h) => {
     const d = `M ${p(0.5, 0)} Q ${p(0.12, -0.24)} ${p(-0.3, -0.07)} L ${p(-0.5, -0.2)} L ${p(-0.41, 0)} ` +
       `L ${p(-0.5, 0.2)} L ${p(-0.3, 0.07)} Q ${p(0.12, 0.24)} ${p(0.5, 0)} Z`;
     const [ox, oy] = p(0.3, -0.03).split(' ').map(Number);
-    return h.path(d, 'fill="#fff" stroke="#000" stroke-width="1.4" stroke-linejoin="round"') + '\n' +
+    return h.path(d, 'fill="#fff" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"') + '\n' +
       h.cercle(ox, oy, 1.3, h.a.plein);
   };
 
@@ -36,6 +36,8 @@ module.exports = (h) => {
     const out = [];
     const haut = [0, 1, 2, 3, 4, 5, 6].map(i => [X(i), y0 - R(i)]).concat([[xp, y0 - rp]]);
     const bas = haut.map(([x, y]) => [x, 2 * y0 - y]);
+    // la charte : l'intérieur de la nappe, vu par la coupe, en gris loin (peint d'abord)
+    out.push(h.chemin([...haut, ...bas.slice().reverse()], h.a.loin, true));
     // cerceaux : l'arrière vu par la coupe, puis la section du bois
     for (let i = 0; i <= 6; i++) out.push(h.ligne(X(i), y0 - R(i), X(i), y0 + R(i), h.a.detail));
     // entonnoirs, leur pointe, et les brins qui tiennent la pointe au cerceau suivant
@@ -54,14 +56,12 @@ module.exports = (h) => {
       out.push(h.cercle(X(i), y0 - R(i), 3.4, h.a.plein));
       out.push(h.cercle(X(i), y0 + R(i), 3.4, h.a.plein));
     }
-    // la pointe fermée au nœud coulant
+    // la pointe froncée et liée de deux tours
     out.push(h.ligne(xp + 1, y0 - 7, xp + 1, y0 + 7, h.a.arete));
     out.push(h.ligne(xp + 5, y0 - 7, xp + 5, y0 + 7, h.a.arete));
     out.push(h.chemin([[xp + 6, y0 - 3], [xp + 20, y0 - 10]], h.a.detail));
     out.push(h.chemin([[xp + 6, y0], [xp + 21, y0 + 1]], h.a.detail));
     out.push(h.chemin([[xp + 6, y0 + 3], [xp + 19, y0 + 11]], h.a.detail));
-    out.push(h.ellipse(xp + 3, y0 - 14, 5, 7, h.a.arete));
-    out.push(h.path(`M ${f(xp + 3)} ${f(y0 + 7)} q 4 12 18 16`, h.a.arete));
     // trajet du poisson : entre par le premier entonnoir, sort à la pointe, revient longer la paroi
     const e = ent[0];
     const mur = t => [X(0) + t * (e.xt - X(0)), y0 + R0 + t * (e.rt - R0)];
@@ -87,13 +87,13 @@ module.exports = (h) => {
       { n: 2, rond: [p2[0] + 10, 11], cible: [p2[0], p2[1] + 1] },
       { n: 3, rond: [e1.xt + 34, 11], cible: [e1.xt + 1, y0 - e1.rt - 1] },
       { n: 4, rond: [p4[0] + 14, 11], cible: [p4[0], p4[1] + 1] },
-      { n: 5, rond: [xp + 36, y0 - 26], cible: [xp + 8, y0 - 15] },
+      { n: 5, rond: [xp + 36, y0 - 26], cible: [xp + 3, y0 - 8] },
     ].map((r, i) => ({ ...r, texte: [
       'cerceaux de saule vert',
       'le plus large à l’entrée',
       'pointe bien en dedans',
       'les suivants, plus serrés',
-      'pointe au nœud coulant',
+      'pointe froncée et liée',
     ][i] }));
   };
 
@@ -110,6 +110,8 @@ module.exports = (h) => {
       const a = k * Math.PI / 8;
       rad += `M ${f(cx + (R - 4) * Math.cos(a))} ${f(cy + (R - 4) * Math.sin(a))} L ${f(cx + rt * Math.cos(a))} ${f(cy + rt * Math.sin(a))} `;
     }
+    // la charte : par le bout de l'entonnoir, la chambre d'avant, en gris loin
+    out.push(h.cercle(cx, cy, rt, h.a.loin));
     out.push(h.path(rad.trim(), h.a.detail));
     out.push(h.cercle(cx, cy, rt, h.a.arete));
     out.push(h.cercle(cx, cy, R - 4, h.a.arete));
@@ -140,7 +142,7 @@ module.exports = (h) => {
     const r0 = x2 + 22, r1 = x3 - 34;           // la plaque de roche
     const rw = r1 - r0;
     const fond = [[0, hb - 3], [x1, hb - 2], [x2 * 0.6, hb + 1], [x2, hb], [r0, hb + 2],
-      [r0 + rw * 0.12, hb - 12], [r0 + rw * 0.3, hb + 4], [r0 + rw * 0.5, hb - 15],
+      [r0 + rw * 0.12, hb - 12], [r0 + rw * 0.3, hb - 9], [r0 + rw * 0.5, hb - 15],
       [r0 + rw * 0.7, hb + 3], [r0 + rw * 0.86, hb - 9], [r1, hb + 1], [x3, hb - 1], [z.l, hb - 2]];
     return { ys, hb, x1, x2, x3, r0, r1, rw, fond, yt: ys + 5 };
   };
@@ -152,6 +154,7 @@ module.exports = (h) => {
     const mou1 = fond.filter(([x]) => x <= r0), roc = fond.filter(([x]) => x >= r0 && x <= r1), mou2 = fond.filter(([x]) => x >= r1);
     out.push(h.chemin([...mou1, [r0, z.h], [0, z.h]], h.a.hachure('terre', 'aucun'), true));
     out.push(h.chemin([...mou2, [z.l, z.h], [r1, z.h]], h.a.hachure('terre', 'aucun'), true));
+    out.push(h.chemin([...roc, [r1, z.h], [r0, z.h]], 'fill="#fff" stroke="none"', true));
     out.push(h.chemin([...roc, [r1, z.h], [r0, z.h]], h.a.hachure('pierre', 'aucun'), true));
     out.push(h.chemin(fond, h.a.arete));
     // le pied suit le fond meuble, mais passe en ligne droite sur la roche
@@ -165,7 +168,7 @@ module.exports = (h) => {
     // les pierres qui ferment les creux de la roche sous le pied
     for (const [cx, w] of [[r0 + rw * 0.21, 0.16], [r0 + rw * 0.6, 0.18], [r0 + rw * 0.4, 0.1], [r0 + rw * 0.77, 0.1]]) {
       const yb = yFond(cx), yh = hb - 14;
-      out.push(h.ellipse(cx, (yb + yh) / 2, rw * w / 2 + 3, (yb - yh) / 2 + 1, 'fill="#fff" stroke="#000" stroke-width="1.4"'));
+      out.push(h.ellipse(cx, (yb + yh) / 2, rw * w / 2 + 3, (yb - yh) / 2 + 1, 'fill="#fff" stroke="#1A1A1A" stroke-width="1.4"'));
     }
     // lest sur le pied meuble
     for (let x = x1 + 22; x < x2 + 10; x += 30) out.push(h.ellipse(x, yFond(x) - 3, 4.5, 3, h.a.plein));
@@ -180,6 +183,8 @@ module.exports = (h) => {
     let d = `M 0 ${ys}`;
     for (let x = 0; x < z.l; x += 16) d += ` q 4 -2.5 8 0 t 8 0`;
     out.push(h.path(d, h.a.detail));
+    // la charte : le point à contrôler, le pied collé au fond (sinon le poisson passe dessous)
+    out.push(h.controle(x2 * 0.5, hb - 3.5, 12));
     return out.join('\n');
   };
   const aileRenvois = z => {
@@ -231,7 +236,7 @@ module.exports = (h) => {
     out.push(h.chemin([[xan - 10, ya - 5], [xan - 2, ya - 9], [xan + 9, ya - 6], [xan + 11, ya + 3], [xan + 3, ya + 9], [xan - 8, ya + 6]], h.a.hachure('pierre', 'arete'), true));
     const bx = xan - 4, by = ya - 38;
     out.push(h.ligne(xan, ya - 8, bx, by + 7, h.a.detail));
-    out.push(h.cercle(bx, by, 7, 'fill="#fff" stroke="#000" stroke-width="2.4"'));
+    out.push(h.cercle(bx, by, 7, 'fill="#fff" stroke="#1A1A1A" stroke-width="2.4"'));
     out.push(h.cercle(bx, by, 2.5, h.a.plein));
     // le chemin du poisson : il longe la rive, bute sur l'aile, la suit jusqu'à l'entrée
     const along = t => [w1[0] + t * (pA[0] - w1[0]), w1[1] + t * (pA[1] - w1[1]) + 9];

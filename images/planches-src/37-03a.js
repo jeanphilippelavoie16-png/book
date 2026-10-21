@@ -2,6 +2,9 @@
 // Quatre vues à la même échelle : l'armature (vue plongeante), la coupe par la porte et
 // l'ouverture haute, la paroi au pied (agrandie) et le plan coupé au ras du sol.
 // Aucune cote : le chapitre ne donne aucune mesure de l'abri (« assez haut pour s'asseoir »).
+// La charte : l'intérieur de l'abri, vu par la coupe, en gris loin (pas de gris sur la paroi
+// hachurée, ni sur le plan). Le rouge : la poussée sur le rabat, de l'intérieur (le geste), et le
+// rond de sol nu autour du bac, là où le sapinage prendrait feu (la zone).
 module.exports = (h) => {
   const A = h.a, RAD = Math.PI / 180;
   const blanc = at => at.replace('fill="none"', 'fill="#ffffff"');
@@ -100,7 +103,7 @@ module.exports = (h) => {
     return [
       { n: 1, rond: [surArche[0] - 34, surArche[1] - 30], cible: surArche, texte: 'perches vertes pliées' },
       { n: 2, rond: [cx + 44, G0 - ry * ce - 14], cible: P(0, 0, ry), texte: 'attachées au sommet' },
-      { n: 3, rond: [croise[0] + 30, croise[1] + 26], cible: croise, texte: 'croisées à mi-hauteur' },
+      { n: 3, rond: [croise[0] + 30, croise[1] + 26], cible: croise, texte: 'cerceau lié aux croisements' },
       { n: 4, rond: [pied[0] - 16, pied[1] + 26], cible: [pied[0], pied[1] + 4], texte: 'plantées dans la neige tapée' },
     ];
   };
@@ -121,6 +124,8 @@ module.exports = (h) => {
     const out = [];
     // le sol
     out.push(h.rect(0, G, z.l, 14, A.hachure('terre', 'aucun')));
+    // l'intérieur de l'abri, vu par la coupe : gris loin, jusqu'au rabat de la porte
+    out.push(h.chemin([...arc(0, 0, tP), [E(0, tP)[0], G]], A.loin, true));
     // au fond, derrière le plan de coupe : les demi-arches et le cerceau, vus de l'intérieur
     for (const phi of AZ) {
       const pts = Array.from({ length: 25 }, (_, i) => {
@@ -152,7 +157,7 @@ module.exports = (h) => {
     out.push(h.path(lisse(fl), A.arete), h.path(lisse(fl.map(p => [p[0] + 2.4, p[1]])), A.detail));
     out.push(h.cercle(C[0], C[1], 4.4, A.blanc), h.cercle(C[0], C[1], 4.4, A.hachure('bois', 'arete')));
     // il se pousse de l'intérieur
-    out.push(h.fleche(`M${f([C[0] + 16, G - 30])} Q${f([C[0] + 2, G - 38])} ${f([C[0] - 14, G - 30])}`, A.detail));
+    out.push(h.geste(`M${f([C[0] + 17, G - 19])} Q${f([C[0] + 2, G - 28])} ${f([C[0] - 15, G - 20])}`));
     // le sapinage, de la bille à la paroi, et le rond de sol nu au milieu
     out.push(sapinCote(cx + xB + rB + 3, cx + R - 2, G, 1));
     out.push(sapinCote(cx - xB - rB - 3, C[0] + 6, G, -1));
@@ -182,6 +187,8 @@ module.exports = (h) => {
     out.push(h.fleche(lisse(air), A.cache));
     // le sol
     out.push(h.ligne(0, G, z.l, G, A.arete));
+    // le pied de la paroi, repris agrandi dans la vue d'à côté
+    out.push(h.cercle(cx + R + EP + 6, G - 12, 24, A.fin));
     return out.join('\n');
   };
   const coupeRenvois = z => {
@@ -192,7 +199,6 @@ module.exports = (h) => {
       { n: 7, rond: [cx + 0.34 * R, G - 0.5 * ry], cible: [cx + wb / 2 + 0.5, Gb - hb * 0.45], texte: 'bac de fonte, non galvanisé' },
       { n: 8, rond: [cx + 0.22 * R, G + 21], cible: [cx + 0.2 * R, G - 3], texte: 'lit de pierres plates' },
       { n: 9, rond: [cx + xB + 10, G - 0.34 * ry], cible: [cx + xB + rB * 0.4, G - rB * 1.4], texte: 'deux billes vertes couchées' },
-      { n: 10, rond: [cx - 0.36 * R, G + 21], cible: [cx - 0.36 * R, G - 1], texte: 'rond de sol nu' },
     ];
   };
 
@@ -274,13 +280,13 @@ module.exports = (h) => {
     out.push(h.chemin(neige, A.hachure('neige', 'aucun'), true));
     out.push(h.path(lisse(Array.from({ length: 61 }, (_, i) => Q(R + EP + 34, d2 + 8 + (d1 + 352 - d2 - 8) * i / 60))), A.detail));
     // le sapinage en écailles : des rangées de branches, entre le rond de sol nu et la paroi
-    const xB = 0.47 * R, rB = 0.075 * R, rn = xB - rB - 2;
+    const xB = 0.47 * R, rB = 0.075 * R, rNu = 0.34 * R;
+    out.push(h.cercle(cx, cy, rNu, A.zone));           // la zone : le sapinage n'y entre pas
     for (let row = 0, y = cy - R + 8; y < cy + R - 4; y += 9, row++) {
       for (let x = cx - R + (row % 2 ? 6 : 0); x < cx + R; x += 15) {
         const dx = x - cx, dy = y - cy, r = Math.hypot(dx, dy);
-        if (r < xB + rB + 4 || r > R - 9) continue;
-        if (Math.abs(Math.abs(dx) - xB) < rB + 3 && Math.abs(dy) < 0.62 * R) continue;
-        if (Math.abs(dx) < xB + rB + 3 && Math.abs(dy) < 0.62 * R) continue;
+        if (r < rNu + 7 || r > R - 9) continue;
+        if (Math.abs(Math.abs(dx) - xB) < rB + 8 && Math.abs(dy) < 0.62 * R + 4) continue;
         out.push(h.path(`M${f([x - 7, y + 2])} Q${f([x, y + 1])} ${f([x + 7, y - 2])}`, A.detail));
         let d = '';
         for (let k = 1; k <= 3; k++) { const px = x - 7 + 3.5 * k, py = y + 2 - k; d += `M${f([px, py])} L${f([px - 2.4, py - 2.6])} M${f([px, py])} L${f([px - 2.4, py + 2.2])} `; }
@@ -315,9 +321,10 @@ module.exports = (h) => {
     for (const x of [xa, xz]) out.push(h.ligne(x, cy, x + (x < cx ? 12 : -12), cy, A.contour), h.fleche(`M${f([x + (x < cx ? 4 : -4), cy])} L${f([x + (x < cx ? 4 : -4), cy - 13])}`, A.arete));
     return out.join('\n');
   };
+  const Q10 = (R, cx, cy) => [cx - 0.34 * R * Math.cos(55 * RAD), cy + 0.34 * R * Math.sin(55 * RAD)];
   const planRenvois = z => {
     const R = rayon(z), cx = z.l / 2, cy = z.h / 2 + 4;
-    return [{ n: 16, rond: [cx + R + 20, cy - R * 0.9], cible: [cx + 0.72 * R, cy - 0.42 * R], texte: 'sapinage en écailles' }];
+    return [{ n: 10, rond: [cx - R - 18, cy + R * 0.98], cible: Q10(R, cx, cy), texte: 'rond de sol nu' }, { n: 16, rond: [cx + R + 20, cy - R * 0.9], cible: [cx + 0.72 * R, cy - 0.42 * R], texte: 'sapinage en écailles' }];
   };
 
   return {

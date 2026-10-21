@@ -136,7 +136,9 @@ function serre(h) {
     out.push(chemin(Pl([[XW - 45, yi(XW - 45) - 170], [XW, yi(XW - 45) - 170], [XW, yi(XW - 45)], [XW - 45, yi(XW - 45)]]), fond(h.a.hachure('bois', 'arete')), true));
     // le chevron vu au-delà de la coupe, du muret au mur
     const XH = o.haut === 'ouvert' ? [XA - 380, XA - 40] : null;   // l'ouverture haute, sous l'auvent
-    out.push(chemin(Pl([[0, 540], [0, yo(0)], [XW, yo(XW)], [XW, yi(XW)], [40, 540]]), blanc(h.a.detail), true));
+    // La charte : ce chevron est derrière le plan de coupe, il recule en gris loin
+    out.push(chemin(Pl([[0, 540], [0, yo(0)], [XW, yo(XW)], [XW, yi(XW)], [40, 540]]), h.a.loin, true));
+    out.push(chemin(Pl([[0, 540], [0, yo(0)], [XW, yo(XW)], [XW, yi(XW)], [40, 540]]), h.a.detail, true));
     // les deux épaisseurs du vitrage, jusque sous l'auvent
     const feuille = (f, x0, x1) => h.ligne(...P(x0, f(x0)), ...P(x1, f(x1)), h.a.arete);
     if (XH) {
@@ -228,6 +230,8 @@ function serre(h) {
         out.push(h.ellipse(tp[0] + 2.6, tp[1] + 0.5, 2.6, 1.2, h.a.detail));
       }
       baril = { milieu: P(XB + BAR.l / 2, BAR.h * 0.42), air: P(XB + 300, BAR.h - 38), tablette: P(XB - 5, YT + 22) };
+      // La charte : le point à contrôler, l'air laissé sous le bouchon (plein presque à ras, pas à ras)
+      out.push(h.controle(...baril.air, 9));
     }
 
     return {

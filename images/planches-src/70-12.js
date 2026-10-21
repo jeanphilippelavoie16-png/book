@@ -4,6 +4,9 @@
 // bâtons de bois franc écorcés ; aucune pièce ne touche sa voisine ni la paroi ; une planchette par
 // pièce, pendue à la même broche ; caisse enfoncée dans un banc de neige du côté nord, couverte
 // d'écorce et lestée de pierres. Le reste (lattes, tourniquet, lanières de cuir) est ce qui traîne.
+// La charte : la silhouette de la cage et la porte au contour fort ; l'intérieur vu par la porte en
+// gris loin, la face de droite et le chant droit du dessus à l'ombre ; en coupe, les montants du
+// fond en gris loin. Un rouge : le jeu entre la pièce et la paroi.
 
 module.exports = (h) => {
   const bl = t => t.replace('fill="none"', h.a.blanc.split(' ')[0]);
@@ -45,9 +48,9 @@ module.exports = (h) => {
     const y0 = (z.h - totH) / 2 + Hf + tb + ky * (D + o);
     const Pt = (x, y, d) => [x0 + x + kx * d, y0 - y - ky * d];
     const Pd = (s, y) => [x0 + W - kx * s, y0 - y + ky * s];   // la porte, ouverte d'équerre sur la charnière de droite
-    const yt = Hf - p - W * 0.2, ds = [D * 0.36, D * 0.7], nd = 3.5, nw = 4, r = 3.2, hT = W * 0.05;
+    const yt = Hf - p - W * 0.2, ds = [D * 0.36, D * 0.7], nd = 6, nw = 4, r = 3.2, hT = W * 0.05, tt = Math.max(6, W * 0.035);
     const q = Math.max(7, W * 0.05);
-    return { kx, ky, W, D, Hf, p, tb, o, Wd, x0, y0, Pt, Pd, yt, ds, nd, nw, r, hT, q };
+    return { kx, ky, W, D, Hf, p, tb, o, Wd, x0, y0, Pt, Pd, yt, ds, nd, nw, r, hT, q, tt };
   };
 
   // ─── coupe par le bâton ───
@@ -69,7 +72,7 @@ module.exports = (h) => {
   const GC = z => {
     const S = Math.min(z.l, z.h) * 0.34, Lt = S * 0.22;
     const px = z.l * 0.42, py = z.h * 0.27;
-    const dx0 = px - 5 - Lt, dx1 = px + S * 1.3, dy0 = py + S, dy1 = dy0 + S * 0.42;
+    const dx0 = px - 6 - Lt, dx1 = px + S * 1.3, dy0 = py + S, dy1 = dy0 + S * 0.42;
     return { S, Lt, px, py, dx0, dx1, dy0, dy1 };
   };
 
@@ -106,22 +109,31 @@ module.exports = (h) => {
       ens: {
         titre: 'Vue d\'ensemble, porte ouverte',
         dessin: z => {
-          const g = GA(z), { W, D, Hf, p, tb, o, Wd, Pt, Pd, yt, ds, nd, nw, r, hT, q } = g;
+          const g = GA(z), { W, D, Hf, p, tb, o, Wd, Pt, Pd, yt, ds, nd, nw, r, hT, q, tt } = g;
           const o_ = [];
           // le fond, vu par l'ouverture
+          // (la charte : tout l'intérieur, vu par l'ouverture, en gris loin)
+          o_.push(poly([Pt(p, p, D), Pt(W - p, p, D), Pt(W - p, Hf - p, D), Pt(p, Hf - p, D)], h.a.loin));
           o_.push(poly([Pt(p, p, D), Pt(W - p, p, D), Pt(W - p, Hf - p, D), Pt(p, Hf - p, D)], h.a.hachure('grillage', 'arete')));
           // le fond de planches
-          o_.push(poly([Pt(p, p, 0), Pt(W - p, p, 0), Pt(W - p, p, D), Pt(p, p, D)], bl(h.a.arete)));
+          o_.push(poly([Pt(p, p, 0), Pt(W - p, p, 0), Pt(W - p, p, D), Pt(p, p, D)], h.a.loin));
+          o_.push(poly([Pt(p, p, 0), Pt(W - p, p, 0), Pt(W - p, p, D), Pt(p, p, D)], h.a.arete));
           [D / 3, 2 * D / 3].forEach(d => o_.push(h.chemin([Pt(p, p, d), Pt(W - p, p, d)], h.a.detail)));
           // le côté gauche, vu de l'intérieur
           const cg = [Pt(p, p, 0), Pt(p, p, D), Pt(p, Hf - p, D), Pt(p, Hf - p, 0)];
-          o_.push(poly(cg, bl(h.a.arete)), poly(cg, h.a.hachure('grillage', 'arete')));
-          o_.push(poly([Pt(p, p, D - p), Pt(p, p, D), Pt(p, Hf - p, D), Pt(p, Hf - p, D - p)], bl(h.a.arete)));
+          o_.push(poly(cg, h.a.loin), poly(cg, h.a.hachure('grillage', 'arete')));
+          o_.push(poly([Pt(p, p, D - p), Pt(p, p, D), Pt(p, Hf - p, D), Pt(p, Hf - p, D - p)], h.a.loin));
+          o_.push(poly([Pt(p, p, D - p), Pt(p, p, D), Pt(p, Hf - p, D), Pt(p, Hf - p, D - p)], h.a.arete));
           // le tasseau à encoches
-          const haut = [Pt(p, yt, 0)];
-          ds.forEach(d => haut.push(Pt(p, yt, d - nw), Pt(p, yt - nd, d - nw), Pt(p, yt - nd, d + nw), Pt(p, yt, d + nw)));
-          haut.push(Pt(p, yt, D - p));
-          o_.push(poly([...haut, Pt(p, yt - hT, D - p), Pt(p, yt - hT, 0)], bl(h.a.arete)));
+          // une latte épaisse clouée sur la paroi : le dessus (entre la paroi et sa face) et sa face, creusés de deux encoches en U
+          const xi = p + tt, bornes = [0, ...ds.flatMap(d => [d - nw, d + nw]), D - p];
+          for (let i = 0; i < bornes.length; i += 2)
+            o_.push(poly([Pt(p, yt, bornes[i]), Pt(p, yt, bornes[i + 1]), Pt(xi, yt, bornes[i + 1]), Pt(xi, yt, bornes[i])], bl(h.a.arete)));
+          const haut = [Pt(xi, yt, 0)];
+          ds.forEach(d => haut.push(Pt(xi, yt, d - nw), Pt(xi, yt - nd, d - nw), Pt(xi, yt - nd, d + nw), Pt(xi, yt, d + nw)));
+          haut.push(Pt(xi, yt, D - p));
+          o_.push(poly([...haut, Pt(xi, yt - hT, D - p), Pt(xi, yt - hT, 0)], bl(h.a.arete)));
+          ds.forEach(d => o_.push(poly([Pt(p, yt - nd, d - nw), Pt(xi, yt - nd, d - nw), Pt(xi, yt - nd, d + nw), Pt(p, yt - nd, d + nw)], bl(h.a.detail))));
           // les bâtons, posés dans les encoches
           [...ds].reverse().forEach(d => {
             const yc = yt - nd + r, a = Pt(p, yc, d), b = Pt(W - p, yc, d);
@@ -134,7 +146,8 @@ module.exports = (h) => {
             R(p, Hf - p, W - 2 * p, p, bl(h.a.arete)), R(p, 0, W - 2 * p, p, bl(h.a.arete)));
           // le côté droit, vu du dehors
           const S = (d1, d2, y1, y2) => [Pt(W, y1, d1), Pt(W, y1, d2), Pt(W, y2, d2), Pt(W, y2, d1)];
-          o_.push(poly(S(0, D, 0, Hf), bl(h.a.arete)));
+          // la face de droite, à l'ombre
+          o_.push(poly(S(0, D, 0, Hf), h.a.ombre), poly(S(0, D, 0, Hf), h.a.arete));
           o_.push(poly(S(p, D - p, p, Hf - p), h.a.hachure('grillage', 'arete')));
           o_.push(poly(S(0, p, 0, Hf), h.a.arete), poly(S(D - p, D, 0, Hf), h.a.arete));
           // le dessus de planches
@@ -142,15 +155,19 @@ module.exports = (h) => {
           const jd = [1, 2].map(i => -o + (D + 2 * o) * i / 3);
           jd.forEach(d => o_.push(h.chemin([Pt(-o, Hf + tb, d), Pt(W + o, Hf + tb, d)], h.a.detail)));
           o_.push(poly([Pt(-o, Hf, -o), Pt(W + o, Hf, -o), Pt(W + o, Hf + tb, -o), Pt(-o, Hf + tb, -o)], bl(h.a.arete)));
-          o_.push(poly([Pt(W + o, Hf, -o), Pt(W + o, Hf, D + o), Pt(W + o, Hf + tb, D + o), Pt(W + o, Hf + tb, -o)], bl(h.a.arete)));
+          o_.push(poly([Pt(W + o, Hf, -o), Pt(W + o, Hf, D + o), Pt(W + o, Hf + tb, D + o), Pt(W + o, Hf + tb, -o)], h.a.ombre));
+          o_.push(poly([Pt(W + o, Hf, -o), Pt(W + o, Hf, D + o), Pt(W + o, Hf + tb, D + o), Pt(W + o, Hf + tb, -o)], h.a.arete));
           jd.forEach(d => o_.push(h.chemin([Pt(W + o, Hf, d), Pt(W + o, Hf + tb, d)], h.a.detail)));
           // le tourniquet
           const tq = Pt(p * 0.4, Hf * 0.5, 0);
           o_.push(h.rect(tq[0] - 2.4, tq[1] - 11, 4.8, 22, bl(h.a.arete)), h.cercle(tq[0], tq[1], 1.2, h.a.plein));
+          // la silhouette de la cage, au trait fort : le dessus, puis le bas et le côté
+          o_.push(poly([Pt(-o, Hf, -o), Pt(-o, Hf + tb, -o), Pt(-o, Hf + tb, D + o), Pt(W + o, Hf + tb, D + o), Pt(W + o, Hf, D + o), Pt(W + o, Hf, -o)], h.a.contour));
+          o_.push(h.chemin([Pt(0, Hf, 0), Pt(0, 0, 0), Pt(W, 0, 0), Pt(W, 0, D), Pt(W, Hf, D)], h.a.contour));
           // la porte, ouverte
           const Dp = (s1, s2, y1, y2) => [Pd(s1, y1), Pd(s2, y1), Pd(s2, y2), Pd(s1, y2)];
           const ym = Hf / 2;
-          o_.push(poly(Dp(0, Wd, 0, Hf), bl(h.a.arete)));
+          o_.push(poly(Dp(0, Wd, 0, Hf), bl(h.a.contour)));
           o_.push(poly(Dp(q, Wd - q, q, ym - q / 2), h.a.hachure('grillage', 'arete')));
           o_.push(poly(Dp(q, Wd - q, ym + q / 2, Hf - q), h.a.hachure('grillage', 'arete')));
           // les deux lanières de cuir
@@ -170,7 +187,7 @@ module.exports = (h) => {
             { n: 3, rond: [xd, Pt(W, Hf + tb, D + o)[1] + 2], cible: Pt(W * 0.62, Hf + tb, D * 0.55), texte: 'dessus et fond pleins' },
             { n: 4, rond: [x0 + W + 16, y0 + 22], cible: Pd(q * 0.85, Hf * 0.18), texte: 'porte sur lanières de cuir' },
             { n: 5, rond: [tq[0] - 2, y0 + 24], cible: [tq[0], tq[1] + 9], texte: 'tourniquet de bois cloué' },
-            { n: 6, rond: [x0 - 22, Pt(p, yt - g.hT / 2, D * 0.15)[1]], cible: Pt(p, yt - g.hT / 2, D * 0.15), texte: 'tasseau à encoches' },
+            { n: 6, rond: [x0 - 22, Pt(p, yt - g.hT / 2, D * 0.15)[1]], cible: Pt(p + g.tt, yt - g.hT / 2, D * 0.15), texte: 'tasseau à encoches' },
           ];
         },
       },
@@ -179,7 +196,8 @@ module.exports = (h) => {
         dessin: z => {
           const g = GB(z), { Wb, Hb, p, tb, o, xL, xR, yT, yB, r, yc, P1, P2, P3, Tg } = g;
           const o_ = [];
-          // les montants du fond, au-delà de la coupe
+          // les montants du fond, au-delà de la coupe : en gris loin
+          o_.push(h.rect(xL, yT + p, p, Hb - 2 * p - tb, h.a.loin), h.rect(xR - p, yT + p, p, Hb - 2 * p - tb, h.a.loin));
           o_.push(h.rect(xL, yT + p, p, Hb - 2 * p - tb, h.a.arete), h.rect(xR - p, yT + p, p, Hb - 2 * p - tb, h.a.arete));
           // la moustiquaire des côtés, sur la face extérieure
           o_.push(h.ligne(xL - 1, yT, xL - 1, yB - tb, h.a.detail), h.ligne(xR + 1, yT, xR + 1, yB - tb, h.a.detail));
@@ -198,6 +216,8 @@ module.exports = (h) => {
           o_.push(h.ligne(P1.cx, P1.top + 5, P1.cx, Tg.y + 3, h.a.detail));
           o_.push(h.rect(Tg.x, Tg.y, Tg.l, Tg.h, bl(h.a.arete)), h.cercle(Tg.x + Tg.l / 2, Tg.y + 3, 1.1, h.a.detail));
           [7, 10].forEach(dy => o_.push(h.ligne(Tg.x + 2.5, Tg.y + dy, Tg.x + Tg.l - 2.5, Tg.y + dy, h.a.fin)));
+          // le jeu à vérifier : la pièce ne touche pas la paroi
+          { const xa = P3.cx + P3.w / 2 + 1, xb = xR - p; o_.push(h.controle((xa + xb) / 2, P3.top + P3.ht * 0.7, Math.max(9, (xb - xa) / 2 + 4))); }
           return o_.join('\n');
         },
         renvois: z => {
@@ -215,32 +235,52 @@ module.exports = (h) => {
           const g = GC(z), { S, Lt, px, py, dx0, dx1, dy0, dy1 } = g;
           const o_ = [];
           // le montant et la porte, coupés
-          o_.push(h.rect(px, py, S, S, h.a.hachure('bois')));
-          o_.push(h.rect(dx0, dy0, dx1 - dx0, dy1 - dy0, h.a.hachure('bois')));
-          // la moustiquaire du côté : tendue le long du montant, rabattue en double au bout
-          o_.push(h.path(`M${f(px - 1)} 4 L${f(px - 1)} ${f(py + S - 4)} Q${f(px - 2.25)} ${f(py + S)} ${f(px - 3.5)} ${f(py + S - 4)} L${f(px - 3.5)} ${f(py + S * 0.4)}`, h.a.detail));
+          // trois hachures : le montant et la porte croisées (le groupe est en miroir), les lattes serrées
+          const pat = (id, w, rot) => `<pattern id="${id}" width="${w}" height="${w}" patternUnits="userSpaceOnUse" patternTransform="rotate(${rot})"><line x1="0" y1="0" x2="0" y2="${w}" stroke="#1A1A1A" stroke-width="0.7"/></pattern>`;
+          o_.push(`<defs>${pat('h7012-mont', 6, -45)}${pat('h7012-porte', 6, 45)}${pat('h7012-latte', 3, 45)}</defs>`);
+          const hh = id => `fill="url(#${id})" stroke="#1A1A1A" stroke-width="1.4" stroke-linejoin="round"`;
+          o_.push(h.rect(px, py, S, S, hh('h7012-mont')));
+          o_.push(h.rect(dx0, dy0, dx1 - dx0, dy1 - dy0, hh('h7012-porte')));
+          // la paroi qui continue, rompue
+          const yr = py - 40;
+          o_.push(h.chemin([[px - 5, yr + 3], [px - 3, yr - 1], [px + 1, yr + 4], [px + 3, yr]], h.a.detail));
+          // la moustiquaire du côté : tendue le long du montant, rabattue en double au bout, les deux épaisseurs à 4
+          o_.push(h.path(`M${f(px - 1)} ${f(yr + 2)} L${f(px - 1)} ${f(py + S - 3)} A2 2 0 0 1 ${f(px - 5)} ${f(py + S - 3)} L${f(px - 5)} ${f(py + S * 0.4)}`, h.a.detail));
           // la latte qui la pince
-          o_.push(h.rect(dx0, py + S * 0.1, Lt, S * 0.8, h.a.hachure('bois')));
-          // une agrafe, un clou
+          o_.push(h.rect(dx0, py + S * 0.1, Lt, S * 0.8, hh('h7012-latte')));
+          // une agrafe en U de 8 qui traverse les deux épaisseurs, un clou
           const ya = py + S * 0.66;
-          o_.push(h.chemin([[px + 5, ya - 2.5], [px - 4.4, ya - 2.5], [px - 4.4, ya + 2.5], [px + 5, ya + 2.5]], h.a.arete));
+          o_.push(h.chemin([[px + 6, ya - 4], [px - 5.6, ya - 4], [px - 5.6, ya + 4], [px + 6, ya + 4]], h.a.arete));
           const yn = py + S * 0.3;
           o_.push(h.rect(dx0 - 3, yn - 1, px + S * 0.45 - dx0 + 3, 2, h.a.plein), h.rect(dx0 - 5, yn - 3.2, 2, 6.4, h.a.plein));
           // la moustiquaire de la porte, sur sa face extérieure, pincée sous sa latte
           const xf = dx1 - S * 0.72;
-          o_.push(h.path(`M${f(z.l - 4)} ${f(dy1 + 1)} L${f(xf)} ${f(dy1 + 1)} Q${f(xf - 4)} ${f(dy1 + 2.25)} ${f(xf)} ${f(dy1 + 3.5)} L${f(dx1 - S * 0.25)} ${f(dy1 + 3.5)}`, h.a.detail));
-          o_.push(h.rect(dx1 - S * 0.8, dy1 + 5, S * 0.8, Lt, h.a.hachure('bois')));
+          o_.push(h.path(`M${f(dx1)} ${f(dy1 + 1)} L${f(xf + 3)} ${f(dy1 + 1)} A2 2 0 0 0 ${f(xf + 3)} ${f(dy1 + 5)} L${f(dx1 - S * 0.25)} ${f(dy1 + 5)}`, h.a.detail));
+          o_.push(h.rect(dx1 - S * 0.8, dy1 + 6, S * 0.8, Lt, hh('h7012-latte')));
           const xg = dx1 - S * 0.16;
-          o_.push(h.chemin([[xg - 2.5, dy1 - 5], [xg - 2.5, dy1 + 4.4], [xg + 2.5, dy1 + 4.4], [xg + 2.5, dy1 - 5]], h.a.arete));
+          o_.push(h.chemin([[xg - 4, dy1 - 6], [xg - 4, dy1 + 5.6], [xg + 4, dy1 + 5.6], [xg + 4, dy1 - 6]], h.a.arete));
           const xn = dx1 - S * 0.5;
-          o_.push(h.rect(xn - 1, dy1 - S * 0.3, 2, S * 0.3 + 5 + Lt + 1, h.a.plein), h.rect(xn - 3.2, dy1 + 5 + Lt + 1, 6.4, 2, h.a.plein));
+          o_.push(h.rect(xn - 1, dy1 - S * 0.3, 2, S * 0.3 + 6 + Lt + 1, h.a.plein), h.rect(xn - 3.2, dy1 + 6 + Lt + 1, 6.4, 2, h.a.plein));
           // la lanière de cuir : clouée sur la porte, elle tourne le coin et remonte sur la latte du côté
           const xs = dx0 + S * 0.5;
           o_.push(poly([[xs, dy1], [xs, dy1 + 3], [dx0 - 3, dy1 + 3], [dx0 - 3, py + S * 0.12], [dx0, py + S * 0.12], [dx0, dy1]], h.a.plein));
           const xc = dx0 + S * 0.3;
           o_.push(h.rect(xc - 1, dy1 - S * 0.28, 2, S * 0.28 + 4, h.a.plein), h.rect(xc - 3.2, dy1 + 3, 6.4, 2, h.a.plein));
+          // l'arc de la porte, centré sur le cuir : elle s'ouvre vers le dehors, d'équerre
+          const cx0 = dx0 - 1.5, cy0 = dy1 + 1.5, Rr = dx1 - cx0;
+          const ymax = z.h - 4, aMax = Math.min(Math.PI / 2, Math.asin(Math.min(1, (ymax - cy0) / Rr)));
+          o_.push(h.path(`M${f(cx0 + Rr)} ${f(cy0)} A${f(Rr)} ${f(Rr)} 0 0 1 ${f(cx0 + Rr * Math.cos(aMax))} ${f(cy0 + Rr * Math.sin(aMax))}`, h.a.cache));
           // en miroir : le coin de la charnière est à droite, comme dans la vue d'ensemble
-          return `<g transform="matrix(-1 0 0 1 ${f(z.l)} 0)">\n${o_.join('\n')}\n</g>`;
+          const M_ = `<g transform="matrix(-1 0 0 1 ${f(z.l)} 0)">\n${o_.join('\n')}\n</g>`;
+          // le petit plan de la cage vue de dessus, porte ouverte d'équerre, le coin cerclé
+          const kx = 6, ky = 6, cw = 40, cd = 26, xr = kx + cw, yf = ky + cd;
+          const plan = [
+            h.rect(kx, ky, cw, cd, h.a.detail),
+            h.ligne(xr, yf, xr, yf + cw - 6, h.a.arete),
+            h.path(`M${kx + 2} ${yf} A${cw - 2} ${cw - 2} 0 0 0 ${xr} ${yf + cw - 2}`, h.a.cache),
+            h.cercle(xr, yf, 6, h.a.fin),
+          ];
+          return M_ + '\n' + plan.join('\n');
         },
         renvois: z => {
           const g = GC(z), { S, Lt, px, py, dx0, dx1, dy0, dy1 } = g;
@@ -272,6 +312,7 @@ module.exports = (h) => {
           [[bx, by + tb], [bx + bw - p, by + tb], [bx, by + bh - tb - p], [bx + bw - p, by + bh - tb - p]].forEach(([x, y]) => o_.push(h.rect(x, y, p, p, h.a.hachure('bois'))));
           const yc = by + tb + p + 7, r = 3;
           // les montants du fond et les tasseaux : le bâton porte sur quelque chose
+          o_.push(h.rect(bx, by + tb + p, p, bh - 2 * tb - 2 * p, h.a.loin), h.rect(bx + bw - p, by + tb + p, p, bh - 2 * tb - 2 * p, h.a.loin));
           o_.push(h.rect(bx, by + tb + p, p, bh - 2 * tb - 2 * p, h.a.arete), h.rect(bx + bw - p, by + tb + p, p, bh - 2 * tb - 2 * p, h.a.arete));
           o_.push(h.rect(bx + p, yc + r, 5, 8, h.a.hachure('bois')), h.rect(bx + bw - p - 5, yc + r, 5, 8, h.a.hachure('bois')));
           o_.push(h.rect(bx + p, yc - r, bw - 2 * p, 2 * r, h.a.hachure('bois')));

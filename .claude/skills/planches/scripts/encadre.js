@@ -2,7 +2,7 @@
 // Compose un encadré de planche — danger ou note — dont la boîte est construite
 // AUTOUR du texte, avec la même marge sur les quatre côtés.
 //
-//   node encadre.js --x 40 --y 700 --max 600 --danger "Danger — jamais adossé au chalet…"
+//   node encadre.js --x 40 --y 700 --max 600 --danger "Jamais adossé au chalet : …"
 //   node encadre.js --x 40 --y 700 --max 600 "Texte d'une note ordinaire"
 //
 // Sort le fragment SVG prêt à coller, et sa hauteur (pour placer ce qui suit).

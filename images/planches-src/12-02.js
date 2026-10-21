@@ -3,6 +3,11 @@
 // la pointe vers la porte ; les rangs se recouvrent et il ne reste en surface que des pointes.
 // Vu de dessus : la tente à une porte, du fond vers la porte, le rond de neige nue autour du poêle ;
 // la tente à deux portes, du milieu vers chaque porte. Aucune cote : la section 5E n'a pas de chiffre.
+//
+// La charte : dans la coupe, les branches passent au trait fort (ce sont elles qu'on pose), la
+// toile du fond au trait moyen. Pas de gris : une coupe tramée et deux plans à plat. Le rouge :
+// le sens de la pose, du fond vers la porte (le geste) ; le pied d'une branche caché sous le
+// rang d'avant, cerclé (aucun bout de tige ne doit toucher le dos).
 
 module.exports = (h) => {
   const f = v => Math.round(v * 10) / 10;
@@ -82,7 +87,7 @@ module.exports = (h) => {
     // Le bout coupé, piqué dans la neige vers le fond.
     const bout = [[xe, S], [xe - 13, S + 19]];
     out.push(h.chemin(bout, 'fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round"'));
-    out.push(h.chemin(bout, h.a.arete));
+    out.push(h.chemin(bout, h.a.contour));
     out.push(h.path(`M ${f(xe - 17)} ${f(S + 16)} L ${f(xe - 9)} ${f(S + 22)}`, h.a.detail));
     // Les aiguilles, couchées vers la pointe, de part et d'autre de la tige.
     const aig = [];
@@ -94,7 +99,7 @@ module.exports = (h) => {
       aig.push(`M ${f(x)} ${f(y)} L ${f(x + 0.8 * l)} ${f(y + sg * 0.6 * l)}`);
     }
     out.push(h.path(aig.join(' '), h.a.fin));
-    out.push(h.chemin(pts, h.a.arete));
+    out.push(h.chemin(pts, h.a.contour));
     return out.join('\n');
   };
 
@@ -129,12 +134,14 @@ module.exports = (h) => {
           out.push(h.chemin([[4, 36], [XW, 22], [XW, S], [4, S]], h.a.hachure('neige', 'aucun'), true));
           out.push(h.chemin([[4, 36], [XW, 22]], h.a.detail));
           out.push(h.ligne(XW, S, z.l - 4, S, h.a.detail));
-          out.push(h.ligne(XW, 10, XW, S, h.a.contour));
+          out.push(h.ligne(XW, 10, XW, S, h.a.arete));
           // Les rangs : le dernier posé d'abord, pour que chaque tige passe par-dessus le pied du suivant.
           for (let k = n - 1; k >= 0; k--) out.push(brancheCoupe(g, e0 + k * s, k === n - 1));
           // Le sens de la pose.
           const yf = S - A - 34;
-          out.push(h.fleche(`M ${e0 + 10} ${yf} L ${e0 + 3 * s + 40} ${yf}`));
+          out.push(h.geste(`M ${e0 + 10} ${yf} L ${e0 + 3 * s + 40} ${yf}`));
+          // le pied de la branche, caché sous le rang d'avant
+          out.push(h.controle(e0 + 2 * s - 2, S - 6, 14));
           return out.join('\n');
         },
         renvois: z => {

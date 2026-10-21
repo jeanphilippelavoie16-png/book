@@ -112,13 +112,7 @@ vingt minutes à -35 °C (ch. 39), il ne fait pas deux heures d'activité vigour
 **Total de la famille, hiver de travail : 9 280 à 9 530 kcal/jour.** Chiffre de planification :
 **9 500 kcal/jour**.
 
-Le chapitre 5 bâtit son stock sur 9 000 kcal/jour. L'écart est de 280 à 530 kcal/jour. Sur un
-hiver de 90 jours de travail dur, cela fait 25 000 à 48 000 kcal de déficit pour la famille,
-soit, à 9 kcal/g, l'équivalent de **2,8 à 5,3 kg de gras pur** qui sortiront des quatre corps
-plutôt que du garde-manger. Le tissu adipeux n'est pas du gras pur — il en contient environ
-87 % —, et un kilo perdu représente environ 7 700 kcal : le même déficit fait donc **3,2 à 6,2 kg**
-de poids perdu pour la famille. C'est un minimum : chez un corps déjà mince, une part de la perte
-est du muscle, qui porte cinq fois moins d'énergie au kilo, et la balance descend plus vite encore.
+Le chapitre 5 bâtit son stock sur ces 9 500 kcal/jour (étape 8).
 
 Et il reste une inconnue franche : **la majoration calorique pour le froid lui-même**,
 par-dessus l'activité. Le frisson fait monter la dépense même au repos, et marcher dans la neige

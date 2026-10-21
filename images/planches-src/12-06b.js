@@ -15,6 +15,43 @@ module.exports = (h) => {
   const neige = h.a.hachure('neige', 'aucun');
   const terre = h.a.hachure('terre', 'aucun');
 
+  // ─── L'enveloppe d'un corps simple (sac de couchage, couverture roulée) : la pose sert de gabarit,
+  // le contour visible est celui de l'enveloppe. C'est le contour du corps rendu, uni, dilaté de
+  // « marge » mm et lissé par Clipper (celui des corps simples) ; le visage reste à découvert dans
+  // l'ouverture du capuchon ; « cloisons » : des coutures du duvet en travers, en part de la longueur.
+  const CL = require(require('path').join(__dirname, '../../.claude/skills/planches/scripts/corps/clipper.js'));
+  const sac = (c, { marge = 55, lisse = 150, trait = 1.4, visage = true, cloisons = [] } = {}) => {
+    const SC = 100, k = c.echelle, polys = [], r1 = v => Math.round(v * 10) / 10;
+    for (const m of String(c.svg).matchAll(/<path d="([^"]+)" fill="#(?:FFFFFF|E6E6E6)"/g))
+      for (const sub of m[1].split('Z')) {
+        const n = sub.match(/-?[\d.]+/g); if (!n || n.length < 6) continue;
+        const P = []; for (let i = 0; i + 1 < n.length; i += 2) P.push({ X: Math.round(+n[i] * SC), Y: Math.round(+n[i + 1] * SC) });
+        polys.push(P);
+      }
+    const op = (t, a, b, ouvert = false) => {
+      const x = new CL.Clipper(); x.AddPaths(a, CL.PolyType.ptSubject, !ouvert); if (b) x.AddPaths(b, CL.PolyType.ptClip, true);
+      if (ouvert) { const tr = new CL.PolyTree(); x.Execute(t, tr, CL.PolyFillType.pftNonZero, CL.PolyFillType.pftNonZero); return CL.Clipper.OpenPathsFromPolyTree(tr); }
+      const r = new CL.Paths(); x.Execute(t, r, CL.PolyFillType.pftNonZero, CL.PolyFillType.pftNonZero); return r;
+    };
+    const off = (p, d) => { const o = new CL.ClipperOffset(2, 0.05 * SC); o.AddPaths(p, CL.JoinType.jtRound, CL.EndType.etClosedPolygon); const r = new CL.Paths(); o.Execute(r, d * SC); return r; };
+    let env = off(off(op(CL.ClipType.ctUnion, polys), (marge + lisse) * k), -lisse * k);
+    if (visage) {
+      const t = c.tete, hx = t.haut[0] - t.x, hy = t.haut[1] - t.y, L = Math.hypot(hx, hy) || 1, mi = c.miroir ? -1 : 1;
+      const fx = -hy / L * mi, fy = hx / L * mi, r = 100 * k, D = [];
+      for (let i = 0; i < 48; i++) { const a = i / 48 * 2 * Math.PI; D.push({ X: Math.round((t.x + fx * 0.6 * r + 0.78 * r * Math.cos(a)) * SC), Y: Math.round((t.y + fy * 0.6 * r + 0.78 * r * Math.sin(a)) * SC) }); }
+      env = op(CL.ClipType.ctDifference, env, [D]);
+    }
+    const dP = P => 'M' + P.map(q => `${r1(q.X / SC)} ${r1(q.Y / SC)}`).join(' L');
+    const out = [`<path d="${env.map(P => dP(P) + ' Z').join(' ')}" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="${trait}" stroke-linejoin="round"/>`];
+    if (cloisons.length) {
+      const b = c.boite, x0 = b.x0 - marge * k, x1 = b.x1 + marge * k, dedans = off(env, -2.2);
+      const lignes = cloisons.map(t => { const x = Math.round((x0 + (x1 - x0) * t) * SC); return [{ X: x, Y: Math.round((b.y0 - 400 * k) * SC) }, { X: x, Y: Math.round((b.y1 + 400 * k) * SC) }]; });
+      const cl = op(CL.ClipType.ctIntersection, lignes, dedans, true);
+      if (cl.length) out.push(`<path d="${cl.map(dP).join(' ')}" fill="none" stroke="#1A1A1A" stroke-width="0.5" stroke-linecap="round"/>`);
+    }
+    return out.join('\n');
+  };
+
   // Une branche de sapin de profil : bout coupé en (x, y), pointe vers la droite.
   const branche = (x, y, L, A) => {
     const mil = u => [x + u * L, y - A * Math.sin(Math.PI / 2 * Math.min(1, u / 0.5)) + (u > 0.5 ? (u - 0.5) * 3 : 0)];
@@ -95,12 +132,21 @@ module.exports = (h) => {
             brins.push(`M ${f(x)} ${f(y)} Q ${f(x + 7)} ${f(y - 9)} ${f(x + 14)} ${f(y)}`);
           }
           out.push(h.path(brins.join(' '), h.a.detail));
-          // Deux dormeurs dans leurs sacs, serrés : un adulte, un enfant.
-          const yl = G - lit;
-          out.push(h.ellipse(cx - 0.2 * k, yl - 0.15 * k, 0.24 * k, 0.15 * k, blanc(h.a.arete)));
-          out.push(h.ellipse(cx - 0.2 * k, yl - 0.15 * k, 0.15 * k, 0.08 * k, h.a.fin));
-          out.push(h.ellipse(cx + 0.28 * k, yl - 0.11 * k, 0.18 * k, 0.11 * k, blanc(h.a.arete)));
-          out.push(h.ellipse(cx + 0.28 * k, yl - 0.11 * k, 0.11 * k, 0.06 * k, h.a.fin));
+          // Deux dormeurs couchés sur le dos, serrés, vus par la tête (pictogramme, règle 8) : les
+          // épaules en bande arrondie, la tête ronde devant, posée sur le sapinage. Un adulte, un enfant.
+          const yl = G - lit, e = 0.104 * k / 100;
+          const dormeur = (x, C) => {
+            const l = C.epaules * e, hT = C.ep * e, r = C.tete * e / 2, rb = C.bras * e / 2;
+            const bras = s => h.cercle(x + s * (l / 2 + rb + 0.8), yl - rb, rb, blanc(h.a.arete));
+            return [bras(-1), bras(1),
+              h.path(`M ${f(x - l / 2)} ${f(yl)} L ${f(x - l / 2)} ${f(yl - hT * 0.55)} Q ${f(x - l / 2)} ${f(yl - hT)} ${f(x - l / 2 + hT * 0.45)} ${f(yl - hT)} L ${f(x + l / 2 - hT * 0.45)} ${f(yl - hT)} Q ${f(x + l / 2)} ${f(yl - hT)} ${f(x + l / 2)} ${f(yl - hT * 0.55)} L ${f(x + l / 2)} ${f(yl)} Z`, blanc(h.a.arete)),
+              h.cercle(x, yl - r - 0.5, r, blanc(h.a.arete))].join('\n');
+          };
+          const ad = { epaules: 400, ep: 210, tete: 245, bras: 92 }, en = { epaules: 260, ep: 150, tete: 196, bras: 66 };
+          const lg = C => (C.epaules + 2 * C.bras) * e + 1.6;
+          const marge = (xR - xL - lg(ad) - lg(en) - 2) / 2;
+          out.push(dormeur(xL + marge + lg(ad) / 2, ad));
+          out.push(dormeur(xR - marge - lg(en) / 2, en));
           // La perche, en travers, portée par la neige des deux bords.
           out.push(h.rect(xp0, S - dp, xp1 - xp0, dp, blanc(h.a.arete)));
           // La bâche sur la perche, puis la neige : grosse sur les bords, mince sur le dessus.
@@ -167,10 +213,14 @@ module.exports = (h) => {
           ];
           // Le lit : sapinage en écailles, du fond jusqu'au bord de l'entrée.
           out.push(ecailles(xa + 2, xc, G, 0.42 * k, lit * 0.8, 0.17 * k));
-          // Le dormeur, les pieds sous l'ouverture, la tête du côté de l'entrée.
-          const yl = G - lit, hs = 0.26 * k, xs1 = xc - 0.08 * k, xs0 = xs1 - 1.8 * k;
-          out.push(h.path(`M ${f(xs1 - hs / 2)} ${f(yl - hs)} L ${f(xs0 + 8)} ${f(yl - hs * 0.75)} Q ${f(xs0)} ${f(yl - hs * 0.7)} ${f(xs0)} ${f(yl - hs * 0.35)} Q ${f(xs0)} ${f(yl)} ${f(xs0 + 8)} ${f(yl)} L ${f(xs1 - hs / 2)} ${f(yl)} A ${f(hs / 2)} ${f(hs / 2)} 0 0 0 ${f(xs1 - hs / 2)} ${f(yl - hs)} Z`, blanc(h.a.arete)));
-          out.push(h.cercle(xs1 - hs / 2, yl - hs / 2, hs * 0.3, h.a.detail));
+          // Le dormeur couché sur le dos dans son sac, la tête du côté de l'entrée, les pieds sous
+          // l'ouverture, les genoux à peine pliés : le corps simple sert de gabarit au sac. Échelle de
+          // la vue en travers (1,05 k par mètre) : le sac fait 2 k, la tranchée 2,1 k.
+          const yl = G - lit, hs = 0.26 * k, xs1 = xc - 0.08 * k, M = 55;
+          const e = 1.05 * k / 1000;
+          const dormeur = h.formes.corps({ pose: 'couche-dos', cote: 'gauche', echelle: e, x: xs1 - (822 + M) * e, y: yl + 2 - M * e,
+            angles: { cuisseP: 82, jambeP: 98, cuisseL: 82, jambeL: 98 } });
+          out.push(dormeur.toString(), sac(dormeur, { marge: M, cloisons: [0.22, 0.4, 0.58, 0.74] }));
           // Les perches, vues en bout, sur la neige du bord d'en face ; la bâche ; la neige.
           perches.forEach(x => out.push(h.cercle(x, S - r, r, blanc(h.a.arete))));
           const yB = S - 2 * r - 1;
@@ -183,12 +233,14 @@ module.exports = (h) => {
           // L'air vicié monte et sort par l'ouverture.
           const xo = (xa + x0) / 2;
           out.push(h.fleche(`M ${f(xo)} ${f(yl - hs - 0.18 * k)} L ${f(xo)} ${f(S - 0.3 * k)}`, h.a.cache));
+          // À contrôler : l'ouverture, qu'on dégage après chaque bordée.
+          out.push(h.controle((xa + x0) / 2, S - 3, (x0 - xa) / 2 + 3));
           return out.join('\n');
         },
         renvois: z => {
           const { S, G, k, xa, xc, xb, x0, lit } = gl(z);
           return [
-            { n: 10, rond: [xa - 40, S - 0.3 * k], cible: [(xa + x0) / 2 - 3, S - 0.12 * k], texte: 'ouverture au toit, dégagée' },
+            { n: 10, rond: [xa - 40, S - 0.3 * k], cible: [(xa + x0) / 2 - 0.72 * ((x0 - xa) / 2 + 3), S - 3 - 0.72 * ((x0 - xa) / 2 + 3)], texte: 'ouverture au toit, dégagée' },
             { n: 11, rond: [xb + 50, S - 0.3 * k], cible: [xb - 6, S - 0.14 * k], texte: 'un sac ferme l’entrée' },
             { n: 12, rond: [xb + 44, G - 0.35 * k], cible: [(xc + xb) / 2 + 6, G - 4], texte: 'entrée plus basse que le lit' },
             { n: 13, rond: [xa - 40, G - 0.4 * k], cible: [xa, G - lit - 0.3 * k], texte: 'juste la longueur des corps' },

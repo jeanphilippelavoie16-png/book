@@ -13,6 +13,9 @@
 // derrière, de droite à gauche, revient devant le brin gauche, passe sous son propre fil (dans la
 // boucle) et sort devant le brin droit. Chaque vue reprend le chemin de la précédente et l'allonge :
 // les croisements déjà faits restent les mêmes d'une vue à l'autre.
+//
+// Redessin du 14 octobre 2026 (le nœud restait trop dense à suivre) : le fil plus épais, la maille
+// déjà faite en gris loin et le fil qu'on noue en blanc, pour qu'on suive le fil d'un croisement à l'autre.
 
 'use strict';
 
@@ -81,7 +84,8 @@ module.exports = (h) => {
     out.push(F.corde(fil, { ep: Math.max(3, 0.017 * L), debut: 'ouvert', fin: 'ouvert', trait: 'detail', torons: true }));
     // retourner l'aiguille sur son long, puis refaire le tour sur l'autre face
     const tx = cx - L / 2 - 9;
-    out.push(h.fleche(`M ${P(tx + 3, cy - 0.085 * L)} C ${P(tx - 12, cy - 0.06 * L)} ${P(tx - 12, cy + 0.06 * L)} ${P(tx + 3, cy + 0.085 * L)}`, h.a.arete));
+    // la charte : le geste (retourner l'aiguille) en rouge
+    out.push(h.geste(`M ${P(tx + 3, cy - 0.085 * L)} C ${P(tx - 12, cy - 0.06 * L)} ${P(tx - 12, cy + 0.06 * L)} ${P(tx + 3, cy + 0.085 * L)}`));
     return out.join('\n');
   };
   const vueChargerR = z => {
@@ -94,7 +98,7 @@ module.exports = (h) => {
 
   // ── Le nœud : la maille du rang d'au-dessus (U), le moule, le fil ────────────────────────
   // Repère du nœud : le fond de la maille en (0, 6), le bord du haut du moule à y = 14.
-  const E = 4;                                              // épaisseur du fil, en unités du repère
+  const E = 5.4;                                            // épaisseur du fil, en unités du repère (redessin : plus épais)
   const base = [[-27.5, 28, -1], [-22, 12, -1], [-13, -12, -1],   // de derrière le moule, derrière le brin gauche
     [-7, -20, 1.6], [-2, -25, 2], [12, -40, 1.6], [26, -55, 1]];  // dans la maille, devant le brin droit
   const tour = [[42, -60, 1], [50, -72, 0], [42, -82, -1], [34, -82, -1], [0, -84, -1], [-34, -82, -1], [-46, -80, -1]];
@@ -152,15 +156,30 @@ module.exports = (h) => {
       fl = [[70, -26], [100, -50]];
     }
     const Fp = fil.map(T);
-    const aiguille = aig ? aiguilleTalon(...g.V(...aig.t), aig.deg, aig.L * e) : '';
+    let aiguille = aig ? String(aiguilleTalon(...g.V(...aig.t), aig.deg, aig.L * e)) : '';
+    // la charte : l'aiguille qui passe derrière les deux brins recule, en gris loin
+    if (aig && aig.derriere) aiguille = aiguille.split('fill="#FFFFFF"').join('fill="#E6E6E6"');
     if (aig && aig.derriere) out.push(aiguille, halo(U, ep + 5));
-    out.push(F.cordes([
+    // la charte (redessin du 14 octobre 2026) : la maille déjà faite en gris loin, le fil qu'on noue
+    // en blanc. Chaque fond de ruban va au brin dont il longe l'axe.
+    const cd = String(F.cordes([
       { pts: U, ep, debut: 'ouvert', fin: 'ouvert' },
       { pts: Fp, ep, debut: 'ouvert', fin: 'ouvert' },
     ]));
+    const axe = pts => { const q = []; for (let i = 0; i + 1 < pts.length; i++) for (let s = 0; s < 1; s += 0.1) q.push([pts[i][0] + (pts[i + 1][0] - pts[i][0]) * s, pts[i][1] + (pts[i + 1][1] - pts[i][1]) * s]); return q; };
+    const aU = axe(U), aF = axe(Fp);
+    const dist = (p, q) => Math.min(...q.map(c => Math.hypot(c[0] - p[0], c[1] - p[1])));
+    out.push(cd.replace(/<path d="([^"]*)" fill="#FFFFFF" stroke="none"\/>/g, (m, d) => {
+      const pts = (d.match(/-?[\d.]+ -?[\d.]+/g) || []).map(s => s.split(' ').map(Number));
+      const mU = pts.reduce((s, p) => s + dist(p, aU), 0) / pts.length, mF = pts.reduce((s, p) => s + dist(p, aF), 0) / pts.length;
+      return mU < mF ? m.replace('fill="#FFFFFF"', 'fill="#E6E6E6"') : m;
+    }));
     out.push(moule(z, g));
     if (aig && !aig.derriere) out.push(aiguille);
-    if (fl) out.push(h.fleche(`M ${P(...g.V(...fl[0]))} L ${P(...g.V(...fl[1]))}`, h.a.arete));
+    // la charte : le geste de l'aiguille en rouge ; en 3, le point qui casse sur un raté (sous son
+    // propre fil, sinon pas de nœud)
+    if (fl) out.push(h.geste(`M ${P(...g.V(...fl[0]))} L ${P(...g.V(...fl[1]))}`));
+    if (etape === 3) out.push(h.controle(...g.V(-3, -24), 13));
     return out.join('\n');
   };
   const noeudR = etape => z => {
