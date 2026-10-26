@@ -120,3 +120,5 @@ en couches (73-07 la glacière de blocs, 13-07 le filtre à sable, 12-06 le quin
 les caveaux, la cache de gel, la bécosse).
 
 14. **Jamais de cheveux, et le visage seulement quand il sert** (JP, 18 octobre 2026 : « on met jamais les cheveux, je veux plus les voir ; le visage est affiché seulement quand le visage fait une action ou qu'il y a une interaction »). Le moteur des têtes ne dessine plus de cheveux. `visage: true` seulement si la bouche, les yeux ou le nez font le geste (souffler, boire, regarder un point) ou si deux personnes interagissent ; sinon la tête reste nue.
+
+15. **Un personnage qui tient, porte ou tire quelqu'un montre ses bras jusqu'aux mains** (JP, 26 octobre 2026, planche 26-09a, la prise sous les aisselles : « manque des bras au bonhomme debout »). Quand le corps de l'autre personne cache le bras, on repeint par-dessus elle la partie du bras qui passe devant (l'avant-bras qui sort sous l'aisselle, jusqu'à la main qui tient), sans cacher sa tête ni ce qu'un repère désigne. On regarde chaque personnage qui fait un geste : on doit voir avec quoi il le fait.
