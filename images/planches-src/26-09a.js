@@ -85,6 +85,9 @@ module.exports = (h) => {
     for (const q of tracé.slice(1)) bande.push(`<circle cx="${f(q[0])}" cy="${f(q[1])}" r="${f(hw)}"/>`);
     out.push(`<clipPath id="clip-prise-bras">${bande.join('')}</clipPath>`);
     out.push(`<g clip-path="url(#clip-prise-bras)">\n${P.svg}\n</g>`);
+    // la tête du blessé reste devant ce bras (JP, 26 octobre 2026 : « le bras traverse sa tête ») : on la repeint
+    out.push(`<clipPath id="clip-prise-tete"><circle cx="${f(B.tete.x)}" cy="${f(B.tete.y)}" r="${f(108 * e)}"/></clipPath>`);
+    out.push(`<g clip-path="url(#clip-prise-tete)">\n${B.svg}\n</g>`);
     out.push(`<clipPath id="clip-prise-mains"><circle cx="${f(mains[0])}" cy="${f(mains[1])}" r="${f(70 * e)}"/></clipPath>`);
     out.push(`<g clip-path="url(#clip-prise-mains)">\n${P.svg}\n</g>`);
     // le geste : il recule

@@ -179,7 +179,8 @@ Le cadre complet est `.claude/skills/planches/references/brief-agent.md`. En bre
   la flamme qui entre par le bord ; ça passe avant la règle du visage qui souffle.
 - [ ] **Un personnage qui tient, porte ou tire quelqu'un montre ses bras jusqu'aux mains** (JP, 26 octobre 2026, planche
   26-09a : « manque des bras au bonhomme debout ») : quand le corps de l'autre cache le bras, on repeint par-dessus la partie
-  qui passe devant (l'avant-bras qui sort sous l'aisselle), sans cacher sa tête ni ce qu'un repère désigne (règle 15).
+  qui passe devant (l'avant-bras qui sort sous l'aisselle), sans cacher sa tête ni ce qu'un repère désigne, et sans jamais traverser une autre partie du corps (« le bras traverse sa
+  tête ») : ce qui est devant se repeint à son tour par-dessus (règle 15).
 - [ ] Une planche du tableau des signalées se refait au complet, jamais par retouche.
 - [ ] **Jamais de cheveux, et le visage seulement quand il sert** (JP, 18 octobre 2026 : « on met jamais les cheveux, je veux plus les voir ; le visage est affiché seulement quand le visage fait une action ou qu'il y a une interaction »). Le moteur des têtes ne dessine plus de cheveux. `visage: true` seulement si la bouche, les yeux ou le nez font le geste (souffler, boire, regarder un point) ou si deux personnes interagissent ; sinon la tête reste nue.
 - [ ] L'eau par `h.a.hachure('eau')` seulement : le bleu pâle et ses vaguelettes (JP, 18 octobre : « fais l'eau plus belle »).
