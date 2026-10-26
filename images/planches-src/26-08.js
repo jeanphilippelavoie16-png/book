@@ -204,16 +204,16 @@ module.exports = (h) => {
   const rebordFin = rebord.slice(2, -2).map((p, i, a) => {
     const q = a[Math.min(a.length - 1, i + 1)], r = a[Math.max(0, i - 1)];
     const t = [q[0] - r[0], q[1] - r[1]], n = Math.hypot(...t) || 1;
-    return [p[0] - 2.2 * t[1] / n, p[1] + 2.2 * t[0] / n];
+    return [p[0] + 2.2 * t[1] / n, p[1] - 2.2 * t[0] / n];
   });
   // les lenticelles font le tour du membre : debout sous l'avant-bras, couchées derrière le haut du bras, en éventail
   // autour du coude. Longueurs et écarts inégaux, parfois deux côte à côte ; plus courtes là où la gouttière tourne
   // et fuit (vers le dessous de l'avant-bras, vers l'arrière du haut du bras).
   const lentGouttiere = (() => {
     const r = hasard(26), out = [];
-    for (let x = 70; x < 250; x += 5 + r() * 12) {
+    for (let x = 68; x < 250; x += 4 + r() * 8) {
       const y0 = yA(rebord.filter(p => p[0] < 250), x) + 4, y1 = dessousEcorce(x) - 3;
-      if (y1 - y0 < 8 || r() < 0.15) continue;
+      if (y1 - y0 < 8 || r() < 0.1) continue;
       const v = r(), L = (4 + r() * 8) * (1 - 0.55 * v * v), y = y0 + L / 2 + v * (y1 - y0 - L);
       out.push([x, y, L, 0.7 + r() * 0.55, 90 + (r() - 0.5) * 12]);
       if (r() < 0.3) out.push([x + 2.5 + r() * 2, y + (r() < 0.5 ? -1 : 1) * (L / 2 + 2 + r() * 3), 2.5 + r() * 3, 0.7, 90 + (r() - 0.5) * 12]);
