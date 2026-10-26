@@ -302,3 +302,6 @@ rendue le 26 octobre, posée dans `images/a-valider/`, à valider par JP. Ancres
 
 **Notes « En plus »** (4) : la sphaigne (photo iNaturalist, CC0, `images/credits.md`), les pansements de mousse de 1916,
 la gomme de sapin chez les Innus, les cheveux tordus d'un tour.
+
+**Décision de JP, 26 octobre 2026** : « oui imprime les compressions ». La fréquence et la profondeur restent à l'étape 4
+(et au logigramme) ; la formation reste à l'étape 44, pour le geste.
