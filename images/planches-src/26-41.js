@@ -155,7 +155,7 @@ module.exports = (h) => {
     // la lanière qui s'écarte : elle part du bout de la déchirure et plie vers le bas
     const yl = yT + 2.5 * w, piv = [xd, yl];
     const lib = [[xd - 4, yl], [xd + 10, yl + 0.6], [xd + 26, yl + 4.5], ...[0.35, 0.7, 1].map(t => tourne([xd + 26 + t * (x1 - xd - 22), yl + 4.5], [xd + 26, yl + 4.5], 17))];
-    const L = ruban('r1', lib, w, { bouts: ['aucun', 'dechire'], bords: ['net', 'refendu'], ang: 17, graine: 7 });
+    const L = ruban('r1', lib, w, { bouts: ['aucun', 'dechire'], bords: ['net', 'refendu'], ang: 15, graine: 7 });
     o.push(L.svg);
     // le reste du morceau : deux lanières de large à droite de la déchirure, trois à gauche
     const R = hasard(3);
@@ -229,19 +229,19 @@ module.exports = (h) => {
   const meche = (pts, lmax, { nouee = false, de = 0, a = 1, graine = 1 } = {}) => {
     const C = echant(pts, 1), n = C.P.length, R = hasard(graine);
     const prof = s => {   // la largeur à la fraction s
-      const racine = nouee ? 0.5 : 0.7;
+      const racine = nouee ? 0.4 : 0.7;
       if (s < 0.14) return lmax * (racine + (1 - racine) * Math.sin(s / 0.14 * Math.PI / 2));
-      if (s < (nouee ? 0.74 : 0.5)) return lmax;
-      const fin = nouee ? 0.94 : 1, d0 = nouee ? 0.74 : 0.5;
-      return lmax * Math.max(nouee ? 0.28 : 0, 1 - (s - d0) / (fin - d0) * (nouee ? 0.72 : 1));
+      if (s < (nouee ? 0.6 : 0.5)) return lmax;
+      const fin = nouee ? 0.84 : 1, d0 = nouee ? 0.6 : 0.5;
+      return lmax * Math.max(nouee ? 0.3 : 0, 1 - (s - d0) / (fin - d0) * (nouee ? 0.7 : 1));
     };
-    const sFin = nouee ? 0.94 : 1;
+    const sFin = nouee ? 0.84 : 1;
     const idx = s => { let i = 0; while (i < n - 1 && C.S[i] / C.L < s) i++; return i; };
     const i0 = idx(de), i1 = idx(Math.min(a, sFin));
     const G = [], D = [];
     for (let i = i0; i <= i1; i++) { const e = prof(C.S[i] / C.L) / 2; G.push(add(C.P[i], mul(C.N[i], e))); D.push(add(C.P[i], mul(C.N[i], -e))); }
     const o = [];
-    const ep = nouee ? 1.4 : 0.7;
+    const ep = nouee ? 1.4 : 0.5;
     o.push(forme([...G, ...D.slice().reverse()], nouee ? '#FFFFFF' : GRIS));
     // les brins, dans la mèche
     const brins = nouee ? [-0.5, 0, 0.5] : [-0.25, 0.3];
@@ -255,8 +255,8 @@ module.exports = (h) => {
     // le bout de la mèche nouée : les brins continuent en cheveux séparés qui s'écartent un peu
     if (nouee && a >= 1) {
       const iF = n - 1, iB = idx(sFin);
-      [-0.55, -0.15, 0.2, 0.55].forEach((b, j) => {
-        const q = [], ext = (C.L * (1 - sFin)) * (0.75 + 0.35 * ((j * 7) % 4) / 3);
+      [-0.6, -0.3, 0, 0.3, 0.6].forEach((b, j) => {
+        const q = [], ext = (C.L * (1 - sFin)) * [0.7, 0.95, 1, 0.82, 0.62][j];
         for (let i = iB; i <= iF; i++) { const s = (C.S[i] - C.S[iB]) / (C.L - C.S[iB] || 1); if (s * (C.L - C.S[iB]) > ext) break; q.push(add(C.P[i], mul(C.N[i], b * lmax * 0.28 / 2 * (1 + s * 1.6)))); }
         if (q.length > 1) lignes.push(poly(q));
       });
@@ -264,7 +264,7 @@ module.exports = (h) => {
     if (lignes.length) o.push(`<path d="${lignes.join(' ')}" ${trait(0.5)}/>`);
     o.push(`<path d="${poly(G)}" ${trait(ep)}/>`, `<path d="${poly(D)}" ${trait(ep)}/>`);
     // la racine : la mèche sort du cuir, refermée par un petit arc
-    if (de <= 0) { const g = G[0], d = D[0], t = mul(C.T[0], -1), m = add(lerp(g, d, 0.5), mul(t, 1.6)); o.push(`<path d="M${f1(g[0])} ${f1(g[1])} Q${f1(m[0])} ${f1(m[1])} ${f1(d[0])} ${f1(d[1])}" ${trait(ep)}/>`); }
+    if (nouee && de <= 0) { const g = G[0], d = D[0], t = mul(C.T[0], -1), m = add(lerp(g, d, 0.5), mul(t, 1.6)); o.push(`<path d="M${f1(g[0])} ${f1(g[1])} Q${f1(m[0])} ${f1(m[1])} ${f1(d[0])} ${f1(d[1])}" ${trait(ep)}/>`); }
     // le bout de la mèche de la chevelure : fermé en pointe
     if (!nouee && a >= 1) { const g = G[G.length - 1], d = D[D.length - 1]; o.push(`<path d="M${f1(g[0])} ${f1(g[1])} L${f1(d[0])} ${f1(d[1])}" ${trait(ep)}/>`); }
     return { svg: o.join('\n'), C };
@@ -279,13 +279,13 @@ module.exports = (h) => {
     o.push(`<rect x="${f1(cx - R)}" y="${f1(cy + raie + 4 * u)}" width="${f1(2 * R)}" height="${f1(R - raie - 4 * u)}" fill="${GRIS}" stroke="none"/>`);
     const Rh = hasard(17);
     for (const s of [-1, 1]) {
-      for (let rang = 4; rang >= 0; rang--) {
-        const y0 = cy + s * (raie + rang * 19 * u);
-        for (let x = cx + R + 16 * u - rang * 7 * u; x > cx - R - 50 * u; x -= 19 * u) {
-          const xr = x + (Rh() - 0.5) * 6 * u, L = (58 + Rh() * 22) * u, pente = 0.32 + Rh() * 0.18;
+      for (let rang = 2; rang >= 0; rang--) {
+        const y0 = cy + s * (raie + rang * 26 * u);
+        for (let x = cx + R + 40 * u - rang * 6 * u; x > cx - R - 30 * u; x -= 17 * u) {
+          const xr = x + (Rh() - 0.5) * 5 * u, L = (100 + Rh() * 25) * u, pente = 0.38 + Rh() * 0.12;
           const r = [xr, y0], d = uni([-pente, s]);
-          const pts = [r, add(r, [d[0] * L * 0.3 + 1.5 * u, d[1] * L * 0.32]), add(r, [d[0] * L * 0.62 - 3 * u, d[1] * L * 0.6]), add(r, [d[0] * L - 10 * u, d[1] * L * 0.86])];
-          o.push(meche(pts, (13 + Rh() * 5) * u, { graine: Math.floor(Rh() * 1e6) + 1 }).svg);
+          const pts = [r, add(r, [d[0] * L * 0.22 + 1.5 * u, d[1] * L * 0.3]), add(r, [d[0] * L * 0.55 - 4 * u, d[1] * L * 0.6]), add(r, [d[0] * L - 14 * u, d[1] * L * 0.84])];
+          o.push(meche(pts, (15 + Rh() * 4) * u, { graine: Math.floor(Rh() * 1e6) + 1 }).svg);
         }
       }
     }
@@ -304,12 +304,12 @@ module.exports = (h) => {
   const croiser = z => {
     const P = {};
     const L = loupe(z, 'vue-2641-croiser', (cx, cy, R, u, raie) => {
-      const xr = cx - 44 * u, lm = 11 * u;
+      const xr = cx - 54 * u, lm = 9 * u;
       // A part du bord du bas de la raie, monte vers la droite ; B part du bord du haut, descend vers la droite
-      const ptsA = [[xr, cy + raie + 2 * u], [xr + 10 * u, cy + 6 * u], [xr + 26 * u, cy - 12 * u], [xr + 52 * u, cy - 36 * u], [xr + 76 * u, cy - 62 * u]];
+      const ptsA = [[xr, cy + raie + 2 * u], [xr + 14 * u, cy + 6 * u], [xr + 34 * u, cy - 8 * u], [xr + 64 * u, cy - 30 * u], [xr + 96 * u, cy - 54 * u]];
       const ptsB = ptsA.map(p => [p[0], 2 * cy - p[1]]);
       const mB = meche(ptsB, lm, { nouee: true, graine: 3 }), mA = meche(ptsA, lm, { nouee: true, graine: 4 });
-      P.croise = [xr + 17 * u, cy];
+      P.croise = [xr + 23 * u, cy];
       P.racine = ptsA[0];
       return [fenteH(cx, cy, 120 * u, true), mB.svg, mA.svg].join('\n');
     });
@@ -320,22 +320,22 @@ module.exports = (h) => {
   const nouer = z => {
     const P = {};
     const L = loupe(z, 'vue-2641-nouer', (cx, cy, R, u, raie) => {
-      const lm = 11 * u, U = (x, y) => [cx + x * u, cy + y * u];
+      const lm = 9 * u, U = (x, y) => [cx + x * u, cy + y * u];
       // A : la mèche du bas. Elle monte, passe en arc au-dessus de la coupure et redescend vers la droite.
-      const ptsA = [U(-46, raie / u + 2), U(-36, 9), U(-22, -4), U(-10, -17), U(4, -21), U(16, -13), U(24, 0), U(34, 16), U(48, 36), U(62, 58)];
+      const ptsA = [U(-54, raie / u + 2), U(-42, 8), U(-30, 0), U(-21, -14), U(-9, -25), U(0, -28), U(9, -25), U(21, -14), U(30, 0), U(37, 14), U(47, 34), U(58, 54)];
       const ptsB = ptsA.map(p => [p[0], 2 * cy - p[1]]);
       // l'ordre : A de son arc jusqu'au bout (dessous à droite), puis B en entier, puis A de la racine à son arc
       // (dessus à gauche)
       const o = [fenteH(cx, cy, 120 * u, false)];
-      o.push(meche(ptsA, lm, { nouee: true, graine: 5, de: 0.45 }).svg);
+      o.push(meche(ptsA, lm, { nouee: true, graine: 5, de: 0.4 }).svg);
       o.push(meche(ptsB, lm, { nouee: true, graine: 6 }).svg);
-      o.push(meche(ptsA, lm, { nouee: true, graine: 5, a: 0.45 }).svg);
-      P.noeud = U(-29, 0);
+      o.push(meche(ptsA, lm, { nouee: true, graine: 5, a: 0.4 }).svg);
+      P.noeud = U(-30, 0);
       P.bouts = [ptsA[ptsA.length - 1], ptsB[ptsB.length - 1]];
       return o.join('\n');
     });
     const { cx, cy, u } = L;
-    const t = uni([1.1, 1.7]);
+    const t = uni([11, 20]);
     const fl = (p, s) => { const a = add(p, [t[0] * 6 * u, s * t[1] * 6 * u]), b = add(p, [t[0] * 30 * u, s * t[1] * 30 * u]); return h.geste(`M${f1(a[0])} ${f1(a[1])} L${f1(b[0])} ${f1(b[1])}`); };
     return { svg: [L.svg, fl(P.bouts[0], 1), fl(P.bouts[1], -1)].join('\n'), P, L };
   };
@@ -381,7 +381,7 @@ module.exports = (h) => {
       nouer: {
         titre: 'Nouer, serrer',
         dessin: z => v6(z).svg,
-        renvois: z => { const P = v6(z).P, L = v6(z).L; return [{ n: 6, rond: [L.cx - L.R + 2, L.cy - L.R * 0.62], cible: P.noeud, texte: 'nouées : tirer les deux bouts' }]; },
+        renvois: z => { const P = v6(z).P, L = v6(z).L; return [{ n: 6, rond: [L.cx - L.R + 2, L.cy - L.R * 0.62], cible: P.noeud, texte: 'nouées : tirer les bouts pour serrer' }]; },
       },
     },
   };
