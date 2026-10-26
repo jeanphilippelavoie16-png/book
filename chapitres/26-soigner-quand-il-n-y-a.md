@@ -52,8 +52,8 @@ partir.
  (étape 6), puis à la plaie (étape 23).
 3. **Appuyer tout de suite sur ce qui gicle ou coule à flot**, avant tout le reste, même avant de vérifier la
  respiration (étape 6).
-4. **Si la personne ne répond pas et ne respire pas normalement[^1], comprimer la poitrine tout de suite.** Chaque
- minute sans compressions fait perdre 7 à 10 % des chances de survie.
+4. **Si la personne ne répond pas et ne respire pas normalement[^1], comprimer la poitrine tout de suite** (si son corps
+ est froid, l'étape 5 d'abord). Chaque minute sans compressions fait perdre 7 à 10 % des chances de survie.
  - La coucher sur le dos, sur le plancher : un matelas plie sous les mains.
  - Poser le talon d'une main au milieu de la poitrine, l'autre main par-dessus, bras tendus, épaules au-dessus des
  mains.
@@ -63,13 +63,15 @@ partir.
  font aussi bien que les compressions avec insufflations.
  - Chez un enfant, jusqu'à la puberté, enfoncer d'un tiers de l'épaisseur de la poitrine, environ 4 à 5 cm, au même
  rythme, d'une main ou des deux. Si on sait les donner, faire 2 insufflations toutes les 30 compressions. Chez un
- bébé de moins d'un an, comprimer avec deux doigts.
+ bébé de moins d'un an, comprimer avec deux doigts. Un nouveau-né qui ne respire pas à la naissance : ch. 29.
  - Continuer sans s'arrêter pour regarder, jusqu'à ce que la personne respire d'elle-même ou qu'on n'en puisse plus.
  À deux, changer de personne dès que celle qui comprime ralentit.
 5. **Si le corps est froid, le manipuler doucement, à l'horizontale, sans le plier, le secouer ni le frictionner.**
  Sous 28 °C de température du corps, le mouvement peut suffire à faire partir le cœur en fibrillation[^2]. Une
  personne restée vingt minutes dans la neige à −30 °C est blessée et en hypothermie. Avant de comprimer une personne
- froide, chercher le pouls au cou pendant 1 minute pleine : un cœur froid bat lentement et faiblement (ch. 25).
+ froide, chercher le pouls au cou pendant 1 minute pleine : un cœur froid bat lentement et faiblement. S'il n'y a pas
+ de pouls après 1 minute, comprimer, et donner 2 insufflations toutes les 30 compressions si on sait les donner
+ (ch. 25).
  Mettre une épaisseur sous le corps avant de mettre des couvertures dessus : le sol gelé prend la chaleur du corps plus
  vite que l'air. Une bâche, un matelas de mousse ou des branches de sapin baumier (*Abies balsamea*) font l'affaire.
  Noter l'heure exacte où c'est arrivé : les 5 minutes d'appui, le garrot et la route se comptent à partir d'elle.
@@ -124,13 +126,12 @@ partir.
 13. **Injecter l'épinéphrine tout de suite, au premier signe, sans attendre de voir si ça empire.**
  - Prendre l'auto-injecteur dans le poing, le bout orange vers le bas, et tirer le bouchon bleu tout droit, sans le
  plier ni le tordre.
- - Appuyer le bout orange au milieu de la face externe de la cuisse, à travers le pantalon, et pousser fort jusqu'au
- déclic.
+ - Appuyer le bout orange au milieu de la face externe de la cuisse et pousser fort jusqu'au déclic.
  - Tenir l'injecteur en place 3 secondes.
  - Chez un enfant, lui tenir la jambe pour qu'il ne la bouge pas pendant l'injection.
  - Une personne asthmatique qui a de la peine à respirer reçoit l'épinéphrine d'abord, sa pompe ensuite.
  Un autre modèle d'injecteur ou un vaporisateur nasal porte son mode d'emploi en dessin : le lire en le sortant de
- l'étui. Il existe deux doses, 0,15 mg et 0,3 mg, choisies selon le poids au moment de l'achat.
+ l'étui. L'EpiPen existe en deux doses, 0,15 mg et 0,3 mg, choisies selon le poids de la personne.
 14. **Coucher la personne sur le dos et lui relever les jambes.** Si elle respire mal, la laisser assise. Si elle vomit
  ou si elle ne répond plus, la coucher sur le côté. Ne pas la faire asseoir ni lever d'un coup, même quand elle va
  mieux.
@@ -168,17 +169,18 @@ partir.
 24. **Rincer la plaie avec un jet d'eau, sans frotter** (planche 26-40, repères 9 à 12). Prendre de l'eau bouillie,
  puis refroidie, et la pousser en jet avec une seringue sans aiguille ou une bouteille souple percée d'un trou
  d'épingle : au moins 100 à 300 mL, et jusqu'à ce qu'on ne voie plus de saleté. La force du jet décolle la saleté,
- pas le produit. L'eau de puits qui n'a pas bouilli ajoute ses microbes dans la plaie (ch. 10) ; en ville,
- l'eau du robinet convient telle quelle, sauf quand l'eau est sous avis d'ébullition.
+ pas le produit. L'eau de puits qui n'a pas bouilli ajoute ses microbes dans la plaie (ch. 10) ; à la maison,
+ l'eau de l'aqueduc convient telle quelle, sauf quand elle est sous avis d'ébullition.
 25. **Garder l'antiseptique pour la peau autour de la plaie.** Un antiseptique concentré versé dans une plaie profonde
  tue aussi les cellules qui doivent la refermer : dans la plaie, on met de l'eau propre.
 26. **Laisser ouverte la plaie sale, la plaie profonde, la piqûre et la morsure**, sous une gaze humide qu'on change
  chaque jour : elle coule et guérit lentement. Refermée trop tôt, elle enferme les microbes, enfle et s'infecte sans
  qu'on le voie. Seule une coupure propre et franche se rapproche (section 7, « Rapprocher une coupure »).
 27. {!tetanos} **Après une plaie souillée ou une piqûre, regarder la date du dernier vaccin contre le tétanos de la
- personne.** Pour une plaie souillée de terre, de poussière, de selles ou de salive, une morsure, un clou, des tissus
- morts, une gelure, une brûlure ou un arrachement, la personne est protégée si sa dernière dose a moins de 5 ans ;
- pour une petite plaie propre, moins de 10 ans. Sinon, ou si on ne le sait pas, partir faire le rappel. Pendant 3
+ personne.** Si elle a reçu ses trois doses de base, elle est protégée quand sa dernière dose a moins de 5 ans pour
+ une plaie souillée de terre, de poussière, de selles ou de salive, une morsure, un clou, des tissus morts, une gelure,
+ une brûlure ou un arrachement, et moins de 10 ans pour une petite plaie propre. Sinon, ou si on ne le sait pas,
+ partir faire le rappel. Pendant 3
  semaines, surveiller la mâchoire et le cou : un cou raide chez quelqu'un qui s'est planté un clou onze jours plus
  tôt n'est pas un torticolis, et la vie est en jeu.
 
@@ -187,7 +189,7 @@ partir.
 28. {!rage} **Laver tout de suite la morsure ou la griffure à grande eau et au savon, pendant 10 à 15 minutes, montre
  en main**, puis partir le jour même vers l'hôpital pour le vaccin. C'est long et désagréable, et aucun autre geste
  du chapitre ne change autant le risque de mourir. Une égratignure de chauve-souris presque invisible fait partir le
- jour même ; une coupure de couteau propre, qui saigne beaucoup, se soigne au chalet.
+ jour même ; une coupure de couteau propre, même si elle saigne beaucoup, ne demande pas le vaccin.
  - Une chauve-souris posée sur un vêtement compte comme une morsure, sauf si on est certain qu'elle n'a pas touché
  la peau.
  - Une chauve-souris trouvée dans la chambre d'un enfant qui dormait compte comme une morsure si l'enfant dit
@@ -260,13 +262,12 @@ partir.
 
 43. **Choisir la personne qui soigne, et celle qui la remplace.** Une seule personne décide, une seule compte les
  minutes, une seule écrit. À deux adultes, la personne qui touche au blessé ne touche pas à la radio ni à la balise.
-44. **Suivre une formation de RCR, et la refaire tous les 3 ans.** Le rythme des compressions se prend avec les mains,
- pas dans un livre. La formation « Héros en trente », sans insufflations, dure 30 minutes et couvre l'étouffement,
+44. **Suivre une formation de RCR, et la refaire tous les 3 ans.** Le rythme des compressions se prend avec les mains :
+ la formation le fait pratiquer. La formation « Héros en trente », sans insufflations, dure 30 minutes et couvre l'étouffement,
  l'effondrement et l'arrêt du cœur.
 45. **Écrire à l'intérieur de la porte de l'armoire de la trousse les allergies de chaque personne, ses médicaments
- et la date de son dernier vaccin contre le tétanos.** Faire le rappel avant la saison à la personne qui n'a pas
- reçu ses trois doses de base, qui ne le sait pas, ou dont la dernière dose a plus de 10 ans ; les adultes reçoivent
- un rappel à 50 ans.
+ et la date de son dernier vaccin contre le tétanos.** Faire vacciner avant la saison la personne qui n'a pas reçu
+ ses trois doses de base ou qui ne le sait pas ; les adultes reçoivent un rappel à 50 ans.
 46. **Calculer une fois, et écrire au même endroit, les trois durées de route jusqu'à l'hôpital** : l'été, l'hiver par
  la route, et l'hiver quand la route ne passe pas. Elles servent à l'étape 39.
 47. **Ouvrir la trousse deux fois par année et après chaque usage, et jeter ce qui est entamé, jauni, sale ou
@@ -288,7 +289,7 @@ partir.
 
 | Moment | Ce qu'on vérifie | Cible chiffrée | Hors cible |
 | --- | --- | --- | --- |
-| Compressions | Profondeur et rythme | Adulte : 5 à 6 cm ; enfant : un tiers de la poitrine, environ 4 à 5 cm ; 100 à 120 par minute | Plus profond, ou plus vite : la poitrine n'a pas le temps de remonter |
+| Compressions | Profondeur et rythme | Adulte : 5 à 6 cm ; enfant : un tiers de la poitrine, environ 4 à 5 cm ; 100 à 120 par minute | Recompter le rythme ; changer de personne dès que celle qui comprime ralentit (étape 4) |
 | Saignement | Appui direct, sans relâcher | Au moins 5 minutes pleines, montre en main, avant de regarder ; quand ça gicle, jusqu'à l'arrêt | Ne pas retirer la compresse : en ajouter une seule par-dessus et appuyer plus fort |
 | Garrot posé | Le sang, et l'heure sur le front | Le sang arrêté ; l'heure lisible | Il suinte : serrer plus, ou poser un deuxième garrot au-dessus. Ne jamais desserrer pour voir |
 | Réaction allergique | L'état de la personne après l'injection | Mieux après 5 minutes | Pas mieux : deuxième injecteur. Mieux : partir quand même |
@@ -341,12 +342,13 @@ fois par jour au lieu d'une (étape 29).
 
 Quand le sang ou la plaie coule plus vite que le coton ne boit, prendre de la sphaigne (*Sphagnum* spp.), la mousse des
 tourbières : elle absorbe plusieurs fois son poids, et elle a servi de pansement partout où la gaze a manqué (planche
-26-11, repères 5 à 8). La cueillir loin d'un passage de bêtes, avec des gants : un champignon qu'elle porte entre par
-les petites coupures et les piqûres des mains, et donne une petite bosse rose, rouge ou violacée, sans douleur, une à
-douze semaines plus tard. La trier pour enlever les brindilles et les insectes, la faire sécher au-dessus du poêle, puis
+26-11, repères 5 à 8). La cueillir loin d'un passage de bêtes, avec des gants : un champignon qu'elle porte parfois
+entre par les petites coupures et les piqûres des mains, et donne une petite bosse rose, rouge ou violacée, sans
+douleur, une à douze semaines plus tard. La trier pour enlever les brindilles et les insectes, la faire sécher au-dessus du poêle, puis
 l'enfermer dans un carré de coton bouilli. On pose ce sachet, jamais la mousse nue, et on ne la tasse jamais dans une
-plaie : un brin resté au fond devient un corps étranger. *Ce qu'on perd :* aucune stérilité, et il faut regarder sous
-le sachet chaque jour.
+plaie : un brin resté au fond devient un corps étranger. *Ce qu'on perd :* aucune stérilité, et le champignon peut
+entrer par la plaie : regarder sous le sachet chaque jour, et partir si une bosse sans douleur paraît près de la plaie
+dans les 12 semaines.
 
 ### Le garrot
 

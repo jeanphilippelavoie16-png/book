@@ -305,3 +305,31 @@ la gomme de sapin chez les Innus, les cheveux tordus d'un tour.
 
 **Décision de JP, 26 octobre 2026** : « oui imprime les compressions ». La fréquence et la profondeur restent à l'étape 4
 (et au logigramme) ; la formation reste à l'étape 44, pour le geste.
+
+## Corrections après la vérification technique, 26 octobre 2026
+
+Vérificateur technique (agent distinct, rôle 3) : 2 erreurs, 11 points à préciser, tout le reste conforme à la source
+(pastilles, pictogrammes, anaphylaxie, compressions, garrot, tétanos, notes En plus, renvois). Botulisme : d'accord pour le
+sortir. Appliqué :
+1. Étape 13 et logigramme : « à travers le pantalon » coupé (aucune source enregistrée ; le plan de l'Alberta qui dit
+   « avec ou sans vêtements » ne se télécharge pas).
+2. Section 5, compressions : la colonne « hors cible » disait un lien de cause sans source ; elle renvoie à l'étape 4.
+3. Corps froid : étape 4 renvoie à l'étape 5 d'abord ; étape 5, pas de pouls après 1 minute → comprimer avec 2
+   insufflations toutes les 30, comme le ch. 25 (étape 14) ; logigramme, nœud rcr.
+4. Étape 4 : le nouveau-né renvoie au ch. 29 (l'air d'abord).
+5. Étape 27 : la condition des trois doses de base remise.
+6. Étape 45 : « dernière dose de plus de 10 ans » coupé (l'adulte reçoit un rappel unique à 50 ans).
+7. Étape 28 : « une coupure de couteau propre, même si elle saigne beaucoup, ne demande pas le vaccin ».
+8. Section 7, sphaigne : le champignon « parfois » ; la plaie elle-même est une porte d'entrée (partir si une bosse
+   paraît dans les 12 semaines).
+9. Étape 13 : les deux doses sont celles de l'EpiPen, choisies selon le poids.
+10. Logigramme : u1, allergie (position assise), q6 (la peau froide et moite ; 6 h chez un bébé), renvoi de partir.
+11. Note de 1916 : la page du Smithsonian refuse le téléchargement (403) ; ses extraits, relus le 26 octobre par le
+    rédacteur et par le vérificateur, sont dans `sources/26n-sphaigne-grande-guerre-et-cheveux-noues.md`. Pas de
+    contournement.
+12. Étape 24 : « à la maison, l'eau de l'aqueduc ».
+13. Étape 44 : « la formation le fait pratiquer » (le chapitre imprime maintenant le rythme, décision de JP).
+
+**À corriger au ch. 35, à sa refonte** (contradiction d'avant) : le ch. 35, l. 130, fait de la chauve-souris trouvée
+dans la chambre d'un enfant la même urgence qu'une morsure ; le ch. 26 (étape 28) et la page de la rage demandent
+qu'elle ait touché la peau, que l'enfant se soit réveillé, ou qu'il ait une marque.
