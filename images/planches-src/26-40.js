@@ -123,46 +123,51 @@ module.exports = (h) => {
   };
 
   // ─── A et B. Appuyer, puis le sang traverse : la même vue, les mêmes mains ───────────────────────────────────────
-  // La main 1-08 (« tige à plat ») sans sa tige : la main à plat de côté, paume en bas, les doigts un peu relevés.
-  // Le talon de la main et le dessous des doigts se posent sur la compresse ; la main du dessous (en gris : elle est
-  // derrière) a sa paume sur la plaie ; celle du dessus pose sa paume sur le dos de la première, un peu plus vers le
-  // poignet. Les deux avant-bras, parallèles, montent vers les épaules de celui qui appuie et sortent de la vue.
-  const ID_PLAT = '1-08', ANC_PLAT = [0.62, 0.99];
-  const UP = 27;                                        // la plaie, à mi-cuisse
-  const COMP1 = [UP - 6.5, UP + 6.5], COMP2 = [UP - 8, UP + 4.5], EP = 1.1;   // les compresses (u, cm) et leur épaisseur
-  const plat = (s, x, y, angle, loin) => pose({ id: ID_PLAT, taille: 28.4 * s * 617 / 617, angle, ancre: ANC_PLAT, x, y, loin });
+  // La main 8-01 (« paume en l'air ») retournée de haut en bas : la paume vers la compresse, on voit le dos de la main,
+  // le poignet plié et l'avant-bras qui monte vers l'épaule de celui qui appuie. C'est la main à plat qui a déjà la pose
+  // de l'appui (1-08, la main à plat de côté, a l'avant-bras dans le prolongement de la main : couchée sur la cuisse,
+  // ses bras partaient à l'horizontale). La main du dessous (en gris : elle est derrière) a le talon de la main sur la
+  // plaie ; celle du dessus pose sa paume sur le dos de la première. Les deux avant-bras, parallèles, sortent de la vue.
+  const ID_PLAT = '8-01', ANGLE_PLAT = 150;
+  const UP = 25;                                        // la plaie, à mi-cuisse
+  const COMP1 = [UP - 6.5, UP + 7], COMP2 = [UP - 8.5, UP + 4.5], EP = 1.1;   // les compresses (u, cm) et leur épaisseur
+  const plat = (s, x, y) => pose({ id: ID_PLAT, taille: 27.2 * s, angle: ANGLE_PLAT, miroir: true, ancre: [0.5, 0.5], x, y });
   const BORDS_PLAT = () => {
-    const h0 = coupe(ID_PLAT, 'x', 0.016), h1 = coupe(ID_PLAT, 'x', 0.12), b0 = coupe(ID_PLAT, 'x', 0.03);
-    return [[[0.12, h1[0]], [0.016, h0[0]]], [[0.12, h1[h1.length - 1]], [0.03, b0[b0.length - 1]]]];
+    const a = coupe(ID_PLAT, 'y', 0.75), b = coupe(ID_PLAT, 'y', 0.95);
+    return [[[a[0], 0.75], [b[0], 0.95]], [[a[a.length - 1], 0.75], [b[b.length - 1], 0.95]]];
   };
-  const ANGLE_PLAT = 27;                                // la pente de contact de la main, plus la pente de la cuisse
+  const DESSUS = [-0.30, -0.36];                        // la main du dessus : reculée vers le poignet, levée (fractions de la main)
   const geoAB = (z, double) => {
-    const s = z.l / 40, u0 = 7, yg = z.h - 10;
+    const s = z.l / 40, u0 = 6, yg = z.h - 10;
     const C = cuisse(z, u0, s, yg);
     const epT = EP * s * (double ? 2 : 1);
     const surf = x => C.top(x) - epT;
     const xP = C.X(UP);
     // la main du dessous : on la descend jusqu'à ce que le dessous de la main touche la compresse
-    const dessous = contour(ID_PLAT).filter(p => p[0] > 0.38 && p[1] > 0.6);
-    let y = 0;
-    for (let it = 0; it < 3; it++) {
-      const m = plat(s, xP, y, ANGLE_PLAT, true);
-      const enfonce = Math.max(...dessous.map(p => { const q = m.P(p); return q[1] - surf(q[0]); }));
-      y -= enfonce;
+    const pts = contour(ID_PLAT).filter(p => p[1] < 0.62);
+    let y = 0, x = xP;
+    for (let it = 0; it < 4; it++) {
+      const m = plat(s, x, y);
+      const P = pts.map(m.P);
+      const enfonce = Math.max(...P.map(q => q[1] - surf(q[0])));
+      // le talon de la main (le point le plus bas, côté poignet) se pose sur la plaie
+      const bas = P.filter(q => q[1] - surf(q[0]) > enfonce - 1.2).sort((a, b) => a[0] - b[0])[0];
+      y -= enfonce; x += xP - bas[0];
     }
-    const bas = plat(s, xP, y, ANGLE_PLAT, true);
-    // la main du dessus : la même, reculée vers le poignet et levée de la moitié de la main
-    const ph = bas.P([ANC_PLAT[0] - 0.07, ANC_PLAT[1] - 0.6]);
-    const haut = plat(s, ph[0], ph[1], ANGLE_PLAT, false);
-    const L = z.l;
+    const bas = plat(s, x, y);
+    const Hm = 27.2 * s;
+    const haut = plat(s, x + DESSUS[0] * Hm * 0.5, y + DESSUS[1] * Hm * 0.5);
+    const L = z.l + z.h;
     const abBas = avantBras(bas.P, BORDS_PLAT(), L, GRIS), abHaut = avantBras(haut.P, BORDS_PLAT(), L);
     // la flèche du poids : le long de l'avant-bras du dessus, côté dos, vers les mains
     const [a0, a1] = abHaut.axe, d = Math.hypot(a1[0] - a0[0], a1[1] - a0[1]), u = [(a0[0] - a1[0]) / d, (a0[1] - a1[1]) / d];
-    const nv = [u[1], -u[0]];                            // la normale vers le haut de la vue
-    const off = 0.55 * (Math.hypot(abHaut.bords[0][0][0] - abHaut.bords[1][0][0], abHaut.bords[0][0][1] - abHaut.bords[1][0][1])) + 9;
+    const nv = [-u[1], u[0]][1] < 0 ? [-u[1], u[0]] : [u[1], -u[0]];   // la normale vers le haut de la vue
+    const lb = Math.hypot(abHaut.bords[0][0][0] - abHaut.bords[1][0][0], abHaut.bords[0][0][1] - abHaut.bords[1][0][1]);
+    const off = 0.5 * lb + 10;
     const pa = t => [a0[0] - u[0] * t + nv[0] * off, a0[1] - u[1] * t + nv[1] * off];
-    const fleche = [pa(13.5 * s), pa(4.5 * s)];
-    return { s, C, surf, xP, bas, haut, abBas, abHaut, fleche, a0, u, epT };
+    const fleche = [pa(11 * s), pa(1.5 * s)];
+    const talon = [xP, surf(xP)];
+    return { s, C, surf, xP, bas, haut, abBas, abHaut, fleche, a0, u, epT, talon };
   };
   // Une compresse de côté : une gaze pliée, posée sur la peau, qui en suit la courbe ; bouts arrondis.
   const compresse = (C, ua, ub, y0, ep, at) => {
@@ -181,8 +186,8 @@ module.exports = (h) => {
     out.push(mains(g));
     out.push(h.geste(`M${pt(g.fleche[0])} L${pt(g.fleche[1])}`));
     // le point à contrôler : le talon de la main du dessous, sur la compresse, sur la plaie même
-    const c = g.bas.P([0.6, 0.97]);
-    out.push(h.controle(c[0], c[1] - 2, 2.6 * g.s));
+    const c = g.talon;
+    out.push(h.controle(c[0] + 1.2 * g.s, c[1] - 1.4 * g.s, 2.8 * g.s));
     return decoupe('a', z, out.join('\n'));
   };
 
@@ -327,9 +332,8 @@ module.exports = (h) => {
     out.push(h.path(`M${bd.map(pt).join(' L')} Q${f(b0[0])},${f(g.ytop(b0[0]) - 0.9 * s)} ${f(x1)},${f(g.ytop(x1) - 0.3 * s)} Q${f((x1 + xq) / 2)},${f(g.ytop((x1 + xq) / 2) - 0.35 * s)} ${f(xq)},${f(g.ytop(xq) - 0.3 * s)}`, h.a.arete));
     out.push(h.path(`M${f(xq - 0.2 * s)},${f(g.ytop(xq) - 0.9 * s)} L${f(xq + 0.2 * s)},${f(g.ytop(xq) + 0.3 * s)}`, h.a.fin));
     // le doigt ganté qui tasse : la main, son avant-bras, la manchette du gant
-    const m = g.m;
-    const bords = [[[0.39, 0.80], [coupe(ID_DOIGT, 'y', 0.93)[0], 0.93]], [[0.90, 0.80], [coupe(ID_DOIGT, 'y', 0.93).slice(-1)[0], 0.93]]];
-    bords[0][0][0] = coupe(ID_DOIGT, 'y', 0.80)[0]; bords[1][0][0] = coupe(ID_DOIGT, 'y', 0.80).slice(-1)[0];
+    const m = g.m, c80 = coupe(ID_DOIGT, 'y', 0.80), c93 = coupe(ID_DOIGT, 'y', 0.93);
+    const bords = [[[c80[0], 0.80], [c93[0], 0.93]], [[c80[c80.length - 1], 0.80], [c93[c93.length - 1], 0.93]]];
     out.push(m.svg(), avantBras(m.P, bords, z.h).svg, manchette(g, m.P, s));
     // le geste : le doigt pousse la gaze jusqu'au fond
     out.push(h.geste(`M${pt(g.geste[0])} L${pt(g.geste[1])}`));
@@ -343,15 +347,17 @@ module.exports = (h) => {
   const ID_POING = '1-09', AXE_POING = 0.807;
   // le profil de la bouteille, u cm depuis le bout du bouchon, demi-largeur
   const geoD = z => {
-    const s = z.l / 34, u0 = 9, yg = z.h + 2.5 * s;
+    const aM = 162;                                     // le poing tourné : l'avant-bras monte à droite
+    const ang = aM * RAD, axe = [-Math.sin(ang), Math.cos(ang)];   // l'axe de la bouteille, du bouchon (en bas) vers le fond
+    const GAP = 5.5;                                    // du bout du bouchon à la plaie, cm
+    // l'échelle : la bouteille, le jet et le dessus de la cuisse tiennent dans la hauteur de la vue
+    const s = Math.min(z.l / 34, (z.h - 30) / (-axe[1] * LBOUT + GAP + 4.5)), u0 = 24 - (z.l * 0.42) / s;
+    const yw0 = 16 + (-axe[1] * LBOUT + GAP) * s, yg = yw0 + lisse(HAUT, 24) * s;
     const C = cuisse(z, u0, s, yg);
     const xw = C.X(24), yw = C.top(xw);                 // la plaie
-    const aM = 162;                                     // le poing tourné : l'avant-bras monte à droite
     const k = 3.4 * s / 100, taille = k * 540;
-    // l'axe de la bouteille dans la vue : du bouchon (en bas) vers le fond (en haut)
-    const ang = aM * RAD, axe = [Math.sin(ang), -Math.cos(ang)].map(v => -v);   // le haut du fichier, tourné, inversé
     const uG = 10.5;                                    // le milieu du poing sur la bouteille, depuis le bout du bouchon
-    const C0 = [xw - 2.2 * s - axe[0] * 4.5 * s, yw - 6.5 * s];   // le bout du bouchon, au-dessus de la plaie
+    const C0 = [xw + axe[0] * GAP * s * 0.9 - 0.6 * s, yw + axe[1] * GAP * s];   // le bout du bouchon, au-dessus de la plaie
     const nrm = [-axe[1], axe[0]];
     const W = (u, v) => [C0[0] + (u * axe[0] + v * nrm[0]) * s, C0[1] + (u * axe[1] + v * nrm[1]) * s];
     const G = W(uG, 0);
@@ -359,8 +365,8 @@ module.exports = (h) => {
     const m = pose({ id: ID_POING, taille, angle: aM, ancre: [AXE_POING, 0.69], x: G[0], y: G[1] });
     return { s, C, xw, yw, W, axe, nrm, m, uG, k };
   };
-  const BOUT = [[0, 0.75], [0.3, 1.25], [2.4, 1.3], [2.7, 1.0], [3.3, 1.05], [4.2, 1.8], [5.6, 2.8], [6.6, 3.0], [7.4, 2.6], [8.6, 1.75],
-    [12.4, 1.75], [13.6, 2.6], [14.6, 3.0], [19.4, 3.0], [20.4, 2.6]];
+  const BOUT = [[0, 0.75], [0.3, 1.25], [2.4, 1.3], [2.7, 1.0], [3.4, 1.05], [4.4, 1.9], [5.4, 2.6], [6.3, 2.3], [7.0, 1.75],
+    [14.2, 1.75], [14.9, 2.3], [16.0, 3.0], [19.4, 3.0], [20.4, 2.6]];
   const LBOUT = 20.6;
   const dessinD = z => {
     const g = geoD(z), s = g.s, W = g.W, C = g.C, out = [C.dessin];
@@ -435,9 +441,9 @@ module.exports = (h) => {
         titre: 'Appuyer',
         dessin: dessinA,
         renvois: z => {
-          const g = geoAB(z, false), c = g.bas.P([0.6, 0.97]), b = g.abHaut.axe;
+          const g = geoAB(z, false), c = [g.talon[0] + 1.2 * g.s, g.talon[1] - 1.4 * g.s], b = g.abHaut.axe;
           return [
-            { n: 1, rond: [z.l - 14, c[1] + 26], cible: [c[0] + 2.6 * g.s, c[1] + 2], texte: 'la paume sur la plaie même' },
+            { n: 1, rond: [z.l - 14, c[1] + 30], cible: [c[0] + 2.8 * g.s, c[1] + 4], texte: 'la paume sur la plaie même' },
             { n: 2, rond: [16, 16], cible: [b[0][0] - g.u[0] * 9 * g.s, b[0][1] - g.u[1] * 9 * g.s], texte: 'bras tendus : tout son poids' },
           ];
         },
