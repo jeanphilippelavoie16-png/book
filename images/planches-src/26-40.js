@@ -8,10 +8,12 @@
 // Reprise du 26 octobre 2026, aux règles du tome 1 :
 // - toutes les mains passent par h.formes.mainStock (mainSimple est retiré : JP, « c'est pas beau en criss ») ; une main
 //   de la bibliothèque ne se déforme jamais ; l'avant-bras continue la coupe du poignet et sort de la vue ;
-// - Appuyer et Le sang traverse : sans personnage (la tête n'apprend rien), de côté, la cuisse de la hanche au genou
-//   posée au sol ; deux mains 1-08 sans leur tige, à plat, paume vers la compresse (on voit le dos de la main), l'une
-//   sur l'autre, celle du dessous en gris loin ; la main 1-08 a les doigts relevés : penchée de son angle de contact,
-//   elle touche la compresse du talon de la main et du bout des doigts, et les avant-bras montent vers l'épaule ;
+// - Appuyer et Le sang traverse : sans personnage (la tête n'apprend rien), vus d'en haut comme celui qui appuie voit
+//   ses mains ; la cuisse de la hanche au genou, la compresse, deux mains 6-09 (la main ouverte, doigts serrés) à plat
+//   l'une sur l'autre, on voit le dos des mains, celle du dessous en gris loin ; les deux avant-bras tendus arrivent du
+//   bas de la vue, la flèche du poids longe l'avant-bras du dessus. La vue de côté demandée le 28 septembre ne se fait
+//   pas avec les mains de la bibliothèque : 1-08 (à plat de côté) a l'avant-bras dans le prolongement de la main, ses
+//   bras partaient couchés sur la cuisse ; 8-01 retournée (le poignet plié) fait une main en griffe ;
 // - Plaie profonde : la coupe gardée (chair tramée, fémur en hachure croisée, vignette du blessé et trait de coupe) ;
 //   le doigt ganté est la main 4-02 (l'index tendu) retournée, la manchette du gant posée sur le poignet ;
 // - Laver : gros plan, la bouteille souple bouchon en bas dans le poing 1-09 (sans son manche), pincée par le poing ;
@@ -172,7 +174,7 @@ module.exports = (h) => {
     return rot ? `<g transform="rotate(${f(rot)} ${f(cx)} ${f(cy)})">\n${out.join('\n')}\n</g>` : out.join('\n');
   };
   // la première compresse et la seconde, posée de travers par-dessus : (dx, dy, l, ht, rotation) en cm depuis la plaie
-  const PREMIERE = [1.0, -0.4, 15, 13, 0], SECONDE = [1.6, -0.8, 14, 12, -16];
+  const PREMIERE = [2.6, 0.3, 18, 13.5, 3], SECONDE = [-0.8, -1.2, 15, 12, -17];
   const mains = g => [g.bas.svg({ loin: true }), g.abBas.svg, g.haut.svg(), g.abHaut.svg].join('\n');
   const dessinA = z => {
     const g = geoAB(z), s = g.s, out = [g.C.dessin];
@@ -201,9 +203,9 @@ module.exports = (h) => {
     const g = geoAB(z), s = g.s, C = g.C, out = [C.dessin];
     const [px, py] = g.P, T1 = PREMIERE, T2 = SECONDE;
     // le sang passé sous la première compresse coule sur la peau, vers le côté de la cuisse
-    for (const [dx, amp, ph, k] of [[5.0, 0.5, 0.4, 1.6], [7.0, 0.45, 2.1, 2.6], [8.6, 0.5, 1.3, 1.2]]) {
+    for (const [dx, amp, ph, k] of [[4.6, 0.5, 0.4, 4.2], [6.8, 0.45, 2.1, 6.0], [8.8, 0.5, 1.3, 3.4]]) {
       const x0 = px + dx * s, y0 = py + (T1[1] + T1[3] / 2 - 0.6) * s, y1 = C.cy + C.hw(x0) + k * s;
-      out.push(filet(x0, y0, y1, amp * s * 0.5, ph, 1.5, 0.6));
+      out.push(filet(x0, y0, y1, amp * s * 0.5, ph, 1.8, 0.7));
     }
     // la première, trempée : noire ; la seconde par-dessus, de travers, blanche
     out.push(tampon(px + T1[0] * s, py + T1[1] * s, T1[2] * s, T1[3] * s, h.a.plein, false, T1[4]));
@@ -217,24 +219,28 @@ module.exports = (h) => {
   const WC = [[0, 1.9], [0.35, 1.6], [0.7, 1.2], [0.9, 0.7], [1, 0.1]];
   const ID_DOIGT = '4-02';
   const geoC = z => {
-    const s = Math.min(z.l / 27, z.h / 35.5), yg = z.h - 10, cx = z.l * 0.57;
+    const s = Math.min(z.l / 27, z.h / 43), yg = z.h - 10, cx = z.l * 0.52;
     const rx = 8.5 * s, ry = 7.5 * s, cy = yg - ry + 0.5 * s;
     const ytop = x => cy - ry * Math.sqrt(Math.max(0, 1 - Math.pow((x - cx) / rx, 2)));
     const xm = cx - 1.5 * s, yM = ytop(xm), xB = cx - 1.1 * s, yB = cy - 1 * s;
     const ax = t => xm + (xB - xm) * t, ay = t => yM + (yB - yM) * t;
     const w = (t, c) => s * (lisse(WC, t) + (t > 0.05 && t < 0.9 ? 0.12 * Math.sin(t * 21 + c) : 0));
     // la vignette : le blessé entier en petit, avec le trait de coupe sur la cuisse
-    const vg = { x: 2, y: 2, l: z.l * 0.44 };
+    const vg = { l: z.l * 0.36 }; vg.x = z.l - vg.l - 2; vg.y = 2;
     vg.e = (vg.l - 9) / 1820; vg.h = 300 * vg.e + 15; vg.yg = vg.y + vg.h - 5;
     // Le doigt ganté : la main 4-02 (l'index tendu) retournée, le bout de l'index sur la gaze, dans l'axe de la plaie ;
     // l'index fait 1,7 cm de large (38 unités du fichier). L'avant-bras monte hors de la vue.
     const k = 1.7 * s / 38, taille = k * 603;
     const pointe = [0.374, 0.004], base = [0.40, 0.29];
-    const aF = Math.atan2(base[1] - pointe[1], base[0] - pointe[0]) / RAD;        // l'index, de la pointe vers la main
+    const [bw0, bh0, bw1, bh1] = CAT[ID_DOIGT].boite;   // l'index, de la pointe vers la main, dans la main retournée en miroir
+    const aF = Math.atan2((base[1] - pointe[1]) * (bh1 - bh0), -(base[0] - pointe[0]) * (bw1 - bw0)) / RAD;
     const aP = Math.atan2(yM - yB, xm - xB) / RAD;                                    // la plaie, du fond vers le haut
     const tip = [ax(0.42), ay(0.42)];
-    const m = pose({ id: ID_DOIGT, taille, angle: aP - aF, ancre: pointe, x: tip[0], y: tip[1] });
-    const geste = [[tip[0] + 3.6 * s, yM - 8.6 * s], [tip[0] + 3.6 * s, yM - 2.6 * s]];
+    const m = pose({ id: ID_DOIGT, taille, angle: aP - aF, miroir: true, ancre: pointe, x: tip[0], y: tip[1] });
+    // le geste, à gauche de la main : le doigt pousse la gaze vers le fond
+    const ya = yM - 8.4 * s, yb = yM - 1.6 * s;
+    const gx = Math.min(...contour(ID_DOIGT).map(m.P).filter(q => q[1] > ya - 4 && q[1] < yb + 4).map(q => q[0])) - 1.4 * s;
+    const geste = [[gx, ya], [gx, yb]];
     return { s, yg, cx, cy, rx, ry, ytop, xm, yM, ax, ay, w, m, tip, femur: [cx + 1 * s, cy + 2 * s], vg, geste };
   };
   const memo = {};
@@ -343,23 +349,26 @@ module.exports = (h) => {
     const ang = aM * RAD, axe = [-Math.sin(ang), Math.cos(ang)];   // l'axe de la bouteille, du bouchon (en bas) vers le fond
     const GAP = 5.5;                                    // du bout du bouchon à la plaie, cm
     // l'échelle : la bouteille, le jet et le dessus de la cuisse tiennent dans la hauteur de la vue
-    const s = Math.min(z.l / 34, (z.h - 30) / (-axe[1] * LBOUT + GAP + 4.5)), u0 = 24 - (z.l * 0.42) / s;
-    const yw0 = 16 + (-axe[1] * LBOUT + GAP) * s, yg = yw0 + lisse(HAUT, 24) * s;
+    const s = Math.min(z.l / 34, (z.h - 44) / (-axe[1] * LBOUT + GAP + 7)), u0 = 24 - (z.l * 0.42) / s;
+    const yw0 = 16 + (-axe[1] * LBOUT + GAP + 2.5) * s, yg = yw0 + lisse(HAUT, 24) * s;
     const C = cuisse(z, u0, s, yg);
     const xw = C.X(24), yw = C.top(xw);                 // la plaie
     const k = 3.4 * s / 100, taille = k * 540;
-    const uG = 10.5;                                    // le milieu du poing sur la bouteille, depuis le bout du bouchon
+    const uG = 15.3;                                    // le milieu du poing sur la bouteille, depuis le bout du bouchon
     const C0 = [xw + axe[0] * GAP * s * 0.9 - 0.6 * s, yw + axe[1] * GAP * s];   // le bout du bouchon, au-dessus de la plaie
     const nrm = [-axe[1], axe[0]];
     const W = (u, v) => [C0[0] + (u * axe[0] + v * nrm[0]) * s, C0[1] + (u * axe[1] + v * nrm[1]) * s];
     const G = W(uG, 0);
     // la main : l'ancre sur l'axe du manche, au milieu du poing (le poing va de y = 0,37 à 1 dans le fichier)
     const m = pose({ id: ID_POING, taille, angle: aM, ancre: [AXE_POING, 0.69], x: G[0], y: G[1] });
-    return { s, C, xw, yw, W, axe, nrm, m, uG, k };
+    // la flèche du geste : serrer, contre les doigts repliés, vers l'axe de la bouteille
+    const pg = m.P([0.97, 0.69]), cg = m.P([AXE_POING, 0.69]), dg = Math.hypot(pg[0] - cg[0], pg[1] - cg[1]), ug = [(pg[0] - cg[0]) / dg, (pg[1] - cg[1]) / dg];
+    const fl = [[pg[0] + ug[0] * 5.0 * s, pg[1] + ug[1] * 5.0 * s], [pg[0] + ug[0] * 1.2 * s, pg[1] + ug[1] * 1.2 * s]];
+    return { s, C, xw, yw, W, axe, nrm, m, uG, k, fl };
   };
-  const BOUT = [[0, 0.75], [0.3, 1.25], [2.4, 1.3], [2.7, 1.0], [3.4, 1.05], [4.4, 1.9], [5.4, 2.6], [6.3, 2.3], [7.0, 1.75],
-    [14.2, 1.75], [14.9, 2.3], [16.0, 3.0], [19.4, 3.0], [20.4, 2.6]];
-  const LBOUT = 20.6;
+  const BOUT = [[0, 0.75], [0.3, 1.25], [2.4, 1.3], [2.7, 1.0], [3.4, 1.05], [4.4, 1.9], [5.6, 2.8], [6.6, 3.0], [9.6, 3.0],
+    [10.6, 2.6], [11.4, 1.75], [18.0, 1.75]];
+  const LBOUT = 19.0;
   const dessinD = z => {
     const g = geoD(z), s = g.s, W = g.W, C = g.C, out = [C.dessin];
     const x = g.xw, y = g.yw;
@@ -374,11 +383,11 @@ module.exports = (h) => {
     }
     // la bouteille : le corps pincé dans le poing, l'épaule, le goulot, le bouchon
     const cote = sg => { const p = []; for (let u = 0.3; u <= LBOUT - 1.4 + 1e-6; u += 0.2) p.push(W(u, sg * lisse(BOUT, u))); return p; };
-    const fond = sg => { const p = []; for (let i = 0; i <= 8; i++) { const a = Math.PI / 2 * i / 8; p.push(W(LBOUT - 1.4 + 1.4 * Math.sin(a), sg * (1.6 + 1.4 * Math.cos(a)))); } return p; };
+    const fond = sg => { const p = []; for (let i = 0; i <= 8; i++) { const a = Math.PI / 2 * i / 8; p.push(W(LBOUT - 1.4 + 1.4 * Math.sin(a), sg * (0.35 + 1.4 * Math.cos(a)))); } return p; };
     const corps = [W(0, -0.75), ...cote(-1), ...fond(-1), ...fond(1).reverse(), ...cote(1).reverse(), W(0, 0.75)];
     out.push(h.chemin(corps, h.a.blanc, true));
     // l'eau bouillie refroidie : la bouteille pleine aux trois quarts, le bouchon en bas ; la surface est à plat
-    const yn = W(16.2, 0)[1];
+    const yn = W(15.0, 0)[1];
     const sousNiveau = (poly, y0) => {
       const r = [];
       for (let i = 0; i < poly.length; i++) {
@@ -403,8 +412,7 @@ module.exports = (h) => {
     const bords = [[[0.2, h1[0]], [0.02, h0[0]]], [[0.2, h1[h1.length - 1]], [0.02, h0[h0.length - 1]]]];
     out.push(m.svg(), avantBras(m.P, bords, z.l).svg);
     // le geste : serrer le poing sur la bouteille souple
-    const pg = m.P([0.97, 0.69]), cg = m.P([AXE_POING, 0.69]), dg = Math.hypot(pg[0] - cg[0], pg[1] - cg[1]), ug = [(pg[0] - cg[0]) / dg, (pg[1] - cg[1]) / dg];
-    out.push(h.geste(`M${f(pg[0] + ug[0] * 5.2 * s)},${f(pg[1] + ug[1] * 5.2 * s)} L${f(pg[0] + ug[0] * 1.4 * s)},${f(pg[1] + ug[1] * 1.4 * s)}`));
+    out.push(h.geste(`M${pt(g.fl[0])} L${pt(g.fl[1])}`));
     // le jet : un filet d'eau du trou d'épingle à la plaie
     const ja = W(-0.1, 0), jb = [x + 0.3 * s, y - 0.5 * s], jc = [(ja[0] + jb[0]) / 2 + 0.6 * s, (ja[1] + jb[1]) / 2];
     const qj = t => { const q = 1 - t; return [0, 1].map(i => q * q * ja[i] + 2 * q * t * jc[i] + t * t * jb[i]); };
@@ -423,7 +431,7 @@ module.exports = (h) => {
   return {
     ref: '26-40',
     titre: 'Appuyer sur la plaie, puis la laver',
-    desc: 'Quatre gestes. Appuyer : la cuisse d’un blessé couché, vue de côté de la hanche au genou, posée au sol ; une compresse sur la plaie et deux mains à plat l’une sur l’autre, paume vers la compresse, la main du dessous en gris, les deux avant-bras tendus qui montent vers les épaules ; une flèche rouge le long de l’avant-bras du dessus vers les mains, un cercle rouge sur le talon de la main posé sur la plaie. Le sang traverse : la même vue ; la première compresse, trempée, noire, reste en place, une seule autre par-dessus, blanche, et les mêmes mains qui appuient plus fort ; le sang passé coule sur le côté de la cuisse jusqu’au sol. Plaie profonde : la cuisse en coupe, repérée sur un petit blessé couché ; la chair tramée, le fémur en hachure croisée, la gaze repliée en accordéon tassée jusqu’au fond par l’index d’une main gantée, une flèche rouge vers le fond, le bout libre de la gaze couché sur la peau. Laver : en gros plan, une bouteille souple tenue bouchon en bas dans le poing, pincée par les doigts, pleine aux trois quarts d’eau bouillie refroidie ; une flèche rouge contre le poing ; le jet sort d’un trou d’épingle au bout du bouchon et tombe sur la plaie salie ; l’eau coule sur le côté de la cuisse.',
+    desc: 'Quatre gestes. Appuyer : vue d’en haut, comme celui qui appuie voit ses mains, la cuisse d’un blessé couché, de la hanche au genou ; une compresse sur la plaie et deux mains à plat l’une sur l’autre, paume vers la compresse : on voit le dos des mains, la main du dessous en gris ; les deux avant-bras tendus arrivent du bas de la vue ; une flèche rouge longe l’avant-bras du dessus vers les mains, un cercle rouge marque la paume sur la plaie. Le sang traverse : la même vue ; la première compresse, trempée, noire, reste en place, une seule autre par-dessus, blanche, posée de travers, et les mêmes mains qui appuient plus fort ; le sang passé coule sur la peau vers le côté de la cuisse. Plaie profonde : la cuisse en coupe, repérée sur un petit blessé couché ; la chair tramée, le fémur en hachure croisée, la gaze repliée en accordéon tassée jusqu’au fond par l’index d’une main gantée, une flèche rouge vers le fond, le bout libre de la gaze couché sur la peau. Laver : en gros plan, une bouteille souple tenue bouchon en bas dans le poing, pincée par les doigts, pleine d’eau bouillie refroidie ; une flèche rouge contre le poing ; le jet sort d’un trou d’épingle au bout du bouchon et tombe sur la plaie salie ; l’eau coule sur le côté de la cuisse.',
     format: 'pleine',
     disposition: [['appuyer', 'traverse'], ['bourrer', 'laver']],
     largeurs: [[1, 1], [5, 6]],
@@ -448,7 +456,7 @@ module.exports = (h) => {
           const g = geoAB(z), s = g.s, [px, py] = g.P, T1 = PREMIERE;
           const mf = [(g.fleche[0][0] + g.fleche[1][0]) / 2, (g.fleche[0][1] + g.fleche[1][1]) / 2];
           return [
-            { n: 3, rond: [z.l - 14, py - 10 * s], cible: [px + (T1[0] + T1[2] / 2 - 0.8) * s, py + (T1[1] - T1[3] / 2 + 1.6) * s], texte: 'la première reste en place' },
+            { n: 3, rond: [z.l - 14, py + 13 * s], cible: [px + (T1[0] + T1[2] / 2 - 1.6) * s, py + (T1[1] + T1[3] / 2 - 1.4) * s], texte: 'la première reste en place' },
             { n: 4, rond: [16, py - 12 * s], cible: [px - 5.2 * s, py - 6.2 * s], texte: 'une seule autre par-dessus' },
             { n: 5, rond: [z.l - 14, z.h - 16], cible: mf, texte: 'appuyer plus fort' },
           ];
@@ -471,13 +479,13 @@ module.exports = (h) => {
         dessin: dessinD,
         renvois: z => {
           const g = geoD(z), s = g.s, W = g.W;
-          const pc = W(0, 0), pe = W(5.6, -1.4), pj = [(pc[0] + g.xw) / 2 + 0.5 * s, (pc[1] + g.yw) / 2];
+          const pc = W(0, 0), pe = W(7.6, -1.6), pj = [(pc[0] + g.xw) / 2 + 0.5 * s, (pc[1] + g.yw) / 2];
           const pg = g.m.P([0.99, 0.62]);
           return [
             { n: 9, rond: [pc[0] - 9 * s, pc[1] - 1 * s], cible: [pc[0] - 0.4 * s, pc[1]], texte: 'bouchon percé d’un trou d’épingle' },
             { n: 10, rond: [pj[0] + 8 * s, pj[1] + 1.5 * s], cible: [pj[0] + 0.4 * s, pj[1]], texte: 'le jet décolle la saleté, sans frotter' },
-            { n: 11, rond: [16, pe[1] - 5 * s], cible: pe, texte: 'eau bouillie, puis refroidie' },
-            { n: 12, rond: [pg[0] + 4 * s, 16], cible: pg, texte: 'presser la bouteille souple' },
+            { n: 11, rond: [16, pe[1] + 2 * s], cible: pe, texte: 'eau bouillie, puis refroidie' },
+            { n: 12, rond: [16, g.fl[0][1] - 4.2 * s], cible: g.fl[0], texte: 'presser la bouteille souple' },
           ];
         },
       },
