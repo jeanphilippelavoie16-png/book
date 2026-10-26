@@ -360,3 +360,18 @@ points de fond. Réglés par le rédacteur :
   40).
 Noms latins coupés par l'éditeur, selon le cadre des agents (« pas de nom latin ») ; le gabarit, plus ancien, en voulait
 un par espèce : le cadre prime.
+
+## Montage du pilote, 26 octobre 2026
+
+- Section 7 : « Déplacer un blessé » découpé en trois paragraphes (le bloc trop grand laissait son titre seul en haut
+  d'une page vide) et placé après « Retirer une écharde » ; la 26-09a est appelée pour la bâche (repères 1 à 3) et la
+  prise sous les aisselles (4 à 6), la 26-09b au sanglage (1 à 4) et à la tête calée (5 et 6). Ancre de la 26-09b :
+  « Sangler ensuite la personne à ce qui la porte ».
+- Section 7, l'objet planté : appel de la planche 26-11, repères 13 à 16 ; l'écharpe : planche 26-08, repères 12 et 13.
+- Note En plus ajoutée, « Le toboggan des Innus » (un fait) : Cartwright 1786, cité dans Armitage 1982
+  (`sources/20b-toboggan-innu-armitage-turner-tipatshimuna.md`, section 1 : deux planches minces de bouleau, la lanière
+  nouée aux coins et passée en double contre la poitrine, les nourrissons emmaillotés dans des peaux). Elle remplit le
+  trou de la page 26-19, que le paginateur signalait à moitié vide.
+- Montage d'essai Lulu (`assembler-tome.py 2 --chapitres 26`) : 23 pages, 0 avertissement, 0 chevauchement ; chaque
+  planche sur la page de son appel ou la suivante, sauf la 26-40 (appelée dans l'orange, posée après la série, qui se lit
+  d'un trait) et la 26-04 (demi-page appelée sur la même page que la 26-11).

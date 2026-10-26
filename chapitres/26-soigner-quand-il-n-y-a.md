@@ -382,19 +382,6 @@ Relever le pan de la chemise de la personne blessée par-dessus son avant-bras e
 (planche 26-08, repères 12 et 13). Le pan tient le bras aussi bien qu'un foulard en triangle, et comme rien ne passe par-dessus
 la tête, on ne bouge pas l'épaule blessée.
 
-### Déplacer un blessé
-
-Sur la neige, tirer la personne dans un traîneau à bois ou un toboggan : ça demande une fraction de l'effort d'un
-transport à bras, et on ne risque pas d'échapper la personne quand les bras fatiguent. Sans traîneau, prendre une porte dégondée, une
-échelle couverte de couvertures, ou une bâche dont on roule les deux bords autour de deux perches (planches 26-09a et
-26-09b). Pour quelques mètres, sans rien : passer les bras sous les aisselles de la personne, sa tête appuyée contre le
-ventre du porteur, et reculer (planche 26-09a, repères 4 à 6) ; jamais la tirer par les poignets ni par le haut de ses
-vêtements. Sangler ensuite la personne à ce qui la porte, en travers de la poitrine, du bassin et des cuisses, et
-bourrer les vides de linge roulé pour qu'elle ne glisse pas dans les descentes. *Ce qu'on perd :* l'immobilisation du cou et du dos.
-Pour s'en approcher le plus possible, coucher la personne sur une surface dure, caler sa tête entre deux rouleaux de
-vêtements serrés et passer une bande large en travers du front (planche 26-09b, repères 1 à 6). Deux personnes doivent
-pouvoir rouler la personne et ce qui la porte d'un bloc sur le côté (repère 8) : une personne attachée sur le dos qui vomit s'étouffe.
-
 ### Rapprocher une coupure
 
 Refendre du ruban à conduits en lanières de la largeur d'un doigt, et les coller sur une peau sèche de part et d'autre
@@ -411,6 +398,23 @@ sans souffler dessus ni l'essuyer. Un hameçon dont on a limé l'ardillon (ch. 1
 creuser pour aller chercher un objet planté profondément, et ne jamais retirer ce qui traverse** : l'objet bouche le
 vaisseau qu'il a coupé, et si on l'enlève, le vaisseau saigne. Le caler entre deux bourrelets de linge, tenus par une
 bande de chaque côté de l'objet, et le laisser en place pendant la route (planche 26-11, repères 13 à 16).
+
+### Déplacer un blessé
+
+Sur la neige, tirer la personne dans un traîneau à bois ou un toboggan : ça demande une fraction de l'effort d'un
+transport à bras, et on ne risque pas d'échapper la personne quand les bras fatiguent. Sans traîneau, prendre une porte dégondée, une
+échelle couverte de couvertures, ou une bâche dont on roule les deux bords autour de deux perches (planche 26-09a,
+repères 1 à 3).
+
+Pour quelques mètres, sans rien : passer les bras sous les aisselles de la personne, sa tête appuyée contre le
+ventre du porteur, et reculer (planche 26-09a, repères 4 à 6) ; jamais la tirer par les poignets ni par le haut de ses
+vêtements.
+
+Sangler ensuite la personne à ce qui la porte, en travers de la poitrine, du bassin et des cuisses, et
+bourrer les vides de linge roulé pour qu'elle ne glisse pas dans les descentes (planche 26-09b, repères 1 à 4). *Ce qu'on perd :* l'immobilisation du cou et du dos.
+Pour s'en approcher le plus possible, coucher la personne sur une surface dure, caler sa tête entre deux rouleaux de
+vêtements serrés et passer une bande large en travers du front (repères 5 et 6). Deux personnes doivent
+pouvoir rouler la personne et ce qui la porte d'un bloc sur le côté (repère 8) : une personne attachée sur le dos qui vomit s'étouffe.
 
 ### Sans eau stérile pour rincer
 
@@ -514,6 +518,13 @@ Les Innus mettaient la gomme du sapin baumier sur les coupures, et ceux de Minga
 colle, durcit et couvre la petite coupure propre comme un pansement, à l'abri de la saleté. Elle devient dangereuse sur
 une plaie qu'on doit laisser ouverte, parce qu'elle enferme la saleté dedans (étape 26), et sur une brûlure, où elle
 fait comme le gras (étape 19).
+
+### Le toboggan des Innus
+
+En 1786, au Labrador, le capitaine Cartwright a vu les Innus tirer chacun un toboggan de deux planches minces de
+bouleau. Une lanière était nouée aux deux coins de l'avant, et on la passait en double contre la poitrine pour tirer
+de tout le corps. Les bébés voyageaient dessus, emmaillotés chaudement dans des peaux (section 7, « Déplacer un
+blessé »).
 
 ### Les cheveux tordus d'un tour
 
