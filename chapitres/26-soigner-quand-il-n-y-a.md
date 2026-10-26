@@ -8,8 +8,8 @@
 
 ## 1. En une ligne
 
-Garder en vie une personne blessée ou malade, avec ce qu'on a, jusqu'à l'hôpital : arrêter le sang, faire repartir le
-cœur, arrêter une réaction allergique, refroidir une brûlure, nettoyer une plaie, puis surveiller et décider à temps de
+Garder en vie une personne blessée ou malade, avec ce qu'on a, jusqu'à l'hôpital : arrêter le sang, comprimer la
+poitrine quand le cœur s'arrête, arrêter une réaction allergique, refroidir une brûlure, nettoyer une plaie, puis surveiller et décider à temps de
 partir.
 
 ---
@@ -42,15 +42,17 @@ partir.
 
 ### Quelqu'un vient de se blesser ou s'effondre {.orange 1 min}
 
-1. **Regarder ce qui a blessé la personne avant d'aller vers elle.** Ce peut être la scie qui tourne encore, l'arbre
+1. {!co} **Regarder ce qui a blessé la personne avant d'aller vers elle.** Ce peut être la scie qui tourne encore, l'arbre
  resté en tension, la glace mince, le fil électrique tombé, la génératrice qui tourne dans un bâtiment ou le poêle
  ouvert. Arrêter le moteur, s'éloigner de l'arbre, ou tendre une perche ou une corde si on ne peut pas aller jusqu'à
- la personne sans danger (pour la glace, ch. 15).
+ la personne sans danger (pour la glace, ch. 15). Si elle est tombée dans un bâtiment où tourne une génératrice, un
+ poêle ou un réchaud, ouvrir grand la porte en restant dehors avant d'entrer la chercher, et la sortir à l'air avant
+ de la soigner.
 2. **Parler à la personne, lui prendre la main et lui demander de la serrer.** Elle peut répondre clairement, répondre
  mal ou ne pas répondre du tout. Une personne qui répond clairement respire et a assez de sang au cerveau : passer à ce qui saigne
- (étape 6), puis à la plaie (étape 23).
-3. **Si du sang gicle ou coule à flot, appuyer dessus tout de suite**, avant tout le reste, même avant de vérifier la
- respiration (étape 6).
+ (étape 6), puis à la plaie (étape 23). Noter l'heure où c'est arrivé : on compte la route et la surveillance à
+ partir d'elle.
+3. **Si du sang gicle ou coule à flot, appuyer dessus tout de suite**, même avant de vérifier la respiration (étape 6).
 4. **Si la personne ne répond pas et ne respire pas normalement[^1], comprimer la poitrine tout de suite** (si son corps
  est froid, faire d'abord l'étape 5). Chaque minute sans compressions fait perdre 7 à 10 % des chances de survie.
  - La coucher sur le dos, sur le plancher : un matelas plie sous les mains.
@@ -74,7 +76,6 @@ partir.
  compressions si on sait les donner (ch. 25).
  - Mettre une épaisseur sous le corps avant de mettre des couvertures dessus : le sol gelé prend la chaleur du corps
  plus vite que l'air. Une bâche, un matelas de mousse ou des branches de sapin baumier font l'affaire.
- - Noter l'heure exacte où c'est arrivé : on compte à partir d'elle les 5 minutes d'appui, le garrot et la route.
 
 ### Ça gicle, ou ça saigne à flot {.orange 5 min}
 
@@ -89,7 +90,8 @@ partir.
  le caillot qui avait pris.
 8. **Bourrer la plaie profonde** de la cuisse, de l'aisselle, de l'aine ou de l'épaule (repères 6 à 8). Tasser la gaze
  au fond de la plaie avec un doigt ganté, jusqu'à remplir le trou, puis appuyer par-dessus. Un appui sur le bord du
- trou n'arrête pas le sang qui coule au fond.
+ trou n'arrête pas le sang qui coule au fond. Sans gaze, prendre le coton bouilli de la section 7 (« Le pansement ») ou
+ le linge le plus propre qu'on a ; sans gants, le doigt nu.
 9. **Poser le garrot quand l'appui n'arrête pas le sang d'un bras ou d'une jambe, ou quand un membre est arraché.** Le
  sang d'une artère de la cuisse vide le corps en quelques minutes : pendant qu'on attend de voir si l'appui finit par
  marcher, la personne continue de perdre ce sang.
@@ -170,7 +172,7 @@ partir.
  et de l'eau ; jamais de cendre dans la plaie.
 24. **Rincer la plaie avec un jet d'eau, sans frotter** (planche 26-40, repères 9 à 12). Prendre de l'eau bouillie,
  puis refroidie, et la pousser en jet avec une seringue sans aiguille ou une bouteille souple percée d'un trou
- d'épingle. En pousser au moins 100 à 300 mL, et continuer jusqu'à ce qu'on ne voie plus de saleté. La force du
+ d'épingle. En pousser 100 à 300 mL, plus pour une grande plaie, et continuer jusqu'à ce qu'on ne voie plus de saleté. La force du
  jet décolle la saleté, pas un produit. L'eau de puits qui n'a pas bouilli ajoute ses microbes dans la plaie (ch. 10) ; à la maison,
  l'eau de l'aqueduc convient telle quelle, sauf quand elle est sous avis d'ébullition.
 25. **Garder l'antiseptique pour la peau autour de la plaie.** Un antiseptique concentré versé dans une plaie profonde
@@ -235,7 +237,8 @@ partir.
  Quand on veille quelqu'un, on ferme la maison, on chauffe plus fort et on veut du courant pour la lumière : c'est
  le moment où on est tenté de rentrer la génératrice dans un bâtiment, un garage ou sous un auvent. Le monoxyde donne mal à la tête,
  la nausée et le sommeil, et la famille met ça sur le compte de la maladie ou de l'inquiétude. Si les gens qui
- veillent ont mal à la tête en même temps, ou si ça va mieux dehors, sortir tout le monde.
+ veillent ont mal à la tête en même temps, ou si ça va mieux dehors, sortir tout le monde, la personne malade
+ enroulée dans ses couvertures.
 37. {!abats} {!cuisson} **Nourrir la personne qu'on veille avec de la viande et du gras, cuits à 74 °C à cœur.** Le
  vieux réflexe est de servir du foie à une personne qui a perdu du sang : le foie et les reins d'orignal et de cerf
  accumulent le cadmium, qui reste ensuite des dizaines d'années dans les reins de la personne qui en mange ; on ne les
@@ -276,9 +279,9 @@ partir.
 47. **Ouvrir la trousse deux fois par année et après chaque usage, et jeter ce qui est entamé, jauni, sale ou
  périmé.** Un pansement jauni n'est plus stérile, même s'il a l'air correct.
 
-[^1]: Dans les premières minutes d'un arrêt du cœur, près de quatre fois sur dix, la personne qui ne répond plus fait encore des bouffées : des halètements bruyants, comme un ronflement, de plus en plus espacés, la bouche qui s'ouvre comme celle d'un poisson sorti de l'eau. Ce n'est pas une respiration, c'est le signe de l'arrêt : on comprime.
+[^1]: Dans les premières minutes d'un arrêt du cœur, près de quatre fois sur dix, la personne qui ne répond plus fait encore des bouffées : des halètements bruyants, comme un ronflement, de plus en plus espacés, la bouche qui s'ouvre comme celle d'un poisson sorti de l'eau. Ces bouffées sont un signe de l'arrêt du cœur : on comprime.
 
-[^2]: La fibrillation : le cœur ne bat plus, il tremble. Le sang ne circule plus, et la personne perd connaissance et arrête de respirer normalement.
+[^2]: La fibrillation : le cœur tremble au lieu de battre. Le sang ne circule plus, et la personne perd connaissance et arrête de respirer normalement.
 
 [^3]: L'urticaire : des plaques rouges ou rosées, gonflées, qui démangent, comme des piqûres d'ortie ; elles apparaissent, disparaissent et changent de place en quelques heures.
 
@@ -316,14 +319,14 @@ partir.
 | Le sang traverse la deuxième compresse malgré un appui ferme | L'appui ne suffit pas | Bourrer la plaie, puis poser le garrot si c'est un bras ou une jambe. Décider le départ maintenant |
 | Le pouls monte sur trois prises pendant que la peau devient froide et moite | Le sang coule en dedans | Partir maintenant (étape 33) |
 | Le ventre est dur, fait mal quand on le touche et se tend | Du sang ou une perforation dans le ventre | Ne rien donner à boire ni à manger. Partir |
-| La rougeur a dépassé le trait de la veille, ou une traînée rouge remonte le membre | L'infection gagne les vaisseaux de la lymphe | Partir (étape 30) |
+| La rougeur a dépassé le trait de la veille, ou une traînée rouge remonte le membre | L'infection avance ; la traînée rouge montre qu'elle gagne les vaisseaux de la lymphe | Partir (étape 30) |
 | De la fièvre quelques jours après une plaie, avec des frissons et de la confusion | L'infection est passée dans le sang | Partir |
 | La plaie sent mauvais, la peau crépite sous le doigt[^6], la douleur est beaucoup plus forte que ce que la plaie laisse prévoir | Une infection qui détruit les tissus en profondeur | Partir tout de suite, sans attendre le matin |
 | Le bras ou la jambe est froid, blanc et insensible plus loin qu'un bandage ou une attelle | Le bandage est trop serré | Le desserrer tout de suite. Ne pas desserrer un garrot pour ça (étape 9) |
 | Les symptômes de la réaction allergique reviennent quelques heures après l'injection | La réaction revient | Utiliser le deuxième injecteur s'il en reste un, et partir si ce n'est pas déjà fait |
 | La mâchoire serre, des crampes et une raideur prennent le cou puis le visage, dans les 3 semaines après une plaie souillée | Le tétanos | Partir. Rien sur place ne le traite |
 | Après un coup à la tête, la personne est de plus en plus difficile à réveiller | Un saignement dans la tête | Partir |
-| Plus de 8 h sans uriner (adulte, enfant), 6 h chez un bébé | Le corps manque d'eau, ou le sang circule mal | Partir : il n'y a pas de façon de faire maison |
+| Plus de 8 h sans uriner (adulte, enfant), 6 h chez un bébé | Le corps manque d'eau, ou le sang circule mal | Partir |
 | La personne qui soigne s'endort debout, pleure ou se trompe dans les doses | La personne qui soigne est trop épuisée pour soigner sans erreur | Réveiller l'autre adulte et changer de personne (ch. 36) |
 
 [^6]: La peau craque sous le doigt quand on appuie, comme s'il y avait des bulles dessous : c'est du gaz que l'infection fabrique sous la peau. Elle peut aussi virer au bronze ou au violacé et se couvrir de cloques pleines d'un liquide brun, parfois qui sent mauvais.
@@ -357,9 +360,9 @@ dans les 12 semaines.
 
 Prendre une bande large, jamais une corde, un fil ou une ceinture étroite : la largeur répartit la pression
 (planche 26-04). La nouer au-dessus de la plaie, passer un bâton solide dans le nœud, le tourner jusqu'à ce que le sang
-arrête, puis bloquer le bâton avec un deuxième lien. *Ce qu'on perd :* une bande étroite
-écrase les nerfs et les muscles sous elle. Un garrot improvisé laisse plus souvent un bras ou une main
-qui ne fonctionnera plus comme avant. Quand la personne mourrait de son sang sans lui, le poser sans hésiter.
+arrête, puis bloquer le bâton avec un deuxième lien. *Ce qu'on perd :* un garrot improvisé laisse plus
+souvent un bras ou une main qui ne fonctionnera plus comme avant, et plus la bande est étroite, plus elle écrase les
+nerfs et les muscles sous elle. Quand la personne mourrait de son sang sans lui, le poser sans hésiter.
 
 ### L'attelle
 
@@ -395,8 +398,8 @@ pouvoir rouler la personne et ce qui la porte d'un bloc sur le côté (repère 8
 ### Rapprocher une coupure
 
 Refendre du ruban à conduits en lanières de la largeur d'un doigt, et les coller sur une peau sèche de part et d'autre
-d'une coupure propre, en tirant les deux bords l'un vers l'autre (planche 26-41, repères 1 à 4) : la lanière passe en
-travers de la coupure, et on ne la colle jamais sur la coupure elle-même. Sur le cuir chevelu, c'est plus simple : prendre une mèche de
+d'une coupure propre, en tirant les deux bords l'un vers l'autre (planche 26-41, repères 1 à 4) : chaque lanière
+croise la coupure en travers ; on n'en pose jamais une dans le long de la coupure. Sur le cuir chevelu, c'est plus simple : prendre une mèche de
 cheveux de chaque côté, les croiser par-dessus la coupure et les nouer (repères 5 et 6). Les cheveux tiennent seuls et
 ne s'arrachent pas quand on défait le nœud. Ne jamais fermer ainsi une plaie sale ou profonde, une piqûre
 ou une morsure (étape 26).

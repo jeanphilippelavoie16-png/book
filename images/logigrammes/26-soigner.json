@@ -228,7 +228,7 @@
       "type": "geste",
       "col": "q2",
       "rang": "d7",
-      "texte": "**Compter en heures** : dans combien d'heures son état ne pourra plus être rattrapé, et combien d'heures prend la route. Partir tôt plutôt que vite.",
+      "texte": "**Estimer deux durées, en heures** : dans combien d'heures son état ne pourra plus être rattrapé, et combien d'heures prend la route. Décider le départ pendant qu'elle est stable.",
       "ancre": "haut",
       "taille": 10,
       "renvoi": "ch. 26, étapes 39 et 40",

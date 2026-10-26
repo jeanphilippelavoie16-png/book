@@ -1374,6 +1374,8 @@ pilote du tome 2).
   jours après un clou → étape 27.
 - `rage` : laver 10 à 15 minutes et partir le jour même ; l'égratignure de chauve-souris contre la belle coupure de
   couteau ; la chauve-souris sur un vêtement ou dans la chambre d'un enfant qui dormait → étape 28.
+- `co` : la personne tombée dans un bâtiment où tourne une génératrice, un poêle ou un réchaud : ouvrir en restant dehors,
+  la sortir à l'air avant de la soigner → étape 1.
 - `co` + `generatrice` : la famille qui veille un malade ferme la maison, chauffe plus fort et fait entrer la
   génératrice ; les maux de tête des gens qui veillent, mis sur le compte de l'inquiétude → étape 36.
 - `abats` + `cuisson` : le foie qu'on sert à une personne qui a perdu du sang ; le rôti à peu près cuit servi au

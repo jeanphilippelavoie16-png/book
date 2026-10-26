@@ -132,13 +132,13 @@
 <text data-max="195.90" x="912.60" y="533.55" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">bouche. Avertir les voisins du départ.</tspan></text>
 <rect x="1014.55" y="539.45" width="102.20" height="13.00" fill="#5C1A15"/>
 <text x="1019.55" y="549.00" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#fff" xml:space="preserve" data-max="93.70">ch. 26, étapes 33, 40 à 42</text>
-<rect x="640.80" y="601.20" width="219.60" height="63.70" rx="0" fill="#F3ECE5" stroke="#5C1A15" stroke-width="1.5"/>
-<text data-max="203.10" x="649.80" y="617.85" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Compter en heures</tspan><tspan font-weight="500"> : dans combien d’heures son</tspan></text>
-<text data-max="203.10" x="649.80" y="630.15" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">état ne pourra plus être rattrapé, et combien</tspan></text>
-<text data-max="203.10" x="649.80" y="642.45" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">d’heures prend la route. Partir tôt plutôt que</tspan></text>
-<text data-max="203.10" x="649.80" y="654.75" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">vite.</tspan></text>
-<rect x="769.51" y="652.65" width="91.64" height="13.00" fill="#5C1A15"/>
-<text x="774.51" y="662.20" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#fff" xml:space="preserve" data-max="83.14">ch. 26, étapes 39 et 40</text>
+<rect x="640.80" y="601.20" width="219.60" height="71.70" rx="0" fill="#F3ECE5" stroke="#5C1A15" stroke-width="1.5"/>
+<text data-max="203.10" x="649.80" y="617.85" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="700">Estimer deux durées, en heures</tspan><tspan font-weight="500"> : dans combien</tspan></text>
+<text data-max="203.10" x="649.80" y="630.15" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">d’heures son état ne pourra plus être rattrapé, et</tspan></text>
+<text data-max="203.10" x="649.80" y="642.45" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">combien d’heures prend la route. Décider le</tspan></text>
+<text data-max="203.10" x="649.80" y="654.75" font-family="IBM Plex Sans Condensed" font-size="10" fill="#000" text-anchor="start" xml:space="preserve"><tspan font-weight="500">départ pendant qu’elle est stable.</tspan></text>
+<rect x="769.51" y="660.65" width="91.64" height="13.00" fill="#5C1A15"/>
+<text x="774.51" y="670.20" font-family="IBM Plex Sans Condensed" font-weight="700" font-size="8.5" fill="#fff" xml:space="preserve" data-max="83.14">ch. 26, étapes 39 et 40</text>
 </g>
 <g id="pointes">
 <path d="M283.50,115.20 L279.70,107.20 L287.30,107.20 Z" fill="#000"/>

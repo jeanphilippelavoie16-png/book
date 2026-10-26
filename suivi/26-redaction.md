@@ -333,3 +333,30 @@ sortir. Appliqué :
 **À corriger au ch. 35, à sa refonte** (contradiction d'avant) : le ch. 35, l. 130, fait de la chauve-souris trouvée
 dans la chambre d'un enfant la même urgence qu'une morsure ; le ch. 26 (étape 28) et la page de la rage demandent
 qu'elle ait touché la peau, que l'enfant se soit réveillé, ou qu'il ait une marque.
+
+## Après l'éditeur, 26 octobre 2026
+
+L'éditeur (agent distinct) a touché environ 140 phrases (fiche `suivi/26-edition.md`), sans ancre cassée, et signalé 13
+points de fond. Réglés par le rédacteur :
+- En une ligne : « faire repartir le cœur » devient « comprimer la poitrine quand le cœur s'arrête » (les compressions font
+  circuler le sang ; elles font rarement repartir le cœur).
+- Étape 1 : `co` ajouté. La personne tombée dans un bâtiment où tourne une génératrice, un poêle ou un réchaud : ouvrir en
+  restant dehors avant d'entrer, la sortir à l'air avant de la soigner (page du monoxyde, points 1 et 2). Inventaire des
+  dangers mis à jour.
+- L'heure où c'est arrivé passe de l'étape 5 (corps froid) à l'étape 2, et ne compte plus que la route et la surveillance
+  (l'appui se compte de son début, à l'étape 6 ; le garrot de sa pose, à l'étape 9).
+- Étape 3 : « avant tout le reste » sort (elle vient après les étapes 1 et 2).
+- Étape 8 : sans gaze, le coton bouilli de la section 7 ou le linge le plus propre ; sans gants, le doigt nu (geste sans
+  chiffre).
+- Étape 24 : « 100 à 300 mL, plus pour une grande plaie », comme la source (« at least 100 to 300 mL … more for large
+  wounds »).
+- Étape 36 : la personne malade sort enroulée dans ses couvertures.
+- Section 6 : la traînée rouge seule vient de la lymphe ; « il n'y a pas de façon de faire maison » sort (la solution de
+  réhydratation de la section 7 n'y contredit plus).
+- Section 7 : le garrot improvisé (ce qu'on perd) redit sans contradiction ; la lanière croise la coupure en travers,
+  jamais dans le long.
+- Notes 1 et 2 : plus de forme « X ne fait pas Y : il fait Z ».
+- Logigramme : « Compter en heures » et « Partir tôt plutôt que vite » remplacés par les mots du chapitre (étapes 39 et
+  40).
+Noms latins coupés par l'éditeur, selon le cadre des agents (« pas de nom latin ») ; le gabarit, plus ancien, en voulait
+un par espèce : le cadre prime.
