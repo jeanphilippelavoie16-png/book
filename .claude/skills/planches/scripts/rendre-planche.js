@@ -21,6 +21,17 @@ const EDGES = [
   '/opt/pw-browsers/chromium-1194/chrome-linux/chrome',
   '/usr/bin/chromium',
 ];
+// Chromium de Playwright, quel que soit son numéro de version. Le Chromium complet reste bloqué en mode
+// sans fenêtre dans le conteneur (26 octobre 2026) ; chrome-headless-shell, du même paquet, passe en premier.
+try {
+  const pw = fs.readdirSync('/opt/pw-browsers').sort().reverse();
+  const linux = [];
+  for (const d of pw.filter(n => n.startsWith('chromium_headless_shell-')))
+    linux.push(`/opt/pw-browsers/${d}/chrome-headless-shell-linux64/chrome-headless-shell`);
+  for (const d of pw.filter(n => n.startsWith('chromium-')))
+    for (const s of ['chrome-linux64', 'chrome-linux']) linux.push(`/opt/pw-browsers/${d}/${s}/chrome`);
+  EDGES.splice(3, 0, ...linux);
+} catch (e) { /* pas de dossier Playwright */ }
 
 const src = process.argv[2];
 if (!src) { console.error('usage : rendre-planche.js <planche.svg> [sortie.png]'); process.exit(2); }

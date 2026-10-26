@@ -77,7 +77,8 @@ TPL = os.path.join(ROOT, "design", "directions", "1-manuel-de-terrain", "outils"
 COULEUR = os.path.join(ROOT, "design", "variantes-couleur", "outils", "couleur.css")
 VARIANTE = os.path.join(ROOT, "design", "variantes-couleur", "outils", "variante.py")
 NAV = (r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" if os.name == "nt"
-       else (sorted(glob.glob("/opt/pw-browsers/chromium-*/chrome-linux/chrome")) or ["chromium"])[-1])
+       else (sorted(glob.glob("/opt/pw-browsers/chromium_headless_shell-*/chrome-headless-shell-linux64/chrome-headless-shell"))
+           or sorted(glob.glob("/opt/pw-browsers/chromium-*/chrome-linux*/chrome")) or ["chromium"])[-1])
 
 # ------------------------------------------------------------------ format (sources/blurb-specifications.md)
 PT = 72.0

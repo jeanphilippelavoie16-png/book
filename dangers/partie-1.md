@@ -38,7 +38,7 @@ On est tenté de mettre la génératrice au garage, dans la remise ou sous l'auv
 4. Sortir l'auto, la motoneige, la scie ou la souffleuse du garage avant de la démarrer. Dans une auto prise dans la neige, dégager le tuyau d'échappement avant chaque démarrage : un tuyau bouché renvoie le gaz dans l'habitacle.
 5. Ne jamais brancher la génératrice sur une prise ni sur le panneau électrique de la maison (pictogramme du courant renvoyé).
 
-**Où il revient.** Chaque fois qu'une génératrice ou un moteur sert : la panne d'électricité (ch. 1 à 3, 7, 8), le stock de carburant (ch. 5, 9, 15), la pompe du puits (ch. 10), le retour après un feu de forêt (ch. 11), l'auto prise dans la neige (ch. 2, 6, 8, 15), la génératrice d'un visiteur qu'on loge (ch. 17), l'électricité du chalet, le transport et l'atelier (ch. 104 à 112).
+**Où il revient.** Chaque fois qu'une génératrice ou un moteur sert : la panne d'électricité (ch. 1 à 3, 7, 8), le stock de carburant (ch. 5, 9, 15), la pompe du puits (ch. 10), le retour après un feu de forêt (ch. 11), l'auto prise dans la neige (ch. 2, 6, 8, 15), la génératrice d'un visiteur qu'on loge (ch. 17), la veille d'un malade (ch. 26), l'électricité du chalet, le transport et l'atelier (ch. 104 à 112).
 
 ## {!electrocution} Courant renvoyé ou fil tombé
 
@@ -345,7 +345,7 @@ La peau exposée gèle en 10 à 30 minutes quand le refroidissement éolien est 
 6. Si elle ne respire pas ou n'a pas de pouls : chercher le pouls au cou une minute complète, puis commencer la réanimation. Des pupilles fixes ou un corps raide ne sont pas des raisons d'arrêter.
 7. Pour une gelure : ne pas frotter, ni avec de la neige ni avec la main. La dégeler seulement si elle ne risque pas de regeler, dans de l'eau à 37 à 39 °C, pendant environ 30 minutes, jusqu'à ce que la peau soit souple et rouge violacé. Sans thermomètre, on prend une eau où on peut garder la main 30 secondes. Ne jamais la réchauffer près du feu ou d'un poêle : la peau insensible brûle. Traiter l'hypothermie avant la gelure.
 
-**Où il revient.** L'hiver dehors et dans une maison sans chauffage : la panne (ch. 1 à 3, 6), la route avant la tempête (ch. 7), la neige qu'on fait fondre pour boire (ch. 10), le feu (ch. 13), l'attente des secours (ch. 14), le blessé à sortir (ch. 16), la personne qui gèle à la porte (ch. 17), les soins (ch. 25), la chasse, la pêche et le transport (ch. 15, 89).
+**Où il revient.** L'hiver dehors et dans une maison sans chauffage : la panne (ch. 1 à 3, 6), la route avant la tempête (ch. 7), la neige qu'on fait fondre pour boire (ch. 10), le feu (ch. 13), l'attente des secours (ch. 14), le blessé à sortir (ch. 16), la personne qui gèle à la porte (ch. 17), les soins (ch. 25, 26), la chasse, la pêche et le transport (ch. 15, 89).
 
 ## {!eau-froide} Eau froide
 

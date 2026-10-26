@@ -34,7 +34,8 @@ ROOT = _racine_livre()
 TOOLS = os.path.dirname(os.path.abspath(__file__))
 OUTD = os.path.join(ROOT, "design", "epreuves-livre")
 EDGE = (r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" if os.name == "nt"
-        else (sorted(glob.glob("/opt/pw-browsers/chromium-*/chrome-linux/chrome")) or ["chromium"])[-1])
+        else (sorted(glob.glob("/opt/pw-browsers/chromium_headless_shell-*/chrome-headless-shell-linux64/chrome-headless-shell"))
+           or sorted(glob.glob("/opt/pw-browsers/chromium-*/chrome-linux*/chrome")) or ["chromium"])[-1])
 REL_ROOT = "../../"          # depuis design/epreuves-livre/ vers la racine du livre
 
 # ------------------------------------------------------------------ formats d'impression

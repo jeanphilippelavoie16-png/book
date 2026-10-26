@@ -159,7 +159,7 @@ Ne pas servir de poisson cru ou fumé à froid à une femme enceinte, à une per
 
 **Ce qu'on fait.** À l'éviscération, mettre le foie et les reins de cervidé de côté avec les restes qu'on ne mange pas, et prendre le suif sans garder le rein. Ne pas ouvrir le crâne ni scier la colonne : désosser au couteau, et ne mettre ni la colonne ni la tête au chaudron à bouillon. Ne jamais donner de foie de phoque, d'ours, de morse ou de lotte à un enfant. Ne pas donner ces abats au chien non plus.
 
-**Où il revient.** À l'éviscération et à la découpe des cervidés, de l'ours et du phoque, au partage du gibier, au bouillon d'os, au pemmican, à la trousse d'urgence, au congélateur qui dégèle et à la ration d'hiver quand le gras manque (ch. 1, 2, 5 à 7, 9, 18, 19, 21 à 23, 56, 61 à 65).
+**Où il revient.** À l'éviscération et à la découpe des cervidés, de l'ours et du phoque, au partage du gibier, au bouillon d'os, au pemmican, à la trousse d'urgence, au congélateur qui dégèle, à la ration d'hiver quand le gras manque et au repas d'une personne qui a perdu du sang (ch. 1, 2, 5 à 7, 9, 18, 19, 21 à 23, 26, 56, 61 à 65).
 
 ## {!botulisme} Botulisme
 
@@ -231,7 +231,7 @@ Chez la personne, les convulsions : le corps se raidit, puis les bras et les jam
 
 **Ce qu'on fait.** Pour la vitamine C, prendre des aiguilles de sapin baumier ou d'épinette, jamais de thuya. Ne pas utiliser le cèdre pour ce qui touche un aliment : planche à découper, cuillère, saloir, baquet, claie, copeaux de fumoir.
 
-**Où il revient.** Aux tisanes et au scorbut, à la boisson chaude d'une personne qui a froid, aux plantes qui soignent, au fumoir et au saloir, à l'atelier du bois et au savon (ch. 5, 9, 13, 17, 20, 21, 32 à 36, 38, 39, 42, 78, 92, 94, 95, 98, 103, 110, 112).
+**Où il revient.** Aux tisanes et au scorbut, à la boisson chaude d'une personne qui a froid, aux plantes qui soignent, au fumoir et au saloir, à l'atelier du bois et au savon (ch. 5, 9, 13, 17, 20, 21, 26, 32 à 36, 38, 39, 42, 78, 92, 94, 95, 98, 103, 110, 112).
 
 ## {!plante} Plante, champignon ou coquillage qui empoisonne
 

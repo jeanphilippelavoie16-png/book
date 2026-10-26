@@ -229,3 +229,76 @@ Verdicts : `suivi/verifications/27-verifications.md` (9 drapeaux : 2 levés, 6 c
 - **Solution de réhydratation (§9) — levé :** 3 g de sel et 18 g de sucre par litre ; recette au jus d'orange 360 mL + 600 mL + 2,5 mL de sel. `sources/27-oms-2005-solution-sel-sucre.md`, `sources/05-quebec-rehydratation-gastro.md`
 
 - **Compression §3 et §4 — 27 septembre 2026 :** 967 mots → 215 mots (§3 : 248 → 119 ; §4 : 719 → 96, le tableau de 20 lignes et ses paragraphes d'intro et de fin remplacés par 5 items). Matériel coupé : gants d'examen, compresses compressives et abdominale (doublons de la gaze), bandages élastiques, ruban adhésif, ciseaux à bandage, écharpes et pince à écharde, attelles, couverture de secours, savon, eau bouillie en contenant, seringue d'irrigation, feuille de suivi et crayons, lampe frontale, lingettes, barrière RCR, liste du couvercle, sac à déchets ; consignes coupées : deux trousses maison/chalet, rotation au ch. 32. §3 : chiffre « 7 à 10 % de survie perdus par minute d'arrêt cardiaque » coupé. Déplacé : « cendre de bois pour les mains, jamais dans une plaie » → §5-D, étape 21.
+
+## Refonte au gabarit final, 26 octobre 2026 (pilote du tome 2)
+
+JP, 26 octobre 2026 : « Le texte du tome deux est complet ? Tout ce qu'on a changé dans le tome 1 doit être appliqué » ;
+puis « fais le pilote du 26 ». Le chapitre passe au gabarit à sept sections comme les ch. 04 et 12, avec le cadre des
+agents et le skill `ecriture`. Texte d'avant : `git show 295034ee:chapitres/26-soigner-quand-il-n-y-a.md` (dernier commit
+de la branche du tome 1). `controle.py` : 7 107 mots avant, 7 212 après ; 0 tiret dans le texte (les deux du titre et
+de la ligne du tome sont le format du livre), 0 « § ».
+
+**Ce qui a changé.**
+- Ligne de lieu : « Les deux » ; la note de lieu sous le titre sort (la maison n'a pas de secours non plus : c'est dit
+  par le chapitre entier).
+- Section 2 : seulement quand l'utiliser, avec les étapes. La liste « mauvais choix » sort ; ses faits vont à l'étape 41
+  (le ventre dur, la cuisse ou le bassin cassé, l'infection qui avance, la personne qui soigne qui flanche, ch. 35) et
+  ses notes de bas de page suivent (bassin → étape 33, note 5 ; lymphangite → étape 30, note 4 ; la note du saignement
+  interne sort : ses signes sont dans l'étape 33).
+- « Pourquoi ça marche » sort : les cinq signaux et la série écrite vont à l'étape 31 ; « des mains ne renversent que
+  cinq choses » et « c'est la promptitude du départ qui décide » sortent (redits par les étapes 39 à 41).
+- Matériel : section 3, sans tiret ; l'auto-injecteur renvoie à l'étape 13.
+- Procédure : quatre séries orange en tête, un sujet chacune, juste après le logigramme ; « A — Avant que ça arrive »
+  passe en fin de procédure, « Avant, une fois » (étapes 43 à 47), comme au ch. 4.
+- La section 8, Danger, sort : le saignement qu'on ne voit pas → étape 33 (`coupure`, `vie-en-jeu`) ; le monoxyde → étape
+  36 (`co`, `generatrice`) ; la rage → étape 28 (`rage`), avec l'égratignure de chauve-souris contre la coupure de
+  couteau. Le calendrier de la rage (14 jours) est dans la page du danger.
+- Le bloc « H — Les rappels » sort : génératrice et monoxyde → étape 36 ; foie et reins de cervidés + 74 °C → étape 37
+  (`abats`, `cuisson`), là où on nourrit la personne qu'on veille ; thuyone → étape 38 (`thuyone`), les tisanes de la
+  veille. **Le botulisme sort** (signes, type E dès 3 °C) : aucune étape du chapitre ne touche les conserves ; il reste aux
+  ch. 77 et 78 et à sa page. La ligne du tableau des signes d'échec sur le botulisme et celle sur le monoxyde sortent
+  aussi (l'étape 36 et les pages des dangers les portent).
+- Points de contrôle : l'avertisseur de CO hebdomadaire et la cuisson du gibier sortent (pas de geste du chapitre) ;
+  entrent les compressions, la réaction allergique et la brûlure.
+- Tétanos : surveiller 3 semaines (étape 27, tableaux), comme la page du danger (de 3 à 21 jours), au lieu de 2.
+- Section 7, variante d'urgence : les paragraphes en gras deviennent des `###` ; la sporotrichose entre dans le pansement
+  de sphaigne (cueillir avec des gants) ; « Ce qui ne se remplace pas » nomme l'épinéphrine et finit sur un renvoi.
+- « Héros en trente » garde son nom, sans le ©.
+
+**Séries orange et leurs pastilles.**
+
+| Série | Étapes | Pastille | Source du temps |
+| --- | --- | --- | --- |
+| Quelqu'un vient de se blesser ou s'effondre | 1 à 5 | 1 min | 7 à 10 % de survie perdus par minute sans compressions (`sources/27-quebec-rcr-heros-en-trente.md`) |
+| Ça gicle, ou ça saigne à flot | 6 à 11 | 5 min | « A person can die from severe blood loss in less than 5 minutes » (`sources/27-saignement-pression-directe-et-garrot.md`, Croix-Rouge américaine) |
+| Une personne fait une réaction allergique grave | 12 à 16 | 2 min | perte de connaissance et arrêt respiratoire en 1 à 2 minutes (`sources/26n-anaphylaxie-plans-et-msd.md`, MSD) |
+| Quelqu'un s'est brûlé | 17 à 22 | 3 h | l'eau aide encore jusqu'à 3 h après (`sources/27-brulure-refroidissement.md`) |
+
+**Chiffres et faits nouveaux.**
+
+| Chiffre ou fait | Où | Source |
+| --- | --- | --- |
+| 100 à 120 compressions par minute ; adulte 5 à 6 cm ; enfant (jusqu'à la puberté ou 55 kg) un tiers de la poitrine, environ 4 à 5 cm ; enfant : 30 compressions, 2 insufflations ; bébé de moins d'un an, deux doigts | étape 4, section 5, logigramme | `sources/26n-msd-rcr-frequence-profondeur.md` (MSD pro, AHA 2020) |
+| Compressions seules chez l'adulte dans les premières minutes | étape 4 | `sources/27-quebec-rcr-heros-en-trente.md` |
+| Le pouls au cou 1 minute avant de comprimer une personne froide | étape 5 | ch. 35, étape 5 (Wilderness Medical Society, déjà enregistrée) |
+| Deuxième garrot au-dessus du premier | étape 9 | `sources/27-saignement-pression-directe-et-garrot.md` (Croix-Rouge américaine) |
+| Anaphylaxie : signes, 15 minutes, rarement après 1 h, 1 à 2 minutes, cuisse, 3 secondes, deuxième dose à 5 minutes, positions, asthme, retour 4 à 8 h, 48 h près d'un hôpital, 0,15 et 0,3 mg | étapes 12 à 16 | `sources/26n-anaphylaxie-plans-et-msd.md` (SCAIC 2026, Allergies Québec 2025, MSD 2024) |
+| Sporotrichose de la sphaigne | section 7 | `sources/29-femmes-sphaigne-couches-et-sporotrichose.md` |
+| Notes En plus : 1916, 22 fois son poids ; gomme de sapin (Innus) et d'épinette noire (Mingan) ; essai des cheveux tordus (189 personnes, moins de 10 cm, cheveux d'au moins 3 cm) | En plus | `sources/26n-sphaigne-grande-guerre-et-cheveux-noues.md`, `sources/34n-uprety-2012-usages-innus-par-symptome.md` |
+
+Les notes de bas de page 2 (fibrillation) et 3 (urticaire) sont nouvelles : elles décrivent un signe, sans chiffre.
+
+**Questions pour JP.** Le chapitre imprime maintenant la fréquence et la profondeur des compressions (l'inventaire des
+premières minutes demandait de reconfirmer le choix de ne pas les imprimer, « puisque personne ne viendra le
+rappeler »). La formation reste à l'étape 44.
+
+**Logigramme** : `images/logigrammes/26-soigner.json` (nouveau), double page, rendu sans erreur ; posé après le Matériel
+(`placements-tome-2.json`, clé « logigramme »).
+
+**Planches** : toutes appelées dans le texte. 26-40 à l'étape 6 (repères 1 à 8) et 24 (repères 9 à 12) ; 26-11, 26-04,
+26-08, 26-09a, 26-09b dans la section 7 ; **26-41** (fermer une coupure) composée le 15 octobre et jamais rendue :
+rendue le 26 octobre, posée dans `images/a-valider/`, à valider par JP. Ancres mises à jour dans
+`design/epreuves-livre/placements-tome-2.json`.
+
+**Notes « En plus »** (4) : la sphaigne (photo iNaturalist, CC0, `images/credits.md`), les pansements de mousse de 1916,
+la gomme de sapin chez les Innus, les cheveux tordus d'un tour.
