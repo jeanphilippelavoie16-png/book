@@ -123,76 +123,70 @@ module.exports = (h) => {
   };
 
   // ─── A et B. Appuyer, puis le sang traverse : la même vue, les mêmes mains ───────────────────────────────────────
-  // La main 8-01 (« paume en l'air ») retournée de haut en bas : la paume vers la compresse, on voit le dos de la main,
-  // le poignet plié et l'avant-bras qui monte vers l'épaule de celui qui appuie. C'est la main à plat qui a déjà la pose
-  // de l'appui (1-08, la main à plat de côté, a l'avant-bras dans le prolongement de la main : couchée sur la cuisse,
-  // ses bras partaient à l'horizontale). La main du dessous (en gris : elle est derrière) a le talon de la main sur la
-  // plaie ; celle du dessus pose sa paume sur le dos de la première. Les deux avant-bras, parallèles, sortent de la vue.
-  const ID_PLAT = '8-01', ANGLE_PLAT = 150;
-  const UP = 25;                                        // la plaie, à mi-cuisse
-  const COMP1 = [UP - 6.5, UP + 7], COMP2 = [UP - 8.5, UP + 4.5], EP = 1.1;   // les compresses (u, cm) et leur épaisseur
-  const plat = (s, x, y) => pose({ id: ID_PLAT, taille: 27.2 * s, angle: ANGLE_PLAT, miroir: true, ancre: [0.5, 0.5], x, y });
-  const BORDS_PLAT = () => {
-    const a = coupe(ID_PLAT, 'y', 0.75), b = coupe(ID_PLAT, 'y', 0.95);
-    return [[[a[0], 0.75], [b[0], 0.95]], [[a[a.length - 1], 0.75], [b[b.length - 1], 0.95]]];
+  // Vue d'en haut, comme celui qui appuie voit ses mains : la cuisse couchée en travers (la hanche à gauche, le genou à
+  // droite), la compresse sur la plaie, les deux mains à plat l'une sur l'autre, paume vers la compresse : on voit le dos
+  // des mains (6-09, la main ouverte doigts serrés ; la seconde en miroir). La main du dessous est en gris (elle est
+  // derrière). Les deux avant-bras, tendus, arrivent du bas de la vue, des épaules de celui qui appuie ; la flèche
+  // rouge longe l'avant-bras du dessus : le poids passe par les bras. Pas de personnage : la tête n'apprend rien.
+  // (La vue de côté a été essayée avec les mains de la bibliothèque : 1-08, à plat, a l'avant-bras dans le prolongement
+  // de la main, et ses bras partaient couchés sur la cuisse ; 8-01 retournée fait une main en griffe.)
+  const LARG = [[-10, 9.6], [0, 9.3], [14, 8.7], [28, 7.7], [37, 6.6], [41, 5.9], [44.5, 6.1], [48, 5.7], [54, 5.3], [66, 5.0]];
+  const cuisseDessus = (z, u0, s, cy) => {
+    const X = u => (u - u0) * s, U = x => u0 + x / s, hw = x => lisse(LARG, U(x)) * s;
+    const haut = [], bas = [];
+    for (let x = -2; x < z.l + 3; x += 1.5) { haut.push([x, cy - hw(x)]); bas.push([x, cy + hw(x)]); }
+    const dessin = [h.chemin([...haut, ...bas.slice().reverse()], h.a.blanc, true), h.chemin(haut, CORPS), h.chemin(bas, CORPS)].join('\n');
+    return { X, U, hw, cy, dessin };
   };
-  const DESSUS = [-0.30, -0.36];                        // la main du dessus : reculée vers le poignet, levée (fractions de la main)
-  const geoAB = (z, double) => {
-    const s = z.l / 40, u0 = 6, yg = z.h - 10;
-    const C = cuisse(z, u0, s, yg);
-    const epT = EP * s * (double ? 2 : 1);
-    const surf = x => C.top(x) - epT;
-    const xP = C.X(UP);
-    // la main du dessous : on la descend jusqu'à ce que le dessous de la main touche la compresse
-    const pts = contour(ID_PLAT).filter(p => p[1] < 0.62);
-    let y = 0, x = xP;
-    for (let it = 0; it < 4; it++) {
-      const m = plat(s, x, y);
-      const P = pts.map(m.P);
-      const enfonce = Math.max(...P.map(q => q[1] - surf(q[0])));
-      // le talon de la main (le point le plus bas, côté poignet) se pose sur la plaie
-      const bas = P.filter(q => q[1] - surf(q[0]) > enfonce - 1.2).sort((a, b) => a[0] - b[0])[0];
-      y -= enfonce; x += xP - bas[0];
-    }
-    const bas = plat(s, x, y);
-    const Hm = 27.2 * s;
-    const haut = plat(s, x + DESSUS[0] * Hm * 0.5, y + DESSUS[1] * Hm * 0.5);
+  const ID_PLAT = '6-09', PAUME = [0.58, 0.50];
+  const UP = 22;                                        // la plaie, à mi-cuisse
+  const BORDS_PLAT = () => {
+    const a = coupe(ID_PLAT, 'y', 0.74), b = coupe(ID_PLAT, 'y', 0.95);
+    return [[[a[0], 0.74], [b[0], 0.95]], [[a[a.length - 1], 0.74], [b[b.length - 1], 0.95]]];
+  };
+  // les deux mains : (angle, miroir, décalage de la paume en cm depuis la plaie)
+  const MAIN_BAS = { angle: 70, miroir: false, d: [0, 0] }, MAIN_HAUT = { angle: 56, miroir: true, d: [-1.2, 0.9] };
+  const geoAB = z => {
+    const s = z.l / 44, u0 = 0, cy = 0.40 * z.h;
+    const C = cuisseDessus(z, u0, s, cy);
+    const P = [C.X(UP), cy + 0.6 * s];                  // la plaie, sous la paume du dessous
+    const main = o => pose({ id: ID_PLAT, taille: 28.7 * s, angle: o.angle, miroir: o.miroir, ancre: PAUME, x: P[0] + o.d[0] * s, y: P[1] + o.d[1] * s });
+    const bas = main(MAIN_BAS), haut = main(MAIN_HAUT);
     const L = z.l + z.h;
     const abBas = avantBras(bas.P, BORDS_PLAT(), L, GRIS), abHaut = avantBras(haut.P, BORDS_PLAT(), L);
-    // la flèche du poids : le long de l'avant-bras du dessus, côté dos, vers les mains
+    // la flèche du poids : le long de l'avant-bras du dessus, côté droit, vers les mains
     const [a0, a1] = abHaut.axe, d = Math.hypot(a1[0] - a0[0], a1[1] - a0[1]), u = [(a0[0] - a1[0]) / d, (a0[1] - a1[1]) / d];
-    const nv = [-u[1], u[0]][1] < 0 ? [-u[1], u[0]] : [u[1], -u[0]];   // la normale vers le haut de la vue
+    const nv = [-u[1], u[0]][0] > 0 ? [-u[1], u[0]] : [u[1], -u[0]];   // la normale vers la droite
     const lb = Math.hypot(abHaut.bords[0][0][0] - abHaut.bords[1][0][0], abHaut.bords[0][0][1] - abHaut.bords[1][0][1]);
-    const off = 0.5 * lb + 10;
+    const off = 0.5 * lb + 9;
     const pa = t => [a0[0] - u[0] * t + nv[0] * off, a0[1] - u[1] * t + nv[1] * off];
-    const fleche = [pa(11 * s), pa(1.5 * s)];
-    const talon = [xP, surf(xP)];
-    return { s, C, surf, xP, bas, haut, abBas, abHaut, fleche, a0, u, epT, talon };
+    const fleche = [pa(9 * s), pa(0.5 * s)];
+    return { s, C, P, bas, haut, abBas, abHaut, fleche, a0, u };
   };
-  // Une compresse de côté : une gaze pliée, posée sur la peau, qui en suit la courbe ; bouts arrondis.
-  const compresse = (C, ua, ub, y0, ep, at) => {
-    const xa = C.X(ua), xb = C.X(ub), dessus = [], dessous = [];
-    for (let x = xa; x <= xb + 0.01; x += 1) { dessous.push([x, y0(x)]); dessus.push([x, y0(x) - ep]); }
-    const r = ep / 2;
-    const A = dessus[0], B = dessus[dessus.length - 1], Bd = dessous[dessous.length - 1], Ad = dessous[0];
-    const d = `M${pt(Ad)} Q${f(Ad[0] - r * 1.2)},${f((Ad[1] + A[1]) / 2)} ${pt(A)} L${dessus.slice(1).map(pt).join(' L')} Q${f(B[0] + r * 1.2)},${f((B[1] + Bd[1]) / 2)} ${pt(Bd)} L${dessous.slice().reverse().slice(1).map(pt).join(' L')} Z`;
-    return h.path(d, at);
+  // Une compresse vue d'en haut : un carré de gaze pliée, coins à peine arrondis, le pli marqué ; (l, ht) en cm.
+  const tampon = (cx, cy, l, ht, at, pli, rot = 0) => {
+    const r = Math.min(l, ht) * 0.12, x0 = cx - l / 2, y0 = cy - ht / 2, x1 = cx + l / 2, y1 = cy + ht / 2;
+    const d = `M${f(x0 + r)},${f(y0)} L${f(x1 - r)},${f(y0)} Q${f(x1)},${f(y0)} ${f(x1)},${f(y0 + r)} L${f(x1)},${f(y1 - r)} Q${f(x1)},${f(y1)} ${f(x1 - r)},${f(y1)} L${f(x0 + r)},${f(y1)} Q${f(x0)},${f(y1)} ${f(x0)},${f(y1 - r)} L${f(x0)},${f(y0 + r)} Q${f(x0)},${f(y0)} ${f(x0 + r)},${f(y0)} Z`;
+    const out = [h.path(d, at)];
+    if (pli) out.push(h.ligne(x0 + 3, y0 + ht * 0.36, x1 - 3, y0 + ht * 0.36, h.a.fin));
+    return rot ? `<g transform="rotate(${f(rot)} ${f(cx)} ${f(cy)})">\n${out.join('\n')}\n</g>` : out.join('\n');
   };
+  // la première compresse et la seconde, posée de travers par-dessus : (dx, dy, l, ht, rotation) en cm depuis la plaie
+  const PREMIERE = [1.0, -0.4, 15, 13, 0], SECONDE = [1.6, -0.8, 14, 12, -16];
   const mains = g => [g.bas.svg({ loin: true }), g.abBas.svg, g.haut.svg(), g.abHaut.svg].join('\n');
-
   const dessinA = z => {
-    const g = geoAB(z, false), C = g.C, out = [C.dessin];
-    out.push(compresse(C, COMP1[0], COMP1[1], C.top, g.epT, plein(h.a.contour)));
+    const g = geoAB(z), s = g.s, out = [g.C.dessin];
+    const T = PREMIERE;
+    out.push(tampon(g.P[0] + T[0] * s, g.P[1] + T[1] * s, T[2] * s, T[3] * s, plein(h.a.contour), true, T[4]));
     out.push(mains(g));
     out.push(h.geste(`M${pt(g.fleche[0])} L${pt(g.fleche[1])}`));
-    // le point à contrôler : le talon de la main du dessous, sur la compresse, sur la plaie même
-    const c = g.talon;
-    out.push(h.controle(c[0] + 1.2 * g.s, c[1] - 1.4 * g.s, 2.8 * g.s));
+    // le point à contrôler : la paume sur la plaie même
+    out.push(h.controle(g.P[0], g.P[1], 3.2 * s));
     return decoupe('a', z, out.join('\n'));
   };
 
-  // Un filet de sang qui descend la cuisse : mince, qui serpente, qui s'amincit, une goutte au bout, la flaque au sol.
-  const filet = (x0, y0, y1, amp, ph, w0, w1, flaque) => {
+  // Un filet de sang qui coule sur la peau vers le côté de la cuisse : mince, qui serpente, qui s'amincit, une goutte au bout.
+  const filet = (x0, y0, y1, amp, ph, w0, w1) => {
     const N = 28, G = [], D = [];
     for (let i = 0; i <= N; i++) {
       const t = i / N, y = y0 + (y1 - y0) * t, xc = x0 + amp * (Math.sin(t * 9 + ph) - Math.sin(ph)) * (0.3 + t);
@@ -200,22 +194,20 @@ module.exports = (h) => {
       G.push([xc - w, y]); D.push([xc + w, y]);
     }
     const xe = (G[N][0] + D[N][0]) / 2, r = w1 * 2.1;
-    const out = [h.chemin([...G, ...D.reverse()], h.a.plein, true),
-      h.path(`M${f(xe - w1)},${f(y1 - 1)} Q${f(xe - r)},${f(y1 + r * 0.6)} ${f(xe)},${f(y1 + r * 1.1)} Q${f(xe + r)},${f(y1 + r * 0.6)} ${f(xe + w1)},${f(y1 - 1)} Z`, h.a.plein)];
-    if (flaque) out.push(h.ellipse(xe, y1 + r * 1.1 + flaque * 0.4, flaque * 1.6, flaque * 0.55, h.a.plein));
-    return out.join('\n');
+    return [h.chemin([...G, ...D.reverse()], h.a.plein, true),
+      h.path(`M${f(xe - w1)},${f(y1 - 1)} Q${f(xe - r)},${f(y1 + r * 0.6)} ${f(xe)},${f(y1 + r * 1.1)} Q${f(xe + r)},${f(y1 + r * 0.6)} ${f(xe + w1)},${f(y1 - 1)} Z`, h.a.plein)].join('\n');
   };
   const dessinB = z => {
-    const g = geoAB(z, true), C = g.C, s = g.s, out = [C.dessin];
-    const y1 = x => C.top(x) - g.epT / 2;
-    // le sang passé sous la première compresse coule sur le côté de la cuisse jusqu'au sol
-    for (const [du, amp, ph, k] of [[-5.2, 0.5, 0.4, 2.2], [3.6, 0.45, 2.1, 1.6], [5.8, 0.5, 1.3, 2.6]]) {
-      const x0 = C.X(UP + du), ya = C.top(x0) + 0.8, yb = C.Y(0) - 1.2 * s;
-      out.push(filet(x0, ya, yb, amp * s * 0.4, ph, 1.5, 0.6, k));
+    const g = geoAB(z), s = g.s, C = g.C, out = [C.dessin];
+    const [px, py] = g.P, T1 = PREMIERE, T2 = SECONDE;
+    // le sang passé sous la première compresse coule sur la peau, vers le côté de la cuisse
+    for (const [dx, amp, ph, k] of [[5.0, 0.5, 0.4, 1.6], [7.0, 0.45, 2.1, 2.6], [8.6, 0.5, 1.3, 1.2]]) {
+      const x0 = px + dx * s, y0 = py + (T1[1] + T1[3] / 2 - 0.6) * s, y1 = C.cy + C.hw(x0) + k * s;
+      out.push(filet(x0, y0, y1, amp * s * 0.5, ph, 1.5, 0.6));
     }
-    // la première, trempée : noire ; la seconde par-dessus, blanche, décalée vers la hanche
-    out.push(compresse(C, COMP1[0], COMP1[1], C.top, g.epT / 2, h.a.plein));
-    out.push(compresse(C, COMP2[0], COMP2[1], y1, g.epT / 2, plein(h.a.contour)));
+    // la première, trempée : noire ; la seconde par-dessus, de travers, blanche
+    out.push(tampon(px + T1[0] * s, py + T1[1] * s, T1[2] * s, T1[3] * s, h.a.plein, false, T1[4]));
+    out.push(tampon(px + T2[0] * s, py + T2[1] * s, T2[2] * s, T2[3] * s, plein(h.a.contour), true, T2[4]));
     out.push(mains(g));
     out.push(h.geste(`M${pt(g.fleche[0])} L${pt(g.fleche[1])}`));
     return decoupe('b', z, out.join('\n'));
@@ -441,10 +433,11 @@ module.exports = (h) => {
         titre: 'Appuyer',
         dessin: dessinA,
         renvois: z => {
-          const g = geoAB(z, false), c = [g.talon[0] + 1.2 * g.s, g.talon[1] - 1.4 * g.s], b = g.abHaut.axe;
+          const g = geoAB(z), s = g.s, b = g.abHaut.axe;
+          const pb = [b[0][0] - g.u[0] * 8 * s, b[0][1] - g.u[1] * 8 * s];
           return [
-            { n: 1, rond: [z.l - 14, c[1] + 30], cible: [c[0] + 2.8 * g.s, c[1] + 4], texte: 'la paume sur la plaie même' },
-            { n: 2, rond: [16, 16], cible: [b[0][0] - g.u[0] * 9 * g.s, b[0][1] - g.u[1] * 9 * g.s], texte: 'bras tendus : tout son poids' },
+            { n: 1, rond: [z.l - 14, g.P[1] - 9 * s], cible: [g.P[0] + 3.2 * s * 0.71, g.P[1] - 3.2 * s * 0.71], texte: 'la paume sur la plaie même' },
+            { n: 2, rond: [16, z.h - 16], cible: pb, texte: 'bras tendus : tout son poids' },
           ];
         },
       },
@@ -452,14 +445,12 @@ module.exports = (h) => {
         titre: 'Le sang traverse',
         dessin: dessinB,
         renvois: z => {
-          const g = geoAB(z, true), C = g.C, s = g.s;
-          const e1 = [C.X(COMP1[1]) - 0.3 * s, C.top(C.X(COMP1[1])) - g.epT * 0.25];
-          const e2 = [C.X(COMP2[0]) + 0.6 * s, C.top(C.X(COMP2[0])) - g.epT * 0.75];
+          const g = geoAB(z), s = g.s, [px, py] = g.P, T1 = PREMIERE;
           const mf = [(g.fleche[0][0] + g.fleche[1][0]) / 2, (g.fleche[0][1] + g.fleche[1][1]) / 2];
           return [
-            { n: 3, rond: [z.l - 14, e1[1] + 34], cible: e1, texte: 'la première reste en place' },
-            { n: 4, rond: [16, e2[1] + 30], cible: e2, texte: 'une seule autre par-dessus' },
-            { n: 5, rond: [mf[0] + 30, 16], cible: mf, texte: 'appuyer plus fort' },
+            { n: 3, rond: [z.l - 14, py - 10 * s], cible: [px + (T1[0] + T1[2] / 2 - 0.8) * s, py + (T1[1] - T1[3] / 2 + 1.6) * s], texte: 'la première reste en place' },
+            { n: 4, rond: [16, py - 12 * s], cible: [px - 5.2 * s, py - 6.2 * s], texte: 'une seule autre par-dessus' },
+            { n: 5, rond: [z.l - 14, z.h - 16], cible: mf, texte: 'appuyer plus fort' },
           ];
         },
       },
