@@ -3,10 +3,10 @@
 // trempée à l'eau chaude, moulée autour du membre et laissée sécher en gouttière ; l'articulation au-dessus et celle en
 // dessous ; rembourrage de linge ou de mousse sèche sur l'os ; attachée en trois points ; doigts à vérifier, desserrer
 // dès qu'ils blanchissent. L'écharpe : le pan de la chemise relevé par-dessus l'avant-bras et épinglé au devant.
-// Refaite le 26 octobre 2026 aux règles du tome 1 : la main est la 1-08 de la bibliothèque Adobe Stock (mainStock), sans
-// sa tige, vue de côté, paume vers le bas, jamais déformée ; l'eau en bleu ; l'écorce dessinée comme de l'écorce de
-// bouleau (lenticelles fines de longueurs inégales qui font le tour du membre, un œil de branche, la feuille mince qui
-// s'enroule et pèle aux bouts). Le même bras attelé sert aux deux vues de côté et de devant (« Mouler » et « L'écharpe »).
+// Refaite le 26 octobre 2026 aux règles du tome 1 : la main est la 6-09 de la bibliothèque Adobe Stock (mainStock), la
+// main gauche ouverte vue du dos, jamais déformée ; l'eau en bleu ; l'écorce dessinée comme de l'écorce de bouleau
+// (lenticelles fines de longueurs inégales qui font le tour du membre, la feuille mince qui s'enroule au bout et montre
+// son envers). Le même bras attelé sert aux deux vues, de côté et de devant (« Mouler » et « L'écharpe »).
 // Aucun chiffre sur le dessin : le chapitre n'en donne aucun pour l'attelle improvisée.
 const CAT = require('../../.claude/skills/planches/scripts/mains/stock/catalogue.json');
 
@@ -382,7 +382,7 @@ module.exports = (h) => {
         renvois: z => {
           const o = boite(z, T.L, T.y0, T.y1);
           return [
-            { n: 1, rond: [z.l - 16, o.oy + 60], cible: P(o, 150, 140), texte: 'plaque d’écorce de bouleau' },
+            { n: 1, rond: [z.l - 16, o.oy + 88], cible: P(o, 163, 141.6), texte: 'plaque d’écorce de bouleau' },
             { n: 2, rond: [z.l - 16, o.oy + 158], cible: P(o, 186, 211), texte: 'eau chaude, qui l’assouplit' },
           ];
         },

@@ -379,7 +379,7 @@ suivi, et desserrer les attaches dès qu'ils blanchissent (section 6).
 ### L'écharpe
 
 Relever le pan de la chemise de la personne blessée par-dessus son avant-bras et l'épingler au devant de la chemise
-(planche 26-08, repère 12). Le pan tient le bras aussi bien qu'un foulard en triangle, et comme rien ne passe par-dessus
+(planche 26-08, repères 12 et 13). Le pan tient le bras aussi bien qu'un foulard en triangle, et comme rien ne passe par-dessus
 la tête, on ne bouge pas l'épaule blessée.
 
 ### Déplacer un blessé

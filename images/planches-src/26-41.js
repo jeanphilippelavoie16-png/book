@@ -69,11 +69,8 @@ module.exports = (h) => {
 
   // ─── le ruban à conduits ────────────────────────────────────────────────────────────────────────────────────
   // La trame : des fils en long serrés et des fils en travers plus espacés, tournés avec la lanière.
-  const trames = {};
   const trame = (id, ang) => {
     const cle = `${id}-${Math.round(ang)}`;
-    if (trames[cle]) return { id: `trame-2641-${cle}`, defs: '' };
-    trames[cle] = true;
     return { id: `trame-2641-${cle}`, defs: `<defs><pattern id="trame-2641-${cle}" width="4.2" height="3" patternUnits="userSpaceOnUse" patternTransform="rotate(${f1(ang)})"><line x1="0" y1="0.6" x2="4.2" y2="0.6" stroke="${NOIR}" stroke-width="0.5"/><line x1="1" y1="0" x2="1" y2="3" stroke="${NOIR}" stroke-width="0.5"/></pattern></defs>` };
   };
   // Une bande de ruban le long de pts, large de w. bouts : [début, fin] parmi 'dechire' (effiloché) · 'aucun' (la
@@ -158,7 +155,7 @@ module.exports = (h) => {
     // la lanière qui s'écarte : elle part du bout de la déchirure et plie vers le bas
     const yl = yT + 2.5 * w, piv = [xd, yl];
     const lib = [[xd - 4, yl], [xd + 10, yl + 0.6], [xd + 26, yl + 4.5], ...[0.35, 0.7, 1].map(t => tourne([xd + 26 + t * (x1 - xd - 22), yl + 4.5], [xd + 26, yl + 4.5], 17))];
-    const L = ruban('r1', lib, w, { bouts: ['aucun', 'dechire'], bords: ['refendu', 'net'], ang: 17, graine: 7 });
+    const L = ruban('r1', lib, w, { bouts: ['aucun', 'dechire'], bords: ['net', 'refendu'], ang: 17, graine: 7 });
     o.push(L.svg);
     // le reste du morceau : deux lanières de large à droite de la déchirure, trois à gauche
     const R = hasard(3);
@@ -195,7 +192,7 @@ module.exports = (h) => {
       o.push(fente(cc, Lc, amande(5)));
       const bout = tourne([xc + 74, ys], [xpli, ys], -5);
       o.push(ruban('c2a', [bout, [xpli, ys + 0.1]], w, { bouts: ['dechire', 'aucun'], bords: ['refendu', 'net'], ang: -5, graine: 11 }).svg);
-      o.push(ruban('c2b', [[xpli, ys], [xg, ys]], w, { bouts: ['aucun', 'dechire'], bords: ['net', 'refendu'], ang: 0, graine: 12 }).svg);
+      o.push(ruban('c2b', [[xpli, ys], [xg, ys]], w, { bouts: ['aucun', 'dechire'], bords: ['refendu', 'net'], ang: 0, graine: 12 }).svg);
       o.push(`<path d="M${f1(xpli)} ${f1(ys - w / 2)} L${f1(xpli)} ${f1(ys + w / 2)}" ${A.arete}/>`);
       const m = mainTient(bout);
       o.push(String(m));
@@ -209,8 +206,8 @@ module.exports = (h) => {
     const m = mainTient(bout);
     o.push(String(m));
     // le geste : tirer vers la droite, au-dessus de la lanière
-    const yf = ys - w / 2 - 10;
-    o.push(h.geste(`M${f1(xc + 6)} ${f1(yf)} L${f1(xc + 52)} ${f1(yf)}`));
+    const yf = ys - w / 2 - 22;
+    o.push(h.geste(`M${f1(xc + 2)} ${f1(yf)} L${f1(xc + 44)} ${f1(yf)}`));
     return { svg: decoupe('vue-2641-tirer', z, o.join('\n')), P: { fleche: [xc + 30, yf], bords: [xc, ys + w / 2 + 8] } };
   };
 
@@ -330,10 +327,10 @@ module.exports = (h) => {
       // l'ordre : A de son arc jusqu'au bout (dessous à droite), puis B en entier, puis A de la racine à son arc
       // (dessus à gauche)
       const o = [fenteH(cx, cy, 120 * u, false)];
-      o.push(meche(ptsA, lm, { nouee: true, graine: 5, de: 0.5 }).svg);
+      o.push(meche(ptsA, lm, { nouee: true, graine: 5, de: 0.45 }).svg);
       o.push(meche(ptsB, lm, { nouee: true, graine: 6 }).svg);
-      o.push(meche(ptsA, lm, { nouee: true, graine: 5, a: 0.5 }).svg);
-      P.noeud = U(-2, 0);
+      o.push(meche(ptsA, lm, { nouee: true, graine: 5, a: 0.45 }).svg);
+      P.noeud = U(-29, 0);
       P.bouts = [ptsA[ptsA.length - 1], ptsB[ptsB.length - 1]];
       return o.join('\n');
     });
@@ -374,12 +371,12 @@ module.exports = (h) => {
       travers: {
         titre: 'En travers de la coupure',
         dessin: z => v4(z).svg,
-        renvois: z => { const P = v4(z).P; return [{ n: 4, rond: [P.fente[0] + 74, P.fente[1] + 4], cible: P.fente, texte: 'en travers, les bords joints dessous' }]; },
+        renvois: z => { const P = v4(z).P; return [{ n: 4, rond: [P.fente[0] + 74, P.fente[1]], cible: P.fente, texte: 'en travers, les bords joints dessous' }]; },
       },
       croiser: {
         titre: 'Cuir chevelu : croiser deux mèches',
         dessin: z => v5(z).svg,
-        renvois: z => { const P = v5(z).P, L = v5(z).L; return [{ n: 5, rond: [L.cx - L.R - 4, L.cy + L.R * 0.55], cible: P.racine, texte: 'une mèche de chaque côté, croisées dessus' }]; },
+        renvois: z => { const P = v5(z).P, L = v5(z).L; return [{ n: 5, rond: [L.cx - L.R - 2, L.cy - L.R * 0.5], cible: P.croise, texte: 'une mèche de chaque côté, croisées dessus' }]; },
       },
       nouer: {
         titre: 'Nouer, serrer',
