@@ -409,8 +409,8 @@ ou une morsure (étape 26).
 Chauffer une aiguille à coudre ou un bout de fil de fer au rouge dans la flamme, et la laisser refroidir à l'air,
 sans souffler dessus ni l'essuyer. Un hameçon dont on a limé l'ardillon (ch. 105) fait une pince à un seul bec. **Ne pas
 creuser pour aller chercher un objet planté profondément, et ne jamais retirer ce qui traverse** : l'objet bouche le
-vaisseau qu'il a coupé, et si on l'enlève, le vaisseau saigne. Le caler entre deux bourrelets de linge et le laisser
-en place pendant la route.
+vaisseau qu'il a coupé, et si on l'enlève, le vaisseau saigne. Le caler entre deux bourrelets de linge, tenus par une
+bande de chaque côté de l'objet, et le laisser en place pendant la route (planche 26-11, repères 13 à 16).
 
 ### Sans eau stérile pour rincer
 
