@@ -140,7 +140,7 @@ module.exports = (h) => {
     desc: 'Une porte dégondée sert de planche. De côté, la porte posée sur la neige, les pentures dans son chant : le blessé couché sur le dos, sanglé en travers de la poitrine, du bassin et des cuisses, chaque sangle passant par-dessus lui et sous la porte ; du linge roulé contre les jambes, un rouleau de vêtements contre la tête et une bande large en travers du front. Vue par la tête : les rouleaux serrés contre les tempes et la bande qui passe sur le front et fait le tour de la porte. Enfin, porte et blessé roulés ensemble sur la tranche, d’un bloc, une flèche rouge pour le mouvement.',
     format: 'pleine',
     disposition: [['cote'], ['tete', 'roule']],
-    hauteurs: [1, 0.7],
+    hauteurs: [0.85, 1],
     largeurs: [[1], [1, 1]],
     vues: {
       cote: {
