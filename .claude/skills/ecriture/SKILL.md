@@ -314,3 +314,5 @@ lecture à voix haute.
 - [ ] Les ancres de planches sont intactes, et chaque planche est appelée dans le texte (« planche NN-NN »).
 - [ ] Aucun chiffre nouveau sans source enregistrée dans `/sources`.
 - [ ] Le texte se lit d'un trait, en français québécois, sans télégraphe.
+- [ ] Les fautes de langue (subjonctif, accords, participes, homophones, anglicismes) relèvent du skill `langue`, qui
+      passe après ce skill et avant le montage : un texte qui sort d'ici n'est pas encore corrigé.

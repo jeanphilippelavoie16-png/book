@@ -375,3 +375,13 @@ un par espèce : le cadre prime.
 - Montage d'essai Lulu (`assembler-tome.py 2 --chapitres 26`) : 23 pages, 0 avertissement, 0 chevauchement ; chaque
   planche sur la page de son appel ou la suivante, sauf la 26-40 (appelée dans l'orange, posée après la série, qui se lit
   d'un trait) et la 26-04 (demi-page appelée sur la même page que la 26-11).
+
+## Langue (27 octobre 2026, skill langue)
+
+Passe du correcteur sur le chapitre et son logigramme (`langue.py`, avec LanguageTool) : aucune faute. Avis jugés
+justes et consignés dans `.claude/skills/langue/scripts/faux-positifs.txt` : « sa dernière dose a moins de 5 ans »,
+« si la rougeur a dépassé le trait », « si le rouge a passé le trait » (passer + complément direct, avec avoir),
+« qui faiblit, pas de la soif », « ou si ça va mieux dehors, sortir », « Le sang, et l'heure sur le front »,
+« une seule écrit », « soigner sans erreur », « l'appui finit par marcher », « crayon feutre » (la Vitrine
+linguistique donne les deux graphies). Les pages des dangers du tome 2 et les textes fixes (dédicace, pages de titre,
+dos des couvertures, texte des auteurs, sommaire du dos) : 0 avis. Montage du 26 : section Langue du rapport à 0 avis.

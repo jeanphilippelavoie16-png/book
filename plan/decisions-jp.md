@@ -396,12 +396,28 @@ correction notée seulement dans le plan de match sera refaite par le prochain a
 
 ## La chaîne
 
-Un chapitre passe par : **rédacteur → vérificateur technique → éditeur → metteur en pages**.
+Un chapitre passe par : **rédacteur → vérificateur technique → éditeur → metteur en pages** (le correcteur entre après
+l'éditeur le 27 octobre 2026, plus bas).
 Les prompts sont dans `roles.md`. **Plus jamais de vérificateur sécurité** (JP, 18 octobre 2026 : « j'en veux
 jamais ») : on ne le lance pas, et les rappels de sécurité du tableau restent la responsabilité du rédacteur.
 
 Un rôle ne fait que sa mission. Le vérificateur technique signale, il ne réécrit pas. Un rédacteur qui se relit lui-même
 trouve ce qu'il a voulu écrire, pas ce qu'il a écrit.
+
+### Le correcteur (27 octobre 2026)
+
+L'épreuve papier du tome 1 arrive (70 $ chez Lulu). Page 2, la dédicace : « pour qu'il y ait toujours quelqu'un qui
+sait ». JP : « Es tu sûr des fautes? », « Ya tu une faute dans le texte », « Sache où sait?? ». La première réponse a
+été qu'il n'y avait pas de faute ; c'était faux : « pour que » annonce un souhait, la relative décrit la personne
+souhaitée, le verbe va au subjonctif, « qui sache ». JP : « Oui pi calis c'est la page 2 du livre que je viens de payer
+70$ a imprimer » ; « Faut pu jamais que ça arrive une faute de même / Fais toi un skill de langue française (quebecois)
+mais français bien parlé c'est degeulasse comme faute page 2 ».
+
+Ce qui en sort : le skill `langue` (`.claude/skills/langue/`, la méthode et le script `langue.py`, LanguageTool et
+nos règles, dont celle du subjonctif de la page 2) ; un rôle de correcteur dans la chaîne, après l'éditeur ; la
+relecture de langue faite par l'assembleur sur tout ce qu'il imprime, dans la section « Langue » de son rapport. Rien
+ne part à l'impression avec un avis ouvert. La même passe a trouvé la note du sommaire qui disait encore « neuf
+sections » et « le 8, c'est le danger » dans un tome qui en a sept : corrigée.
 
 ## Pas de relecture extérieure
 

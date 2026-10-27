@@ -174,8 +174,9 @@ appel ou la suivante.
 
 ## L'écriture
 
-Toute écriture ou réécriture du livre passe par le skill `ecriture` (`.claude/skills/ecriture/SKILL.md`) : la méthode,
-les exemples et le script de contrôle. L'essentiel :
+Toute écriture ou réécriture du livre passe par le skill `ecriture` (`.claude/skills/ecriture/SKILL.md`), puis par le
+skill `langue` pour les fautes (`.claude/skills/langue/SKILL.md`, le français écrit correct). Le skill `ecriture` porte
+la méthode, les exemples et le script de contrôle. L'essentiel :
 
 - **On écrit comme on l'expliquerait à quelqu'un, à voix haute.** Chaque phrase a un verbe qui dit le geste, on sait qui
   le fait, les mots sont ceux de tous les jours avec leurs articles, le but est dit quand il n'est pas évident. Pas de
@@ -217,9 +218,14 @@ maison, pour le chalet ou pour les deux. **Pas d'inventaire éparpillé** ailleu
 
 - **Tout agent qu'on lance sur le livre reçoit `.claude/cadre-agents.md` au complet**, avant son sujet, et rend la liste
   de contrôle de sa partie cochée. **Toute correction de JP entre le jour même** dans le skill concerné et dans ce cadre.
-- **La chaîne** : rédacteur → vérificateur technique → éditeur → metteur en pages (prompts dans `roles.md`). Un rôle ne
-  fait que sa mission ; le vérificateur technique signale, il ne réécrit pas. Un rédacteur qui se relit lui-même trouve
-  ce qu'il a voulu écrire, pas ce qu'il a écrit. **Plus jamais de vérificateur sécurité.**
+- **La chaîne** : rédacteur → vérificateur technique → éditeur → correcteur → metteur en pages (prompts dans
+  `roles.md`). Un rôle ne fait que sa mission ; le vérificateur technique signale, il ne réécrit pas. Un rédacteur qui
+  se relit lui-même trouve ce qu'il a voulu écrire, pas ce qu'il a écrit. **Plus jamais de vérificateur sécurité.**
+- **Aucune faute de français dans ce qui s'imprime** (JP, 27 octobre 2026, la dédicace de l'épreuve du tome 1 :
+  « quelqu'un qui sait » pour « qui sache » ; « Faut pu jamais que ça arrive une faute de même »). Tout texte qui
+  s'imprime (chapitre, légende, logigramme, note, page de titre, dédicace, sommaire, couverture, texte des auteurs)
+  passe par le skill `langue` (`.claude/skills/langue/SKILL.md`) avant le montage ; le rapport de l'assembleur (section
+  Langue) et `langue.py --assembleur` sont à 0 avis avant toute épreuve.
 - **Le regard qualité, c'est JP** : on lui montre l'image ou la page dès qu'elle est faite, sans tour de relecture
   d'agents de plus.
 - **Économiser les jetons** (JP, 20 octobre 2026). Une session par tâche : quand une tâche est finie et poussée, la

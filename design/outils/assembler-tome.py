@@ -1097,6 +1097,25 @@ def glyphes_de_secours(reader, pages_planche):
     return out
 
 # ------------------------------------------------------------------ programme
+def relire_langue(work, logigrammes):
+    """Les avis du correcteur (skill langue) sur les pages HTML du montage et sur les logigrammes des chapitres."""
+    import subprocess
+    script = os.path.join(ROOT, ".claude", "skills", "langue", "scripts", "langue.py")
+    chemins = [os.path.join(work, "html")]
+    for lg in logigrammes:
+        lg = lg.get("fichier") if isinstance(lg, dict) else lg
+        if lg:
+            js = os.path.join(ROOT, re.sub(r"(-livre)?\.svg$", ".json", lg))
+            if os.path.exists(js):
+                chemins.append(js)
+    try:
+        r = subprocess.run([sys.executable, script] + chemins, capture_output=True, text=True, timeout=1800)
+    except (OSError, subprocess.TimeoutExpired) as x:
+        return [], f"relecture de langue non faite : {x}"
+    lignes = r.stdout.splitlines()
+    note = next((x for x in lignes if x.startswith("LanguageTool")), None)
+    return [x for x in lignes if re.match(r"^\S.* \[[^\]]+\] « ", x)], note
+
 def main():
     a = sys.argv[1:]
     if not a or not a[0].isdigit():
@@ -1606,6 +1625,18 @@ def main():
         L.append("Photos téléchargées pour ces chapitres et non posées (images de référence ou photos à placer) :\n")
         L += dispo
         L.append("")
+    # la relecture de langue sur tout ce qui s'imprime (JP, 27 octobre 2026, la dédicace de l'épreuve du tome 1 : « Faut
+    # pu jamais que ça arrive une faute de même ») : pages HTML du montage et logigrammes, skill langue
+    L.append("## Langue\n")
+    avis_l, note_l = relire_langue(work, [pl.get(c["num"], {}).get("logigramme") for c in chaps])
+    if note_l:
+        L.append(f"- {note_l}")
+    L += [f"- {x}" for x in avis_l] or ["- aucun avis"]
+    L.append("")
+    if avis_l:
+        avert.append(f"langue : {len(avis_l)} avis à juger avant l'impression (section Langue ; skill langue)")
+    if note_l:
+        avert.append(f"langue : relecture incomplète, {note_l}")
     L.append("## Avertissements\n")
     tous = list(avert)
     for c in chaps:

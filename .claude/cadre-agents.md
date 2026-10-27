@@ -139,6 +139,27 @@ Avant de rendre
 - [ ] `python3 .claude/skills/ecriture/scripts/controle.py chapitres/NN-….md` : 0 tiret dans le texte, 0 « § »,
   0 mot banni ; chaque avis « tournure », « maxime », « pronominal » jugé un par un.
 
+## La langue (skill `langue`)
+
+JP, 27 octobre 2026, la dédicace de l'épreuve du tome 1 payée 70 $ : « pour qu'il y ait toujours quelqu'un qui sait »
+au lieu de « qui sache ». « Faut pu jamais que ça arrive une faute de même. » Personne ne relisait la langue.
+
+- [ ] Tout texte qui s'imprime passe par le correcteur (skill `langue`) après l'éditeur et avant le montage : chapitre,
+  légendes, notes « En plus », cases du logigramme, et les textes fixes (page de titre, dédicace, sommaire, couvertures,
+  texte des auteurs).
+- [ ] `python3 .claude/skills/langue/scripts/langue.py` sur le chapitre et son logigramme, **avec LanguageTool** (s'il
+  dit « LanguageTool absent », on l'installe : `pip install language-tool-python`) : 0 avis à juger. Chaque avis se
+  juge contre sa règle ; une phrase juste signalée entre dans `faux-positifs.txt` avec la date.
+- [ ] Le texte se lit au complet, phrase par phrase : chaque « que » et « qui » (le subjonctif d'une chose souhaitée,
+  cherchée ou niée : « quelqu'un qui sache »), chaque participe passé (avoir, être, pronominal), chaque « a / à »,
+  « ou / où », « -er / -é », chaque pronom (le bon genre, le bon nom).
+- [ ] Le français écrit correct, avec les mots du Québec quand ils sont justes (souper, poudrerie, babiche) ; ni joual
+  ni anglicisme (« à date », « malgré que », « pallier à », « faire du sens »).
+- [ ] Le correcteur ne touche que la langue, et note chaque correction dans `suivi/NN-redaction.md`, section « Langue ».
+- [ ] Après le montage, la section « Langue » du rapport de l'assembleur est à 0 avis ; rien ne part chez Lulu avec
+  un avis ouvert.
+- [ ] Une question de JP sur une faute se répond après avoir relu la phrase règle par règle, jamais de mémoire.
+
 ## Les planches (skill `planches`)
 
 Le cadre complet est `.claude/skills/planches/references/brief-agent.md`. En bref :
@@ -262,6 +283,7 @@ Le cadre complet est `.claude/skills/planches/references/brief-agent.md`. En bre
 - [ ] Aucune liste ni section qui déborde d'une ou deux lignes sur la page suivante (JP, 18 octobre : « il y a juste
   une ligne, c'est pas beau ») : on resserre le texte pour qu'elle tienne.
 
+- [ ] La section « Langue » du rapport de l'assembleur est à 0 avis, et `langue.py --assembleur` aussi (skill `langue`).
 - [ ] Chaque planche tombe sur la page de son appel ou la suivante (pdftotext, page par page).
 - [ ] Aucun début de section coupé en bas de page ; aucune colonne à plus d'un quart de vide à cause d'une figure.
 - [ ] Le bandeau rouge de chaque planche, la flèche rouge de chaque appel.

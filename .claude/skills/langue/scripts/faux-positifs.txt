@@ -1,0 +1,29 @@
+# Avis jugés justes, une fois pour toutes : la règle (de LanguageTool, ou des nôtres : subjonctif-recherche…), une
+# tabulation, une expression du contexte (40 caractères de part et d’autre ; l’apostrophe ’ se lit comme ').
+# On n'en ajoute un qu'après avoir vérifié que la phrase est correcte (skill langue, « Juger un avis »).
+# crayon feutre : la Vitrine linguistique donne « crayon-feutre » et « crayon feutre » (27 octobre 2026).
+A_ACCENT_A	ruban à conduits?
+PAS_DE_TRAIT_UNION	\bauto (?:chargée|pleine|prête|stationnée|arrêtée)
+PAS_DE_VIRGULE	mille un, mille deux
+MOTS_INCOMP	derrière pour renvoyer
+OU	(?:^|\. )Ou \w
+FR_COMPOUNDS_CRAYON_FEUTRE	crayon feutre
+MOTS_INCOMP	à au moins
+XXieme	Cèdre
+# ch. 26, jugés le 27 octobre 2026
+A_A_ACCENT2	sa dernière dose a moins de
+A_INFINITIF	si la rougeur a dépassé le trait|si le rouge a passé le trait
+PAS_DE_VIRGULE	qui faiblit, pas de la soif|ou si ça va mieux dehors, sortir|Le sang, et l'heure sur le front
+J_N2	une seule écrit
+ACCORD_EXPRESSION_SANS_COMPLEMENT	soigner sans erreur
+MARCHE_MARCHER	l'appui finit par marcher
+# pages des dangers du tome 2, jugées le 27 octobre 2026
+NEGATION_PLUS	La scie rebondit plus quand
+ACCORD_SUJET_VERBE	les fibres n'y sont plus et la chaîne passe
+PLACE_ADJ	les fibres longues du pantalon|un signe nouveau, qui ne ressemble
+IL_FAUT	qu'on voit souvent vaut pour
+# textes fixes (dos, auteurs, sommaires), jugés le 27 octobre 2026
+PLACE_ADJ	un chiffre faux
+J_N2	le froid mécanique
+# ch. 08 (ancienne numérotation des fiches), jugé le 27 octobre 2026 : la personne existe, l'indicatif reste
+subjonctif-recherche	chercher quelqu'un qui est déjà dehors

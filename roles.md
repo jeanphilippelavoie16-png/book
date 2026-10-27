@@ -114,6 +114,28 @@ Tu n'ajoutes aucun contenu technique neuf. Corrige, condense, harmonise.
 
 ---
 
+## Rôle 5b, Correcteur (ajouté le 27 octobre 2026)
+
+JP, après la faute de la dédicace de l'épreuve du tome 1 : « Faut pu jamais que ça arrive une faute de même. »
+
+```
+Lis .claude/skills/langue/SKILL.md au complet.
+
+Reprends /chapitres/NN-titre-court.md après l'éditeur, avec son logigramme
+(images/logigrammes/NN-*.json) :
+- Passe .claude/skills/langue/scripts/langue.py sur les deux, avec LanguageTool.
+  Juge chaque avis contre sa règle ; corrige les fautes ; consigne les phrases
+  justes dans scripts/faux-positifs.txt, avec la date. Le script finit à 0 avis.
+- Lis tout le texte, phrase par phrase : le subjonctif (« quelqu'un qui sache »),
+  les participes, les homophones, les pronoms, la négation, les anglicismes, la
+  typographie. Les légendes, les notes « En plus » et les titres aussi.
+- Note chaque correction dans suivi/NN-redaction.md, section « Langue ».
+
+Tu ne corriges que la langue : ni le fond, ni le style, ni la structure.
+```
+
+---
+
 ## Rôle 6 — Metteur en pages
 
 ```
@@ -135,12 +157,12 @@ Tu ne modifies le texte que pour les veuves et les orphelines.
 ## L'ordre
 
 ```
-Rôle 2 ──► Rôle 3 ─┐
-                   ├──► Rôle 5 ──► Rôle 6
-           Rôle 4 ─┘
+Rôle 2 ──► Rôle 3 ──► Rôle 5 ──► Rôle 5b ──► Rôle 6
 ```
 
-Les rôles 3 et 4 roulent en parallèle : ils ne cherchent pas la même chose.
+Le rôle 4 est retiré (18 octobre 2026). Le correcteur (5b) passe après l'éditeur, parce que l'éditeur réécrit ; le
+metteur en pages ne reçoit qu'un texte à 0 avis de langue, et le rapport de l'assembleur relit encore tout ce qui
+s'imprime.
 Le rôle 1 tourne une fois par tome, pas par chapitre.
 
 Un chapitre qui bloque trois fois à la même porte n'est pas mal écrit : il est mal
