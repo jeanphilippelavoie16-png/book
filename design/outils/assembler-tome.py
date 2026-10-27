@@ -684,9 +684,10 @@ def annexe_html(tome, chaps, plan, work):
     som_no = plan["sommaire"]
     ex = chaps[-1]["num"]
     note_sommaire = il(f"Deux numéros sur chaque page. **En tête, le folio du chapitre** : {ex}-4, c'est la page 4 du "
-                       f"chapitre {ex} ; chaque chapitre ouvre sur le sommaire de ses neuf sections, dans ces folios. "
-                       "**En pied, la page du tome**, celle de ce sommaire. Le 8, c'est le danger ; le 9, la variante "
-                       "d'urgence, celle qui se fait sans rien."
+                       f"chapitre {ex} ; chaque chapitre ouvre sur le sommaire de ses {'neuf' if avec_d else 'sept'} sections, dans ces folios. "
+                       "**En pied, la page du tome**, celle de ce sommaire. "
+                       + (f"Le 8, c'est le danger ; le 9, la variante d'urgence, celle qui se fait sans rien." if avec_d else
+                          f"Le 7, c'est la variante d'urgence, celle qui se fait sans rien.")
                        + (" **En orange, les premières minutes** : la page où commencent les gestes urgents, dans l'ordre "
                           "où ils se font ; la même couleur marque leurs pages sur la tranche." if avec_or else "")
                        + (" **Le chapitre 00 ouvre le livre, en page 1, devant la page de titre** : il se trouve sans chercher."
@@ -769,7 +770,7 @@ def mode_emploi(tome, titre_t, plan):
                "qu'on a** pour faire la série, à partir de ce qui la déclenche. Les gestes sont dans l'ordre où on les fait, avec "
                "leur raison et ce qu'il faut savoir pour les faire. Une marque orange au bord de ces pages permet de les trouver "
                "livre fermé.")),
-        rang('<div class="md-q">Il fait plus froid que −17,5 °C ?</div><span class="md-oui">Oui</span>'
+        rang('<div class="md-q">Il fait plus froid que −17,5&#8239;°C&#8239;?</div><span class="md-oui">Oui</span>'
              '<div class="md-a">Allumer à la pile ou à la batterie.<i><span>ch. 13, étapes 18 à 21</span></i></div>',
              "Le logigramme",
              p("Sur deux pages, juste après le Matériel : des questions auxquelles on répond **oui** ou **non**, qui mènent au "

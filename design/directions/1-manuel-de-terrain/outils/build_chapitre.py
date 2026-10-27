@@ -353,7 +353,7 @@ NOMS_COURTS = {"co": "Monoxyde", "generatrice": "Génératrice", "electrocution"
                "froid": "Froid", "eau-froide": "Eau froide", "glace": "Glace mince", "ours": "Ours", "orignal": "Orignal",
                "arme": "Arme", "rage": "Rage", "tularemie": "Tularémie", "hantavirus": "Hantavirus", "tetanos": "Tétanos",
                "cuisson": "Cuisson", "trichine": "Trichine", "abats": "Abats", "botulisme": "Botulisme",
-               "zone-de-danger": "Entre 4 et 60 °C", "mal-de-caribou": "Viande maigre", "thuyone": "Cèdre",
+               "zone-de-danger": "Entre 4 et 60\u202f°C", "mal-de-caribou": "Viande maigre", "thuyone": "Cèdre",
                "plante": "Plante", "plomb": "Plomb", "selles": "Selles", "poison": "Poison", "vie-en-jeu": "Vie en jeu"}
 
 def nom_danger(pid):
