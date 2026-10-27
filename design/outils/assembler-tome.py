@@ -856,7 +856,7 @@ DANGERS_CSS = """
 .dg-h h2{margin:0;font:700 22pt/1.05 var(--sans);text-transform:uppercase;letter-spacing:.02em}
 .dg-h h2 small{display:block;margin-top:5pt;font:600 8.5pt/1.2 var(--sans);letter-spacing:.08em;color:#555}
 .dg-b{flex:1 1 0;min-height:0;columns:2;column-gap:0.24in;column-fill:auto;column-rule:0.5pt solid #BBB;overflow:hidden;font-size:var(--fs,9.4pt)}
-.dg-b p{margin:0 0 4pt;text-indent:0;font-family:var(--serif);font-size:1em;line-height:1.36}
+.dg-b p{margin:0 0 4pt;text-indent:0;font-family:var(--serif);font-size:1em;line-height:1.36;text-align:justify}
 .dg-b p.li{padding-left:11pt}
 .dg-b p.step{padding-left:17pt}
 .dg-b table.tcol{font-size:.92em}
