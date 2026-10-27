@@ -2554,3 +2554,8 @@ les ch. 13 et 15 l'ont en 7. Quand la section sort, la Variante d'urgence devien
    livre fonctionne ».
 5. La migration des chapitres suit la section 3 : chaque fait propre va dans son étape avec son pictogramme, le reste
    de la section Danger saute ; contrôle `controle.py` ensuite.
+6. **Une page de danger qui renvoie à une autre s'écrit `{>id}`** dans `dangers/*.md`, entre parenthèses : « (`{>co}`) ».
+   L'assembleur imprime le petit pictogramme, le nom court et la page de ce danger dans le tome : « (▣ Monoxyde,
+   p. 8) » ; sans page si le tome n'imprime pas ce danger. Jamais « (pictogramme du monoxyde) » en toutes lettres (JP,
+   27 octobre 2026, sur l'épreuve du tome 1 : « (Pictogramme du monoxyde) c'est tu normal ça ou il y devait avoir un
+   pictogramme »).

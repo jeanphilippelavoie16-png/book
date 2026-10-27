@@ -22,7 +22,7 @@ On ne peut détecter le gaz qu'avec un avertisseur de monoxyde. L'avertisseur me
 
 ## {!generatrice} Génératrice et moteur sous un toit
 
-**Ce qui arrive.** Une génératrice, une auto, une motoneige, une scie à chaîne, une souffleuse ou une pompe à essence qui tourne sous un toit ou entre des murs remplit l'air de monoxyde de carbone (pictogramme du monoxyde). Ouvrir la porte du garage ne suffit pas : le gaz ne sort pas assez vite, que le garage soit attenant à la maison, séparé ou en toile. C'est la même chose dans une remise, un abri d'auto, une tente, un vestibule, une serre, ou sous un auvent ou une bâche tendue au-dessus de la machine. Un démarreur à distance qui lance le moteur d'une auto restée au garage fait la même chose.
+**Ce qui arrive.** Une génératrice, une auto, une motoneige, une scie à chaîne, une souffleuse ou une pompe à essence qui tourne sous un toit ou entre des murs remplit l'air de monoxyde de carbone ({>co}). Ouvrir la porte du garage ne suffit pas : le gaz ne sort pas assez vite, que le garage soit attenant à la maison, séparé ou en toile. C'est la même chose dans une remise, un abri d'auto, une tente, un vestibule, une serre, ou sous un auvent ou une bâche tendue au-dessus de la machine. Un démarreur à distance qui lance le moteur d'une auto restée au garage fait la même chose.
 
 Dehors, la génératrice doit être à au moins 6 m (20 pi) de tout bâtiment, l'échappement tourné à l'opposé des portes et des fenêtres. Les gaz entrent par les portes, les fenêtres et les prises d'air : on ferme celles du côté de la génératrice et celles vers lesquelles le vent pousse l'échappement.
 
@@ -34,9 +34,9 @@ On est tenté de mettre la génératrice au garage, dans la remise ou sous l'auv
 
 1. Poser la génératrice dehors, à 6 m ou plus du bâtiment, sur une surface sèche, à découvert, sans toit ni bâche au-dessus.
 2. Tourner l'échappement à l'opposé du bâtiment et fermer les ouvertures de ce côté.
-3. Faire le plein moteur arrêté et froid, dehors, à la lampe de poche (pictogramme des vapeurs). Ne jamais faire le plein à la lumière d'une chandelle ou d'un fanal.
+3. Faire le plein moteur arrêté et froid, dehors, à la lampe de poche ({>vapeurs}). Ne jamais faire le plein à la lumière d'une chandelle ou d'un fanal.
 4. Sortir l'auto, la motoneige, la scie ou la souffleuse du garage avant de la démarrer. Dans une auto prise dans la neige, dégager le tuyau d'échappement avant chaque démarrage : un tuyau bouché renvoie le gaz dans l'habitacle.
-5. Ne jamais brancher la génératrice sur une prise ni sur le panneau électrique de la maison (pictogramme du courant renvoyé).
+5. Ne jamais brancher la génératrice sur une prise ni sur le panneau électrique de la maison ({>electrocution}).
 
 **Où il revient.** Chaque fois qu'une génératrice ou un moteur sert : la panne d'électricité (ch. 1 à 3, 7, 8), le stock de carburant (ch. 5, 9, 15), la pompe du puits (ch. 10), le retour après un feu de forêt (ch. 11), l'auto prise dans la neige (ch. 2, 6, 8, 15), la génératrice d'un visiteur qu'on loge (ch. 17), la veille d'un malade (ch. 26), l'électricité du chalet, le transport et l'atelier (ch. 104 à 112).
 
@@ -104,7 +104,7 @@ Une pièce de métal qu'on trempe dans l'huile chaude (plus de 100 °C) projette
 5. Si le feu sort du chaudron : l'éteindre à l'extincteur, jamais à l'eau.
 6. Pour la trempe : sécher la pièce et la pince, et les garder à l'abri de la neige.
 
-On refroidit une brûlure d'huile comme une autre brûlure (pictogramme de la brûlure).
+On refroidit une brûlure d'huile comme une autre brûlure ({>brulure}).
 
 **Où il revient.** La friture et la fonte du gras (ch. 72), la cuisine du poêle à bois (ch. 82), la gomme et la poix (ch. 90), la trempe à l'atelier (ch. 111).
 
@@ -186,7 +186,7 @@ Certains mélanges dégagent un gaz toxique :
 
 - l'eau de Javel avec un acide (vinaigre, détartrant, nettoyant à cuvette) fait du chlore ;
 - l'eau de Javel avec de l'ammoniaque (nettoyant à vitres, urine) fait des chloramines ;
-- le sulfure de sodium du tannage avec un acide fait du sulfure d'hydrogène (pictogramme de l'air qui manque) ;
+- le sulfure de sodium du tannage avec un acide fait du sulfure d'hydrogène ({>espace-clos}) ;
 - un solvant chloré près d'un arc de soudure fait du phosgène.
 
 Quand le chlore atteint les poumons, les signes peuvent n'apparaître qu'après 24 à 48 h. On dilue l'eau de Javel dans l'eau seulement, sans rien y ajouter.
@@ -262,7 +262,7 @@ D'autres choses s'effondrent sur les gens sans prévenir :
 - un abri de neige mal durci, ou ramolli par un redoux, s'écrase sur les gens qui dorment dedans ;
 - la neige glisse d'un toit qu'on vient de chauffer.
 
-**Comment on le reconnaît.** Avant de lâcher, une corde s'effiloche ou s'allonge, un crochet s'ouvre, une branche plie, un câble a des fils cassés. Une tranchée peut s'effondrer quand une fissure apparaît le long du bord ou que de la terre tombe en petites mottes. Le toit d'un abri de neige peut tomber quand il s'affaisse ou qu'il dégoutte. Si une personne écrasée respire mal, est pâle, moite et agitée, elle saigne peut-être en dedans (pictogramme de la coupure).
+**Comment on le reconnaît.** Avant de lâcher, une corde s'effiloche ou s'allonge, un crochet s'ouvre, une branche plie, un câble a des fils cassés. Une tranchée peut s'effondrer quand une fissure apparaît le long du bord ou que de la terre tombe en petites mottes. Le toit d'un abri de neige peut tomber quand il s'affaisse ou qu'il dégoutte. Si une personne écrasée respire mal, est pâle, moite et agitée, elle saigne peut-être en dedans ({>coupure}).
 
 **Ce qu'on fait.**
 
@@ -363,7 +363,7 @@ Un enfant refroidit plus vite qu'un adulte dans l'eau. Un gilet d'enfant trop gr
 
 Tout ce qu'on a attaché sur soi et qui coule nous entraîne au fond : une corde enroulée autour de la main, un harnais, une ceinture bouclée à un toboggan, une raquette qui ne se défait pas, un sac de couchage fermé sur les bras.
 
-**Comment on le reconnaît.** Dans l'eau : une personne qui halète et respire très vite pendant la première minute, puis qui n'arrive plus à se tenir. Hors de l'eau : les signes de l'hypothermie (pictogramme du froid).
+**Comment on le reconnaît.** Dans l'eau : une personne qui halète et respire très vite pendant la première minute, puis qui n'arrive plus à se tenir. Hors de l'eau : les signes de l'hypothermie ({>froid}).
 
 **Ce qu'on fait.**
 
@@ -372,7 +372,7 @@ Tout ce qu'on a attaché sur soi et qui coule nous entraîne au fond : une corde
 3. Pendant les 10 minutes suivantes : se sortir de l'eau, ou grimper sur ce qui flotte pour avoir le plus possible du corps hors de l'eau. Ne pas nager pour se réchauffer ; nager seulement pour rejoindre quelqu'un ou un endroit sûr.
 4. Si on ne peut pas sortir : rester immobile, les bras croisés serrés sur la poitrine et les genoux remontés, ou se serrer à plusieurs, les bras autour des autres.
 5. Avoir un couteau qu'on ouvre d'une main, et ne rien attacher à soi qui pourrait couler.
-6. Une fois sorti : se mettre à l'abri du vent et enlever le linge mouillé tout de suite, parce qu'il continue de refroidir le corps (pictogramme du froid).
+6. Une fois sorti : se mettre à l'abri du vent et enlever le linge mouillé tout de suite, parce qu'il continue de refroidir le corps ({>froid}).
 
 **Où il revient.** Le canot et le bateau (ch. 16, 57, 60, 90), la pêche (ch. 47, 50, 56), la glace (ch. 42, 58, 59), les enfants près de l'eau (ch. 39) et le transport l'hiver (ch. 15, 89).
 
@@ -401,7 +401,7 @@ Si un animal a laissé des pistes sur la glace, on sait seulement qu'elle l'a po
 **Ce qu'on fait.**
 
 1. Porter des pics à glace autour du cou (deux poignées avec une pointe, reliées par une corde), une corde et un sifflet. Ne jamais aller sur la glace seul.
-2. Si on tombe à l'eau (pictogramme de l'eau froide) : se tourner vers l'endroit par où on est arrivé, parce que la glace y a porté. Poser les bras sur la glace, planter les pics, battre des pieds pour se coucher dessus, puis rouler loin du trou sans se relever.
+2. Si on tombe à l'eau ({>eau-froide}) : se tourner vers l'endroit par où on est arrivé, parce que la glace y a porté. Poser les bras sur la glace, planter les pics, battre des pieds pour se coucher dessus, puis rouler loin du trou sans se relever.
 3. Pour sauver quelqu'un : rester sur la rive ou sur la bonne glace, et lui tendre une perche ou une branche, ou lui lancer une corde ou quelque chose qui flotte. Ne pas s'avancer sur la glace près du trou.
 
 **Où il revient.** La pêche sous la glace et l'eau qu'on y puise (ch. 10, 18, 50, 59), la chasse et les déplacements l'hiver (ch. 15, 41 à 44, 89), le sauvetage (ch. 58), la récolte de glace (ch. 73) et les enfants (ch. 39).

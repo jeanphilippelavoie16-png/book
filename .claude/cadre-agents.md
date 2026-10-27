@@ -280,6 +280,8 @@ Le cadre complet est `.claude/skills/planches/references/brief-agent.md`. En bre
   sont nommées dans le cadre orange, ça peut occuper la place voisine » ; « sur la page d'en face ») : une planche pleine
   page prend sa page, une demi-page ouvre la page suivante et le texte continue dessous. Le texte qui suit la série
   remplit la page où elle finit.
+- [ ] Dans les pages des dangers, un renvoi à un autre danger s'écrit `{>id}` et s'imprime avec son pictogramme, son
+  nom et sa page ; jamais « (pictogramme du monoxyde) » en toutes lettres (JP, 27 octobre 2026).
 - [ ] **Le texte courant est justifié**, avec la césure fr-CA, dans les chapitres, les notes et les pages des dangers
   (JP, 27 octobre 2026, sur l'épreuve du tome 1 : « le texte dans les livres, c'est pas étiré pour que ça soit égal ? ») ;
   les cases de tableau restent alignées à gauche.

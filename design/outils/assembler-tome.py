@@ -843,7 +843,9 @@ def mode_emploi(tome, titre_t, plan):
 # pictogrammes ; chaque fois qu'un danger est présent, on affiche le pictogramme ». Les pages vont dans chaque tome,
 # après « Comment le livre fonctionne » (ou après le sommaire) ; un tome n'imprime que les dangers que ses chapitres
 # marquent ({!id}). Le texte est dans dangers/*.md (« ## {!id} Nom », puis le corps) ; l'ordre est celui du tableau
-# de plan/dangers-inventaire.md. Les pages se coupent dans Chromium (DANGERS_JS) : une première passe compte les
+# de plan/dangers-inventaire.md. Un renvoi à un autre danger s'écrit {>id} : il s'imprime avec le petit pictogramme, le
+# nom court et la page du danger dans le tome (JP, 27 octobre 2026, sur l'épreuve du tome 1 : « (Pictogramme du
+# monoxyde) c'est tu normal ça ou il y devait avoir un pictogramme »). Les pages se coupent dans Chromium (DANGERS_JS) : une première passe compte les
 # pages, la seconde les imprime avec leurs folios.
 DANGERS_CSS = """
 .dgp .block{display:flex;flex-direction:column}
@@ -860,6 +862,9 @@ DANGERS_CSS = """
 .dg-b p.li{padding-left:11pt}
 .dg-b p.step{padding-left:17pt}
 .dg-b table.tcol{font-size:.92em}
+.dg-ref{white-space:nowrap;font-family:var(--sans);font-weight:600;font-size:.92em;letter-spacing:.01em}
+.dg-ref svg.picto{height:1.3em;width:1.3em;vertical-align:-.32em;margin:0 2pt 0 1pt}
+.dg-ref.dg-pg{color:#9B2C1E}
 """
 
 DANGERS_JS = r"""<script>
@@ -927,16 +932,27 @@ def dangers_html(tome, chap_ids, debut, work, nom="dangers"):
     vus = dangers_du_tome(tome, chap_ids)
     ent = dangers_entrees()
     import md2blocks as mb
-    ents, ids = [], []
+    ents, ids = [], [pid for pid in ent if pid in vus]
+    def renvoi(m):
+        av, pid, ap = m.group(1) or "", m.group(2), m.group(3) or ""
+        # une page par danger, dans l'ordre de ids ; à la passe de comptage (debut = 0), la place d'un folio. La
+        # parenthèse reste collée au pictogramme ; la ligne peut se couper entre le nom et la page.
+        pg = (f'p.\u00a0{debut + ids.index(pid)}' if debut else 'p.\u00a000') if pid in ids else ''
+        nom = e(bc.NOMS_COURTS.get(pid) or bc.nom_danger(pid))
+        if pg:
+            return (f'<span class="dg-ref">{av}{mb.picto_svg(pid, "picto")}{nom},</span> '
+                    f'<span class="dg-ref dg-pg">{pg}{ap}</span>')
+        return f'<span class="dg-ref">{av}{mb.picto_svg(pid, "picto")}{nom}{ap}</span>'
     for pid, (nomd, corps) in ent.items():
         if pid not in vus:
             continue
         chs = ", ".join(aff(c) for c in vus[pid])
+        corps = [re.sub(r"\{>([a-z][a-z-]*)\}", r"⟦\1⟧", l) for l in corps]
         corps_html = "".join(h for h, _ in bc.render(bc.parse(corps)))
+        corps_html = re.sub(r"(\()?⟦([a-z][a-z-]*)⟧(\))?", renvoi, corps_html)
         ents.append(f'<section class="dg-e" data-id="{pid}"><div class="dg-h">{mb.picto_svg(pid, "picto-g")}<h2>{il(nomd)}'
                     f'<small>{"Chapitre" if len(vus[pid]) == 1 else "Chapitres"} {chs}</small></h2></div>'
                     f'<div class="dg-b">{corps_html}</div></section>')
-        ids.append(pid)
     manquent = sorted(set(vus) - set(ent))
     if manquent:
         log("  ATTENTION : dangers marqués sans page d'explication : " + ", ".join(manquent))

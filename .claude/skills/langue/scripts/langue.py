@@ -58,6 +58,7 @@ def nettoie(ligne):
     for ligne in [ligne]:
         l = ligne
         l = re.sub(r'\{![a-z-]+\}', '', l)                 # pictogrammes {!co}
+        l = re.sub(r'\{>[a-z-]+\}', 'renvoi', l)           # renvois des pages des dangers {>co}
         l = re.sub(r'\{\.orange[^}]*\}', '', l)             # marqueurs de série orange
         l = re.sub(r'\[\^[^\]]+\]:?', '', l)                # appels et définitions de notes
         l = re.sub(r'!\[([^\]]*)\]\([^)]*\)', r'\1', l)     # image : on garde la légende

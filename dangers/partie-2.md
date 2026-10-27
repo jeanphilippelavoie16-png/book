@@ -4,7 +4,7 @@
 
 **Comment on le reconnaît.** Les longs poils de la bosse, au-dessus des épaules, se dressent ; les oreilles se couchent vers l'arrière, comme celles d'un chien ou d'un chat fâché ; il se passe la langue sur les lèvres. Quand on voit sa langue, on est beaucoup trop près. Au printemps et à l'été, des pistes fraîches d'une grande bête et d'une petite qui marchent ensemble sont celles d'une femelle avec son veau.
 
-**Ce qu'on fait.** On fait le contraire de ce qu'on fait devant l'ours (pictogramme de l'ours).
+**Ce qu'on fait.** On fait le contraire de ce qu'on fait devant l'ours ({>ours}).
 
 1. Dès qu'on voit un de ces signes, reculer par où on est venu et lui laisser beaucoup de place. Garder le chien en laisse et ne jamais le laisser courir après l'orignal.
 2. S'il charge, courir : il ne poursuit pas loin. Se mettre derrière quelque chose de solide, un gros arbre, une auto, un rocher. On tourne autour d'un tronc plus vite que lui.
@@ -57,11 +57,11 @@ Chez la personne : on peut ne pas sentir la morsure d'une chauve-souris, et elle
 
 **Ce qui arrive.** La bactérie de la tularémie est présente dans toutes les régions du Québec, surtout chez le lièvre, le castor, le rat musqué et les petits rongeurs. Elle entre le plus souvent par la peau des mains : en Amérique du Nord, de 70 à 85 % des cas commencent par la peau, typiquement chez une personne qui a préparé du petit gibier avec une petite plaie aux mains. Une gerçure suffit. La bactérie entre aussi par l'œil, et par la poussière de poil qu'on respire quand on secoue une peau.
 
-Un lièvre qui a l'air normal peut la porter. Le gel ne la tue pas : elle survit des années au congélateur. La cuisson à 74 °C protège la personne qui mange la viande (pictogramme de la cuisson), mais pas la personne qui dépouille la bête.
+Un lièvre qui a l'air normal peut la porter. Le gel ne la tue pas : elle survit des années au congélateur. La cuisson à 74 °C protège la personne qui mange la viande ({>cuisson}), mais pas la personne qui dépouille la bête.
 
 **Comment on le reconnaît.** Chez la bête : un lièvre ou un rat musqué malade se laisse approcher, fuit peu et devient très lent, et il reste pourtant gras et en bonne chair. Quand on l'ouvre, on voit des petits points blancs de 2 mm ou plus sur le foie, la rate ou les poumons ; parfois, le foie et la rate sont gros et pâles.
 
-Chez la personne, les signes arrivent de 3 à 6 jours après le contact, parfois jusqu'à 3 semaines : une fièvre brutale avec frissons, mal de tête et nausées, puis un ulcère douloureux à l'endroit où la bactérie est entrée, souvent un doigt, et des ganglions gonflés plus haut sur le bras. Sans traitement, la maladie peut gagner les poumons, le cerveau ou le sang, et tuer. Une fièvre dans les trois semaines qui suivent la préparation d'un lièvre veut dire que la vie est en jeu (pictogramme de la vie en jeu).
+Chez la personne, les signes arrivent de 3 à 6 jours après le contact, parfois jusqu'à 3 semaines : une fièvre brutale avec frissons, mal de tête et nausées, puis un ulcère douloureux à l'endroit où la bactérie est entrée, souvent un doigt, et des ganglions gonflés plus haut sur le bras. Sans traitement, la maladie peut gagner les poumons, le cerveau ou le sang, et tuer. Une fièvre dans les trois semaines qui suivent la préparation d'un lièvre veut dire que la vie est en jeu ({>vie-en-jeu}).
 
 **Ce qu'on fait.**
 
@@ -96,7 +96,7 @@ Chez la personne, les signes arrivent de 3 à 6 jours après le contact, parfois
 
 Dans la plaie, la bactérie fabrique une toxine qui empêche les muscles de se relâcher. La maladie tue de 10 à 80 % des personnes non vaccinées, et on n'a rien au chalet pour la traiter. Une personne qui a déjà eu le tétanos peut l'attraper une deuxième fois.
 
-**Comment on le reconnaît.** Les signes viennent le plus souvent dans les 2 semaines, en général de 3 à 21 jours après la plaie. La mâchoire se serre et s'ouvre mal ; des crampes et une raideur soudaines apparaissent dans le cou, puis dans le visage ; ensuite, la personne a de la peine à avaler et les muscles du ventre deviennent durs. Ces signes veulent dire que la vie est en jeu (pictogramme de la vie en jeu).
+**Comment on le reconnaît.** Les signes viennent le plus souvent dans les 2 semaines, en général de 3 à 21 jours après la plaie. La mâchoire se serre et s'ouvre mal ; des crampes et une raideur soudaines apparaissent dans le cou, puis dans le visage ; ensuite, la personne a de la peine à avaler et les muscles du ventre deviennent durs. Ces signes veulent dire que la vie est en jeu ({>vie-en-jeu}).
 
 **Ce qu'on fait.**
 
@@ -140,7 +140,7 @@ Ne pas servir de poisson cru ou fumé à froid à une femme enceinte, à une per
 
 **Ce qu'on fait.**
 
-- Cuire chaque pièce d'ours, de phoque ou de carnivore à 74 °C au cœur, mesurés au thermomètre (pictogramme de la cuisson), y compris le haché, la saucisse et la viande qui sort du fumoir.
+- Cuire chaque pièce d'ours, de phoque ou de carnivore à 74 °C au cœur, mesurés au thermomètre ({>cuisson}), y compris le haché, la saucisse et la viande qui sort du fumoir.
 - Ne faire avec cette viande ni tartare, ni saignant, ni fumé à froid, ni viande séchée, ni pemmican.
 - Congeler cette viande ne la rend pas sûre, même pendant les durées qui protègent du ver du poisson.
 - En conserve, l'autoclave à 116 °C tue la larve en même temps qu'il conserve.
@@ -177,7 +177,7 @@ Ne pas servir de poisson cru ou fumé à froid à une femme enceinte, à une per
 - Garder l'huile à l'ail ou aux herbes fraîches faite maison au réfrigérateur, et la jeter après 7 jours.
 - Garder le poisson gelé, séché à fond, ou au froid dans un emballage qui laisse passer l'air ; garder le poisson fumé au plus 14 jours, à 4 °C ou moins. Ouvrir un sac sous vide en le sortant du congélateur, avant de le faire dégeler.
 - Jamais de miel à un bébé de moins d'un an : les spores germent dans son intestin.
-- Aux premiers signes, partir vers l'hôpital sans attendre la suite (pictogramme de la vie en jeu) : le traitement est une antitoxine, et elle marche mieux quand on la donne tôt. Apporter le pot ou l'emballage, fermé, et noter qui en a mangé : comme les signes arrivent tard, souvent toute la table a mangé du même plat.
+- Aux premiers signes, partir vers l'hôpital sans attendre la suite ({>vie-en-jeu}) : le traitement est une antitoxine, et elle marche mieux quand on la donne tôt. Apporter le pot ou l'emballage, fermé, et noter qui en a mangé : comme les signes arrivent tard, souvent toute la table a mangé du même plat.
 
 **Où il revient.** Aux conserves, aux marinades, aux huiles, aux ferments, à la salaison, au fumage, au poisson frais ou fumé, à la viande de phoque, aux caches, au caveau, au réfrigérateur, à la trousse d'urgence et à la nourriture reçue en échange (ch. 1, 3, 5 à 9, 17, 18, 59, 66 à 81, 91 à 93).
 
@@ -227,7 +227,7 @@ Le thuya donne en plus peu de vitamine C : 45 mg par 100 g de rameaux frais, con
 
 **Comment on le reconnaît.** Le thuya n'a pas d'aiguilles. Il porte de petites écailles plates, serrées les unes sur les autres, sur des rameaux aplatis étalés en éventail. Le sapin baumier porte des aiguilles plates sur deux rangs, avec deux bandes blanches dessous, et sent fort quand on les froisse.
 
-Chez la personne, les convulsions : le corps se raidit, puis les bras et les jambes sont secoués de saccades qu'elle ne contrôle pas. Ce signe veut dire que la vie est en jeu (pictogramme de la vie en jeu).
+Chez la personne, les convulsions : le corps se raidit, puis les bras et les jambes sont secoués de saccades qu'elle ne contrôle pas. Ce signe veut dire que la vie est en jeu ({>vie-en-jeu}).
 
 **Ce qu'on fait.** Pour la vitamine C, prendre des aiguilles de sapin baumier ou d'épinette, jamais de thuya. Ne pas utiliser le cèdre pour ce qui touche un aliment : planche à découper, cuillère, saloir, baquet, claie, copeaux de fumoir.
 
@@ -317,7 +317,7 @@ Chez la personne : nausées, vomissements, crampes, diarrhée, et selon la plant
 **Ce qu'on fait.**
 
 1. Ne pas faire vomir.
-2. Apporter le contenant, la boîte ou l'emballage, et partir vers l'hôpital pendant qu'on peut encore s'y rendre, même si la personne a l'air bien (pictogramme de la vie en jeu).
+2. Apporter le contenant, la boîte ou l'emballage, et partir vers l'hôpital pendant qu'on peut encore s'y rendre, même si la personne a l'air bien ({>vie-en-jeu}).
 3. Si la personne tousse sans arrêt après avoir avalé un liquide huileux, respire vite ou a la peau bleutée, sa vie est en jeu.
 
 Lire l'ingrédient actif de chaque boîte avant de donner un médicament. Le sel nitrité ressemble au sel de table : le peser au dixième de gramme, et jeter toute poudre blanche dont le contenant n'a pas d'étiquette lisible.
