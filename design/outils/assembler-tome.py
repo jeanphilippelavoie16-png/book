@@ -954,7 +954,7 @@ def dangers_html(tome, chap_ids, debut, work, nom="dangers"):
     open(dst, "w", encoding="utf-8").write(out)
     return dst, ids
 
-DEDICACE = ("À Pierre-Alexis et à Louis-Charles,", "pour qu’il y ait toujours quelqu’un qui sait.")
+DEDICACE = ("À Pierre-Alexis et à Louis-Charles,", "pour qu’il y ait toujours quelqu’un qui sache.")
 
 CREDITS_PAR_PAGE = 16
 
