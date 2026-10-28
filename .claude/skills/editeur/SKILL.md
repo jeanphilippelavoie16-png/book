@@ -1,6 +1,6 @@
 ---
 name: editeur
-description: Éditeur du Manuel du Nord, un manuel qu'on doit pouvoir lire à voix haute. Épurer, corriger et resserrer la prose sans dénaturer la voix du livre, avec trois commandes (/polir, /diagnostiquer, /sublimer). Utilise ce skill pour la passe d'éditeur de la chaîne, après les auditeurs A1, A2 et A3 et avant le correcteur, quand il faut répondre à leurs rapports et réécrire un chapitre une seule fois ; chaque fois que JP trouve un texte lourd, qui « tourne autour du pot », « pas humain », « trop long », ou demande de condenser ; et chaque fois qu'il tape /polir, /diagnostiquer ou /sublimer. Les skills ecriture (la phrase et le mot du livre, principes P1 à P14) et langue (les fautes) priment sur ce skill en cas de conflit.
+description: Éditeur du Manuel du Nord, un manuel qu'on doit pouvoir lire à voix haute. Épurer, corriger et resserrer la prose sans dénaturer la voix du livre, avec trois commandes (/polir, /diagnostiquer, /sublimer). Utilise ce skill pour la passe d'éditeur de la chaîne, après les auditeurs A1, A2, A3 et A4 et avant le correcteur, quand il faut répondre à leurs rapports et réécrire un chapitre une seule fois ; chaque fois que JP trouve un texte lourd, qui « tourne autour du pot », « pas humain », « trop long », ou demande de condenser ; et chaque fois qu'il tape /polir, /diagnostiquer ou /sublimer. Les skills ecriture (la phrase et le mot du livre, principes P1 à P14) et langue (les fautes) priment sur ce skill en cas de conflit.
 ---
 
 # Éditeur littéraire et stylistique française
@@ -96,18 +96,19 @@ ont donnée vit à une seule place, et la dernière colonne la nomme.
 ## La passe d'éditeur sur un chapitre
 
 Depuis le 28 octobre 2026, l'éditeur passe après les auditeurs (décision 1). Il reçoit le chapitre, le rapport du
-vérificateur technique, les signaux de A0 et les rapports de A1, A2 et A3. Il est le seul à couper, et il réécrit le
-chapitre une seule fois, avec toutes leurs remarques, sans aller-retour.
+vérificateur technique, les signaux de A0 et les rapports de A1, A2, A3 et A4. Il est le seul à couper, et il réécrit
+le chapitre une seule fois, avec toutes leurs remarques, sans aller-retour.
 
-1. **Lire avant de toucher une phrase.** L'éditeur lit d'abord le paragraphe du monoxyde, puis les trois rapports des
+1. **Lire avant de toucher une phrase.** L'éditeur lit d'abord le paragraphe du monoxyde, puis les quatre rapports des
    auditeurs, les signaux de A0 et le rapport du vérificateur. A2 cite le numéro de sa question, parce qu'il ne
    connaît pas les principes, et la table sous sa fiche (`.claude/skills/ecriture/references/auditeurs.md`) donne le
    principe que chaque question vérifie. Les signaux de A0 disent quel paragraphe relire, jamais quoi écrire.
 2. **`/diagnostiquer`, sans rien réécrire.** Pour chaque passage, la première question est de savoir s'il doit exister,
    à sa place et une seule fois (P2). Un passage qui n'apprend rien sur ce qu'on fait sort sans être poli, parce qu'un
-   paragraphe inutile bien écrit reste du gras. Ensuite, l'éditeur relève ce qui tourne autour du pot et les redites,
-   dans le chapitre, avec un autre chapitre ou avec les pages des dangers. Il cherche les redites avec `grep`, sans
-   lire les autres chapitres au complet.
+   paragraphe inutile bien écrit reste du gras. Les accrocs de A4, le tri, posent cette question détail par détail ;
+   l'éditeur décide de chaque coupe, et il garde ce que P2 garde, même quand A4 le trouve long. Ensuite, l'éditeur
+   relève ce qui tourne autour du pot et les redites, dans le chapitre, avec un autre chapitre ou avec les pages des
+   dangers. Il cherche les redites avec `grep`, sans lire les autres chapitres au complet.
 3. **Répondre à chaque cas.** Dans son rapport, chaque cas des auditeurs reçoit « fait », ou « non » avec la raison.
    L'éditeur envoie tels quels au vérificateur technique les doutes de fond de A3, parce qu'il ne juge pas le fond.
 4. **Poser les trois questions de JP à chaque coupe.** L'audit les a tirées de ce que JP demandait

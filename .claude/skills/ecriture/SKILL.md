@@ -21,8 +21,7 @@ Un principe qui rejette ce paragraphe est faux, et c'est le principe qu'on corri
 
 Quand deux règles tirent en sens contraire, on suit l'ordre de `CLAUDE.md` (« L'écriture »). Le lecteur fait ce qu'il
 lit, alors une phrase comprise à l'envers est pire qu'une phrase obscure. « La prose » est le texte qu'on lit d'un
-trait. Les auditeurs (`references/auditeurs.md`) citent chaque principe par son numéro, et `plan/decisions-jp.md` garde
-les mots de JP d'où il vient.
+trait. `plan/decisions-jp.md` garde les mots de JP d'où vient chaque principe.
 
 ## Les principes
 
@@ -35,16 +34,20 @@ ou un chiffre qui n'a pas sa condition ni sa borne. Une case de logigramme aussi
 
 ### P2. Le passage doit exister, à sa place, une seule fois
 
-Avant de polir un passage, on se demande s'il apprend quelque chose à la personne qui va agir, s'il parle du sujet du
-chapitre et s'il dit chaque fait une seule fois. On coupe ce que le lecteur sait déjà et les autres phrases de la
-section 8 de `references/mots.md`. Un chiffre reste quand il change ce que la famille fait. On dit chaque fait là où il
-sert, et ailleurs, on met un renvoi court. Pour condenser, on coupe des faits entiers, jamais un « parce que » ni un
-« mais » (décision 4).
+Avant de polir un passage, on se demande s'il sert à la personne qui va agir, s'il parle du sujet du chapitre et s'il
+dit chaque fait une seule fois. Un fait vrai et neuf peut quand même être de trop (« c'est pas toujours nécessaire »,
+JP), parce que chaque détail doit servir au geste ou à éviter le danger. On coupe ce que le lecteur sait déjà, les
+phrases de la section 8 de `references/mots.md`, le nom qu'il n'aura pas à employer, la description de ce qu'il n'a
+pas à reconnaître, le chiffre qui ne change aucune décision et la liste plus longue que ce qui sert (deux exemples
+dans la fiche A4 de `references/auditeurs.md`). On dit chaque fait là où il sert, et ailleurs, on met un renvoi
+court. Pour condenser, on coupe des faits entiers, jamais un « parce que » ni un « mais » (décision 4).
 
-Les neuf rappels de sécurité restent dans chaque étape qui s'en sert, dits dans sa phrase, sans la formule du tableau.
-Le mécanisme complet d'un danger est dans sa page, mais l'étape garde sa demi-phrase de pourquoi quand le réflexe est le
-mauvais. Une phrase refaite garde chaque fait, chiffre, repère, renvoi, note et appel de planche. Quand on coupe une
-phrase d'ancrage de planche, on déplace son ancre (`placements-tome-N.json`) en même temps.
+Ce tri ne touche jamais à ce qui suit, même quand on le trouve long : les neuf rappels de sécurité, le pourquoi qui
+change le geste ou qui corrige un réflexe (P3), le signe grave et le geste qui suit, la débrouille de la variante
+d'urgence, qui est le cœur du chapitre, et le diapason. Chaque rappel reste dans l'étape qui s'en sert, dit dans sa
+phrase, sans la formule du tableau, et le mécanisme complet reste dans la page du danger. Une phrase refaite garde
+chaque fait, chiffre, repère, renvoi, note et appel de planche. Quand on coupe une phrase d'ancrage de planche, on
+déplace son ancre (`placements-tome-N.json`) en même temps.
 
 ### P3. Le pourquoi reste
 
@@ -94,9 +97,7 @@ fait, et à la fin seulement où on le fait (« laisser ses chaussures à la por
 un nom (« à chaque ouverture »). Une consigne garde la forme d'une consigne, même au milieu d'une explication :
 « il faut », « on doit », ou l'infinitif dans une étape. La condition est un « si », pas un participe en tête.
 
-On n'écrit pas au pronominal le geste qu'une personne fait sur une chose (« on doit le cuire », jamais « il se cuit »).
-Le pronominal reste quand la chose le fait toute seule (« le puisard se remplit »), quand il dit ce qu'est la chose
-(« ce gaz ne se voit pas ») et quand la personne le fait sur elle-même (« se coucher par terre »).
+Le pronominal a sa règle ferme dans `CLAUDE.md` (« on doit le cuire », jamais « il se cuit »).
 
 ### P9. L'étape : un geste, dans l'ordre du temps, la condition avant, le signe après
 
@@ -113,10 +114,9 @@ chapitre ou marqué `[À VÉRIFIER]`. La série orange suit `CLAUDE.md` (décisi
 
 Chaque mot est celui qu'un Québécois dirait à son voisin, en français correct, et la façon de dire compte autant que le
 mot. La langue parlée correcte entre, mais pas le joual (`CLAUDE.md`, règle 6). Le mot de métier reste quand le geste en
-a besoin, et on l'explique la première fois. Le mot technique juste reste aussi (« en proportion de »,
-« la surface exposée », que JP a gardés le 16 octobre), parce que le défaut était la façon de dire. La fiche officielle
-sert à vérifier un fait, alors on n'en garde ni citation, ni « vous », ni formule. Les guillemets servent seulement au
-mot qu'on dit à voix haute ou qu'on lit sur une étiquette. Les noms latins sortent.
+a besoin, et on l'explique la première fois. Le mot technique juste reste aussi (« en proportion de »). La fiche
+officielle sert à vérifier un fait, alors on n'en garde ni citation, ni « vous », ni formule. Les guillemets servent
+seulement au mot qu'on dit à voix haute ou qu'on lit sur une étiquette.
 
 ### P11. Le même mot pour la même chose
 

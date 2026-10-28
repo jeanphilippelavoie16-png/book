@@ -112,37 +112,41 @@ qui vaut pour tous, puis le regard et les questions de chacun. Le workflow `.cla
 lance sur un chapitre.
 
 A0 ne lit pas comme un auditeur. Ce sont les scripts `controle.py`, `tempo.py` et `langue.py`, que le rédacteur passe
-avant de rendre, que le workflow fait tourner avant A1 et A3, et que l'éditeur repasse après sa réécriture. L'agent qui
-les lance ne juge rien. Les chiffres des scripts disent quels paragraphes lire d'abord, jamais quoi viser, parce
-qu'on ne réécrit jamais un texte pour faire baisser un chiffre.
+avant de rendre, que le workflow fait tourner avant A1, A3 et A4, et que l'éditeur repasse après sa réécriture.
+L'agent qui les lance ne juge rien. Les chiffres des scripts disent quels paragraphes lire d'abord, jamais quoi viser,
+parce qu'on ne réécrit jamais un texte pour faire baisser un chiffre.
 
-A1 (l'oreille), A2 (le lecteur naïf) et A3 (les consignes) lisent en même temps, sans voir le travail des autres, et
-chacun remet son rapport à l'éditeur. A1 et A3 reçoivent `CLAUDE.md`, « Pour tout agent », cette section, leur fiche et
-le texte, mais pas le skill au complet. A2 reçoit sa fiche et le chapitre, rien d'autre.
+A1 (l'oreille), A2 (le lecteur naïf), A3 (les consignes) et A4 (le tri) lisent en même temps, sans voir le travail
+des autres, et chacun remet son rapport à l'éditeur. A1, A3 et A4 reçoivent `CLAUDE.md`, « Pour tout agent », cette
+section, leur fiche et le texte, mais pas le skill au complet. A4 en a besoin plus que les autres, parce qu'il demande
+si chaque détail doit être dit et qu'il doit savoir ce qu'on ne conteste jamais (sa fiche, et le skill `ecriture`, P2).
+A2 reçoit sa fiche et le chapitre, rien d'autre.
 
 Un auditeur ne réécrit pas, ne coupe pas et n'ajoute aucun fait. L'éditeur est le seul à couper, et un auditeur qui
 couperait ferait un deuxième rédacteur. A3 juge l'ordre des gestes et la lecture sous stress, pas le fond médical ni
 technique, et il envoie ses doutes de fond au vérificateur technique. Sans cette limite, il redeviendrait le
-vérificateur sécurité que JP ne veut plus (« j'en veux jamais », 18 octobre 2026). La liste qui suit vaut pour A1 et
-A3.
+vérificateur sécurité que JP ne veut plus (« j'en veux jamais », 18 octobre 2026). A4 signale ce qui ne sert pas,
+mais il ne coupe pas plus que les autres. La liste qui suit vaut pour A1, A3 et A4.
 
 - [ ] Lire le paragraphe du monoxyde, qui donne la voix du livre, puis sa fiche, et regarder les signaux de A0 pour
   choisir les paragraphes à lire d'abord.
 - [ ] Lire des paragraphes entiers, d'un trait et à voix haute (skill `ecriture`, P1), jamais une phrase seule.
 - [ ] Laisser tranquille ce que les principes gardent, comme le tour parlé correct, le même mot pour la même chose et
   le mot de liaison (`auditeurs.md`, « Ce qui vaut pour tous »).
-- [ ] Donner pour chaque accroc les cinq choses du rapport, avec le numéro du principe (`auditeurs.md`, « Son
-  rapport »).
+- [ ] Donner pour chaque accroc les cinq choses du rapport de sa fiche, avec le numéro du principe (`auditeurs.md`,
+  « Son rapport »).
 - [ ] Dire une fois un défaut qui revient, avec la liste de ses lignes, parce qu'on corrige une habitude et pas des
   fragments.
 - [ ] Rendre dix accrocs au plus par chapitre, les plus coûteux pour le lecteur d'abord.
 - [ ] Ne rien réécrire, ne rien couper, n'ajouter aucun fait.
 - [ ] Pour A3, envoyer les doutes de fond au vérificateur technique plutôt qu'à l'éditeur.
+- [ ] Pour A4, ne jamais signaler ce que sa fiche garde (« Ce qu'il ne conteste jamais »), et dire pour chaque accroc
+  à quel geste ou à quel danger le détail ne sert pas.
 
 ## L'éditeur
 
 L'éditeur suit le skill `editeur`, le texte que JP a donné le 28 octobre 2026, et il le lit au complet. Il prend trois
-chapitres à la fois. Il reçoit les trois rapports des auditeurs, les signaux de A0 et le rapport du vérificateur
+chapitres à la fois. Il reçoit les rapports de A1, A2, A3 et A4, les signaux de A0 et le rapport du vérificateur
 technique, et il est le seul à couper. Il répond à chaque cas des auditeurs, puis il réécrit le chapitre une seule
 fois, avec toutes leurs remarques, sans aller-retour.
 
@@ -158,8 +162,8 @@ condenser, il choisit les faits qu'il garde et coupe les autres en entier, mais 
 2. Est-ce que le pourquoi est là, quand on ne le sait pas ? (« explique pourquoi »)
 3. Est-ce que ça se dit ? (« qui qui dit ça dans vrai vie »)
 
-- [ ] Lire les trois rapports des auditeurs, les signaux de A0 et le rapport du vérificateur avant de toucher une
-  phrase.
+- [ ] Lire les quatre rapports des auditeurs (A1, A2, A3 et A4), les signaux de A0 et le rapport du vérificateur avant
+  de toucher une phrase.
 - [ ] Juger d'abord si chaque passage doit exister (P2). Ce qui n'apprend rien sort sans être poli.
 - [ ] Poser les trois questions de JP à chaque coupe.
 - [ ] Répondre dans le rapport à chaque cas des auditeurs, par « fait », ou par « non » et pourquoi.

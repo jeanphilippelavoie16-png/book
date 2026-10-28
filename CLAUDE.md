@@ -259,14 +259,15 @@ réserve), dans l'étape qui s'en sert. Aucun renvoi « au chapitre d'achat », 
 - **Une correction de JP entre le jour même, à une seule place** : ses mots dans `plan/decisions-jp.md`, et la règle
   dans le fichier qu'elle touche (un skill, le gabarit, le cadre ou ce fichier), une seule fois. Les autres fichiers la
   citent par son numéro ou sa section, sans la recopier.
-- **La chaîne** : rédacteur → A0 → vérificateur technique → A1, A2 et A3 en même temps → éditeur (skill `editeur`) →
-  A0 → correcteur (skill `langue`) → metteur en pages → JP. Les prompts sont dans `roles.md`. Un rôle ne fait que sa
-  mission. Le vérificateur technique et les auditeurs signalent, ils ne réécrivent pas, et l'éditeur est le seul à
-  couper. Aucun d'eux n'a écrit la page, parce qu'un rédacteur qui se relit lui-même trouve ce qu'il a voulu écrire,
-  pas ce qu'il a écrit. **Plus jamais de vérificateur sécurité.**
+- **La chaîne** : rédacteur → A0 → vérificateur technique → A1, A2, A3 et A4 en même temps → éditeur (skill
+  `editeur`) → A0 → correcteur (skill `langue`) → metteur en pages → JP. Les prompts sont dans `roles.md`. Un rôle ne
+  fait que sa mission. Le vérificateur technique et les auditeurs signalent, ils ne réécrivent pas, et l'éditeur est le
+  seul à couper. Aucun d'eux n'a écrit la page, parce qu'un rédacteur qui se relit lui-même trouve ce qu'il a voulu
+  écrire, pas ce qu'il a écrit. **Plus jamais de vérificateur sécurité.**
 - **Les auditeurs.** A0, ce sont les scripts (`controle.py`, `tempo.py`, `langue.py`), qu'on passe à la fin du
-  rédacteur et encore après l'éditeur. A1 (l'oreille), A2 (le lecteur naïf) et A3 (les consignes) lisent après le
-  vérificateur technique, sur un texte dont les faits sont arrêtés, en même temps et sans voir le travail des autres.
+  rédacteur et encore après l'éditeur. A1 (l'oreille), A2 (le lecteur naïf), A3 (les consignes) et A4 (le tri, qui
+  demande si on doit vraiment tout dire) lisent après le vérificateur technique, sur un texte dont les faits sont
+  arrêtés, en même temps et sans voir le travail des autres.
   L'éditeur reçoit leurs rapports, répond à chaque cas (« fait », ou « non » et pourquoi) et réécrit une seule fois ;
   le vérificateur technique relit ensuite seulement ce qui a changé de sens. Les fiches des auditeurs sont dans
   `.claude/skills/ecriture/references/auditeurs.md`.

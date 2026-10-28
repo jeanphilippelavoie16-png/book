@@ -1,24 +1,26 @@
 export const meta = {
   name: 'auditer-chapitre',
-  description: "Les auditeurs d'un chapitre : A0 passe controle.py, tempo.py et langue.py et rend ses signaux par paragraphe, puis A1 (l'oreille), A2 (le lecteur naif) et A3 (les consignes) lisent en meme temps ; rend les quatre rapports pour l'editeur",
+  description: "Les auditeurs d'un chapitre : A0 passe controle.py, tempo.py et langue.py et rend ses signaux par paragraphe, puis A1 (l'oreille), A2 (le lecteur naif), A3 (les consignes) et A4 (le tri) lisent en meme temps ; rend les cinq rapports pour l'editeur",
   whenToUse: "Apres le verificateur technique et avant l'editeur, un chapitre a la fois. args = { chapitre: 'chapitres/NN-titre-court.md' }",
   phases: [
     { title: 'Scripts', detail: 'A0 : controle.py, tempo.py et langue.py, les signaux par paragraphe' },
-    { title: 'Auditeurs', detail: "A1, A2 et A3 en meme temps, sans voir le travail des autres" },
+    { title: 'Auditeurs', detail: "A1, A2, A3 et A4 en meme temps, sans voir le travail des autres" },
   ],
 }
 
 // Les auditeurs (decisions 1 et 3 de JP, 28 octobre 2026, plan/decisions-jp.md, « Les bases de l'écriture, après
-// l'audit »). Leurs fiches sont dans .claude/skills/ecriture/references/auditeurs.md, et la chaîne dans roles.md.
+// l'audit », et A4 dans « Le tri », le même jour). Leurs fiches sont dans
+// .claude/skills/ecriture/references/auditeurs.md, et la chaîne dans roles.md.
 //
-// A0 passe les scripts et ne juge rien. A1 et A3 lisent « Pour tout agent » et « Les auditeurs » du cadre, puis leur
-// fiche, avec les signaux de A0. A2 part en agent Explore, qui ne reçoit pas CLAUDE.md : il n'a que sa fiche et le
-// chapitre, sans les signaux de A0, pour rester naïf.
+// A0 passe les scripts et ne juge rien. A1, A3 et A4 lisent « Pour tout agent » et « Les auditeurs » du cadre, puis
+// leur fiche, avec les signaux de A0. A4 lit aussi P2 du skill ecriture, parce qu'il doit savoir ce qu'on ne conteste
+// jamais. A2 part en agent Explore, qui ne reçoit pas CLAUDE.md : il n'a que sa fiche et le chapitre, sans les signaux
+// de A0, pour rester naïf.
 //
 // FICHE_A2 est la copie exacte du bloc de la fiche A2 dans auditeurs.md. On change les deux ensemble.
 //
 // args = { chapitre: 'chapitres/NN-titre-court.md' } (une page des dangers, 'dangers/partie-N.md', marche aussi).
-// Le workflow rend { chapitre, A0, A1, A2, A3 } ; l'orchestrateur colle les quatre rapports dans
+// Le workflow rend { chapitre, A0, A1, A2, A3, A4 } ; l'orchestrateur colle les cinq rapports dans
 // suivi/NN-auditeurs.md pour l'éditeur (roles.md, rôle 5).
 
 const chapitre = (typeof args === 'string' ? args : (args && args.chapitre)) || ''
@@ -142,6 +144,31 @@ const S_A3 = {
   required: ['accrocs', 'laisses', 'pour_le_verificateur', 'liste_de_controle'],
 }
 
+const S_A4 = {
+  type: 'object',
+  properties: {
+    accrocs: {
+      type: 'array',
+      maxItems: 10,
+      description: 'dix au plus, ceux qui cachent un geste ou un danger sous ce qui ne sert pas d’abord, puis les plus longs',
+      items: {
+        type: 'object',
+        properties: {
+          lignes: { type: 'array', items: { type: 'integer' }, minItems: 1, description: 'la ligne du fichier, ou toutes les lignes quand le même défaut revient' },
+          citation: { type: 'string', description: 'douze mots au plus, tirés de la première ligne' },
+          ne_sert_pas: { type: 'string', description: 'ce qui ne sert pas, en une phrase : un nom, une description, un chiffre, une liste ou une explication' },
+          a_quoi: { type: 'string', description: 'à quoi il ne sert pas : le geste ou le danger qu’il ne touche pas' },
+          principe: { type: 'string', description: '« P2 », avec un autre principe s’il y a lieu (« P2, P10 »)' },
+        },
+        required: ['lignes', 'citation', 'ne_sert_pas', 'a_quoi', 'principe'],
+      },
+    },
+    laisses: { type: 'integer', description: 'combien d’accrocs laissés au-delà de dix (0 sinon)' },
+    liste_de_controle: { type: 'string', description: 'la liste de contrôle de la section « Les auditeurs » du cadre, cochée' },
+  },
+  required: ['accrocs', 'laisses', 'liste_de_controle'],
+}
+
 const S_A2 = {
   type: 'object',
   properties: {
@@ -217,6 +244,22 @@ ${signauxPour(a0)}
 
 Rends tes accrocs au format de ta fiche, dix au plus, les plus coûteux d'abord. Tes doutes de fond, médicaux ou techniques, vont dans « pour_le_verificateur », jamais dans les accrocs. Rends aussi la liste de contrôle de la section « Les auditeurs » du cadre, cochée.`
 
+const PROMPT_A4 = (a0) => `Tu es A4, le tri, sur « Le Manuel du Nord ». Tu n'as pas écrit ce texte, et tu ne le réécris pas : tu ne modifies aucun fichier. Tu ne coupes rien non plus, parce que l'éditeur est le seul à couper.
+
+Lis, dans cet ordre :
+1. dans .claude/cadre-agents.md, la partie « Pour tout agent » et la section « Les auditeurs » ;
+2. dans .claude/skills/ecriture/references/auditeurs.md, la section « Ce qui vaut pour tous » et ta fiche « A4, le tri » ;
+3. dans .claude/skills/ecriture/SKILL.md, le principe P2 seulement, avec ce qu'il garde ;
+4. le diapason, dans dangers/partie-1.md, la page « Monoxyde de carbone », le paragraphe « Ce qui arrive » ;
+5. le texte, ${chapitre}, au complet et dans l'ordre. ${LOGIGRAMME}
+
+À chaque phrase, demande-toi si le lecteur en a besoin pour faire le geste ou pour éviter le danger. Ne signale jamais ce que ta fiche garde (« Ce qu'il ne conteste jamais »).
+
+Les signaux de A0 disent où regarder d'abord, jamais quoi écrire :
+${signauxPour(a0)}
+
+Rends tes accrocs au format de ta fiche, dix au plus, ceux qui cachent un geste ou un danger d'abord, puis les plus longs, et la liste de contrôle de la section « Les auditeurs » du cadre, cochée.`
+
 const PROMPT_A2 = `${FICHE_A2}
 
 Le chapitre est le fichier ${chapitre}. Lisez seulement ce fichier.`
@@ -230,18 +273,19 @@ if (a0) {
   log(`A0 : ${a0.bloquants.length} bloquant(s), ${a0.signaux.length} paragraphe(s) à signal, ${a0.langue.length} avis de langue`)
   if (a0.bloquants.length) log("Le texte a encore des bloquants : le rédacteur devait le rendre sans bloquant. Les auditeurs lisent quand même.")
 } else {
-  log("A0 n'a rien rendu : A1 et A3 liront le texte en entier, sans signaux.")
+  log("A0 n'a rien rendu : A1, A3 et A4 liront le texte en entier, sans signaux.")
 }
 
 phase('Auditeurs')
-const [a1, a2, a3] = await parallel([
+const [a1, a2, a3, a4] = await parallel([
   () => agent(PROMPT_A1(a0), { label: 'A1 l oreille', phase: 'Auditeurs', schema: S_A1 }),
   () => agent(PROMPT_A2, { label: 'A2 lecteur naif', phase: 'Auditeurs', schema: S_A2, agentType: 'Explore' }),
   () => agent(PROMPT_A3(a0), { label: 'A3 les consignes', phase: 'Auditeurs', schema: S_A3 }),
+  () => agent(PROMPT_A4(a0), { label: 'A4 le tri', phase: 'Auditeurs', schema: S_A4 }),
 ])
-for (const [nom, r] of [['A1', a1], ['A2', a2], ['A3', a3]]) {
+for (const [nom, r] of [['A1', a1], ['A2', a2], ['A3', a3], ['A4', a4]]) {
   if (!r) log(`${nom} n'a rien rendu.`)
   else log(`${nom} : ${r.accrocs.length} accroc(s)` + (r.laisses ? `, ${r.laisses} laissé(s) au-delà de dix` : ''))
 }
 
-return { chapitre, A0: a0, A1: a1, A2: a2, A3: a3 }
+return { chapitre, A0: a0, A1: a1, A2: a2, A3: a3, A4: a4 }

@@ -3,12 +3,14 @@
 JP a demandé des relecteurs qui n'ont pas écrit la page (28 octobre 2026 : « réécrit le skill en lisant de la litérature
 et en ajoutant des auditeur »), puis il a dit oui à leur place dans la chaîne et au cadre donné en morceaux. Ce sont
 les décisions 1 et 3 du 28 octobre 2026, dans `plan/decisions-jp.md`, section « Les bases de l'écriture, après
-l'audit ». Ce fichier cite ces décisions par leur numéro, et les principes du skill `ecriture` par le leur (P1 à P14).
+l'audit ». Le même jour, JP a demandé un lecteur de plus, qui demande si on doit vraiment tout dire (section « Le
+tri »). Ce fichier cite ces décisions par leur numéro, et les principes du skill `ecriture` par le leur (P1 à P14).
 
-Il y a quatre auditeurs. A0, ce sont les scripts, qui mesurent sans rien juger. A1 écoute la prose, A2 lit le chapitre
-comme quelqu'un qui n'a jamais fait le geste, et A3 suit les consignes comme la personne qui les fait. Les trois
-derniers lisent en même temps, sans voir le travail des autres, et l'éditeur reçoit leurs rapports. La chaîne et les
-prompts sont dans `roles.md`. Le workflow `.claude/auditer-chapitre.workflow.js` lance les quatre sur un chapitre.
+Il y a cinq auditeurs. A0, ce sont les scripts, qui mesurent sans rien juger. A1 écoute la prose, A2 lit le chapitre
+comme quelqu'un qui n'a jamais fait le geste, A3 suit les consignes comme la personne qui les fait, et A4 demande à
+chaque détail si on a besoin de le savoir. Les quatre derniers lisent en même temps, sans voir le travail des autres,
+et l'éditeur reçoit leurs rapports. La chaîne et les prompts sont dans `roles.md`. Le workflow
+`.claude/auditer-chapitre.workflow.js` lance les cinq sur un chapitre.
 
 ## Ce qui vaut pour tous
 
@@ -90,7 +92,7 @@ rend leurs sorties rangées par paragraphe.
 qu'une passe qui remplacerait chaque deux-points par une virgule referait la même faute autrement.
 
 **Sa place.** À la fin du rédacteur, qui rend un chapitre sans bloquant. Au début du workflow des auditeurs, où ses
-signaux vont à A1 et à A3, jamais à A2. Et après l'éditeur, avec `--avant` sur la copie d'avant la réécriture.
+signaux vont à A1, à A3 et à A4, jamais à A2. Et après l'éditeur, avec `--avant` sur la copie d'avant la réécriture.
 
 **Son rapport.** D'abord les bloquants, avec leur ligne. Ensuite les paragraphes qui lèvent un signal, chacun avec la
 ligne où il commence, ses douze premiers mots, le signal et sa mesure. Puis ce que `controle.py` donne à juger, les avis
@@ -130,7 +132,7 @@ que `controle.py` donne à juger. Le reste, il l'entend.
 **Sa limite.** Il juge ce qu'on entend, pas ce qui est vrai, alors un doute sur un fait va au vérificateur technique.
 Il ne juge pas l'ordre des gestes, qui est à A3, ni les fautes, qui sont au correcteur.
 
-**Sa place.** Après le vérificateur technique, en même temps que A2 et A3, avant l'éditeur.
+**Sa place.** Après le vérificateur technique, en même temps que A2, A3 et A4, avant l'éditeur.
 
 **Son rapport.** Celui de « Ce qui vaut pour tous ».
 
@@ -197,7 +199,7 @@ section 3) servent de banc d'essai pour vérifier qu'un A2 les trouve, alors on 
 **Sa limite.** Il ne voit ni les planches, ni les pages des dangers, ni le logigramme. Un accroc qu'une planche ou une
 page des dangers lèverait reste donc possible, et c'est l'éditeur qui en juge.
 
-**Sa place.** Avec A1 et A3. Une fois par tome, avant l'épreuve, un passage de l'ado des neuf lecteurs
+**Sa place.** Avec A1, A3 et A4. Une fois par tome, avant l'épreuve, un passage de l'ado des neuf lecteurs
 (`plan/audit-ecriture/lecteurs/ado.md`) sur les séries orange vaut son coût (synthèse, section 7).
 
 **Pour l'éditeur.** A2 cite le numéro de sa question, parce qu'il ne connaît pas les principes. La table donne le
@@ -251,7 +253,89 @@ A0 les lui donne. Le reste, il le trouve en faisant les gestes un à un.
 fond vont au vérificateur technique, dans une liste à part, et jamais dans ses accrocs. Sans cette limite, il
 redeviendrait le vérificateur sécurité que JP ne veut plus (18 octobre 2026 : « j'en veux jamais »).
 
-**Sa place.** Avec A1 et A2.
+**Sa place.** Avec A1, A2 et A4.
 
 **Son rapport.** Celui de « Ce qui vaut pour tous », plus la liste à part des doutes de fond, pour le vérificateur
 technique.
+
+## A4, le tri
+
+**Son regard.** Tout le texte, de la ligne de lieu aux notes « En plus », lu par quelqu'un de pressé et compétent de
+ses mains, qui demande à chaque phrase : « est-ce que j'ai besoin de savoir ça pour faire la job ? » Il ne juge pas
+comment c'est dit (A1), si on le comprend (A2) ni dans quel ordre on le fait (A3). Il juge seulement si chaque détail
+sert au geste ou à éviter le danger (P2). A2 signale la phrase qu'il savait déjà ; A4 signale aussi le fait qu'il
+ignorait, quand il n'en a pas besoin. JP l'a demandé en lisant le banc d'essai (« Je veux un autre lecteur qui
+challenge si on doit vraiment tout dire », `plan/decisions-jp.md`, section « Le tri »). Avant le chapitre, il lit P2
+dans `.claude/skills/ecriture/SKILL.md`, parce que c'est son principe, et que sa limite y est.
+
+**Ses deux modèles.** Ce qui suffit, c'est l'étape 1 du ch. 68, que JP a trouvée « super » au banc d'essai. Elle dit le geste, la condition, quoi faire sinon et le pourquoi en une demi-phrase, et rien d'autre.
+
+> 1. Vérifier que la bête a refroidi jusqu'à 7 °C dans les 24 heures après l'abattage. Si on n'en est pas sûr, il ne
+> faut pas saler la pièce. On doit la cuire à la poêle ou la mettre en conserve (ch. 78). Le sel ne rattrape pas une
+> viande qui a commencé à se gâter, parce qu'il la garde dans l'état où il la trouve.
+
+Ce qui est de trop, c'est l'étape 1 du ch. 3, refaite pour le même banc (« L'affaire du poteau, isolateur etc.
+bofffff », JP). Elle nommait et décrivait les trois pièces de l'entrée électrique, le mât de branchement, le
+col-de-cygne et le support d'isolateurs. Le lecteur n'a besoin d'aucun de ces noms pour savoir que le bris est dehors
+et pour le voir de la rue.
+
+**Ses questions.**
+
+1. Si on enlève la phrase, est-ce que le lecteur fait autre chose, ou court un danger de plus ? Si rien ne change,
+   elle ne sert pas. (P2)
+2. Est-ce que le lecteur aura à employer ce nom, dans un geste ou dans une autre étape ? Un nom qu'on explique sans
+   jamais s'en servir est de trop, même bien expliqué. (P2, P10, P14)
+3. Est-ce que la description aide à reconnaître une chose que le geste demande de reconnaître ? Sinon, elle est de
+   trop. (P2)
+4. Est-ce que le chiffre change une décision, comme quoi faire, quand, combien ou jusqu'où ? Un chiffre vrai et
+   sourcé qui ne change rien est quand même de trop. (P2)
+5. Est-ce que la liste a plus d'éléments que ce qui sert au geste ? Un exemple de plus pour une chose déjà claire ne
+   change rien. (P2)
+6. Est-ce que l'explication va plus loin que ce qui change le geste ? Le pourquoi reste, mais l'histoire, la chimie ou
+   le détail qui suit servent seulement s'ils changent ce qu'on fait. Le ch. 68 dit son pourquoi en une
+   demi-phrase. (P2, P3)
+7. Est-ce que le passage redit un fait du chapitre, ou fait le travail d'un autre chapitre ? (P2)
+8. Est-ce que le lecteur sait déjà ce que la phrase lui dit ? Il soude, il câble du 12 V et il abat un orignal, mais il
+   n'a jamais salé une cuisse. (P2)
+
+**Ce qu'il ne conteste jamais.** Ce que P2 garde, même quand il le trouve long.
+
+- Les neuf rappels de sécurité de `CLAUDE.md`, dans chaque étape qui s'en sert, même quand ils redisent un fait d'une
+  autre page.
+- Le pourquoi qui change le geste ou qui corrige un réflexe (P3, P13), et le fait qui surprendrait un parent
+  compétent.
+- Le signe grave et le geste qui suit (P9), et la note qui explique un signe (`CLAUDE.md`, règles fermes).
+- La débrouille de la variante d'urgence, qui est le cœur du chapitre. Quand elle est courte, le chapitre n'a pas fait
+  son travail (`CLAUDE.md`, « La débrouille est le sujet »).
+- La méthode ancestrale et son avertissement (`CLAUDE.md`, règles fermes).
+- Le diapason, le paragraphe du monoxyde, tel quel (décision 9).
+- La longueur d'une série orange, où tout y est (décision 6). Dans l'orange, il signale seulement un détail qui ne
+  sert pas au geste, parce que ce détail doit en sortir.
+- Les pictogrammes `{!id}` et les appels de planche.
+
+Quand il hésite entre un détail qui sert et un détail de trop, il le signale avec son doute, et l'éditeur tranche.
+
+**Ce qu'un script mesure pour lui.** Presque rien, parce qu'aucun script ne sait si un détail sert. `controle.py`
+relève les étapes de plus de 100 mots et les redites, et A0 les lui passe comme des endroits où regarder d'abord. Il
+lit quand même tout le texte, dans l'ordre.
+
+**Sa limite.** Il signale, mais il ne coupe pas et il ne réécrit pas, parce que l'éditeur reste le seul à couper. Il
+ne propose aucun ajout. Un doute sur un fait n'est pas son affaire, parce que le vérificateur technique a arrêté les
+faits avant lui.
+
+**Sa place.** Après le vérificateur technique, en même temps que A1, A2 et A3, sans voir leur travail, et avant
+l'éditeur.
+
+**Son rapport.** Pour chaque accroc, il donne cinq choses.
+
+1. La ligne du fichier, ou la liste des lignes quand le défaut revient.
+2. Une citation de douze mots au plus.
+3. Ce qui ne sert pas, en une phrase (un nom, une description, un chiffre, une liste ou une explication).
+4. À quoi il ne sert pas, c'est-à-dire le geste ou le danger qu'il ne touche pas (« on voit le bris de la rue sans
+   savoir le nom des pièces »).
+5. P2, avec un autre principe s'il y a lieu (P3, P10 ou P14).
+
+Il ne propose pas de façon de le dire, parce que la réponse est de garder ou de couper, et que c'est l'éditeur qui
+coupe. Quand le même défaut revient, il le dit une fois, avec la liste des lignes. Il rend dix accrocs au plus. Il met
+d'abord ceux qui cachent un geste ou un danger sous ce qui ne sert pas, puis les plus longs. S'il en trouve plus de
+dix, il dit combien il en laisse.

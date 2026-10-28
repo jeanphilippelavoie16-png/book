@@ -14,15 +14,16 @@ bases de l'écriture, après l'audit ». Les principes P1 à P14 sont ceux du sk
 ```
 Rédacteur → A0 → Vérificateur technique → A1 l'oreille       ┐
                                           A2 lecteur naïf    ├→ Éditeur → A0 → Correcteur → Metteur en pages → JP
-                                          A3 les consignes   ┘
+                                          A3 les consignes   │
+                                          A4 le tri          ┘
 ```
 
 - Le rédacteur finit en passant A0, et il rend un chapitre sans bloquant.
 - Le vérificateur technique arrête les faits. Les auditeurs passent après lui, alors ils lisent un texte dont les faits
   ne bougeront plus (décision 1).
-- A1, A2 et A3 lisent en même temps, sans voir le travail des autres. Le workflow `.claude/auditer-chapitre.workflow.js`
-  les lance sur un chapitre, avec A0 devant, et rend les quatre rapports (args = { chapitre:
-  "chapitres/NN-titre-court.md" }). L'orchestrateur les colle dans `suivi/NN-auditeurs.md` pour l'éditeur.
+- A1, A2, A3 et A4 lisent en même temps, sans voir le travail des autres. Le workflow
+  `.claude/auditer-chapitre.workflow.js` les lance sur un chapitre, avec A0 devant, et rend les cinq rapports (args =
+  { chapitre: "chapitres/NN-titre-court.md" }). L'orchestrateur les colle dans `suivi/NN-auditeurs.md` pour l'éditeur.
 - L'éditeur répond à chaque cas des rapports et réécrit une seule fois. C'est lui seul qui coupe, et il n'y a pas
   d'aller-retour avec les auditeurs.
 - A0 repasse après l'éditeur, sur le chapitre réécrit, avec `controle.py --avant` sur la copie d'avant la réécriture.
@@ -33,9 +34,10 @@ Rédacteur → A0 → Vérificateur technique → A1 l'oreille       ┐
 
 Le rôle 1 tourne une fois par tome, pas par chapitre. Le rôle 4 est retiré.
 
-**Le coût.** Trois auditeurs et l'éditeur lisent ensemble environ 1,6 fois ce que l'éditeur lisait seul avant
-(`plan/audit-ecriture/bases.md`, section 7.7). On mesure le coût réel sur deux ou trois chapitres, et on le dit à JP
-avant la grande passe (`CLAUDE.md`, « Économiser les jetons »).
+**Le coût.** L'audit estimait que trois auditeurs et l'éditeur liraient ensemble environ 1,6 fois ce que l'éditeur
+lisait seul avant (`plan/audit-ecriture/bases.md`, section 7.7). A4 ajoute un lecteur, qui lit à peu près autant qu'un
+autre auditeur, alors ce coût monte. On mesure le coût réel sur deux ou trois chapitres, et on le dit à JP avant la
+grande passe (`CLAUDE.md`, « Économiser les jetons »).
 
 Quand un chapitre bloque trois fois à la même porte, c'est le plan du chapitre qu'il faut revoir, pas le texte.
 
@@ -128,8 +130,8 @@ limite »).
 ## Les auditeurs
 
 Leurs fiches sont dans `.claude/skills/ecriture/references/auditeurs.md`. D'habitude, on les lance ensemble avec le
-workflow `.claude/auditer-chapitre.workflow.js`, qui fait passer A0, puis A1, A2 et A3 en même temps, et qui rend les
-quatre rapports. Les prompts qui suivent servent quand on lance un auditeur seul.
+workflow `.claude/auditer-chapitre.workflow.js`, qui fait passer A0, puis A1, A2, A3 et A4 en même temps, et qui rend
+les cinq rapports. Les prompts qui suivent servent quand on lance un auditeur seul.
 
 ### A0, les scripts
 
@@ -198,6 +200,28 @@ dans les accrocs. Rends aussi la liste de contrôle de la section « Les auditeu
 cochée.
 ```
 
+### A4, le tri
+
+```
+Tu n'as pas écrit ce chapitre, et tu ne le réécris pas. Tu ne coupes rien non plus, parce que
+l'éditeur est le seul à couper.
+
+Lis dans .claude/cadre-agents.md la partie « Pour tout agent » et la section « Les auditeurs ».
+Puis, dans .claude/skills/ecriture/references/auditeurs.md, la section « Ce qui vaut pour
+tous » et ta fiche « A4, le tri ». Puis P2 dans .claude/skills/ecriture/SKILL.md, et le
+diapason (dangers/partie-1.md, page « Monoxyde de carbone », paragraphe « Ce qui arrive »).
+
+Lis chapitres/NN-titre-court.md au complet, dans l'ordre, et son logigramme,
+images/logigrammes/NN-*.json, s'il existe. À chaque phrase, demande-toi si le lecteur en a
+besoin pour faire le geste ou pour éviter le danger. Les signaux de A0 disent où regarder
+d'abord :
+[la sortie de A0]
+
+Rends tes accrocs au format de ta fiche, dix au plus, ceux qui cachent un geste ou un danger
+d'abord. Ne signale jamais ce que ta fiche garde (« Ce qu'il ne conteste jamais »). Rends aussi
+la liste de contrôle de la section « Les auditeurs » du cadre, cochée.
+```
+
 ---
 
 ## Rôle 5, éditeur
@@ -208,10 +232,11 @@ Lis au complet le skill editeur (.claude/skills/editeur/SKILL.md), puis le skill
 (.claude/skills/ecriture/SKILL.md).
 
 Pour chaque chapitre de ton lot, tu as le chapitre, chapitres/NN-titre-court.md, le rapport du
-vérificateur technique (suivi/NN-technique.md) et les quatre rapports des auditeurs
-(suivi/NN-auditeurs.md : A0, A1, A2 et A3). Les cas de A2 portent le numéro de sa question ;
+vérificateur technique (suivi/NN-technique.md) et les cinq rapports des auditeurs
+(suivi/NN-auditeurs.md : A0, A1, A2, A3 et A4). Les cas de A2 portent le numéro de sa question ;
 la table sous sa fiche, dans .claude/skills/ecriture/references/auditeurs.md, donne le
-principe.
+principe. Les cas de A4 demandent si un détail sert au geste ou à éviter le danger (P2) ;
+c'est toi qui décides de le couper, et tu gardes ce que P2 garde.
 
 1. /diagnostiquer d'abord, sans rien réécrire. Pour chaque passage, demande s'il doit exister,
    s'il est à sa place et s'il dit chaque fait une seule fois (P2). C'est toi seul qui coupes,
