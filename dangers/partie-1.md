@@ -22,11 +22,11 @@ On ne peut détecter le gaz qu'avec un avertisseur de monoxyde. L'avertisseur me
 
 ## {!generatrice} Génératrice et moteur sous un toit
 
-**Ce qui arrive.** Une génératrice, une auto, une motoneige, une scie à chaîne, une souffleuse ou une pompe à essence qui tourne sous un toit ou entre des murs remplit l'air de monoxyde de carbone ({>co}). Ouvrir la porte du garage ne suffit pas : le gaz ne sort pas assez vite, que le garage soit attenant à la maison, séparé ou en toile. C'est la même chose dans une remise, un abri d'auto, une tente, un vestibule, une serre, ou sous un auvent ou une bâche tendue au-dessus de la machine. Un démarreur à distance qui lance le moteur d'une auto restée au garage fait la même chose.
+**Ce qui arrive.** Une génératrice, une auto, une motoneige, une scie à chaîne, une souffleuse ou une pompe à essence qui tourne sous un toit ou entre des murs remplit l'air de monoxyde de carbone ({>co}). Ouvrir la porte du garage ne suffit pas : le gaz ne sort pas assez vite, que le garage soit attenant à la maison, séparé ou en toile. C'est la même chose dans une remise, un abri d'auto, une tente, un vestibule ou une serre, et sous un auvent ou une bâche tendue au-dessus de la machine. Un démarreur à distance qui lance le moteur d'une auto restée au garage fait la même chose.
 
 Dehors, la génératrice doit être à au moins 6 m (20 pi) de tout bâtiment, l'échappement tourné à l'opposé des portes et des fenêtres. Les gaz entrent par les portes, les fenêtres et les prises d'air : on ferme celles du côté de la génératrice et celles vers lesquelles le vent pousse l'échappement.
 
-On est tenté de mettre la génératrice au garage, dans la remise ou sous l'auvent, porte ouverte, toujours dans les mêmes moments : la panne d'hiver, la nuit, la tempête, le soir de l'arrivée au chalet, quand on veut la protéger de la neige ou des voleurs, ou garder le congélateur en marche. Démarrer la scie ou la souffleuse dans le garage à −30 °C, « juste le temps qu'elle chauffe », est aussi dangereux.
+On est tenté de mettre la génératrice au garage, dans la remise ou sous l'auvent, porte ouverte, toujours dans les mêmes moments : la panne d'hiver, la nuit, la tempête, le soir de l'arrivée au chalet, quand on veut la protéger de la neige et des voleurs, ou garder le congélateur en marche. Démarrer la scie ou la souffleuse dans le garage à −30 °C, « juste le temps qu'elle chauffe », est aussi dangereux.
 
 **Comment on le reconnaît.** Tout le monde dans le bâtiment a les signes du monoxyde en même temps, ou l'avertisseur sonne.
 
@@ -70,7 +70,7 @@ Les batteries au plomb dégagent de l'hydrogène pendant la charge, et la soude 
 
 Un bidon ou un réservoir qu'on croit vide garde des vapeurs sur ses parois. Avant de le souder, de le couper ou de le chauffer, il faut enlever toute trace du produit.
 
-**Comment on le reconnaît.** On sent l'essence, le solvant ou le propane dans un local fermé, surtout près du plancher, ou on entend un sifflement à la bouteille ou à un raccord.
+**Comment on le reconnaît.** On sent l'essence, le solvant ou le propane dans un local fermé, surtout près du plancher. On entend un sifflement à la bouteille ou à un raccord.
 
 **Ce qu'on fait.**
 
@@ -215,7 +215,7 @@ Quand on brûle de l'herbe à puce, son huile passe dans la fumée. Respirée, c
 **Ce qu'on fait.**
 
 1. Ne jamais brûler au poêle ou au fumoir, ni mettre au compost, en paillis, en litière ou au contact des aliments : le bois traité, les palettes, le bois peint, verni ou aggloméré, et le bois de démolition dont on ne connaît pas l'origine.
-2. Enlever le zinc ou la peinture à froid, dehors, avant de souder ou de chauffer, ou prendre une autre pièce.
+2. Enlever le zinc ou la peinture à froid, dehors, avant de souder ou de chauffer. Sinon, prendre une autre pièce.
 3. Braser seulement avec des baguettes marquées « sans cadmium ».
 4. Mettre les résidus de cueillette au compost, jamais au feu.
 5. Si quelqu'un a respiré des fumées de cadmium, le garder au repos et le surveiller 48 h ; un essoufflement veut dire que sa vie est en jeu.
@@ -230,13 +230,13 @@ Une meule est faite de grains d'abrasif collés ensemble. Elle peut se fissurer 
 
 Un contenant fermé qu'on chauffe éclate : le bidon, la bonbonne, la cartouche, le tuyau bouché aux deux bouts, l'amortisseur, le ressort à gaz, la conserve fermée. L'air ou le gaz à l'intérieur prend du volume en chauffant et, comme il ne peut pas sortir, le contenant finit par céder. La batterie gelée qu'on survolte ou qu'on charge peut exploser et projeter de l'acide et du plastique au visage.
 
-Une pierre ramassée dans l'eau ou sur une rive, ou une pierre poreuse, éclate dans le feu : l'eau prise dans la pierre se change en vapeur d'un coup, et les éclats partent à hauteur de visage.
+Une pierre poreuse éclate dans le feu, comme une pierre ramassée dans l'eau ou sur une rive : l'eau prise dans la pierre se change en vapeur d'un coup, et les éclats partent à hauteur de visage.
 
 Un arbre encroué (tombé sur un autre arbre) et le bois sous tension se détendent d'un coup, sans prévenir, comme un ressort, dans le sens où ils ont été pliés. Un câble ou une corde tendus réagissent de la même façon : quand une pièce lâche, le bout libre fouette tout le long de la ligne de traction.
 
 Quand on frappe un outil trempé (ciseau à froid, marteau) contre un autre acier trempé, un éclat peut partir `[À VÉRIFIER]`.
 
-**Comment on le reconnaît.** Une meule est dangereuse quand elle sonne sourd sous un petit coup, qu'elle est ébréchée, ou que la vitesse marquée dessus est plus basse que celle de la meuleuse. Un contenant est dangereux à chauffer quand il n'a aucun trou, et une batterie quand elle est gonflée ou que son liquide est gelé. Le bois est sous tension quand un arbre est appuyé sur un autre, ou qu'une branche ou une jeune tige est pliée sous un tronc.
+**Comment on le reconnaît.** Une meule est dangereuse quand elle sonne sourd sous un petit coup, qu'elle est ébréchée, ou que la vitesse marquée dessus est plus basse que celle de la meuleuse. Un contenant est dangereux à chauffer quand il n'a aucun trou, et une batterie quand elle est gonflée ou que son liquide est gelé. Le bois est sous tension quand un arbre est appuyé sur un autre, et quand une branche ou une jeune tige est pliée sous un tronc.
 
 **Ce qu'on fait.**
 
@@ -329,7 +329,7 @@ La personne qui se refroidit est la dernière à s'apercevoir de son état : ell
 
 Quand une personne refroidie arrête de frissonner, elle ne va pas mieux : elle est passée au stade grave. C'est la même chose quand un enfant qui se plaignait du froid devient tranquille. Un enfant refroidit plus vite qu'un adulte, parce qu'il a beaucoup de peau pour son poids, et il ne sait pas bien dire qu'il a froid.
 
-Sous 28 °C, le cœur peut se mettre à trembler au lieu de battre (fibrillation) au moindre mouvement brusque. Quand on frotte ou qu'on bouge les bras et les jambes, ou qu'on met la personne dans un bain chaud, le sang froid des membres revient au cœur, et la température centrale peut encore baisser de 5 à 6 °C.
+Sous 28 °C, le cœur peut se mettre à trembler au lieu de battre (fibrillation) au moindre mouvement brusque. Quand on frotte les bras et les jambes, qu'on les bouge ou qu'on met la personne dans un bain chaud, le sang froid des membres revient au cœur, et la température centrale peut encore baisser de 5 à 6 °C.
 
 La peau exposée gèle en 10 à 30 minutes quand le refroidissement éolien est de −28 à −39, en 5 à 10 minutes de −40 à −47, en 2 à 5 minutes de −48 à −54, et en moins de 2 minutes à −55 et moins. Le pied ou la joue arrête de faire mal avant de geler.
 
@@ -402,7 +402,7 @@ Si un animal a laissé des pistes sur la glace, on sait seulement qu'elle l'a po
 
 1. Porter des pics à glace autour du cou (deux poignées avec une pointe, reliées par une corde), une corde et un sifflet. Ne jamais aller sur la glace seul.
 2. Si on tombe à l'eau ({>eau-froide}) : se tourner vers l'endroit par où on est arrivé, parce que la glace y a porté. Poser les bras sur la glace, planter les pics, battre des pieds pour se coucher dessus, puis rouler loin du trou sans se relever.
-3. Pour sauver quelqu'un : rester sur la rive ou sur la bonne glace, et lui tendre une perche ou une branche, ou lui lancer une corde ou quelque chose qui flotte. Ne pas s'avancer sur la glace près du trou.
+3. Pour sauver quelqu'un : rester sur la rive ou sur la bonne glace, et lui tendre une perche ou une branche. On peut aussi lui lancer une corde, ou quelque chose qui flotte. Ne pas s'avancer sur la glace près du trou.
 
 **Où il revient.** La pêche sous la glace et l'eau qu'on y puise (ch. 10, 18, 50, 59), la chasse et les déplacements l'hiver (ch. 15, 41 à 44, 89), le sauvetage (ch. 58), la récolte de glace (ch. 73) et les enfants (ch. 39).
 
@@ -410,7 +410,7 @@ Si un animal a laissé des pistes sur la glace, on sait seulement qu'elle l'a po
 
 **Ce qui arrive.** L'ours noir craint les gens et s'en va quand il les entend venir. Il devient dangereux quand on le surprend de près, quand il garde une carcasse ou ses petits, quand il a appris à manger près des gens, et, plus rarement, quand il chasse. Un ours apprend à manger près des gens quand il y trouve le compost, les ordures, les restes de dépeçage ou le poisson cru : il perd alors sa peur des gens.
 
-L'ours qui garde une carcasse reste souvent couché tout près, sans se montrer, et il la défend. On sait qu'une carcasse est proche à trois signes, et un seul suffit : une odeur de bête morte, des corbeaux, des geais ou des aigles réunis, ou un gros tas frais de terre et de branches.
+L'ours qui garde une carcasse reste souvent couché tout près, sans se montrer, et il la défend. On sait qu'une carcasse est proche à trois signes, et un seul suffit : une odeur de bête morte ; des corbeaux, des geais ou des aigles réunis ; un gros tas frais de terre et de branches.
 
 L'ours qui se défend (un ours surpris de près, une mère avec ses petits, un ours sur une carcasse) souffle, grogne, claque des dents, tape le sol, et charge souvent pour s'arrêter avant de toucher. L'ours qui chasse est silencieux, les oreilles dressées, les yeux fixés sur la personne ; il s'approche, tourne autour ou suit. C'est le plus rare et le plus dangereux. C'est aussi lui qui entre dans un campement ou attaque une personne qui dort.
 
@@ -428,7 +428,7 @@ Un ours blessé va au couvert le plus épais (marécage, aulnaie, tourbière), e
 4. S'il fonce sur nous : s'arrêter, lui faire face et ne pas courir, sauf si un endroit sûr est tout proche. Quand il s'arrête, recommencer à reculer en lui parlant.
 5. S'il suit, s'approche sans raison ou tourne autour : lui faire face, se faire grand, crier, taper un bâton sur un arbre.
 6. Si un ours qui se défend nous touche : faire le mort. Se coucher à plat ventre, les jambes écartées, les mains croisées sur la nuque, le sac à dos sur le dos, sans bouger ni crier. S'il nous retourne sur le dos, rouler de nouveau sur le ventre. Rester couché jusqu'à ce que l'ours soit parti, 30 minutes s'il le faut. Si l'attaque dure, ou s'il commence à nous manger, se relever et se battre.
-7. Si l'ours qui suivait, qui s'approchait sans raison ou qui tournait autour nous touche, ou si un ours entre dans le campement ou dans la tente : se battre avec ce qu'on a (roche, bâton, hache, rame), en frappant la face et le museau. Ne jamais faire le mort devant cet ours.
+7. Se battre avec ce qu'on a (roche, bâton, hache, rame), en frappant la face et le museau, dans deux cas : l'ours qui suivait, qui s'approchait sans raison ou qui tournait autour nous touche ; un ours entre dans le campement ou dans la tente. Ne jamais faire le mort devant cet ours.
 8. Après avoir blessé un ours : attendre au moins 30 minutes avant de suivre sa piste, ne pas la suivre à la brunante, et approcher un ours tombé par l'arrière et par le haut, l'arme prête.
 9. Au chalet, ne rien laisser dehors qui se mange : ni compost ouvert, ni restes de dépeçage, ni poisson cru dans le jardin.
 

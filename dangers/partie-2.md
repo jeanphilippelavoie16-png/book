@@ -24,7 +24,7 @@ Une cartouche de calibre 20 glissée par erreur dans un fusil de calibre 12 desc
 **Ce qu'on fait.**
 
 - Avant de passer une arme à quelqu'un, ouvrir la chambre ; la personne qui donne l'arme et la personne qui la reçoit doivent toutes les deux regarder dedans, chaque fois.
-- Vérifier que le canon est libre avant le premier coup de la journée, après une chute, après avoir accroché une branche chargée de neige, après un coup faible et après chaque clic. Décharger l'arme, ouvrir l'action et regarder dans le canon à la lumière, par la culasse ou par la bouche, ou y passer une baguette sur toute la longueur.
+- Vérifier que le canon est libre avant le premier coup de la journée, après une chute, après avoir accroché une branche chargée de neige, après un coup faible et après chaque clic. Décharger l'arme, ouvrir l'action et regarder dans le canon à la lumière, par la culasse ou par la bouche. On peut aussi y passer une baguette sur toute la longueur.
 - Après un clic, garder le canon pointé dans une direction sûre pendant 60 secondes avant d'ouvrir l'arme.
 - Ne jamais tirer une cartouche qui a chauffé parce qu'on l'a fait sécher sur le poêle ou oubliée au soleil dans l'auto : la chaleur abîme la poudre.
 - Tirer seulement sur une bête qu'on voit en entier, avec de la terre derrière elle : une butte, une pente, le sol. Ne jamais tirer en direction d'un chemin, ni sur une bête qui se découpe sur le ciel.
@@ -41,7 +41,7 @@ Une cartouche de calibre 20 glissée par erreur dans un fusil de calibre 12 desc
 
 Au Québec, la chauve-souris, le renard, le raton laveur et la mouffette portent la rage, et un chien ou un chat infecté la transmet aussi. Une bête peut transmettre le virus plusieurs jours avant d'avoir l'air malade. Une bête morte peut encore porter le virus : la chaleur, la sécheresse et le soleil le détruisent, mais il survit dans une carcasse gelée.
 
-**Comment on le reconnaît.** Chez la bête : une bête sauvage qui n'a plus peur et s'approche, qui bave, qui titube ou traîne une patte paralysée, qui attaque des objets ou d'autres bêtes, ou qui se promène en plein jour alors que son espèce sort la nuit. Le réflexe est de la croire apprivoisée : il faut plutôt la soupçonner d'avoir la rage. Le porc-épic n'a pas peur, même en santé : chez lui, on se fie seulement à la bave, au titubement et à l'agressivité.
+**Comment on le reconnaît.** Chez la bête : une bête sauvage qui n'a plus peur et s'approche, qui bave, qui titube, qui traîne une patte paralysée, qui s'en prend aux objets comme aux autres bêtes, ou qui se promène en plein jour alors que son espèce sort la nuit. Le réflexe est de la croire apprivoisée : il faut plutôt la soupçonner d'avoir la rage. Le porc-épic n'a pas peur, même en santé : chez lui, on se fie seulement à la bave, au titubement et à l'agressivité.
 
 Chez la personne : on peut ne pas sentir la morsure d'une chauve-souris, et elle peut ne laisser aucune marque. Si une chauve-souris a touché la peau de quelqu'un, même un instant, ou s'est prise dans ses cheveux, on fait comme s'il avait été mordu.
 
@@ -100,7 +100,7 @@ Dans la plaie, la bactérie fabrique une toxine qui empêche les muscles de se r
 
 **Ce qu'on fait.**
 
-- Avant la saison, pendant que la pharmacie est ouverte, noter pour chaque personne la date de sa dernière dose de vaccin. Pour une plaie souillée de terre, de poussière, de salive ou de selles, ou pour une piqûre, la dernière dose protège assez si elle date de moins de 5 ans ; pour une petite plaie propre, de moins de 10 ans. Un adulte qui a reçu ses doses d'enfant doit recevoir un rappel à 50 ans. Une personne qui n'a pas reçu ses trois doses de base, ou dont on ne connaît pas les doses, doit être vaccinée avant la saison.
+- Avant la saison, pendant que la pharmacie est ouverte, noter pour chaque personne la date de sa dernière dose de vaccin. Pour une piqûre, ou une plaie souillée de terre, de poussière, de salive ou de selles, la dernière dose protège assez si elle date de moins de 5 ans ; pour une petite plaie propre, de moins de 10 ans. Un adulte qui a reçu ses doses d'enfant doit recevoir un rappel à 50 ans. Une personne qui n'a pas reçu ses trois doses de base, ou dont on ne connaît pas les doses, doit être vaccinée avant la saison.
 - Après une piqûre, retirer le piquant ou l'écharde au complet, dans l'axe où il est entré, et laver la plaie à l'eau et au savon.
 - Surveiller la mâchoire et le cou pendant 3 semaines, et partir vers l'hôpital aux premiers signes.
 
@@ -267,7 +267,7 @@ Chez la personne : nausées, vomissements, crampes, diarrhée, et selon la plant
 **Comment on le reconnaît.** On ne peut pas le reconnaître chez la personne. On reconnaît plutôt les sources de plomb :
 
 - **La grenaille et la balle de plomb** se brisent en éclats trop petits pour qu'on les sente au doigt ou sous la dent. Dans un chevreuil, on en a trouvé en moyenne à 13 cm du trajet de la balle, et jusqu'à 46 cm.
-- **Le vieil équipement d'érablière** : soudé au plomb avant 1995, galvanisé d'avant 1994, ou fait de raccords de laiton ou de bronze.
+- **Le vieil équipement d'érablière** : soudé au plomb avant 1995 ou galvanisé d'avant 1994, et ses raccords de laiton et de bronze.
 - **La plomberie d'une vieille maison** : l'eau chaude et l'eau restée longtemps dans les tuyaux contiennent plus de plomb. Faire bouillir l'eau n'enlève pas le plomb, parce qu'il ne s'évapore pas.
 - **La soudure de récupération**, sur ce qui touche l'eau, la sève, la saumure ou le gras.
 
@@ -293,7 +293,7 @@ Chez la personne : nausées, vomissements, crampes, diarrhée, et selon la plant
 
 **Ce qu'on fait.**
 
-- Faire bouillir l'eau d'un lac, d'une rivière ou d'une source douteuse, ou la passer dans un filtre de 1 µm ou plus fin (l'oocyste de *Cryptosporidium* mesure de 4 à 6 µm) ; le chlore seul ne suffit pas.
+- Faire bouillir l'eau d'un lac, d'une rivière ou d'une source douteuse. Sinon, la passer dans un filtre de 1 µm ou plus fin (l'oocyste de *Cryptosporidium* mesure de 4 à 6 µm) ; le chlore seul ne suffit pas.
 - Se laver les mains au savon avant de cuisiner et de manger, et après la toilette, les couches, la bête et le jardin.
 - Une personne qui a eu la gastro doit attendre 48 heures sans signe avant de retoucher à la cuisine commune.
 - Ne mettre au jardin aucune crotte de chien, de chat ni d'humain. Enfouir le fumier cru au moins 120 jours avant la récolte de ce qui touche la terre, et 90 jours avant le reste.

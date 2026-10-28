@@ -186,6 +186,14 @@ REGLES = [
     ('homophone', re.compile(r"\b(?:faire|fait|faut|doit|doivent|peut|laisser|laisse|va|vont|finir de)\s+(?:le |la |les |l[’'])?"
                              r"cuir\b|\bété\s+cherché\s+(?:du|de la|des|un|une|le|la|les|l[’'])", re.I),
      "Homophone : « faire cuire » (le verbe), « aller chercher du bois » (l'infinitif après « été » ou « allé »)."),
+    # 9b. Deux « ou » coup sur coup, à deux niveaux (JP, 28 octobre 2026, page des dangers du tome 1 : « une serre, ou
+    #     sous un auvent ou une bâche » ; « Et où 2 fois de suite ») : on ne sait plus ce qui va avec quoi
+    ('ou-repete',
+     re.compile(r",\s+ou\b(?!\s+(?:moins|plus|non|pas)\b)[^.;:!?()]{1,40}?\bou\b(?!\s+(?:moins|plus|non|pas)\b)|"
+                r"\bou\b(?!\s+(?:moins|plus|non|pas)\b)[^.;:!?(),]{1,40}?,\s+ou\b(?!\s+(?:moins|plus|non|pas)\b)", re.I),
+     "Deux « ou » coup sur coup, l'un dans l'autre (« une serre, ou sous un auvent ou une bâche ») : le lecteur ne sait "
+     "plus ce qui va avec quoi. Une seule série par phrase : « et », « sinon », « on peut aussi », un point-virgule ou "
+     "un point (skill langue, section 10)."),
     # 10. Typographie du livre
     ('typo-apostrophe', re.compile(r"\w'\w"), "Apostrophe droite : l'apostrophe typographique ’ est la convention du livre "
      "(à juger : le Markdown du livre utilise l'une ou l'autre ; l'imprimé doit être cohérent)."),

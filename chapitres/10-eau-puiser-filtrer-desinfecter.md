@@ -21,10 +21,11 @@ jamais la désinfection.
 - **L'avis dit de ne pas consommer l'eau** (étape 43).
 - **L'eau ne coule plus au robinet** (étape 49).
 - **La maison est sur l'aqueduc et a été bâtie avant les années 1970** (étape 48).
-- **On boit l'eau d'un lac, d'un ruisseau, de la neige ou de la glace**, au chalet ou en forêt (étapes 1 à 26, 36
+- **On boit l'eau d'un lac, d'un ruisseau, de la neige ou de la glace**, au chalet comme en forêt (étapes 1 à 26, 36
  à 41).
-- **Le puits n'a jamais été analysé**, ou il vient d'y avoir une crue, une inondation, un dégel brusque ou des
- travaux d'excavation à côté, ou on vient de remplacer la pompe (étapes 27 à 35).
+- **Le puits n'a jamais été analysé** (étapes 27 à 35).
+- **Il vient d'y avoir une crue, une inondation, un dégel brusque, des travaux d'excavation près du puits ou un
+ changement de pompe** (étapes 27 à 35).
 - **On a rapporté de l'eau dans un contenant dont on ne sait pas ce qu'il a contenu**, même si l'eau était bonne
  (étapes 14 à 22).
 - **La pompe du puits ne marche plus**, et il faut puiser l'eau à la main (section 7, « Puiser un puits quand la pompe est

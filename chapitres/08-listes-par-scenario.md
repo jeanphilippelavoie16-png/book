@@ -271,7 +271,7 @@ cesse de frissonner sans avoir été réchauffé ne va pas mieux : il vient de p
 | Le congélateur ne fait plus de bruit et sa porte est tiède | Il est arrêté depuis un moment | Passer au scénario 8 tout de suite, sans ouvrir |
 | Un paquet de viande a coulé, et la glace s'est refaite au fond du sac | La viande a dégelé puis regelé, pendant un temps qu'on ne connaît pas | La jeter |
 | Le poisson fumé ou salé sent bon, a l'air normal et est resté au-dessus de 3 °C | Le botulisme de type E ne change ni l'odeur, ni le goût, ni l'apparence | Le jeter sans y goûter (scénario 8 ; ch. 77) |
-| La conserve bombe ou fuit, le couvercle claque[^2], ou la boîte est rouillée ou bosselée sur le serti (le rebord où le couvercle est fixé) | Du gaz s'est formé dans le contenant, ou la fermeture n'est peut-être plus étanche | Jeter le contenant fermé, sans l'ouvrir, hors de portée des animaux |
+| La conserve bombe ou fuit. Le couvercle claque[^2]. La boîte est rouillée ou bosselée sur le serti (le rebord où le couvercle est fixé) | Du gaz s'est formé dans le contenant, ou la fermeture n'est peut-être plus étanche | Jeter le contenant fermé, sans l'ouvrir, hors de portée des animaux |
 | Après quelques jours de viande maigre : des repas de plus en plus gros, une faim qui revient vite, une envie de gras, puis la diarrhée, en général au bout d'une semaine à dix jours. Sur une viande sans aucun gras, les signes peuvent commencer dès le deuxième jour | Trop de viande maigre, pas assez de gras : le mal de caribou | Ajouter du gras tout de suite (ch. 19, 72) |
 | Les enfants ne posent plus de questions et ne jouent plus | Ils ont peur, même s'ils ont l'air calmes | Rétablir la routine et les tâches (ch. 40) |
 | Le stock a tenu, mais personne n'a dormi | Les adultes ont pris sur leur sommeil pour faire tenir le stock | Organiser des tours de garde de 4 h |
@@ -356,7 +356,7 @@ On la monte en trois minutes, et elle éclaire comme une chandelle tant qu'il re
 - Prendre comme contenant une boîte de métal ou un pot de verre épais, qui ne casse pas à la chaleur.
 - {!mal-de-caribou} Comme combustible, prendre du gras qui a ranci, ou le surplus quand la réserve dépasse ce que la famille mangera.
  Tant que la famille manque de gras, garder l'huile de cuisson et la graisse de bête pour les repas (scénario 2).
-- Faire la mèche d'une lanière de guenille de coton roulée serré, ou d'un lacet ou d'une ficelle de coton, et la tenir au
+- Faire la mèche d'une lanière de guenille de coton roulée serré, d'un lacet ou d'une ficelle de coton, et la tenir au
  bord avec un bout de fil de métal plié en crochet. La laisser tremper dans le gras et dépasser à peine : plus elle
  dépasse, plus la flamme est grosse, et une mèche trop longue fume et charbonne.
 

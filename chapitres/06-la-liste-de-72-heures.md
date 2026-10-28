@@ -50,7 +50,7 @@ Monter d'avance une trousse qu'une personne sort de la maison en 2 minutes, avec
  | Nourriture non périssable | Pour au moins 3 jours (étape 13) |
  | Ouvre-boîte manuel | 1 |
  | Radio à piles, et piles de rechange | 1 (étape 20) |
- | Lampe frontale ou de poche avec des piles de rechange, ou lampe à manivelle | 1 par personne (étapes 17 à 19) |
+ | Lampe (frontale, de poche) avec des piles de rechange, ou lampe à manivelle | 1 par personne (étapes 17 à 19) |
  | Briquet ou allumettes, et chandelles | Dans deux contenants étanches (étape 21) |
  | Trousse de premiers soins : antiseptiques, analgésiques, pansements adhésifs, compresses de gaze stériles, ciseaux | 1 |
 
@@ -186,7 +186,7 @@ Monter d'avance une trousse qu'une personne sort de la maison en 2 minutes, avec
 | Bidon bombé ou fendu, couvercle soulevé | L'eau a gelé et a pris du volume | Vider le bidon, le remplir et le presser pour voir s'il fuit ; le remplacer s'il fuit |
 | Poudre blanche ou verte dans le compartiment des piles | Une pile alcaline a coulé, et ce qui en sort attaque l'appareil | Jeter les piles, nettoyer le compartiment et essayer l'appareil ; s'il ne s'allume pas, il est fini |
 | Noix, beurre d'arachide ou saindoux qui sentent la peinture ou la craie | Le gras a ranci | Les jeter : le goût ne revient pas, et ils ont perdu leur valeur nutritive |
-| Conserve bombée, qui coule ou qui siffle, ou pot dont le couvercle a perdu son vide | Botulisme possible (étape 16) | La jeter sans l'ouvrir et sans la goûter |
+| Conserve bombée, qui coule ou qui siffle. Pot dont le couvercle a perdu son vide | Botulisme possible (étape 16) | La jeter sans l'ouvrir et sans la goûter |
 | Sac de couchage gardé comprimé pendant des mois | Le garnissage a perdu son gonflant, et il isole moins | Le ranger dans un sac ample, pas dans son sac de compression |
 | Allumettes qui s'effritent ou ne s'allument pas | Elles ont pris l'humidité | Les remplacer, et refaire l'étanchéité du contenant |
 | Médicament décoloré ou fissuré, sirop qui s'est séparé | Il s'est abîmé, souvent en gelant et en dégelant | Le remplacer ; ne pas doubler la dose pour compenser |
@@ -240,7 +240,7 @@ Si on part, écrire le nom de chaque enfant et un numéro de téléphone à l'in
 
 **Doser la javel sans seringue.** Faire un compte-gouttes avec une paille : la tremper dans la javel, boucher le bout du haut avec le doigt, la sortir, puis soulever le doigt un peu pour laisser tomber une goutte à la fois. Compter combien de ces gouttes remplissent une cuillère à thé rase (5 mL), et diviser ce nombre par 25 : c'est le nombre de gouttes pour 1 L d'eau. Pour un grand volume, mesurer à la cuillère : la dose est de 0,2 mL de javel non parfumée à 5,25 % par litre, soit 4 mL pour un bidon de 20 L, un peu moins d'une cuillère à thé rase (5 mL). Quand on double la dose (étape 6), mettre 8 mL pour 20 L. Lire la concentration sur la bouteille : une javel plus forte ou plus faible change la dose. Une javel parfumée, épaissie ou qui contient du savon ne convient pas. L'attente et l'odeur de chlore : ch. 10, étapes 21 et 22.
 
-**Filtrer l'eau trouble avant de la désinfecter.** La passer dans un linge serré, un filtre à café ou un bas propre, ou dans un bas rempli de sable et de charbon de bois du poêle. Ça n'enlève aucun microbe ; ça enlève la boue, qui protège les microbes de la javel et l'use. Si l'eau reste trouble, la faire bouillir plutôt que d'y mettre de la javel (ch. 10, étape 19). Le linge, le filtre à café et le bas ne remplacent pas le filtre à 1 µm de l'étape 6.
+**Filtrer l'eau trouble avant de la désinfecter.** La passer dans un linge serré, un filtre à café, un bas propre, ou un bas rempli de sable et de charbon de bois du poêle. Ça n'enlève aucun microbe ; ça enlève la boue, qui protège les microbes de la javel et l'use. Si l'eau reste trouble, la faire bouillir plutôt que d'y mettre de la javel (ch. 10, étape 19). Le linge, le filtre à café et le bas ne remplacent pas le filtre à 1 µm de l'étape 6.
 
 ### Se garder au chaud sans chauffage
 

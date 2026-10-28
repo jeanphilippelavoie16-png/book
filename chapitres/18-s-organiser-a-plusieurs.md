@@ -142,7 +142,8 @@ est trop tard pour dire non.
  soigner les autres.
  - Répartir le contenu d'une marmite de 20 L dans plusieurs plats peu profonds, laissés découverts ou couverts sans
  serrer.
- - Les mettre au froid dès que la vapeur cesse, ou dans un bain d'eau froide ou de neige, pour que la nourriture
+ - Dès que la vapeur cesse, les mettre au froid, par exemple dans un bain d'eau froide ou de neige, pour que la
+ nourriture
  descende le plus vite possible à 4 °C ou moins.
  - Ne rien laisser plus de 2 heures hors du froid. Le matin, jeter la marmite oubliée sur le comptoir pendant la
  nuit, quelle que soit son odeur.

@@ -241,8 +241,8 @@ ou sans alarme.
 28. **Laisser le congélateur fermé** : plein, il tient 48 h ; à moitié plein, 24 h. Préparer des bidons d'eau gelée
  ou des sacs de neige tassée, et s'en servir pour combler les vides à la première ouverture.
 29. **Le premier matin, s'il gèle dehors jour et nuit, sortir la viande du congélateur.**
- - La mettre dans un garage non chauffé ou une remise, ou dans une glacière ou une boîte de bois posée à l'ombre, du
- côté nord du bâtiment.
+ - La mettre dans un garage non chauffé, une remise, une glacière ou une boîte de bois. Poser la glacière ou la boîte
+ à l'ombre, du côté nord du bâtiment.
  - Tasser de la neige autour et par-dessus : elle isole et garde gelé ce qui l'est.
  - Couvrir d'une bâche ou d'un contreplaqué chargé de bûches, et mettre un thermomètre ou le verre à la pièce de
  monnaie dans la boîte (section 7).
@@ -319,7 +319,7 @@ ou sans alarme.
 | Tache blanche sur la joue, le nez ou l'oreille, avec perte de sensation | Engelure débutante | Rentrer, réchauffer peu à peu sans frotter |
 | La fumée sort par la porte du poêle à l'allumage | La cheminée froide refoule | Allumer une torche de papier, ou entrouvrir une fenêtre du côté du vent (étape 7) |
 | Rugissement dans la cheminée, étincelles au chapeau, tuyau qui rougit | Feu de cheminée alimenté par la créosote | Fermer les entrées d'air, sortir tout le monde (ch. 82) |
-| Odeur d'essence dans la maison | Bidon ou génératrice trop près, ou essence renversée | Sortir le bidon et aérer ; n'allumer aucune flamme et ne toucher à aucun interrupteur |
+| Odeur d'essence dans la maison | Un bidon ou la génératrice est trop près. Quelqu'un a renversé de l'essence | Sortir le bidon et aérer ; n'allumer aucune flamme et ne toucher à aucun interrupteur |
 | La rue se rallume, la maison reste noire, le disjoncteur principal est enclenché | Entrée électrique endommagée : mât, col-de-cygne ou support d'isolateurs | Vidanger et décider du départ (étape 1) |
 | Plus d'eau à un robinet, ou un coup sourd dans un mur | Tuyau gelé, parfois déjà fendu | Le dégeler en partant du robinet (section 7) |
 | Odeur d'égout au sous-sol après la vidange | Siphon vidé : les gaz d'égout remontent | Reboucher le siphon avec un chiffon tassé et un sac, aérer, remettre de l'antigel dès que possible |
@@ -409,7 +409,7 @@ lâche, on sent l'odeur d'égout.
 **Dégeler un tuyau sans flamme.** Un tuyau fend pendant qu'il gèle (étape 21), et la fuite ne paraît qu'au dégel
 (planche 03-11).
 
-- Si on voit une fente ou un renflement, ou si le tuyau est dans un mur, fermer d'abord l'entrée d'eau.
+- Si le tuyau est fendu ou renflé, fermer d'abord l'entrée d'eau ; de même s'il passe dans un mur.
 - Ouvrir grand le robinet (repère 1), pour que l'eau de fonte sorte, et pour voir quand ça recoule.
 - Enrouler des guenilles autour du tuyau (repère 2), et verser de l'eau chaude dessus, à répétition (repère 3).
 - Commencer au robinet, et avancer d'une largeur de main à la fois vers le bouchon de glace (repères 4 et 5).

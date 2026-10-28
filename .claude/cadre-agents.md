@@ -155,6 +155,9 @@ au lieu de « qui sache ». « Faut pu jamais que ça arrive une faute de même.
   « ou / où », « -er / -é », chaque pronom (le bon genre, le bon nom).
 - [ ] Le français écrit correct, avec les mots du Québec quand ils sont justes (souper, poudrerie, babiche) ; ni joual
   ni anglicisme (« à date », « malgré que », « pallier à », « faire du sens »).
+- [ ] Pas deux « ou » l'un dans l'autre (JP, 28 octobre 2026 : « une serre, ou sous un auvent ou une bâche » ; « Et où
+  2 fois de suite ») : une seule série d'alternatives par phrase ; « et », « sinon », « on peut aussi », le
+  point-virgule ou un point (skill `langue`, section 10).
 - [ ] Le correcteur ne touche que la langue, et note chaque correction dans `suivi/NN-redaction.md`, section « Langue ».
 - [ ] Après le montage, la section « Langue » du rapport de l'assembleur est à 0 avis ; rien ne part chez Lulu avec
   un avis ouvert.

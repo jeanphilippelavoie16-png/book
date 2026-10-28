@@ -478,7 +478,7 @@ purificateur à filtre HEPA, mais beaucoup mieux que rien (planche 11-04).
  (repère 7), puis poser le ventilateur sur le cube, tourné pour souffler vers le haut (repère 8), dans un
  carton percé au diamètre des pales (repère 9). Vu de dessus, la flèche de chaque filtre pointe vers le centre
  (repère 10), et chaque filtre bute contre le suivant (repère 11). Le cube traite environ 37 m². Changer les
- filtres dès qu'ils sont bruns ou gris, ou qu'ils sentent la fumée.
+ filtres quand ils deviennent bruns ou gris, et dès qu'ils sentent la fumée.
 - {!incendie} **Le ventilateur chauffe.** Avec un filtre chargé de poussière, la température à l'intérieur
  du moteur a monté de près de 60 °C pendant des essais. Un ventilateur fabriqué depuis 2012 a une fiche
  à fusible et une coupure thermique. Ne pas faire tourner un ventilateur plus vieux la nuit, ni sans un

@@ -16,8 +16,8 @@ trois mois, et elle doit tenir au moins un mois, même l'année où personne n'a
 ## 2. Quand l'utiliser
 
 - **On monte la réserve du chalet, ou on la complète avec un petit budget** (étapes 1 à 4).
-- **On veut savoir combien de jours la réserve fait vivre la famille** : avant l'hiver, ou parce que la route est
- coupée par le verglas, une tempête ou un chemin emporté, ou qu'une panne régionale d'électricité s'étire (ch. 3 ;
+- **On veut savoir combien de jours la réserve fait vivre la famille** : avant l'hiver ; quand le verglas, une
+ tempête ou un chemin emporté coupe la route ; quand une panne régionale d'électricité s'étire (ch. 3 ;
  étapes 5 à 13).
 - **On choisit quoi acheter et où le ranger** : les denrées sèches, le gras, le sel, les conserves, le bois, le
  carburant, l'éclairage et ce qui n'est pas de la nourriture (étapes 14 à 46).
@@ -227,11 +227,12 @@ trois mois, et elle doit tenir au moins un mois, même l'année où personne n'a
 
 23. {!botulisme} **Manger les conserves maison dans l'année qui suit la mise en conserve.** On ne met en conserve un
  aliment peu acide (viande, poisson, gibier, légumes du jardin, champignons) qu'à l'autoclave (ch. 78). Ne pas mettre
- au stock d'huile à l'ail ou aux herbes fraîches faite maison. À chaque visite, chercher les boîtes bombées,
- rouillées, ou bosselées sur le serti ou sur la fermeture verticale, et les jeter sans les ouvrir ni les goûter ; les
+ au stock d'huile à l'ail ou aux herbes fraîches faite maison. À chaque visite, chercher les boîtes bombées, les boîtes
+ rouillées et celles qui sont bosselées sur le serti ou sur la fermeture verticale, et les jeter sans les ouvrir ni les goûter ; les
  autres signes sont au tableau de la section 6. Le botulisme ne change ni l'odeur, ni le goût, ni l'apparence de la
  conserve.
-24. {!botulisme} **Garder le poisson fumé ou salé gelé, ou sous 3 °C, jamais sur les tablettes du stock.** La
+24. {!botulisme} **Garder le poisson fumé et le poisson salé gelés ou sous 3 °C, jamais sur les tablettes du
+ stock.** La
  bactérie du botulisme du poisson (type E) fait sa toxine dès 3 °C, à la température d'un réfrigérateur. La façon de
  le garder est aux ch. 76 et 77.
 25. {!zone-de-danger} **Garder la viande de l'automne au congélateur de la maison, et compter les heures quand le
@@ -383,7 +384,7 @@ trois mois, et elle doit tenir au moins un mois, même l'année où personne n'a
 | Observation | Diagnostic | Action |
 | --- | --- | --- |
 | Boîte de conserve **bombée** | Du gaz s'est formé dedans : contamination possible | **Jeter sans ouvrir et sans goûter** |
-| Boîte **rouillée**, ou bosselée **sur le serti** ou sur la fermeture verticale | La boîte n'est plus étanche | Jeter |
+| Boîte **rouillée**, boîte bosselée **sur le serti** ou sur la fermeture verticale | La boîte n'est plus étanche | Jeter |
 | Boîte qui **gicle** quand on l'ouvre | Il y avait de la pression dedans : du gaz s'est formé | Jeter, sans goûter |
 | Boîte **sans étiquette**, ou conserve maison dont la date ne se lit plus | On ne connaît ni le contenu ni l'âge | Jeter |
 | Conserve maison dont le couvercle a repris du jeu[^2] | Le scellage a lâché | Jeter, sans goûter |
@@ -482,8 +483,8 @@ chaudière.
 L'hiver, garder la chaudière sèche, parce que de l'eau y gèlerait, et la vider tous les jours ou tous les deux jours.
 
 **Boucher les trous.** Une souris ronge ce qui est plus tendre que ses dents. Sans laine d'acier, aplatir au marteau un
-bout de boîte de conserve et le clouer sur le trou (repères 6 et 7), ou enfoncer du grillage roulé, ou boucher au
-ciment.
+bout de boîte de conserve et le clouer sur le trou (repères 6 et 7). On peut aussi enfoncer du grillage roulé ou
+boucher au ciment.
 
 ### Ouvrir une conserve sans ouvre-boîte
 

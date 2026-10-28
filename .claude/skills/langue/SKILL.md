@@ -136,6 +136,26 @@ dire « seulement » ; « ne… pas que » veut dire « pas seulement ».
   « 8 h 30 ».
 - **La ponctuation** : jamais de virgule entre le sujet et son verbe ; pas de tiret dans une phrase (skill ecriture).
 
+### 10. Deux « ou » l'un dans l'autre
+
+JP, 28 octobre 2026, sur la page du danger de la génératrice de l'épreuve du tome 1 : « une serre, ou sous un auvent ou
+une bâche » ; « Et où 2 fois de suite ». Quand une série d'alternatives finit sur « , ou » et que ce dernier membre
+porte son propre « ou », le lecteur ne sait plus ce qui va avec quoi.
+
+| Lourd | Clair |
+| --- | --- |
+| dans une remise, un vestibule, une serre, ou sous un auvent ou une bâche | dans une remise, un vestibule ou une serre, et sous un auvent ou une bâche |
+| un sous-sol, ou un gros bâtiment de béton ou de brique | un sous-sol ou un gros bâtiment de maçonnerie (béton, brique) |
+| les cheveux tombent, des taches apparaissent sous la peau ou dans la bouche, ou une diarrhée commence | un de ces signes apparaît : les cheveux tombent ; des taches se forment sous la peau ou dans la bouche ; une diarrhée commence |
+| le faire derrière une butte ou un rocher, ou monter un mur de bûches ou de pierres | le faire derrière une butte ou un rocher. Sans abri naturel, monter un mur de bûches ou de pierres |
+| Boîte rouillée, ou bosselée sur le serti ou sur la fermeture | Boîte rouillée, boîte bosselée sur le serti ou sur la fermeture |
+
+Les moyens : une seule série d'alternatives par phrase ; « et » quand les deux cas valent ; « sinon », « à défaut »
+ou « on peut aussi » pour une autre façon ; « ni… ni » pour une négation ; le point-virgule pour une liste de signes ;
+un point. Deux « ou » à des niveaux parallèles restent quand la phrase se lit d'un trait (« sec ou mouillé, au sol ou
+en l'air », « soude, meule ou chauffe du métal peint ou galvanisé »). Le script signale la forme « , ou… ou » (règle
+`ou-repete`).
+
 ## La méthode du correcteur
 
 1. **Passer le script** sur le chapitre et sur son logigramme :
@@ -174,7 +194,8 @@ dire « seulement » ; « ne… pas que » veut dire « pas seulement ».
 
 - [ ] Le script passé sur le chapitre et son logigramme, avec LanguageTool : 0 avis à juger.
 - [ ] Chaque avis jugé contre sa règle ; les faux avis consignés avec la date.
-- [ ] Le texte lu au complet : chaque « que » et « qui », chaque participe, chaque homophone, chaque pronom.
+- [ ] Le texte lu au complet : chaque « que » et « qui », chaque participe, chaque homophone, chaque pronom, chaque
+      « ou » répété.
 - [ ] Les légendes, les notes « En plus », les cases du logigramme et les titres relus aussi.
 - [ ] Les corrections notées dans `suivi/NN-redaction.md`, section « Langue ».
 - [ ] Rien d'autre que la langue n'a changé.

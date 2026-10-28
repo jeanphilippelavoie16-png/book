@@ -230,16 +230,16 @@ dormir, et faire le reste de la série au réveil.
 
 | Observation | Diagnostic | Action |
 | --- | --- | --- |
-| Deux personnes ou plus ont mal à la tête, la nausée ou des étourdissements dans la même pièce, ou un jeune enfant devient fatigué ou de mauvais caractère, et ça passe dehors | Monoxyde de carbone | Sortir tout le monde, sans chercher la source à l'intérieur, et laisser les portes ouvertes (ch. 2) |
+| Deux personnes ou plus ont mal à la tête, la nausée ou des étourdissements dans la même pièce. Un jeune enfant devient fatigué ou de mauvais caractère. Dans les deux cas, ça passe dehors | Monoxyde de carbone | Sortir tout le monde, sans chercher la source à l'intérieur, et laisser les portes ouvertes (ch. 2) |
 | Une seule personne a mal à la tête et se sent mieux dehors, mais l'avertisseur de CO ne sonne pas | L'avertisseur ne sonne pas pour une petite quantité de CO (étape 2) | Faire comme si c'était du CO : sortir, aérer, éteindre ce qui brûle, sans attendre que l'avertisseur sonne |
 | Un enfant cesse de se plaindre du froid et devient tranquille | L'hypothermie avance | Le mettre au sec, en couches, contre un adulte. Prendre sa température dans la bouche. Sous 32,2 °C, la vie est en jeu (ch. 26, ch. 39) |
 | Quelqu'un frissonnait et ne frissonne plus | Hypothermie grave : les frissons s'arrêtent sous **28 °C** dans la bouche | La vie est en jeu. Le manipuler doucement, couché à plat, au sec (ch. 25) |
 | Un sac de petits fruits ou de crème glacée a repris en un bloc dur, avec des cristaux gros comme du gros sel | Le contenu a dégelé puis regelé : le congélateur est passé au-dessus de 0 °C | Trier tout le reste au thermomètre (étape 20), sans se fier à l'œil |
-| Un emballage de viande est bombé ou suinte, ou du jus a coulé au fond de l'appareil | Le jus a passé des heures au-dessus de 4 °C et a coulé sur ce qui est en dessous | Jeter ce qui a reçu le jus, laver et désinfecter l'appareil avant de le remplir |
+| Du jus a coulé au fond de l'appareil, d'un emballage de viande bombé ou qui suinte | Le jus a passé des heures au-dessus de 4 °C et a coulé sur ce qui est en dessous | Jeter ce qui a reçu le jus, laver et désinfecter l'appareil avant de le remplir |
 | Un poisson fumé ou sous vide a l'air correct après une panne | Le botulisme ne se voit pas (étape 22) | Le jeter |
 | Personne n'a uriné depuis le matin, ou l'urine est foncée | La famille boit moins qu'il ne faut | Faire boire tout le monde sans attendre la soif : elle arrive en retard sur le besoin (ch. 21) |
 | La pile de bois de la maison a baissé de moitié en une nuit | On brûle le bois deux fois plus vite que prévu | Réduire le volume chauffé avant d'en rentrer plus (étape 26) |
-| La pression au robinet baisse, ou l'eau sort trouble ou colorée | L'aqueduc a un problème | Remplir les contenants tout de suite (étape 4), puis faire bouillir l'eau au moins 1 minute (étape 17) |
+| La pression au robinet baisse. L'eau sort trouble ou colorée | L'aqueduc a un problème | Remplir les contenants tout de suite (étape 4), puis faire bouillir l'eau au moins 1 minute (étape 17) |
 | Un enfant a bu un verre avec des glaçons faits avec l'eau suspecte | Il a bu l'eau suspecte | Vider la machine à glace (étape 18), et surveiller s'il a de la diarrhée ou des vomissements (ch. 30, ch. 26) |
 | Personne ne sait à quelle heure le courant a manqué | L'étape 1 a été sautée | Compter les heures à partir du dernier moment où on sait que le courant marchait |
 | On mange de la viande maigre et rien d'autre depuis plusieurs jours, on mange de plus en plus sans être rassasié, et on a envie de gras | Début du mal de caribou | Ajouter du gras à chaque repas, tout de suite (étape 28 ; ch. 19, ch. 72) |

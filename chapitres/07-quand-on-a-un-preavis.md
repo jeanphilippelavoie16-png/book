@@ -18,7 +18,7 @@ la génératrice, et décider tout de suite si on monte au chalet.
 
 - **Un avertissement météo est émis pour le secteur** : tempête hivernale, pluie verglaçante, vents violents, blizzard
  (étapes 1 à 38).
-- **Une veille ou un avis météo est en vigueur, ou un bulletin météorologique spécial vient de sortir** (étape 1).
+- **Une veille, un avis météo ou un bulletin météorologique spécial vient de sortir** (étape 1).
 - **Hydro-Québec annonce une interruption de service planifiée**, ou une panne s'étend vers le secteur (étapes 1 à
  38).
 - **Un feu de forêt est déclaré dans le secteur** (étapes 1 à 5 ; ch. 11).
@@ -215,7 +215,7 @@ la génératrice, et décider tout de suite si on monte au chalet.
 33. **Mettre les animaux à l'abri** avec de la nourriture et de l'eau pour trois jours, en comptant leur eau en plus de
  celle de la famille.
 34. **L'hiver, protéger la plomberie contre le gel.**
- - Les conduites qui longent un mur extérieur, ou qui passent dans le vide sanitaire ou dans le garage non
+ - Les conduites qui longent un mur extérieur, qui passent dans le vide sanitaire ou dans le garage non
  chauffé, gèlent les premières, bien avant la pièce. Une maison sans chauffage perd ses premiers degrés en
  quelques heures, puis refroidit beaucoup plus lentement, parce que le béton, le gypse, les meubles et la terre
  autour du sous-sol rendent leur chaleur : par un froid modéré, elle met des jours à passer sous zéro ; par
@@ -307,7 +307,7 @@ la génératrice, et décider tout de suite si on monte au chalet.
 | Emballage sans givre, centre de l'aliment mou | Décongélation complète | Resté à 4 °C ou moins : le cuire tout de suite, ou le recongeler une fois cuit. Au-dessus de 4 °C : le jeter |
 | Cristaux de glace encore visibles, centre dur | Décongélation partielle | On peut le recongeler tel quel |
 | Lait, crème, fromage à pâte molle, œufs, pâtes cuites, salades avec viande, volaille ou poisson, desserts à la crème, mayonnaise maison, qui ont dépassé 4 °C | Aliments du réfrigérateur à jeter sans les examiner | Les jeter. Dans le doute, jeter |
-| L'avertisseur de CO sonne, ou plusieurs personnes ont mal à la tête, la nausée ou des étourdissements en même temps | Du monoxyde entre dans la maison : une génératrice ou une auto trop près d'une ouverture, ou un appareil qui brûle à l'intérieur | Sortir tout le monde à l'air libre, puis arrêter la source si on peut l'atteindre sans rester à l'intérieur. Éloigner la génératrice ou l'auto à 6 m du bâtiment, l'échappement tourné à l'opposé des portes et des fenêtres (étape 18) |
+| L'avertisseur de CO sonne, ou plusieurs personnes ont mal à la tête, la nausée ou des étourdissements en même temps | Du monoxyde entre dans la maison : une génératrice ou une auto trop près d'une ouverture, sinon un appareil qui brûle à l'intérieur | Sortir tout le monde à l'air libre, puis arrêter la source si on peut l'atteindre sans rester à l'intérieur. Éloigner la génératrice ou l'auto à 6 m du bâtiment, l'échappement tourné à l'opposé des portes et des fenêtres (étape 18) |
 | Le robinet ne donne plus rien | Station de pompage sans courant, ou conduite gelée | Passer à la réserve. Dégeler la conduite à l'eau chaude, jamais à la flamme (ch. 3) |
 | Le filet du robinet faiblit d'heure en heure | La pression du réseau s'épuise ; il reste des minutes | Remplir tout de suite ce qui est encore vide, eau de service comprise. Faire bouillir ou javelliser cette eau avant de la boire (étape 8) |
 | Eau trouble, colorée ou avec une odeur nouvelle au retour du service | Le réseau a perdu sa pression pendant la panne : une conduite sans pression aspire l'eau du sol par ses fuites et ses joints | Faire bouillir ou javelliser l'eau comme à l'étape 8 pendant tout le retour du service, même quand elle est redevenue claire |
@@ -507,8 +507,8 @@ premiers et fendent.
  tous les autres, et les laisser ouverts.
 - Tirer la chasse des toilettes pour vider les réservoirs.
 - Vider chaque siphon d'évier et de lavabo (étape 40). S'il a un bouchon de nettoyage au bas du coude, mettre une
- chaudière dessous et dévisser le bouchon ; sinon, aspirer l'eau à la poire à jus ou à l'aspirateur à eau, ou
- dévisser l'écrou du siphon au-dessus d'une chaudière. Bourrer ensuite le renvoi d'un chiffon : sans son eau, le
+ chaudière dessous et dévisser le bouchon ; sinon, aspirer l'eau à la poire à jus ou à l'aspirateur à eau. On
+ peut aussi dévisser l'écrou du siphon au-dessus d'une chaudière. Bourrer ensuite le renvoi d'un chiffon : sans son eau, le
  siphon ne bloque plus les gaz d'égout.
 - La cuvette de la toilette ne se vide pas. À la maison, sur l'égout de la ville, y verser un peu de lave-glace au
  méthanol : il abaisse le point de congélation. Au chalet, le méthanol tue les bactéries de la fosse septique :
