@@ -229,8 +229,8 @@ lequel des deux il vaut.
   l'imprime pas. Le deux-points sert seulement à annoncer une liste, un exemple, une autre façon, une question ou la
   fonction d'une ligne de Matériel : « **Thermomètre à sonde** : vérifie que la viande atteint 74 °C à cœur. »
 - **Jamais au pronominal quand quelqu'un fait le geste** : « on doit le cuire tout de suite ou le jeter », pas « il se
-  cuit ou se jette ». « Se » reste quand la chose le fait toute seule (« le puisard se remplit ») ou quand il dit ce
-  qu'est la chose (« ce gaz ne se voit pas »).
+  cuit ou se jette ». « Se » reste quand la chose le fait toute seule (« le puisard se remplit »), quand il dit ce
+  qu'est la chose (« ce gaz ne se voit pas ») et quand la personne le fait sur elle-même (« se coucher par terre »).
 - **Les mots** : jamais « village » (la maison est en ville) ; « auto », jamais « char ».
 - **Un signe nommé, on l'explique en note de bas de page** (`[^1]`) : un signe, un symptôme ou un repère que le
   lecteur ne sait pas reconnaître et que le livre n'a pas décrit avant. La note dit à quoi il ressemble, et comment on

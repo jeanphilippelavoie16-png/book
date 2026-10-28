@@ -106,7 +106,7 @@ de `references/mots.md`.
 
 **Ses questions.**
 
-1. Où est-ce qu'on manque de souffle en lisant ? Est-ce qu'une liste ou une parenthèse passe avant le verbe ? (P1, P4)
+1. Où est-ce qu'on manque de souffle en lisant ? Est-ce qu'une longue liste ou une parenthèse passe avant le verbe ? Une courte liste de noms peut être le sujet, comme dans le paragraphe du monoxyde. (P1, P4)
 2. À chaque deux-points et à chaque frontière de phrase, quel est le rapport entre les deux faits, et est-ce qu'un mot
    le dit ? S'il n'y a pas de rapport, il manque un fait, ou la phrase ne devrait pas exister. (P5, P6)
 3. Est-ce que le paragraphe suit ce qui arrive à la personne, ou est-ce qu'il faut revenir en arrière ? Une page de
@@ -118,8 +118,8 @@ de `references/mots.md`.
    chose qui pense, une chute ou une opposition qui n'ajoute rien. Et est-ce qu'on entend un mot de travers ? On entend
    « le poêle en fait plus » comme « en fait », et dans « le plus de la première va au moins de la deuxième », on
    entend « au moins » comme « au minimum ». (P8, P10, P12)
-7. Est-ce qu'on entend le fait qui surprend comme une surprise, avec son « mais » ? (P13)
-8. Est-ce qu'un pronom peut désigner deux choses ? Est-ce qu'un objet change de nom en route ? (P4, P11)
+7. Est-ce qu'on entend le fait qui surprend comme une surprise, avec son « mais », ou avec « ça ne sert à rien…, parce que » comme dans le paragraphe du monoxyde ? (P13)
+8. Est-ce qu'un pronom peut désigner deux choses ? Est-ce qu'un objet change de nom en route ? Reprendre par « ce gaz » ou redire « le monoxyde » est permis. (P4, P11)
 9. Aux chapitres du chalet et du territoire (tomes 3 à 5), est-ce que c'est le mot qu'on dit au camp et dans le bois ?
    C'est le regard du trappeur, sans son joual. (P10)
 
