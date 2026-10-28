@@ -1,6 +1,6 @@
 ## {!co} Monoxyde de carbone
 
-**Ce qui arrive.** Le poêle, le barbecue, le réchaud, le fanal et les moteurs font du monoxyde de carbone, et le poêle en fait plus quand on ferme presque l'entrée d'air pour la nuit. Le gaz ne se voit pas et ne se sent pas. Il prend la place de l'oxygène dans le sang : on s'endort sans s'en rendre compte, au lieu de sortir. Il se répand dans toute la pièce, jusqu'au plancher : se coucher par terre ne protège pas.
+**Ce qui arrive.** Le poêle, le barbecue, le réchaud, le fanal et les moteurs font du monoxyde de carbone. Le poêle en dégage plus la nuit, quand on ferme l'entrée d'air presque au complet. Ce gaz ne se voit pas et n'a pas d'odeur. Il prend la place de l'oxygène dans le sang, alors on a envie de dormir. On ne se doute de rien, et on s'endort avant d'avoir pensé à sortir. Ça ne sert à rien de se coucher par terre comme dans la fumée, parce que le monoxyde remplit toute la pièce, jusqu'au plancher.
 
 **Comment on le reconnaît.** Le mal de tête, la fatigue et la nausée font penser à une grippe. Un jeune enfant s'intoxique plus vite qu'un adulte, et il a seulement l'air fatigué ou de mauvaise humeur. Quand deux personnes ont mal à la tête en même temps dans la même pièce, ou quand le mal de tête passe dehors et revient en rentrant, on fait comme si c'était du monoxyde. S'il y en a peu dans l'air, l'avertisseur peut prendre des heures, même des semaines, avant de sonner, et il n'est pas fiable sous 4,4 °C. Le bouton d'essai vérifie la pile et la sirène, pas la cellule qui détecte le gaz.
 

@@ -462,6 +462,18 @@ du skill `ecriture` le dit : le mot qu'un Québécois emploierait à voix haute,
 dangers ont été relues à voix haute (34 tournures changées, aucun fait ni chiffre touché), et `controle.py` relève
 maintenant les mots de livre qu'il connaît.
 
+## Le paragraphe du monoxyde, modèle de la voix (28 octobre 2026)
+
+JP, sur la version du paragraphe « Ce qui arrive » de la page du monoxyde que les neuf lecteurs de l'audit d'écriture
+ont faite ensemble (plan/audit-ecriture/lecteurs/synthese.md, section 4) : « j'adore celui-là, comment il est écrit.
+Sauf la dernière phrase qui a une tournure de phrase bizarre » (« Le monoxyde remplit toute la pièce jusqu'au
+plancher : même couché par terre, comme on le ferait dans la fumée, on le respire » : un deux-points, et une
+comparaison glissée au milieu). La dernière phrase est devenue « Ça ne sert à rien de se coucher par terre comme dans
+la fumée, parce que le monoxyde remplit toute la pièce, jusqu'au plancher. » C'est le premier paragraphe que JP donne
+comme modèle de la façon d'écrire : des phrases de longueurs différentes, un fait par phrase, le lien dit avec le mot
+qu'on dit (« alors », « et », « parce que »), un seul moule par paragraphe au plus, le nom répété (« ce gaz », « le
+monoxyde ») plutôt que « il » loin de son nom, et la fin sur ce qui compte. Le nouveau skill d'écriture part de lui.
+
 ## Le dossier
 
 ```

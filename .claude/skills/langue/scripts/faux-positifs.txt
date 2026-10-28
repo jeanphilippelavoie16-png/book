@@ -56,3 +56,4 @@ PAS_DE_VERBE_APRES_POSSESSIF_DEMONSTRATIF	un joint de porte qui laisse
 PREP_VERBECONJUGUE	Après viennent la parole
 TACHE	prend une tache blanche
 VIRG_NON_TROUVEE	combien de temps elle est restée au chaud
+AGREEMENT_POSTPONED_ADJ	ou de la neige dessus fait la même chose
