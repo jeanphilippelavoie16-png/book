@@ -13,9 +13,10 @@ sur quatre suit le même moule : un fait, un deux-points, puis sa conséquence. 
 revient dans 3 % des phrases. À voix haute, on lit le deux-points comme un point, alors chaque phrase tombe à plat et
 le lecteur doit deviner le lien. Le livre dit aussi « mais » six fois moins souvent que le français de tous les jours.
 
-On a fait lire un échantillon du livre (six pages des dangers et des passages des ch. 1, 3, 26, 68 et 107) à neuf
-agents, chacun dans la peau d'un personnage : une prof, une paramédic, un trappeur, un ado… Ils disent presque tous la
-même chose. Ils font confiance au livre (7,1 sur 10), mais ils ont du mal à le lire (3,9 sur 10 pour le tempo).
+On a fait lire à neuf agents un échantillon du livre : six pages des dangers et des passages des ch. 1, 3, 26, 68 et
+107. Chaque agent jouait un personnage (une prof, une paramédic, un trappeur, un ado…). Ces lecteurs simulés disent
+presque tous la même chose. Ils font confiance au livre (7,1 sur 10), mais ils ont du mal à le lire (3,9 sur 10 pour
+le tempo).
 
 Le défaut vient de nos règles. Une vingtaine disent quoi couper, et une seule protège les liens. « Une phrase, une
 information » sépare les faits, l'exemple de la règle 2 les recolle avec un deux-points, et la liste qui remplace le
@@ -56,8 +57,8 @@ section 9, sans série orange.
 > **Après.** « Il faut tenir le porte-électrode seulement par le cuir des poignées, jamais par le métal. »
 
 **Cause.** Notre règle 3 met la condition avant le geste, mais rien ne dit où va l'exception, ni comment découper une
-étape longue. Seule la série orange doit suivre l'ordre des gestes ; les autres étapes, non. Et personne ne relit le
-chapitre comme quelqu'un qui ne sait rien.
+étape longue. Nos règles demandent l'ordre des gestes pour la série orange, et rien ne le demande pour les autres
+étapes. Et personne ne relit le chapitre comme quelqu'un qui ne sait rien.
 
 ### 2. Le lien caché
 
@@ -72,7 +73,7 @@ dangers, 53 des 96 paragraphes de trois phrases et plus n'ont aucun mot de liais
 > **Avant.** « Remplir le bidon posé au sol, le bec appuyé contre le métal du bidon : l'essence qu'on verse se charge
 > d'électricité statique. » (page Vapeurs qui prennent feu)
 >
-> **Après.** « Poser le bidon par terre pour le remplir, et tenir le bec d'où sort l'essence contre le métal du bidon,
+> **Après.** « Poser le bidon par terre pour le remplir, et tenir le bec qui verse l'essence contre le métal du bidon,
 > parce que l'essence qui coule se charge d'électricité statique. »
 
 > **Avant.** « Un jeune enfant s'intoxique plus vite qu'un adulte, et il a seulement l'air fatigué ou de mauvaise
@@ -113,11 +114,11 @@ aucune règle ne dit que la phrase finit sur ce qui compte.
 
 ### 4. La phrase-entrepôt
 
-La phrase entasse une liste, une incise ou une parenthèse avant son verbe, ou le verbe attend son complément pendant
-des dizaines de mots. À voix haute, on perd le fil avant d'arriver à ce qu'il faut faire.
+La phrase entasse une liste, une incise ou une parenthèse avant son verbe. Parfois aussi, le complément arrive des
+dizaines de mots après le verbe. À voix haute, on perd le fil avant d'arriver à ce qu'il faut faire.
 
-**Ampleur.** Aux ch. 68, 70 et 78, 54 phrases font 40 mots et plus ; aux ch. 83, 95 et 107, il y en a 62 sur 902. Au
-ch. 95, l. 11, le verbe « convertit » attend son complément pendant 45 mots. Dans les pages des dangers du tome 1, huit
+**Ampleur.** On compte 54 phrases de 40 mots et plus aux ch. 68, 70 et 78, et 62 sur 902 aux ch. 83, 95 et 107. Au
+ch. 95, l. 11, le complément du verbe « convertit » arrive 45 mots plus loin. Dans les pages des dangers du tome 1, huit
 paragraphes « Ce qui arrive » dépassent 80 mots et portent deux dangers ou trois chiffres.
 
 **Cause.** Aucune règle ne demande de dire le sujet et le verbe avant la liste ou la parenthèse, ni de donner un seul
@@ -130,14 +131,14 @@ ou un adjectif en tête de phrase, au lieu du « si » qu'on dirait. On ne sait 
 
 **Ampleur.** Dans les ch. 1 et 3 et les pages des dangers, on trouve au moins 19 noms d'action, dont 14 au ch. 3, et
 21 participes ou adjectifs détachés en tête. Il y a environ 14 de ces participes aux ch. 68, 70 et 78. Au ch. 25,
-13 titres d'étape sur 34 ne disent aucun geste. Les modèles de langue font ces deux formes plus souvent que les
+il y a 13 titres d'étape sur 34 qui ne disent aucun geste. Les modèles de langue font ces deux formes plus souvent que les
 humains, les participes 2 à 5 fois plus et les noms d'action 1,5 à 2 fois plus (Reinhart, 2025).
 
 > **Avant.** « Fermé, le réfrigérateur garde les aliments froids 4 à 6 heures » (ch. 1)
 >
 > **Après.** « Si on n'ouvre pas le réfrigérateur, il garde les aliments froids 4 à 6 heures »
 
-**Cause.** « Écrire dense » pousse vers les noms, et les modèles de langue le font déjà d'eux-mêmes. Aucun outil ne
+**Cause.** « Écrire dense » pousse vers les noms, et les modèles de langue le font d'eux-mêmes. Aucun outil ne
 repère le participe en tête.
 
 ### 6. La voix d'un ministère
@@ -147,8 +148,8 @@ Une formule de fiche officielle passe telle quelle dans le livre. Le fait est ju
 
 **Ampleur.** On compte environ 18 formules dans les ch. 1 et 3 et les pages des dangers. « Aucun signe de
 détérioration » revient aussi aux ch. 70, 73 à 77 et 80. Dans les chapitres pas encore refaits, la fiche est recopiée
-telle quelle, entre guillemets et au « vous » : 51 citations aux ch. 48, 52 et 57, 53 aux ch. 68, 70 et 78, et
-97 phrases aux ch. 83, 95 et 107. S'y ajoutent les phrases qui parlent de la recherche (« publié », « non sourcée »)
+telle quelle, entre guillemets et au « vous ». On compte 51 citations aux ch. 48, 52 et 57, puis 53 aux ch. 68, 70 et
+78. Aux ch. 83, 95 et 107, il y a 97 phrases recopiées. S'y ajoutent les phrases qui parlent de la recherche (« publié », « non sourcée »)
 ou qui annoncent leur propre franchise (« dit honnêtement »).
 
 > **Avant.** « **À garder**, s'il n'y a aucun signe de détérioration : les fromages fermes, le beurre… » (ch. 3)
@@ -173,7 +174,7 @@ n'est pas X, c'est Y », la chose qui « ment » ou qui « tranche ». C'est le 
 Dans les ch. 83, 95 et 107, on trouve 11 « ce n'est pas X, c'est Y » et 8 « X ne fait pas Y : il fait Z ». Ces six
 chapitres sont à l'ancien gabarit, et la grande passe ne les a pas encore refaits. En cherchant la formule, on a même
 inventé un chiffre. Le ch. 52 dit qu'un ours dont on n'a gardé que les steaks est « gaspillé aux trois quarts », une
-fraction que rien n'appuie, alors que le même chapitre dit ailleurs que le gras est la moitié de la valeur de la bête.
+fraction que rien n'appuie. Ailleurs, le même chapitre dit que le gras est la moitié de la valeur de la bête.
 
 > **Avant.** « C'est pour ça que le VFI se porte, pas se transporte. Un gilet rangé sous le banc est un objet
 > décoratif. » (ch. 57)
@@ -224,26 +225,30 @@ au bout de la première phrase. Deux phrases sur quatre sont des « fait : cons�
 et les quatre commencent par « Le » ou « Il ». On entend « au lieu de sortir » comme un choix, et le paragraphe finit
 sur « ne protège pas » au lieu de finir sur ce qui tue.
 
-Réécrit avec les mêmes faits, sans rien ajouter :
+Les neuf lecteurs en ont fait une version ensemble, et JP l'a adorée (« j'adore celui-là, comment il est écrit »),
+sauf la dernière phrase, qu'il trouvait bizarre (un deux-points, et la fumée glissée au milieu). Avec la fin refaite,
+elle est dans la page depuis le 28 octobre :
 
-> Le monoxyde de carbone vient du poêle, du barbecue, du réchaud, du fanal et des moteurs. Le poêle en dégage plus la
-> nuit, quand on ferme l'entrée d'air presque complètement. On ne voit pas le monoxyde et on ne le sent pas. Il prend
-> la place de l'oxygène dans le sang, alors on s'endort sans s'en rendre compte, avant même de penser à sortir. On le
-> respire même couché par terre, parce qu'il se répand dans toute la pièce, jusqu'au plancher.
+> Le poêle, le barbecue, le réchaud, le fanal et les moteurs font du monoxyde de carbone. Le poêle en dégage plus la
+> nuit, quand on ferme l'entrée d'air presque au complet. Ce gaz ne se voit pas et n'a pas d'odeur. Il prend la place
+> de l'oxygène dans le sang, alors on a envie de dormir. On ne se doute de rien, et on s'endort avant d'avoir pensé à
+> sortir. Ça ne sert à rien de se coucher par terre comme dans la fumée, parce que le monoxyde remplit toute la pièce,
+> jusqu'au plancher.
 
-La phrase sur le poêle la nuit est maintenant à part. « Dégage » évite d'entendre « en fait », et la troisième phrase
-nomme le monoxyde au lieu de dire « le gaz ». Le lien entre le sang et le sommeil est dit par « alors ». La dernière
-phrase dit d'abord ce qui surprend, qu'on le respire même couché par terre, puis pourquoi. Selon `tempo.py`, on passe
-de deux deux-points à aucun, et de 0 à 24,7 mots de liaison pour 1000 mots. Les longueurs restent pourtant trop
-égales (variation de 0,21, contre 0,38 pour l'épreuve), et c'est à l'oreille d'un auditeur d'en juger.
+Pourquoi elle marche. Les phrases ont des longueurs différentes (de 10 à 24 mots), et chacune porte un seul fait. Le
+poêle de la nuit a sa phrase à lui. Les liens se disent avec les mots qu'on dit : « alors », « et », « parce que ».
+« Ce gaz » et « le monoxyde » reprennent le nom, au lieu d'un « il » loin de son nom. « On a envie de dormir » dit ce
+qu'on sent, et « avant d'avoir pensé à sortir » remplace « au lieu de sortir », qu'on entendait comme un choix. La
+fin nomme le réflexe de la fumée, puis dit pourquoi il ne sert à rien. Selon `tempo.py` : aucun deux-points, 21,3 mots
+de liaison pour 1000 mots (0 dans l'épreuve), une variation de 0,27.
 
-Deux questions pour JP. Cinq lecteurs voudraient nommer le réflexe de la fumée (« même couché par terre, comme on le
-ferait dans la fumée, on le respire »). La page du bâtiment qui brûle le dit déjà (« sortir en restant bas »,
-`dangers/partie-1.md`, l. 78), donc ce ne serait pas un fait neuf pour le livre. La fin deviendrait alors : « Dans un
-feu, on sort en restant bas. Contre le monoxyde, ça ne sert à rien, parce qu'il se répand dans toute la pièce, jusqu'au
-plancher. » La phrase courte vient d'elle-même, parce qu'elle nomme le réflexe, et la variation monte à 0,30. Et en
-condensant la page le 28 octobre, on a coupé une phrase vérifiée à la source, « On ne suffoque pas et on ne tousse
-pas ». Elle disait pourquoi on ne sort pas.
+Une leçon pour le skill. Deux principes de nos bases rejetaient cette version : le pronominal « ne se voit pas » et
+« on a envie de dormir », qui venait de la table de la règle 15. Ce sont les principes qui se trompaient. « Ce gaz ne se
+voit pas » dit ce qu'est le gaz, pas un geste que quelqu'un fait, et « on a envie de dormir » est exactement le mot
+qu'on dit. Un principe qui rejette une phrase que JP aime se corrige ; ce paragraphe sert de diapason au nouveau skill.
+
+Il reste une question (la 9) : en condensant la page le 28 octobre, on a coupé une phrase vérifiée à la source, « On ne
+suffoque pas et on ne tousse pas ». Elle disait pourquoi on ne sort pas. « On ne se doute de rien » en dit une partie.
 
 ## Ce que dit la littérature
 
@@ -254,16 +259,16 @@ pas ». Elle disait pourquoi on ne sort pas.
   Richaudeau).
 - **Le deux-points sert surtout à annoncer.** L'Office québécois de la langue française (Banque de dépannage
   linguistique) dit qu'il peut remplacer « donc » ou « parce que », et que son emploi est « plus percutant ». De temps
-  en temps, c'est correct, mais dans une phrase sur trois, le lecteur doit deviner le lien chaque fois. À voix haute,
-  les lecteurs de Chafe (1987) l'ont lu comme un point 95 % du temps, sur deux exemples seulement, et la mesure du
-  livre va dans le même sens.
+  en temps, c'est correct, mais dans une phrase sur trois, il faut deviner le lien chaque fois. À voix haute, les
+  lecteurs de Chafe (1987) l'ont lu comme un point 95 % du temps, sur deux exemples seulement, et la mesure du livre va
+  dans le même sens.
 - **Les longueurs varient avec ce qu'on dit.** Albalat écrit que « C'est le mélange seul qui produit la variété ». Le
   guide de la BBC met en garde contre les phrases toutes pareilles : « You are telling a story, not making a
   proclamation. » Et les modèles de langue font plus souvent que les humains des phrases de 10 à 30 unités
   (Muñoz-Ortiz, 2024, sur des articles de presse). Le tome 1 a 67,8 % de phrases de 10 à 30 mots.
 - **On juge à voix haute, le paragraphe entier.** Pour Flaubert, la prose « doit, comme eux [les vers], pouvoir être lue
-  tout haut ». Prises une à une, les phrases du monoxyde sont correctes, mais lu d'un trait, le paragraphe n'a pas de
-  tempo.
+  tout haut ». Les phrases du monoxyde sont correctes une à une, mais quand on lit le paragraphe d'un trait, il n'a pas
+  de tempo.
 - **On n'écrit pas une étape comme une explication.** Les normes des manuels techniques (ASD-STE100) séparent les deux.
   L'étape porte un geste ; l'explication porte un raisonnement, avec ses mots de liaison.
 - **Écrire comme on parle, à condition de bien parler** (Albalat). C'est le registre courant de Radio-Canada, où « Les
@@ -356,8 +361,8 @@ grande passe.
    joual ?
 8. Aux ch. 68 et 107, les neuf lecteurs entendent un autre auteur. Est-ce qu'on les ramène au ton du livre, ou est-ce
    qu'on en garde des passages ?
-9. Pour le monoxyde, est-ce qu'on nomme le réflexe de la fumée, et est-ce qu'on remet « On ne suffoque pas et on ne
-   tousse pas » ?
+9. Pour le monoxyde, la fumée est nommée dans la version que JP a adorée. Est-ce qu'on remet « On ne suffoque pas et
+   on ne tousse pas », ou est-ce que « On ne se doute de rien » suffit ?
 10. Avant la grande passe, est-ce que JP lit la page du monoxyde et deux autres paragraphes refaits avec le nouveau
     skill ?
 11. Le gabarit exige un nom latin, et le cadre, plus récent, l'interdit ; 91 chapitres des tomes 2 à 6 en ont un.
