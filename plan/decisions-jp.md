@@ -474,6 +474,30 @@ comme modèle de la façon d'écrire : des phrases de longueurs différentes, un
 qu'on dit (« alors », « et », « parce que »), un seul moule par paragraphe au plus, le nom répété (« ce gaz », « le
 monoxyde ») plutôt que « il » loin de son nom, et la fin sur ce qui compte. Le nouveau skill d'écriture part de lui.
 
+## Les bases de l'écriture, après l'audit (28 octobre 2026)
+
+JP a lu le rapport de l'audit d'écriture (`plan/audit-ecriture/rapport.md` : 42 agents, cinq lectures de
+littérature, trente lectures du texte, trois audits des règles, neuf lecteurs simulés) et ses onze questions, avec la
+réponse recommandée pour chacune. Sa réponse : « ok pour tout, réécrit le skill ». Ce qui est décidé :
+
+1. **Les auditeurs.** La ligne « sans tour de relecture d'agents de plus » sort pour le texte et reste pour les
+   planches. Les auditeurs (A0 les scripts, A1 l'oreille, A2 le lecteur naïf, A3 les consignes) passent après le
+   vérificateur technique et avant l'éditeur, qui réécrit une seule fois avec toutes leurs remarques.
+2. **Une correction de JP entre à une seule place** : ses mots dans ce fichier, et la règle dans le fichier qu'elle
+   touche, une seule fois. Les autres fichiers la citent par son numéro, sans la recopier.
+3. **Le cadre se donne en morceaux** : à chaque agent, la partie commune et celle de son rôle. Le lecteur naïf (A2)
+   part sans les règles, pour rester naïf.
+4. **« Écrire dense » devient « Écrire utile »** : aucune phrase vide, mais les mots de liaison restent.
+5. **Une page de danger dit d'abord d'où vient le danger**, comme le paragraphe du monoxyde que JP a adoré.
+6. **La série orange garde sa règle** (tout y est, sans limite de longueur), mais dans chaque étape le geste vient en
+   premier et le pourquoi après, et ce qui ne sert pas au geste sort de l'orange.
+7. **La langue parlée** : « ça », « c'est pour ça que », « on a envie de dormir », oui ; « pis », « pu », « y'a », non.
+8. **Les ch. 68 et 107** reviennent au ton du livre, en gardant les images qui viennent de la main (« Amorcer comme
+   une allumette »).
+9. **Le paragraphe du monoxyde** reste tel que JP l'a adoré, sans remettre « On ne suffoque pas et on ne tousse pas ».
+10. **Avant la grande passe**, JP lit deux ou trois paragraphes refaits avec le nouveau skill.
+11. **Les noms latins sortent partout.**
+
 ## Le dossier
 
 ```
