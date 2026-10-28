@@ -31,6 +31,11 @@ mains. Chaque phrase doit lui donner un fait, un geste, une mesure ou un signe �
   aller » : « wtf ». Et : « c'est pas juste les logigrammes, **c'est la façon de dire les choses**. »
   Voir la règle 0, qui passe avant toutes les autres.
 
+- Sur l'épreuve du tome 1 (28 octobre 2026), la page du danger de la génératrice : « On est tenté de mettre la
+  génératrice au garage, dans la remise ou sous l'auvent, porte ouverte, toujours dans les mêmes moments : la panne
+  d'hiver, la nuit, la tempête, le soir de l'arrivée au chalet, quand on veut la protéger de la neige ou des voleurs,
+  ou garder le congélateur en marche » : « la tournure de phrase est fucking weird ». Voir la règle 12.
+
 Ses pages annotées sont dans `livre/relecture/notes/` (à régénérer, voir
 `design/outils/relecture/LISEZMOI.md`). Le jaune et le rouge, c'est ce qu'il ne veut plus voir.
 
@@ -97,6 +102,19 @@ dans le garage.
       laissent »), qui se lit comme un constat.
     Avec le possessif et le mot de tous les jours : « Les gens qui étaient à l'extérieur doivent laisser
     leurs vêtements du dessus et leurs chaussures à la porte. »
+12. **Une phrase dit qui fait quoi, quand et pourquoi, dans cet ordre-là, sans détour.** JP, sur « On est tenté de
+    mettre la génératrice au garage, […] toujours dans les mêmes moments : la panne d'hiver, la nuit, la tempête, le
+    soir de l'arrivée au chalet, quand on veut la protéger de la neige ou des voleurs, ou garder le congélateur en
+    marche » : « fucking weird ». Trois fautes :
+    - **Pas de détour par la tentation ou le sentiment** (« on est tenté de », « on a envie de ») : on dit ce que les
+      gens font.
+    - **Une liste après deux-points ne mélange pas deux sortes de choses.** Ici, des moments (la nuit, la tempête) et
+      des raisons (la protéger, garder le congélateur) dans la même série ; chaque membre doit se lire avec le début
+      de la phrase, et « ou garder le congélateur » ne se rattache à rien sans relire.
+    - **Pas de formule vague** (« toujours dans les mêmes moments ») : on nomme les moments.
+    Réécrite : « Pendant une panne d'hiver, la nuit, dans une tempête ou le soir de l'arrivée au chalet, les gens
+    rentrent souvent la génératrice au garage, dans la remise ou sous l'auvent, en laissant la porte ouverte : ils
+    veulent la protéger de la neige et des voleurs, ou garder le congélateur en marche. »
 
 ## Ce qui sort
 

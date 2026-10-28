@@ -26,7 +26,7 @@ On ne peut détecter le gaz qu'avec un avertisseur de monoxyde. L'avertisseur me
 
 Dehors, la génératrice doit être à au moins 6 m (20 pi) de tout bâtiment, l'échappement tourné à l'opposé des portes et des fenêtres. Les gaz entrent par les portes, les fenêtres et les prises d'air : on ferme celles du côté de la génératrice et celles vers lesquelles le vent pousse l'échappement.
 
-On est tenté de mettre la génératrice au garage, dans la remise ou sous l'auvent, porte ouverte, toujours dans les mêmes moments : la panne d'hiver, la nuit, la tempête, le soir de l'arrivée au chalet, quand on veut la protéger de la neige et des voleurs, ou garder le congélateur en marche. Démarrer la scie ou la souffleuse dans le garage à −30 °C, « juste le temps qu'elle chauffe », est aussi dangereux.
+Pendant une panne d'hiver, la nuit, dans une tempête ou le soir de l'arrivée au chalet, les gens rentrent souvent la génératrice au garage, dans la remise ou sous l'auvent, en laissant la porte ouverte : ils veulent la protéger de la neige et des voleurs, ou garder le congélateur en marche. Il est aussi dangereux de démarrer la scie ou la souffleuse dans le garage par −30 °C, le temps qu'elle se réchauffe.
 
 **Comment on le reconnaît.** Tout le monde dans le bâtiment a les signes du monoxyde en même temps, ou l'avertisseur sonne.
 

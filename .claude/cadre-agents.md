@@ -104,6 +104,10 @@ La phrase
   reste quand la chose le fait toute seule.
 - [ ] La consigne se dit comme une consigne, pas au présent qui décrit ; le sujet se nomme (« les gens qui »,
   jamais « ceux qui » en tête) ; l'ordre est naturel.
+- [ ] Qui fait quoi, quand et pourquoi, sans détour (JP, 28 octobre 2026, sur « On est tenté de mettre la génératrice
+  au garage, […] toujours dans les mêmes moments : la panne d'hiver, la nuit, […] quand on veut la protéger […], ou
+  garder le congélateur en marche » : « fucking weird ») : pas de « on est tenté de », pas de formule vague, et une
+  liste après deux-points ne mélange pas deux sortes de choses (skill `ecriture`, règle 12).
 - [ ] On nomme la chose au lieu du possessif qui oblige à chercher (« le robinet de vidange du chauffe-eau »).
 - [ ] Les mots de tous les jours : pas de mot de métier sans besoin (« carter »), pas de « seuil », pas de
   « un change », pas de nom latin, pas de notation que le lecteur n'emploie pas (« 84 mois (7 ans) »).
