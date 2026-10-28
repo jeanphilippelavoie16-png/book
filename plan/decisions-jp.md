@@ -634,6 +634,20 @@ demander s'il devait exister, jusqu'à ce que JP dise le 28 qu'il ne voulait rie
 qu'une correction de JP entre maintenant à une seule place (décision 2). Ses mots vont dans ce fichier, et on corrige
 le principe qu'elle touche dans son propre fichier, avec le paragraphe entier comme exemple.
 
+## Le tri : un lecteur qui demande si on doit tout dire (28 octobre 2026)
+
+JP, sur les trois passages refaits avec le nouveau skill (`plan/audit-ecriture/banc-essai/pour-jp.md`) : « C'est pas
+mal mieux, mais y'a encore beaucoup d'info. Je veux un autre lecteur qui challenge si on doit vraiment tout dire.
+L'affaire du poteau, isolateur etc. bofffff. Mais le bout de la salaison de la viande est super. C'est pas toujours
+nécessaire. »
+
+Le passage de l'entrée électrique (ch. 3, étape 1) nommait et décrivait les trois pièces (le mât, le col-de-cygne, le
+support d'isolateurs) : le lecteur n'a besoin d'aucun de ces noms pour savoir que le bris est dehors et le voir de la
+rue. Le passage de la salaison (ch. 68, étape 1) dit le geste, la condition, quoi faire sinon, et le pourquoi en une
+demi-phrase, et rien d'autre. Ce qui est décidé : un auditeur de plus, **A4, le tri**, lit en même temps que A1, A2 et
+A3 et demande, pour chaque détail, si le lecteur en a besoin pour faire le geste ou pour ne pas se mettre en danger. Il
+signale, et l'éditeur reste le seul à couper. La règle vit dans le skill `ecriture`, P2.
+
 ## Le dossier
 
 ```
