@@ -853,15 +853,18 @@ DANGERS_CSS = """
 .dg-intro{margin:0 0 8pt;text-indent:0;font:500 9pt/12pt var(--sans)}
 .dg-intro svg.picto{height:1.4em;width:1.4em;vertical-align:-.4em}
 .dg-e{flex:1 1 0;min-height:0;display:flex;flex-direction:column}
-.dg-h{flex:none;display:flex;align-items:center;gap:14pt;margin:8pt 0 10pt;padding:0 0 10pt;border-bottom:3pt solid #9B2C1E}
-.dg-h svg.picto-g{flex:none;width:0.95in;height:0.95in}
-.dg-h h2{margin:0;font:700 22pt/1.05 var(--sans);text-transform:uppercase;letter-spacing:.02em}
+.dg-h{flex:none;display:flex;align-items:center;gap:12pt;margin:6pt 0 8pt;padding:0 0 7pt;border-bottom:2.5pt solid #9B2C1E}
+.dg-e + .dg-e .dg-h{margin-top:14pt}
+.dg-h svg.picto-g{flex:none;width:0.72in;height:0.72in}
+.dg-h h2{margin:0;font:700 18pt/1.05 var(--sans);text-transform:uppercase;letter-spacing:.02em}
 .dg-h h2 small{display:block;margin-top:5pt;font:600 8.5pt/1.2 var(--sans);letter-spacing:.08em;color:#555}
 .dg-b{flex:1 1 0;min-height:0;columns:2;column-gap:0.24in;column-fill:auto;column-rule:0.5pt solid #BBB;overflow:hidden;font-size:var(--fs,9.4pt)}
 .dg-b p{margin:0 0 4pt;text-indent:0;font-family:var(--serif);font-size:1em;line-height:1.36;text-align:justify}
 .dg-b p.li{padding-left:11pt}
 .dg-b p.step{padding-left:17pt}
 .dg-b table.tcol{font-size:.92em}
+.dg-e{position:relative}
+.dg-coupe{position:absolute;right:0;bottom:0;background:#C00;color:#fff;font:700 9pt/1 var(--sans);padding:3pt 5pt}
 .dg-ref{white-space:nowrap;font-family:var(--sans);font-weight:600;font-size:.92em;letter-spacing:.01em}
 .dg-ref svg.picto{height:1.3em;width:1.3em;vertical-align:-.32em;margin:0 2pt 0 1pt}
 .dg-ref.dg-pg{color:#9B2C1E}
@@ -869,25 +872,32 @@ DANGERS_CSS = """
 
 DANGERS_JS = r"""<script>
 (function(){
-  // une page par danger, jamais plus (JP, 18 octobre 2026 : « les dangers, chacun sa propre page, pas plus qu'une
-  // page ») : le texte se resserre jusqu'à tenir sur sa page ; s'il ne tient pas à 8 pt, la page le signale
+  // deux dangers par page (JP, 28 octobre 2026 : « on passe trop de temps à tourner autour du pot, sérieux on pourrait
+  // mettre minimum 2 dangers par page ») ; chaque danger a la moitié de la page, et son texte se resserre jusqu'à y
+  // tenir ; s'il ne tient pas à 8 pt, la page le signale
   const src = document.getElementById('dg-src'); if(!src) return;
   const debut = +src.dataset.debut, tete = src.dataset.tete;
   const book = document.getElementById('book');
   const ents = Array.from(src.querySelectorAll('.dg-e'));
   const go = () => {
     src.remove();
-    ents.forEach((en, k) => {
+    for(let k = 0; k * 2 < ents.length; k++){
       const no = debut + k;
       const s = document.createElement('section');
       s.className = 'page ' + ((debut ? no : k + 1) % 2 ? 'recto' : 'verso') + ' ax dgp'; s.id = 'a-dg-' + k;
       s.innerHTML = '<div class="block">' + tete + (k === 0 ? src.dataset.h1 : '') + '</div>' + (debut ? '<div class="fcont">' + no + '</div>' : '');
-      s.querySelector('.block').appendChild(en); book.appendChild(s);
-      const b = en.querySelector('.dg-b');
-      const deborde = () => b.scrollWidth > b.clientWidth + 1 || b.scrollHeight > b.clientHeight + 1;
-      for(const fs of [9.4, 9.1, 8.8, 8.5, 8.2, 8.0]){ b.style.setProperty('--fs', fs + 'pt'); if(!deborde()) break; }
-      if(deborde()) s.dataset.deborde = '1';
-    });
+      const bloc = s.querySelector('.block');
+      const paire = ents.slice(2 * k, 2 * k + 2);
+      paire.forEach(en => bloc.appendChild(en));
+      book.appendChild(s);
+      paire.forEach(en => {
+        const b = en.querySelector('.dg-b');
+        const deborde = () => b.scrollWidth > b.clientWidth + 1 || b.scrollHeight > b.clientHeight + 1;
+        for(const fs of [9.4, 9.1, 8.8, 8.5, 8.2, 8.0]){ b.style.setProperty('--fs', fs + 'pt'); if(!deborde()) break; }
+        if(deborde()){ s.dataset.deborde = '1'; const m = document.createElement('div'); m.className = 'dg-coupe';
+          m.textContent = 'TEXTE COUPÉ : ' + en.dataset.id; en.appendChild(m); }
+      });
+    }
     document.documentElement.dataset.ready = '1';
   };
   document.fonts.ready.then(() => Promise.all(['700 22pt "IBM Plex Sans Condensed"', '400 9.4pt "IBM Plex Serif"'].map(f => document.fonts.load(f)))).then(go);
@@ -926,7 +936,7 @@ def dangers_du_tome(tome, chap_ids):
     return vus
 
 def dangers_html(tome, chap_ids, debut, work, nom="dangers"):
-    """Écrit le HTML des pages des dangers du tome, une page par danger ; debut = folio de la première (0 : passe de
+    """Écrit le HTML des pages des dangers du tome, deux dangers par page ; debut = folio de la première (0 : passe de
     comptage). Rend (chemin, [ids dans l'ordre des pages])."""
     titre_t = bc.TOMES[tome][0]
     vus = dangers_du_tome(tome, chap_ids)
@@ -935,9 +945,9 @@ def dangers_html(tome, chap_ids, debut, work, nom="dangers"):
     ents, ids = [], [pid for pid in ent if pid in vus]
     def renvoi(m):
         av, pid, ap = m.group(1) or "", m.group(2), m.group(3) or ""
-        # une page par danger, dans l'ordre de ids ; à la passe de comptage (debut = 0), la place d'un folio. La
+        # deux dangers par page, dans l'ordre de ids ; à la passe de comptage (debut = 0), la place d'un folio. La
         # parenthèse reste collée au pictogramme ; la ligne peut se couper entre le nom et la page.
-        pg = (f'p.\u00a0{debut + ids.index(pid)}' if debut else 'p.\u00a000') if pid in ids else ''
+        pg = (f'p.\u00a0{debut + ids.index(pid) // 2}' if debut else 'p.\u00a000') if pid in ids else ''
         nom = e(bc.NOMS_COURTS.get(pid) or bc.nom_danger(pid))
         if pg:
             return (f'<span class="dg-ref">{av}{mb.picto_svg(pid, "picto")}{nom},</span> '
@@ -1210,8 +1220,8 @@ def main():
     dg_n = 0
     dg_html, dg_ids = dangers_html(tome, chap_ids, 0, work, "dangers-compte")
     if dg_html:
-        dg_n = len(dg_ids)   # une page par danger
-        log(f"pages des dangers : {dg_n} dangers, une page chacun")
+        dg_n = (len(dg_ids) + 1) // 2   # deux dangers par page
+        log(f"pages des dangers : {len(dg_ids)} dangers, deux par page, {dg_n} pages")
 
     # 2. plan du tome : titre (recto), blanche, sommaire, puis les chapitres (chacun au recto), puis les
     #    blanches de fin. Tome 1 : le chapitre 00 d'abord, en page 1, avant la page de titre (il se trouve
@@ -1291,7 +1301,7 @@ def main():
 
     # 4. rendu PDF des chapitres (numéro de page continu et côté passés dans l'URL ; la page de chaque danger, que le
     #    chapitre écrit sous le pictogramme)
-    dg_q = ",".join(f"{pid}.{plan['dangers'] + k}" for k, pid in enumerate(dg_ids)) if dg_n else ""
+    dg_q = ",".join(f"{pid}.{plan['dangers'] + k // 2}" for k, pid in enumerate(dg_ids)) if dg_n else ""
     jobs = []
     for c in chaps:
         off, par = c["debut"] - 1, (0 if c["debut"] % 2 else 1)
@@ -1329,6 +1339,10 @@ def main():
     lecteurs = {c["num"]: pypdf.PdfReader(c["pdf"]) for c in chaps}
     ann_r = pypdf.PdfReader(ann_pdf)
     dg_r = pypdf.PdfReader(dg_pdf) if dg_n else None
+    if dg_r:
+        for i, pg_ in enumerate(dg_r.pages):
+            for m in re.findall(r"TEXTE COUPÉ : ([a-z-]+)", pg_.extract_text() or ""):
+                avert.append(f"page des dangers {i + 1} : le texte du danger {m} ne tient pas dans sa demi-page, même à 8 pt")
     if dg_r and len(dg_r.pages) != dg_n:
         avert.append(f"pages des dangers : {len(dg_r.pages)} pages imprimées pour {dg_n} comptées")
     if len(ann_r.pages) != len(ann_ids):

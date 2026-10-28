@@ -92,8 +92,7 @@ tôt, même si elle protège moins que les autres.
 | Chaque heure, l'hiver | Température de la pièce chauffée, et l'écart avec l'heure d'avant | Repère : **18 à 24 °C**, risque minimal pour une personne qui bouge peu | Multiplier l'écart par les heures qui restent jusqu'au matin (étape 2). Regrouper la famille pendant qu'il fait clair, et décider du départ avec le ch. 2 |
 | Chaque heure, si quelqu'un a été dehors ou a froid | Température dans la bouche | **35 °C ou plus**. Sous 35 °C, hypothermie | Le réchauffer doucement, au sec, à l'abri. Sous **32,2 °C**, la vie est en jeu (ch. 25, ch. 26) |
 | Chaque jour | L'eau en réserve | **4 L par personne et par jour, dont 2 L à boire** | Remplir pendant que l'aqueduc donne (ch. 3, étape 4). Au chalet : puiser, ou faire fondre la neige (ch. 10) |
-| Heure 6 | Le réfrigérateur | Trié | Trier à la sonde (ch. 3, étape 27) |
-| Heures 24 et 48 | Le congélateur à moitié rempli, puis plein | Trié | Trier à la sonde (ch. 3, étape 30) |
+| Heures 6, 24 et 48 | Le réfrigérateur, puis le congélateur à moitié rempli, puis le congélateur plein | Trié à la sonde | Ch. 3, étapes 27 et 30 |
 | Chaque jour | Le combustible brûlé en 24 heures, multiplié par 7 | Moins que la réserve | Réduire le volume chauffé (ch. 3, étape 8) |
 | Heure 48 | La décision de rester ou de partir | Reprise avec les quatre horloges | Étape 7 ; ch. 2 |
 
