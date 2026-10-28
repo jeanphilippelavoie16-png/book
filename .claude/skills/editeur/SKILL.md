@@ -47,13 +47,15 @@ seulement à montrer à JP ce qu'il ne faut pas faire ; elle ne s'imprime pas.
 | « Même affaire pour les signes d'échec » | Des tableaux qui redisent les pages des dangers et les étapes | **5 à 8 lignes au plus.** Seulement les signes qu'on ne verrait pas venir, ou qu'on lirait de travers, avec l'action. Ce que la page du danger dit déjà se renvoie (« page du danger ») |
 | « Les pages danger, on passe trop de temps à tourner autour du pot ; minimum 2 dangers par page, condensés à ce qu'on doit vraiment savoir » | 400 à 700 mots par danger, des exemples en série, des redites | **150 à 230 mots par danger**, deux par page. Ce qui arrive (le mécanisme, en deux ou trois phrases), comment on le reconnaît, ce qu'on fait (trois à cinq gestes). Le paragraphe « Où il revient » sort : la liste des chapitres est en tête de la page |
 | « La tournure de phrase est fucking weird » ; « c'est pas humain » | Le détour par la tentation, la liste qui mélange deux sortes de choses, le verbe qui sonne faux | Qui fait quoi, quand et pourquoi ; le mot que les gens emploient (skill `ecriture`, règles 12 et 13) |
+| « Non mais je veux dire un paragraphe de même ça veut rien dire » (sur la version réécrite du paragraphe « On est tenté… ») | Le paragraphe avait été poli au lieu d'être coupé : il ne disait rien qu'on doive faire | **Avant de polir, demander si le passage doit exister.** S'il n'apprend rien sur ce qu'on fait, il sort. Polir un paragraphe inutile, c'est garder du gras bien écrit |
 | « Et où 2 fois de suite » | Deux « ou » l'un dans l'autre | Une seule série d'alternatives par phrase (skill `langue`, section 10) |
 | « On sait même pas c'est quoi les 4 horloges ; faut l'expliquer » | Une notion du livre employée avant d'être expliquée | La notion se dit en clair à sa première apparition (skill `ecriture`, règle 14) |
 | « Les chapitres doivent parler de ce qu'ils parlent, pas des autres » | Un chapitre qui refait le travail d'un autre | Ce qui appartient à un autre chapitre y va ; ici, un renvoi court (CLAUDE.md, « Le gabarit ») |
 
 ### La passe d'éditeur sur un chapitre
 
-1. **`/diagnostiquer` d'abord**, sans rien réécrire : relever, section par section, ce qui tourne autour du pot, ce qui
+1. **`/diagnostiquer` d'abord**, sans rien réécrire. Pour chaque paragraphe, la première question : doit-il exister ?
+   Sans lui, le lecteur sait-il moins quoi faire ? Sinon, il sort, sans être poli. Ensuite : relever, section par section, ce qui tourne autour du pot, ce qui
    se répète (dans le chapitre, avec un autre chapitre ou avec les pages des dangers), les tableaux trop longs, les
    phrases qui ne se disent pas à voix haute, les adverbes en « -ment » qui n'apprennent rien, les passifs.
 2. **`/polir` ensuite**, en gardant les mots du texte quand ils sont justes : couper, regrouper, remettre l'ordre

@@ -117,9 +117,11 @@ dans le garage.
       des raisons (la protéger, garder le congélateur) dans la même série ; chaque membre doit se lire avec le début
       de la phrase, et « ou garder le congélateur » ne se rattache à rien sans relire.
     - **Pas de formule vague** (« toujours dans les mêmes moments ») : on nomme les moments.
-    Réécrite : « Pendant une panne d'hiver, la nuit, dans une tempête ou le soir de l'arrivée au chalet, les gens
-    rentrent souvent la génératrice au garage, dans la remise ou sous l'auvent, en laissant la porte ouverte : ils
-    veulent la protéger de la neige et des voleurs, ou garder le congélateur en marche. »
+        **La réécriture ne suffisait pas.** JP, sur la version refaite : « Non mais je veux dire un paragraphe de même ça
+    veut rien dire lol ». Le paragraphe ne disait rien qu'on doive faire : le danger (la génératrice sous un toit,
+    la porte de garage ouverte qui ne suffit pas) était dit juste avant. **Avant de réécrire une phrase que JP
+    signale, se demander si elle doit exister** (le test : sans elle, le lecteur sait-il moins quoi faire ?). Si
+    non, on la coupe ; on ne la polit pas.
 13. **Un titre de situation se dit comme un humain l'écrirait sur une fiche.** JP, sur la section 2 du ch. 1, « Le
     courant manque et on ne sait pas quand il reviendra » : « c'est pas humain » ; lui écrirait « Coupure de courant
     sans avoir de temps de retour ». Dans « Quand l'utiliser », dans les titres et les intertitres :

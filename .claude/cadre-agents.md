@@ -110,6 +110,9 @@ La phrase
 - [ ] Pages des dangers : deux dangers par page au moins, 150 à 230 mots chacun (JP, 28 octobre 2026 : « on passe trop
   de temps à tourner autour du pot ») : ce qui arrive, comment on le reconnaît, ce qu'on fait. Plus de paragraphe
   « Où il revient » : la liste des chapitres est en tête.
+- [ ] Un passage signalé par JP, ou repéré comme lourd, se juge d'abord : doit-il exister ? S'il n'apprend rien sur ce
+  qu'on fait, il sort ; on ne le polit pas (JP, 28 octobre 2026, sur la réécriture du paragraphe « On est tenté… » :
+  « un paragraphe de même ça veut rien dire »).
 - [ ] La passe d'éditeur suit le skill `editeur` (le texte de JP du 28 octobre 2026) : /diagnostiquer, puis /polir ;
   aucun fait ni chiffre neuf ; la liste de ce qui est coupé, pour le vérificateur.
 - [ ] Le chapitre parle de son sujet, pas de celui des autres (JP, 28 octobre 2026, sur le témoin de dégel au ch. 1 :
