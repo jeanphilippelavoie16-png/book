@@ -18,8 +18,12 @@ Une phrase. Pas deux.
 ## 2. Quand l'utiliser
 
 **Seulement quand l'utiliser** : une courte liste des situations où on ouvre ce chapitre, sans
-sous-titre. Une ligne par situation, dite comme on la voit (« Un feu est déclaré dans le secteur »,
-« De la cendre tombe sur la galerie »), sans justification.
+sous-titre. Une ligne par situation, en titre court, comme on l'écrirait à la main sur une fiche
+(« Panne de courant sans heure de retour », « Feu en vue », « Cendre ou aiguilles roussies sur la
+galerie »), sans justification. JP, 28 octobre 2026, sur « Le courant manque et on ne sait pas quand il
+reviendra » : « la façon que t'écris c'est pas humain ». Le verbe qui sonne faux (« le courant manque »,
+« la génératrice lâche ») et la phrase qui tourne autour (« on ne sait pas quand il reviendra ») sortent ;
+une courte phrase reste quand elle se dit comme ça (« Il faut partir vite », « Il manque le judas »).
 
 **Pas de liste « quand ne pas l'utiliser »** (JP, 15 octobre 2026, sur « C'est la mauvaise procédure quand :
 le feu est dans le bâtiment, dans un chaudron » au chapitre du feu de forêt : « no shit qu'une procédure de

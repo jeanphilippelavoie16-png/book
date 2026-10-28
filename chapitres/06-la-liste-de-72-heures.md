@@ -14,12 +14,12 @@ Monter d'avance une trousse qu'une personne sort de la maison en 2 minutes, avec
 
 ## 2. Quand l'utiliser
 
-- **On monte la trousse, ou on la vérifie** au changement d'heure (étapes 1 à 31 ; section 5).
+- **Trousse à monter, ou à vérifier** au changement d'heure (étapes 1 à 31 ; section 5).
 - **Il faut partir vite** : un feu de forêt approche de la ville, un ordre d'évacuation est donné, ou une blessure oblige à prendre la route (étapes 1 et 2 ; décider de partir : ch. 2).
-- **Le chauffage lâche l'hiver**, et la famille se replie dans une seule pièce (étapes 8 à 12 ; section 7, « Se garder au chaud sans chauffage »).
-- **La route 138 ferme des deux côtés de la ville**, et plus rien n'entre (étapes 5 à 7 et 13 à 16).
-- **On monte au chalet**, ou on y est quand ça arrive (étape 4).
-- **On reste pris en auto l'hiver**, sur la route ou sur le chemin du chalet (étapes 29 à 31).
+- **Chauffage en panne l'hiver**, avec la famille repliée dans une seule pièce (étapes 8 à 12 ; section 7, « Se garder au chaud sans chauffage »).
+- **Route 138 fermée des deux côtés de la ville** : plus rien n'entre (étapes 5 à 7 et 13 à 16).
+- **Au chalet, ou en route vers le chalet** (étape 4).
+- **Pris en auto l'hiver**, sur la route ou sur le chemin du chalet (étapes 29 à 31).
 - **Rien n'est prêt**, et il faut une trousse ce soir (section 7).
 
 ---

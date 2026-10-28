@@ -15,19 +15,18 @@ règles du groupe de chasse, et sortir un blessé du bois à plusieurs : en tra�
 
 ## 2. Quand l'utiliser
 
-- **Quelqu'un est blessé dans le bois**, au bûchage, à la chasse ou sur le sentier, loin du camp (étapes 1 à 14).
-- **Une panne ou une tempête de quelques jours se passe à la maison** : le voisinage, c'est la rue, où on va
+- **Un blessé dans le bois**, au bûchage, à la chasse ou sur le sentier, loin du camp (étapes 1 à 14).
+- **Panne ou tempête de quelques jours à la maison** : le voisinage, c'est la rue, où on va
  à pied (étapes 15 et 26 ; section 7, la tournée).
-- **L'événement dure plus de trois jours** : on compte alors sur le rang et le groupe de chasse (étape 15).
-- **Un orignal est à terre**, et la bête dépasse ce qu'un seul foyer peut garder au froid (étapes 35 à 47).
-- **Un travail demande plus de bras qu'un foyer n'en a** : sortir une bête de l'eau, lever un moteur, remonter une
+- **Événement de plus de trois jours** : on compte alors sur le rang et le groupe de chasse (étape 15).
+- **Orignal à terre, plus gros que ce qu'un seul foyer peut garder au froid** (étapes 35 à 47).
+- **Un travail qui demande plus de bras qu'un foyer n'en a** : sortir une bête de l'eau, lever un moteur, remonter une
  toiture, dégager un chemin après un verglas, tenir une garde de nuit plusieurs jours (étapes 17 et 34).
-- **Une machine manque, et un voisin en a une qui marche** (étape 17 ; ch. 106, ch. 108).
-- **Les adultes d'un foyer sont pris du matin au soir**, et il faut que quelqu'un d'un autre foyer garde les
- enfants quelques heures (étape 34 ; ch. 39, ch. 40).
-- **On prête une génératrice à un voisin, ou un arbre est tombé près des fils chez lui** (étapes 31 et 32).
-- **L'automne, avant les neiges** : on fait la tournée des foyers et l'essai radio (étapes 15 à 25).
-- **On n'a ni radio ni électricité pour se parler d'un foyer à l'autre** (section 7).
+- **Une machine qui manque, quand un voisin en a une qui marche** (étape 17 ; ch. 106, ch. 108).
+- **Adultes d'un foyer pris du matin au soir** : quelqu'un d'un autre foyer garde les enfants quelques heures (étape 34 ; ch. 39, ch. 40).
+- **Génératrice prêtée à un voisin, ou arbre tombé près des fils chez lui** (étapes 31 et 32).
+- **L'automne, avant les neiges** : la tournée des foyers et l'essai radio (étapes 15 à 25).
+- **Ni radio ni électricité pour se parler d'un foyer à l'autre** (section 7).
 
 ---
 

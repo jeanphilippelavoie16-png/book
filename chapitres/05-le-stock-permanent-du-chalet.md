@@ -15,15 +15,14 @@ trois mois, et elle doit tenir au moins un mois, même l'année où personne n'a
 
 ## 2. Quand l'utiliser
 
-- **On monte la réserve du chalet, ou on la complète avec un petit budget** (étapes 1 à 4).
-- **On veut savoir combien de jours la réserve fait vivre la famille** : avant l'hiver ; quand le verglas, une
+- **Réserve du chalet à monter, ou à compléter avec un petit budget** (étapes 1 à 4).
+- **Combien de jours la réserve fait vivre la famille** : avant l'hiver ; quand le verglas, une
  tempête ou un chemin emporté coupe la route ; quand une panne régionale d'électricité s'étire (ch. 3 ;
  étapes 5 à 13).
-- **On choisit quoi acheter et où le ranger** : les denrées sèches, le gras, le sel, les conserves, le bois, le
+- **Quoi acheter, et où le ranger** : les denrées sèches, le gras, le sel, les conserves, le bois, le
  carburant, l'éclairage et ce qui n'est pas de la nourriture (étapes 14 à 46).
-- **On arrive au chalet après une absence**, ou c'est le moment de la vérification du printemps ou de l'automne
- (étapes 47 à 51 ; section 5).
-- **Quelqu'un d'autre doit pouvoir se servir du chalet sans qu'on lui explique où sont les choses** : un frère, un
+- **Arrivée au chalet après une absence ; vérification du printemps et de l'automne** (étapes 47 à 51 ; section 5).
+- **Quelqu'un d'autre doit pouvoir se servir du chalet sans explications** : un frère, un
  voisin, le groupe de chasse (étape 4).
 - **Il manque le contenant, la balance, le thermomètre, le piège ou l'ouvre-boîte** (section 7).
 

@@ -15,13 +15,13 @@ viande, qu'elle dure six heures ou cinq semaines.
 
 ## 2. Quand l'utiliser
 
-- **Le courant manque à la maison, l'hiver** (étapes 1 à 13).
-- **La rue est rebranchée, et la maison reste sans courant** (étape 1).
-- **Au chalet, la génératrice ou le banc de batteries lâche, l'hiver** : le chauffage, la plomberie et les aliments
+- **Panne de courant à la maison, l'hiver** (étapes 1 à 13).
+- **La rue est rebranchée, mais pas la maison** (étape 1).
+- **Génératrice ou banc de batteries en panne au chalet, l'hiver** : le chauffage, la plomberie et les aliments
  (étapes 5, 7 à 10, 14 et 21 à 34).
-- **La famille part au chalet pendant la panne** : vidanger la maison avant de partir (étapes 21 à 25).
-- **Le courant manque l'été** : la génératrice, l'eau et les aliments (étapes 1 à 5, 16 à 20 et 27 à 34).
-- **Le courant revient après une longue panne** (étapes 35 à 40).
+- **Départ au chalet pendant la panne** : vidanger la maison avant de partir (étapes 21 à 25).
+- **Panne de courant l'été** : la génératrice, l'eau et les aliments (étapes 1 à 5, 16 à 20 et 27 à 34).
+- **Retour du courant après une longue panne** (étapes 35 à 40).
 - **Il manque l'avertisseur, la génératrice, le thermomètre, l'antigel ou les piles** (section 7).
 
 ---

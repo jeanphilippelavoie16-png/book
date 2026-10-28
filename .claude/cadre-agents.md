@@ -104,6 +104,10 @@ La phrase
   reste quand la chose le fait toute seule.
 - [ ] La consigne se dit comme une consigne, pas au présent qui décrit ; le sujet se nomme (« les gens qui »,
   jamais « ceux qui » en tête) ; l'ordre est naturel.
+- [ ] « Quand l'utiliser » : chaque ligne est un titre de situation court, comme on l'écrirait à la main (JP,
+  28 octobre 2026, sur « Le courant manque et on ne sait pas quand il reviendra » : « c'est pas humain ») :
+  « Panne de courant sans heure de retour ». Le mot que les gens emploient (« panne », « en panne »), pas un verbe qui
+  sonne faux (skill `ecriture`, règle 13).
 - [ ] Qui fait quoi, quand et pourquoi, sans détour (JP, 28 octobre 2026, sur « On est tenté de mettre la génératrice
   au garage, […] toujours dans les mêmes moments : la panne d'hiver, la nuit, […] quand on veut la protéger […], ou
   garder le congélateur en marche » : « fucking weird ») : pas de « on est tenté de », pas de formule vague, et une

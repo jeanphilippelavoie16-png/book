@@ -15,10 +15,10 @@ arriver à la maison ou au chalet, de la première heure jusqu'à la fin de l'é
 
 ## 2. Quand l'utiliser
 
-- **Un sinistre est en cours, on sait lequel, et on a au moins dix minutes pour s'organiser** : la panne dure depuis
+- **Sinistre en cours et connu, avec au moins dix minutes pour s'organiser** : la panne dure depuis
  deux heures, la radio annonce un feu à 40 km, le congélateur est tiède (scénarios 1 à 9).
-- **Le sinistre n'est aucun des neuf** : on prend la liste du scénario qui lui ressemble (section 4).
-- **Une fois par année, hors sinistre** : on vérifie que le stock couvre les neuf listes, pas seulement la première
+- **Sinistre qui n'est aucun des neuf** : prendre la liste du scénario qui lui ressemble (section 4).
+- **Une fois par année, hors sinistre** : vérifier que le stock couvre les neuf listes, pas seulement la première
  (section 5 ; la rotation du stock est au ch. 5).
 - **Rien n'a été préparé** : ni réserve d'eau, ni piles neuves, ni avertisseur de CO, ni génératrice (section 7).
 

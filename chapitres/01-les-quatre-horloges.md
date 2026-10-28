@@ -16,15 +16,13 @@ d'heure jusqu'au printemps.
 
 ## 2. Quand l'utiliser
 
-- **Le courant manque et on ne sait pas quand il reviendra** (étapes 1 à 15).
-- **La génératrice ou le propane lâche par temps froid** (étapes 2 et 6 à 16).
-- **La route ferme, ou le pont de glace ne tient plus**, et on ne sait pas pour combien de temps (étapes 16
- et 26 à 29).
-- **Le congélateur a dégelé pendant qu'on était parti**, et il faut décider quoi sauver (étapes 15 et 20 à
- 27).
-- **L'eau de l'aqueduc devient suspecte** (étapes 17 à 19).
+- **Panne de courant sans heure de retour** (étapes 1 à 15).
+- **Génératrice ou propane en panne par grand froid** (étapes 2 et 6 à 16).
+- **Route fermée ou pont de glace qui ne tient plus, pour une durée inconnue** (étapes 16 et 26 à 29).
+- **Congélateur dégelé pendant une absence** : décider quoi sauver (étapes 15 et 20 à 27).
+- **Eau de l'aqueduc douteuse** (étapes 17 à 19).
 - **On hésite entre rester et partir** (étapes 16 et 29 ; ch. 2).
-- **Il n'y a ni génératrice, ni thermomètre, ni eau embouteillée** (section 7).
+- **Ni génératrice, ni thermomètre, ni eau embouteillée** (section 7).
 
 ---
 

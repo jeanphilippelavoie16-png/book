@@ -16,20 +16,20 @@ la génératrice, et décider tout de suite si on monte au chalet.
 
 ## 2. Quand l'utiliser
 
-- **Un avertissement météo est émis pour le secteur** : tempête hivernale, pluie verglaçante, vents violents, blizzard
+- **Avertissement météo pour le secteur** : tempête hivernale, pluie verglaçante, vents violents, blizzard
  (étapes 1 à 38).
-- **Une veille, un avis météo ou un bulletin météorologique spécial vient de sortir** (étape 1).
-- **Hydro-Québec annonce une interruption de service planifiée**, ou une panne s'étend vers le secteur (étapes 1 à
+- **Veille, avis météo ou bulletin météorologique spécial** (étape 1).
+- **Interruption de service annoncée par Hydro-Québec, ou panne qui s'étend vers le secteur** (étapes 1 à
  38).
-- **Un feu de forêt est déclaré dans le secteur** (étapes 1 à 5 ; ch. 11).
-- **Un avis d'ébullition ou de non-consommation est émis pour l'aqueduc** (étape 8).
-- **Une pluie forte, une crue ou une fonte rapide est annoncée** (étape 22).
-- **Une évacuation est annoncée** (étapes 39 à 41).
+- **Feu de forêt déclaré dans le secteur** (étapes 1 à 5 ; ch. 11).
+- **Avis d'ébullition ou de non-consommation pour l'aqueduc** (étape 8).
+- **Pluie forte, crue ou fonte rapide annoncée** (étape 22).
+- **Évacuation annoncée** (étapes 39 à 41).
 - **Un événement prévu sans lien avec la météo** : une chirurgie, un accouchement, l'absence d'un adulte pendant
  plusieurs jours, la fermeture annoncée de la route (étapes 1 à 25).
-- **L'événement est passé**, et il faut remettre la maison en marche et refaire la réserve (étapes 42 à 44).
-- **Une deuxième tempête s'annonce sur une maison déjà en panne**, ou il manque la génératrice, l'eau courante,
- l'égout ou l'obturateur (section 7).
+- **Après l'événement** : remettre la maison en marche et refaire la réserve (étapes 42 à 44).
+- **Deuxième tempête annoncée sur une maison déjà en panne** (section 7).
+- **Il manque la génératrice, l'eau courante, l'égout ou l'obturateur** (section 7).
 
 ---
 

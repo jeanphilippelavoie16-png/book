@@ -16,16 +16,16 @@ jusqu'au passage du front.
 
 ## 2. Quand l'utiliser
 
-- **Un feu est déclaré dans le secteur** (étapes 1 à 10).
-- **De la cendre ou des aiguilles roussies tombent sur la galerie, ou le soleil est rouge à midi**, même
- sans feu en vue et sans odeur de fumée (étapes 1 à 10).
-- **Le feu est en vue** (étapes 11 à 25).
-- **La fumée d'un feu, même lointain, entre dans la maison ou dans le chalet** (étapes 31 à 37).
-- **On rentre après le feu** (étapes 38 à 46).
-- **Un orage est passé sans pluie.** La foudre peut allumer un feu qui couve dans l'humus avant de se
+- **Feu déclaré dans le secteur** (étapes 1 à 10).
+- **Cendre ou aiguilles roussies sur la galerie**, même sans feu en vue ni odeur de fumée (étapes 1 à 10).
+- **Soleil rouge à midi**, même sans feu en vue ni odeur de fumée (étapes 1 à 10).
+- **Feu en vue** (étapes 11 à 25).
+- **Fumée d'un feu, même lointain, dans la maison ou le chalet** (étapes 31 à 37).
+- **Retour après le feu** (étapes 38 à 46).
+- **Orage passé sans pluie.** La foudre peut allumer un feu qui couve dans l'humus avant de se
  déclarer : surveiller l'horizon les jours suivants (étape 58).
-- **Le combustible est sec sous le pied** (étape 57).
-- **Le printemps arrive, avant la saison de feu** (étapes 47 à 56).
+- **Combustible sec sous le pied** (étape 57).
+- **Le printemps, avant la saison des feux** (étapes 47 à 56).
 
 ---
 

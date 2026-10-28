@@ -14,11 +14,11 @@ Avant chaque hiver, calculer ce qui va manquer (le sel, les pièces qui s'usent,
 
 ## 2. Quand l'utiliser
 
-- **Les listes des ch. 5 à 8 sont montées** : on calcule combien garder de chaque article (étapes 1 à 10).
-- **L'automne arrive** : on fait l'inventaire avant la dernière commande de l'année ; au chalet, avant que le chemin ferme, plusieurs semaines plus tôt qu'en ville (section 5).
-- **L'hiver finit** : on note ce qui a manqué pendant qu'on s'en souvient (étape 6).
-- **Un poêle, une scie, un congélateur ou un enfant arrive** : chacun amène des consommables que personne n'a comptés (étapes 1 à 5).
-- **Un article manque et on ne peut plus le racheter, ou un instrument de mesure est mort** (section 7).
+- **Listes des ch. 5 à 8 montées** : calculer combien garder de chaque article (étapes 1 à 10).
+- **L'automne** : faire l'inventaire avant la dernière commande de l'année ; au chalet, avant que le chemin ferme, plusieurs semaines plus tôt qu'en ville (section 5).
+- **La fin de l'hiver** : noter ce qui a manqué pendant qu'on s'en souvient (étape 6).
+- **Un poêle, une scie, un congélateur ou un enfant de plus** : chacun amène des consommables que personne n'a comptés (étapes 1 à 5).
+- **Un article qu'on ne peut plus racheter, ou un instrument de mesure mort** (section 7).
 
 ---
 

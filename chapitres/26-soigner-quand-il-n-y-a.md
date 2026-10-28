@@ -16,14 +16,14 @@ partir.
 
 ## 2. Quand l'utiliser
 
-- **Quelqu'un vient de se blesser ou s'effondre** (étapes 1 à 5).
-- **Ça gicle, ou ça saigne à flot** (étapes 6 à 11).
-- **Une personne allergique fait une réaction** après un aliment, une piqûre d'insecte ou un médicament (étapes 12 à
+- **Une personne qui vient de se blesser, ou qui s'effondre** (étapes 1 à 5).
+- **Un saignement qui gicle ou qui coule à flot** (étapes 6 à 11).
+- **Une réaction allergique** après un aliment, une piqûre d'insecte ou un médicament (étapes 12 à
  16).
-- **Quelqu'un s'est brûlé** (étapes 17 à 22).
-- **Il faut nettoyer une plaie, soigner une morsure de bête ou suivre une plaie qui rougit** (étapes 23 à 30).
-- **Une personne blessée ou malade est couchée, et il faut savoir si elle va mieux ou plus mal** (étapes 31 à 38).
-- **Il faut décider de partir vers l'hôpital** (étapes 39 à 42).
+- **Une brûlure** (étapes 17 à 22).
+- **Une plaie à nettoyer, une morsure de bête, une plaie qui rougit** (étapes 23 à 30).
+- **Un blessé ou un malade couché : savoir s'il va mieux ou plus mal** (étapes 31 à 38).
+- **Décider de partir vers l'hôpital** (étapes 39 à 42).
 - **Il manque le garrot, la gaze, l'eau courante, le thermomètre, la lumière ou un deuxième adulte** (section 7).
 
 ---
@@ -44,8 +44,8 @@ partir.
 
 1. {!co} **Regarder ce qui a blessé la personne avant d'aller vers elle.** Ce peut être la scie qui tourne encore, l'arbre
  resté en tension, la glace mince, le fil électrique tombé, la génératrice qui tourne dans un bâtiment ou le poêle
- ouvert. Arrêter le moteur, s'éloigner de l'arbre, ou tendre une perche ou une corde si on ne peut pas aller jusqu'à
- la personne sans danger (pour la glace, ch. 15). Si elle est tombée dans un bâtiment où tourne une génératrice, un
+ ouvert. Arrêter le moteur, s'éloigner de l'arbre. Si on ne peut pas aller jusqu'à la personne sans danger, lui tendre une perche ou une
+ corde (pour la glace, ch. 15). Si elle est tombée dans un bâtiment où tourne une génératrice, un
  poêle ou un réchaud, ouvrir grand la porte en restant dehors avant d'entrer la chercher, et la sortir à l'air avant
  de la soigner.
 2. **Parler à la personne, lui prendre la main et lui demander de la serrer.** Elle peut répondre clairement, répondre
@@ -92,7 +92,7 @@ partir.
  au fond de la plaie avec un doigt ganté, jusqu'à remplir le trou, puis appuyer par-dessus. Un appui sur le bord du
  trou n'arrête pas le sang qui coule au fond. Sans gaze, prendre le coton bouilli de la section 7 (« Le pansement ») ou
  le linge le plus propre qu'on a ; sans gants, le doigt nu.
-9. **Poser le garrot quand l'appui n'arrête pas le sang d'un bras ou d'une jambe, ou quand un membre est arraché.** Le
+9. **Poser le garrot quand un membre est arraché, et quand l'appui n'arrête pas le sang d'un bras ou d'une jambe.** Le
  sang d'une artère de la cuisse vide le corps en quelques minutes : pendant qu'on attend de voir si l'appui finit par
  marcher, la personne continue de perdre ce sang.
  - Le poser haut sur le membre, au-dessus de la plaie, jamais sur une articulation.
@@ -196,8 +196,8 @@ partir.
  chauve-souris, même presque invisible, partir le jour même ; une coupure de couteau propre, même si elle saigne beaucoup, ne demande pas le vaccin.
  - Une chauve-souris posée sur un vêtement compte comme une morsure, sauf si on est certain qu'elle n'a pas touché
  la peau.
- - Une chauve-souris trouvée dans la chambre d'un enfant qui dormait compte comme une morsure si l'enfant dit
- qu'elle l'a touché, s'il s'est réveillé en pleurant ou agité pendant qu'elle était là, ou s'il a une marque.
+ - Une chauve-souris trouvée dans la chambre d'un enfant qui dormait compte comme une morsure dans trois cas : l'enfant dit qu'elle
+ l'a touché ; il a une marque ; il s'est réveillé en pleurant ou agité pendant qu'elle était là.
  Sinon, fermer la porte de la pièce et ouvrir la fenêtre pour qu'elle sorte, sans la toucher.
 
 ### Une plaie qui rougit

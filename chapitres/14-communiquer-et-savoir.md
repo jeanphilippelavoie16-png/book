@@ -16,15 +16,15 @@ elles n'arrivent pas.
 
 ## 2. Quand l'utiliser
 
-- **Quelqu'un est blessé, malade ou pris loin de tout, et il faut de l'aide** (étapes 1 à 8).
-- **Quelqu'un n'est pas revenu à l'heure prévue** (étapes 9 à 13).
-- **Une décision dépend de ce qui se passe dehors** : rester ou partir (ch. 2), une panne qui dure (ch. 3), des
+- **Une personne blessée, malade ou prise loin de tout, qui a besoin d'aide** (étapes 1 à 8).
+- **Une personne qui n'est pas revenue à l'heure prévue** (étapes 9 à 13).
+- **Une décision qui dépend de ce qui se passe dehors** : rester ou partir (ch. 2), une panne qui dure (ch. 3), des
  retombées (ch. 4), un feu de forêt (ch. 11), une épidémie (ch. 30) (étapes 14, 24 et 27).
-- **Quelqu'un part pour la journée** : une sortie de pêche blanche (ch. 58), la tournée des collets, un aller-retour
+- **Une sortie pour la journée** : une sortie de pêche blanche (ch. 58), la tournée des collets, un aller-retour
  en ville, ou un trajet à pied chez un proche pendant une tempête (étapes 29 et 30).
-- **La famille est séparée** : un adulte au chalet, un autre sur la route (étapes 25 et 26).
-- **L'automne, avant les neiges** : on monte le plan pendant que tout marche (étapes 14 à 23).
-- **Il n'y a plus de piles, plus d'abonnement ou plus de radio** (section 7).
+- **Famille séparée** : un adulte au chalet, un autre sur la route (étapes 25 et 26).
+- **L'automne, avant les neiges** : monter le plan pendant que tout marche (étapes 14 à 23).
+- **Plus de piles, plus d'abonnement ou plus de radio** (section 7).
 
 ---
 

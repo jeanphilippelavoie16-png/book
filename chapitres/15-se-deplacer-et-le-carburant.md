@@ -16,13 +16,13 @@ et se sortir vivant de la glace qui cède ou de la machine qui s'arrête loin de
 ## 2. Quand l'utiliser
 
 - **Quelqu'un passe à travers la glace** (étapes 1 à 10).
-- **L'auto, la motoneige ou le VTT s'arrête loin de tout, l'hiver** (étapes 11 à 18).
+- **Auto, motoneige ou VTT arrêté loin de tout, l'hiver** (étapes 11 à 18).
 - **Il faut sortir** (étapes 28 à 39) : aller chercher ce qui manque, mener quelqu'un se faire soigner ailleurs
  (ch. 35), faire le transfert de la maison au chalet (ch. 2).
-- **Le chemin passe sur un lac ou une rivière gelée** (étapes 40 à 44).
-- **On monte ou on tient la réserve de carburant**, à la maison ou au chalet (étapes 19 à 27).
-- **On fait tourner une génératrice** (étapes 45 à 48).
-- **Il ne reste plus d'essence, ou le moteur ne part plus** (section 7).
+- **Chemin sur un lac ou une rivière gelée** (étapes 40 à 44).
+- **Réserve de carburant à monter ou à tenir**, à la maison ou au chalet (étapes 19 à 27).
+- **Génératrice en marche** (étapes 45 à 48).
+- **Plus d'essence, ou moteur qui ne part plus** (section 7).
 
 ---
 

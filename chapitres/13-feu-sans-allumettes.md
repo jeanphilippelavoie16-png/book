@@ -15,11 +15,10 @@ ou une braise qu'on a gardée, aussi longtemps qu'il reste de l'amadou sec.
 
 ## 2. Quand l'utiliser
 
-- **Il n'y a plus d'allumettes, ou elles ont pris l'eau.**
-- **Le briquet au butane ne donne plus de flamme par grand froid** (étape 2).
-- **La réserve d'allumettes du chalet baisse**, et on ne sait pas quand on pourra la refaire : on passe au
- ferrocérium pendant qu'il en reste.
-- **Il faut garder un feu des jours ou des semaines** sans rien pour le rallumer (section 7).
+- **Plus d'allumettes, ou des allumettes mouillées.**
+- **Briquet au butane sans flamme par grand froid** (étape 2).
+- **Réserve d'allumettes du chalet qui baisse, sans savoir quand on pourra la refaire** : passer au ferrocérium pendant qu'il en reste.
+- **Un feu à garder des jours ou des semaines**, sans rien pour le rallumer (section 7).
 
 ---
 

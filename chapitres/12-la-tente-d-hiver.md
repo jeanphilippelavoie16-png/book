@@ -16,16 +16,14 @@ le faut, sans s'intoxiquer au monoxyde du chauffage.
 
 ## 2. Quand l'utiliser
 
-- **La noirceur arrive et on ne pourra pas rentrer** : une sortie de chasse, de trappe ou de transport dure plus
+- **Pris dehors à la noirceur, sans pouvoir rentrer** : une sortie de chasse, de trappe ou de transport dure plus
  longtemps que prévu, ou la machine est tombée en panne loin de tout (étapes 1 à 14 ; ch. 15).
-- **Le chalet a brûlé** (ch. 82), **ou un feu de forêt l'a détruit** (ch. 11), et il vaut mieux rester sur place
- que partir (ch. 2) : on vit alors sous la tente à poêle (étapes 15 à 55).
-- **Le chalet reçoit plus de monde qu'il ne peut en coucher** (ch. 18), ou deux familles doivent passer l'hiver
- ensemble : une seule longue tente à deux poêles demande moins de toile et moins de bois que deux tentes
+- **Chalet brûlé** (ch. 82) **ou détruit par un feu de forêt** (ch. 11), quand il vaut mieux rester sur place que partir (ch. 2) : vivre sous la tente à poêle (étapes 15 à 55).
+- **Plus de monde que le chalet ne peut en coucher** (ch. 18), ou deux familles qui passent l'hiver ensemble : une seule longue tente à deux poêles demande moins de toile et moins de bois que deux tentes
  (étapes 56 à 64).
-- **On n'a que des bâches et des perches**, et il faut un abri où veiller au chaud (étapes 65 à 76).
-- **On n'a ni toile ni bâche, et il y a assez de neige** : on bâtit une maison de neige (étapes 77 à 102).
-- **On a un poêle et du tuyau, mais pas de tente** (section 7, « La tente à poêle faite avec ce qui traîne »).
+- **Seulement des bâches et des perches, pour un abri où veiller au chaud** (étapes 65 à 76).
+- **Ni toile ni bâche, mais assez de neige** : bâtir une maison de neige (étapes 77 à 102).
+- **Un poêle et du tuyau, mais pas de tente** (section 7, « La tente à poêle faite avec ce qui traîne »).
 
 ---
 

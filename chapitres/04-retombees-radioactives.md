@@ -15,14 +15,14 @@ y rester 24 à 48 heures, protéger la thyroïde avec des comprimés d'iode, pui
 
 ## 2. Quand l'utiliser
 
-- **Un éclair blanc aveuglant éclaire tout, puis un grondement ou une onde de pression arrive** : c'est une
+- **Éclair blanc aveuglant, puis grondement ou onde de pression** : c'est une
  détonation, même lointaine (étapes 1 à 3).
-- **Une alerte nucléaire ou radiologique est diffusée**, quelle que soit la distance annoncée (étapes 4 à 16).
-- **Du sable fin, de la cendre ou une pluie se met à tomber** après un éclair ou une alerte : ce sont les
+- **Alerte nucléaire ou radiologique**, quelle que soit la distance annoncée (étapes 4 à 16).
+- **Sable fin, cendre ou pluie qui tombe après un éclair ou une alerte** : ce sont les
  retombées (étape 4).
-- **On est à l'abri depuis quelques heures**, et il faut boire, manger, aérer et décider quand sortir (étapes 17
+- **À l'abri depuis quelques heures** : boire, manger, aérer et décider quand sortir (étapes 17
  à 27).
-- **Les années suivantes, on chasse, on pêche, on cueille ou on jardine** dans un territoire qui a reçu des
+- **Chasse, pêche, cueillette ou jardin les années suivantes**, dans un territoire qui a reçu des
  retombées (étapes 28 à 32).
 - **Il manque l'iode, la radio, le sous-sol, le compteur ou la réserve d'eau** (section 7).
 

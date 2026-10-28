@@ -16,17 +16,16 @@ destination.
 
 ## 2. Quand l'utiliser
 
-- **Quelqu'un cogne à la porte, ou on voit arriver une personne, un véhicule ou une motoneige qu'on n'attendait
- pas** (étapes 1 à 12).
-- **Quelqu'un arrive à pied au chalet l'hiver** : loin de la ville, personne n'y marche par choix, et on cherche
- d'abord les signes du froid (étape 7).
-- **Le groupe qui se présente est plus nombreux que la famille** (étape 4).
-- **Un voisin connu vient demander quelque chose pour la première fois**, ou revient après une première fois où on
+- **Quelqu'un cogne à la porte** (étapes 1 à 12).
+- **Arrivée d'une personne, d'un véhicule ou d'une motoneige qu'on n'attendait pas** (étapes 1 à 12).
+- **Une personne arrivée à pied au chalet l'hiver** : loin de la ville, personne n'y marche par choix ; chercher d'abord les signes du froid (étape 7).
+- **Un groupe plus nombreux que la famille** (étape 4).
+- **Un voisin connu qui demande quelque chose pour la première fois**, ou qui revient après une première fois où on
  lui a donné (étapes 9 et 10).
-- **Quelqu'un doit dormir ou rester** (étapes 15 à 21).
-- **La crise dure et les voisins manquent de ce que la maison a encore** : on se prépare avant la prochaine visite
+- **Une personne qui doit dormir ou rester** (étapes 15 à 21).
+- **Une crise qui dure, et des voisins qui manquent de ce que la maison a encore** : se préparer avant la prochaine visite
  (étapes 22 à 29).
-- **Le chalet se voit d'une route ou d'un sentier de motoneige** (étapes 22 à 29).
+- **Un chalet visible d'une route ou d'un sentier de motoneige** (étapes 22 à 29).
 - **Il manque le judas, la lampe, la barre de porte ou le deuxième adulte** (section 7).
 
 ---

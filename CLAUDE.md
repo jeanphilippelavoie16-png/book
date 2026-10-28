@@ -124,7 +124,9 @@ propre au chapitre (la distance, l'épaisseur, la durée) se dit dans cette éta
 remplacer la procédure numérotée par des tableaux, mais garde l'ordre général.
 
 - **« Quand l'utiliser », c'est juste quand l'utiliser** : pas de liste « c'est la mauvaise procédure quand », pas de
-  contre-exemple évident.
+  contre-exemple évident. Chaque ligne est un titre de situation, court, comme on l'écrirait à la main sur une fiche
+  (JP, 28 octobre 2026, sur « Le courant manque et on ne sait pas quand il reviendra » : « c'est pas humain ») :
+  « Panne de courant sans heure de retour », « Feu en vue », « Il faut partir vite ».
 - **Le Matériel** ne liste que l'indispensable de **cette** procédure (sans quoi elle échoue ou devient dangereuse), une
   ligne par item, 15 à 20 mots. Rien d'autre.
 - **« En plus »**, après la section 7, non numérotée : des encadrés vert pâle (la façon des Innus, une photo pour

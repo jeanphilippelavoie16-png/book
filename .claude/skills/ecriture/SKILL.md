@@ -36,6 +36,9 @@ mains. Chaque phrase doit lui donner un fait, un geste, une mesure ou un signe �
   d'hiver, la nuit, la tempête, le soir de l'arrivée au chalet, quand on veut la protéger de la neige ou des voleurs,
   ou garder le congélateur en marche » : « la tournure de phrase est fucking weird ». Voir la règle 12.
 
+- Même épreuve, ch. 1, section 2 : « Les phrases comme "le courant manque et on ne sait pas quand il reviendra" ;
+  "Coupure de courant sans avoir de temps de retour" ; la façon que t'écris c'est pas humain. » Voir la règle 13.
+
 Ses pages annotées sont dans `livre/relecture/notes/` (à régénérer, voir
 `design/outils/relecture/LISEZMOI.md`). Le jaune et le rouge, c'est ce qu'il ne veut plus voir.
 
@@ -115,6 +118,17 @@ dans le garage.
     Réécrite : « Pendant une panne d'hiver, la nuit, dans une tempête ou le soir de l'arrivée au chalet, les gens
     rentrent souvent la génératrice au garage, dans la remise ou sous l'auvent, en laissant la porte ouverte : ils
     veulent la protéger de la neige et des voleurs, ou garder le congélateur en marche. »
+13. **Un titre de situation se dit comme un humain l'écrirait sur une fiche.** JP, sur la section 2 du ch. 1, « Le
+    courant manque et on ne sait pas quand il reviendra » : « c'est pas humain » ; lui écrirait « Coupure de courant
+    sans avoir de temps de retour ». Dans « Quand l'utiliser », dans les titres et les intertitres :
+    - **le nom de la situation, court** : « Panne de courant sans heure de retour », « Génératrice ou propane en panne
+      par grand froid », « Congélateur dégelé pendant une absence », « Feu en vue » ;
+    - **le mot que les gens emploient** : on dit « une panne de courant », pas « le courant manque » ; « en panne », pas
+      « lâche » ; « pour une durée inconnue », pas « on ne sait pas pour combien de temps » ;
+    - **une courte phrase reste quand c'est comme ça qu'on le dit** : « Il faut partir vite », « Il manque le judas, la
+      lampe ou la barre de porte », « Quelqu'un cogne à la porte ».
+    La règle 0 vaut toujours pour la procédure : une étape garde son verbe et son geste. Un titre de situation n'est pas
+    une étiquette en raccourci tant qu'il se comprend du premier coup.
 
 ## Ce qui sort
 
