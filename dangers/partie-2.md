@@ -6,7 +6,7 @@
 
 **Ce qu'on fait.** On fait le contraire de ce qu'on fait devant l'ours ({>ours}).
 
-1. Dès un de ces signes, reculer par où on est venu, le chien en laisse.
+1. Au premier de ces signes, reculer par où on est venu, le chien en laisse.
 2. S'il charge, courir derrière un gros arbre, une auto ou un rocher : il ne poursuit pas loin, et on tourne autour d'un tronc plus vite que lui.
 3. Si on est renversé, se rouler en boule, les mains sur la tête, et ne plus bouger avant qu'il soit loin : il revient si on bouge.
 4. Après le tir, attendre que la bête soit immobile depuis un bon moment, puis approcher par l'arrière, l'arme prête : si son flanc monte et descend, elle peut se relever d'un coup.
@@ -39,20 +39,20 @@
 
 ## {!tularemie} Bête crue : la tularémie
 
-**Ce qui arrive.** Un lièvre d'apparence normale peut porter la bactérie de la tularémie, comme le castor et le rat musqué. Elle entre par une plaie aux mains, par l'œil, et par la poussière de poil qu'on respire. Le congélateur ne la tue pas, et la cuisson à 74 °C ({>cuisson}) protège la personne qui mange la viande, pas celle qui dépouille la bête.
+**Ce qui arrive.** Un lièvre qui a l'air normal peut porter la bactérie de la tularémie, comme le castor et le rat musqué. Elle entre par une plaie aux mains, par l'œil, et par la poussière de poil qu'on respire. Le congélateur ne la tue pas, et la cuisson à 74 °C ({>cuisson}) protège la personne qui mange la viande, pas celle qui dépouille la bête.
 
-**Comment on le reconnaît.** La bête malade se laisse approcher, bouge lentement, mais reste grasse ; ses organes ont de petits points blancs de 2 mm et plus. La personne atteinte a une fièvre brutale avec frissons, puis un ulcère là où la bactérie est entrée. Une fièvre dans les 3 semaines qui suivent la préparation d'un lièvre veut dire que la vie est en jeu ({>vie-en-jeu}).
+**Comment on le reconnaît.** La bête malade se laisse approcher, bouge lentement, mais reste grasse ; ses organes ont de petits points blancs de 2 mm et plus. La personne atteinte fait une forte fièvre d'un coup, avec des frissons, puis un ulcère là où la bactérie est entrée. Une fièvre dans les 3 semaines qui suivent la préparation d'un lièvre veut dire que la vie est en jeu ({>vie-en-jeu}).
 
 **Ce qu'on fait.**
 
-1. Mettre des gants imperméables avant de ramasser la bête ; à défaut, des sacs de plastique serrés aux poignets. Ne pas préparer de lièvre avec une coupure ou une gerçure aux mains.
+1. Mettre des gants imperméables avant de ramasser la bête ; sinon, des sacs de plastique serrés aux poignets. Ne pas préparer de lièvre avec une coupure ou une gerçure aux mains.
 2. Mouiller la fourrure. Porter des lunettes et un masque quand on scie ou qu'on secoue une peau.
 3. Se laver ensuite les mains et les avant-bras au savon, et laver la surface et les lames à l'eau de Javel (1 volume pour 9 volumes d'eau).
 4. Ne pas toucher une bête trouvée morte ou malade, ni manger une bête qui a des points blancs, même en coupant autour.
 
 ## {!hantavirus} Crottes de souris : le hantavirus
 
-**Ce qui arrive.** Le hantavirus est dans l'urine, les crottes et la salive de la souris sylvestre et d'autres petits rongeurs. Séchées, ces matières tombent en poussière ; le balai, l'aspirateur ou le souffleur la soulèvent dans la pièce fermée, et la personne qui fait le ménage la respire. On l'attrape au ménage d'un cabanon, d'un caveau ou d'un chalet fermé depuis l'hiver.
+**Ce qui arrive.** Le hantavirus est dans l'urine, les crottes et la salive de la souris sylvestre et d'autres petits rongeurs. En séchant, elles tombent en poussière ; le balai, l'aspirateur ou le souffleur la soulèvent dans la pièce fermée, et la personne qui fait le ménage la respire. On l'attrape au ménage d'un cabanon, d'un caveau ou d'un chalet fermé depuis l'hiver.
 
 **Comment on le reconnaît.** On ne voit que les crottes : de petits grains noirs dans les coins, les tiroirs et les nids. La maladie commence de 1 à 8 semaines plus tard, comme une grippe, et on ne fait pas le lien ; si elle passe aux poumons (toux, essoufflement, état de choc), elle tue environ 40 % des personnes atteintes.
 
@@ -92,7 +92,7 @@
 **Ce qu'on fait.**
 
 1. Prendre la température de chaque pièce, surtout sur un poêle à bois, et remettre au feu celle qui n'a pas atteint sa température.
-2. Ne pas servir de poisson cru ni fumé à froid à une femme enceinte, à une personne âgée ou aux défenses affaiblies : la bactérie de la listériose pousse au réfrigérateur et résiste au fumage à froid.
+2. Ne pas servir de poisson cru ni fumé à froid à une femme enceinte, à une personne âgée ou dont le système immunitaire est affaibli : la bactérie de la listériose pousse au réfrigérateur et résiste au fumage à froid.
 3. Ne pas compter sur le congélateur ordinaire, à −18 °C, pour le poisson cru : ses larves de vers meurent seulement si le poisson atteint −20 °C pendant 7 jours, ou −35 °C pendant 15 h.
 
 ## {!trichine} Trichine : ours, phoque et carnivores
@@ -112,7 +112,7 @@
 
 **Ce qui arrive.** Le foie et les reins des cervidés (orignal, caribou, cerf) et de l'ours noir accumulent du cadmium, que ni la cuisson, ni le sel, ni le trempage n'enlèvent : ce métal abîme les reins avec les années. Le cerveau, la moelle épinière et les ganglions des cervidés peuvent porter un prion, une protéine déformée que la cuisson ne détruit pas. On n'a jamais montré que le prion passe à l'humain, mais on évite quand même ces tissus. Le foie de phoque, de morse et de lotte contient trop de vitamine A : 100 g de foie de phoque annelé en donnent environ 3 700 µg, pour une limite de 3 000 µg par jour chez l'adulte et de 600 µg de 1 à 3 ans. Personne n'a mesuré le foie d'ours noir, et on le traite de la même façon.
 
-**Comment on le reconnaît.** Le cadmium et le prion ne donnent aucun signe. Trop de vitamine A donne en quelques heures de la somnolence et des vomissements.
+**Comment on le reconnaît.** Le cadmium et le prion ne donnent aucun signe. Trop de vitamine A donne, en quelques heures, une grosse envie de dormir et des vomissements.
 
 **Ce qu'on fait.**
 
@@ -124,7 +124,7 @@
 
 **Ce qui arrive.** Sans air, dans un aliment humide et peu acide, la bactérie du botulisme fabrique sa toxine ; ses spores résistent à l'eau bouillante, pas à l'autoclave. Le type E, celui du poisson et des mammifères marins, la fabrique dès 3 °C, donc au réfrigérateur, à la glacière, au caveau et dans une cache au redoux.
 
-**Comment on le reconnaît.** Le botulisme ne change ni l'odeur, ni le goût, ni l'apparence de l'aliment. De 2 heures à 8 jours après le repas, la personne a les paupières tombantes, voit double ou flou, parle et avale avec peine, puis respire mal. Elle n'a pas de fièvre et reste lucide, ce qui fait croire que ce n'est pas grave. Un bébé atteint est constipé, bave, refuse de téter et ne tient plus sa tête.
+**Comment on le reconnaît.** Le botulisme ne change ni l'odeur, ni le goût, ni l'apparence de l'aliment. De 2 heures à 8 jours après le repas, la personne a les paupières tombantes, voit double ou flou, a du mal à parler et à avaler, puis respire mal. Elle n'a pas de fièvre et garde toute sa tête, ce qui fait croire que ce n'est pas grave. Un bébé atteint est constipé, bave, refuse de téter et ne tient plus sa tête.
 
 **Ce qu'on fait.**
 
@@ -137,7 +137,7 @@
 
 **Ce qui arrive.** Entre 4 et 60 °C, les bactéries se multiplient vite, et entre 35 et 45 °C, leur nombre peut doubler toutes les 15 minutes. Au-dessus de 15,6 °C, le staphylocoque doré produit une toxine que la cuisson ne détruit pas. Le froid ralentit les bactéries sans les tuer : les heures passées entre 4 et 60 °C s'additionnent d'un dégel à l'autre.
 
-**Comment on le reconnaît.** Ni à l'odeur ni à l'aspect : seulement au thermomètre et à l'heure notée. La toxine rend malade de 30 minutes à 8 heures après le repas.
+**Comment on le reconnaît.** Pas à l'odeur ni à l'apparence : seulement au thermomètre et à l'heure qu'on a notée. La toxine rend malade de 30 minutes à 8 heures après le repas.
 
 **Ce qu'on fait.**
 
@@ -145,11 +145,11 @@
 2. Refroidir un plat cuit de 60 à 21 °C en moins de 2 heures, puis à 4 °C en moins de 4 heures, dans des contenants peu profonds. Refroidir une carcasse à 7 °C au cœur en 24 heures.
 3. Garder les plats chauds à 60 °C et plus. Dégeler au froid, ou dans une eau à 21 °C au plus, jamais sur le comptoir.
 4. Après une panne, recongeler ce qui a encore des cristaux de glace, et cuire tout de suite une viande crue dégelée restée à 4 °C et moins.
-5. Jeter un aliment périssable dégelé qui a dépassé 4 °C, même s'il sent bon, et toute pièce dont on ignore le temps passé au chaud.
+5. Jeter un aliment périssable dégelé qui a dépassé 4 °C, même s'il sent bon, et toute pièce dont on ne sait pas combien de temps elle est restée au chaud.
 
 ## {!mal-de-caribou} Viande maigre seule : le mal de caribou
 
-**Ce qui arrive.** Le foie élimine l'azote des protéines à un débit limité : quand plus d'environ 35 % des calories viennent des protéines, il ne suit plus. La nausée, la diarrhée, puis la mort arrivent en quelques semaines. Chez l'enfant, la part de protéines recommandée est plus basse : au plus 30 % de 4 à 18 ans, 20 % de 1 à 3 ans. La viande d'orignal, de caribou, de lièvre et de truite tire de 71 à 90 % de ses calories des protéines, celle d'ours, de castor et de corégone, de 50 à 69 % : mangée seule, aucune ne passe sous les 35 %.
+**Ce qui arrive.** Le foie ne peut éliminer qu'une quantité limitée de protéines par jour : quand plus d'environ 35 % des calories viennent des protéines, il ne suit plus. La nausée, la diarrhée, puis la mort arrivent en quelques semaines. Chez l'enfant, la part de protéines recommandée est plus basse : au plus 30 % de 4 à 18 ans, 20 % de 1 à 3 ans. La viande d'orignal, de caribou, de lièvre et de truite a de 71 à 90 % de ses calories en protéines, celle d'ours, de castor et de corégone, de 50 à 69 % : mangée seule, aucune ne passe sous les 35 %.
 
 **Comment on le reconnaît.** Des repas de plus en plus gros, une faim qui revient vite, une envie de gras qui ne lâche pas et un poids qui baisse ; puis la nausée, et, après une semaine à dix jours, une diarrhée que seul le gras arrête. Sans aucun gras, la maladie peut commencer dès le deuxième jour.
 
@@ -187,7 +187,7 @@
 
 ## {!plomb} Plomb
 
-**Ce qui arrive.** Le plomb n'a ni goût ni odeur et ne donne aucun signe le lendemain : il fait baisser l'intelligence de l'enfant et monter un peu la pression de l'adulte. On ne connaît aucune quantité sans effet. Les nourrissons, les jeunes enfants et la femme enceinte sont les plus touchés : l'enfant absorbe le plomb plus facilement que l'adulte et l'élimine moins bien.
+**Ce qui arrive.** Le plomb n'a pas de goût ni d'odeur, et il ne donne aucun signe le lendemain : il fait baisser l'intelligence de l'enfant et monter un peu la pression de l'adulte. On ne connaît aucune quantité sans effet. Les nourrissons, les jeunes enfants et la femme enceinte sont les plus touchés : l'enfant absorbe le plomb plus facilement que l'adulte et l'élimine moins bien.
 
 **Comment on le reconnaît.** La balle et la grenaille de plomb se brisent en éclats qu'on ne sent pas sous la dent, jusqu'à 46 cm du trajet de la balle dans un chevreuil. Le plomb vient aussi du vieil équipement d'érablière (soudé au plomb avant 1995, galvanisé d'avant 1994, raccords de laiton et de bronze), de la plomberie d'une vieille maison et de la soudure de récupération.
 
@@ -232,7 +232,7 @@
 
 **Ce qu'on fait.**
 
-1. Compter en heures : dans combien d'heures l'état de la personne ne pourra plus être rattrapé, et combien d'heures prend la route jusqu'à l'hôpital (ch. 26).
+1. Compter en heures : combien d'heures il reste avant qu'on ne puisse plus sauver la personne, et combien d'heures prend la route jusqu'à l'hôpital (ch. 26).
 2. Partir pendant que la personne est stable, de jour si possible, avec un adulte à l'arrière qui la surveille.
 3. Avertir les voisins ou le groupe du départ.
 4. Pendant l'attente et le trajet, faire les gestes qui gardent la personne en vie (ch. 35).

@@ -139,6 +139,36 @@ dans le garage.
     bascule, la tournée) se dit en clair dès sa première apparition, avec ce qu'il veut dire concrètement : « Pendant
     une panne de courant, quatre choses s'épuisent en même temps, chacune à sa vitesse : la chaleur du corps…, l'eau
     potable…, le froid du frigo et du congélateur…, les calories et le combustible… Ce sont les quatre horloges. »
+15. **Le mot qu'on dit, pas le mot qu'on écrit.** JP, sur la page du monoxyde, « Il prend la place de l'oxygène dans
+    le sang : on a sommeil, et on s'endort au lieu de sortir » : « On a sommeil, qui qui dit ça dans la vraie vie ? La
+    façon que tu écris, c'est pas bon. » « Avoir sommeil » est du bon français, et personne ne le dit : on dit « avoir
+    envie de dormir ». Le livre reste en français correct (skill `langue`), mais chaque mot doit être celui qu'un
+    Québécois emploierait en l'expliquant à son voisin, dans le garage. Le test : **est-ce que je le dirais comme ça,
+    à voix haute, à quelqu'un ?** Si on ne l'entend jamais dire, on prend le mot qu'on entend.
+
+    | On l'écrit | On le dit |
+    | --- | --- |
+    | on a sommeil ; la somnolence | on a envie de dormir |
+    | la personne reste lucide | la personne garde toute sa tête |
+    | il parle et avale avec peine | il a du mal à parler et à avaler |
+    | une fièvre brutale | une forte fièvre d'un coup |
+    | un lièvre d'apparence normale | un lièvre qui a l'air normal |
+    | les maux passent dehors | le mal de tête passe dehors |
+    | il paralyse l'odorat | on arrête de le sentir |
+    | on s'effondre après quelques inspirations | on perd connaissance après quelques respirations |
+    | sans s'en apercevoir | sans s'en rendre compte |
+    | dont on ignore le temps passé au chaud | dont on ne sait pas combien de temps elle est restée au chaud |
+    | impropre à boire | dangereuse à boire |
+    | à défaut ; lorsque ; afin de ; davantage | sinon ; quand ; pour ; plus |
+    | les flammes produisent du monoxyde quand l'air leur manque | le poêle en fait plus quand on ferme presque l'entrée d'air |
+    | le gaz n'a ni odeur ni couleur | le gaz ne se voit pas et ne se sent pas |
+    | il se mêle à tout l'air de la pièce | il se répand dans toute la pièce, jusqu'au plancher |
+    | les broches libres sont sous tension, à nu | les broches qui dépassent à l'autre bout sont sous tension |
+
+    Le mot de métier reste quand il n'a pas d'équivalent et qu'il s'explique (le long feu, l'arbre encroué). Le mot de
+    la région reste quand tout le monde le dit (une auto, la glace qui « porte »). Le joual non : le livre écrit « il
+    n'y a plus », pas « y a pu ». `controle.py` relève les mots de livre qu'il connaît (section « Mots de livre ») ;
+    il n'attrape pas tout, et l'oreille juge le reste.
 
 ## Ce qui sort
 

@@ -1,12 +1,12 @@
 ## {!co} Monoxyde de carbone
 
-**Ce qui arrive.** Les flammes et les moteurs produisent du monoxyde de carbone quand l'air leur manque : le poêle qu'on étouffe pour la nuit, la braise, le barbecue, le réchaud, le fanal. Le gaz n'a ni odeur ni couleur et prend la place de l'oxygène dans le sang : on a sommeil, et on s'endort au lieu de sortir. Il se mêle à tout l'air de la pièce : dormir par terre ne protège pas.
+**Ce qui arrive.** Le poêle, le barbecue, le réchaud, le fanal et les moteurs font du monoxyde de carbone, et le poêle en fait plus quand on ferme presque l'entrée d'air pour la nuit. Le gaz ne se voit pas et ne se sent pas. Il prend la place de l'oxygène dans le sang : on s'endort sans s'en rendre compte, au lieu de sortir. Il se répand dans toute la pièce, jusqu'au plancher : se coucher par terre ne protège pas.
 
-**Comment on le reconnaît.** Le mal de tête, la fatigue et la nausée font penser à une grippe ; un jeune enfant, qui absorbe le gaz plus vite, a l'air fatigué ou de mauvais caractère. Quand deux personnes ont mal à la tête en même temps au même endroit, ou quand les maux passent dehors et reviennent à l'intérieur, on agit comme si c'était du monoxyde. À faible dose, l'avertisseur peut mettre des heures, même des semaines, à sonner, et il n'est pas fiable sous 4,4 °C. Le bouton d'essai vérifie la pile et la sirène, pas la cellule qui détecte le gaz.
+**Comment on le reconnaît.** Le mal de tête, la fatigue et la nausée font penser à une grippe. Un jeune enfant s'intoxique plus vite qu'un adulte, et il a seulement l'air fatigué ou de mauvaise humeur. Quand deux personnes ont mal à la tête en même temps dans la même pièce, ou quand le mal de tête passe dehors et revient en rentrant, on fait comme si c'était du monoxyde. S'il y en a peu dans l'air, l'avertisseur peut prendre des heures, même des semaines, avant de sonner, et il n'est pas fiable sous 4,4 °C. Le bouton d'essai vérifie la pile et la sirène, pas la cellule qui détecte le gaz.
 
 **Ce qu'on fait.**
 
-1. Sortir tout le monde, sans chercher la source. Pendant des retombées, chercher d'abord la source et l'éteindre (ch. 4, étape 18).
+1. Sortir tout le monde, sans chercher d'où vient le gaz. Pendant des retombées, trouver d'abord ce qui brûle et l'éteindre (ch. 4, étape 18).
 2. Avant de rentrer chercher quelqu'un, ouvrir grand les portes et les fenêtres en restant dehors.
 3. Garder la personne intoxiquée au repos et au chaud : 3 à 5 h plus tard, la moitié du gaz est encore dans son sang, même si elle se sent mieux. Si elle est confuse ou se réveille mal, sa vie est en jeu.
 4. Ne rien rallumer avant d'avoir trouvé la cause (tuyau déboîté, sortie prise dans la neige).
@@ -27,7 +27,7 @@
 
 ## {!electrocution} Courant renvoyé ou fil tombé
 
-**Ce qui arrive.** Une génératrice renvoie son courant dans le réseau quand on la branche par une prise murale, par le panneau sans commutateur de transfert, ou avec un câble à deux fiches mâles. Ce courant peut électrocuter les équipes qui réparent la ligne, et les broches libres de ce câble sont sous tension, à nu. Un fil tombé peut rester sous tension sans bruit ni étincelle, et le courant passe dans le sol autour : quand on marche à grands pas, il monte par une jambe et redescend par l'autre.
+**Ce qui arrive.** Une génératrice renvoie son courant dans le réseau quand on la branche par une prise murale, par le panneau sans commutateur de transfert, ou avec un câble à deux fiches mâles. Ce courant peut électrocuter les équipes qui réparent la ligne, et les broches qui dépassent à l'autre bout du câble sont sous tension. Un fil tombé peut rester sous tension sans bruit ni étincelle, et le courant passe dans le sol autour : quand on marche à grands pas, il monte par une jambe et redescend par l'autre.
 
 **Comment on le reconnaît.** On ne voit pas si un fil est sous tension : on fait toujours comme s'il l'était.
 
@@ -55,9 +55,9 @@
 
 ## {!huile-en-feu} Huile ou gras en feu
 
-**Ce qui arrive.** L'eau jetée sur un chaudron d'huile en feu coule au fond, se change en vapeur d'un coup et projette l'huile en feu au visage et au plafond. Une pièce de métal qui porte une goutte d'eau ou de la neige fait la même chose quand on la trempe dans l'huile chaude.
+**Ce qui arrive.** L'eau jetée sur un chaudron d'huile en feu coule au fond, se change en vapeur d'un coup et projette l'huile en feu au visage et au plafond. Une pièce de métal qui a une goutte d'eau ou de la neige dessus fait la même chose quand on la trempe dans l'huile chaude.
 
-**Comment on le reconnaît.** De la fumée monte du gras : s'il continue de chauffer, il va prendre feu tout seul. Le beurre fume dès 130 °C, et on prend cette valeur pour le suif, le saindoux et la graisse d'ours.
+**Comment on le reconnaît.** De la fumée monte du gras : s'il continue de chauffer, il va prendre feu tout seul. Le beurre fume à partir de 130 °C ; on compte la même chose pour le suif, le saindoux et la graisse d'ours.
 
 **Ce qu'on fait.**
 
@@ -69,7 +69,7 @@
 
 ## {!incendie} Le bâtiment brûle
 
-**Ce qui arrive.** Dans une maison en feu, on a moins de 3 minutes pour sortir. La fumée chaude remplit la pièce par le haut, et les enfants qui dorment dans une mezzanine sont les premiers atteints.
+**Ce qui arrive.** Dans une maison en feu, on a moins de 3 minutes pour sortir. La fumée chaude remplit la pièce par le haut, et les enfants qui dorment dans une mezzanine sont les premiers touchés.
 
 **Comment on le reconnaît.** Un feu de cheminée fait rougir le tuyau et sortir des étincelles de la cheminée. Après un incendie, la suie dans le nez, la voix rauque, une toux aboyante ou un sifflement en respirant montrent que la gorge peut enfler et fermer le passage de l'air jusqu'à 24 h plus tard : la vie de la personne est en jeu.
 
@@ -85,7 +85,7 @@
 
 **Ce qui arrive.** Beaucoup de morts sont des gens partis trop tard : la fumée cache la route, et le seul chemin peut être fermé avant que le feu arrive. Les braises allument plus de 90 % des maisons détruites : le vent les porte jusqu'à 2 km en avant du feu, même par-dessus un lac. La chaleur rayonnante tue avant les flammes : elle brûle la peau à 100 m et traverse les vitres.
 
-**Comment on le reconnaît.** La fumée arrive bien avant les flammes. Un feu de sol avance dans l'humus sans flamme et peut passer l'hiver sous la neige : on trouve un point chaud en passant le dos de la main au ras du sol.
+**Comment on le reconnaît.** La fumée arrive bien avant les flammes. Un feu de sol avance sans flamme dans la terre noire, sous la mousse, et peut passer l'hiver sous la neige : on trouve un point chaud en passant le dos de la main au ras du sol.
 
 **Ce qu'on fait.**
 
@@ -96,9 +96,9 @@
 
 ## {!espace-clos} L'air qui manque au fond
 
-**Ce qui arrive.** Au fond d'une fosse, d'un caveau, d'une cuve, d'un puits ou d'une tranchée, un gaz plus lourd que l'air s'accumule sans qu'on le voie : le gaz carbonique des légumes entreposés et de ce qui pourrit, le sulfure d'hydrogène des eaux d'égout et des peaux qui trempent, le propane d'une fuite. Quand l'oxygène tombe à 4 %, on s'effondre après quelques inspirations, sans rien sentir venir. Environ 60 % des gens qui meurent dans un espace clos sont des sauveteurs descendus chercher la personne tombée.
+**Ce qui arrive.** Au fond d'une fosse, d'un caveau, d'une cuve, d'un puits ou d'une tranchée, un gaz plus lourd que l'air s'accumule sans qu'on le voie : le gaz carbonique des légumes entreposés et de ce qui pourrit, le sulfure d'hydrogène des eaux d'égout et des peaux qui trempent, le propane d'une fuite. Quand l'oxygène tombe à 4 %, on perd connaissance après quelques respirations, sans rien sentir venir. Environ 60 % des gens qui meurent dans un espace clos sont des sauveteurs descendus chercher la personne tombée.
 
-**Comment on le reconnaît.** La personne au fond ne répond plus, titube ou s'effondre sans raison visible. Le sulfure d'hydrogène sent l'œuf pourri, mais, vers 100 à 150 ppm, il paralyse l'odorat : quand l'odeur disparaît, c'est que le gaz augmente. L'avertisseur de monoxyde ne détecte ni le gaz carbonique ni le propane.
+**Comment on le reconnaît.** La personne au fond ne répond plus, titube ou tombe sans raison. Le sulfure d'hydrogène sent l'œuf pourri, mais, vers 100 à 150 ppm, on arrête de le sentir : quand l'odeur disparaît, c'est que le gaz augmente. L'avertisseur de monoxyde ne détecte ni le gaz carbonique ni le propane.
 
 **Ce qu'on fait.**
 
@@ -111,7 +111,7 @@
 
 **Ce qui arrive.** Les bases fortes (soude caustique, lessive, chaux, cendre bouillie) font peu mal et s'enfoncent dans la peau tant qu'il en reste : on rince trop tard, et la brûlure devient plus profonde que celle d'un acide. Dans l'œil, elles peuvent rendre aveugle. L'eau de Javel dégage du chlore avec un acide (vinaigre, détartrant) et des chloramines avec de l'ammoniaque (nettoyant à vitres, urine) ; le sulfure de sodium du tannage dégage du sulfure d'hydrogène avec un acide ({>espace-clos}).
 
-**Comment on le reconnaît.** La peau rougit de plus en plus loin, même sans grande douleur. Le chlore et les poudres de chaux et de soude, respirés, peuvent essouffler une personne jusqu'à 48 h plus tard, même si elle va bien le soir même.
+**Comment on le reconnaît.** La peau rougit de plus en plus loin, même sans grande douleur. Respirer du chlore, de la poudre de chaux ou de soude peut couper le souffle jusqu'à 48 h plus tard, même si la personne va bien le soir même.
 
 **Ce qu'on fait.**
 
@@ -136,21 +136,21 @@
 
 ## {!projection} Ce qui éclate ou part d'un coup
 
-**Ce qui arrive.** Une meule peut se fissurer sans qu'on le voie, après une chute ou un serrage trop fort, et éclater en tournant : les morceaux partent dans le plan où elle tourne. Un contenant fermé éclate au feu, comme une pierre ramassée dans l'eau, parce que ce qu'il y a dedans prend du volume. Un arbre encroué (tombé sur un autre arbre) se détend d'un coup comme un ressort, et un câble tendu qui lâche fouette sur toute sa longueur.
+**Ce qui arrive.** Une meule peut se fissurer sans qu'on le voie, après une chute ou un serrage trop fort, et éclater en tournant : les morceaux partent dans l'alignement de la meule. Un contenant fermé éclate au feu, comme une pierre ramassée dans l'eau, parce que ce qu'il y a dedans prend du volume. Un arbre encroué (tombé sur un autre arbre) se détend d'un coup comme un ressort, et un câble tendu qui lâche fouette sur toute sa longueur.
 
 **Comment on le reconnaît.** Une meule est dangereuse quand elle est ébréchée ou que la vitesse marquée dessus est plus basse que celle de la meuleuse.
 
 **Ce qu'on fait.**
 
-1. Avant de monter une meule de plus de 10 cm, la tapoter près du bord avec un manche de tournevis : si le son est sourd, la jeter. La faire tourner au moins 1 minute à vide, en se tenant hors de son plan.
+1. Avant de monter une meule de plus de 10 cm, la tapoter près du bord avec un manche de tournevis : si le son est sourd, la jeter. La faire tourner au moins 1 minute à vide, en se tenant de côté, hors de l'alignement de la meule.
 2. Percer ou ouvrir tout contenant avant de le chauffer.
-3. Dégeler une batterie avant de la charger ou de la survolter : gelée, elle peut exploser et projeter de l'acide. Ne plus jamais charger ni survolter celle dont les parois sont bombées ou fendues.
+3. Dégeler une batterie avant de la charger ou de la survolter : gelée, elle peut exploser et projeter de l'acide. Ne plus jamais charger ni survolter une batterie bombée ou fendue.
 4. Faire tomber un arbre encroué de loin, avec un treuil, sans entrer dans la zone où il peut tomber, et se tenir hors de la ligne d'un câble tendu.
 5. Porter des lunettes qui ferment sur les côtés pour meuler, frapper et casser.
 
 ## {!ecrasement} Ce qui tombe ou s'effondre
 
-**Ce qui arrive.** Une charge suspendue tombe sans prévenir quand ce qui la tient cède : un quartier d'orignal pèse autour de 95 kg, et s'il tombe d'un mètre, il écrase une jambe. Quand une poulie de renvoi est accrochée à un arbre, les deux brins de la corde tirent dessus : l'arbre porte le double de la traction.
+**Ce qui arrive.** Une charge suspendue tombe sans prévenir quand ce qui la tient lâche : un quartier d'orignal pèse autour de 95 kg, et s'il tombe d'un mètre, il écrase une jambe. Quand une poulie de renvoi est accrochée à un arbre, les deux brins de la corde tirent dessus : l'arbre porte le double de la traction.
 
 **Comment on le reconnaît.** Avant de lâcher, une corde s'effiloche ou s'allonge, un crochet s'ouvre, un câble a des fils cassés. Une personne écrasée qui respire mal et qui est pâle, moite et agitée saigne peut-être en dedans ({>coupure}).
 
@@ -170,7 +170,7 @@
 
 **Ce qu'on fait.**
 
-1. Ne pas bûcher seul ; à défaut, dire à quelqu'un où on va et quand on revient. Garder le pansement compressif sur soi, pas dans l'auto.
+1. Ne pas bûcher seul ; sinon, dire à quelqu'un où on va et quand on revient. Garder le pansement compressif sur soi, pas dans l'auto.
 2. Tenir la scie à deux mains, les pouces enroulés sous les poignées, et essayer le frein de chaîne avant de commencer.
 3. Si ça saigne, appuyer fort sur la plaie au moins 5 minutes, sans relâcher pour regarder.
 4. Si le sang gicle d'un bras ou d'une jambe malgré la pression, poser un garrot au-dessus de la plaie et le serrer jusqu'à ce que le sang arrête, sans le desserrer.
@@ -190,7 +190,7 @@
 
 ## {!froid} Hypothermie et gelure
 
-**Ce qui arrive.** Quand la température du corps descend sous 32,2 °C, la personne décide mal sans s'en apercevoir : quelqu'un d'autre doit décider pour elle. Une personne qui arrête de frissonner est passée sous 28 °C, comme un enfant qui se plaignait du froid et devient tranquille : son cœur peut s'arrêter au moindre mouvement brusque.
+**Ce qui arrive.** Quand la température du corps descend sous 32,2 °C, la personne décide mal sans s'en rendre compte : quelqu'un d'autre doit décider pour elle. Une personne qui arrête de frissonner est passée sous 28 °C, comme un enfant qui se plaignait du froid et devient tranquille : son cœur peut s'arrêter au moindre mouvement brusque.
 
 **Comment on le reconnaît.** La peau qui gèle picote, devient insensible, puis blanche ou cireuse. Le pied et la joue arrêtent de faire mal avant de geler. Chez un enfant, on regarde les joues, le nez et les oreilles, et on tâte les pieds et les mains au lieu de lui demander s'il a froid.
 
@@ -233,14 +233,14 @@ Sur de la glace blanche, on double ces épaisseurs. Si l'eau déborde du trou, o
 
 1. Porter des pics à glace, une corde et un sifflet, et ne jamais aller sur la glace seul.
 2. Ne pas s'avancer sur la glace de mer ni sur celle du fleuve : le sel et la marée les changent d'un jour à l'autre.
-3. Si on tombe à l'eau ({>eau-froide}), se tourner vers l'endroit par où on est arrivé : la glace y a porté. Poser les bras sur la glace, planter les pics, battre des pieds pour se coucher dessus, puis rouler loin du trou sans se relever.
+3. Si on tombe à l'eau ({>eau-froide}), se tourner vers l'endroit par où on est arrivé : la glace a tenu jusque-là. Poser les bras sur la glace, planter les pics, battre des pieds pour se coucher dessus, puis rouler loin du trou sans se relever.
 4. Pour sauver quelqu'un, lui tendre une perche depuis la rive ou la bonne glace, sans s'avancer près du trou. On peut aussi lui lancer la corde.
 
 ## {!ours} Ours
 
 **Ce qui arrive.** L'ours noir s'en va quand il entend venir les gens, mais il devient dangereux quand on le surprend de près, quand il garde une carcasse ou ses petits, et quand il a appris à manger près des gens. L'ours qui se défend souffle, grogne et charge souvent pour s'arrêter avant de toucher ; l'ours qui chasse, plus rare et plus dangereux, est silencieux, et il s'approche, tourne autour ou suit.
 
-**Comment on le reconnaît.** Une carcasse est proche quand on sent une bête morte, qu'on voit des oiseaux réunis (corbeaux, geais) ou un gros tas frais de terre et de branches. Un seul signe suffit : l'ours est souvent couché tout près, sans se montrer.
+**Comment on le reconnaît.** Une carcasse est proche quand on sent une bête morte, qu'on voit des corbeaux ou des geais attroupés ou un gros tas frais de terre et de branches. Un seul signe suffit : l'ours est souvent couché tout près, sans se montrer.
 
 **Ce qu'on fait.**
 

@@ -452,6 +452,16 @@ de la cuisson, les abats et le lièvre, le bloc de petits fruits, l'eau des tuya
 congélateur arrêté, faire geler la viande dehors, la lame et l'épaisseur pour cuire sans sonde, deux notes En plus.
 L'eau de l'aqueduc est au ch. 10 ; la viande en poudre des Innus au ch. 72.
 
+## Le mot qu'on dit (28 octobre 2026)
+
+JP, sur la page du monoxyde condensée (« Le gaz n'a ni odeur ni couleur et prend la place de l'oxygène dans le sang :
+on a sommeil, et on s'endort au lieu de sortir ») : « On a sommeil, qui qui dit ça dans vrai vie, la façon que tu
+écris c'est pas bon ». Le texte était correct et sonnait comme un livre : « avoir sommeil », « lucide », « avec
+peine », « d'apparence normale », « à défaut », « les maux », « paralyse l'odorat », « l'air leur manque ». La règle 15
+du skill `ecriture` le dit : le mot qu'un Québécois emploierait à voix haute, en français correct. Les 36 pages des
+dangers ont été relues à voix haute (34 tournures changées, aucun fait ni chiffre touché), et `controle.py` relève
+maintenant les mots de livre qu'il connaît.
+
 ## Le dossier
 
 ```

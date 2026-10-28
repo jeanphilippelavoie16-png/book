@@ -129,6 +129,11 @@ La phrase
   au garage, […] toujours dans les mêmes moments : la panne d'hiver, la nuit, […] quand on veut la protéger […], ou
   garder le congélateur en marche » : « fucking weird ») : pas de « on est tenté de », pas de formule vague, et une
   liste après deux-points ne mélange pas deux sortes de choses (skill `ecriture`, règle 12).
+- [ ] Le mot qu'on dit, pas le mot qu'on écrit (JP, 28 octobre 2026, sur « on a sommeil, et on s'endort au lieu de
+  sortir » : « qui qui dit ça dans la vraie vie, la façon que tu écris c'est pas bon ») : chaque mot est celui qu'un
+  Québécois emploierait à voix haute (« on a envie de dormir », « garder toute sa tête », « sinon », « quand »), en
+  français correct, sans joual. La section « Mots de livre » de `controle.py` est vide ou jugée ligne par ligne
+  (skill `ecriture`, règle 15).
 - [ ] On nomme la chose au lieu du possessif qui oblige à chercher (« le robinet de vidange du chauffe-eau »).
 - [ ] Les mots de tous les jours : pas de mot de métier sans besoin (« carter »), pas de « seuil », pas de
   « un change », pas de nom latin, pas de notation que le lecteur n'emploie pas (« 84 mois (7 ans) »).

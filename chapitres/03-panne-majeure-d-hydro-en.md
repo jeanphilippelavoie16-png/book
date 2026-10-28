@@ -60,7 +60,7 @@ qu'elle dure six heures ou cinq semaines.
 4. **Remplir la baignoire et des chaudrons d'eau, tout de suite.** Sur l'aqueduc, la pression vient des pompes de la
  ville et tient tant qu'elles ont du courant, d'Hydro-Québec ou d'une génératrice ; rien n'annonce le moment où elle
  tombe. Quand elle tombe, la conduite peut aspirer l'eau du sol par ses joints et ses fuites, et l'eau peut devenir
- impropre à boire sans changer d'aspect ni de goût. Il faut donc faire bouillir l'eau qui coule après la
+ dangereuse à boire sans changer de couleur ni de goût. Il faut donc faire bouillir l'eau qui coule après la
  baisse de pression, au moins 1 minute ; l'eau tirée avant n'a pas besoin de bouillir (ch. 10). Compter au moins 4 L par
  personne et par jour, dont 2 L à boire, pour au moins 3 jours. Le chauffe-eau est une réserve de plus (étape 23). Au
  chalet, la pompe du puits s'arrête avec le courant, et il reste quelques minutes de pression.
@@ -302,7 +302,7 @@ ou sans alarme.
 38. **Remettre le chauffage peu à peu, et l'électronique en dernier**, une fois les températures revenues à la normale.
 39. **Au retour du courant, faire bouillir l'eau à boire et celle des biberons au moins 1 minute, tant qu'on ne sait
  pas qu'elle est bonne.** Sur l'aqueduc, une longue panne au poste de traitement peut rendre l'eau
- impropre à boire même si elle a l'air parfaite. Sur un puits inondé ou dont l'eau est douteuse, laisser d'abord couler
+ dangereuse à boire même si elle a l'air parfaite. Sur un puits inondé ou dont l'eau est douteuse, laisser d'abord couler
  l'eau au moins 5 minutes, et continuer de la faire bouillir jusqu'à ce qu'on ait trouvé et réglé la cause du
  doute (ch. 10).
 40. **Refaire le stock entamé** (ch. 5).

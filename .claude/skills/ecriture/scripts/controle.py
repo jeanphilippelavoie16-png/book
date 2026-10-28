@@ -47,6 +47,29 @@ TOURNURE = [r"\b(?:Ceux|Celui|Celle|Celles) qui\b",
 # la règle redite comme un proverbe, en « Un X qui… ne… plus/rien/pas »
 MAXIME = [r"(?:^|(?<=[.!?:]\s))(?:Un|Une)\s+(?:[\wÀ-ÿ'’-]+\s+){0,4}qui\s+[^.;:]{3,90}?\s(?:ne|n')\s?[\wÀ-ÿ'’-]+(?:\s+[\wÀ-ÿ'’-]+)?\s+(?:plus|rien|pas|jamais|personne)\b[^.]*\.",
           r"(?:^|(?<=[.!?:]\s))(?:Un|Une)\s+[^.;:]{3,50}?\s(?:ne|n')\s?[\wÀ-ÿ'’-]+\s+(?:plus|rien|jamais|personne)\s*(?:de\s+\w+)?\."]
+# le mot de livre (JP, 28 octobre 2026, sur « on a sommeil » : « qui qui dit ça dans vrai vie, la façon que tu écris
+# c'est pas bon ») : un mot ou un tour correct qu'on écrit et qu'on ne dit pas ; à côté, ce qu'on dit (règle 15)
+LIVRESQUE = [(r"\b(?:a|ont|avoir|avait|avaient) sommeil\b", "a envie de dormir"),
+             (r"\bsomnolen(?:ce|t|te|ts|tes)\b", "envie de dormir, endormi"),
+             (r"\blucides?\b", "garde toute sa tête"), (r"\bavec peine\b", "a du mal à"),
+             (r"\bà défaut\b", "sinon"), (r"\bd['’]apparence\b", "qui a l'air"),
+             (r"\blorsqu(?:e\b|['’])", "quand"), (r"\bafin (?:de|d['’]|que|qu['’])", "pour"),
+             (r"\bdavantage\b", "plus"), (r"\bdemeur(?:e|ent|er|é|ée|és|ées)\b", "rester"),
+             (r"\bse munir\b|\bmunie?s? d", "prendre, avec"), (r"\beffectu(?:e|er|ent|é|ée|és|ées)\b", "faire"),
+             (r"\bnécessit(?:e|er|ent)\b", "il faut, demander"), (r"\bs['’]av[éè]r(?:e|ent|er)\b", "être"),
+             (r"\bprocur(?:e|er|ent)\b", "donner"), (r"\bdès lors\b", "alors"), (r"\bauparavant\b", "avant"),
+             (r"\bnéanmoins\b|\btoutefois\b|\bcependant\b", "mais"), (r"\bparven(?:ir|ient|u|ue)\b", "arriver à"),
+             (r"\btent(?:er|ent) d|\b(?:on|il|elle|ils|elles) tente d", "essayer de"), (r"\bdébut(?:er|e|ent)\b", "commencer"),
+             (r"\bposs[eè]d(?:e|er|ent)\b", "avoir"), (r"\bse dérou(?:le|lent|ler)\b", "se passer"),
+             (r"\bconstitu(?:e|er|ent)\b", "être, faire"), (r"\ben raison d", "à cause de"),
+             (r"\bau moyen d", "avec"), (r"\bdotée?s? d", "avec"), (r"\bveiller à\b", "s'assurer de"),
+             (r"\bles maux\b", "le mal de tête, les douleurs"), (r"\bs['’](?:en )?aperç|\bs['’](?:en )?apercev", "se rendre compte"),
+             (r"\bignor(?:e|ent|er)\b", "ne pas savoir"), (r"\bguère\b", "pas beaucoup"),
+             (r"\bpéri(?:r|t|ssent)\b", "mourir"), (r"\baisément\b", "facilement"), (r"\bnul(?:le)? ne\b", "personne ne"),
+             (r"\bpar ailleurs\b|\ben outre\b", "(rien)"), (r"\bà nu\b", "(dire ce qu'on voit)"),
+             (r"\bbrutal(?:e|es|ement)?\b", "d'un coup"), (r"\baspect\b", "l'air, l'apparence"),
+             (r"\bodorat\b", "on ne sent plus"), (r"\bimpropres? à\b", "dangereux à, pas bon à"), (r"\bhumus\b", "la terre noire"),
+             (r"\bquand l['’]air (?:leur|lui) manque\b", "quand il manque d'air (la chose ne ressent rien)")]
 SECURITE = {"74 °C": r"74" + ESP + "°C", "cadmium": r"cadmium", "trichinellose": r"trichin",
             "tularémie": r"tularémie", "thuyone": r"thuyone", "3 °C (botulisme E)": r"\b3" + ESP + "°C",
             "botulisme": r"botulisme", "mal de caribou": r"caribou", "génératrice": r"génératrice"}
@@ -88,6 +111,9 @@ def tics(L):
                 for m in re.finditer(r, l):
                     if not re.search(r"\b(?:lequel|laquelle|lesquels|lesquelles)\b", m.group(0)):
                         out.append((i, "tournure", m.group(0)[:50], l))
+        for r, dit in LIVRESQUE:
+            for m in re.finditer(r, l, re.I):
+                out.append((i, "livre", f"{m.group(0)} → {dit}", l))
         for r in RELIEF:
             m = re.search(r, l)
             if m:
@@ -186,6 +212,7 @@ def main():
                        ("age", "Âges de 4 ou 6 ans (à juger : l'âge des enfants de JP sort, un âge qui est un fait reste)"),
                        ("section", "Signes § à écrire « section N » (JP : « c'est quoi l'affaire avant le 8 »)"),
                        ("tournure", "Tournures bizarres : sujet en « ceux qui », ordre renversé (à juger, règle 11)"),
+                       ("livre", "Mots de livre : on l'écrit, on ne le dit pas (à juger, règle 15 : le mot qu'on dirait)"),
                        ("relief", "Mises en relief et oppositions (à juger)"), ("vide", "Mots vides (à juger)")]:
         x = [r for r in t if r[1] == cat]
         if not x:
