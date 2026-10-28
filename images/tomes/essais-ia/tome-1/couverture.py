@@ -764,7 +764,9 @@ def nettoyer(can, rects, ppp, serre=False):
 
 # ------------------------------------------------------------------ Chromium
 def chromium():
-    c = sorted(glob.glob('/opt/pw-browsers/chromium-*/chrome-linux/chrome'))
+    # le « headless shell » d'abord : le Chromium complet 1243 (chrome-linux64) bloque sans fenêtre dans le conteneur
+    c = (sorted(glob.glob('/opt/pw-browsers/chromium_headless_shell-*/chrome-headless-shell-linux64/chrome-headless-shell'))
+         or sorted(glob.glob('/opt/pw-browsers/chromium-*/chrome-linux/chrome')))
     c = c[-1] if c else (shutil.which('chromium') or shutil.which('google-chrome'))
     if not c:
         sys.exit('Chromium introuvable (/opt/pw-browsers/chromium-*/chrome-linux/chrome)')
