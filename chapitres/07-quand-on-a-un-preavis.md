@@ -131,7 +131,7 @@ la génératrice, et décider tout de suite si on monte au chalet.
 16. **Rentrer trois jours de bois sec** dans la maison ou sous un abri sec et déneigé, si la maison a un poêle
  (ch. 83). Le bois laissé dehors sera enterré sous la neige et mouillé par la tempête.
 17. **Faire les pleins dès le début du préavis** : les autos, la motoneige, les bidons et les bouteilles de propane
- (ch. 15, ch. 87). Les pompes à essence marchent à l'électricité : quand le courant manque, toutes les stations du
+ (ch. 15, ch. 87). Les pompes à essence marchent à l'électricité : pendant une panne de courant, toutes les stations du
  secteur arrêtent de vendre en même temps.
 18. {!generatrice} {!electrocution} **Préparer l'emplacement de la génératrice pendant qu'il fait clair.**
  - Choisir l'endroit dehors, à découvert, à au moins 6 m du bâtiment, et tourner l'échappement à l'opposé des

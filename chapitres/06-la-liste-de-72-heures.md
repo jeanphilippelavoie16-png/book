@@ -225,7 +225,7 @@ Si on part, écrire le nom de chaque enfant et un numéro de téléphone à l'in
 
 ### L'eau quand il n'y a plus de pression
 
-**Remplir tout ce qui tient l'eau pendant qu'elle coule encore** : les gourdes, les chaudrons, les bidons, le bain, la cuve de la laveuse et les chaudières. Au chalet, le faire dès que le courant manque : la pompe du puits s'arrête avec lui, et il ne reste que quelques minutes de pression.
+**Remplir tout ce qui tient l'eau pendant qu'elle coule encore** : les gourdes, les chaudrons, les bidons, le bain, la cuve de la laveuse et les chaudières. Au chalet, le faire dès que le courant est coupé : la pompe du puits s'arrête avec lui, et il ne reste que quelques minutes de pression.
 
 **Tirer l'eau du chauffe-eau.** Le chauffe-eau reste plein quand la pression tombe.
 

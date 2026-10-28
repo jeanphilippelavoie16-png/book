@@ -36,6 +36,8 @@ mains. Chaque phrase doit lui donner un fait, un geste, une mesure ou un signe �
   d'hiver, la nuit, la tempête, le soir de l'arrivée au chalet, quand on veut la protéger de la neige ou des voleurs,
   ou garder le congélateur en marche » : « la tournure de phrase est fucking weird ». Voir la règle 12.
 
+- Même épreuve, ch. 1 : « Les quatre horloges, mais on sait même pas c'est quoi les 4 horloges, c'est quoi ça veut
+  dire ??? Faut l'expliquer. » Voir la règle 14.
 - Même épreuve, ch. 1, section 2 : « Les phrases comme "le courant manque et on ne sait pas quand il reviendra" ;
   "Coupure de courant sans avoir de temps de retour" ; la façon que t'écris c'est pas humain. » Voir la règle 13.
 
@@ -129,6 +131,12 @@ dans le garage.
       lampe ou la barre de porte », « Quelqu'un cogne à la porte ».
     La règle 0 vaut toujours pour la procédure : une étape garde son verbe et son geste. Un titre de situation n'est pas
     une étiquette en raccourci tant qu'il se comprend du premier coup.
+14. **Une notion du chapitre s'explique la première fois qu'elle paraît.** JP, sur le ch. 1 : « Les quatre horloges,
+    mais on sait même pas c'est quoi les 4 horloges ; faut l'expliquer. » Le titre et la section 1 en parlaient, et la
+    réponse n'arrivait qu'à l'étape 16, trois pages plus loin. Un mot que le livre invente (les quatre horloges, la
+    bascule, la tournée) se dit en clair dès sa première apparition, avec ce qu'il veut dire concrètement : « Pendant
+    une panne de courant, quatre choses s'épuisent en même temps, chacune à sa vitesse : la chaleur du corps…, l'eau
+    potable…, le froid du frigo et du congélateur…, les calories et le combustible… Ce sont les quatre horloges. »
 
 ## Ce qui sort
 

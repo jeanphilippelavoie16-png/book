@@ -104,6 +104,9 @@ La phrase
   reste quand la chose le fait toute seule.
 - [ ] La consigne se dit comme une consigne, pas au présent qui décrit ; le sujet se nomme (« les gens qui »,
   jamais « ceux qui » en tête) ; l'ordre est naturel.
+- [ ] Une notion propre au chapitre ou au livre (les quatre horloges, la bascule) s'explique dès sa première
+  apparition, en clair, pas trois pages plus loin (JP, 28 octobre 2026, sur le ch. 1 : « on sait même pas c'est quoi
+  les 4 horloges ; faut l'expliquer ») (skill `ecriture`, règle 14).
 - [ ] « Quand l'utiliser » : chaque ligne est un titre de situation court, comme on l'écrirait à la main (JP,
   28 octobre 2026, sur « Le courant manque et on ne sait pas quand il reviendra » : « c'est pas humain ») :
   « Panne de courant sans heure de retour ». Le mot que les gens emploient (« panne », « en panne »), pas un verbe qui

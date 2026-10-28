@@ -8,9 +8,10 @@
 
 ## 1. En une ligne
 
-Classer ce qu'il y a à faire selon quatre horloges qui partent en même temps (le corps, l'eau, le
-stock périssable, les calories), et commencer par celle qui finit le plus tôt, du premier quart
-d'heure jusqu'au printemps.
+Pendant une panne de courant, quatre choses s'épuisent en même temps, chacune à sa vitesse : la chaleur du corps et l'air
+qu'on respire, en minutes ou en heures ; l'eau potable, en heures ou en jours ; le froid du frigo et du congélateur,
+en 4 heures pour le frigo et en 1 à 2 jours pour le congélateur ; les calories et le combustible, en semaines ou en mois. Ce sont les quatre horloges : on s'occupe d'abord de celle qui finit le plus tôt, même si elle protège moins que les
+autres.
 
 ---
 
