@@ -29,3 +29,5 @@ J_N2	le froid mécanique
 subjonctif-recherche	chercher quelqu'un qui est déjà dehors
 # Quand l'utiliser, jugé le 28 octobre 2026
 COMMENT_VPPA	sans fin annoncée
+# ch. 1, jugé le 28 octobre 2026
+DETERMINER_SENT_END	multiplié par 7

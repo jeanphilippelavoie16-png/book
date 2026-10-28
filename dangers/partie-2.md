@@ -72,7 +72,7 @@ Chez la personne, les signes arrivent de 3 à 6 jours après le contact, parfois
 - Ne pas toucher une bête trouvée morte ou qui a l'air malade, gants ou pas. Si le foie ou la rate ont des points blancs, ne pas manger la bête, même en coupant autour. Ne rien donner de cru au chien, ni aucun abat de bête sauvage.
 - Un oiseau sauvage qui tremble, tourne en rond, a la tête enflée ou la diarrhée peut porter l'influenza aviaire : ne pas le ramasser ni le plumer, même après l'avoir abattu.
 
-**Où il revient.** À la chasse au petit gibier, aux collets et aux pièges, au dépeçage, au travail des peaux et à la cuisine du gibier (ch. 1, 9, 18, 41 à 56, 61, 69, 71, 102 à 104).
+**Où il revient.** À la chasse au petit gibier, aux collets et aux pièges, au dépeçage, au travail des peaux et à la cuisine du gibier (ch. 3, 9, 18, 41 à 56, 61, 69, 71, 102 à 104).
 
 ## {!hantavirus} Crottes de souris : le hantavirus
 
@@ -145,7 +145,7 @@ Ne pas servir de poisson cru ou fumé à froid à une femme enceinte, à une per
 - Congeler cette viande ne la rend pas sûre, même pendant les durées qui protègent du ver du poisson.
 - En conserve, l'autoclave à 116 °C tue la larve en même temps qu'il conserve.
 
-**Où il revient.** À la chasse à l'ours et au phoque, au piégeage des carnivores, dans chaque façon de conserver la viande (salaison, saumure, fumoir, séchage, pemmican, congélateur, trousse d'urgence) et à la viande sauvage reçue en échange (ch. 1, 3, 5 à 9, 17, 18, 52, 55, 56, 66 à 74, 78).
+**Où il revient.** À la chasse à l'ours et au phoque, au piégeage des carnivores, dans chaque façon de conserver la viande (salaison, saumure, fumoir, séchage, pemmican, congélateur, trousse d'urgence) et à la viande sauvage reçue en échange (ch. 3, 5 à 9, 17, 18, 52, 55, 56, 66 à 74, 78).
 
 ## {!abats} Foie, reins, cervelle : les abats qu'on ne mange pas
 
@@ -159,7 +159,7 @@ Ne pas servir de poisson cru ou fumé à froid à une femme enceinte, à une per
 
 **Ce qu'on fait.** À l'éviscération, mettre le foie et les reins de cervidé de côté avec les restes qu'on ne mange pas, et prendre le suif sans garder le rein. Ne pas ouvrir le crâne ni scier la colonne : désosser au couteau, et ne mettre ni la colonne ni la tête au chaudron à bouillon. Ne jamais donner de foie de phoque, d'ours, de morse ou de lotte à un enfant. Ne pas donner ces abats au chien non plus.
 
-**Où il revient.** À l'éviscération et à la découpe des cervidés, de l'ours et du phoque, au partage du gibier, au bouillon d'os, au pemmican, à la trousse d'urgence, au congélateur qui dégèle, à la ration d'hiver quand le gras manque et au repas d'une personne qui a perdu du sang (ch. 1, 2, 5 à 7, 9, 18, 19, 21 à 23, 26, 56, 61 à 65).
+**Où il revient.** À l'éviscération et à la découpe des cervidés, de l'ours et du phoque, au partage du gibier, au bouillon d'os, au pemmican, à la trousse d'urgence, au congélateur qui dégèle, à la ration d'hiver quand le gras manque et au repas d'une personne qui a perdu du sang (ch. 2, 3, 5 à 7, 9, 18, 19, 21 à 23, 26, 56, 61 à 65).
 
 ## {!botulisme} Botulisme
 
@@ -179,7 +179,7 @@ Ne pas servir de poisson cru ou fumé à froid à une femme enceinte, à une per
 - Jamais de miel à un bébé de moins d'un an : les spores germent dans son intestin.
 - Aux premiers signes, partir vers l'hôpital sans attendre la suite ({>vie-en-jeu}) : le traitement est une antitoxine, et elle marche mieux quand on la donne tôt. Apporter le pot ou l'emballage, fermé, et noter qui en a mangé : comme les signes arrivent tard, souvent toute la table a mangé du même plat.
 
-**Où il revient.** Aux conserves, aux marinades, aux huiles, aux ferments, à la salaison, au fumage, au poisson frais ou fumé, à la viande de phoque, aux caches, au caveau, au réfrigérateur, à la trousse d'urgence et à la nourriture reçue en échange (ch. 1, 3, 5 à 9, 17, 18, 59, 66 à 81, 91 à 93).
+**Où il revient.** Aux conserves, aux marinades, aux huiles, aux ferments, à la salaison, au fumage, au poisson frais ou fumé, à la viande de phoque, aux caches, au caveau, au réfrigérateur, à la trousse d'urgence et à la nourriture reçue en échange (ch. 3, 5 à 9, 17, 18, 59, 66 à 81, 91 à 93).
 
 ## {!zone-de-danger} Les heures entre 4 et 60 °C
 
@@ -199,7 +199,7 @@ Une grosse masse, comme une marmite de ragoût, une épaule ou une carcasse, ref
 - Faire dégeler au froid, ou dans une eau à 21 °C ou moins, jamais sur le comptoir.
 - Après une panne, on peut remettre au congélateur un aliment qui a encore des cristaux de glace. Une viande crue dégelée restée à 4 °C ou moins, on la cuit tout de suite, ou on la recongèle une fois cuite. Un aliment périssable dégelé qui a dépassé 4 °C, on le jette, même s'il a l'air bon et sent bon. Si on ne sait pas combien d'heures une pièce a passé au chaud, on la jette.
 
-**Où il revient.** À l'éviscération et au refroidissement de la carcasse, au congélateur en panne, au fumoir et au séchoir, à la saumure, à la cuisine en grand volume, au poisson sorti de l'eau (ch. 1, 3, 5, 7, 16, 18, 60, 64, 66, 68, 69, 71 à 74, 81).
+**Où il revient.** À l'éviscération et au refroidissement de la carcasse, au congélateur en panne, au fumoir et au séchoir, à la saumure, à la cuisine en grand volume, au poisson sorti de l'eau (ch. 3, 5, 7, 16, 18, 60, 64, 66, 68, 69, 71 à 74, 81).
 
 ## {!mal-de-caribou} Viande maigre seule : le mal de caribou
 

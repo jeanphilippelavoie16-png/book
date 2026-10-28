@@ -104,6 +104,9 @@ La phrase
   reste quand la chose le fait toute seule.
 - [ ] La consigne se dit comme une consigne, pas au présent qui décrit ; le sujet se nomme (« les gens qui »,
   jamais « ceux qui » en tête) ; l'ordre est naturel.
+- [ ] Le chapitre parle de son sujet, pas de celui des autres (JP, 28 octobre 2026, sur le témoin de dégel au ch. 1 :
+  « les chapitres doivent parler de ce qu'ils parlent, pas des autres ») : ce qui appartient à un autre chapitre y va,
+  sans doublon, et il reste ici un renvoi court. Les rappels de sécurité se répètent quand même.
 - [ ] Une notion propre au chapitre ou au livre (les quatre horloges, la bascule) s'explique dès sa première
   apparition, en clair, pas trois pages plus loin (JP, 28 octobre 2026, sur le ch. 1 : « on sait même pas c'est quoi
   les 4 horloges ; faut l'expliquer ») (skill `ecriture`, règle 14).

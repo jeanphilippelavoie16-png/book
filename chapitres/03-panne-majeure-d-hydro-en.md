@@ -56,13 +56,17 @@ viande, qu'elle dure six heures ou cinq semaines.
  revenu.
 3. **Écrire l'heure sur la porte du congélateur, puis n'ouvrir ni le congélateur ni le réfrigérateur.** On compte le
  temps des aliments à partir de cette heure-là (étapes 27 à 31). L'écrire au crayon ou au marqueur, sur un bout de
- ruban ou de papier collé. Sans cette heure, on doit traiter tout le congélateur comme décongelé.
+ ruban ou de papier collé. Sans cette heure, on doit traiter tout le congélateur comme décongelé. Poser aussi du ruban
+ à masquer en travers des portes du réfrigérateur et du congélateur, pour que personne ne les ouvre : chaque
+ ouverture fait entrer de l'air chaud. Faire l'inventaire de mémoire, sans ouvrir, et écrire sur le ruban, en trois
+ mots, ce qu'on triera en premier : ce qui est cru, ce qui est cuit, le poisson (étape 27).
 4. **Remplir la baignoire et des chaudrons d'eau, tout de suite.** Sur l'aqueduc, la pression vient des pompes de la
  ville et tient tant qu'elles ont du courant, celui d'Hydro-Québec ou celui d'une génératrice ; rien n'annonce le
  moment où elle tombe. Quand elle tombe, la conduite peut aspirer l'eau du sol par ses joints et ses fuites, et l'eau
  de l'aqueduc peut devenir impropre à boire sans qu'on le voie ni qu'on le goûte. Il faut donc faire bouillir l'eau
- qui coule après la baisse de pression, au moins 1 minute ; l'eau tirée avant n'a pas besoin de bouillir (ch. 10). Le
- chauffe-eau est une réserve de plus (étape 23). Au chalet, la pompe du puits s'arrête avec le courant, et il reste
+ qui coule après la baisse de pression, au moins 1 minute ; l'eau tirée avant n'a pas besoin de bouillir (ch. 10). Compter au
+ moins 4 L par personne et par jour, dont 2 L à boire, pour au moins 3 jours. Le chauffe-eau est une réserve de plus
+ (étape 23). Au chalet, la pompe du puits s'arrête avec le courant, et il reste
  quelques minutes de pression.
 5. {!co} **Tester l'avertisseur de CO au bouton, et le poser dans la pièce chauffée où la famille va dormir.**
  - Le poser à au moins 2 m du poêle et de tout appareil de cuisson : plus près, il sonne aux bouffées de l'allumage,
@@ -163,7 +167,9 @@ ou sans alarme.
  transvider les cendres.
 15. {!froid} **Préparer chaque sortie dehors (le bois, les cendres, le plein d'essence) d'après l'indice de
  refroidissement éolien que donne la radio.** Mettre les gants et la cagoule avant d'ouvrir la porte, et tout faire
- en un seul voyage. **La nuit**, dire avant de sortir combien de temps on sera dehors.
+ en un seul voyage. **La nuit**, dire avant de sortir combien de temps on sera dehors. Mettre le combustible à couvert
+ pendant qu'il fait clair : empiler le bois près de la porte, et ranger les bonbonnes et les bidons dehors, sous un
+ abri. Le bois enneigé qu'on va chercher à la noirceur brûle mal toute la nuit (ch. 83).
 
 ### La génératrice, s'il y en a une
 
@@ -175,7 +181,9 @@ ou sans alarme.
  appareils directement dans les prises de la génératrice.** Ne jamais brancher la génératrice dans une prise de la
  maison, ni dans celle de la sécheuse, ni avec un câble à deux fiches mâles, et ne rien raccorder au panneau
  électrique sans commutateur de transfert : ce commutateur coupe la maison de la ligne d'Hydro-Québec avant de la
- relier à la génératrice, et avec lui, la maison ne peut pas être reliée aux deux en même temps.
+ relier à la génératrice, et avec lui, la maison ne peut pas être reliée aux deux en même temps. Coller sur le
+ disjoncteur principal un bout de ruban avec un mot au marqueur, pour que personne ne le remonte, et le revérifier à
+ chaque démarrage, même à 2 h du matin.
 18. **Démarrer un appareil à la fois.** Un moteur à compresseur demande beaucoup plus de courant au démarrage qu'une
  fois lancé, et ce pic fait caler la génératrice ou déclencher le disjoncteur de la génératrice : brancher un
  appareil, attendre que le moteur tourne rond, puis brancher le suivant. La puissance de chaque appareil est écrite
@@ -185,7 +193,7 @@ ou sans alarme.
  la viande dehors (étape 29), la génératrice sert au réfrigérateur, à la pompe de puisard et à recharger les lampes et
  les téléphones.
 20. {!vapeurs} **Arrêter la génératrice 1 h toutes les 8 h de marche, et faire le plein quand le moteur est froid**,
- dehors, loin de toute flamme. Laisser le bidon dehors.
+ dehors, loin de toute flamme. Pendant l'arrêt, vérifier le niveau d'huile. Laisser le bidon dehors.
 
 ### La plomberie
 
@@ -239,13 +247,20 @@ ou sans alarme.
  - {!botulisme} Jeter aussi le poisson fumé ou sous vide, même s'il a l'air bon et sent bon : le botulisme du poisson
  fait sa toxine dès 3 °C, et un réfrigérateur en panne monte à 6 ou 8 °C. Le poisson fumé est au ch. 77.
 28. **Laisser le congélateur fermé** : plein, il tient 48 h ; à moitié plein, 24 h. Préparer des bidons d'eau gelée
- ou des sacs de neige tassée, et s'en servir pour combler les vides à la première ouverture.
+ ou des sacs de neige tassée, et s'en servir pour combler les vides à la première ouverture (section 7, « Remplir le
+ congélateur arrêté »).
+ - S'il faut quitter la maison, même une nuit, poser un témoin de dégel dans le congélateur : un verre d'eau gelée
+ (planche 03-13, repère 1), avec une pièce de monnaie posée sur la glace (repère 2). L'hiver, on peut faire geler le
+ verre dehors. Au retour, si la pièce est restée en surface, rien n'a dégelé (repère 3) ; si elle est prise à
+ mi-hauteur, le dégel a été partiel (repère 4) ; si elle est au fond, tout a dégelé puis regelé (repère 5). Un
+ thermomètre minimum-maximum donne la même réponse en degrés. Sans l'un ou l'autre, un congélateur retrouvé froid ne
+ prouve rien sur ce qui s'est passé pendant l'absence.
 29. **Le premier matin, s'il gèle dehors jour et nuit, sortir la viande du congélateur.**
  - La mettre dans un garage non chauffé, une remise, une glacière ou une boîte de bois. Poser la glacière ou la boîte
  à l'ombre, du côté nord du bâtiment.
  - Tasser de la neige autour et par-dessus : elle isole et garde gelé ce qui l'est.
- - Couvrir d'une bâche ou d'un contreplaqué chargé de bûches, et mettre un thermomètre ou le verre à la pièce de
- monnaie dans la boîte (section 7).
+ - Couvrir d'une bâche ou d'un contreplaqué chargé de bûches, et mettre un thermomètre ou le témoin de dégel dans la boîte
+ (étape 28).
  - Faire le tour chaque matin pour chercher des traces de bêtes.
  - Au redoux, la viande qui a dégelé puis regelé sans dépasser 4 °C perd son jus et durcit, sans devenir dangereuse :
  la manger en premier, et pas en rôti. Le froid naturel est au ch. 73, le congélateur qui dégèle pour de bon au
@@ -253,9 +268,17 @@ ou sans alarme.
 30. **À l'ouverture du congélateur, planter la sonde au centre de chaque paquet :**
  - le cœur est encore dur : recongeler, ou garder dehors ;
  - décongelé mais à 4 °C ou moins : cuire tout de suite et manger vite, ou cuire puis recongeler ;
- - décongelé et passé au-dessus de 4 °C : jeter.
+  - décongelé et passé au-dessus de 4 °C : jeter.
+ Le thermomètre qui mesure l'air du congélateur ne sert pas au tri : quand on ouvre, l'air se réchauffe bien avant le
+ cœur d'une pièce épaisse, et quand on referme, il se refroidit avant elle.
 31. {!cuisson} **Cuire le gibier à 74 °C à cœur**, en mesurant avec la sonde au centre de la pièce la plus épaisse,
  même quand la panne force à cuire beaucoup de viande vite.
+ - Cuire d'abord ce qui se gâte le plus vite : les abats qu'on mange, le poisson, la viande hachée. La viande hachée
+ passe avant le rôti, même si le rôti coûte plus cher : le hachage a mêlé la surface de la viande à toute la masse.
+ - {!abats} Jeter le foie et les reins d'orignal et de tout cervidé au lieu de les cuire avec le reste : ils
+ accumulent le cadmium (ch. 22).
+ - {!tularemie} Mettre des gants pour toucher le lièvre du congélateur, gelé ou dégelé : le gel ne tue pas la
+ bactérie de la tularémie (ch. 48).
 32. **Jeter le plat d'une mijoteuse dont la cuisson a été coupée par la panne**, même s'il a l'air correct.
 33. **Mettre les médicaments dans la pièce chauffée dès le premier jour**, contre un mur intérieur : dans une maison
  qui refroidit, le danger pour eux est le gel (ch. 32). Pour un médicament gardé au réfrigérateur, compter le temps
@@ -324,6 +347,7 @@ ou sans alarme.
 | Plus d'eau à un robinet, ou un coup sourd dans un mur | Tuyau gelé, parfois déjà fendu | Le dégeler en partant du robinet (section 7) |
 | Odeur d'égout au sous-sol après la vidange | Siphon vidé : les gaz d'égout remontent | Reboucher le siphon avec un chiffon tassé et un sac, aérer, remettre de l'antigel dès que possible |
 | Eau au sol près du puisard | Puisard plein, pompe sans courant | Le vider à la chaudière, ou brancher la pompe sur la génératrice avant le congélateur si l'eau monte |
+| Un sac de petits fruits ou de crème glacée a repris en un bloc dur, avec des cristaux gros comme du gros sel | Le contenu a dégelé puis regelé : le congélateur est passé au-dessus de 0 °C | Trier tout le reste à la sonde (étape 30), sans se fier à l'œil |
 | Paquets mous en surface, durs à cœur à la sonde | Décongélation partielle | Recongeler, ou garder dehors |
 | Jus figé au fond du bac, paquets mous à cœur | Décongélation complète | Sonde à 4 °C ou moins : cuire tout de suite. Au-dessus de 4 °C : jeter |
 | Poisson resté plusieurs jours entre 3 °C et 10 °C, cru, fumé à froid ou sous vide | Risque de botulisme de type E | Jeter sans goûter (étape 27) |
@@ -372,7 +396,10 @@ fume.
 
 ### L'eau
 
-Après l'eau remplie à l'étape 4 et celle du chauffe-eau (étape 23), il reste la neige.
+Après l'eau remplie à l'étape 4 et celle du chauffe-eau (étape 23), il reste l'eau des tuyaux : ouvrir le robinet le
+plus haut de la maison pour laisser entrer l'air, puis le plus bas pour les vider dans une chaudière. Il reste aussi
+l'eau du réservoir de la toilette (le réservoir, pas la cuvette) et le jus des conserves de légumes. Ensuite, il
+reste la neige.
 
 **Le sac à fonte.** Pour faire fondre la neige sans occuper le dessus du poêle, prendre une taie d'oreiller, un sac de
 toile ou un bas de laine, le remplir de neige tassée et le suspendre près du poêle, assez près pour recevoir sa
@@ -381,7 +408,8 @@ dessous. On remplit le sac en allant chercher le bois. Cette eau n'est pas dési
 
 Si on fait fondre la neige dans une marmite sur la plaque, garder toujours de l'eau au fond de la marmite, pour ne pas
 la brûler. La neige fraîche ne contient que 4 à 10 % d'eau : il en faut 10 à 25 L pour faire 1 L d'eau. À volume égal,
-la neige tassée et grenue du fond d'un banc en donne beaucoup plus que la neige folle du dessus.
+la neige tassée et grenue du fond d'un banc en donne beaucoup plus que la neige folle du dessus. Pour le même bois, la
+glace de lac donne beaucoup plus d'eau que la neige : quand on a les deux, on prend la glace.
 
 **Ce qu'on perd :** du bois, du temps et de la place sur le poêle : l'eau d'une famille occupe une bonne part de la
 plaque toute la journée.
@@ -447,14 +475,28 @@ courant : tant que cette conduite est gelée, laisser la pompe débranchée et c
 périssables du réfrigérateur. Après 24 h pour un congélateur à moitié plein, et 48 h pour un plein, couper chaque
 paquet : s'il n'est plus dur au centre, on doit le cuire tout de suite ou le jeter.
 
-**Le verre à la pièce de monnaie.** Le premier soir, faire geler un verre d'eau dehors, poser une pièce de monnaie sur
-la glace, et laisser le verre dans le congélateur ou dans la boîte de viande dehors : il montre s'il y a eu un dégel
-entre deux ouvertures. La pièce reste en surface tant que rien n'a fondu. Elle est prise au milieu du bloc si l'eau a
-fondu à moitié et regelé, et elle est au fond si tout a fondu (ch. 1, planche 01-02). Un thermomètre donne la température au moment où on
-ouvre ; le verre montre ce qui s'est passé depuis la dernière ouverture.
+**Le témoin de dégel plutôt que le thermomètre.** Un thermomètre donne la température au moment où on ouvre ; le
+témoin de dégel de l'étape 28 montre ce qui s'est passé depuis la dernière ouverture, dans le congélateur comme dans la
+boîte de viande dehors.
 
 Sans pièce de monnaie, un verre d'eau posé dans la pièce la plus froide montre si elle descend sous 0 °C : quand une
 pellicule de glace se forme dessus, il faut vidanger tout de suite (étape 23).
+
+**Remplir le congélateur arrêté.** Un congélateur plein garde le froid deux fois plus longtemps qu'un congélateur à
+moitié rempli (étape 28). On remplit donc tout de suite un congélateur à moitié vide avec ce qui ne se mange pas : des
+sacs de neige tassée, des blocs de glace taillés au lac, des cruches et des pots d'eau gelés dehors puis rentrés, des
+vêtements d'hiver roulés pour boucher les vides. À chaque ouverture, l'air froid des vides s'échappe, alors qu'un bloc
+de glace garde son froid. On couvre le dessus et les côtés de couvertures, de sacs de couchage ou de tapis : un
+appareil arrêté n'a besoin d'aucune ventilation. On enlève cet isolant au retour du courant : sinon, le compresseur
+repart sans pouvoir évacuer sa chaleur, et il surchauffe.
+
+**Faire geler la viande dehors.** La neige isole : une viande encore molle qu'on enterre dans un banc de neige ne gèle
+pas dur. Pour la faire geler, on la laisse à l'air, dans des bacs ouverts du côté nord, les morceaux séparés les uns
+des autres, par une nuit claire et venteuse. Une fois la viande gelée, on l'enterre dans la neige pour la garder
+gelée, et on plante une perche dans la cache : après une bordée, on ne retrouve plus le banc de neige ni ce qu'il
+contient (ch. 73). *Ce qu'on perd :* le froid constant du congélateur. Le froid du dehors varie avec la météo et ne
+tient pas à −18 °C : un redoux de trois jours fait dégeler la réserve, et il faut passer au sel et à la fumée
+(étape 34).
 
 **La marmite norvégienne.** On la fabrique en dix minutes, et elle économise le bois, qui manque plus que la
 nourriture (planche 03-08). Un ragoût, un bouilli de gibier, des fèves au lard ou un bouillon d'os n'ont pas besoin de
@@ -480,8 +522,13 @@ boîte. Cuire le rôti au feu, à la sonde (étape 31) : la marmite sert au mijo
 **Cuire sans sonde.** On ne peut pas deviner les 74 °C à cœur : le jus clair, la couleur au centre et la fermeté sous
 le doigt peuvent tromper tous les trois à la fois sur une pièce épaisse. Il reste l'eau bouillante, qui est à 100 °C
 au niveau de la mer. Couper la viande en petits morceaux et la tenir à plein bouillon dans du liquide : elle finit par
-dépasser 74 °C à cœur si on lui en laisse le temps. Sans sonde, faire du bouilli ou du ragoût, et garder les gros
-rôtis pour le jour où on aura une sonde.
+dépasser 74 °C à cœur si on lui en laisse le temps. Le temps dépend de l'épaisseur : un morceau deux fois plus épais demande quatre fois plus de temps
+pour que son centre arrive à la même température. On coupe donc la viande en morceaux d'égale épaisseur. Le test de
+la lame donne une indication : pousser une lame mince au centre, la laisser le temps qu'elle prenne la température
+de la viande, puis la poser contre l'intérieur du poignet. Si elle est tiède, le centre est froid ; si elle est
+brûlante, le centre est chaud, mais pas forcément à 74 °C. Sans sonde, faire du bouilli ou du ragoût, et garder les
+gros rôtis pour le jour où on aura une sonde. Sans sonde, on ne sert ni l'ours ni le
+phoque : rien d'autre ne montre que leur cœur a atteint 74 °C (étape 34).
 
 **Ce qu'on perd :** sans thermomètre ni sonde, on jette nettement plus.
 
@@ -585,6 +632,20 @@ Sur la côte est de la terre de Baffin, les Inuits doublaient l'intérieur de la
 attachées au dôme par de petites cordes. En haut, les peaux faisaient un plafond plat, 60 à 90 cm sous le sommet :
 au-dessus, il restait une couche d'air froid, et la neige du toit ne fondait pas. Sous la doublure, il faisait souvent
 10 à 20 °C ; sans doublure, 2 ou 3 °C au plus (étape 10).
+
+### La glace qui fond
+
+Faire fondre 1 kg de glace demande autant de chaleur que réchauffer 1 kg d'eau de 0 à 80 °C, et la glace
+reste à 0 °C tant qu'elle fond. Un bloc de glace absorbe donc beaucoup de chaleur avant de disparaître :
+dans un congélateur arrêté, il retarde le moment où le reste se réchauffe (section 7, « Remplir le
+congélateur arrêté »).
+
+### Le temps qu'il faut pour geler la viande
+
+Même dans un tunnel de congélation, dans un air à −30 °C soufflé fort, une demi-carcasse de bœuf met 16 à
+20 heures à geler, et de la viande coupée, en boîte, environ 4 heures. Une pièce de viande est gelée quand
+son centre est à −12 °C ou moins. Plus le morceau est mince, plus il gèle vite : désosser et couper la
+viande avant de la faire geler dehors (section 7).
 
 ### Les tours cellulaires pendant une panne
 

@@ -648,3 +648,14 @@ Les changements rendus par les agents des planches, vérifiés contre `images/a-
 Étape 10 (planche 03-09) : rien à changer, les repères 1 à 11 suivent la planche.
 
 Contrôle : `controle.py --avant` (HEAD) : 8 505 → 8 511 mots ; 2 tirets (titre et ligne de tome) ; aucun avis nouveau ; rien n'a disparu. Fins de ligne LF.
+
+## Ce qui vient du ch. 1 (28 octobre 2026)
+
+Repris tels quels du ch. 1 (provenance dans `suivi/01-redaction.md`), sans doublon avec ce que le ch. 3 avait :
+étape 3 (ruban en travers des portes, inventaire sans ouvrir) ; étape 4 (4 L par personne et par jour, dont 2 L à
+boire, 3 jours) ; étape 15 (combustible à couvert) ; étape 17 (ruban sur le disjoncteur, revérifier à chaque
+démarrage) ; étape 20 (niveau d'huile) ; étape 28 (témoin de dégel, planche 03-13, l'ancienne 01-02) ; étape 30
+(le thermomètre d'air ne sert pas au tri) ; étape 31 (ordre de la cuisson, {!abats}, {!tularemie}) ; signes d'échec
+(le bloc de petits fruits) ; section 7 (l'eau des tuyaux, la glace de lac, remplir le congélateur arrêté, faire geler
+la viande dehors, l'épaisseur et la lame pour cuire sans sonde) ; En plus (la glace qui fond, le temps pour geler la
+viande).

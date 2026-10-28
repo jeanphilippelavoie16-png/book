@@ -5,14 +5,9 @@
     "photos": []
   },
   "01": {
-    "planches": [
-      {
-        "id": "01-02",
-        "apres": "15. **S'il faut quitter la maison, même une nuit, poser un témoin de dégel"
-      }
-    ],
+    "planches": [],
     "photos": [],
-    "_planches": "01-01 (fiche des quatre horloges) non posée : c'est un formulaire (images/formulaires/01-01.pdf), le chapitre ne demande plus de feuille à remplir, et la bande du haut porte un numéro de téléphone. Si JP la garde : après « 1. **Écrire l'heure sur la porte du congélateur.** »."
+    "_planches": "La 01-02 (le témoin de dégel) est devenue la 03-13 le 28 octobre 2026, avec l'étape qui l'appelle (JP : « les chapitres doivent parler de ce qu'ils parlent »). 01-01 (fiche des quatre horloges) non posée : c'est un formulaire (images/formulaires/01-01.pdf), le chapitre ne demande plus de feuille à remplir, et la bande du haut porte un numéro de téléphone. Si JP la garde : après « 1. **Écrire l'heure sur la porte du congélateur.** »."
   },
   "02": {
     "planches": [],
@@ -44,6 +39,10 @@
       {
         "id": "03-12",
         "apres": "**Fermer les fenêtres.**"
+      },
+      {
+        "id": "03-13",
+        "apres": "S'il faut quitter la maison, même une nuit, poser un témoin de dégel"
       }
     ],
     "photos": [],

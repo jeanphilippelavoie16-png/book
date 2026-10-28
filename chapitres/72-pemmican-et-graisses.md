@@ -483,3 +483,14 @@ commencer que de les découvrir sur un lot perdu.
 bloc. On perd la mesure : plus de température vérifiée, plus d'étanchéité, plus de durée de
 garde prévisible. La conséquence directe est que **la réserve d'urgence se mange en premier et
 la réserve faite avec matériel se garde**, et non l'inverse comme le réflexe le suggère.
+
+---
+
+## En plus
+
+### La viande en poudre des Innus
+
+Les Innus font sécher la viande de caribou ou d'orignal, puis la réduisent en poudre : le niuaikanat,
+qu'on mange avec un peu de graisse. La viande séchée à fond garde trop peu d'eau pour que les
+microbes s'y multiplient, et la graisse apporte les calories qui manquent à la viande maigre. Avec de
+l'ours ou du phoque, la façon devient dangereuse : le séchage ne tue pas la trichine.

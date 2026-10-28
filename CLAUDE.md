@@ -145,6 +145,11 @@ déclenche (1 h, 15 min, 1 min). **Le logigramme est la version courte ; l'encad
 tout y est** : chaque étape porte son geste, son pourquoi et le détail qui sert à le faire, sans limite de longueur, sans
 partie « … : le détail » après la série ni redite entre les deux. La règle 1 tient.
 
+**Chaque chapitre parle de son sujet, pas de celui des autres** (JP, 28 octobre 2026, sur le témoin de dégel au ch. 1 :
+« ça c'est dans panne électricité qu'on devrait le savoir ; les chapitres doivent parler de ce qu'ils parlent, pas des
+autres »). Un geste, une planche ou une note qui appartient à un autre chapitre y va, sans doublon ; ici, il reste un
+renvoi court (« ch. 3, étape 28 »). Les rappels de sécurité se répètent quand même dans chaque chapitre concerné.
+
 **Chaque planche est appelée dans le texte** (« (planche 04-40) ») là où elle sert ; elle s'imprime sur la page de son
 appel ou la suivante.
 

@@ -38,7 +38,7 @@ Pendant une panne d'hiver, la nuit, dans une tempête ou le soir de l'arrivée a
 4. Sortir l'auto, la motoneige, la scie ou la souffleuse du garage avant de la démarrer. Dans une auto prise dans la neige, dégager le tuyau d'échappement avant chaque démarrage : un tuyau bouché renvoie le gaz dans l'habitacle.
 5. Ne jamais brancher la génératrice sur une prise ni sur le panneau électrique de la maison ({>electrocution}).
 
-**Où il revient.** Chaque fois qu'une génératrice ou un moteur sert : la panne d'électricité (ch. 1 à 3, 7, 8), le stock de carburant (ch. 5, 9, 15), la pompe du puits (ch. 10), le retour après un feu de forêt (ch. 11), l'auto prise dans la neige (ch. 2, 6, 8, 15), la génératrice d'un visiteur qu'on loge (ch. 17), la veille d'un malade (ch. 26), l'électricité du chalet, le transport et l'atelier (ch. 104 à 112).
+**Où il revient.** Chaque fois qu'une génératrice ou un moteur sert : la panne d'électricité (ch. 2, 3, 7, 8), le stock de carburant (ch. 5, 9, 15), la pompe du puits (ch. 10), le retour après un feu de forêt (ch. 11), l'auto prise dans la neige (ch. 2, 6, 8, 15), la génératrice d'un visiteur qu'on loge (ch. 17), la veille d'un malade (ch. 26), l'électricité du chalet, le transport et l'atelier (ch. 104 à 112).
 
 ## {!electrocution} Courant renvoyé ou fil tombé
 
@@ -56,7 +56,7 @@ Un fil tombé au sol peut rester alimenté sans faire de bruit, sans étincelle 
 4. Dans une auto qui touche une ligne : rester dedans. S'il faut sortir parce que l'auto prend feu, sauter le plus loin possible les pieds joints, sans toucher l'auto et le sol en même temps, puis s'éloigner à petits pas.
 5. Ne pas toucher une personne électrocutée tant qu'elle touche au fil ou à ce qui est sous tension. Une fois qu'elle ne touche plus rien de sous tension, la réanimer si elle ne respire pas, et couvrir ses brûlures d'un linge propre et sec.
 
-**Où il revient.** La génératrice branchée pendant une panne ou au retour après un feu de forêt (ch. 1 à 3, 7, 11, 15), le fil tombé après une tempête, le verglas ou un feu de forêt (ch. 11, 16).
+**Où il revient.** La génératrice branchée pendant une panne ou au retour après un feu de forêt (ch. 2, 3, 7, 11, 15), le fil tombé après une tempête, le verglas ou un feu de forêt (ch. 11, 16).
 
 ## {!vapeurs} Vapeurs qui prennent feu
 

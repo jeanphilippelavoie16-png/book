@@ -605,3 +605,13 @@ Les changements rendus par les agents des planches (`_reprise/scratchpad/tome1-f
 La planche ne s'imprime qu'ici ; les ch. 3, 5, 7 et 9 y renvoient par « (ch. 1, planche 01-02) ».
 
 Contrôle : `controle.py --avant` (HEAD) : 5 719 → 5 735 mots ; 2 tirets (titre et ligne de tome) ; aucun avis nouveau ; rien n'a disparu. Fins de ligne LF.
+
+## Le ch. 1 réduit aux quatre horloges (28 octobre 2026)
+
+JP : « les chapitres doivent parler de ce qu'ils parlent, pas des autres » ; il a choisi le court chapitre. Le ch. 1
+garde : la table des quatre horloges, l'heure du début, la lecture de chaque horloge (pièce chauffée et CO, litres
+d'eau, heures du frigo et du congélateur, combustible × 7 et gras), l'ordre, ce qu'une horloge coûte aux autres, le
+classement à heure fixe, la décision à 48 heures, la lecture sans instrument, la note du verglas de 1998. Aucun
+chiffre nouveau : tout vient du texte d'avant (provenance plus haut dans cette fiche). Le reste est passé au ch. 3
+(voir `suivi/03-redaction.md`), au ch. 10 (l'eau de l'aqueduc, déjà là) et au ch. 72 (la viande en poudre des Innus).
+Lieu : « Les deux » (les horloges valent à la maison et au chalet).

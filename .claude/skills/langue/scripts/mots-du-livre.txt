@@ -47,3 +47,8 @@ Hydro-Québec
 babiche
 Babiche
 babiches
+CO
+ppm
+DEL
+paracorde
+recoule

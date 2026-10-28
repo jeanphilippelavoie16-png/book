@@ -439,6 +439,19 @@ sèche, le gras et le sel, les bidons opaques ; provenance dans `suivi/00b-redac
 seul inventaire du livre » devient : le livre n'a pas de liste d'achat ; chaque chapitre dit ce que sa procédure
 demande.
 
+## Chaque chapitre parle de son sujet (28 octobre 2026)
+
+JP, sur la page du témoin de dégel au ch. 1 de l'épreuve du tome 1 : « Ça c'est dans panne électricité qu'on devrait
+le savoir, les chapitres doivent parler de ce qu'ils parlent pas des autres ». Le ch. 1 refaisait le ch. 3 (mêmes
+séries orange, congélateur, tri, génératrice, eau du robinet). JP a choisi d'en faire un court chapitre sur les
+quatre horloges seulement (ce qu'elles sont, comment lire chacune, l'ordre, ce qu'une horloge coûte aux autres, la
+décision à 48 heures). Ce que le ch. 3 n'avait pas y est passé, sans doublon : le ruban sur les portes et
+l'inventaire sans ouvrir, la quantité d'eau, le combustible à couvert, le ruban sur le disjoncteur, l'huile de la
+génératrice, le témoin de dégel (planche 01-02 devenue 03-13), le thermomètre d'air qui ne sert pas au tri, l'ordre
+de la cuisson, les abats et le lièvre, le bloc de petits fruits, l'eau des tuyaux, la glace de lac, remplir le
+congélateur arrêté, faire geler la viande dehors, la lame et l'épaisseur pour cuire sans sonde, deux notes En plus.
+L'eau de l'aqueduc est au ch. 10 ; la viande en poudre des Innus au ch. 72.
+
 ## Le dossier
 
 ```
