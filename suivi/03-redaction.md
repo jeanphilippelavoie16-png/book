@@ -659,3 +659,16 @@ démarrage) ; étape 20 (niveau d'huile) ; étape 28 (témoin de dégel, planche
 (le bloc de petits fruits) ; section 7 (l'eau des tuyaux, la glace de lac, remplir le congélateur arrêté, faire geler
 la viande dehors, l'épaisseur et la lame pour cuire sans sonde) ; En plus (la glace qui fond, le temps pour geler la
 viande).
+
+## Langue, 28 octobre 2026 (après la vérification technique de la passe d'éditeur)
+
+| Où | Avant | Après | Règle |
+| --- | --- | --- | --- |
+| Étape 28 | « Sans l'un ou l'autre, un congélateur retrouvé froid… » | « Sans l'un ni l'autre… » | Après « sans », la coordination négative se fait par « ni » |
+| Section 7, « Cuire sans sonde » | « rien d'autre ne montre que leur cœur a atteint 74 °C » | « …ait atteint 74 °C » | Subjonctif après un verbe de déclaration nié, quand le fait est incertain |
+| En plus, « La doublure de peaux » | « la terre de Baffin » | « la Terre de Baffin » | Majuscule au générique qui fait partie du nom (Terre-Neuve, Terre de Feu) |
+| Étape 22 | « arrive à 5 °C dans neuf heures » | « dans 9 h » | Le chiffre avec son unité s'écrit en chiffres |
+
+`langue.py` avec LanguageTool : 16 avis, tous jugés faux (liste dans le rapport du correcteur, à consigner dans
+`faux-positifs.txt` par l'orchestrateur) : les 15 déjà relevés par l'éditeur, et AIT_AIE_AIES_EST sur « ait atteint »
+(le subjonctif voulu, plus haut).

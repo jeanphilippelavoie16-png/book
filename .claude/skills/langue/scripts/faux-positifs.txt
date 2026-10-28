@@ -31,3 +31,27 @@ subjonctif-recherche	chercher quelqu'un qui est déjà dehors
 COMMENT_VPPA	sans fin annoncée
 # ch. 1, jugé le 28 octobre 2026
 DETERMINER_SENT_END	multiplié par 7
+# ch. 3 refait, jugés le 28 octobre 2026 (agent de finition)
+ADJ_GN	Génératrice ou banc de batteries
+CONFUSION_ER_E_PAR	qui tourne dans le garage entre par|l'air de la pièce entre par le haut
+CONFUSION_EST_ET	se réveille mal, est confuse
+VIRG_NON_TROUVEE	combien de temps on sera dehors
+A_ACCENT	au dos, a moins de|Le trou a une taille précise
+DETERMINER_SENT_END	ou à 6 h au plus tard
+PAS_DE_VERBE_APRES_POSSESSIF_DEMONSTRATIF	un joint de porte usé|un joint de tuyau
+DES_DES_ACCENT	la règle des 4 °C
+LAISSEZ_PASSER	le laisser passer la nuit
+AIT_AIE_AIES_EST	que leur cœur ait atteint
+D_N_E_OU_E	sa vis de vidange
+ACCORD_V_PPA	elle fume noir
+GENS_ACCORD	des milliers de gens
+DETERMINER_SENT_END	Heures 4 à 6
+# pages du début et ch. 1, jugés le 28 octobre 2026
+PRONOMS_PERSONNELS_MINUSCULE	10 min Il faut un feu
+PLACE_ADJ	la version courte
+A_A_ACCENT2	là où la page a de la place
+NORD_SUD	nation du Nord
+VIRG_NON_TROUVEE	combien de temps il met à devenir tiède
+PAS_DE_VERBE_APRES_POSSESSIF_DEMONSTRATIF	un joint de porte qui laisse
+PREP_VERBECONJUGUE	Après viennent la parole
+TACHE	prend une tache blanche

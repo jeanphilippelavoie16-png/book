@@ -43,7 +43,7 @@ tôt, même si elle protège moins que les autres.
 | Horloge | Ce qui s'épuise | Vitesse | Ce qui arrive au bout | Peut-on se rattraper ? |
 | --- | --- | --- | --- | --- |
 | **1. Le corps** | La chaleur du corps et l'air qu'on respire | Minutes à heures | Intoxication au CO, hypothermie | Non. Elle seule peut tuer le jour même |
-| **2. L'eau** | L'eau potable, et la pression qui l'amène | Heures à jours | Déshydratation, eau non potable, puis tuyaux éclatés | En partie, en dépensant du combustible pour faire bouillir l'eau ou fondre la neige |
+| **2. L'eau** | L'eau potable et la pression qui l'amène | Heures à jours | Déshydratation, eau non potable, puis tuyaux éclatés | En partie, en dépensant du combustible pour faire bouillir l'eau ou fondre la neige |
 | **3. Le frigo et le congélateur** | Le froid du réfrigérateur et du congélateur | Heures à jours | Réfrigérateur 4 à 6 h, congélateur 24 à 48 h, puis aliments perdus | Non. Ce qui a dégelé doit être cuit ou jeté (ch. 3, étape 30) |
 | **4. Les calories et le combustible** | Le gras, le bois, le propane, le carburant | Semaines à mois | Faim, froid, moteurs arrêtés | Oui, à condition de commencer tôt (étapes 2 et 5 ; ch. 3, étape 34) |
 
@@ -89,7 +89,7 @@ tôt, même si elle protège moins que les autres.
 | --- | --- | --- | --- |
 | Au début | L'heure notée sur la porte du congélateur | Au quart d'heure près | Compter à partir du dernier moment où on sait que le courant marchait |
 | Matin et soir | Le chiffre de l'avertisseur de CO | **0 ppm** affiché | Sortir tout le monde (ch. 3, étapes 12 et 13) |
-| Chaque heure, l'hiver | Température de la pièce chauffée, et l'écart avec l'heure d'avant | Repère : **18 à 24 °C**, risque minimal pour une personne qui bouge peu | Multiplier l'écart par les heures qui restent jusqu'au matin (étape 2). Regrouper la famille pendant qu'il fait clair, et décider du départ avec le ch. 2 |
+| Chaque heure, l'hiver | Température de la pièce chauffée et l'écart avec l'heure d'avant | Repère : **18 à 24 °C**, risque minimal pour une personne qui bouge peu | Multiplier l'écart par les heures qui restent jusqu'au matin (étape 2). Regrouper la famille pendant qu'il fait clair, et décider du départ avec le ch. 2 |
 | Chaque heure, si quelqu'un a été dehors ou a froid | Température dans la bouche | **35 °C ou plus**. Sous 35 °C, hypothermie | Le réchauffer doucement, au sec, à l'abri. Sous **32,2 °C**, la vie est en jeu (ch. 25, ch. 26) |
 | Chaque jour | L'eau en réserve | **4 L par personne et par jour, dont 2 L à boire** | Remplir pendant que l'aqueduc donne (ch. 3, étape 4). Au chalet : puiser, ou faire fondre la neige (ch. 10) |
 | Heures 6, 24 et 48 | Le réfrigérateur, puis le congélateur à moitié rempli, puis le congélateur plein | Trié à la sonde | Ch. 3, étapes 27 et 30 |
@@ -134,7 +134,7 @@ l'air, un feu qui baisse) : chercher la cause avant d'ajouter une couverture.
 
 **L'hypothermie sans thermomètre.** Les signes arrivent dans cet ordre. D'abord, la personne frissonne fort
 et parle bien. Ensuite, elle perd ses gestes fins avant sa force : elle n'arrive plus à attacher un bouton,
-à gratter une allumette ou à ouvrir une fermeture éclair, alors qu'elle marche droit. Ce test des gestes
+à gratter une allumette ou à ouvrir une fermeture Éclair, alors qu'elle marche droit. Ce test des gestes
 fins est le plus fiable sans thermomètre, et on le fait sans le lui dire : on lui tend une allumette et une
 boîte. Après viennent la parole et le jugement : une personne qui répond à côté, qui rit ou qui veut enlever
 son manteau est plus atteinte qu'une personne qui grelotte. On ne peut pas voir le moment où elle passe sous

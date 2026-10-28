@@ -292,8 +292,8 @@ Le cadre complet est `.claude/skills/planches/references/brief-agent.md`. En bre
   ouvrir sur une page de gauche ; l'assembleur choisit le côté d'ouverture qui coûte le moins de pages.
 - [ ] Le pictogramme de danger se pose au début de la phrase de l'étape ; le moteur met l'étape sur fond rose pâle avec un
   filet rouge, et à droite le pictogramme en gros, son nom court et la page du danger (JP, même jour : « les dangers
-  en dessous du pictogramme pointent à la page du danger » ; « C, mais avec texte et page » ; puis « mets la page de la même couleur que le nom » : la page est en rouge, sous le nom, dans le même style). Chaque danger a sa page au début du tome, une seule (« chacun sa propre page, pas
-  plus qu'une page ») : une page de danger qui déborde se resserre, ou son texte se coupe.
+  en dessous du pictogramme pointent à la page du danger » ; « C, mais avec texte et page » ; puis « mets la page de la même couleur que le nom » : la page est en rouge, sous le nom, dans le même style). Les dangers sont au début du tome, deux par page depuis le 28 octobre 2026 (JP : « minimum 2 dangers par page ») ;
+  un danger qui ne tient pas dans sa demi-page se resserre, et l'assembleur l'avertit s'il ne tient pas à 8 pt.
 - [ ] **La série orange vient tout de suite après le logigramme, en tête de la section 4 Procédure**, en premières étapes
   (1, 2, 3…) ; jamais dans la variante d'urgence ni plus loin dans la procédure (JP, 18 octobre 2026 : « les premières
   minutes doivent toujours être directement après les [logigrammes] associés, je comprends pas, je te l'ai déjà dit » ;

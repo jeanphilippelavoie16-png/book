@@ -551,6 +551,27 @@ Liste avant → après, phrase par phrase (225 phrases d'avant touchées, sur 41
 - « Si on surprend un ours : reculer lentement en lui parlant, et lui laisser un chemin pour partir. » « On ne l'entoure pas. » « S'il charge ou s'il suit : s'arrêter, lui faire face, se faire grand, crier, taper un bâton sur un arbre. » « Ne pas courir, sauf si un endroit sûr est tout proche. » « S'il touche : se battre avec ce qu'on a (roche, bâton, hache, rame), en frappant la face et le museau. » « Ne pas faire le mort devant un ours noir. » « Un ours blessé : attendre au moins 30 minutes avant de suivre, ne pas le suivre à la brunante, et approcher un ours tombé par l'arrière et par le haut, arme prête. » « Au chalet : rien qui se mange dehors, ni compost ouvert, ni restes de dépeçage, ni poisson cru au jardin. »
   → « Si on surprend un ours : reculer lentement en lui parlant, et lui laisser un chemin libre pour partir, sans l'entourer. » « S'il fonce sur nous : s'arrêter, lui faire face et ne pas courir, sauf si un endroit sûr est tout proche. » « Quand il s'arrête, recommencer à reculer en lui parlant. » « S'il suit, s'approche sans raison ou tourne autour : lui faire face, se faire grand, crier, taper un bâton sur un arbre. » « Si un ours qui se défend nous touche : faire le mort. » « Se coucher à plat ventre, les jambes écartées, les mains croisées sur la nuque, le sac à dos sur le dos, sans bouger ni crier. » « S'il nous retourne sur le dos, rouler de nouveau sur le ventre. » « Rester couché jusqu'à ce que l'ours soit parti, 30 minutes s'il le faut. » « Si l'attaque dure, ou s'il commence à nous manger, se relever et se battre. » « Si l'ours qui suivait, qui s'approchait sans raison ou qui tournait autour nous touche, ou si un ours entre dans le campement ou dans la tente : se battre avec ce qu'on a (roche, bâton, hache, rame), en frappant la face et le museau. » « Ne jamais faire le mort devant cet ours. » « Après avoir blessé un ours : attendre au moins 30 minutes avant de suivre sa piste, ne pas la suivre à la brunante, et approcher un ours tombé par l'arrière et par le haut, l'arme prête. » « Au chalet, ne rien laisser dehors qui se mange : ni compost ouvert, ni restes de dépeçage, ni poisson cru dans le jardin. »
 
+### Condensé à deux dangers par page (28 octobre 2026)
+
+L'éditeur a ramené chaque danger vers 230 mots (JP : « on passe trop de temps à tourner autour du pot ») et coupé
+« Où il revient » (l'assembleur imprime les chapitres sous le titre). Le `[À VÉRIFIER]` de `projection` (l'outil trempé
+frappé contre un autre acier trempé) est sorti du texte avec la coupe. Le vérificateur a comparé à la version d'avant ;
+les faits qu'il a relevés comme changés ou perdus sont remis (aucun chiffre neuf : 30 s pour la main dans l'eau de la
+gelure et 30 min pour faire le mort viennent du texte d'avant) : le couvercle glissé sur le chaudron, le 1-10-1 dans le
+bon ordre, la sortie avant l'extincteur, l'eau qui déborde du trou, les petits pas après le saut hors de l'auto, la
+position pour faire le mort, la gelure (ne pas frotter, jamais d'alcool, la main 30 s, l'hypothermie d'abord), le
+bouton d'essai qui ne vérifie pas la cellule, les sources de monoxyde, le lac que les braises traversent, la hutte de
+castor, les quais et les roches, la raquette, « dire à quelqu'un où on va », la batterie qu'on ne survolte pas gelée, la surface sèche.
+Laissés coupés parce qu'ils sont ailleurs ou que la place manque : les points d'entrée des braises, les outils à long
+manche, les 30 min de rinçage de l'acide de batterie (ch. 108), la terre au pied des terrasses, le sac à dos sur le dos.
+« Masque N95 » redevient « masque filtrant » (pas de désignation d'homologation dans le texte).
+
+**Langue.** `langue.py` avec LanguageTool : 0 avis. Deux avis jugés pendant la passe : « Toute flamme et tout moteur
+produisent » (LanguageTool, ACCORD_DE_LA_QUANTITE : avec « tout… et tout… », le verbe se met au singulier) devient
+« Les flammes et les moteurs produisent » ; « S'il nous retourne, rouler… » (PAS_DE_VIRGULE, faux avis : la virgule
+ferme la subordonnée) reprend le texte d'avant, « S'il nous retourne sur le dos, rouler… », qui ne déclenche plus
+l'avis. « Si l'eau remonte dans le trou » (vrai dans tous les trous) devient « Si l'eau déborde du trou ».
+
 ## Partie 2
 
 Pages des dangers, `dangers/partie-2.md`, 18 octobre 2026 : `orignal`, `arme`, `rage`, `tularemie`, `hantavirus`,
@@ -944,3 +965,33 @@ Avant → après :
 - « Compter en heures : dans combien d'heures l'état devient impossible à rattraper, et combien d'heures prend la route jusqu'à l'hôpital (ch. 26). » → « Compter en heures : estimer dans combien d'heures l'état de la personne ne pourra plus être rattrapé, et combien d'heures prend la route jusqu'à l'hôpital (ch. 26). »
 - « Décider pendant que la personne est stable : on part alors de jour, avec l'auto chargée comme il faut et un adulte à l'arrière pour surveiller. » → « Décider de partir pendant que la personne est stable : on peut alors partir de jour, avec l'auto chargée comme il faut et un adulte assis à l'arrière pour la surveiller. »
 - « Avertir le voisinage ou le groupe du départ, pour que quelqu'un sache qu'une auto est partie. » → « Avertir les voisins ou le groupe qu'on part, pour que quelqu'un sache qu'une auto est sur la route. »
+
+### Condensé à deux dangers par page, partie 2 (28 octobre 2026)
+
+L'éditeur a ramené chaque danger à 230 mots au plus et coupé « Où il revient ». Le vérificateur a comparé au texte
+d'avant (git) ; ce qu'il a relevé est corrigé, sans chiffre neuf (tout vient du texte d'avant) :
+- remis : la fièvre dans les 3 semaines qui suit un lièvre comme signal de départ (tularémie) ; quels foies on ne donne
+  pas à un enfant (abats) ; le rebond de toute balle, avec la croûte de neige (arme) ; la part de protéines
+  « recommandée » chez l'enfant, distincte des 35 % (mal de caribou) ; « personne n'a mesuré le foie d'ours noir » à la
+  place d'un fait affirmé (abats) ; noter qui a mangé du plat, la vue double, la peine à avaler, le délai de 2 h à
+  8 jours, le piège de la personne lucide et sans fièvre, l'huile maison 7 jours, le sac sous vide ouvert avant de
+  dégeler, le pot dont la façon est douteuse, la glacière, le caveau et la cache au redoux (botulisme) ; l'antigel de
+  moteur (poison) ; la femme enceinte parmi les plus touchés (plomb) ; la bête qui transmet la rage avant d'avoir l'air
+  malade (rage) ; « mais l'infection reste » (vie en jeu) ; la vaccination après un tétanos (tétanos) ; « même en
+  coupant autour », la gerçure, le sciage (tularémie) ; les durées du ver du poisson qui ne protègent pas de la trichine
+  (trichine) ; le congélateur qui ne tue pas les œufs, sans durée (selles) ; l'échinocoque, « un ver »
+  (`sources/51-quebec-echinococcose-transmission-humain.html`).
+- coupé pour compenser, parce que c'est dans un chapitre : le pH 4,6 et les 116 °C de l'autoclave (ch. 78) ; la fenêtre
+  habituelle de 12 à 72 h du botulisme (ch. 28) ; l'antitoxine qui marche mieux tôt (ch. 35, 78) ; les « cent fois »
+  de cadmium (ch. 19, 21, 22, 109) ; les 1 à 2 µg par décilitre de plomb (ch. 49, 54, 62) ; les 3 à 6 jours de la
+  tularémie (le signal reste : une fièvre dans les 3 semaines). Coupé parce qu'une étape le dit : « ils meurent à
+  l'ébullition » (selles, étape 1), « faire les pots à l'autoclave » (redit par « pas à l'autoclave »).
+
+**Langue.** `langue.py` avec LanguageTool : 3 avis restants, tous faux (mots justes absents du dictionnaire :
+« hantavirus » ×2, « cicutaire »), à mettre dans `mots-du-livre.txt`. Corrigé pendant la passe : « ne pas en faire des
+chandelles » (de après la négation) ; « traîne une patte, ou sort » (virgule de trop avant le dernier membre) ; « une
+bête trouvée morte, même gelée, ou prise au piège » devient « une bête prise au piège ou trouvée morte, même gelée » ;
+pronoms rattachés au bon nom : « sa morsure » (la morsure), « elle protège » (cette dose), « ne pas la hacher » (cette
+viande), « dans l'axe où il est entré » (le piquant ou l'écharde : dans l'axe de la piqûre), « ces foies » (la liste).
+Deux avis évités en réécrivant : « une cartouche de 20 glissée » et « une balle de .22 perdue » (accord avec le nombre,
+LanguageTool) deviennent « qu'on glisse » et « une balle perdue de .22 ».
