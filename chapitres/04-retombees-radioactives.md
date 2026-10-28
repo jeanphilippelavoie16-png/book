@@ -288,7 +288,7 @@ y rester 24 à 48 heures, protéger la thyroïde avec des comprimés d'iode, pui
 
 ### Avant, une fois
 
-33. **Acheter les comprimés d'iode (ch. 00b) et les ranger dans la trousse qui part avec la famille.** Les garder
+33. **Acheter les comprimés d'iode et les ranger dans la trousse qui part avec la famille.** Les garder
  entre 15 et 30 °C, à l'abri de la lumière et de l'humidité : dans une maison chauffée, pas dans un chalet
  laissé froid l'hiver. Garder une seule boîte, celle de la trousse, pour la trouver dans le noir.
 34. **Choisir d'avance la pièce d'abri de la maison et celle du chalet** : celle qui a le plus de masse autour

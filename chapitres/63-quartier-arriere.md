@@ -404,8 +404,7 @@ seul instrument qui dit si la cible de 7 °C en 24 h est atteinte et si la cuiss
 carcasse qui a passé une nuit d'automne sous zéro, ouverte et bien aérée, est très probablement
 refroidie ; une chair froide jusqu'à l'os au toucher du dos de la main l'est probablement aussi.
 Ce sont des présomptions, pas des mesures, et **aucune présomption ne remplace la sonde pour la
-cuisson** : un thermomètre à sonde de réserve est un des objets les moins chers et les plus
-utiles du chapitre d'achat (00b).
+cuisson** : on garde un thermomètre à sonde de réserve.
 
 **Sans congélateur.** Le froid naturel prend le relais, mais il n'est pas stable : en octobre
 sur la Côte-Nord, la nuit gèle et l'après-midi dégèle, et un cru qui dégèle ne se recongèle pas

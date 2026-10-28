@@ -7,7 +7,7 @@ Numéros actuels (27 septembre 2026). « Ancien » = numéro d'origine, avant le
 | No | Ancien | Chapitre |
 | --- | --- | --- |
 | **00** | 00 | 00-le-chapitre-principal.md |
-| **00b** | 00b | 00b-acheter-par-priorite.md |
+| ~~00b~~ | 00b | coupé le 28 octobre 2026 (JP : « c'est pas dans l'âme du livre ») ; texte dans `chapitres-retires/` |
 | **01** | 01 | Les quatre horloges |
 | **02** | 02 | Rester ou partir |
 | **03** | 04 | Panne majeure d'Hydro en janvier |

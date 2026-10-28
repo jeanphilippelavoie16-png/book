@@ -5,10 +5,10 @@ chacune, avec les mots de JP, les dates et les exemples, est dans `plan/decision
 
 ## Ce qu'on fait
 
-Un ouvrage de référence en **6 tomes, 113 chapitres**, sur la conservation des aliments, la subsistance et l'autonomie,
+Un ouvrage de référence en **6 tomes, 112 chapitres**, sur la conservation des aliments, la subsistance et l'autonomie,
 adapté à la Côte-Nord (forêt boréale, hivers à -35 °C, saison de jardin de 90 à 100 jours, orignal, truite, fleuve salé).
 
-- Tome 1 — Tenir (ch. 00b, 1 à 18 ; le 00 est coupé)
+- Tome 1 — Tenir (ch. 1 à 18 ; le 00 et le 00b sont coupés)
 - Tome 2 — Le corps (ch. 19 à 40)
 - Tome 3 — Prélever (ch. 41 à 60)
 - Tome 4 — De la bête au garde-manger (ch. 61 à 81)
@@ -76,8 +76,6 @@ Chaque chapitre dit lequel il vise.
 | Réserves | La trousse de 72 h et le congélateur | La réserve de trois mois : denrées sèches, gras, sel (ch. 5) |
 | Territoire | Aucun | Chasse, pêche, bois, jardin, caveau |
 
-Au ch. 00b, les lignes de la réserve de trois mois (1.D) portent « Chalet ».
-
 **La règle de bascule** décide du cadrage : ce qui est court se vit à la maison (une panne de trois jours, une tempête,
 une alerte qui se lève) ; ce qui dure finit au chalet, qui a le bois, l'eau et le territoire. Un chapitre écrit pour la
 maison le dit et donne l'adaptation au chalet ; un chapitre de prélèvement ou de conservation longue est au chalet. Le
@@ -121,14 +119,14 @@ l'utiliser, 3 Matériel, 4 Procédure, 5 Points de contrôle, 6 Signes d'échec,
 et la section Danger sont coupés. Un mécanisme qui apprend quelque chose va dans l'étape qu'il explique. Chaque danger a
 son pictogramme (`{!co}`, `{!glace}`…, liste dans `plan/dangers-inventaire.md`), expliqué une fois à fond dans les pages
 des dangers au début de chaque tome ; dans un chapitre, il s'affiche dans l'étape où le danger se présente, et ce qui est
-propre au chapitre (la distance, l'épaisseur, la durée) se dit dans cette étape. La migration des 113 chapitres se fait
+propre au chapitre (la distance, l'épaisseur, la durée) se dit dans cette étape. La migration des 112 chapitres se fait
 à la grande passe (`suivi/plan-de-match.md`, point 21), tome 1 d'abord. Un chapitre de référence (listes, tableaux) peut
 remplacer la procédure numérotée par des tableaux, mais garde l'ordre général.
 
 - **« Quand l'utiliser », c'est juste quand l'utiliser** : pas de liste « c'est la mauvaise procédure quand », pas de
   contre-exemple évident.
 - **Le Matériel** ne liste que l'indispensable de **cette** procédure (sans quoi elle échoue ou devient dangereuse), une
-  ligne par item, 15 à 20 mots. Tout le reste renvoie au chapitre d'achat.
+  ligne par item, 15 à 20 mots. Rien d'autre.
 - **« En plus »**, après la section 7, non numérotée : des encadrés vert pâle (la façon des Innus, une photo pour
   reconnaître, un petit dessin), de l'extra, jamais ce que le geste exige. La mise en pages les pose dans les trous, à la
   fin du texte d'une page, **jamais au travers du texte** ni entre deux paragraphes ; une seule par page ; faute de trou
@@ -205,14 +203,15 @@ la méthode, les exemples et le script de contrôle. L'essentiel :
   nation du Nord contredit une règle du livre, on la décrit, on dit pourquoi elle marche dans leurs conditions, et un
   avertissement dit ce qui la rend dangereuse si on change ces conditions.
 
-## Le chapitre d'ancrage
+## Les chapitres d'ancrage, coupés
 
 **Le chapitre principal (00) est coupé** (son texte est gardé dans `chapitres-retires/`) : ce qui doit sauter aux yeux
 en urgence se met dans le chapitre lui-même, en orange.
 
-**Le chapitre d'achat (00b)** est le seul inventaire du livre : tout ce qui se procure, en quatre paliers (à acheter
-absolument, essentiel, important, ce qu'on ajoute s'il reste du temps et de l'argent), chaque ligne dit si c'est pour la
-maison, pour le chalet ou pour les deux. **Pas d'inventaire éparpillé** ailleurs.
+**Le chapitre d'achat (00b) est coupé aussi** (JP, 28 octobre 2026 : « Le chapitre sur quoi acheter je veux pu ça, c'est
+pas dans l'âme du livre » ; son texte est gardé dans `chapitres-retires/`). **Le livre n'a pas de liste d'achat** : chaque
+chapitre dit ce que sa procédure demande, dans son Matériel, et le chiffre dont elle a besoin (une quantité, une
+réserve), dans l'étape qui s'en sert. Aucun renvoi « au chapitre d'achat », aucun palier, aucun inventaire éparpillé.
 
 ## Les agents et la chaîne
 

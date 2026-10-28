@@ -29,7 +29,7 @@ ordonnances et la discipline suivent, et zéro jour si une seule sortie est mal 
  contacts est alors la seule intervention qui reste entre les mains de la famille.
 - Tout le monde est en santé au moment de fermer. La barrière ne sert qu'avant : une fois
  le virus dans la maison, ce n'est plus la porte qui décide, c'est la section 5-D.
-- Le stock est déjà là et se compte en mois, pas en jours (ch. 5, ch. 00b). Une épidémie
+- Le stock est déjà là et se compte en mois, pas en jours (ch. 5). Une épidémie
  ne se mesure pas en heures comme une panne : la fourchette utile est la saison.
 - Les ordonnances ont été décalées des mois d'avance et non la veille (étape 3), parce que
  c'est le poste qui fixe l'autonomie réelle du foyer.
@@ -104,8 +104,7 @@ parce que l'urgence déborde.
  partout : quantité en réserve ÷ consommation d'une journée pour quatre. Les postes qui
  comptent dans une épidémie sont peu nombreux, justement parce que l'électricité, l'eau
  et l'égout, eux, ne s'arrêtent pas : les vivres, les médicaments d'ordonnance, le savon,
- le papier — mouchoirs, papier de toilette, sacs — et la nourriture des animaux (ch. 5,
- ch. 21, ch. 00b). **L'autonomie du foyer est le plus petit des chiffres, jamais la
+ le papier — mouchoirs, papier de toilette, sacs — et la nourriture des animaux (ch. 5, ch. 21). **L'autonomie du foyer est le plus petit des chiffres, jamais la
  moyenne**, et c'est presque toujours celui des ordonnances. Les autres ne servent qu'à
  savoir quoi acheter la prochaine fois. Le repère de durée à mettre en face : une maladie
  respiratoire ordinaire se règle en environ deux semaines chez la plupart des gens, mais une vague régionale se compte en mois. Un foyer qui a quatorze jours

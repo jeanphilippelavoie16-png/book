@@ -302,9 +302,7 @@ la cuvette le montre : à ce signal, on cesse d'alimenter les renvois, parce que
 43. Pieds : lavés et séchés tous les jours l'hiver, orteils séparés, ongles coupés droit.
  Le pied macéré dans une botte de caoutchouc est le premier point de rupture d'un
  hiver de travail extérieur.
-44. Hygiène menstruelle (ch. 29, qui dit aussi comment faire sans rien acheter) : réserve jetable ou dispositif lavable — la quantité se règle au
- chapitre d'achat (00b) — un
- contenant dédié à couvercle pour le trempage, et l'évacuation des produits jetables au
+44. Hygiène menstruelle (ch. 29, qui dit aussi comment faire sans rien acheter) : réserve jetable ou dispositif lavable, un contenant dédié à couvercle pour le trempage, et l'évacuation des produits jetables au
  feu ou aux déchets — jamais dans la bécosse, qui ne reçoit que matières fécales, urine
  et papier hygiénique. Le trempage se fait à l'eau froide : l'eau
  chaude fixe la tache de sang dans la fibre au lieu de la décoller.

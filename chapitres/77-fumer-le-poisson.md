@@ -404,9 +404,7 @@ sous la pointe du couteau au point le plus épais, et le liquide qui perle est c
 laiteux. **Ce critère remplace le thermomètre pour le poisson cuit ordinaire, dont la cible est
 63 °C ; rien ne le valide pour le poisson fumé, ni pour les 70 °C de ce chapitre.** Il vaut mieux
 que rien ; il ne vaut pas une sonde, et il ne permet pas de dire qu'un traitement antiparasitaire a eu lieu. **Deux thermomètres à sonde
-tiennent dans une poche et c'est le meilleur rapport sécurité-prix de tout le tome 4** : ils sont
-au premier palier du chapitre d'achat (ch. 00b), avec le chiffre du poisson, celui du gibier et
-celui de la volaille sur la même ligne.
+tiennent dans une poche et c'est le meilleur rapport sécurité-prix de tout le tome 4**.
 
 **Peser sans balance.** La limite de table se compte en grammes — **230 g = 1 repas**
  — et une limite en grammes sans balance ne se respecte pas, elle se devine. La

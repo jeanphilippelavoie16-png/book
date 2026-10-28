@@ -620,7 +620,7 @@ disponible, et le froid, ici, se fabrique.
 - **Le VFI porté.** Deux bidons vides bouchés, sanglés haut sur la poitrine, flottent et donnent
  une prise ; ils ne retournent pas quelqu'un sur le dos. Le mécanisme du 1-10-1 est à la section 8 et il n'a pas de variante d'urgence.
 - **Le thermomètre à sonde.** Il se vérifie sans rien, il ne se fabrique pas. Il s'achète d'avance
- ou il manque le jour où il sert (ch. 00b).
+ ou il manque le jour où il sert.
 
 **Ce qu'on ne fait pas, même en urgence :** on ne met pas un poisson non gelé dans un contenant
 étanche, on ne goûte pas pour vérifier, on ne ramasse pas de mollusques sans avoir vérifié le

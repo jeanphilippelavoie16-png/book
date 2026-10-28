@@ -266,8 +266,7 @@ la génératrice, et décider tout de suite si on monte au chalet.
  allumer ni éteindre, et laisser aérer avant de recommencer.
  - Rallumer un seul appareil à la fois, et vérifier qu'il a sa flamme avant de passer au suivant.
 44. **Refaire la réserve dans la semaine** : remplacer ce qui a servi dans la trousse, refaire les pleins des bidons,
- recharger les blocs-piles, remettre des bidons d'eau au congélateur (ch. 6, ch. 9), et acheter ce qui manque dans
- l'ordre du ch. 00b. Sinon, au prochain préavis, on part d'une réserve vide.
+ recharger les blocs-piles, remettre des bidons d'eau au congélateur (ch. 6, ch. 9), et racheter ce qui manque. Sinon, au prochain préavis, on part d'une réserve vide.
 
 ---
 

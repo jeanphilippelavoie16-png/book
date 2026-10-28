@@ -428,6 +428,17 @@ relecteur ». La vérification se fait à la source (règle 1) et par les vérif
 chaîne. Ce qui ne se vérifie pas à la source porte `[À VÉRIFIER]` — sans nommer de
 relecteur — et se lève ou se coupe avant l'impression.
 
+## Le chapitre d'achat coupé (28 octobre 2026)
+
+JP, en relisant l'épreuve du tome 1 : « Le chapitre sur quoi acheter je veux pu ça c'est pas dans lame du livre » ;
+« Acheter par priorité y s'en va ». Le livre sert à survivre et à s'adapter quand on n'a rien ; une liste d'achat en
+quatre paliers n'est pas son sujet. Le 00b passe dans `chapitres-retires/`, comme le 00 le 15 octobre ; le tome 1 compte
+les ch. 1 à 18, le livre 112 chapitres. Les 48 renvois au 00b dans 30 chapitres sont retirés. Là où un chapitre y
+renvoyait pour un chiffre dont sa procédure a besoin, le chiffre revient dans l'étape (ch. 5 : les masses de la réserve
+sèche, le gras et le sel, les bidons opaques ; provenance dans `suivi/00b-redaction.md`). La règle « le 00b est le
+seul inventaire du livre » devient : le livre n'a pas de liste d'achat ; chaque chapitre dit ce que sa procédure
+demande.
+
 ## Le dossier
 
 ```

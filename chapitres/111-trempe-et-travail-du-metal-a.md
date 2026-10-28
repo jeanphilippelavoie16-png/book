@@ -59,7 +59,7 @@ masse.
  l'avoir vu venir.
 - **Tant que la pièce s'achète.** Sur un épisode court, depuis la maison, la forge ne se justifie
  pas : une lime neuve coûte moins cher qu'une journée de charbon et vaut mieux que ce qu'on
- fabriquera la première année (ch. 00b). Le foyer du chalet commence à servir le jour où la pièce
+ fabriquera la première année. Le foyer du chalet commence à servir le jour où la pièce
  ne se commande plus — et ce jour-là, la pratique est déjà faite ou elle ne se fera pas.
 - **Dans le chalet, dans le hangar, sous une bâche ou sous l'avancée du toit** (§8, bloc A).
 - **Quand il reste moins d'une heure de clarté.** La trempe et le revenu s'enchaînent sans

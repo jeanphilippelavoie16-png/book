@@ -471,8 +471,7 @@ petit feu dans deux doigts de liquide. Le dessus mijote dans la vapeur, le desso
 centre fait ce qu'il veut, et la couleur de la chair ne dit pas sa température.
 
 **Ce qu'on perd :** la certitude. Une sonde tient dans une poche, n'a pas besoin de courant, et
-se garde en double avec une pile de rechange. C'est le premier palier du chapitre d'achat
-(ch. 00b).
+se garde en double avec une pile de rechange.
 
 ### Le gras, le poil et les os
 

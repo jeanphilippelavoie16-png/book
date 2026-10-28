@@ -19,7 +19,7 @@ arriver à la maison ou au chalet, de la première heure jusqu'à la fin de l'é
  deux heures, la radio annonce un feu à 40 km, le congélateur est tiède (scénarios 1 à 9).
 - **Le sinistre n'est aucun des neuf** : on prend la liste du scénario qui lui ressemble (section 4).
 - **Une fois par année, hors sinistre** : on vérifie que le stock couvre les neuf listes, pas seulement la première
- (section 5 ; la rotation du stock est au ch. 5, les achats au ch. 00b).
+ (section 5 ; la rotation du stock est au ch. 5).
 - **Rien n'a été préparé** : ni réserve d'eau, ni piles neuves, ni avertisseur de CO, ni génératrice (section 7).
 
 ---
@@ -169,7 +169,7 @@ dormir en même temps, chercher d'abord la source du monoxyde et l'éliminer, pu
 étape 18). Au caveau, où rien ne brûle, le mal de tête et l'envie de dormir viennent d'abord du manque d'air, que
 l'avertisseur de CO ne détecte pas : enlever les bouchons des conduits d'aération du caveau et l'aérer tout de suite.
 
-**L'iode.** Personne ne distribue les comprimés d'iode d'avance sur la Côte-Nord : il faut acheter la boîte (ch. 00b).
+**L'iode.** Personne ne distribue les comprimés d'iode d'avance sur la Côte-Nord : il faut acheter la boîte.
 Le comprimé ne protège que la thyroïde, contre l'iode radioactif ; l'abri protège tout le corps. Les doses et le délai
 sont au ch. 4, étapes 13 à 16.
 
@@ -231,7 +231,7 @@ accumulent le cadmium.
 bouche renvoie les gaz dans l'habitacle. Faire tourner le moteur par périodes, une fenêtre entrouverte du côté sous le
 vent.
 
-Laisser la trousse du véhicule (ch. 00b) dedans toute l'année : une panne de juillet sur un chemin forestier demande la
+Laisser la trousse de l'auto (ch. 6, étape 29) dedans toute l'année : une panne de juillet sur un chemin forestier demande la
 même boîte. Mettre l'eau de la trousse dans des bouteilles de plastique, en laissant un vide d'air pour le gel (ch. 10,
 étape 24).
 
@@ -245,7 +245,7 @@ cesse de frissonner sans avoir été réchauffé ne va pas mieux : il vient de p
 
 | Moment | Ce qu'on vérifie | Cible chiffrée | Si c'est hors cible |
 | --- | --- | --- | --- |
-| Chaque printemps | Les articles de la section 3, sauf les médicaments et le bois, rangés ensemble sur une tablette à la maison, au chalet et dans l'auto : les dates et les piles | Les trois tablettes complètes, aucune date dépassée | Remplacer ce qui est périmé, écrire la date sur le contenant et racheter ce qui manque (ch. 00b) |
+| Chaque printemps | Les articles de la section 3, sauf les médicaments et le bois, rangés ensemble sur une tablette à la maison, au chalet et dans l'auto : les dates et les piles | Les trois tablettes complètes, aucune date dépassée | Remplacer ce qui est périmé, écrire la date sur le contenant et racheter ce qui manque |
 | Chaque printemps | Réserve d'eau potable | 4 L × le nombre de personnes × 3 jours, au moins | La compléter avant le reste |
 | Chaque automne | Médicaments d'ordonnance en réserve | 2 à 3 semaines | Les renouveler avant la première neige |
 | Chaque automne | Bois sec de la réserve, sous abri, à part du bois de tous les jours : au chalet, et à la maison si elle a un poêle | Volume mesuré | Fendre et mettre à l'abri avant le gel |
@@ -266,7 +266,7 @@ cesse de frissonner sans avoir été réchauffé ne va pas mieux : il vient de p
 | Observation | Diagnostic | Action |
 | --- | --- | --- |
 | Il faut plus de deux minutes pour trouver un article de la tablette | La tablette est devenue un rangement | Tout sortir, et ne remettre que les articles prévus pour la tablette (section 5) ; ranger le reste ailleurs |
-| L'article existe, mais il est dans l'autre bâtiment | On a monté une seule tablette au lieu de trois | Acheter en double les articles bon marché (ch. 00b) |
+| L'article existe, mais il est dans l'autre bâtiment | On a monté une seule tablette au lieu de trois | Acheter en double les articles bon marché |
 | Mal de tête, fatigue, nausée ou envie de dormir chez plusieurs personnes à la fois, un enfant somnolent sans raison, ou l'avertisseur de CO qui sonne | Du monoxyde de carbone, même si l'avertisseur se tait ensuite | Sortir tout le monde à l'air libre tout de suite, sauf pendant des retombées (voir le scénario 6) ; arrêter l'appareil seulement si on l'atteint sans rester à l'intérieur, et ne rien rallumer avant d'avoir trouvé la cause |
 | Le congélateur ne fait plus de bruit et sa porte est tiède | Il est arrêté depuis un moment | Passer au scénario 8 tout de suite, sans ouvrir |
 | Un paquet de viande a coulé, et la glace s'est refaite au fond du sac | La viande a dégelé puis regelé, pendant un temps qu'on ne connaît pas | La jeter |

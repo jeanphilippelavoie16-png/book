@@ -54,7 +54,7 @@ Monter d'avance une trousse qu'une personne sort de la maison en 2 minutes, avec
  | Briquet ou allumettes, et chandelles | Dans deux contenants étanches (étape 21) |
  | Trousse de premiers soins : antiseptiques, analgésiques, pansements adhésifs, compresses de gaze stériles, ciseaux | 1 |
 
- Ajouter ensuite les médicaments (étapes 22 à 25), les articles d'hygiène, des vêtements de rechange, des couvertures, l'argent comptant, les pièces d'identité et les doubles des clés (étape 26), et des jeux pour les enfants (étape 27). Ce qu'on achète pour remplir ces lignes, et dans quel ordre, est au ch. 00b.
+ Ajouter ensuite les médicaments (étapes 22 à 25), les articles d'hygiène, des vêtements de rechange, des couvertures, l'argent comptant, les pièces d'identité et les doubles des clés (étape 26), et des jeux pour les enfants (étape 27).
 4. **Au chalet, ajouter ce que la liste de base ne prévoit pas.** La liste de base suppose une maison chauffée, l'eau au robinet, une route qui rouvre et un magasin ouvert. À la maison, l'hiver, il ne manque à cette liste que de quoi dormir au froid quand le chauffage lâche (étapes 8 et 9). Au chalet, les quatre peuvent manquer en même temps.
 
  | La liste suppose | Au chalet | Ce qu'on ajoute |
@@ -83,7 +83,7 @@ Monter d'avance une trousse qu'une personne sort de la maison en 2 minutes, avec
 
 ### Le chaud
 
-8. **Mettre un matelas isolant par personne dans la trousse.** Couché, le corps perd sa chaleur vers le sol plus que vers l'air, et le garnissage du sac de couchage, écrasé sous le corps, n'isole plus là où le corps appuie. Le matelas isolant compte donc plus qu'un sac de couchage plus chaud. Des branches de sapin, du carton en double ou un tapis de mousse font le même travail (section 7). La cote de température d'un sac de couchage est donnée par le fabricant : elle sert à comparer deux sacs, pas à savoir si on aura chaud. Les sacs à acheter : ch. 00b.
+8. **Mettre un matelas isolant par personne dans la trousse.** Couché, le corps perd sa chaleur vers le sol plus que vers l'air, et le garnissage du sac de couchage, écrasé sous le corps, n'isole plus là où le corps appuie. Le matelas isolant compte donc plus qu'un sac de couchage plus chaud. Des branches de sapin, du carton en double ou un tapis de mousse font le même travail (section 7). La cote de température d'un sac de couchage est donnée par le fabricant : elle sert à comparer deux sacs, pas à savoir si on aura chaud.
 9. **Mettre deux jeux de mitaines, de tuques, de cache-cous et de chaussettes de laine par personne.** Le premier jeu est souvent mouillé dès le premier soir. La laine mouillée garde encore de la chaleur ; le coton mouillé n'en garde plus, et il refroidit le corps plus vite que s'il était sec.
 10. **Choisir le combustible du réchaud et du chauffage d'appoint selon le froid.** Le butane bout à −0,5 °C et le propane à −42 °C : sous zéro, une cartouche de butane ne donne presque plus de gaz, alors que le propane en donne encore par grand froid. Les cartouches de camping à l'isobutane ne donnent presque plus de gaz sous −11 °C. Le combustible et le chauffage sans propane : ch. 87.
 11. {!co} **Ne chauffer une pièce fermée qu'avec un appareil fait pour l'intérieur, et poser un avertisseur de CO à pile dans chaque pièce où on dort ou on chauffe.** Un appareil fait pour l'intérieur sort ses gaz dehors par un tuyau, ou il s'éteint tout seul quand l'oxygène de la pièce baisse. Le barbecue, le réchaud de camping et le brasero n'ont ni l'un ni l'autre : les garder dehors, même pour cuire.
@@ -99,7 +99,7 @@ Monter d'avance une trousse qu'une personne sort de la maison en 2 minutes, avec
 
 ### La nourriture
 
-13. **Mettre trois jours d'aliments qu'on peut manger sans les cuire** : le réchaud peut manquer, et les aliments à réchauffer s'ajoutent à ces trois jours. Les quantités et l'ordre d'achat sont au ch. 00b ; les calories dont un adulte et un enfant ont besoin l'hiver, au ch. 21.
+13. **Mettre trois jours d'aliments qu'on peut manger sans les cuire** : le réchaud peut manquer, et les aliments à réchauffer s'ajoutent à ces trois jours. Les calories dont un adulte et un enfant ont besoin l'hiver sont au ch. 21.
 
  | Aliment | Pourquoi | À savoir |
  | --- | --- | --- |
@@ -152,7 +152,7 @@ Monter d'avance une trousse qu'une personne sort de la maison en 2 minutes, avec
 
 ### La trousse de l'auto
 
-29. **Avant les déplacements d'hiver, équiper l'auto** : un balai à neige et un grattoir, du lave-glace, une pelle, un téléphone chargé, de l'eau, de la nourriture, des couvertures et les médicaments. Les quantités : ch. 00b. Se déplacer et le carburant : ch. 15.
+29. **Avant les déplacements d'hiver, équiper l'auto** : un balai à neige et un grattoir, du lave-glace, une pelle, un téléphone chargé, de l'eau, de la nourriture, des couvertures et les médicaments. Se déplacer et le carburant : ch. 15.
 30. **Mettre l'eau dans des contenants souples, dans l'habitacle plutôt que dans le coffre, et choisir des aliments qu'on peut manger gelés** : une auto arrêtée n'est pas chauffée, et l'eau y gèle.
 31. {!co} **Faire brûler la chandelle de survie dans son contenant de métal, une fenêtre entrouverte** : dans une auto fermée, elle prend l'oxygène et fait du monoxyde.
  - {!co} {!generatrice} Dégager la neige autour du tuyau d'échappement avant de faire tourner le moteur pour chauffer l'auto.

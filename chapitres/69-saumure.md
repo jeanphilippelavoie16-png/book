@@ -427,8 +427,7 @@ son sel. Il est sale : il brunit, il garde un goût de viande, et le nitrite n'y
 s'est consommé dans la pièce. Une saumure qui a filé, mousse ou sent sur ne se récupère pas :
 ce qu'on récupérerait, ce n'est pas le sel, c'est ce qui a poussé dedans.
 
-Le sel reste un poste de stock permanent, pas une production d'appoint : la quantité à tenir
-d'avance est au chapitre d'achat (00b), les types de sel au chapitre 67.
+Le sel reste un poste de stock permanent, pas une production d'appoint : la quantité à tenir d'avance est au chapitre 5, les types de sel au chapitre 67.
 
 ### La pièce épaisse sans seringue
 

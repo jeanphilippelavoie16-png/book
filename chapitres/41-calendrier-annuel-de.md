@@ -24,7 +24,7 @@ elle-même, donne trois mois de surplus et neuf mois de manque.
  gibier qui arrive — tombent dans la même quinzaine et se disputent les mêmes bras.
 - On décide de la dernière commande avant que le chemin ferme. Le sel, les couvercles de pots,
  les lames et les munitions se commandent en fonction de ce que le calendrier prévoit de
- traiter, pas en fonction de ce qu'il reste sur la tablette (ch. 00b).
+ traiter, pas en fonction de ce qu'il reste sur la tablette.
 - On veut savoir quoi enseigner aux enfants, et quand. Un enfant de 6 ans peut relever une ligne
  de collets avec un adulte ; le calendrier dit à quels mois cette ligne existe (ch. 39, ch. 40).
 - La capacité de froid est le facteur limitant, donc à peu près toujours au chalet.

@@ -14,7 +14,7 @@ Avant chaque hiver, calculer ce qui va manquer (le sel, les pièces qui s'usent,
 
 ## 2. Quand l'utiliser
 
-- **L'achat du ch. 00b est fait et les listes des ch. 5 à 8 sont montées** : on calcule combien garder de chaque article (étapes 1 à 10).
+- **Les listes des ch. 5 à 8 sont montées** : on calcule combien garder de chaque article (étapes 1 à 10).
 - **L'automne arrive** : on fait l'inventaire avant la dernière commande de l'année ; au chalet, avant que le chemin ferme, plusieurs semaines plus tôt qu'en ville (section 5).
 - **L'hiver finit** : on note ce qui a manqué pendant qu'on s'en souvient (étape 6).
 - **Un poêle, une scie, un congélateur ou un enfant arrive** : chacun amène des consommables que personne n'a comptés (étapes 1 à 5).
@@ -33,7 +33,7 @@ Avant chaque hiver, calculer ce qui va manquer (le sel, les pièces qui s'usent,
 
 ### Classer chaque article selon ce qui l'use
 
-1. **Prendre la liste du ch. 00b et ranger chaque article dans une des quatre familles des étapes 2 à 5, selon ce qui l'use.** Le ch. 00b dit quoi acheter en premier, et si l'article va à la maison, au chalet ou aux deux ; la famille donne la façon de calculer combien en garder. On monte un stock en pensant aux repas, et on oublie ce qui ne se mange pas : le sel, le nitrite et le vinaigre qui servent à garder la viande, ou la pièce qui s'use. Mais un article manque plus souvent parce qu'on a calculé sa quantité avec la mauvaise famille que parce qu'on l'a oublié. On n'achète pas dans l'ordre des familles : on achèterait le coton à fromage avant le bois de chauffage. Quand l'argent manque, on suit les paliers du ch. 00b.
+1. **Prendre les listes des ch. 5 à 8 et ranger chaque article dans une des quatre familles des étapes 2 à 5, selon ce qui l'use.** La famille donne la façon de calculer combien en garder. On monte un stock en pensant aux repas, et on oublie ce qui ne se mange pas : le sel, le nitrite et le vinaigre qui servent à garder la viande, ou la pièce qui s'use. Mais un article manque plus souvent parce qu'on a calculé sa quantité avec la mauvaise famille que parce qu'on l'a oublié.
 2. **Famille 1, ce qui sert à traiter la nourriture : calculer sur le poids qu'on traite.** Ce sont le sel, le nitrite, le vinaigre, les couvercles plats, le papier de boucherie, la ficelle et le coton à fromage.
  - Multiplier le poids de viande, de poisson ou de légumes qu'on traite dans l'année par le taux de la méthode choisie, puis ajouter la perte : on ne récupère pas le sel de surface qui coule avec le jus.
  - Toujours calculer les pourcentages de sel sur le poids de la viande.
@@ -211,7 +211,7 @@ On peut refaire une lame : une vieille lime devient un couteau, une lame de ress
 - **La pile.** On ne fabrique pas de pile. Une lampe à manivelle et une lampe à l'huile remplacent une lampe à piles ; rien ne remplace la pile d'un avertisseur de monoxyde de carbone, d'une radio ou d'un appareil médical. Il reste la cascade (« Le multimètre », plus haut) et l'inventaire par format. Choisir les appareils pour garder le moins de formats de piles possible : la réserve sert alors à plus d'appareils. Un appareil dont le format manque reste inutilisable, même à côté d'une réserve pleine.
 - **Le sel nitrité (nitrite de sodium).** Le salpêtre (nitrate de potassium) a servi quand il n'y avait rien d'autre, mais on ne le dose pas comme le nitrite (ch. 67). Sans nitrite dont on connaît la dose et sans balance au 0,1 g, on fait seulement des salaisons courtes, à l'air (« La balance à fléau », plus haut), et on cuit la viande à 74 °C à cœur.
 - **Le médicament d'ordonnance.** On ne fabrique ni insuline ni antibiotique, et aucune plante du ch. 33 ne remplace une ordonnance. On prépare la réserve avant, avec le ch. 32.
-- **Le carburant de la petite machinerie.** L'alcool et le gaz de bois font tourner des moteurs (ch. 87 et 15), mais pas une scie à chaîne : l'alcool attaque les membranes et les joints du carburateur, et un moteur deux-temps mal alimenté grippe avant de s'arrêter. Le godendard fait donc partie du stock du ch. 00b.
+- **Le carburant de la petite machinerie.** L'alcool et le gaz de bois font tourner des moteurs (ch. 87 et 15), mais pas une scie à chaîne : l'alcool attaque les membranes et les joints du carburateur, et un moteur deux-temps mal alimenté grippe avant de s'arrêter. On garde donc un godendard au chalet.
 
 ---
 

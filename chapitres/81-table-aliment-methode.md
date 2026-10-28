@@ -54,7 +54,7 @@ de dehors, le caveau et le territoire sont au chalet.
 | **Lactofermentation** | Légume seulement ; 18 à 22 °C au départ | Plusieurs mois au froid, cru | Chalet | 80 |
 | **Caveau** | Noir, 0 °C sans jamais descendre dessous, 98 à 100 % d'humidité ; ventilé avant d'y descendre | Des mois, le légume vivant | Chalet | 79 |
 
-Le sel, la balance, la sonde, le mini-max, l'autoclave et les couvercles : chapitre 00b.
+
 
 ## Gibier
 

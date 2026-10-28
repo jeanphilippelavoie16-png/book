@@ -81,9 +81,8 @@ micromètres, non — personne ne tient un micromètre. Donc pas de planche.
 à la fois un article du commerce et une manière de faire avec ce qui traîne, la planche
 montre la seconde. Une cartouche filtrante à 1 µm dans une chaudière, c'est une planche
 de catalogue : le jour où le livre sert, la cartouche n'est pas là. Trois épaisseurs de
-taie d'oreiller, elles, sont dans toutes les maisons. L'article acheté a sa place dans
-le chapitre d'achat, avec une ligne. La planche est pour le geste qu'on fait quand on
-n'a rien.
+taie d'oreiller, elles, sont dans toutes les maisons. L'article acheté tient dans une
+ligne du Matériel. La planche est pour le geste qu'on fait quand on n'a rien.
 
 **Ce qui n'est pas une planche, et qui doit rester du texte :**
 

@@ -511,3 +511,18 @@ Les changements rendus par les agents des planches.
 Section 7, « Les souris » (planche 05-01) : rien à changer.
 
 Contrôle : `controle.py --avant` (HEAD) : 8 142 → 8 146 mots ; 2 tirets (titre et ligne de tome) ; aucun avis nouveau ; rien n'a disparu. Fins de ligne LF.
+
+## Le 00b coupé (28 octobre 2026)
+
+JP a coupé le chapitre d'achat (00b). Les trois renvois du ch. 5 au 00b sont remplacés par les chiffres eux-mêmes,
+repris tels quels de la ligne 1.D et 1.B du 00b (texte gardé dans `chapitres-retires/00b-acheter-par-priorite.md`) :
+
+- Étape 6 : bidons alimentaires opaques de 20 L, les algues ne poussent pas dans un bidon opaque (00b, 1.B).
+- Étape 14 : par personne et par mois, 4 kg de riz, 4 kg de farine, 2 kg d'avoine, 3 kg de légumineuses, 2 kg de
+  pâtes, 1 kg de sucre, 1 kg de lait en poudre ; environ 2 650 kcal par personne et par jour avec le gras (00b, 1.D ;
+  calcul sur le Fichier canadien sur les éléments nutritifs, `suivi/00b-redaction.md`, ligne « 1.D, réserve sèche »).
+  Pour une famille de quatre, 10 600 kcal par jour : un peu plus que les 9 500 kcal de l'étape 8, pas de contradiction.
+- Étape 18 : 1 kg de gras et 1 L d'huile par personne et par mois (environ 25 % des calories) ; environ 370 g par
+  jour pour une famille de quatre qui vit de gibier, 55 kg pour 150 jours (ch. 19) ; le sel de salaison au poids de la
+  viande, multiplié par le pourcentage de la méthode, doublé pour le sel de surface (00b, 1.D ; `suivi/00b-redaction.md`,
+  ligne « 1.D, gras acheté »).

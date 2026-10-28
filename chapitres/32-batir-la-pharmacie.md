@@ -469,8 +469,7 @@ sans négocier avec un enfant qui refuse de boire.
 **Ce qu'on perd :** rien de mesurable, si la recette est suivie à la lettre. Le jus n'est
 pas là que pour le goût, il apporte le sucre. **Sans jus d'orange :** 1 L d'eau bouillie
 refroidie, 30 ml (6 c. à thé rases) de sucre, 2,5 ml (½ c. à thé rase) de sel — la même
-rigueur de mesure, le sel en dernier, à la graduation. Le jus d'orange en conserve ou en
-concentré non sucré reste au stock du ch. 00b pour la première recette ; le sucre du stock
+rigueur de mesure, le sel en dernier, à la graduation. On garde au stock du jus d'orange en conserve ou en concentré non sucré pour la première recette ; le sucre du stock
 fait le même travail quand il manque.
 
 ### Le nettoyage de plaie se dégrade proprement

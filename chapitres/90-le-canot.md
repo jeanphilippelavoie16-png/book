@@ -581,7 +581,7 @@ Le canot de toile de fabrique, lui, se répare comme au §5-C et à l'étape 22.
 
 ### Ce qui ne se remplace vraiment pas
 
-- **Le VFI.** Rien d'improvisé ne tient une tête d'enfant hors de l'eau (ch. 39, ch. 00b). Sans VFI
+- **Le VFI.** Rien d'improvisé ne tient une tête d'enfant hors de l'eau (ch. 39). Sans VFI
   d'enfant, l'enfant n'embarque pas — sauf le jour où la rive est pire que le lac : le chemin qui
   brûle (ch. 11), ou le printemps quand les VFI sont partis avec le canot perdu. Ce jour-là, ce qui
   donne le plus de marge : la traversée la plus courte, au ras de la rive ; un VFI d'adulte serré au
@@ -590,7 +590,7 @@ Le canot de toile de fabrique, lui, se répare comme au §5-C et à l'étape 22.
   étape 6). L'essai, sur la grève : soulever l'enfant par les épaules du VFI. S'il reste **plus de
   7,6 cm** entre ses épaules et le vêtement, le VFI est trop grand et nuit plus qu'il n'aide :
   l'enfant va alors contre un adulte qui porte le sien. Des bidons vides bien bouchés, attachés au
-  tronc, aident à flotter ; ils ne tiennent pas la tête hors de l'eau (ch. 00b).
+  tronc, aident à flotter ; ils ne tiennent pas la tête hors de l'eau.
 - **Le budget de l'eau froide.** Aucune technique ne rallonge la première minute ni les dix
   suivantes. Ce qui change, c'est ce qu'on porte en tombant : le VFI attaché et, au printemps et à
   l'automne, plusieurs couches de vêtements secs et légers sous une couche coupe-vent ou

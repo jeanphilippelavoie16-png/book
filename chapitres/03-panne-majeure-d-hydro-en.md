@@ -226,7 +226,7 @@ ou sans alarme.
  « de secours » aussi : elles s'arrêtent ensemble. Le puisard ne se remplit pas tant que rien ne dégèle ; il se
  remplit quand la neige des toits fond pendant que la pompe est encore arrêtée. Le vider à la chaudière (section 7), ou
  brancher la pompe sur la génératrice. On doit acheter le clapet antiretour et la batterie de secours de la pompe
- avant la panne (ch. 00b).
+ avant la panne.
 
 ### Les aliments et les médicaments
 

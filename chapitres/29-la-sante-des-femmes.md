@@ -496,7 +496,7 @@ nuit où on se dit que ce jour-là ne compte pas.
 78. **La première tétée dans l'heure**, puis à la demande, **8 fois ou plus par 24 heures**, jour et nuit.
     Rien d'autre, pas même de l'eau, pendant six mois, **sauf la vitamine D** : le lait maternel donne
     tout, sauf elle, et on n'expose pas un bébé au soleil pour qu'il la fabrique. **10 µg (400 UI) par
-    jour**, en gouttes, dès la naissance. Les gouttes de la famille (ch. 00b) ne sont pas celles du
+    jour**, en gouttes, dès la naissance. Les gouttes de la famille ne sont pas celles du
     bébé : à **1 000 UI** la goutte, une seule touche déjà le plafond d'un bébé de moins de six mois.
 79. **Mettre au sein.** La mère s'installe, le dos appuyé. La main sur le haut du dos du bébé, jamais
     sur sa tête : un bébé à qui on pousse la tête recule. Le menton touche le sein, le mamelon se pose
@@ -509,8 +509,7 @@ nuit où on se dit que ce jour-là ne compte pas.
     puis **au moins six par 24 heures** après la première semaine, d'une urine claire. Le méconium, noir
     et collant, est parti avant le **5e jour** ; ensuite, au moins une selle jaune ou verte par jour
     jusqu'à 4 semaines. Il perd de **5 à 10 %** de son poids les premiers jours et le retrouve **entre 10
-    et 14 jours**. Il se pèse directement, couché dans un bassin posé sur la balance de cuisine au
-    gramme (ch. 00b), qu'on remet à zéro avec le bassin vide : pour un bébé de 3,5 kg, 10 %, c'est
+    et 14 jours**. Il se pèse directement, couché dans un bassin posé sur la balance de cuisine au gramme, qu'on remet à zéro avec le bassin vide : pour un bébé de 3,5 kg, 10 %, c'est
     350 g, et un pèse-personne ne lit pas cet écart, surtout par différence avec un adulte. Un bébé très
     difficile à réveiller pour boire, à l'urine foncée, boit trop peu : plus de tétées, tout de suite.
 81. **Les seins engorgés**, lourds et tendus les premiers jours : téter plus souvent. Si le bébé n'arrive

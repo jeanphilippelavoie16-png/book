@@ -87,7 +87,8 @@ trois mois, et elle doit tenir au moins un mois, même l'année où personne n'a
  | Moyens de filtrer et de désinfecter | **2 indépendants** | Filtre, désinfection chimique, ébullition ; les dosages sont au ch. 10 |
  | Neige et glace | On les compte en bois, pas en litres | Section 7, « Le bois remplace tout le reste » ; ch. 10 |
 
- Les contenants sont au ch. 00b.
+ Garder l'eau dans des bidons alimentaires opaques de 20 L : dans un bidon opaque, les
+ algues ne poussent pas.
 7. **Ranger l'eau au frais, loin des solvants, et la faire tourner.**
  - Laisser un peu d'air dans chaque bidon : un bidon rempli à ras bord fend s'il gèle.
  - Boire et remplacer l'eau embouteillée du commerce avant sa date : la plupart des producteurs canadiens donnent un à
@@ -160,7 +161,9 @@ trois mois, et elle doit tenir au moins un mois, même l'année où personne n'a
 ### Choisir les denrées sèches
 
 14. **Choisir les denrées selon leur gras, le combustible qu'elles demandent et le goût de la famille, pas selon le
- prix.** Les masses à acheter sont au ch. 00b.
+ prix.** Par personne et par mois, pour trois mois : 4 kg de riz, 4 kg de farine, 2 kg d'avoine, 3 kg de
+ légumineuses, 2 kg de pâtes, 1 kg de sucre et 1 kg de lait en poudre. Avec le gras de l'étape 18, ça fait environ
+ 2 650 kcal par personne et par jour.
 
  | Denrée | Ce qu'elle apporte | Ce qui la gâte | Place au stock |
  | --- | --- | --- | --- |
@@ -191,7 +194,10 @@ trois mois, et elle doit tenir au moins un mois, même l'année où personne n'a
 
 ### Le gras et le sel
 
-18. **Calculer le gras et le sel selon l'usage qu'on en fait.** Les quantités sont au ch. 00b.
+18. **Calculer le gras et le sel selon l'usage qu'on en fait.** Avec la réserve sèche, compter 1 kg de gras et 1 L
+ d'huile par personne et par mois. Pour une famille de quatre qui vit de gibier, il faut environ 370 g de gras par
+ jour, 55 kg pour 150 jours (ch. 19). Le sel de salaison : le poids de viande et de poisson à saler, multiplié par le
+ pourcentage de la méthode, puis doublé pour le sel de surface qui coule (ch. 67).
 
  | Poste | Ce qui en fixe la quantité | Ce qui le gâte |
  | --- | --- | --- |
