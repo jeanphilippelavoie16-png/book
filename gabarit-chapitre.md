@@ -69,12 +69,16 @@ remplacent la procédure.
 ## 6. Points de contrôle
 
 Tableau à structure fixe : moment, ce qu'on vérifie, cible chiffrée, quoi faire si c'est
-hors cible. À quoi ça doit ressembler, sentir et peser à chaque étape.
+hors cible. **5 à 8 lignes au plus** (JP, 28 octobre 2026 : « faut que ça soit condensé,
+personne va lire 50 points de contrôle ») : seulement les moments où une mesure change une
+décision, une ligne par moment, aucune ligne qui redit une étape.
 
 ## 7. Signes d'échec
 
 Ce qui indique qu'il faut jeter. Formulé sans ambiguïté. Un tableau observation →
-diagnostic → action. « Ça sent bizarre » ne suffit pas.
+diagnostic → action. « Ça sent bizarre » ne suffit pas. **5 à 8 lignes au plus** (JP,
+28 octobre 2026 : « même affaire pour les signes d'échec ») : seulement les signes qu'on ne
+verrait pas venir ou qu'on lirait de travers ; ce que la page du danger dit déjà se renvoie.
 
 ## 8. Danger (retiré)
 

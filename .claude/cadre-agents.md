@@ -104,6 +104,14 @@ La phrase
   reste quand la chose le fait toute seule.
 - [ ] La consigne se dit comme une consigne, pas au présent qui décrit ; le sujet se nomme (« les gens qui »,
   jamais « ceux qui » en tête) ; l'ordre est naturel.
+- [ ] Points de contrôle et signes d'échec : 5 à 8 lignes chacun, au plus (JP, 28 octobre 2026 : « personne va lire
+  50 points de contrôle » ; « même affaire pour les signes d'échec ») : ce qui change une décision, ce qu'on ne verrait
+  pas venir ; rien qui redise une étape ou la page du danger.
+- [ ] Pages des dangers : deux dangers par page au moins, 150 à 230 mots chacun (JP, 28 octobre 2026 : « on passe trop
+  de temps à tourner autour du pot ») : ce qui arrive, comment on le reconnaît, ce qu'on fait. Plus de paragraphe
+  « Où il revient » : la liste des chapitres est en tête.
+- [ ] La passe d'éditeur suit le skill `editeur` (le texte de JP du 28 octobre 2026) : /diagnostiquer, puis /polir ;
+  aucun fait ni chiffre neuf ; la liste de ce qui est coupé, pour le vérificateur.
 - [ ] Le chapitre parle de son sujet, pas de celui des autres (JP, 28 octobre 2026, sur le témoin de dégel au ch. 1 :
   « les chapitres doivent parler de ce qu'ils parlent, pas des autres ») : ce qui appartient à un autre chapitre y va,
   sans doublon, et il reste ici un renvoi court. Les rappels de sécurité se répètent quand même.

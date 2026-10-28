@@ -117,8 +117,9 @@ la première. Ils restent la responsabilité du rédacteur.
 Chaque chapitre technique suit `gabarit-chapitre.md`, en **sept sections**, dans l'ordre : 1 En une ligne, 2 Quand
 l'utiliser, 3 Matériel, 4 Procédure, 5 Points de contrôle, 6 Signes d'échec, 7 Variante d'urgence. « Comment ça marche »
 et la section Danger sont coupés. Un mécanisme qui apprend quelque chose va dans l'étape qu'il explique. Chaque danger a
-son pictogramme (`{!co}`, `{!glace}`…, liste dans `plan/dangers-inventaire.md`), expliqué une fois à fond dans les pages
-des dangers au début de chaque tome ; dans un chapitre, il s'affiche dans l'étape où le danger se présente, et ce qui est
+son pictogramme (`{!co}`, `{!glace}`…, liste dans `plan/dangers-inventaire.md`), expliqué une fois dans les pages des dangers au début de chaque tome, **deux dangers par page au moins, 150 à 230
+mots chacun** (JP, 28 octobre 2026 : « on passe trop de temps à tourner autour du pot ; condenser à ce qu'on doit
+vraiment savoir ») ; dans un chapitre, il s'affiche dans l'étape où le danger se présente, et ce qui est
 propre au chapitre (la distance, l'épaisseur, la durée) se dit dans cette étape. La migration des 112 chapitres se fait
 à la grande passe (`suivi/plan-de-match.md`, point 21), tome 1 d'abord. Un chapitre de référence (listes, tableaux) peut
 remplacer la procédure numérotée par des tableaux, mais garde l'ordre général.
@@ -127,6 +128,9 @@ remplacer la procédure numérotée par des tableaux, mais garde l'ordre génér
   contre-exemple évident. Chaque ligne est un titre de situation, court, comme on l'écrirait à la main sur une fiche
   (JP, 28 octobre 2026, sur « Le courant manque et on ne sait pas quand il reviendra » : « c'est pas humain ») :
   « Panne de courant sans heure de retour », « Feu en vue », « Il faut partir vite ».
+- **Les points de contrôle et les signes d'échec : 5 à 8 lignes chacun, au plus** (JP, 28 octobre 2026 : « personne va
+  lire 50 points de contrôle » ; « même affaire pour les signes d'échec »). Seulement ce qui change une décision ou ce
+  qu'on ne verrait pas venir ; rien qui redise une étape ou la page du danger.
 - **Le Matériel** ne liste que l'indispensable de **cette** procédure (sans quoi elle échoue ou devient dangereuse), une
   ligne par item, 15 à 20 mots. Rien d'autre.
 - **« En plus »**, après la section 7, non numérotée : des encadrés vert pâle (la façon des Innus, une photo pour
@@ -224,8 +228,8 @@ réserve), dans l'étape qui s'en sert. Aucun renvoi « au chapitre d'achat », 
 
 - **Tout agent qu'on lance sur le livre reçoit `.claude/cadre-agents.md` au complet**, avant son sujet, et rend la liste
   de contrôle de sa partie cochée. **Toute correction de JP entre le jour même** dans le skill concerné et dans ce cadre.
-- **La chaîne** : rédacteur → vérificateur technique → éditeur → correcteur → metteur en pages (prompts dans
-  `roles.md`). Un rôle ne fait que sa mission ; le vérificateur technique signale, il ne réécrit pas. Un rédacteur qui
+- **La chaîne** : rédacteur → vérificateur technique → éditeur (skill `editeur`) → correcteur (skill `langue`) →
+  metteur en pages (prompts dans `roles.md`). Un rôle ne fait que sa mission ; le vérificateur technique signale, il ne réécrit pas. Un rédacteur qui
   se relit lui-même trouve ce qu'il a voulu écrire, pas ce qu'il a écrit. **Plus jamais de vérificateur sécurité.**
 - **Aucune faute de français dans ce qui s'imprime** (JP, 27 octobre 2026, la dédicace de l'épreuve du tome 1 :
   « quelqu'un qui sait » pour « qui sache » ; « Faut pu jamais que ça arrive une faute de même »). Tout texte qui

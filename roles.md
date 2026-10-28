@@ -96,6 +96,8 @@ provisions concentre carburant, propane, génératrice et poêle à bois au mêm
 ```
 Lis CLAUDE.md et tous les chapitres déjà écrits.
 
+Lis .claude/skills/editeur/SKILL.md au complet : la passe suit /diagnostiquer, puis /polir.
+
 Reprends /chapitres/NN-titre-court.md et vérifie la cohérence sur L'ENSEMBLE :
 - Le vocabulaire est celui du glossaire, partout pareil.
 - Les unités sont uniformes.
