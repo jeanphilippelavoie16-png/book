@@ -672,3 +672,233 @@ viande).
 `langue.py` avec LanguageTool : 16 avis, tous jugés faux (liste dans le rapport du correcteur, à consigner dans
 `faux-positifs.txt` par l'orchestrateur) : les 15 déjà relevés par l'éditeur, et AIT_AIE_AIES_EST sur « ait atteint »
 (le subjonctif voulu, plus haut).
+
+## Passe de la chaîne, 29 octobre 2026
+
+L'éditeur (rôle 5), après le vérificateur technique (`suivi/03-technique.md`) et les auditeurs A0 à A4. Copie d'avant :
+`/tmp/chaine-03-avant.md`. Le chapitre est réécrit une seule fois. Les numéros d'étapes restent (1 à 40) ; seul le
+contenu des étapes 36 à 38 change d'ordre (aucun autre chapitre ne les cite).
+
+### Réponses au vérificateur technique
+
+| Cas | Réponse |
+| --- | --- |
+| E1, « Tout chiffre affiché » et la cible 0 ppm | Fait. Étape 5 : « Dès que l'afficheur montre autre chose que 0, sortir tout le monde (étapes 12 et 13), même sans sirène » ; même déclencheur en tête de la série « L'avertisseur de CO sonne » ; Points de contrôle : « Sortir tout le monde (étapes 12 et 13) », comme le ch. 1. « Un 0 ne prouve pas l'absence de CO » n'est pas ajouté : c'est la lecture de la fiche Kidde, pas un extrait. |
+| E2, le bouton d'essai | Fait. Étape 5 : « Le bouton vérifie seulement la pile et la sirène, pas la cellule qui mesure le gaz », puis la date. L'étape 11 et le geste « sans avertisseur » demandent le bouton **et** la date. Le logigramme est à changer (plus bas). |
+| E3, la tache blanche | Fait. « Gelure : la peau a gelé » ; « Rentrer, sans frotter. Dégeler la peau dans de l'eau à 37 à 39 °C, jamais près du feu, et seulement si elle ne risque pas de regeler (ch. 39) ». Source : `03-wms-gelures.md` ; page `froid`. |
+| E4, les 5 minutes du puits | Fait. Étape 39 : on fait bouillir jusqu'à ce que le puits soit désinfecté et l'eau confirmée bonne (ch. 10, étapes 27 à 35), « Ensuite seulement », on la laisse couler 5 minutes. |
+| E5, la pompe de secours | Fait. « seule une pompe sur batterie tourne pendant la panne, jusqu'à ce que sa batterie soit vide ». |
+| E6, sans thermomètre | Fait. « plus sévère » sort. Au congélateur : recongeler ce qui a encore des cristaux de glace ou qui est très froid au toucher, jeter le reste, « parce que dans le doute, on jette » (`10-sante-canada-salubrite-urgence.md`, l. 32-37). |
+| E7, le 5 °C pour rester | Fait dans le chapitre : la condition sort de l'étape 11. Reste au logigramme (q3). |
+| P1, les tours cellulaires | Fait. Étape 6 : « sur des batteries ordinaires, une tour cellulaire tient souvent de 2 à 4 heures ». La note « Les tours cellulaires » est coupée (A4, cas 5). |
+| P2, 28 °C buccale | Fait. Le chiffre sort ; diagnostic « Hypothermie qui s'aggrave : la vie est en jeu » (ch. 25 : l'arrêt des frissons sans réchauffement est une aggravation). |
+| P3, l'auto de l'étape 13 | Fait. Le compte des gens va à l'étape 12 (ch. 2, étape 2) ; à l'étape 13, la fenêtre entrouverte du côté opposé au vent, le tuyau dégagé avant chaque redémarrage et pourquoi (ch. 2, étape 3). |
+| P4, le bris sur l'une des trois pièces | Fait. L'étape dit seulement d'aller voir le mât si le disjoncteur n'a pas sauté. |
+| P5, « des jours » contre « des heures » | Fait. « la sirène peut mettre des heures à sonner, et des jours quand il y en a très peu ». |
+| N1, cinq semaines | Coupé : « que la panne dure quelques heures ou des semaines ». |
+| N2, 6 ou 8 °C | Coupé : « fait sa toxine dès 3 °C, donc même dans un réfrigérateur qui n'a pas encore passé 4 °C » (déduit de deux chiffres sourcés). |
+| N3, quelques minutes de pression | Coupé : « il ne reste que l'eau du réservoir sous pression ». |
+| N4, deux cartons contre quatre couvertures | Coupé (la règle « plus d'épaisseur sous les corps que par-dessus » reste, avec son pourquoi). |
+| N5, dix minutes | Coupé. |
+| N6, deux ou trois tours du lanceur | Coupé : « armer le ressort à la main ». Le geste reste, sans chiffre. |
+| N7, un redoux de trois jours | Coupé : « Un redoux peut faire dégeler la réserve ». |
+| N8, quelques semaines pour le chiffon | Coupé ; le signe (l'odeur d'égout) et le geste restent. |
+| N9, « Ça tient la pression d'une maison » | Coupé ; « Ce qu'on perd » dit déjà que le tuyau n'est que colmaté. |
+| R2, l'antigel de la laveuse | Rien à changer (le chapitre suit Québec.ca, règle 2). |
+
+### Réponses aux auditeurs
+
+| De | Cas | Réponse |
+| --- | --- | --- |
+| A0 | Bloquant, ligne de Matériel de 22 mots | Fait : « son chiffre monte des heures avant la sirène (étape 5) », 15 mots ; « rien d'autre ne détecte le monoxyde » est dit à « Ce qui ne se remplace pas ». |
+| A0 | Signaux (phrases de 40 mots et plus, fait : conséquence, deux-points) | Fait, paragraphe par paragraphe : phrases ≥ 40 mots de 28 à 6, fait:conséquence de 29,9 % à 4,3 %, deux-points de 36,6 % à 8,8 %. Restent longues les phrases à liste de l'abri, du témoin, des lattes et du congélateur à remplir, où le verbe vient avant la liste. |
+| A0 | « au niveau de » | Coupé avec la réserve (A4, cas 7). |
+| A0 | « sauf si » après le geste (l. 140) | Fait : l'appareil médical passe en tête de la série « Le courant ne revient pas ». |
+| A0 | Étapes de plus de 100 mots | Non pour les séries orange (décision 6). Étape 17 : non, chaque phrase porte un geste du ch. 1 ou un rappel. Étape 28 : le thermomètre minimum-maximum est coupé. |
+| A0 | Redites l. 82/556 | Fait (A4, cas 6). Les autres sont des renvois ou des mots communs. |
+| A1 | 1, « Tout chiffre affiché » | Fait (E1). |
+| A1 | 2, « se réveille mal », « revenu à la normale » | En partie. « Revenu à la normale » : −18 °C pour le congélateur (`10-sante-canada-salubrite-urgence.md`, l. 54), renvoi au ch. 2 pour l'avertisseur, coupé à l'étape 36. « Se réveille mal » : non, aucune description sourcée pour la note, et c'est le mot de la page `co` et du ch. 2 (pour ailleurs). |
+| A1 | 3, le fait qui corrige un réflexe dit comme un constat | Fait : la pompe de secours, la fournaise (« On compte sur…, mais »), la couverture accrochée (« a l'air de boucher…, mais »), la boîte qui isole bien ; la neige qui isole porte son « parce que ». |
+| A1 | 4, le deux-points de cause | Fait partout : un deux-points au plus par paragraphe, pour annoncer. |
+| A1 | 5, « pièce » | Fait : « morceau » pour la viande, « pièce de monnaie » au complet, « parties » et « embout » au moteur ; « pièce » ne veut plus dire que la pièce de la maison. |
+| A1 | 6, les compléments mal accrochés | Fait : « que la panne dure », « même pour faire durer le feu », « avant le congélateur », « Sortir la batterie », « des autres lampes », « du sommet du dôme ». |
+| A1 | 7, les parenthèses qui portent un fait | Fait (l. 78, 68, 163, 382, 403, 439, 447, 547). |
+| A1 | 8, les conditions sans verbe | Fait (« Si personne ne l'ouvre », « chaque fois qu'on l'ouvre », « Si elle est trop longue », etc.). |
+| A1 | 9, les mots de la liste | Fait : « prend moins de place sur le réseau », « tout le monde appelle en même temps », « les appels sont coupés », « n'a pas sauté », « couper » et « remettre » le disjoncteur partout, « branchée et allumée », « tient le lit chaud », « ne sentent pas mauvais et n'ont pas l'air gâtés », « borne positive, borne négative », « dont on sait d'où il vient ». |
+| A1 | 10, « Fermer les fenêtres » ; « fermer » le rideau | En partie. Le rideau : « Tendre un rideau…, le fixer en haut ». Le titre : non, c'est l'ancre de la planche 03-12 dans `placements-tome-1.json`, que la passe ne touche pas (pour ailleurs). |
+| A1 | Doute de fond (l. 497 contre l. 502) | Transmis au vérificateur. |
+| A2 | 1, l'eau du réservoir de la toilette | Fait : « et seulement avant d'y verser l'antigel ou le lave-glace ». |
+| A2 | 2, chaufferette et chandelle | En partie : « ni chaufferette, même faite pour l'intérieur, ni chandelle », et la condition dit aussi « s'il a passé sa date ». Ce qui est permis avec un avertisseur qui marche reste ce que le chapitre dit ; le doute de fond est au vérificateur (A3). |
+| A2 | 3, attendre la journée | Fait (E1). |
+| A2 | 4, l'insuline | En partie : l'ordre est réglé (ce qui va au réfrigérateur n'est plus mis dans la pièce chauffée) ; le geste n'a pas de source : `[À VÉRIFIER]`. |
+| A2 | 5, l'hypothermie, rien à faire | Fait : les gestes de la page `froid` (isoler du sol, couchée, sans marcher ni frotter, la chaleur sur les aisselles, la poitrine et le dos, ni alcool ni cigarette). |
+| A2 | 6, l'isolant au retour du courant | Fait : « chaque fois qu'on rebranche le congélateur, sur le courant d'Hydro-Québec ou sur la génératrice ». |
+| A2 | 7, le rétablissement | Fait : étape 37, refermer le robinet de vidange du chauffe-eau, enlever le boyau, retirer les chiffons, puis rouvrir l'entrée d'eau avec les robinets ouverts. |
+| A2 | 8, quelle heure écrire | Fait : « l'heure de la panne », et la nuit, « le dernier moment où on sait que le courant marchait » (ch. 1, Points de contrôle). |
+| A2 | 9, 6 h ou 4 °C | En partie : l'étape 27 et le tableau ont le même déclencheur (4 °C, ou 6 h au plus tard). Le réfrigérateur à 2 °C après 6 h : doute de fond au vérificateur. |
+| A2 | 10, « la normale » | En partie : −18 °C pour le congélateur ; le chiffre où on le rebranche n'a pas de source (au vérificateur). |
+| A3 | 1, le danger après le geste | Fait : le fil tombé avant d'aller voir le mât, `{!poison}` en tête de l'étape 24, `{!tularemie}` à l'étape 29 (premier contact) et rappelé à l'étape 30, les pierres sèches avant de les poser, la flamme sur le tuyau avant d'avancer (« près du robinet »), la conduite gelée dans l'étape 26. |
+| A3 | 2, la torche | Fait : la condition en tête, la torche avant le petit bois, puis le pourquoi. |
+| A3 | 3, le réservoir de la toilette | Fait (A2, cas 1). |
+| A3 | 4, le chiffre sans geste | Fait (E1). |
+| A3 | 5, le résumé du ch. 2 | Fait : le résumé sans conditions sort ; renvoi aux étapes 4 à 8 du ch. 2, et le geste après le signe grave (sur le côté, SOS ou balise). |
+| A3 | 6, l'appareil médical et la règle qui gagne | Fait : l'appareil médical en tête de la série ; « même si on a tout pour rester ». |
+| A3 | 7, l'insuline | En partie (A2, cas 4). |
+| A3 | 8, l'ordre du rétablissement | Fait : 35, la rue qui se rallume comme signe ; 36, le chauffage ; 37, les 18 °C et l'eau ; 38, le chauffe-eau. |
+| A3 | 9, les états qu'on ne mesure pas | En partie : −18 °C ; « températures revenues à la normale » coupé ; « rien n'annonce » la baisse de pression : non, c'est le pourquoi de remplir tout de suite ; « le bois pour la durée de la panne » : non, la décision se reprend deux fois par jour (ch. 2) ; la conduite gelée, l'eau de l'aqueduc et la batterie à 85 % : au vérificateur. |
+| A3 | 10, les étapes 17 à 19 | Fait : l'étape 17 dit seulement où brancher, l'étape 18 « attendre que la génératrice tourne rond », la plaque sort (A4, cas 10). |
+| A4 | 1, les trois pièces de l'entrée électrique | Fait : col-de-cygne et support d'isolateurs sortent de l'étape et de la note ; seul le mât reste, décrit une fois. |
+| A4 | 2, crayon, marqueur, inventaire de mémoire | Fait, coupés. |
+| A4 | 3, la physique dans l'orange | Fait : la loi de la perte de chaleur, la source du courant des pompes et la conduction du bois sortent ; le pourquoi court reste. |
+| A4 | 4, la note du tunnel de congélation | Fait : la note sort ; son geste (désosser, couper mince) va à « Faire geler la viande dehors ». |
+| A4 | 5, la note des tours | Fait, coupée. |
+| A4 | 6, les faits dits deux fois | Fait : la condition de la lampe à graisse reste à la section 7, la Matériel ne redit plus « rien d'autre ne détecte », la marmite ne redit plus ce qu'elle cuit. |
+| A4 | 7, 100 °C au niveau de la mer ; deux fois plus épais | En partie : la réserve sort ; le rapport de quatre reste, parce que c'est le pourquoi des petits morceaux et qu'il surprend. |
+| A4 | 8, la réflexion dans l'atmosphère | Fait, coupée. |
+| A4 | 9, l'exemple de calcul | Fait, coupé : le lecteur tire l'heure de deux relevés. |
+| A4 | 10, la plaque des appareils | Fait, coupée. |
+
+### Coupé, et pourquoi (pour le vérificateur)
+
+- Étape 1 : le col-de-cygne et le support d'isolateurs (JP, « bofffff ») ; « le bris est sur l'une de ces trois pièces » (P4).
+- Étape 3 : « au crayon ou au marqueur, sur un bout de ruban collé » ; l'inventaire écrit de mémoire (A4).
+- Étape 4 : « d'Hydro-Québec ou d'une génératrice » ; « quelques minutes de pression » (N3).
+- Étape 8 : la loi « proportionnelle à l'écart de température… et à la surface exposée » (le pourquoi court reste).
+- Étape 10 : la conduction du bois, du contreplaqué et de l'air ; « deux cartons… quatre couvertures » (N4).
+- Étape 11 : « si la pièce chauffée reste au-dessus de 5 °C » (E7).
+- Étape 13 : le résumé « garder dehors…, couper la source, aérer, et rentrer quand l'avertisseur est revenu à la normale » (renvoi au ch. 2, étapes 4 à 8).
+- Étape 18 : « La puissance de chaque appareil est écrite sur sa plaque. »
+- Étape 22 : l'exemple 14 °C, 1 °C à l'heure, 9 h.
+- Étape 27 : « un réfrigérateur en panne monte à 6 ou 8 °C » (N2).
+- Étape 28 : le thermomètre minimum-maximum.
+- Étape 38 (ancienne) : « une fois les températures revenues à la normale ».
+- Signes d'échec : « sous 28 °C de température buccale » (P2).
+- Section 7 : « plus sévère » (E6) ; « il tient quelques semaines » (N8) ; « Ça tient la pression d'une maison » (N9) ; « un redoux de trois jours » (N7) ; « en dix minutes » (N5) ; « de deux ou trois tours » (N6) ; « au niveau de la mer » ; la réflexion de l'onde AM ; « au mijoté, au bouilli et au bouillon ».
+- En plus : les notes « Le temps qu'il faut pour geler la viande » (−30 °C, 16 à 20 h, 4 h, −12 °C) et « Les tours cellulaires pendant une panne » (16 à 24 h, 4 à 10 h, Ottawa 2018) ; le col-de-cygne et l'isolateur de la note du mât et de sa légende.
+
+Ajouté sans fait neuf : −18 °C au congélateur (déjà à la section 7 ; `10-sante-canada-salubrite-urgence.md`, l. 54) ;
+les cristaux de glace et « dans le doute, on jette » (même fiche, l. 32-37) ; 37 à 39 °C (`03-wms-gelures.md`, page
+`froid`) ; les gestes de l'hypothermie (page `froid`) ; le bouton qui ne vérifie pas la cellule (ch. 9, section 6 ;
+`15b-kidde-avertisseur-co-bouton-et-temperature.md`) ; la neige qui rebouche le tuyau de l'auto et le geste après le
+signe grave (ch. 2, étapes 3 et 4) ; « le dernier moment où on sait que le courant marchait » (ch. 1) ; la rue qui se
+rallume comme signe du retour du courant (étape 1). Un `[À VÉRIFIER]` à l'étape 33 (l'insuline).
+
+### Doutes de fond, pour le vérificateur (A3, tels quels, et A1)
+
+- l. 93-94 et 621 : l'étape 6 dit que les tours cellulaires tiennent 2 à 4 h sur leurs batteries ; la note « En plus » dit 16 à 24 h, et 4 à 10 h selon un opérateur. Quelle valeur est bonne ? De cette durée dépend la place du message dans une série à 6 h. (Réglé par P1 : la note est coupée.)
+- l. 60-65 : peut-on boire sans la faire bouillir l'eau de la baignoire remplie avant la baisse de pression, ou seulement celle des chaudrons ?
+- l. 81-83 : sans avertisseur, la chandelle est interdite, mais la lampe à graisse est permise dans la pièce du poêle. Les deux flammes font-elles une différence de monoxyde qui justifie la règle ?
+- l. 71 : sous 4,4 °C, l'avertisseur n'est plus fiable. Que fait-on dans la petite pièce sans poêle (étape 7), qui peut descendre sous ce seuil ?
+- l. 76 et 317 : la cible « 0 ppm » et « tout chiffre affiché ». Beaucoup d'avertisseurs n'affichent rien sous un certain seuil ; il faut vérifier ce que l'appareil montre vraiment et quel chiffre demande quel geste.
+- l. 121-134 : l'abri (drap, couvertures, papier journal) est monté dans la pièce du poêle, mais aucune distance au poêle n'est donnée.
+- l. 154 : à −35 °C la nuit, garder dehors les gens qui ont des symptômes. Le ch. 2, étape 4, dit « à l'air libre et au chaud ». Lequel des deux dangers gagne, et comment ? (Le résumé est coupé ; renvoi au ch. 2.)
+- l. 191-193 : une odeur d'essence dans la maison pendant que le poêle brûle. « N'allumer aucune flamme » ne dit pas quoi faire du feu déjà allumé.
+- l. 222, 382 et 410 : l'eau du réservoir de la toilette après l'antigel à plomberie ou le lave-glace. Peut-on encore la boire ? Au rétablissement (l. 296-307), faut-il rincer le méthanol des siphons et du réservoir avant d'utiliser l'eau ?
+- l. 237-240 et 319 : faut-il jeter toutes les viandes après 6 h même si le thermomètre du réfrigérateur est resté à 4 °C ou moins (une maison froide en janvier) ? L'étape et le tableau ne donnent pas le même déclencheur.
+- l. 284-287 : l'insuline et le médicament qu'on ne peut pas interrompre. Quel geste fait-on ici quand ils n'ont pas pu rester au froid ? Et où garde-t-on l'insuline au froid sans réfrigérateur, en janvier ?
+- l. 120 et 322 : la surveillance des joues, du nez et des oreilles renvoie au ch. 39 à l'étape 9 et au ch. 25 dans le tableau. Vérifier ces renvois avec les nouveaux numéros.
+- l. 186 et 299 : la température « normale » du congélateur, le seuil où on le rebranche, et les 18 °C avant de remettre l'eau. Il faut les chiffres et leur source.
+- l. 396-397 : vidanger sans thermomètre quand l'eau du verre gèle (sous 0 °C). Est-ce déjà trop tard pour les tuyaux des murs extérieurs, si la règle avec thermomètre est 5 °C ?
+- l. 489-491 : la marmite norvégienne n'a ni durée maximale dans la boîte ni signe que c'est cuit. Combien d'heures avant la zone de danger ?
+- l. 507-513 : une batterie au plomb dans la pièce chauffée, près du poêle (gaz, acide) ; aucun fusible entre la batterie et le ruban DEL ou l'adaptateur ; et « l'adaptateur USB de l'allume-cigarette » n'a pas de fils à dénuder, il faut une prise femelle d'allume-cigarette.
+- l. 519-521 : à quel repère (tension lue au multimètre, par exemple) sait-on qu'une batterie est chargée à 85 % ou à 40 % ?
+- l. 445-449 : à quel signe sait-on que la conduite de refoulement du puisard est gelée avant de brancher la pompe (étape 26) ?
+- A1 : la l. 497 (le bouilli en petits morceaux finit par dépasser 74 °C) contre la l. 502 (ni ours ni phoque sans sonde).
+
+Les numéros de ligne sont ceux d'avant la passe (`/tmp/chaine-03-avant.md`).
+
+### Pour ailleurs (rien n'y est touché)
+
+- `images/logigrammes/03-panne-hydro.json` : q3 (enlever « la pièce chauffée au-dessus de 5 °C », E7 ; l'avertisseur
+  « qui répond au bouton et n'a pas passé sa date », E2) ; nœud de l'étape 5 (la date avec le bouton) ; co1 (compter
+  les gens dehors) ; co2 (« Couper la source, aérer, et rentrer quand l'avertisseur est revenu à la normale » perd les
+  conditions du ch. 2 : renvoyer au ch. 2, étapes 4 à 8, et dire le geste après le signe grave) ; l'appareil médical
+  en tête de la série 6 h.
+- `design/epreuves-livre/placements-tome-1.json` : si on renomme « Fermer les fenêtres » (A1, cas 10), changer l'ancre
+  de 03-12 en même temps.
+- Planche 03-09 : elle dessine « deux cartons et une couverture contre quatre couvertures », coupé faute de source
+  (N4) ; sa légende dit le journal « en boules », la source dit « une couche ».
+- Planche 03-12 : la latte du bas (repère 6) vient après « les quatre côtés » (repère 4).
+- `chapitres/06-la-liste-de-72-heures.md`, l. 228 : « quelques minutes de pression » au puits, sans source (N3).
+- `dangers/partie-1.md`, page `froid` : « Une personne qui arrête de frissonner est passée sous 28 °C » contre la WMS
+  et le ch. 25 (vers 30 °C) (P2).
+- Ch. 39, étape 16 : « engelure » ; la page `froid` dit « gelure » (le ch. 3 suit la page).
+- « Se réveille mal » (page `co`, ch. 2, ch. 3) : une note qui dit ce qu'on voit, quand une source la donnera (A1).
+- `sources/04-purdue-…` : recopier la phrase entière sur la laveuse et le lave-vaisselle (R2).
+- Le lanceur : aucune fiche ; le nombre de tours est coupé (N6).
+
+### controle.py et tempo.py, après la passe
+
+`controle.py --avant` : 8 879 mots avant, 8 966 après ; 0 tiret ; 0 bloquant sans `--avant`. Les quatre invariants
+qu'il montre sont voulus : les chiffres des deux notes coupées, de l'exemple de calcul, du 28 °C, du 5 °C de l'étape 11
+et du 6 ou 8 °C ; la légende de la photo du mât (les deux noms sortent) ; 2018 (note coupée) ; « génératrice » 21 → 20
+(la source du courant des pompes et la note des tours ; le rappel reste à l'étape 16). Mots de liaison : 46 → 121 ;
+« comme » 1 → 0 (la liste du barbecue, devenue « ni… ni… », n'était pas un lien). Aucun pictogramme, renvoi, note ou
+appel de planche perdu ; les six ancres de planche sont intactes.
+
+`tempo.py` : phrases de 40 mots et plus, 28 → 6 ; fait:conséquence 29,9 % → 4,3 % ; deux-points 36,6 % → 8,8 % ;
+liaison 6,0 → 15,4 pour 1 000 mots ; variation 0,51 → 0,46 et 72,3 % de phrases de 10 à 30 mots (à relire, sans
+fabriquer de variation, P7).
+
+`langue.py` : 1 avis, LT:NE_IMP_PAS à l'étape 5 (« n'allumer aucune flamme »), faux : l'infinitif de consigne.
+
+### Réponses à la seconde passe du vérificateur technique (29 octobre 2026)
+
+L'éditeur, sur les signalements de la seconde passe (`suivi/03-technique.md`, « Seconde passe, après l'éditeur »).
+Seuls ces points sont touchés. Copie d'avant ces corrections : `ch03-avant-signalements.md`, dans le répertoire
+temporaire de l'éditeur.
+
+| Cas | Réponse |
+| --- | --- |
+| S1, l'insuline (étape 33) | Fait. La page de la FDA est enregistrée : `sources/03-fda-insuline-conservation-urgence.md` (extraits) et `.html` (page). Tous les médicaments retournent dans la pièce chauffée, comme avant la passe. L'insuline y va aussi, « même celle du réfrigérateur, mais loin du poêle » (« away from direct heat »). « Hors du réfrigérateur, entre 15 et 30 °C, elle garde son effet 28 jours, ouverte ou non » (59 à 86 °F, « for up to 28 days and continue to work »). « On ne donne plus une insuline qui a gelé » (« Do not use insulin that has been frozen »). Le `[À VÉRIFIER]` est levé pour l'insuline. Il reste, réduit, pour un autre médicament qu'on ne peut pas interrompre, parce que la page de la FDA ne parle que de l'insuline et qu'aucune page du dossier ne dit s'il faut le donner après une rupture du froid (Québec.ca dit seulement de l'éviter). |
+| S2, le renvoi de la gelure | Fait : « (ch. 25, étapes 15 à 22) » au lieu de « (ch. 39) ». L'écart « tiède » au ch. 39 est pour ailleurs. |
+| S3, le logigramme | Non, pas dans cette passe : le brief ne nomme que le chapitre et cette fiche, et le cadre interdit de toucher un autre fichier. Il reste à corriger avant le montage (pour ailleurs, plus bas, avec les changements exacts). |
+| B2, la pompe de secours (E5) | Fait : « On compte sur la pompe de secours, mais quand elle est branchée sur le courant, elle s'arrête avec l'autre ; seule une pompe sur batterie tourne pendant la panne ». Ça suit la Ville de Québec (« une génératrice ou une batterie de secours »), et le « mais » qui corrige le réflexe (A1, cas 3) reste. |
+| B1, « autre chose que 0 » | Fait, aux deux endroits (étape 5 et tête de la série « L'avertisseur de CO sonne ») : « un chiffre plus grand que 0 », comme Kidde (« a number »). |
+| B3, 100 °C | Non. Le fait sert seulement à dire que l'eau qui bout reste bien au-dessus de 74 °C, et ça reste vrai en altitude, comme le dit le vérificateur. Le terrain du livre est au bord du fleuve. La réserve coupée par A4 ne change aucun geste. |
+| B3, la tularémie à l'étape 31 | Fait. Un rappel court s'ajoute à l'étape 31 : « Mettre des gants pour couper le lièvre cru (étape 29) ». Le pictogramme reste à l'étape 29, et le nombre de pictogrammes ne change pas. Aucun fait neuf : c'est le rappel du tableau de `CLAUDE.md`, dans l'étape où on manipule le lièvre cru. |
+| D, le verre d'eau qui gèle (doute de A3) | Non dans cette passe : ce n'est pas un changement de l'éditeur, et le corriger demande un autre repère sans thermomètre, donc du contenu neuf, que l'éditeur n'ajoute pas. Au rédacteur (pour ailleurs). |
+
+**Provenance (règle 1).** 15 et 30 °C, 28 jours, l'insuline gelée et la chaleur directe :
+`sources/03-fda-insuline-conservation-urgence.md`, section « Extraits intégraux utilisés ».
+
+**A0 après ces corrections.** `controle.py --avant` : 8 966 mots avant, 9 024 après, 0 tiret. Le seul invariant
+perdu est le renvoi « ch. 39 » (voulu, S2), et c'est lui seul qui fait le bloquant avec `--avant` ; sans `--avant`,
+0 bloquant. Mots de liaison : 121 → 122. Aucune redite nouvelle. `tempo.py` : aucun des paragraphes à relire n'est
+un passage touché ici. `langue.py` : 1 avis, le même faux avis qu'avant (« n'allumer aucune flamme »).
+
+**Pour ailleurs, ajouté par cette passe**
+
+- `images/logigrammes/03-panne-hydro.json` (S3, confirmé par le vérificateur) : l. 109, « Tester l'avertisseur de
+  CO au bouton » doit dire aussi de vérifier la date au dos (étape 5) ; l. 182, enlever « la pièce chauffée au-dessus
+  de 5 °C » (étape 11) et dire « un avertisseur qui répond au bouton et n'a pas passé sa date » ; l. 236, « rentrer
+  quand l'avertisseur est revenu à la normale » doit renvoyer aux conditions du ch. 2, étapes 4 à 8 (étape 13).
+- Section 7, « La vidange sans thermomètre » (au rédacteur) : le verre qui gèle dit que la pièce est déjà sous 0 °C,
+  plus tard que le seuil de 40 °F (4,4 °C) de Purdue (`04-purdue-extension-plomberie-panne-hiver.md`). Il faut un
+  repère sourcé qui arrive avant, ou une phrase qui dit que ce signe arrive tard.
+- Étape 33 (au rédacteur) : trouver une source pour un médicament qu'on ne peut pas interrompre, autre que
+  l'insuline, quand il n'a pas pu rester au froid, ou couper le `[À VÉRIFIER]` avec ce cas.
+
+## Langue, 29 octobre 2026 (le correcteur de la chaîne, après l'éditeur et A0)
+
+| Où | Avant | Après | Règle |
+| --- | --- | --- | --- |
+| Section 1 | « sans s'intoxiquer au monoxyde de carbone, sans tuyaux fendus et sans perdre la viande » | « …sans laisser fendre les tuyaux et sans perdre la viande » | Série non parallèle : trois membres après « sans », trois infinitifs (skill `langue`, section 11) |
+| Étape 9 | « Habiller tout le monde en couches, avec une tuque, avant d'avoir froid. » | « …avant qu'on ait froid. » | Infinitif dont le sujet change : c'est la personne qui habille qui aurait froid (section 11) |
+| Étape 13 | « suivre le ch. 2, étapes 4 à 8, pour les gens qui ont des symptômes, la source et le retour dans la maison » | « …pour les gens qui ont des symptômes, pour la source et pour le retour dans la maison » | Coordination ambiguë : « la source et le retour » se lisaient comme compléments de « ont » ; on répète la préposition |
+| Étape 19 | « la génératrice sert au réfrigérateur, à la pompe de puisard et à recharger les lampes et les téléphones » | « …sert à faire tourner le réfrigérateur et la pompe de puisard, et à recharger les lampes et les téléphones » | Série non parallèle : deux noms puis un infinitif après « à » (section 11) |
+
+`langue.py` avec LanguageTool, sur le chapitre et le logigramme : 1 avis au départ (LT:NE_IMP_PAS, étape 5,
+« n'allumer aucune flamme »), jugé faux (l'infinitif de consigne) et consigné dans `faux-positifs.txt` ; 0 avis après.
+
+**Pour ailleurs (rien n'y est touché).** `images/logigrammes/03-panne-hydro.json`, q3 (« On peut rester à la
+maison ? », précision) : « Il faut…, un avertisseur qui répond au bouton…, et personne qui dépend d'un appareil médical
+électrique » porte deux fautes que LanguageTool ne voit pas. Après « il faut », la relative qui décrit la chose
+voulue va au subjonctif (« un avertisseur qui **réponde** au bouton et n'**ait** pas passé sa date », section 1), et
+« personne » sans « ne » est une négation tronquée (section 7) : « …, et personne ne doit dépendre d'un appareil
+médical électrique ». À faire en même temps que la correction S3 de ce nœud, puis refaire le rendu.
+
+- 29 octobre 2026, au montage : l'étape 33 perd ses deux sous-étapes sur les autres médicaments que l'insuline
+  (« éviter de le prendre s'il n'a pas pu rester au froid » contre « s'en passer est aussi un danger ») et le
+  [À VÉRIFIER] qui les accompagnait. Aucune source au dossier ne tranche, et les médicaments sont le sujet du ch. 32,
+  auquel l'étape renvoie déjà (CLAUDE.md, « Chaque chapitre parle de son sujet » ; règle 1).

@@ -57,3 +57,5 @@ PREP_VERBECONJUGUE	Après viennent la parole
 TACHE	prend une tache blanche
 VIRG_NON_TROUVEE	combien de temps elle est restée au chaud
 AGREEMENT_POSTPONED_ADJ	ou de la neige dessus fait la même chose
+# ch. 3, jugé le 29 octobre 2026 : l'infinitif de consigne (« n'allumer aucune flamme »), pas un impératif manqué
+NE_IMP_PAS	n'allumer aucune flamme
