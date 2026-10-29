@@ -648,6 +648,14 @@ demi-phrase, et rien d'autre. Ce qui est décidé : un auditeur de plus, **A4, l
 A3 et demande, pour chaque détail, si le lecteur en a besoin pour faire le geste ou pour ne pas se mettre en danger. Il
 signale, et l'éditeur reste le seul à couper. La règle vit dans le skill `ecriture`, P2.
 
+## Ce qui est dans un autre chapitre sort de la page du danger (29 octobre 2026)
+
+On demandait à JP si la page du monoxyde (320 mots, pour 150 à 230) gardait la phrase du bouton d'essai (dite au ch. 9,
+étape 22 et section 6) et le geste des retombées (au ch. 4, étape 18). Sa réponse : « Oui si c'est présent dans
+d'autre chapitre on enlève ». La phrase du bouton d'essai sort ; l'exception des retombées reste en tête de l'étape 1,
+réduite à son renvoi (« Sauf pendant des retombées (ch. 4, étape 18), sortir tout le monde »), parce que sans elle une
+famille à l'abri sortirait dans les retombées. La règle vit dans `plan/dangers-inventaire.md`, section 2.
+
 ## Le dossier
 
 ```

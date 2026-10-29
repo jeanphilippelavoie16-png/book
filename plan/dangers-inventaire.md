@@ -89,7 +89,7 @@ le sang, et il finit sur le réflexe qui ne sert à rien. On met **deux dangers 
 chacun** (JP, 28 octobre 2026 : « Les pages danger on passe trop de temps à tourner autour du pot, sérieux on pourrait
 mettre minimum 2 dangers par page, pi les condenser à ce qu'on doit vraiment savoir. »). Pour condenser, on choisit
 les faits qu'on garde et on coupe les autres en entier, sans couper les « parce que » ni les « mais » des phrases qui
-restent (skill `ecriture`, P2). Il n'y a plus de paragraphe « Où il revient », parce que la liste des chapitres est en
+restent (skill `ecriture`, P2). Ce qu'un chapitre dit déjà (l'essai d'un appareil, le geste d'une situation qui a son étape ailleurs) sort de la page (JP, 29 octobre 2026 : « si c'est présent dans d'autre chapitre on enlève ») ; il reste un renvoi court quand le lecteur doit savoir, ici, que le geste change (« Sauf pendant des retombées (ch. 4, étape 18), sortir tout le monde »). Il n'y a plus de paragraphe « Où il revient », parce que la liste des chapitres est en
 tête. On écrit un renvoi à un autre danger `{>id}` (section 6, point 6).
 
 ### 2.1 `co` : Monoxyde de carbone
