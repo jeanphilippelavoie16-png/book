@@ -15,18 +15,17 @@ nourriture et le lien), puis reprendre la décision à heure fixe tant que la si
 
 ## 2. Quand l'utiliser
 
-- **L'avertisseur de CO sonne**, ou plusieurs personnes ont les mêmes malaises en même temps (étapes 1 à 8).
-- **Le courant, l'eau, le chauffage ou la route sont coupés**, et on ne sait pas pour combien de temps (étapes 25 à
- 42).
-- **On n'a plus de contact avec l'extérieur** : la route, la radio, le téléphone ou la motoneige ne passent plus
+- **Avertisseur de CO qui sonne, ou mêmes malaises chez plusieurs personnes à la fois** (étapes 1 à 8).
+- **Courant, eau, chauffage ou route coupés, pour une durée inconnue** (étapes 25 à 42).
+- **Plus de contact avec l'extérieur** : la route, la radio, le téléphone ou la motoneige ne passent plus
  (étape 30).
-- **Un feu ou une tempête est annoncé**, et il reste du temps pour choisir (étapes 25 à 42, et pour le feu,
+- **Feu ou tempête annoncé, avec le temps de choisir** (étapes 25 à 42, et pour le feu,
  étape 37 ; pour se préparer : ch. 7).
-- **La panne dure depuis trois jours à la maison**, et rien n'en annonce la fin (étape 32).
-- **Au chalet, un blessé ou un malade a besoin de l'hôpital** : on décide du trajet vers la ville de la même façon
+- **Panne de trois jours à la maison, sans fin annoncée** (étape 32).
+- **Au chalet, un blessé ou un malade qui a besoin de l'hôpital** : on décide du trajet vers la ville de la même façon
  (étapes 33 à 36 ; ch. 35).
-- **Deux adultes ne s'entendent pas** sur rester ou partir (étapes 41 et 42).
-- **L'heure fixée pour reprendre la décision arrive** (étape 43).
+- **Deux adultes en désaccord sur rester ou partir** (étapes 41 et 42).
+- **L'heure fixée pour revoir la décision** (étape 43).
 - **Il manque le thermomètre, la radio, les nouvelles, ou une auto qui démarre** (section 7).
 
 ---
@@ -164,7 +163,7 @@ tôt que prévu, le plus important est fait.
 29. **Nourriture : ne compter que ce qui se garde sans courant.** Le réfrigérateur reste froid environ 4 à 6 heures : compter 4 heures. Un
  congélateur en bon état, fermé et plein tient jusqu'à 48 heures ; à moitié plein, 24 heures (ch. 74). Le congélateur
  plein d'orignal ne compte donc que pour 48 heures. Jeter ce qui a dépassé 4 °C ; cuire tout de suite ce qui a dégelé en
- restant à 4 °C ou moins (ch. 1). Dans les deux cas, ces aliments sortent du calcul.
+ restant à 4 °C ou moins (ch. 3). Dans les deux cas, ces aliments sortent du calcul.
 30. **Lien : répondre à trois questions.** Peut-on joindre quelqu'un ? Quelqu'un sait-il où on est ? À quelle heure
  va-t-il s'inquiéter ? Si la réponse est non aux deux premières et qu'on ne connaît pas la troisième, le lien est
  la mesure la plus courte, même si tout le reste va bien. À la maison, les voisins comptent dans le lien.

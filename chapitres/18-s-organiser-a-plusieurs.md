@@ -16,13 +16,12 @@ malade et sans que chaque famille continue de décider de son côté.
 
 ## 2. Quand l'utiliser
 
-- La crise s'étire, et une ou deux familles proches doivent monter au chalet pour y rester (ch. 2).
-- Le bois ne suffira pas à chauffer deux ou trois bâtiments tout l'hiver (ch. 83).
-- Un adulte se retrouve seul avec des enfants, un blessé ou un malade, et doit veiller toutes les nuits.
-- Une famille a besoin d'une compétence qu'une autre famille a : souder, soigner, saler une cuisse.
-- Une famille a des vivres et pas de chauffage, une autre a du chauffage et pas de vivres.
-- Un orignal est abattu, et il faut plus de bras qu'une famille n'en a pour le refroidir, le dépouiller et le débiter
- à temps (ch. 61, ch. 62).
+- Une crise qui s'étire, avec une ou deux familles proches qui montent au chalet pour y rester (ch. 2).
+- Pas assez de bois pour chauffer deux ou trois bâtiments tout l'hiver (ch. 83).
+- Un adulte seul avec des enfants, un blessé ou un malade, qui doit veiller toutes les nuits.
+- Une famille qui a besoin d'une compétence qu'une autre a : souder, soigner, saler une cuisse.
+- Une famille qui a des vivres sans chauffage, une autre qui a du chauffage sans vivres.
+- Un orignal abattu qui demande plus de bras qu'une famille n'en a pour le refroidir, le dépouiller et le débiter à temps (ch. 61, ch. 62).
 
 ---
 
@@ -142,7 +141,8 @@ est trop tard pour dire non.
  soigner les autres.
  - Répartir le contenu d'une marmite de 20 L dans plusieurs plats peu profonds, laissés découverts ou couverts sans
  serrer.
- - Les mettre au froid dès que la vapeur cesse, ou dans un bain d'eau froide ou de neige, pour que la nourriture
+ - Dès que la vapeur cesse, les mettre au froid, par exemple dans un bain d'eau froide ou de neige, pour que la
+ nourriture
  descende le plus vite possible à 4 °C ou moins.
  - Ne rien laisser plus de 2 heures hors du froid. Le matin, jeter la marmite oubliée sur le comptoir pendant la
  nuit, quelle que soit son odeur.

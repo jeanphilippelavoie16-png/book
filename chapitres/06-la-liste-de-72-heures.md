@@ -14,12 +14,12 @@ Monter d'avance une trousse qu'une personne sort de la maison en 2 minutes, avec
 
 ## 2. Quand l'utiliser
 
-- **On monte la trousse, ou on la vérifie** au changement d'heure (étapes 1 à 31 ; section 5).
+- **Trousse à monter, ou à vérifier** au changement d'heure (étapes 1 à 31 ; section 5).
 - **Il faut partir vite** : un feu de forêt approche de la ville, un ordre d'évacuation est donné, ou une blessure oblige à prendre la route (étapes 1 et 2 ; décider de partir : ch. 2).
-- **Le chauffage lâche l'hiver**, et la famille se replie dans une seule pièce (étapes 8 à 12 ; section 7, « Se garder au chaud sans chauffage »).
-- **La route 138 ferme des deux côtés de la ville**, et plus rien n'entre (étapes 5 à 7 et 13 à 16).
-- **On monte au chalet**, ou on y est quand ça arrive (étape 4).
-- **On reste pris en auto l'hiver**, sur la route ou sur le chemin du chalet (étapes 29 à 31).
+- **Chauffage en panne l'hiver**, avec la famille repliée dans une seule pièce (étapes 8 à 12 ; section 7, « Se garder au chaud sans chauffage »).
+- **Route 138 fermée des deux côtés de la ville** : plus rien n'entre (étapes 5 à 7 et 13 à 16).
+- **Au chalet, ou en route vers le chalet** (étape 4).
+- **Pris en auto l'hiver**, sur la route ou sur le chemin du chalet (étapes 29 à 31).
 - **Rien n'est prêt**, et il faut une trousse ce soir (section 7).
 
 ---
@@ -50,11 +50,11 @@ Monter d'avance une trousse qu'une personne sort de la maison en 2 minutes, avec
  | Nourriture non périssable | Pour au moins 3 jours (étape 13) |
  | Ouvre-boîte manuel | 1 |
  | Radio à piles, et piles de rechange | 1 (étape 20) |
- | Lampe frontale ou de poche avec des piles de rechange, ou lampe à manivelle | 1 par personne (étapes 17 à 19) |
+ | Lampe (frontale, de poche) avec des piles de rechange, ou lampe à manivelle | 1 par personne (étapes 17 à 19) |
  | Briquet ou allumettes, et chandelles | Dans deux contenants étanches (étape 21) |
  | Trousse de premiers soins : antiseptiques, analgésiques, pansements adhésifs, compresses de gaze stériles, ciseaux | 1 |
 
- Ajouter ensuite les médicaments (étapes 22 à 25), les articles d'hygiène, des vêtements de rechange, des couvertures, l'argent comptant, les pièces d'identité et les doubles des clés (étape 26), et des jeux pour les enfants (étape 27). Ce qu'on achète pour remplir ces lignes, et dans quel ordre, est au ch. 00b.
+ Ajouter ensuite les médicaments (étapes 22 à 25), les articles d'hygiène, des vêtements de rechange, des couvertures, l'argent comptant, les pièces d'identité et les doubles des clés (étape 26), et des jeux pour les enfants (étape 27).
 4. **Au chalet, ajouter ce que la liste de base ne prévoit pas.** La liste de base suppose une maison chauffée, l'eau au robinet, une route qui rouvre et un magasin ouvert. À la maison, l'hiver, il ne manque à cette liste que de quoi dormir au froid quand le chauffage lâche (étapes 8 et 9). Au chalet, les quatre peuvent manquer en même temps.
 
  | La liste suppose | Au chalet | Ce qu'on ajoute |
@@ -83,7 +83,7 @@ Monter d'avance une trousse qu'une personne sort de la maison en 2 minutes, avec
 
 ### Le chaud
 
-8. **Mettre un matelas isolant par personne dans la trousse.** Couché, le corps perd sa chaleur vers le sol plus que vers l'air, et le garnissage du sac de couchage, écrasé sous le corps, n'isole plus là où le corps appuie. Le matelas isolant compte donc plus qu'un sac de couchage plus chaud. Des branches de sapin, du carton en double ou un tapis de mousse font le même travail (section 7). La cote de température d'un sac de couchage est donnée par le fabricant : elle sert à comparer deux sacs, pas à savoir si on aura chaud. Les sacs à acheter : ch. 00b.
+8. **Mettre un matelas isolant par personne dans la trousse.** Couché, le corps perd sa chaleur vers le sol plus que vers l'air, et le garnissage du sac de couchage, écrasé sous le corps, n'isole plus là où le corps appuie. Le matelas isolant compte donc plus qu'un sac de couchage plus chaud. Des branches de sapin, du carton en double ou un tapis de mousse font le même travail (section 7). La cote de température d'un sac de couchage est donnée par le fabricant : elle sert à comparer deux sacs, pas à savoir si on aura chaud.
 9. **Mettre deux jeux de mitaines, de tuques, de cache-cous et de chaussettes de laine par personne.** Le premier jeu est souvent mouillé dès le premier soir. La laine mouillée garde encore de la chaleur ; le coton mouillé n'en garde plus, et il refroidit le corps plus vite que s'il était sec.
 10. **Choisir le combustible du réchaud et du chauffage d'appoint selon le froid.** Le butane bout à −0,5 °C et le propane à −42 °C : sous zéro, une cartouche de butane ne donne presque plus de gaz, alors que le propane en donne encore par grand froid. Les cartouches de camping à l'isobutane ne donnent presque plus de gaz sous −11 °C. Le combustible et le chauffage sans propane : ch. 87.
 11. {!co} **Ne chauffer une pièce fermée qu'avec un appareil fait pour l'intérieur, et poser un avertisseur de CO à pile dans chaque pièce où on dort ou on chauffe.** Un appareil fait pour l'intérieur sort ses gaz dehors par un tuyau, ou il s'éteint tout seul quand l'oxygène de la pièce baisse. Le barbecue, le réchaud de camping et le brasero n'ont ni l'un ni l'autre : les garder dehors, même pour cuire.
@@ -99,7 +99,7 @@ Monter d'avance une trousse qu'une personne sort de la maison en 2 minutes, avec
 
 ### La nourriture
 
-13. **Mettre trois jours d'aliments qu'on peut manger sans les cuire** : le réchaud peut manquer, et les aliments à réchauffer s'ajoutent à ces trois jours. Les quantités et l'ordre d'achat sont au ch. 00b ; les calories dont un adulte et un enfant ont besoin l'hiver, au ch. 21.
+13. **Mettre trois jours d'aliments qu'on peut manger sans les cuire** : le réchaud peut manquer, et les aliments à réchauffer s'ajoutent à ces trois jours. Les calories dont un adulte et un enfant ont besoin l'hiver sont au ch. 21.
 
  | Aliment | Pourquoi | À savoir |
  | --- | --- | --- |
@@ -152,7 +152,7 @@ Monter d'avance une trousse qu'une personne sort de la maison en 2 minutes, avec
 
 ### La trousse de l'auto
 
-29. **Avant les déplacements d'hiver, équiper l'auto** : un balai à neige et un grattoir, du lave-glace, une pelle, un téléphone chargé, de l'eau, de la nourriture, des couvertures et les médicaments. Les quantités : ch. 00b. Se déplacer et le carburant : ch. 15.
+29. **Avant les déplacements d'hiver, équiper l'auto** : un balai à neige et un grattoir, du lave-glace, une pelle, un téléphone chargé, de l'eau, de la nourriture, des couvertures et les médicaments. Se déplacer et le carburant : ch. 15.
 30. **Mettre l'eau dans des contenants souples, dans l'habitacle plutôt que dans le coffre, et choisir des aliments qu'on peut manger gelés** : une auto arrêtée n'est pas chauffée, et l'eau y gèle.
 31. {!co} **Faire brûler la chandelle de survie dans son contenant de métal, une fenêtre entrouverte** : dans une auto fermée, elle prend l'oxygène et fait du monoxyde.
  - {!co} {!generatrice} Dégager la neige autour du tuyau d'échappement avant de faire tourner le moteur pour chauffer l'auto.
@@ -186,7 +186,7 @@ Monter d'avance une trousse qu'une personne sort de la maison en 2 minutes, avec
 | Bidon bombé ou fendu, couvercle soulevé | L'eau a gelé et a pris du volume | Vider le bidon, le remplir et le presser pour voir s'il fuit ; le remplacer s'il fuit |
 | Poudre blanche ou verte dans le compartiment des piles | Une pile alcaline a coulé, et ce qui en sort attaque l'appareil | Jeter les piles, nettoyer le compartiment et essayer l'appareil ; s'il ne s'allume pas, il est fini |
 | Noix, beurre d'arachide ou saindoux qui sentent la peinture ou la craie | Le gras a ranci | Les jeter : le goût ne revient pas, et ils ont perdu leur valeur nutritive |
-| Conserve bombée, qui coule ou qui siffle, ou pot dont le couvercle a perdu son vide | Botulisme possible (étape 16) | La jeter sans l'ouvrir et sans la goûter |
+| Conserve bombée, qui coule ou qui siffle. Pot dont le couvercle a perdu son vide | Botulisme possible (étape 16) | La jeter sans l'ouvrir et sans la goûter |
 | Sac de couchage gardé comprimé pendant des mois | Le garnissage a perdu son gonflant, et il isole moins | Le ranger dans un sac ample, pas dans son sac de compression |
 | Allumettes qui s'effritent ou ne s'allument pas | Elles ont pris l'humidité | Les remplacer, et refaire l'étanchéité du contenant |
 | Médicament décoloré ou fissuré, sirop qui s'est séparé | Il s'est abîmé, souvent en gelant et en dégelant | Le remplacer ; ne pas doubler la dose pour compenser |
@@ -225,7 +225,7 @@ Si on part, écrire le nom de chaque enfant et un numéro de téléphone à l'in
 
 ### L'eau quand il n'y a plus de pression
 
-**Remplir tout ce qui tient l'eau pendant qu'elle coule encore** : les gourdes, les chaudrons, les bidons, le bain, la cuve de la laveuse et les chaudières. Au chalet, le faire dès que le courant manque : la pompe du puits s'arrête avec lui, et il ne reste que quelques minutes de pression.
+**Remplir tout ce qui tient l'eau pendant qu'elle coule encore** : les gourdes, les chaudrons, les bidons, le bain, la cuve de la laveuse et les chaudières. Au chalet, le faire dès que le courant est coupé : la pompe du puits s'arrête avec lui, et il ne reste que quelques minutes de pression.
 
 **Tirer l'eau du chauffe-eau.** Le chauffe-eau reste plein quand la pression tombe.
 
@@ -240,7 +240,7 @@ Si on part, écrire le nom de chaque enfant et un numéro de téléphone à l'in
 
 **Doser la javel sans seringue.** Faire un compte-gouttes avec une paille : la tremper dans la javel, boucher le bout du haut avec le doigt, la sortir, puis soulever le doigt un peu pour laisser tomber une goutte à la fois. Compter combien de ces gouttes remplissent une cuillère à thé rase (5 mL), et diviser ce nombre par 25 : c'est le nombre de gouttes pour 1 L d'eau. Pour un grand volume, mesurer à la cuillère : la dose est de 0,2 mL de javel non parfumée à 5,25 % par litre, soit 4 mL pour un bidon de 20 L, un peu moins d'une cuillère à thé rase (5 mL). Quand on double la dose (étape 6), mettre 8 mL pour 20 L. Lire la concentration sur la bouteille : une javel plus forte ou plus faible change la dose. Une javel parfumée, épaissie ou qui contient du savon ne convient pas. L'attente et l'odeur de chlore : ch. 10, étapes 21 et 22.
 
-**Filtrer l'eau trouble avant de la désinfecter.** La passer dans un linge serré, un filtre à café ou un bas propre, ou dans un bas rempli de sable et de charbon de bois du poêle. Ça n'enlève aucun microbe ; ça enlève la boue, qui protège les microbes de la javel et l'use. Si l'eau reste trouble, la faire bouillir plutôt que d'y mettre de la javel (ch. 10, étape 19). Le linge, le filtre à café et le bas ne remplacent pas le filtre à 1 µm de l'étape 6.
+**Filtrer l'eau trouble avant de la désinfecter.** La passer dans un linge serré, un filtre à café, un bas propre, ou un bas rempli de sable et de charbon de bois du poêle. Ça n'enlève aucun microbe ; ça enlève la boue, qui protège les microbes de la javel et l'use. Si l'eau reste trouble, la faire bouillir plutôt que d'y mettre de la javel (ch. 10, étape 19). Le linge, le filtre à café et le bas ne remplacent pas le filtre à 1 µm de l'étape 6.
 
 ### Se garder au chaud sans chauffage
 

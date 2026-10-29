@@ -130,6 +130,10 @@ body{font-family:var(--serif);font-size:9.5pt;line-height:var(--lh);color:var(--
 
 p{margin:0;text-indent:1.1em;hyphens:auto;-webkit-hyphens:auto;hyphenate-limit-chars:7 3 3;orphans:2;widows:2}
 p.p0,p.cont,h2+p,h3+p,h4+p,table+p{text-indent:0}
+/* le texte courant justifié, comme dans un livre, avec la césure fr-CA (JP, 27 octobre 2026, sur l'épreuve du tome 1 :
+   « le texte dans les livres, c'est pas étiré pour que ça soit égal ? ») ; les cases de tableau restent en drapeau */
+.frame p{text-align:justify}
+.frame td p,.frame th p{text-align:left}
 strong{font-weight:700}
 .ref{font-family:var(--sans);font-weight:600;font-size:.94em;letter-spacing:.01em;white-space:nowrap}
 .av{font-family:var(--sans);font-weight:600;font-size:7.4pt;letter-spacing:.06em;color:var(--k70);white-space:nowrap}

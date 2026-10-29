@@ -16,20 +16,20 @@ la génératrice, et décider tout de suite si on monte au chalet.
 
 ## 2. Quand l'utiliser
 
-- **Un avertissement météo est émis pour le secteur** : tempête hivernale, pluie verglaçante, vents violents, blizzard
+- **Avertissement météo pour le secteur** : tempête hivernale, pluie verglaçante, vents violents, blizzard
  (étapes 1 à 38).
-- **Une veille ou un avis météo est en vigueur, ou un bulletin météorologique spécial vient de sortir** (étape 1).
-- **Hydro-Québec annonce une interruption de service planifiée**, ou une panne s'étend vers le secteur (étapes 1 à
+- **Veille, avis météo ou bulletin météorologique spécial** (étape 1).
+- **Interruption de service annoncée par Hydro-Québec, ou panne qui s'étend vers le secteur** (étapes 1 à
  38).
-- **Un feu de forêt est déclaré dans le secteur** (étapes 1 à 5 ; ch. 11).
-- **Un avis d'ébullition ou de non-consommation est émis pour l'aqueduc** (étape 8).
-- **Une pluie forte, une crue ou une fonte rapide est annoncée** (étape 22).
-- **Une évacuation est annoncée** (étapes 39 à 41).
+- **Feu de forêt déclaré dans le secteur** (étapes 1 à 5 ; ch. 11).
+- **Avis d'ébullition ou de non-consommation pour l'aqueduc** (étape 8).
+- **Pluie forte, crue ou fonte rapide annoncée** (étape 22).
+- **Évacuation annoncée** (étapes 39 à 41).
 - **Un événement prévu sans lien avec la météo** : une chirurgie, un accouchement, l'absence d'un adulte pendant
  plusieurs jours, la fermeture annoncée de la route (étapes 1 à 25).
-- **L'événement est passé**, et il faut remettre la maison en marche et refaire la réserve (étapes 42 à 44).
-- **Une deuxième tempête s'annonce sur une maison déjà en panne**, ou il manque la génératrice, l'eau courante,
- l'égout ou l'obturateur (section 7).
+- **Après l'événement** : remettre la maison en marche et refaire la réserve (étapes 42 à 44).
+- **Deuxième tempête annoncée sur une maison déjà en panne** (section 7).
+- **Il manque la génératrice, l'eau courante, l'égout ou l'obturateur** (section 7).
 
 ---
 
@@ -131,7 +131,7 @@ la génératrice, et décider tout de suite si on monte au chalet.
 16. **Rentrer trois jours de bois sec** dans la maison ou sous un abri sec et déneigé, si la maison a un poêle
  (ch. 83). Le bois laissé dehors sera enterré sous la neige et mouillé par la tempête.
 17. **Faire les pleins dès le début du préavis** : les autos, la motoneige, les bidons et les bouteilles de propane
- (ch. 15, ch. 87). Les pompes à essence marchent à l'électricité : quand le courant manque, toutes les stations du
+ (ch. 15, ch. 87). Les pompes à essence marchent à l'électricité : pendant une panne de courant, toutes les stations du
  secteur arrêtent de vendre en même temps.
 18. {!generatrice} {!electrocution} **Préparer l'emplacement de la génératrice pendant qu'il fait clair.**
  - Choisir l'endroit dehors, à découvert, à au moins 6 m du bâtiment, et tourner l'échappement à l'opposé des
@@ -215,7 +215,7 @@ la génératrice, et décider tout de suite si on monte au chalet.
 33. **Mettre les animaux à l'abri** avec de la nourriture et de l'eau pour trois jours, en comptant leur eau en plus de
  celle de la famille.
 34. **L'hiver, protéger la plomberie contre le gel.**
- - Les conduites qui longent un mur extérieur, ou qui passent dans le vide sanitaire ou dans le garage non
+ - Les conduites qui longent un mur extérieur, qui passent dans le vide sanitaire ou dans le garage non
  chauffé, gèlent les premières, bien avant la pièce. Une maison sans chauffage perd ses premiers degrés en
  quelques heures, puis refroidit beaucoup plus lentement, parce que le béton, le gypse, les meubles et la terre
  autour du sous-sol rendent leur chaleur : par un froid modéré, elle met des jours à passer sous zéro ; par
@@ -266,8 +266,7 @@ la génératrice, et décider tout de suite si on monte au chalet.
  allumer ni éteindre, et laisser aérer avant de recommencer.
  - Rallumer un seul appareil à la fois, et vérifier qu'il a sa flamme avant de passer au suivant.
 44. **Refaire la réserve dans la semaine** : remplacer ce qui a servi dans la trousse, refaire les pleins des bidons,
- recharger les blocs-piles, remettre des bidons d'eau au congélateur (ch. 6, ch. 9), et acheter ce qui manque dans
- l'ordre du ch. 00b. Sinon, au prochain préavis, on part d'une réserve vide.
+ recharger les blocs-piles, remettre des bidons d'eau au congélateur (ch. 6, ch. 9), et racheter ce qui manque. Sinon, au prochain préavis, on part d'une réserve vide.
 
 ---
 
@@ -307,7 +306,7 @@ la génératrice, et décider tout de suite si on monte au chalet.
 | Emballage sans givre, centre de l'aliment mou | Décongélation complète | Resté à 4 °C ou moins : le cuire tout de suite, ou le recongeler une fois cuit. Au-dessus de 4 °C : le jeter |
 | Cristaux de glace encore visibles, centre dur | Décongélation partielle | On peut le recongeler tel quel |
 | Lait, crème, fromage à pâte molle, œufs, pâtes cuites, salades avec viande, volaille ou poisson, desserts à la crème, mayonnaise maison, qui ont dépassé 4 °C | Aliments du réfrigérateur à jeter sans les examiner | Les jeter. Dans le doute, jeter |
-| L'avertisseur de CO sonne, ou plusieurs personnes ont mal à la tête, la nausée ou des étourdissements en même temps | Du monoxyde entre dans la maison : une génératrice ou une auto trop près d'une ouverture, ou un appareil qui brûle à l'intérieur | Sortir tout le monde à l'air libre, puis arrêter la source si on peut l'atteindre sans rester à l'intérieur. Éloigner la génératrice ou l'auto à 6 m du bâtiment, l'échappement tourné à l'opposé des portes et des fenêtres (étape 18) |
+| L'avertisseur de CO sonne, ou plusieurs personnes ont mal à la tête, la nausée ou des étourdissements en même temps | Du monoxyde entre dans la maison : une génératrice ou une auto trop près d'une ouverture, sinon un appareil qui brûle à l'intérieur | Sortir tout le monde à l'air libre, puis arrêter la source si on peut l'atteindre sans rester à l'intérieur. Éloigner la génératrice ou l'auto à 6 m du bâtiment, l'échappement tourné à l'opposé des portes et des fenêtres (étape 18) |
 | Le robinet ne donne plus rien | Station de pompage sans courant, ou conduite gelée | Passer à la réserve. Dégeler la conduite à l'eau chaude, jamais à la flamme (ch. 3) |
 | Le filet du robinet faiblit d'heure en heure | La pression du réseau s'épuise ; il reste des minutes | Remplir tout de suite ce qui est encore vide, eau de service comprise. Faire bouillir ou javelliser cette eau avant de la boire (étape 8) |
 | Eau trouble, colorée ou avec une odeur nouvelle au retour du service | Le réseau a perdu sa pression pendant la panne : une conduite sans pression aspire l'eau du sol par ses fuites et ses joints | Faire bouillir ou javelliser l'eau comme à l'étape 8 pendant tout le retour du service, même quand elle est redevenue claire |
@@ -422,7 +421,7 @@ ch. 73 ; le congélateur plein qui dégèle : ch. 74.
 
 **Ce qu'on perd :** le contrôle de la température. Un redoux à +5 °C en février peut tout dégeler en une journée.
 Mettre un thermomètre d'extérieur dans la caisse, ou, à défaut, un verre d'eau gelée avec une pièce de monnaie posée
-sur la glace (ch. 1, planche 01-02) : si on retrouve la pièce au fond du verre, la caisse a dégelé puis regelé pendant la nuit.
+sur la glace (ch. 3, planche 03-13) : si on retrouve la pièce au fond du verre, la caisse a dégelé puis regelé pendant la nuit.
 
 ### La batterie de l'auto à la place de la génératrice
 
@@ -507,8 +506,8 @@ premiers et fendent.
  tous les autres, et les laisser ouverts.
 - Tirer la chasse des toilettes pour vider les réservoirs.
 - Vider chaque siphon d'évier et de lavabo (étape 40). S'il a un bouchon de nettoyage au bas du coude, mettre une
- chaudière dessous et dévisser le bouchon ; sinon, aspirer l'eau à la poire à jus ou à l'aspirateur à eau, ou
- dévisser l'écrou du siphon au-dessus d'une chaudière. Bourrer ensuite le renvoi d'un chiffon : sans son eau, le
+ chaudière dessous et dévisser le bouchon ; sinon, aspirer l'eau à la poire à jus ou à l'aspirateur à eau. On
+ peut aussi dévisser l'écrou du siphon au-dessus d'une chaudière. Bourrer ensuite le renvoi d'un chiffon : sans son eau, le
  siphon ne bloque plus les gaz d'égout.
 - La cuvette de la toilette ne se vide pas. À la maison, sur l'égout de la ville, y verser un peu de lave-glace au
  méthanol : il abaisse le point de congélation. Au chalet, le méthanol tue les bactéries de la fosse septique :

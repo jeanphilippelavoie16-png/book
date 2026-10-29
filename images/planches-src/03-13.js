@@ -1,7 +1,8 @@
-// Planche 01-02 (petite planche, une colonne). Le témoin de dégel : un verre d'eau gelée, une pièce de monnaie
+// Planche 03-13 (petite planche, une colonne ; c'était la 01-02 jusqu'au 28 octobre 2026, quand le témoin de dégel
+// est passé du ch. 1 au ch. 3 : JP, « les chapitres doivent parler de ce qu'ils parlent, pas des autres »). Le témoin de dégel : un verre d'eau gelée, une pièce de monnaie
 // posée sur la glace, et ce que dit la pièce au retour. Planche neuve, 19 octobre 2026 (oui de JP le 19 octobre).
 //
-// Le texte : ch. 1, étape 15 : « poser un témoin de dégel dans le congélateur : un verre d'eau gelée, avec une pièce
+// Le texte : ch. 3, étape 28 (autrefois ch. 1, étape 15) : « poser un témoin de dégel dans le congélateur : un verre d'eau gelée, avec une pièce
 // de monnaie posée sur la glace. […] Au retour, si la pièce est restée en surface, rien n'a dégelé ; si elle est au
 // fond, tout a dégelé puis regelé ; à mi-hauteur, le dégel a été partiel. » La planche suit l'ordre surface,
 // mi-hauteur, fond (comme les ch. 3, 5, 41 et 73) ; la phrase du ch. 1 est à remettre dans cet ordre (rendu au
@@ -111,7 +112,7 @@ module.exports = (h) => {
   };
 
   return {
-    ref: '01-02',
+    ref: '03-13',
     titre: 'Le témoin de dégel',
     desc: 'En haut, en partant : un verre d’eau, puis le même verre gelé ; une pièce de monnaie, au-dessus de la glace, '
       + 'et une flèche rouge qui la pose sur la glace. En bas, au retour : trois verres de glace pareils. Dans le premier, '

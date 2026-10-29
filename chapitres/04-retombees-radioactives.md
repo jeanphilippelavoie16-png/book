@@ -15,14 +15,14 @@ y rester 24 à 48 heures, protéger la thyroïde avec des comprimés d'iode, pui
 
 ## 2. Quand l'utiliser
 
-- **Un éclair blanc aveuglant éclaire tout, puis un grondement ou une onde de pression arrive** : c'est une
+- **Éclair blanc aveuglant, puis grondement ou onde de pression** : c'est une
  détonation, même lointaine (étapes 1 à 3).
-- **Une alerte nucléaire ou radiologique est diffusée**, quelle que soit la distance annoncée (étapes 4 à 16).
-- **Du sable fin, de la cendre ou une pluie se met à tomber** après un éclair ou une alerte : ce sont les
+- **Alerte nucléaire ou radiologique**, quelle que soit la distance annoncée (étapes 4 à 16).
+- **Sable fin, cendre ou pluie qui tombe après un éclair ou une alerte** : ce sont les
  retombées (étape 4).
-- **On est à l'abri depuis quelques heures**, et il faut boire, manger, aérer et décider quand sortir (étapes 17
+- **À l'abri depuis quelques heures** : boire, manger, aérer et décider quand sortir (étapes 17
  à 27).
-- **Les années suivantes, on chasse, on pêche, on cueille ou on jardine** dans un territoire qui a reçu des
+- **Chasse, pêche, cueillette ou jardin les années suivantes**, dans un territoire qui a reçu des
  retombées (étapes 28 à 32).
 - **Il manque l'iode, la radio, le sous-sol, le compteur ou la réserve d'eau** (section 7).
 
@@ -93,7 +93,7 @@ y rester 24 à 48 heures, protéger la thyroïde avec des comprimés d'iode, pui
  « Sans sous-sol ni caveau »). L'abri n'a pas besoin d'être étanche, et des fenêtres cassées n'enlèvent presque
  rien à la protection : on reste.
 9. **Dans une maison de bois sans sous-sol, changer d'abri si un meilleur est à moins de 15 minutes** : un
- sous-sol, ou un gros bâtiment de béton ou de brique. Partir au plus tard 30 minutes après l'éclair. En
+ sous-sol ou un gros bâtiment de maçonnerie (béton, brique). Partir au plus tard 30 minutes après l'éclair. En
  arrivant, enlever ses vêtements du dessus et ses chaussures comme à l'étape 5. S'il n'y a pas de meilleur abri à
  moins de 15 minutes, rester et faire comme à l'étape 8.
 10. **Se laver, une fois à l'intérieur.**
@@ -288,7 +288,7 @@ y rester 24 à 48 heures, protéger la thyroïde avec des comprimés d'iode, pui
 
 ### Avant, une fois
 
-33. **Acheter les comprimés d'iode (ch. 00b) et les ranger dans la trousse qui part avec la famille.** Les garder
+33. **Acheter les comprimés d'iode et les ranger dans la trousse qui part avec la famille.** Les garder
  entre 15 et 30 °C, à l'abri de la lumière et de l'humidité : dans une maison chauffée, pas dans un chalet
  laissé froid l'hiver. Garder une seule boîte, celle de la trousse, pour la trouver dans le noir.
 34. **Choisir d'avance la pièce d'abri de la maison et celle du chalet** : celle qui a le plus de masse autour
@@ -327,7 +327,7 @@ y rester 24 à 48 heures, protéger la thyroïde avec des comprimés d'iode, pui
 | Poussière ou traces de pas poudreuses dans la pièce d'abri | Une ouverture mal bouchée, ou quelqu'un est entré avec ses vêtements du dehors | Laver les surfaces à l'eau, sans balayer (étape 25). Faire passer les gens qui arrivent du dehors par le coin de l'entrée (étape 20). Passer dans la pièce voisine la mieux protégée |
 | La peau démange et brûle là où la poussière est restée, puis, quelques jours plus tard, elle brûle et change de couleur | La poussière fraîche est restée des dizaines de minutes sur la peau | Laver tout de suite (étape 10). La brûlure est peu profonde, mais elle met des semaines à guérir : la garder propre |
 | Nausées, vomissements, mal de tête et étourdissements quelques heures après l'exposition | Le début d'une irradiation, ou la peur | Rester à l'abri, faire boire la personne et la faire reposer. Ces signes passent en un ou deux jours. S'ils commencent dans la demi-heure, la dose peut être mortelle. Une personne irradiée n'expose pas les gens qui la soignent |
-| Dans les deux semaines qui suivent, les cheveux tombent en touffes, de petites taches de sang apparaissent sous la peau ou dans la bouche, ou une diarrhée commence | Forte dose, pas forcément mortelle : la vie est en jeu pendant un à deux mois | La personne attrape facilement une infection (ch. 35) : la faire reposer, lui donner des repas complets et garder propre l'endroit où elle est couchée |
+| Dans les deux semaines qui suivent, un de ces signes apparaît : les cheveux tombent en touffes ; de petites taches de sang se forment sous la peau ou dans la bouche ; une diarrhée commence | Forte dose, pas forcément mortelle : la vie est en jeu pendant un à deux mois | La personne attrape facilement une infection (ch. 35) : la faire reposer, lui donner des repas complets et garder propre l'endroit où elle est couchée |
 | Alarme de CO, mal de tête, somnolence ou confusion chez plusieurs personnes à la fois | Monoxyde de carbone dans l'abri fermé | Faire l'étape 18 tout de suite |
 | Poêle qui tire mal, fumée qui revient dans l'abri | Le bouchage a coupé l'air du poêle | Ouvrir une entrée d'air au même étage que le poêle, du côté du vent, et tendre dessus un filtre de fournaise ou deux épaisseurs de serviette de bain |
 | Un enfant a reçu deux doses d'iode en moins de 24 heures | Une dose de trop | Ne pas le faire vomir. À partir de 4 ans, deux doses font 130 mg, la dose d'un adulte : c'est sans danger. Écrire l'heure et la quantité sur le cadre de porte, et donner la dose suivante à l'heure prévue. Ne plus en donner à un bébé de moins d'un mois (étape 16) |
@@ -371,7 +371,7 @@ l'épaisseur au-dessus des têtes.
 - Charger tout ce que la table et les portes supportent. Plus une matière est dense, mieux elle arrête le
  rayonnement : il faut environ 9 cm de terre tassée, ou 6 cm de béton, pour le couper de moitié. Chaque épaisseur
  de plus le coupe encore de moitié : cinq épaisseurs le divisent par 32, six par 64.
-- Dormir sous le refuge chargé, ou sous un étage ou un grenier plein.
+- Dormir sous le refuge chargé. Sans refuge, dormir sous un étage ou sous un grenier plein.
 
 *Les sacs de terre, sans sacs.* Remplir des taies d'oreiller, des sacs de farine vides ou des jambes de pantalon
 nouées à un bout (repère 9) aux deux tiers de terre ou de sable (repère 10). Les corder comme des briques, en croisant les

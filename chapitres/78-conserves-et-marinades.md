@@ -425,8 +425,7 @@ silence** : l'aiguille marque 70 kPa, la vapeur est en dessous des 116 °C, les 
 aucun signe à l'ouverture.
 
 **Une soupape à masse ne dérive pas.** Le poids règle la pression par sa propre masse : rien à
-calibrer, rien à faire vérifier, rien à commander. C'est l'argument qui décide de l'achat
-(ch. 00b) : entre deux autoclaves, celui à poids est celui qui dira encore la vérité quand l'autre
+calibrer, rien à faire vérifier, rien à commander. C'est l'argument qui décide de l'achat : entre deux autoclaves, celui à poids est celui qui dira encore la vérité quand l'autre
 n'aura plus de repère, et il n'a besoin de personne pour le certifier.
 
 - **Si l'appareil prend un poids**, le feu se conduit **au son** plutôt qu'à l'œil : le poids
@@ -542,8 +541,7 @@ d'orignal (*Alces americanus*) en novembre n'a jamais eu besoin d'un pot.**
 
 Cinq choses, et ce ne sont pas des services : **l'autoclave et sa régulation de pression, les
 couvercles neufs, les pots Mason, le vinaigre à acidité déclarée, le barème écrit.** Aucun ne se
-fabrique, aucun ne s'improvise, et aucun ne s'obtient le jour où il manque. Ils s'achètent
-d'avance (ch. 00b) et se rangent avec les pièces (ch. 108), ou la moitié peu acide de ce chapitre
+fabrique, aucun ne s'improvise, et aucun ne s'obtient le jour où il manque. Ils s'achètent d'avance et se rangent avec les pièces (ch. 108), ou la moitié peu acide de ce chapitre
 reste fermée pour toute la durée de l'événement.
 
 **Ce qu'on perd en choisissant cette version, nommé honnêtement :**

@@ -136,7 +136,7 @@ chalet, c'est-à-dire là où il y a des ours (étape 36).
  rentrée (ch. 14, ch. 16).
 5. **Embarquer les vêtements de rechange**, la combinaison de survie s'il y en a une, et les
  médicaments quotidiens **en double** : c'est le seul contenu du sac qui ne se bricole pas à
- bord. Le reste de l'équipement de sortie est au chapitre 00b.
+ bord.
 6. **Juger la fenêtre de météo sur le retour chargé, pas sur le départ à vide.** Une
  embarcation non pontée revient plus bas sur l'eau avec une bête à bord : le franc-bord qui
  suffisait le matin ne suffit plus, et une mer qui passait à vide embarque au retour. La

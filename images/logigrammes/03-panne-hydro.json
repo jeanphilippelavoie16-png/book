@@ -1,5 +1,5 @@
 {
-  "_note": "Logigramme du chapitre 3 (panne majeure d'Hydro en janvier), double page, fait le 16 octobre 2026 sur le chapitre réécrit, sur le modèle du 11 ; mis d'accord le 19 octobre 2026 avec le chapitre refait au gabarit final (sept sections, plus de parties « le détail », plus de section Danger : les pictogrammes sont dans les étapes). Les pastilles suivent celles du chapitre : 15 min pour « Le courant vient de manquer » (étapes 1 à 5), 6 h pour « Le courant ne revient pas » (étapes 6 à 11), 1 min pour « L'avertisseur de CO sonne » (étapes 12 et 13). Page de gauche : la panne, la nuit, le poêle. Page de droite : rester ou partir, et l'avertisseur qui sonne. Le premier geste arrive sans question. Aucun avertissement redit (ni la génératrice, ni les appareils de camping, ni le poêle étouffé la nuit, ni le fil tombé : ils restent dans leur étape, avec leur pictogramme). Rendu : env -u TMPDIR python3 design/outils/logigramme.py images/logigrammes/03-panne-hydro.json ; version du livre : --sans-entete --svg. « source » : les étapes du chapitre d'où vient chaque geste (ignoré au rendu). Décisions du 19 octobre 2026 (ch. 3 renuméroté : le message à un proche est l'étape 6, le poêle l'étape 7) : le message passe avant la question du poêle, dans une boîte à lui (msg), commune aux deux branches, et porte la pastille 6 h de la série « Le courant ne revient pas » (retirée de fA et fB) ; la nuit, le message s'envoie avant la couverture et la tuque (chapeau de la série) ; q1 et fB renvoient à l'étape 7 (« Sans poêle »), fA aux étapes 7 à 10. Rangs g5 à g7 décalés pour la place de msg.",
+  "_note": "Logigramme du chapitre 3 (panne majeure d'Hydro en janvier), double page, fait le 16 octobre 2026 sur le chapitre réécrit, sur le modèle du 11 ; mis d'accord le 19 octobre 2026 avec le chapitre refait au gabarit final (sept sections, plus de parties « le détail », plus de section Danger : les pictogrammes sont dans les étapes). Les pastilles suivent celles du chapitre : 15 min pour « Le courant vient de manquer » (étapes 1 à 5), 6 h pour « Le courant ne revient pas » (étapes 6 à 11), 1 min pour « L'avertisseur de CO sonne » (étapes 12 et 13). Page de gauche : la panne, la nuit, le poêle. Page de droite : rester ou partir, et l'avertisseur qui sonne. Le premier geste arrive sans question. Aucun avertissement redit (ni la génératrice, ni les appareils de camping, ni le poêle étouffé la nuit, ni le fil tombé : ils restent dans leur étape, avec leur pictogramme). Rendu : env -u TMPDIR python3 design/outils/logigramme.py images/logigrammes/03-panne-hydro.json ; version du livre : --sans-entete --svg. « source » : les étapes du chapitre d'où vient chaque geste (ignoré au rendu). Décisions du 19 octobre 2026 (ch. 3 renuméroté : le message à un proche est l'étape 6, le poêle l'étape 7) : le message passe avant la question du poêle, dans une boîte à lui (msg), commune aux deux branches, et porte la pastille 6 h de la série « Le courant ne revient pas » (retirée de fA et fB) ; la nuit, le message s'envoie avant la couverture et la tuque (chapeau de la série) ; q1 et fB renvoient à l'étape 7 (« Sans poêle »), fA aux étapes 7 à 10. Rangs g5 à g7 décalés pour la place de msg. Mis d'accord le 29 octobre 2026 avec la passe de la chaîne (vérificateur, S3 : le 5 °C n'est plus une condition pour rester, le bouton d'essai ne suffit pas sans la date, on compte les gens dehors, et le geste qui suit le signe grave).",
   "format": "double",
   "tome": 1,
   "urgent": true,
@@ -84,7 +84,7 @@
       "ancre": "haut",
       "temps": "15 min",
       "taille": 10,
-      "texte": "**Regarder si la rue est noire aussi.** Si elle est éclairée et pas la maison, regarder le disjoncteur principal, puis le mât de branchement : un mât brisé laisse la maison sans courant, même quand la rue est rebranchée.",
+      "texte": "**Regarder si la rue est noire aussi.** Si elle est éclairée et pas la maison, regarder le disjoncteur principal, puis le mât de branchement dehors, parce qu'un mât brisé laisse la maison sans courant, même quand la rue est rebranchée.",
       "renvoi": "ch. 3, étape 1",
       "source": "étape 1"
     },
@@ -106,7 +106,7 @@
       "rang": "g4",
       "ancre": "haut",
       "taille": 10,
-      "texte": "**Tester l'avertisseur de CO au bouton** et le poser dans la pièce où la famille va dormir.",
+      "texte": "**Tester l'avertisseur de CO au bouton et regarder sa date au dos**, puis le poser dans la pièce chauffée où la famille va dormir.",
       "renvoi": "ch. 3, étape 5",
       "source": "étape 5"
     },
@@ -179,8 +179,8 @@
       "rang": "d1",
       "ancre": "haut",
       "texte": "On peut rester à la maison ?",
-      "precision": "Il faut du bois sec pour toute la panne, un avertisseur qui répond au bouton, la pièce chauffée au-dessus de 5 °C, et personne qui dépend d'un appareil médical électrique",
-      "source": "étape 11"
+      "precision": "Il faut du bois sec pour toute la panne, un avertisseur qui répond au bouton et qui n'a pas passé sa date, et personne qui dépend d'un appareil médical électrique",
+      "source": "étape 11 ; chapeau de la série « Le courant ne revient pas »"
     },
     {
       "id": "partir",
@@ -222,7 +222,7 @@
       "ancre": "haut",
       "temps": "1 min",
       "taille": 10,
-      "texte": "**Réveiller et sortir tout le monde, tout de suite, sans chercher la source**, avec les manteaux, les bottes et les couvertures. Mettre les enfants au chaud chez un voisin, ou dans l'auto stationnée dehors, le tuyau d'échappement dégagé de la neige.",
+      "texte": "**Réveiller et sortir tout le monde, tout de suite, sans chercher la source**, avec les manteaux, les bottes et les couvertures. Compter les gens dehors, puis mettre les enfants au chaud chez un voisin, ou dans l'auto stationnée dehors, le tuyau d'échappement dégagé de la neige.",
       "renvoi": "ch. 3, étapes 12 et 13",
       "source": "étapes 12 et 13"
     },
@@ -233,7 +233,7 @@
       "rang": "d6",
       "ancre": "haut",
       "taille": 10,
-      "texte": "**Couper la source, aérer, et rentrer quand l'avertisseur est revenu à la normale.**",
+      "texte": "**Si une personne se réveille mal, est confuse ou perd connaissance, sa vie est en jeu.** La coucher sur le côté si elle respire, et déclencher le SOS de la messagerie satellite ou la balise. Pour la source et le retour dans la maison, suivre le ch. 2.",
       "renvoi": "ch. 2, étapes 4 à 8",
       "source": "étape 13 ; ch. 2, étapes 4 à 8"
     }

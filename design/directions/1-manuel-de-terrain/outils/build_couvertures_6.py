@@ -45,7 +45,7 @@ COUL = {
 }
 # Chapitres : plan/tomes-6-proposition.md (numéros du 27 septembre 2026). Poids de la barre = nombre de chapitres.
 TOMES = {
-    1: dict(titre='Tenir', h1=['Tenir'], taille=86, ch=('00b', '18'), n=19),
+    1: dict(titre='Tenir', h1=['Tenir'], taille=86, ch=('01', '18'), n=18),
     2: dict(titre='Le corps', h1=['Le corps'], taille=86, ch=('19', '40'), n=22),
     3: dict(titre='Prélever', h1=['Prélever'], taille=86, ch=('41', '60'), n=20),
     4: dict(titre='De la bête au garde-manger', h1=['De la bête', 'au garde-manger'], taille=57, ch=('61', '81'), n=21),
@@ -57,7 +57,7 @@ TOMES = {
 # espaces insécables compris (  insécable,   fine devant le deux-points).
 # verifier() compare avec le rapport de chaque tome.
 SOMMAIRE = {
-    1: [('00b', 'Acheter par priorité'), ('01', 'Les quatre horloges'),
+    1: [('01', 'Les quatre horloges'),
         ('02', 'Rester ou partir'), ('03', 'Panne majeure d’Hydro en janvier'), ('04', 'Retombées radioactives'),
         ('05', 'Le stock permanent du chalet'), ('06', 'La liste de 72 heures'), ('07', 'Quand on a un préavis'),
         ('08', 'Listes par scénario'), ('09', 'Ce qui manque toujours'), ('10', 'Eau : puiser, filtrer, désinfecter'),

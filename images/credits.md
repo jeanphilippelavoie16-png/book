@@ -1126,6 +1126,17 @@ bloc de glace, sans retouche.
 | `extras/originaux/15-glace-chandelles-commons-5877950711.jpg` | Glace en chandelles : un bloc de glace de printemps fait de colonnes debout, sur la rive, Canada, 20 juin 2011 (vignette 1 280 × 960 de Commons) | US Embassy Canada (Flickr, us_mission_canada) | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Candle_Ice_(5877950711).jpg (Flickr : https://www.flickr.com/photos/us_mission_canada/5877950711/) |
 | `extras/15-glace-chandelles.jpg` | Recadrage de 1 080 × 690 de la photo précédente sur le bloc de glace, sans retouche (adaptation) ; celle qui s'imprime | US Embassy Canada | CC BY 2.0 | voir la ligne précédente |
 
+## Encadré « En plus » du chapitre 26, soigner quand il n'y a personne (26 octobre 2026)
+
+Une photo d'iNaturalist, sous CC0, relue sur l'API (`api.inaturalist.org/v1/observations/35177171` : `license_code`
+« cc0 », attribution « no rights reserved »). L'original gardé dans `extras/originaux/` est le fichier de 2 048 × 1 368
+servi par iNaturalist ; l'image imprimée en est une réduction à 1 600 px de large, sans recadrage ni retouche.
+
+| Fichier | Sujet | Auteur | Licence | Lien |
+| --- | --- | --- | --- | --- |
+| `extras/originaux/26-sphaigne-inaturalist-rambryum.jpg` | Sphaigne (*Sphagnum capillifolium*) en tapis rouge, avec des feuilles tombées, Comox-Strathcona (Colombie-Britannique), 1er novembre 2019 | Randal (rambryum) | CC0 | https://www.inaturalist.org/observations/35177171 |
+| `extras/26-sphaigne.jpg` | Réduction à 1 600 × 1 069 de la photo précédente ; celle qui s'imprime | Randal (rambryum) | CC0 | voir la ligne précédente |
+
 ## Pages de titre des tomes (images/tomes/)
 
 - Champignon atomique, forêt en feu : Game-icons.net (Lorc, Delapouite), CC BY 3.0, https://game-icons.net

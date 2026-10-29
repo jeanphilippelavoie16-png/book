@@ -16,20 +16,21 @@ jamais la désinfection.
 
 ## 2. Quand l'utiliser
 
-- **Un avis d'ébullition est donné, ou la pression baisse franchement au robinet**, après un bris, des travaux, un
+- **Avis d'ébullition, ou pression qui baisse franchement au robinet**, après un bris, des travaux, un
  incendie dans le quartier ou une longue panne de courant (étapes 42 à 47 ; ch. 3).
-- **L'avis dit de ne pas consommer l'eau** (étape 43).
-- **L'eau ne coule plus au robinet** (étape 49).
-- **La maison est sur l'aqueduc et a été bâtie avant les années 1970** (étape 48).
-- **On boit l'eau d'un lac, d'un ruisseau, de la neige ou de la glace**, au chalet ou en forêt (étapes 1 à 26, 36
+- **Avis de ne pas consommer l'eau** (étape 43).
+- **Plus d'eau au robinet** (étape 49).
+- **Maison sur l'aqueduc, bâtie avant les années 1970** (étape 48).
+- **Eau d'un lac, d'un ruisseau, de la neige ou de la glace**, au chalet comme en forêt (étapes 1 à 26, 36
  à 41).
-- **Le puits n'a jamais été analysé**, ou il vient d'y avoir une crue, une inondation, un dégel brusque ou des
- travaux d'excavation à côté, ou on vient de remplacer la pompe (étapes 27 à 35).
-- **On a rapporté de l'eau dans un contenant dont on ne sait pas ce qu'il a contenu**, même si l'eau était bonne
+- **Puits jamais analysé** (étapes 27 à 35).
+- **Crue, inondation, dégel brusque, travaux d'excavation près du puits ou changement de pompe** (étapes 27 à 35).
+- **Eau rapportée dans un contenant dont on ne sait pas ce qu'il a contenu**, même si l'eau était bonne
  (étapes 14 à 22).
-- **La pompe du puits ne marche plus**, et il faut puiser l'eau à la main (section 7, « Puiser un puits quand la pompe est
+- **Pompe du puits en panne** : puiser l'eau à la main (section 7, « Puiser un puits quand la pompe est
  morte »).
-- **Il n'y a plus de javel, plus de filtre ou plus de feu**, ou il ne reste que l'eau du fleuve (section 7).
+- **Plus de javel, plus de filtre ou plus de feu** (section 7).
+- **Seulement l'eau du fleuve** (section 7).
 
 ---
 

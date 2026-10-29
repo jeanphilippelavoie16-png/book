@@ -455,7 +455,7 @@ jours sans virage franc, on jette.
 **Les deux règles plus sévères qu'on accepte en échange.** Viser le haut de la plage de sel plutôt
 que le bas, et **jeter au moindre doute**, puisqu'on a perdu le moyen d'en lever un. Et ça ne vaut
 que sur des légumes. Les bandelettes coûtent peu, durent des années et se rangent au sec : en avoir
-en double au stock est un des meilleurs rapports poids-sécurité du livre (ch. 00b).
+en double au stock est un des meilleurs rapports poids-sécurité du livre.
 
 ### Fabriquer le banc à chou
 

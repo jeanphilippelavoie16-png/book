@@ -71,6 +71,23 @@ module.exports = (h) => {
     // le porteur derrière, le blessé devant ; puis les mains du porteur, repeintes par-dessus :
     // elles tiennent l'avant-bras replié devant la poitrine du blessé
     out.push(P.svg, B.svg);
+    // le bras du porteur, du côté qu'on voit, passe sous l'aisselle du blessé jusqu'à son avant-bras : on repeint
+    // par-dessus le blessé une bande qui suit l'avant-bras, du coude à la main (JP, 26 octobre 2026 :
+    // « manque des bras au bonhomme debout »)
+    const J = P.articulations, mi = (a, b, t) => [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t];
+    const tracé = [mi(J.coudeP, J.poignetP, 0.1), J.poignetP, [P.mainP.x, P.mainP.y]], hw = 52 * e;
+    const bande = [];
+    for (let i = 0; i < tracé.length - 1; i++) {
+      const [a0, a1] = [tracé[i], tracé[i + 1]], d = Math.hypot(a1[0] - a0[0], a1[1] - a0[1]) || 1;
+      const nx = -(a1[1] - a0[1]) / d * hw, ny = (a1[0] - a0[0]) / d * hw;
+      bande.push(`<polygon points="${[[a0[0] + nx, a0[1] + ny], [a1[0] + nx, a1[1] + ny], [a1[0] - nx, a1[1] - ny], [a0[0] - nx, a0[1] - ny]].map(q => q.map(f).join(',')).join(' ')}"/>`);
+    }
+    for (const q of tracé.slice(1)) bande.push(`<circle cx="${f(q[0])}" cy="${f(q[1])}" r="${f(hw)}"/>`);
+    out.push(`<clipPath id="clip-prise-bras">${bande.join('')}</clipPath>`);
+    out.push(`<g clip-path="url(#clip-prise-bras)">\n${P.svg}\n</g>`);
+    // la tête du blessé reste devant ce bras (JP, 26 octobre 2026 : « le bras traverse sa tête ») : on la repeint
+    out.push(`<clipPath id="clip-prise-tete"><circle cx="${f(B.tete.x)}" cy="${f(B.tete.y)}" r="${f(108 * e)}"/></clipPath>`);
+    out.push(`<g clip-path="url(#clip-prise-tete)">\n${B.svg}\n</g>`);
     out.push(`<clipPath id="clip-prise-mains"><circle cx="${f(mains[0])}" cy="${f(mains[1])}" r="${f(70 * e)}"/></clipPath>`);
     out.push(`<g clip-path="url(#clip-prise-mains)">\n${P.svg}\n</g>`);
     // le geste : il recule

@@ -15,11 +15,10 @@ ou une braise qu'on a gardée, aussi longtemps qu'il reste de l'amadou sec.
 
 ## 2. Quand l'utiliser
 
-- **Il n'y a plus d'allumettes, ou elles ont pris l'eau.**
-- **Le briquet au butane ne donne plus de flamme par grand froid** (étape 2).
-- **La réserve d'allumettes du chalet baisse**, et on ne sait pas quand on pourra la refaire : on passe au
- ferrocérium pendant qu'il en reste.
-- **Il faut garder un feu des jours ou des semaines** sans rien pour le rallumer (section 7).
+- **Plus d'allumettes, ou des allumettes mouillées.**
+- **Briquet au butane sans flamme par grand froid** (étape 2).
+- **Réserve d'allumettes du chalet qui baisse, sans savoir quand on pourra la refaire** : passer au ferrocérium pendant qu'il en reste.
+- **Un feu à garder des jours ou des semaines**, sans rien pour le rallumer (section 7).
 
 ---
 
@@ -57,8 +56,8 @@ ou une braise qu'on a gardée, aussi longtemps qu'il reste de l'amadou sec.
  peut faire un feu à trois conditions : le sommet doit rester grand ouvert, la flamme doit rester claire,
  et quelqu'un doit rester éveillé toute la nuit pour la surveiller (ch. 12, étape 75).
 5. **Choisir la méthode selon l'état des mains.**
- - S'il fait plus froid que −17,5 °C, ou si les doigts font mal ou ne sentent plus rien : allumer à la pile
- ou à la batterie, avec de la laine d'acier (étapes 18 à 21). On touche la laine avec les deux bornes de
+ - S'il fait plus froid que −17,5 °C, allumer à la pile ou à la batterie, avec de la laine d'acier (étapes 18
+ à 21) ; de même quand les doigts font mal ou ne sentent plus rien. On touche la laine avec les deux bornes de
  la pile ou avec deux fils, et on peut le faire sans enlever les mitaines.
  - Sinon : allumer au ferrocérium (étapes 14 à 17), ou au briquet s'il a repris. Ces deux façons demandent
  des doigts qui sentent ce qu'ils tiennent.
@@ -89,7 +88,7 @@ ou une braise qu'on a gardée, aussi longtemps qu'il reste de l'amadou sec.
  - Allumer dehors seulement quand le vent reste sous 20 km/h : à 16 km/h, un drapeau léger est déployé ;
  à 24 km/h, une feuille de papier journal se soulève du sol. Quand le vent est plus fort, ou que la mousse
  craque sous le pied (ch. 11, section 7), faire le feu dans le poêle. Sans poêle, quand il faut un feu
- pour se réchauffer (étapes 1 à 7), le faire derrière une butte ou un rocher, ou monter un mur de bûches
+ pour se réchauffer (étapes 1 à 7), le faire derrière une butte ou un rocher. Sans abri naturel, monter un mur de bûches
  ou de pierres sèches du côté du vent : le mur coupe le vent qui entre dans le feu, retient les
  étincelles et renvoie la chaleur vers soi.
 9. **Mettre de l'eau, du sable ou de la terre à portée de main** avant d'allumer.
@@ -244,7 +243,7 @@ Sans tige de ferrocérium, on peut allumer au briquet à pierre, à la batterie,
 | Flamme vive quelques secondes, puis plus rien | On est passé du bois fin aux bûches sans le bois de 2 à 5 cm | Remonter le tipi en bois fin (moins de 2 cm), puis ajouter le bois de 2 à 5 cm |
 | Sifflement et bulles au bout des bûches, fumée épaisse | Bois vert ou mouillé : l'eau du bois bout | Changer de bois ; fendre du bois mort debout (étapes 11 et 12 ; ch. 83) |
 | La laine d'acier rougit à peine, ou pas du tout | Laine trop grosse, ou pile vide | Prendre une laine plus fine ; essayer une autre pile, ou la batterie (étape 20) |
-| Poussière brun pâle, et non noire, dans l'encoche de l'arc à feu | Pas assez de vitesse ou de pression, ou bois trop dur pour la planchette | Appuyer plus fort, aller plus vite ; changer de bois (section 7) |
+| Poussière brun pâle, et non noire, dans l'encoche de l'arc à feu | Pas assez de vitesse ou de pression. Bois trop dur pour la planchette | Appuyer plus fort, aller plus vite ; changer de bois (section 7) |
 | Fumée qui refoule du poêle dans la pièce, flamme jaune et lente | Pas assez d'air, ou cheminée bouchée : le feu fait du monoxyde | Ouvrir au maximum la clé du tuyau, aérer (ch. 83) |
 | Mal de tête, nausée ou étourdissements chez plus d'une personne près d'un feu | Intoxication au monoxyde de carbone | Sortir tout le monde dehors, puis soigner selon le ch. 26 |
 | Doigts blancs, cireux, insensibles pendant l'allumage | Gelure qui commence | Arrêter, réchauffer les doigts contre le corps, ne pas frotter (ch. 25) |

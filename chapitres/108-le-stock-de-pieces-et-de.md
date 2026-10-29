@@ -18,7 +18,7 @@ d'automne au dégel.
 ## 2. Quand l'utiliser
 
 Au village, ce stock n'a pas de raison d'être : la quincaillerie est ouverte, la pièce se commande, et un mur de pièces d'usure y est de l'argent immobilisé. Ce qui se garde à la maison, c'est ce qui
-**monte** au chalet le jour où ça s'étire — et ça, c'est le chapitre 00b. Le stock de ce
+**monte** au chalet le jour où ça s'étire. Le stock de ce
 chapitre-ci dort au chalet, sans chauffage et sans personne dedans la plus grande partie de
 l'année : c'est cette condition-là, et non le prix des pièces, qui commande tout ce qui suit.
 
@@ -154,7 +154,7 @@ dehors dans le froid.
 
 ### 5.4 La quincaillerie, autrement dit ce qui manque toujours
 
-Les familles à acheter sont au chapitre 00b. Les règles de tri sont les mêmes pour toutes, et ce
+Les règles de tri sont les mêmes pour toutes les familles de pièces, et ce
 sont elles qui empêchent le bac de devenir un dépotoir de formats orphelins.
 
 | Règle | Pourquoi |

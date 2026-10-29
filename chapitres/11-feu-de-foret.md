@@ -16,16 +16,16 @@ jusqu'au passage du front.
 
 ## 2. Quand l'utiliser
 
-- **Un feu est déclaré dans le secteur** (étapes 1 à 10).
-- **De la cendre ou des aiguilles roussies tombent sur la galerie, ou le soleil est rouge à midi**, même
- sans feu en vue et sans odeur de fumée (étapes 1 à 10).
-- **Le feu est en vue** (étapes 11 à 25).
-- **La fumée d'un feu, même lointain, entre dans la maison ou dans le chalet** (étapes 31 à 37).
-- **On rentre après le feu** (étapes 38 à 46).
-- **Un orage est passé sans pluie.** La foudre peut allumer un feu qui couve dans l'humus avant de se
+- **Feu déclaré dans le secteur** (étapes 1 à 10).
+- **Cendre ou aiguilles roussies sur la galerie**, même sans feu en vue ni odeur de fumée (étapes 1 à 10).
+- **Soleil rouge à midi**, même sans feu en vue ni odeur de fumée (étapes 1 à 10).
+- **Feu en vue** (étapes 11 à 25).
+- **Fumée d'un feu, même lointain, dans la maison ou le chalet** (étapes 31 à 37).
+- **Retour après le feu** (étapes 38 à 46).
+- **Orage passé sans pluie.** La foudre peut allumer un feu qui couve dans l'humus avant de se
  déclarer : surveiller l'horizon les jours suivants (étape 58).
-- **Le combustible est sec sous le pied** (étape 57).
-- **Le printemps arrive, avant la saison de feu** (étapes 47 à 56).
+- **Combustible sec sous le pied** (étape 57).
+- **Le printemps, avant la saison des feux** (étapes 47 à 56).
 
 ---
 
@@ -478,7 +478,7 @@ purificateur à filtre HEPA, mais beaucoup mieux que rien (planche 11-04).
  (repère 7), puis poser le ventilateur sur le cube, tourné pour souffler vers le haut (repère 8), dans un
  carton percé au diamètre des pales (repère 9). Vu de dessus, la flèche de chaque filtre pointe vers le centre
  (repère 10), et chaque filtre bute contre le suivant (repère 11). Le cube traite environ 37 m². Changer les
- filtres dès qu'ils sont bruns ou gris, ou qu'ils sentent la fumée.
+ filtres quand ils deviennent bruns ou gris, et dès qu'ils sentent la fumée.
 - {!incendie} **Le ventilateur chauffe.** Avec un filtre chargé de poussière, la température à l'intérieur
  du moteur a monté de près de 60 °C pendant des essais. Un ventilateur fabriqué depuis 2012 a une fiche
  à fusible et une coupure thermique. Ne pas faire tourner un ventilateur plus vieux la nuit, ni sans un

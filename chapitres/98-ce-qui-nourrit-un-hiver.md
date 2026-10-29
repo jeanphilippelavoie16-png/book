@@ -5,7 +5,7 @@
 **Chalet.** Le champ, le caveau et le fléau sont au chalet, et ce chapitre ne sert que si
 l'événement dure plus d'un été : la première récolte arrive trois à quatre mois après la plantation.
 Ce qui se fait à la maison se fait **avant**, tant que tout marche : la semence — pommes de terre,
-orge nue, gourganes, pois entiers — s'achète et se garde là (ch. 00b, ch. 100). Si la bascule du
+orge nue, gourganes, pois entiers — s'achète et se garde là (ch. 100). Si la bascule du
 ch. 2 arrive au printemps, un terrain du village peut porter les pommes de terre de la première
 année pendant que le champ du chalet s'ouvre (ch. 96).
 

@@ -684,9 +684,10 @@ def annexe_html(tome, chaps, plan, work):
     som_no = plan["sommaire"]
     ex = chaps[-1]["num"]
     note_sommaire = il(f"Deux numéros sur chaque page. **En tête, le folio du chapitre** : {ex}-4, c'est la page 4 du "
-                       f"chapitre {ex} ; chaque chapitre ouvre sur le sommaire de ses neuf sections, dans ces folios. "
-                       "**En pied, la page du tome**, celle de ce sommaire. Le 8, c'est le danger ; le 9, la variante "
-                       "d'urgence, celle qui se fait sans rien."
+                       f"chapitre {ex} ; chaque chapitre ouvre sur le sommaire de ses {'neuf' if avec_d else 'sept'} sections, dans ces folios. "
+                       "**En pied, la page du tome**, celle de ce sommaire. "
+                       + (f"Le 8, c'est le danger ; le 9, la variante d'urgence, celle qui se fait sans rien." if avec_d else
+                          f"Le 7, c'est la variante d'urgence, celle qui se fait sans rien.")
                        + (" **En orange, les premières minutes** : la page où commencent les gestes urgents, dans l'ordre "
                           "où ils se font ; la même couleur marque leurs pages sur la tranche." if avec_or else "")
                        + (" **Le chapitre 00 ouvre le livre, en page 1, devant la page de titre** : il se trouve sans chercher."
@@ -769,7 +770,7 @@ def mode_emploi(tome, titre_t, plan):
                "qu'on a** pour faire la série, à partir de ce qui la déclenche. Les gestes sont dans l'ordre où on les fait, avec "
                "leur raison et ce qu'il faut savoir pour les faire. Une marque orange au bord de ces pages permet de les trouver "
                "livre fermé.")),
-        rang('<div class="md-q">Il fait plus froid que −17,5 °C ?</div><span class="md-oui">Oui</span>'
+        rang('<div class="md-q">Il fait plus froid que −17,5&#8239;°C&#8239;?</div><span class="md-oui">Oui</span>'
              '<div class="md-a">Allumer à la pile ou à la batterie.<i><span>ch. 13, étapes 18 à 21</span></i></div>',
              "Le logigramme",
              p("Sur deux pages, juste après le Matériel : des questions auxquelles on répond **oui** ou **non**, qui mènent au "
@@ -842,7 +843,9 @@ def mode_emploi(tome, titre_t, plan):
 # pictogrammes ; chaque fois qu'un danger est présent, on affiche le pictogramme ». Les pages vont dans chaque tome,
 # après « Comment le livre fonctionne » (ou après le sommaire) ; un tome n'imprime que les dangers que ses chapitres
 # marquent ({!id}). Le texte est dans dangers/*.md (« ## {!id} Nom », puis le corps) ; l'ordre est celui du tableau
-# de plan/dangers-inventaire.md. Les pages se coupent dans Chromium (DANGERS_JS) : une première passe compte les
+# de plan/dangers-inventaire.md. Un renvoi à un autre danger s'écrit {>id} : il s'imprime avec le petit pictogramme, le
+# nom court et la page du danger dans le tome (JP, 27 octobre 2026, sur l'épreuve du tome 1 : « (Pictogramme du
+# monoxyde) c'est tu normal ça ou il y devait avoir un pictogramme »). Les pages se coupent dans Chromium (DANGERS_JS) : une première passe compte les
 # pages, la seconde les imprime avec leurs folios.
 DANGERS_CSS = """
 .dgp .block{display:flex;flex-direction:column}
@@ -850,38 +853,51 @@ DANGERS_CSS = """
 .dg-intro{margin:0 0 8pt;text-indent:0;font:500 9pt/12pt var(--sans)}
 .dg-intro svg.picto{height:1.4em;width:1.4em;vertical-align:-.4em}
 .dg-e{flex:1 1 0;min-height:0;display:flex;flex-direction:column}
-.dg-h{flex:none;display:flex;align-items:center;gap:14pt;margin:8pt 0 10pt;padding:0 0 10pt;border-bottom:3pt solid #9B2C1E}
-.dg-h svg.picto-g{flex:none;width:0.95in;height:0.95in}
-.dg-h h2{margin:0;font:700 22pt/1.05 var(--sans);text-transform:uppercase;letter-spacing:.02em}
+.dg-h{flex:none;display:flex;align-items:center;gap:12pt;margin:6pt 0 8pt;padding:0 0 7pt;border-bottom:2.5pt solid #9B2C1E}
+.dg-e + .dg-e .dg-h{margin-top:14pt}
+.dg-h svg.picto-g{flex:none;width:0.72in;height:0.72in}
+.dg-h h2{margin:0;font:700 18pt/1.05 var(--sans);text-transform:uppercase;letter-spacing:.02em}
 .dg-h h2 small{display:block;margin-top:5pt;font:600 8.5pt/1.2 var(--sans);letter-spacing:.08em;color:#555}
 .dg-b{flex:1 1 0;min-height:0;columns:2;column-gap:0.24in;column-fill:auto;column-rule:0.5pt solid #BBB;overflow:hidden;font-size:var(--fs,9.4pt)}
-.dg-b p{margin:0 0 4pt;text-indent:0;font-family:var(--serif);font-size:1em;line-height:1.36}
+.dg-b p{margin:0 0 4pt;text-indent:0;font-family:var(--serif);font-size:1em;line-height:1.36;text-align:justify}
 .dg-b p.li{padding-left:11pt}
 .dg-b p.step{padding-left:17pt}
 .dg-b table.tcol{font-size:.92em}
+.dg-e{position:relative}
+.dg-coupe{position:absolute;right:0;bottom:0;background:#C00;color:#fff;font:700 9pt/1 var(--sans);padding:3pt 5pt}
+.dg-ref{white-space:nowrap;font-family:var(--sans);font-weight:600;font-size:.92em;letter-spacing:.01em}
+.dg-ref svg.picto{height:1.3em;width:1.3em;vertical-align:-.32em;margin:0 2pt 0 1pt}
+.dg-ref.dg-pg{color:#9B2C1E}
 """
 
 DANGERS_JS = r"""<script>
 (function(){
-  // une page par danger, jamais plus (JP, 18 octobre 2026 : « les dangers, chacun sa propre page, pas plus qu'une
-  // page ») : le texte se resserre jusqu'à tenir sur sa page ; s'il ne tient pas à 8 pt, la page le signale
+  // deux dangers par page (JP, 28 octobre 2026 : « on passe trop de temps à tourner autour du pot, sérieux on pourrait
+  // mettre minimum 2 dangers par page ») ; chaque danger a la moitié de la page, et son texte se resserre jusqu'à y
+  // tenir ; s'il ne tient pas à 8 pt, la page le signale
   const src = document.getElementById('dg-src'); if(!src) return;
   const debut = +src.dataset.debut, tete = src.dataset.tete;
   const book = document.getElementById('book');
   const ents = Array.from(src.querySelectorAll('.dg-e'));
   const go = () => {
     src.remove();
-    ents.forEach((en, k) => {
+    for(let k = 0; k * 2 < ents.length; k++){
       const no = debut + k;
       const s = document.createElement('section');
       s.className = 'page ' + ((debut ? no : k + 1) % 2 ? 'recto' : 'verso') + ' ax dgp'; s.id = 'a-dg-' + k;
       s.innerHTML = '<div class="block">' + tete + (k === 0 ? src.dataset.h1 : '') + '</div>' + (debut ? '<div class="fcont">' + no + '</div>' : '');
-      s.querySelector('.block').appendChild(en); book.appendChild(s);
-      const b = en.querySelector('.dg-b');
-      const deborde = () => b.scrollWidth > b.clientWidth + 1 || b.scrollHeight > b.clientHeight + 1;
-      for(const fs of [9.4, 9.1, 8.8, 8.5, 8.2, 8.0]){ b.style.setProperty('--fs', fs + 'pt'); if(!deborde()) break; }
-      if(deborde()) s.dataset.deborde = '1';
-    });
+      const bloc = s.querySelector('.block');
+      const paire = ents.slice(2 * k, 2 * k + 2);
+      paire.forEach(en => bloc.appendChild(en));
+      book.appendChild(s);
+      paire.forEach(en => {
+        const b = en.querySelector('.dg-b');
+        const deborde = () => b.scrollWidth > b.clientWidth + 1 || b.scrollHeight > b.clientHeight + 1;
+        for(const fs of [9.4, 9.1, 8.8, 8.5, 8.2, 8.0]){ b.style.setProperty('--fs', fs + 'pt'); if(!deborde()) break; }
+        if(deborde()){ s.dataset.deborde = '1'; const m = document.createElement('div'); m.className = 'dg-coupe';
+          m.textContent = 'TEXTE COUPÉ : ' + en.dataset.id; en.appendChild(m); }
+      });
+    }
     document.documentElement.dataset.ready = '1';
   };
   document.fonts.ready.then(() => Promise.all(['700 22pt "IBM Plex Sans Condensed"', '400 9.4pt "IBM Plex Serif"'].map(f => document.fonts.load(f)))).then(go);
@@ -920,22 +936,33 @@ def dangers_du_tome(tome, chap_ids):
     return vus
 
 def dangers_html(tome, chap_ids, debut, work, nom="dangers"):
-    """Écrit le HTML des pages des dangers du tome, une page par danger ; debut = folio de la première (0 : passe de
+    """Écrit le HTML des pages des dangers du tome, deux dangers par page ; debut = folio de la première (0 : passe de
     comptage). Rend (chemin, [ids dans l'ordre des pages])."""
     titre_t = bc.TOMES[tome][0]
     vus = dangers_du_tome(tome, chap_ids)
     ent = dangers_entrees()
     import md2blocks as mb
-    ents, ids = [], []
+    ents, ids = [], [pid for pid in ent if pid in vus]
+    def renvoi(m):
+        av, pid, ap = m.group(1) or "", m.group(2), m.group(3) or ""
+        # deux dangers par page, dans l'ordre de ids ; à la passe de comptage (debut = 0), la place d'un folio. La
+        # parenthèse reste collée au pictogramme ; la ligne peut se couper entre le nom et la page.
+        pg = (f'p.\u00a0{debut + ids.index(pid) // 2}' if debut else 'p.\u00a000') if pid in ids else ''
+        nom = e(bc.NOMS_COURTS.get(pid) or bc.nom_danger(pid))
+        if pg:
+            return (f'<span class="dg-ref">{av}{mb.picto_svg(pid, "picto")}{nom},</span> '
+                    f'<span class="dg-ref dg-pg">{pg}{ap}</span>')
+        return f'<span class="dg-ref">{av}{mb.picto_svg(pid, "picto")}{nom}{ap}</span>'
     for pid, (nomd, corps) in ent.items():
         if pid not in vus:
             continue
         chs = ", ".join(aff(c) for c in vus[pid])
+        corps = [re.sub(r"\{>([a-z][a-z-]*)\}", r"⟦\1⟧", l) for l in corps]
         corps_html = "".join(h for h, _ in bc.render(bc.parse(corps)))
+        corps_html = re.sub(r"(\()?⟦([a-z][a-z-]*)⟧(\))?", renvoi, corps_html)
         ents.append(f'<section class="dg-e" data-id="{pid}"><div class="dg-h">{mb.picto_svg(pid, "picto-g")}<h2>{il(nomd)}'
                     f'<small>{"Chapitre" if len(vus[pid]) == 1 else "Chapitres"} {chs}</small></h2></div>'
                     f'<div class="dg-b">{corps_html}</div></section>')
-        ids.append(pid)
     manquent = sorted(set(vus) - set(ent))
     if manquent:
         log("  ATTENTION : dangers marqués sans page d'explication : " + ", ".join(manquent))
@@ -954,7 +981,7 @@ def dangers_html(tome, chap_ids, debut, work, nom="dangers"):
     open(dst, "w", encoding="utf-8").write(out)
     return dst, ids
 
-DEDICACE = ("À Pierre-Alexis et à Louis-Charles,", "pour qu’il y ait toujours quelqu’un qui sait.")
+DEDICACE = ("À Pierre-Alexis et à Louis-Charles,", "pour qu’il y ait toujours quelqu’un qui sache.")
 
 CREDITS_PAR_PAGE = 16
 
@@ -1096,6 +1123,25 @@ def glyphes_de_secours(reader, pages_planche):
     return out
 
 # ------------------------------------------------------------------ programme
+def relire_langue(work, logigrammes):
+    """Les avis du correcteur (skill langue) sur les pages HTML du montage et sur les logigrammes des chapitres."""
+    import subprocess
+    script = os.path.join(ROOT, ".claude", "skills", "langue", "scripts", "langue.py")
+    chemins = [os.path.join(work, "html")]
+    for lg in logigrammes:
+        lg = lg.get("fichier") if isinstance(lg, dict) else lg
+        if lg:
+            js = os.path.join(ROOT, re.sub(r"(-livre)?\.svg$", ".json", lg))
+            if os.path.exists(js):
+                chemins.append(js)
+    try:
+        r = subprocess.run([sys.executable, script] + chemins, capture_output=True, text=True, timeout=1800)
+    except (OSError, subprocess.TimeoutExpired) as x:
+        return [], f"relecture de langue non faite : {x}"
+    lignes = r.stdout.splitlines()
+    note = next((x for x in lignes if x.startswith("LanguageTool")), None)
+    return [x for x in lignes if re.match(r"^\S.* \[[^\]]+\] « ", x)], note
+
 def main():
     a = sys.argv[1:]
     if not a or not a[0].isdigit():
@@ -1174,8 +1220,8 @@ def main():
     dg_n = 0
     dg_html, dg_ids = dangers_html(tome, chap_ids, 0, work, "dangers-compte")
     if dg_html:
-        dg_n = len(dg_ids)   # une page par danger
-        log(f"pages des dangers : {dg_n} dangers, une page chacun")
+        dg_n = (len(dg_ids) + 1) // 2   # deux dangers par page
+        log(f"pages des dangers : {len(dg_ids)} dangers, deux par page, {dg_n} pages")
 
     # 2. plan du tome : titre (recto), blanche, sommaire, puis les chapitres (chacun au recto), puis les
     #    blanches de fin. Tome 1 : le chapitre 00 d'abord, en page 1, avant la page de titre (il se trouve
@@ -1255,7 +1301,7 @@ def main():
 
     # 4. rendu PDF des chapitres (numéro de page continu et côté passés dans l'URL ; la page de chaque danger, que le
     #    chapitre écrit sous le pictogramme)
-    dg_q = ",".join(f"{pid}.{plan['dangers'] + k}" for k, pid in enumerate(dg_ids)) if dg_n else ""
+    dg_q = ",".join(f"{pid}.{plan['dangers'] + k // 2}" for k, pid in enumerate(dg_ids)) if dg_n else ""
     jobs = []
     for c in chaps:
         off, par = c["debut"] - 1, (0 if c["debut"] % 2 else 1)
@@ -1293,6 +1339,10 @@ def main():
     lecteurs = {c["num"]: pypdf.PdfReader(c["pdf"]) for c in chaps}
     ann_r = pypdf.PdfReader(ann_pdf)
     dg_r = pypdf.PdfReader(dg_pdf) if dg_n else None
+    if dg_r:
+        for i, pg_ in enumerate(dg_r.pages):
+            for m in re.findall(r"TEXTE COUPÉ : ([a-z-]+)", pg_.extract_text() or ""):
+                avert.append(f"page des dangers {i + 1} : le texte du danger {m} ne tient pas dans sa demi-page, même à 8 pt")
     if dg_r and len(dg_r.pages) != dg_n:
         avert.append(f"pages des dangers : {len(dg_r.pages)} pages imprimées pour {dg_n} comptées")
     if len(ann_r.pages) != len(ann_ids):
@@ -1605,6 +1655,18 @@ def main():
         L.append("Photos téléchargées pour ces chapitres et non posées (images de référence ou photos à placer) :\n")
         L += dispo
         L.append("")
+    # la relecture de langue sur tout ce qui s'imprime (JP, 27 octobre 2026, la dédicace de l'épreuve du tome 1 : « Faut
+    # pu jamais que ça arrive une faute de même ») : pages HTML du montage et logigrammes, skill langue
+    L.append("## Langue\n")
+    avis_l, note_l = relire_langue(work, [pl.get(c["num"], {}).get("logigramme") for c in chaps])
+    if note_l:
+        L.append(f"- {note_l}")
+    L += [f"- {x}" for x in avis_l] or ["- aucun avis"]
+    L.append("")
+    if avis_l:
+        avert.append(f"langue : {len(avis_l)} avis à juger avant l'impression (section Langue ; skill langue)")
+    if note_l:
+        avert.append(f"langue : relecture incomplète, {note_l}")
     L.append("## Avertissements\n")
     tous = list(avert)
     for c in chaps:

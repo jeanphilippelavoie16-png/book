@@ -15,15 +15,14 @@ trois mois, et elle doit tenir au moins un mois, même l'année où personne n'a
 
 ## 2. Quand l'utiliser
 
-- **On monte la réserve du chalet, ou on la complète avec un petit budget** (étapes 1 à 4).
-- **On veut savoir combien de jours la réserve fait vivre la famille** : avant l'hiver, ou parce que la route est
- coupée par le verglas, une tempête ou un chemin emporté, ou qu'une panne régionale d'électricité s'étire (ch. 3 ;
+- **Réserve du chalet à monter, ou à compléter avec un petit budget** (étapes 1 à 4).
+- **Combien de jours la réserve fait vivre la famille** : avant l'hiver ; quand le verglas, une
+ tempête ou un chemin emporté coupe la route ; quand une panne régionale d'électricité s'étire (ch. 3 ;
  étapes 5 à 13).
-- **On choisit quoi acheter et où le ranger** : les denrées sèches, le gras, le sel, les conserves, le bois, le
+- **Quoi acheter, et où le ranger** : les denrées sèches, le gras, le sel, les conserves, le bois, le
  carburant, l'éclairage et ce qui n'est pas de la nourriture (étapes 14 à 46).
-- **On arrive au chalet après une absence**, ou c'est le moment de la vérification du printemps ou de l'automne
- (étapes 47 à 51 ; section 5).
-- **Quelqu'un d'autre doit pouvoir se servir du chalet sans qu'on lui explique où sont les choses** : un frère, un
+- **Arrivée au chalet après une absence ; vérification du printemps et de l'automne** (étapes 47 à 51 ; section 5).
+- **Quelqu'un d'autre doit pouvoir se servir du chalet sans explications** : un frère, un
  voisin, le groupe de chasse (étape 4).
 - **Il manque le contenant, la balance, le thermomètre, le piège ou l'ouvre-boîte** (section 7).
 
@@ -87,7 +86,8 @@ trois mois, et elle doit tenir au moins un mois, même l'année où personne n'a
  | Moyens de filtrer et de désinfecter | **2 indépendants** | Filtre, désinfection chimique, ébullition ; les dosages sont au ch. 10 |
  | Neige et glace | On les compte en bois, pas en litres | Section 7, « Le bois remplace tout le reste » ; ch. 10 |
 
- Les contenants sont au ch. 00b.
+ Garder l'eau dans des bidons alimentaires opaques de 20 L : dans un bidon opaque, les
+ algues ne poussent pas.
 7. **Ranger l'eau au frais, loin des solvants, et la faire tourner.**
  - Laisser un peu d'air dans chaque bidon : un bidon rempli à ras bord fend s'il gèle.
  - Boire et remplacer l'eau embouteillée du commerce avant sa date : la plupart des producteurs canadiens donnent un à
@@ -160,7 +160,9 @@ trois mois, et elle doit tenir au moins un mois, même l'année où personne n'a
 ### Choisir les denrées sèches
 
 14. **Choisir les denrées selon leur gras, le combustible qu'elles demandent et le goût de la famille, pas selon le
- prix.** Les masses à acheter sont au ch. 00b.
+ prix.** Par personne et par mois, pour trois mois : 4 kg de riz, 4 kg de farine, 2 kg d'avoine, 3 kg de
+ légumineuses, 2 kg de pâtes, 1 kg de sucre et 1 kg de lait en poudre. Avec le gras de l'étape 18, ça fait environ
+ 2 650 kcal par personne et par jour.
 
  | Denrée | Ce qu'elle apporte | Ce qui la gâte | Place au stock |
  | --- | --- | --- | --- |
@@ -191,7 +193,10 @@ trois mois, et elle doit tenir au moins un mois, même l'année où personne n'a
 
 ### Le gras et le sel
 
-18. **Calculer le gras et le sel selon l'usage qu'on en fait.** Les quantités sont au ch. 00b.
+18. **Calculer le gras et le sel selon l'usage qu'on en fait.** Avec la réserve sèche, compter 1 kg de gras et 1 L
+ d'huile par personne et par mois. Pour une famille de quatre qui vit de gibier, il faut environ 370 g de gras par
+ jour, 55 kg pour 150 jours (ch. 19). Le sel de salaison : le poids de viande et de poisson à saler, multiplié par le
+ pourcentage de la méthode, puis doublé pour le sel de surface qui coule (ch. 67).
 
  | Poste | Ce qui en fixe la quantité | Ce qui le gâte |
  | --- | --- | --- |
@@ -227,11 +232,12 @@ trois mois, et elle doit tenir au moins un mois, même l'année où personne n'a
 
 23. {!botulisme} **Manger les conserves maison dans l'année qui suit la mise en conserve.** On ne met en conserve un
  aliment peu acide (viande, poisson, gibier, légumes du jardin, champignons) qu'à l'autoclave (ch. 78). Ne pas mettre
- au stock d'huile à l'ail ou aux herbes fraîches faite maison. À chaque visite, chercher les boîtes bombées,
- rouillées, ou bosselées sur le serti ou sur la fermeture verticale, et les jeter sans les ouvrir ni les goûter ; les
+ au stock d'huile à l'ail ou aux herbes fraîches faite maison. À chaque visite, chercher les boîtes bombées, les boîtes
+ rouillées et celles qui sont bosselées sur le serti ou sur la fermeture verticale, et les jeter sans les ouvrir ni les goûter ; les
  autres signes sont au tableau de la section 6. Le botulisme ne change ni l'odeur, ni le goût, ni l'apparence de la
  conserve.
-24. {!botulisme} **Garder le poisson fumé ou salé gelé, ou sous 3 °C, jamais sur les tablettes du stock.** La
+24. {!botulisme} **Garder le poisson fumé et le poisson salé gelés ou sous 3 °C, jamais sur les tablettes du
+ stock.** La
  bactérie du botulisme du poisson (type E) fait sa toxine dès 3 °C, à la température d'un réfrigérateur. La façon de
  le garder est aux ch. 76 et 77.
 25. {!zone-de-danger} **Garder la viande de l'automne au congélateur de la maison, et compter les heures quand le
@@ -383,7 +389,7 @@ trois mois, et elle doit tenir au moins un mois, même l'année où personne n'a
 | Observation | Diagnostic | Action |
 | --- | --- | --- |
 | Boîte de conserve **bombée** | Du gaz s'est formé dedans : contamination possible | **Jeter sans ouvrir et sans goûter** |
-| Boîte **rouillée**, ou bosselée **sur le serti** ou sur la fermeture verticale | La boîte n'est plus étanche | Jeter |
+| Boîte **rouillée**, boîte bosselée **sur le serti** ou sur la fermeture verticale | La boîte n'est plus étanche | Jeter |
 | Boîte qui **gicle** quand on l'ouvre | Il y avait de la pression dedans : du gaz s'est formé | Jeter, sans goûter |
 | Boîte **sans étiquette**, ou conserve maison dont la date ne se lit plus | On ne connaît ni le contenu ni l'âge | Jeter |
 | Conserve maison dont le couvercle a repris du jeu[^2] | Le scellage a lâché | Jeter, sans goûter |
@@ -458,7 +464,7 @@ salaisons courtes, au froid (ch. 67).
 serti des boîtes de conserve a travaillé, les bocaux de conserve maison sont à jeter (étape 4), et les bidons remplis à
 ras bord ont pu fendre. Pour savoir si le local a dégelé puis regelé pendant l'absence, laisser le pot geler une fois,
 poser une pièce de monnaie sur la glace et refermer le local. Si on retrouve la pièce en surface, rien n'a dégelé. Si
-elle est prise au milieu ou au fond du bloc, elle a coulé pendant un redoux : le local a dégelé, puis regelé (ch. 1, planche 01-02). Pour la
+elle est prise au milieu ou au fond du bloc, elle a coulé pendant un redoux : le local a dégelé, puis regelé (ch. 3, planche 03-13). Pour la
 viande du coffre dehors, faire le même essai avec un deuxième pot posé dans le coffre (étape 25).
 
 **Le témoin de chaleur.** Poser un morceau de suif dans une soucoupe. S'il est affaissé ou s'il a coulé, le local a eu
@@ -482,8 +488,8 @@ chaudière.
 L'hiver, garder la chaudière sèche, parce que de l'eau y gèlerait, et la vider tous les jours ou tous les deux jours.
 
 **Boucher les trous.** Une souris ronge ce qui est plus tendre que ses dents. Sans laine d'acier, aplatir au marteau un
-bout de boîte de conserve et le clouer sur le trou (repères 6 et 7), ou enfoncer du grillage roulé, ou boucher au
-ciment.
+bout de boîte de conserve et le clouer sur le trou (repères 6 et 7). On peut aussi enfoncer du grillage roulé ou
+boucher au ciment.
 
 ### Ouvrir une conserve sans ouvre-boîte
 

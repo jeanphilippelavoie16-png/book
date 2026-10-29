@@ -16,16 +16,14 @@ le faut, sans s'intoxiquer au monoxyde du chauffage.
 
 ## 2. Quand l'utiliser
 
-- **La noirceur arrive et on ne pourra pas rentrer** : une sortie de chasse, de trappe ou de transport dure plus
+- **Pris dehors à la noirceur, sans pouvoir rentrer** : une sortie de chasse, de trappe ou de transport dure plus
  longtemps que prévu, ou la machine est tombée en panne loin de tout (étapes 1 à 14 ; ch. 15).
-- **Le chalet a brûlé** (ch. 82), **ou un feu de forêt l'a détruit** (ch. 11), et il vaut mieux rester sur place
- que partir (ch. 2) : on vit alors sous la tente à poêle (étapes 15 à 55).
-- **Le chalet reçoit plus de monde qu'il ne peut en coucher** (ch. 18), ou deux familles doivent passer l'hiver
- ensemble : une seule longue tente à deux poêles demande moins de toile et moins de bois que deux tentes
+- **Chalet brûlé** (ch. 82) **ou détruit par un feu de forêt** (ch. 11), quand il vaut mieux rester sur place que partir (ch. 2) : vivre sous la tente à poêle (étapes 15 à 55).
+- **Plus de monde que le chalet ne peut en coucher** (ch. 18), ou deux familles qui passent l'hiver ensemble : une seule longue tente à deux poêles demande moins de toile et moins de bois que deux tentes
  (étapes 56 à 64).
-- **On n'a que des bâches et des perches**, et il faut un abri où veiller au chaud (étapes 65 à 76).
-- **On n'a ni toile ni bâche, et il y a assez de neige** : on bâtit une maison de neige (étapes 77 à 102).
-- **On a un poêle et du tuyau, mais pas de tente** (section 7, « La tente à poêle faite avec ce qui traîne »).
+- **Seulement des bâches et des perches, pour un abri où veiller au chaud** (étapes 65 à 76).
+- **Ni toile ni bâche, mais assez de neige** : bâtir une maison de neige (étapes 77 à 102).
+- **Un poêle et du tuyau, mais pas de tente** (section 7, « La tente à poêle faite avec ce qui traîne »).
 
 ---
 
@@ -483,7 +481,7 @@ pratique : on l'apprend pendant un hiver ordinaire, sur le lac devant le chalet,
 
 | Observation | Diagnostic | Action |
 | --- | --- | --- |
-| Une ou plusieurs personnes, enfants compris, ont mal à la tête ou mal au cœur au réveil, ou deviennent molles et grognonnes, et ça passe dehors | Monoxyde de carbone jusqu'à preuve du contraire | Faire sortir tout le monde dans les sacs, bottes aux pieds. Éteindre le poêle et sortir la braise, ouvrir grand l'entrée d'air basse et la porte. Rentrer seulement quand le feu est éteint, ou avec quelqu'un d'éveillé qui garde une flamme claire ; si on a un avertisseur réchauffé, attendre qu'il affiche 0 ppm |
+| Au réveil, une ou plusieurs personnes, enfants compris, ont mal à la tête, mal au cœur, ou sont molles et grognonnes, et ça passe dehors | Monoxyde de carbone jusqu'à preuve du contraire | Faire sortir tout le monde dans les sacs, bottes aux pieds. Éteindre le poêle et sortir la braise, ouvrir grand l'entrée d'air basse et la porte. Rentrer seulement quand le feu est éteint, ou avec quelqu'un d'éveillé qui garde une flamme claire ; si on a un avertisseur réchauffé, attendre qu'il affiche 0 ppm |
 | Nausée ou vomissements la nuit, pris pour de la viande qui passe mal | Monoxyde de carbone jusqu'à preuve du contraire | Même chose |
 | Fumée par la porte du poêle ou par les joints quand le feu baisse | Le tuyau refoule : l'air manque par le bas, ou la sortie est bouchée (grille givrée, suie, neige dans le bout du tuyau) | Rouvrir l'entrée d'air basse et relancer une flamme claire. Si la fumée continue, la sortie est bouchée : éteindre le feu, sortir la braise, faire sortir tout le monde, puis dégager la grille et le bout du tuyau |
 | Odeur de fumée froide dans la tente au réveil | Le tuyau a refoulé pendant la nuit | Comme pour le mal de tête : faire sortir tout le monde, aérer, puis chercher la cause (entrée basse bouchée, grille bouchée, poêle étouffé, feu laissé mourir pendant qu'on dormait) |

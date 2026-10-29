@@ -16,16 +16,16 @@ destination.
 
 ## 2. Quand l'utiliser
 
-- **Quelqu'un cogne à la porte, ou on voit arriver une personne, un véhicule ou une motoneige qu'on n'attendait
- pas** (étapes 1 à 12).
-- **Quelqu'un arrive à pied au chalet l'hiver** : loin de la ville, personne n'y marche par choix, et on cherche
- d'abord les signes du froid (étape 7).
-- **Le groupe qui se présente est plus nombreux que la famille** (étape 4).
-- **Un voisin connu vient demander quelque chose pour la première fois**, ou revient après une première fois où on
+- **Quelqu'un cogne à la porte** (étapes 1 à 12).
+- **Arrivée d'une personne, d'un véhicule ou d'une motoneige qu'on n'attendait pas** (étapes 1 à 12).
+- **Une personne arrivée à pied au chalet l'hiver** : loin de la ville, personne n'y marche par choix ; chercher d'abord les signes du froid (étape 7).
+- **Un groupe plus nombreux que la famille** (étape 4).
+- **Un voisin connu qui demande quelque chose pour la première fois**, ou qui revient après une première fois où on
  lui a donné (étapes 9 et 10).
-- **Quelqu'un doit dormir ou rester** (étapes 15 à 21).
-- **La crise dure et les voisins manquent de ce que la maison a encore, ou le chalet se voit d'une route ou d'un
- sentier de motoneige** : on se prépare avant la prochaine visite (étapes 22 à 29).
+- **Une personne qui doit dormir ou rester** (étapes 15 à 21).
+- **Une crise qui dure, et des voisins qui manquent de ce que la maison a encore** : se préparer avant la prochaine visite
+ (étapes 22 à 29).
+- **Un chalet visible d'une route ou d'un sentier de motoneige** (étapes 22 à 29).
 - **Il manque le judas, la lampe, la barre de porte ou le deuxième adulte** (section 7).
 
 ---
@@ -73,8 +73,8 @@ destination.
  (le froid : étapes 7 et 8 ; une blessure : ch. 26).
 7. {!froid} **Chercher les signes du froid, même chez une personne qui a l'air ivre ou de mauvaise foi.** En
  hypothermie, on parle mal, on titube, on devient confus et on s'obstine sans logique. Si elle a un seul de ces
- signes, la porter couchée, ou la coucher sur un traîneau ou une couverture et la traîner, sans la faire marcher, jusque
- dans la maison ou dans un abri dehors (section 7, « Réchauffer quelqu'un sans le faire entrer »). Parler
+ signes, l'amener couchée, sans la faire marcher, jusque dans la maison ou dans un abri dehors (section 7,
+ « Réchauffer quelqu'un sans le faire entrer ») : la porter, ou la tirer sur un traîneau, à défaut sur une couverture. Parler
  ensuite. L'hiver, décider vite : à partir de −28 de refroidissement éolien, la peau exposée de la personne qui
  attend peut geler en 10 à 30 minutes, et plus vite quand il fait plus froid.
  - Quand un adulte est seul avec les enfants : si le compte de l'étape 4 donne une seule personne, et aucune trace
@@ -192,7 +192,7 @@ destination.
 | Premières phrases | Les frissons | Présents chez une personne qui arrive du froid | Plus de frissons et somnolence : hypothermie grave, la vie est en jeu. La porter couchée à l'abri, sans la faire marcher, et la réchauffer (étapes 7 et 8 ; ch. 25) |
 | Toute la visite | Les adultes de la maison qui parlent | **1** | Le deuxième adulte doit se taire et retourner à la fenêtre |
 | Toute la visite | La distance de la conversation dehors | Le repère, jamais à moins de 2 m | Reprendre la distance en nommant le repère, ou rentrer et parler par la fenêtre |
-| Toute la visite | La durée de la conversation dehors | À moins de 2 m, moins de 15 min. L'hiver, 10 min au plus à partir de −28 de refroidissement éolien, 5 min au plus à partir de −40 ; à partir de −48, aucune conversation dehors : décider par la fenêtre ; sans thermomètre, décider tout de suite, par la fenêtre | Conclure : on met la personne à l'abri ou on la loge, ou on donne et la visite se termine |
+| Toute la visite | La durée de la conversation dehors | À moins de 2 m, moins de 15 min. L'hiver, 10 min au plus à partir de −28 de refroidissement éolien, 5 min au plus à partir de −40 ; à partir de −48, aucune conversation dehors : décider par la fenêtre ; sans thermomètre, décider tout de suite, par la fenêtre | Conclure : on met la personne à l'abri, on la loge, ou on donne et la visite se termine |
 | À l'entrée | Le lavage des mains au savon | **20 s**, toutes les surfaces | Recommencer. Sur des mains sales, la solution hydroalcoolique à 60 % ne remplace pas le savon |
 | Repas partagé | Le gibier à cœur, au thermomètre à sonde | **74 °C** | Remettre au feu |
 | Après le départ | Les surfaces touchées, désinfectées | Javel à **0,1 %**, **1 min** de contact | Refaire avec une solution fraîche : une dilution vieillie n'a plus sa concentration |
@@ -325,7 +325,8 @@ Transvider ce qu'on donne dans le contenant du visiteur. Prendre le bois dans la
 dehors, pas dans celle du fond. Donner l'eau chaude dans la bouteille du visiteur : glissée dans un bas, elle le
 réchauffe sur le chemin du retour en plus de l'abreuver.
 
-Pour donner du carburant, le siphonner avec deux boyaux et une pompe à vélo ou à matelas, ou avec un boyau à bille
+Pour donner du carburant, le siphonner avec deux boyaux et une pompe (à vélo, à matelas), ou avec un boyau à
+bille
 (ch. 15, section 7, « Amorcer le siphon sans la bouche »).
 
 {!poison} **Ne jamais amorcer le siphon à la bouche** : on avale de l'essence de travers, et elle passe dans les

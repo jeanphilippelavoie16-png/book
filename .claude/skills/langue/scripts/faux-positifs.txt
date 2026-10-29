@@ -1,0 +1,61 @@
+# Avis jugés justes, une fois pour toutes : la règle (de LanguageTool, ou des nôtres : subjonctif-recherche…), une
+# tabulation, une expression du contexte (40 caractères de part et d’autre ; l’apostrophe ’ se lit comme ').
+# On n'en ajoute un qu'après avoir vérifié que la phrase est correcte (skill langue, « Juger un avis »).
+# crayon feutre : la Vitrine linguistique donne « crayon-feutre » et « crayon feutre » (27 octobre 2026).
+A_ACCENT_A	ruban à conduits?
+PAS_DE_TRAIT_UNION	\bauto (?:chargée|pleine|prête|stationnée|arrêtée)
+PAS_DE_VIRGULE	mille un, mille deux
+MOTS_INCOMP	derrière pour renvoyer
+OU	(?:^|\. )Ou \w
+FR_COMPOUNDS_CRAYON_FEUTRE	crayon feutre
+MOTS_INCOMP	à au moins
+XXieme	Cèdre
+# ch. 26, jugés le 27 octobre 2026
+A_A_ACCENT2	sa dernière dose a moins de
+A_INFINITIF	si la rougeur a dépassé le trait|si le rouge a passé le trait
+PAS_DE_VIRGULE	qui faiblit, pas de la soif|ou si ça va mieux dehors, sortir|Le sang, et l'heure sur le front
+J_N2	une seule écrit
+ACCORD_EXPRESSION_SANS_COMPLEMENT	soigner sans erreur
+MARCHE_MARCHER	l'appui finit par marcher
+# pages des dangers du tome 2, jugées le 27 octobre 2026
+NEGATION_PLUS	La scie rebondit plus quand
+ACCORD_SUJET_VERBE	les fibres n'y sont plus et la chaîne passe
+PLACE_ADJ	les fibres longues du pantalon|un signe nouveau, qui ne ressemble
+IL_FAUT	qu'on voit souvent vaut pour
+# textes fixes (dos, auteurs, sommaires), jugés le 27 octobre 2026
+PLACE_ADJ	un chiffre faux
+J_N2	le froid mécanique
+# ch. 08 (ancienne numérotation des fiches), jugé le 27 octobre 2026 : la personne existe, l'indicatif reste
+subjonctif-recherche	chercher quelqu'un qui est déjà dehors
+# Quand l'utiliser, jugé le 28 octobre 2026
+COMMENT_VPPA	sans fin annoncée
+# ch. 1, jugé le 28 octobre 2026
+DETERMINER_SENT_END	multiplié par 7
+# ch. 3 refait, jugés le 28 octobre 2026 (agent de finition)
+ADJ_GN	Génératrice ou banc de batteries
+CONFUSION_ER_E_PAR	qui tourne dans le garage entre par|l'air de la pièce entre par le haut
+CONFUSION_EST_ET	se réveille mal, est confuse
+VIRG_NON_TROUVEE	combien de temps on sera dehors
+A_ACCENT	au dos, a moins de|Le trou a une taille précise
+DETERMINER_SENT_END	ou à 6 h au plus tard
+PAS_DE_VERBE_APRES_POSSESSIF_DEMONSTRATIF	un joint de porte usé|un joint de tuyau
+DES_DES_ACCENT	la règle des 4 °C
+LAISSEZ_PASSER	le laisser passer la nuit
+AIT_AIE_AIES_EST	que leur cœur ait atteint
+D_N_E_OU_E	sa vis de vidange
+ACCORD_V_PPA	elle fume noir
+GENS_ACCORD	des milliers de gens
+DETERMINER_SENT_END	Heures 4 à 6
+# pages du début et ch. 1, jugés le 28 octobre 2026
+PRONOMS_PERSONNELS_MINUSCULE	10 min Il faut un feu
+PLACE_ADJ	la version courte
+A_A_ACCENT2	là où la page a de la place
+NORD_SUD	nation du Nord
+VIRG_NON_TROUVEE	combien de temps il met à devenir tiède
+PAS_DE_VERBE_APRES_POSSESSIF_DEMONSTRATIF	un joint de porte qui laisse
+PREP_VERBECONJUGUE	Après viennent la parole
+TACHE	prend une tache blanche
+VIRG_NON_TROUVEE	combien de temps elle est restée au chaud
+AGREEMENT_POSTPONED_ADJ	ou de la neige dessus fait la même chose
+# ch. 3, jugé le 29 octobre 2026 : l'infinitif de consigne (« n'allumer aucune flamme »), pas un impératif manqué
+NE_IMP_PAS	n'allumer aucune flamme

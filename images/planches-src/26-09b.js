@@ -8,6 +8,8 @@
 // vues par la tête restent : une tête ronde sur la bosse des épaules, en forme simple.
 // Charte : la porte, les sangles et la bande à 2,4, le corps à 1,5 ; gris ombre sous les rouleaux ;
 // rouge : le geste qui roule tout d'un bloc.
+// 26 octobre 2026 : l'encadré danger sort (une planche ne montre pas une règle) ; la raison de rouler
+// d'un bloc (le blessé qui vomit) est dans le chapitre, à l'appel du repère 8.
 module.exports = (h) => {
   const F = h.formes;
   const BL = h.a.blanc.split(' ')[0];
@@ -138,7 +140,7 @@ module.exports = (h) => {
     desc: 'Une porte dégondée sert de planche. De côté, la porte posée sur la neige, les pentures dans son chant : le blessé couché sur le dos, sanglé en travers de la poitrine, du bassin et des cuisses, chaque sangle passant par-dessus lui et sous la porte ; du linge roulé contre les jambes, un rouleau de vêtements contre la tête et une bande large en travers du front. Vue par la tête : les rouleaux serrés contre les tempes et la bande qui passe sur le front et fait le tour de la porte. Enfin, porte et blessé roulés ensemble sur la tranche, d’un bloc, une flèche rouge pour le mouvement.',
     format: 'pleine',
     disposition: [['cote'], ['tete', 'roule']],
-    hauteurs: [0.68, 1],
+    hauteurs: [0.85, 1],
     largeurs: [[1], [1, 1]],
     vues: {
       cote: {
@@ -206,6 +208,5 @@ module.exports = (h) => {
         },
       },
     },
-    danger: 'Danger — attaché sur le dos, un blessé qui vomit s’étouffe avec. Les sangles le tiennent à la planche pour qu’on puisse, à deux, tout rouler d’un bloc sur le côté.',
   };
 };

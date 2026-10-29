@@ -6,6 +6,8 @@
 // bouchon, à l'ombre ; rien sur les épaisseurs de linge (trop minces), ni sur la cuisse (un corps).
 // Le rouge : le linge qu'on replie pendant qu'il sèche, et la bouteille qu'on presse. Les quatre
 // coins du sachet de sphaigne restent noirs : quatre flèches rouges passeraient le compte.
+// L'eau en bleu (JP, 26 octobre 2026 : « toute l'eau en bleu ») : l'eau bouillie dans la bouteille souple,
+// le jet et ses gouttes passent par h.a.hachure('eau').
 module.exports = (h) => {
   const BL = h.a.blanc.split(' ')[0];
   const plein = t => t.replace('fill="none"', BL);
@@ -159,6 +161,31 @@ module.exports = (h) => {
     return ferme(G.concat(D.reverse()), plein(h.a.arete));
   };
   const J0 = T(0, -1), JC = add(J0, ua, -48), J1 = [40, 280];
+  const corpsB = [...prof.map(([y, w]) => T(w, y)), ...prof.slice().reverse().map(([y, w]) => T(-w, y))];
+  // L'eau dans la bouteille, goulot en bas : la partie du corps sous le niveau Y (Sutherland-Hodgman sur un bord).
+  const NIV = 182;
+  const sousNiveau = (P, Y) => {
+    const o = [];
+    P.forEach((a, i) => {
+      const b = P[(i + 1) % P.length], ain = a[1] >= Y, bin = b[1] >= Y;
+      if (ain) o.push(a);
+      if (ain !== bin) { const t = (Y - a[1]) / (b[1] - a[1]); o.push([a[0] + (b[0] - a[0]) * t, Y]); }
+    });
+    return o;
+  };
+  const eauB = sousNiveau(corpsB, NIV);
+  const surface = eauB.filter(p => Math.abs(p[1] - NIV) < 0.01).map(p => p[0]);
+  // Le jet : un mince fuseau qui s'élargit en s'éloignant du bouchon, puis les gouttes.
+  const jet = () => {
+    const L = q(J0, JC, J1, 20), G = [], D = [];
+    L.forEach((p, i) => {
+      const a = L[Math.max(0, i - 1)], b = L[Math.min(L.length - 1, i + 1)];
+      const dx = b[0] - a[0], dy = b[1] - a[1], dl = Math.hypot(dx, dy), w = 1.1 + 1.1 * i / (L.length - 1);
+      G.push([p[0] - dy / dl * w, p[1] + dx / dl * w]); D.push([p[0] + dy / dl * w, p[1] - dx / dl * w]);
+    });
+    return ferme(G.concat(D.reverse()), h.a.hachure('eau', 'fin'));
+  };
+  const goutte = (x, y, rx, ry) => h.ellipse(x, y, rx, ry, h.a.hachure('eau', 'fin'));
 
   const bouteille = () => [
     // la chandelle et le clou dans la flamme
@@ -193,7 +220,10 @@ module.exports = (h) => {
     h.ellipse(238, 48, 5, 2, h.a.fin),
     h.ellipse(238, 48, 2.4, 1.1, h.a.plein),
     // la bouteille souple, pressée, qui fait le jet
-    ferme([...prof.map(([y, w]) => T(w, y)), ...prof.slice().reverse().map(([y, w]) => T(-w, y))], plein(h.a.contour)),
+    ferme(corpsB, h.a.blanc),
+    ferme(eauB, h.a.hachure('eau', 'aucun')),
+    ouvert([[Math.min(...surface), NIV], [Math.max(...surface), NIV]], h.a.fin),
+    ferme(corpsB, h.a.contour),
     ...[50, 57, 124, 131].map(y => ouvert(q(T(-23, y), T(0, y + 3), T(23, y)), h.a.fin)),
     ouvert([T(-13, 78), T(-7, 88)], h.a.fin), ouvert([T(9, 80), T(13, 93)], h.a.fin),
     ouvert([T(-9, 96), T(-14, 105)], h.a.fin), ouvert([T(4, 99), T(10, 108)], h.a.fin),
@@ -202,10 +232,10 @@ module.exports = (h) => {
     ...[-6, -3, 0, 3, 6].map(x => ouvert([T(x, 1.5), T(x, 8.5)], h.a.fin)),
     h.geste(`M${f(T(48, 90))} L${f(T(27, 90))}`),
     h.geste(`M${f(T(-48, 90))} L${f(T(-27, 90))}`),
-    h.path(`M${f(J0)} Q${f(JC)} ${f(J1)}`, h.a.arete),
-    h.ellipse(33, 287, 1.8, 2.4, h.a.plein),
-    h.ellipse(45, 290, 1.5, 2, h.a.plein),
-    h.ellipse(37, 294, 1.3, 1.7, h.a.plein),
+    jet(),
+    goutte(33, 288, 2.2, 2.9),
+    goutte(45, 291, 1.9, 2.5),
+    goutte(37, 296, 1.6, 2.1),
   ].join('\n');
 
   // ─── L'objet planté ─────────────────────────────────────────────────────────────────
@@ -286,7 +316,7 @@ module.exports = (h) => {
   return {
     ref: '26-11',
     titre: 'Les pansements qu’on fabrique',
-    desc: 'Quatre vues. Le coton bouilli séché à cheval sur une corde, replié sur lui-même pendant qu’il sèche, plié en quatre avec la face du dedans jamais touchée, rangé dans un sac fermé. La sphaigne séchée posée lâche sur un carré de coton bouilli dont on rabat les quatre coins en sachet. Un clou tenu à la pince, chauffé dans la flamme d’une chandelle, perce le bouchon d’une bouteille souple qu’on presse pour faire un jet. Un bâton planté dans une cuisse, laissé en place, calé entre deux rouleaux de linge tenus par deux bandes nouées de part et d’autre, en perspective et en coupe.',
+    desc: 'Quatre vues. Le coton bouilli séché à cheval sur une corde, replié sur lui-même pendant qu’il sèche, plié en quatre avec la face du dedans jamais touchée, rangé dans un sac fermé. La sphaigne séchée posée lâche sur un carré de coton bouilli dont on rabat les quatre coins en sachet. Un clou tenu à la pince, chauffé dans la flamme d’une chandelle, perce le bouchon d’une bouteille souple, pleine d’eau bouillie refroidie, qu’on presse pour faire un jet. Un bâton planté dans une cuisse, laissé en place, calé entre deux rouleaux de linge tenus par deux bandes nouées de part et d’autre, en perspective et en coupe.',
     format: 'pleine',
     disposition: [['coton', 'sphaigne'], ['bouteille', 'objet']],
     vues: {
@@ -307,7 +337,7 @@ module.exports = (h) => {
           { n: 5, rond: [104, 20], cible: [64, 36], texte: 'sphaigne des tourbières' },
           { n: 6, rond: [276, 22], cible: [212, 110], texte: 'séchée au poêle, triée' },
           { n: 7, rond: [279, 178], cible: [236, 146], texte: 'carré de coton bouilli' },
-          { n: 8, rond: [278, 262], cible: [228, 258], texte: 'c’est le sachet qui se pose' },
+          { n: 8, rond: [278, 262], cible: [228, 258], texte: 'on pose le sachet, jamais la mousse' },
         ],
       },
       bouteille: {
@@ -316,7 +346,7 @@ module.exports = (h) => {
         renvois: () => [
           { n: 9, rond: [66, 20], cible: [48, 53], texte: 'clou chauffé, tenu à la pince' },
           { n: 10, rond: [278, 18], cible: [240, 48.5], texte: 'bouchon percé au clou' },
-          { n: 11, rond: [276, 150], cible: T(-2, 126), texte: 'souple, eau bouillie refroidie' },
+          { n: 11, rond: [276, 150], cible: T(2, 112), texte: 'souple, eau bouillie refroidie' },
           { n: 12, rond: [22, 214], cible: q(J0, JC, J1, 2)[1], texte: 'le jet décolle la saleté' },
         ],
       },

@@ -14,11 +14,11 @@ Avant chaque hiver, calculer ce qui va manquer (le sel, les pièces qui s'usent,
 
 ## 2. Quand l'utiliser
 
-- **L'achat du ch. 00b est fait et les listes des ch. 5 à 8 sont montées** : on calcule combien garder de chaque article (étapes 1 à 10).
-- **L'automne arrive** : on fait l'inventaire avant la dernière commande de l'année ; au chalet, avant que le chemin ferme, plusieurs semaines plus tôt qu'en ville (section 5).
-- **L'hiver finit** : on note ce qui a manqué pendant qu'on s'en souvient (étape 6).
-- **Un poêle, une scie, un congélateur ou un enfant arrive** : chacun amène des consommables que personne n'a comptés (étapes 1 à 5).
-- **Un article manque et on ne peut plus le racheter, ou un instrument de mesure est mort** (section 7).
+- **Listes des ch. 5 à 8 montées** : calculer combien garder de chaque article (étapes 1 à 10).
+- **L'automne** : faire l'inventaire avant la dernière commande de l'année ; au chalet, avant que le chemin ferme, plusieurs semaines plus tôt qu'en ville (section 5).
+- **La fin de l'hiver** : noter ce qui a manqué pendant qu'on s'en souvient (étape 6).
+- **Un poêle, une scie, un congélateur ou un enfant de plus** : chacun amène des consommables que personne n'a comptés (étapes 1 à 5).
+- **Un article qu'on ne peut plus racheter, ou un instrument de mesure mort** (section 7).
 
 ---
 
@@ -33,7 +33,7 @@ Avant chaque hiver, calculer ce qui va manquer (le sel, les pièces qui s'usent,
 
 ### Classer chaque article selon ce qui l'use
 
-1. **Prendre la liste du ch. 00b et ranger chaque article dans une des quatre familles des étapes 2 à 5, selon ce qui l'use.** Le ch. 00b dit quoi acheter en premier, et si l'article va à la maison, au chalet ou aux deux ; la famille donne la façon de calculer combien en garder. On monte un stock en pensant aux repas, et on oublie ce qui ne se mange pas : le sel, le nitrite et le vinaigre qui servent à garder la viande, ou la pièce qui s'use. Mais un article manque plus souvent parce qu'on a calculé sa quantité avec la mauvaise famille que parce qu'on l'a oublié. On n'achète pas dans l'ordre des familles : on achèterait le coton à fromage avant le bois de chauffage. Quand l'argent manque, on suit les paliers du ch. 00b.
+1. **Prendre les listes des ch. 5 à 8 et ranger chaque article dans une des quatre familles des étapes 2 à 5, selon ce qui l'use.** La famille donne la façon de calculer combien en garder. On monte un stock en pensant aux repas, et on oublie ce qui ne se mange pas : le sel, le nitrite et le vinaigre qui servent à garder la viande, ou la pièce qui s'use. Mais un article manque plus souvent parce qu'on a calculé sa quantité avec la mauvaise famille que parce qu'on l'a oublié.
 2. **Famille 1, ce qui sert à traiter la nourriture : calculer sur le poids qu'on traite.** Ce sont le sel, le nitrite, le vinaigre, les couvercles plats, le papier de boucherie, la ficelle et le coton à fromage.
  - Multiplier le poids de viande, de poisson ou de légumes qu'on traite dans l'année par le taux de la méthode choisie, puis ajouter la perte : on ne récupère pas le sel de surface qui coule avec le jus.
  - Toujours calculer les pourcentages de sel sur le poids de la viande.
@@ -73,7 +73,7 @@ Avant chaque hiver, calculer ce qui va manquer (le sel, les pièces qui s'usent,
 19. **Semences : faire le test de germination avant les semis** (section 5 ; ch. 100). Le taux de germination baisse d'année en année, à un rythme propre à chaque espèce, et une graine morte a l'air d'une graine vivante.
 20. **Médicaments : les garder au sec et au frais, jamais dans la salle de bain ni dans un véhicule.** Ils perdent leur effet à une vitesse qu'on ne peut pas prévoir d'une molécule à l'autre ; la chaleur et l'humidité accélèrent la perte, et le gel défait les suspensions et les liquides. La perte ne se voit pas. Le ch. 32 dit ce qu'on peut garder après la date.
 21. **Avertisseur de fumée : le remplacer 10 ans après sa date de fabrication, même s'il sonne au bouton d'essai** (section 6). Sa cellule, qui détecte la fumée, vieillit sans aucun signe.
-22. {!co} **Avertisseur de monoxyde de carbone : le remplacer à la date que donne le fabricant, 7 à 10 ans après la date de fabrication inscrite au dos, selon le modèle, ou 7 ans quand on ne connaît pas le modèle** (ch. 1 et 6). Sa cellule vieillit de la même façon. En mettre un par étage, sous-sol compris, un dans la pièce du poêle, à au moins 2 m de lui, et un dans chaque pièce où quelqu'un dort la porte fermée : derrière une porte fermée, la personne qui dort est hors de portée de l'avertisseur du corridor, et le monoxyde peut la tuer pendant son sommeil.
+22. {!co} **Avertisseur de monoxyde de carbone : le remplacer à la date que donne le fabricant, 7 à 10 ans après la date de fabrication inscrite au dos, selon le modèle, ou 7 ans quand on ne connaît pas le modèle** (ch. 3 et 6). Sa cellule vieillit de la même façon. En mettre un par étage, sous-sol compris, un dans la pièce du poêle, à au moins 2 m de lui, et un dans chaque pièce où quelqu'un dort la porte fermée : derrière une porte fermée, la personne qui dort est hors de portée de l'avertisseur du corridor, et le monoxyde peut la tuer pendant son sommeil.
 23. **Bouteille de propane : l'entreposer debout, dehors, sur une planche ou une dalle, et garder lisible la date estampée au collet.** La bouteille vieillit, peu importe ce qu'elle contient. La rouille amincit la paroi par en dessous, au pied, là où la bouteille a passé l'hiver sur le sol ou dans la neige ; on ne la voit qu'en penchant la bouteille, robinet fermé. Le dépôt ne remplit pas une bouteille dont la date ne se lit plus, ni une bouteille dont la dernière date estampée a plus de 10 ans et qui n'a pas été requalifiée (inspectée, puis estampée de nouveau).
 
 ### Répartir entre la maison et le chalet
@@ -145,7 +145,7 @@ Pour les gros poids, faire du même bâton une romaine : déplacer le pivot vers
 
 **Ce qu'on perd :** la mesure. On sait quelle pile est la meilleure, pas si elle est encore assez forte. On les répartit donc en cascade : les meilleures aux avertisseurs, les moyennes à la radio et à la lampe frontale, les plus faibles aux jouets.
 
-**L'enregistreur de température : un pot d'eau gelée et une pièce de monnaie.** Laisser geler un pot d'eau, poser une pièce de monnaie sur la glace, et mettre le pot au congélateur ou dans le caveau. Au retour, si la pièce est restée en surface, rien n'a dégelé ; si elle est au fond, tout a dégelé, puis regelé pendant l'absence (ch. 1, planche 01-02). Mettre un pot dans chaque congélateur et un dans le caveau.
+**L'enregistreur de température : un pot d'eau gelée et une pièce de monnaie.** Laisser geler un pot d'eau, poser une pièce de monnaie sur la glace, et mettre le pot au congélateur ou dans le caveau. Au retour, si la pièce est restée en surface, rien n'a dégelé ; si elle est au fond, tout a dégelé, puis regelé pendant l'absence (ch. 3, planche 03-13). Mettre un pot dans chaque congélateur et un dans le caveau.
 
 **Ce qu'on perd :** la durée et la température du dégel. Le pot montre qu'il y a eu un dégel, pas combien de temps il a duré, et il faut cette durée pour savoir si on peut garder la viande ou s'il faut la cuire tout de suite (ch. 74).
 
@@ -211,7 +211,7 @@ On peut refaire une lame : une vieille lime devient un couteau, une lame de ress
 - **La pile.** On ne fabrique pas de pile. Une lampe à manivelle et une lampe à l'huile remplacent une lampe à piles ; rien ne remplace la pile d'un avertisseur de monoxyde de carbone, d'une radio ou d'un appareil médical. Il reste la cascade (« Le multimètre », plus haut) et l'inventaire par format. Choisir les appareils pour garder le moins de formats de piles possible : la réserve sert alors à plus d'appareils. Un appareil dont le format manque reste inutilisable, même à côté d'une réserve pleine.
 - **Le sel nitrité (nitrite de sodium).** Le salpêtre (nitrate de potassium) a servi quand il n'y avait rien d'autre, mais on ne le dose pas comme le nitrite (ch. 67). Sans nitrite dont on connaît la dose et sans balance au 0,1 g, on fait seulement des salaisons courtes, à l'air (« La balance à fléau », plus haut), et on cuit la viande à 74 °C à cœur.
 - **Le médicament d'ordonnance.** On ne fabrique ni insuline ni antibiotique, et aucune plante du ch. 33 ne remplace une ordonnance. On prépare la réserve avant, avec le ch. 32.
-- **Le carburant de la petite machinerie.** L'alcool et le gaz de bois font tourner des moteurs (ch. 87 et 15), mais pas une scie à chaîne : l'alcool attaque les membranes et les joints du carburateur, et un moteur deux-temps mal alimenté grippe avant de s'arrêter. Le godendard fait donc partie du stock du ch. 00b.
+- **Le carburant de la petite machinerie.** L'alcool et le gaz de bois font tourner des moteurs (ch. 87 et 15), mais pas une scie à chaîne : l'alcool attaque les membranes et les joints du carburateur, et un moteur deux-temps mal alimenté grippe avant de s'arrêter. On garde donc un godendard au chalet.
 
 ---
 

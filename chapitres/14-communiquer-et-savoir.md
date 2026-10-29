@@ -16,15 +16,15 @@ elles n'arrivent pas.
 
 ## 2. Quand l'utiliser
 
-- **Quelqu'un est blessé, malade ou pris loin de tout, et il faut de l'aide** (étapes 1 à 8).
-- **Quelqu'un n'est pas revenu à l'heure prévue** (étapes 9 à 13).
-- **Une décision dépend de ce qui se passe dehors** : rester ou partir (ch. 2), une panne qui dure (ch. 3), des
+- **Une personne blessée, malade ou prise loin de tout, qui a besoin d'aide** (étapes 1 à 8).
+- **Une personne qui n'est pas revenue à l'heure prévue** (étapes 9 à 13).
+- **Une décision qui dépend de ce qui se passe dehors** : rester ou partir (ch. 2), une panne qui dure (ch. 3), des
  retombées (ch. 4), un feu de forêt (ch. 11), une épidémie (ch. 30) (étapes 14, 24 et 27).
-- **Quelqu'un part pour la journée** : une sortie de pêche blanche (ch. 58), la tournée des collets, un aller-retour
+- **Une sortie pour la journée** : une sortie de pêche blanche (ch. 58), la tournée des collets, un aller-retour
  en ville, ou un trajet à pied chez un proche pendant une tempête (étapes 29 et 30).
-- **La famille est séparée** : un adulte au chalet, un autre sur la route (étapes 25 et 26).
-- **L'automne, avant les neiges** : on monte le plan pendant que tout marche (étapes 14 à 23).
-- **Il n'y a plus de piles, plus d'abonnement ou plus de radio** (section 7).
+- **Famille séparée** : un adulte au chalet, un autre sur la route (étapes 25 et 26).
+- **L'automne, avant les neiges** : monter le plan pendant que tout marche (étapes 14 à 23).
+- **Plus de piles, plus d'abonnement ou plus de radio** (section 7).
 
 ---
 
@@ -42,7 +42,7 @@ elles n'arrivent pas.
 ### Il faut de l'aide, loin de tout {.orange 10 min}
 
 1. **Décider tout de suite si la vie de quelqu'un est en jeu.** Elle l'est quand une personne respire mal, saigne
- sans qu'on arrive à l'arrêter, est difficile à réveiller ou devient confuse, ou ne pourra pas passer la nuit à
+ sans qu'on arrive à l'arrêter, est difficile à réveiller, devient confuse, ou ne pourra pas passer la nuit à
  l'endroit où elle est : dans le froid sans abri, ou avec une jambe cassée loin du chalet. Dans ce cas, lancer
  l'appel de détresse (étape 2). Sinon, ou dans le doute, avertir le correspondant (étape 5), et lancer l'appel
  de détresse si la situation empire (étape 8). Pour les soins en attendant les secours : ch. 26 ; pour décider
@@ -64,8 +64,7 @@ elles n'arrivent pas.
  satellite allumé et au chaud sous le manteau. Pendant un SOS, le sortir sous un ciel dégagé aussi souvent que le
  froid le permet : sous le manteau, ce qu'il envoie reste en attente, et il ne reçoit pas les réponses (étapes 7
  et 22).
- - Rester sur place seulement si une réponse confirme que des secours viennent, si on ne peut pas arriver au chalet
- ou à la route avant la nuit, ou s'il n'y a pas assez de monde pour sortir le blessé (ch. 16, étapes 5 et 14).
+ - Rester sur place seulement si une réponse confirme que des secours viennent, si on ne peut atteindre ni le chalet ni la route avant la nuit, ou s'il n'y a pas assez de monde pour sortir le blessé (ch. 16, étapes 5 et 14).
  Rester alors près de la machine (la motoneige ou le VTT), de l'auto ou du traîneau, et la dégager de la neige :
  d'un avion, on repère une machine plus facilement qu'une personne.
  - Sinon, sortir le blessé (ch. 16, étape 5) sans attendre de réponse, en gardant sur soi l'appareil allumé et le
@@ -124,8 +123,8 @@ elles n'arrivent pas.
 12. **À l'heure limite, sans nouvelles, avertir le correspondant** par message satellite, dans l'ordre de
  l'étape 6 : qui manque, depuis quand, ce qui est écrit sur la fiche de sortie. Le correspondant donne alors
  l'alerte tout de suite (étape 18). Ne pas attendre le lendemain pour écrire.
-13. **Partir le chercher seulement à deux, sans l'adulte qui garde les enfants.** Une personne qui part seule, ou
- qui part de nuit, risque de se perdre ou de se blesser à son tour, et il y a alors deux personnes à chercher.
+13. **Partir le chercher seulement à deux, sans l'adulte qui garde les enfants.** Une personne qui part seule ou de
+ nuit risque de se perdre ou de se blesser à son tour, et il y a alors deux personnes à chercher.
  - Laisser au chalet, par écrit, le chemin qu'on prend et l'heure du retour.
  - S'il fait noir, partir au premier jour et suivre sa trace : une personne qui ne peut pas rentrer avant la nuit
  passe la nuit au bord de sa trace (ch. 15, étape 18).

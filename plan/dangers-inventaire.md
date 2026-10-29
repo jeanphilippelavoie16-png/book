@@ -31,8 +31,8 @@ flèche, flocon).
 | # | Identifiant | Nom | Ce qu'il signale | L'image | Chapitres |
 | --- | --- | --- | --- | --- | --- |
 | 1 | `co` | Monoxyde de carbone | Tout ce qui brûle dans un volume fermé endort et tue sans odeur | Une flamme sous un toit, un « Z » de sommeil | 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 17 18 25 26 28 29 30 31 32 35 36 37 38 39 40 41 58 70 71 77 79 81 82 83 84 85 86 87 88 94 97 99 100 101 102 104 105 106 107 108 109 110 111 112 |
-| 2 | `generatrice` | Génératrice et moteur sous un toit | La génératrice, l'auto, la scie ne tournent jamais dans un bâtiment, un garage, un abri ni sous un auvent | Une génératrice sous un auvent, barrée | 1 2 3 4 5 6 7 8 9 10 11 12 14 15 16 17 18 25 26 30 31 32 35 36 37 38 39 40 41 58 64 66 69 73 74 75 78 79 81 82 83 84 85 86 87 97 100 101 104 105 106 107 108 109 110 111 112 |
-| 3 | `electrocution` | Courant renvoyé ou fil tombé | Le courant tue à distance : génératrice branchée sur la maison, fil au sol | Un éclair entre une prise et un poteau | 1 2 3 7 11 15 16 |
+| 2 | `generatrice` | Génératrice et moteur sous un toit | La génératrice, l'auto, la scie ne tournent jamais dans un bâtiment, un garage, un abri ni sous un auvent | Une génératrice sous un auvent, barrée | 2 3 4 5 6 7 8 9 10 11 12 14 15 16 17 18 25 26 30 31 32 35 36 37 38 39 40 41 58 64 66 69 73 74 75 78 79 81 82 83 84 85 86 87 97 100 101 104 105 106 107 108 109 110 111 112 |
+| 3 | `electrocution` | Courant renvoyé ou fil tombé | Le courant tue à distance : génératrice branchée sur la maison, fil au sol | Un éclair entre une prise et un poteau | 2 3 7 11 15 16 |
 | 4 | `vapeurs` | Vapeurs qui prennent feu | Essence, naphte, propane, hydrogène, colle : la vapeur coule ou s'accumule et va chercher la flamme | Un bidon, une traînée au sol, une flamme au bout | 2 3 5 7 9 10 11 13 15 82 85 86 87 103 104 106 107 108 111 112 |
 | 5 | `huile-en-feu` | Huile ou gras en feu | Jamais d'eau sur ni dans l'huile chaude : couvercle, et le chaudron ne bouge pas | Un chaudron en flammes, un couvercle, une goutte barrée | 72 82 90 111 112 |
 | 6 | `incendie` | Le bâtiment brûle | Flamme nue, cheminée, feu qui couve : on sort en moins de 3 minutes et on ne rentre pas | Une maison, une flamme à la fenêtre | 3 7 8 10 11 12 18 37 82 83 85 99 101 102 105 108 112 |
@@ -44,22 +44,22 @@ flèche, flocon).
 | 12 | `ecrasement` | Ce qui tombe ou s'effondre | Charge suspendue, quartier de viande, abri de neige, paroi de tranchée, neige du toit | Une charge au-dessus d'une silhouette | 11 12 37 62 63 64 79 84 89 103 109 110 |
 | 13 | `coupure` | Coupure qui vide le sang | Scie, couteau, rebond : la cuisse se vide en minutes ; le saignement qu'on ne voit pas | Une lame et une goutte | 8 16 18 26 62 105 106 |
 | 14 | `brulure` | Brûlure qui colle | Sirop, poix, vapeur, eau bouillante, vêtement qui fond ou qui flotte près du feu | Une main sous une coulée | 11 12 13 34 78 94 104 111 |
-| 15 | `froid` | Hypothermie et gelure | Le jugement part avant la force ; les frissons qui cessent ne sont pas un mieux | Un thermomètre et un flocon | 1 2 3 6 7 8 10 12 13 14 15 16 17 25 29 31 35 36 42 44 58 62 73 82 89 104 |
+| 15 | `froid` | Hypothermie et gelure | Le jugement part avant la force ; les frissons qui cessent ne sont pas un mieux | Un thermomètre et un flocon | 1 2 3 6 7 8 10 12 13 14 15 16 17 25 26 29 31 35 36 42 44 58 62 73 82 89 104 |
 | 16 | `eau-froide` | Eau froide | Le choc de la première minute noie ; les mains lâchent en dix minutes | Une tête à la surface, des vagues | 15 16 39 42 47 50 56 57 58 59 60 89 90 |
 | 17 | `glace` | Glace mince | La glace casse là où on ne savait pas qu'elle était mince | Une silhouette sur une glace fendue | 10 15 18 39 41 42 43 44 50 58 59 73 89 |
-| 18 | `bete-qui-charge` | Ours ou orignal | La bête qui garde une carcasse, la bête blessée, la femelle et son veau : deux conduites opposées | Une tête d'ours et un panache | 23 42 43 44 52 56 61 95 96 |
+| 18 | `bete-qui-charge` | Ours ou orignal, deux pictogrammes depuis le 18 octobre 2026 : `ours` et `orignal` (36 en tout ; l'assembleur lit cette ligne comme les deux) | La bête qui garde une carcasse, la bête blessée, la femelle et son veau : deux conduites opposées | Une tête d'ours et un panache | 23 42 43 44 52 56 61 95 96 |
 | 19 | `arme` | Arme et tir | Où pointe le canon, ce qu'il y a dedans, et ce qu'il y a derrière la cible | Un canon et une cible | 16 17 18 36 38 42 43 44 45 47 |
 | 20 | `rage` | Morsure, griffure, bête enragée | La rage déclarée ne se traite pas : laver 10 à 15 minutes et partir | Une gueule ouverte | 26 43 50 51 53 55 102 103 |
-| 21 | `tularemie` | Gants sur la bête crue | Lièvre, castor, rat musqué : gants ; la bête malade ou trouvée morte ne se touche pas | Une main gantée sur un lièvre | 1 9 16 18 19 22 23 35 38 39 41 42 43 44 45 46 47 48 49 50 51 53 54 56 61 69 71 72 101 102 103 104 |
+| 21 | `tularemie` | Gants sur la bête crue | Lièvre, castor, rat musqué : gants ; la bête malade ou trouvée morte ne se touche pas | Une main gantée sur un lièvre | 3 9 16 18 19 22 23 35 38 39 41 42 43 44 45 46 47 48 49 50 51 53 54 56 61 69 71 72 101 102 103 104 |
 | 22 | `hantavirus` | Crottes de souris | Le balai met le virus dans l'air : on mouille, on ne balaie pas | Une souris et un balai barré | 5 79 84 100 108 |
 | 23 | `tetanos` | Petite plaie profonde | La piqûre étroite qui ne saigne pas : le vaccin se règle avant la saison | Une alêne qui pique un doigt | 26 27 51 61 97 103 104 105 111 |
-| 24 | `cuisson` | Cuire à cœur, mesuré | 74 °C le gibier, 82 °C l'oiseau entier, 70 °C le poisson ; ce qui se mange cuit | Un thermomètre à sonde | 1 2 3 4 5 6 7 8 9 16 17 18 19 20 21 29 36 38 39 40 41 42 44 46 47 48 49 50 51 52 54 57 60 62 63 64 65 69 70 71 74 75 76 77 81 83 87 88 93 100 101 |
-| 25 | `trichine` | Ours et phoque : ni sel, ni fumée, ni gel | La larve est dans le muscle ; seule la chaleur à cœur la tue | Une tête d'ours, un flocon et un grain de sel barrés | 1 3 4 5 6 7 8 9 16 17 18 19 20 21 22 23 35 39 40 41 42 44 46 52 55 56 61 62 64 65 66 67 68 69 70 71 72 73 74 77 78 80 81 83 102 112 |
-| 26 | `abats` | Abats qui ne se mangent pas | Foie et reins de cervidés (cadmium), cerveau, moelle et ganglions de cervidés (prion), foie d'ours et de phoque (vitamine A) | Un foie barré | 1 2 4 5 6 7 8 9 16 18 19 20 21 22 23 35 36 38 39 40 41 42 44 46 56 61 62 63 64 65 66 68 69 71 72 73 74 77 78 96 102 |
-| 27 | `botulisme` | Botulisme | Sans air, la toxine se fait sans rien changer à l'aliment ; celle du poisson, dès 3 °C | Un bocal fermé, une tête de poisson | 1 3 4 5 6 7 8 9 16 17 18 21 22 23 29 33 34 35 39 40 41 46 49 52 54 56 57 58 59 60 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 86 87 91 92 93 97 |
-| 28 | `zone-de-danger` | Les heures entre 4 et 60 °C | Les heures s'additionnent ; certaines toxines restent après la cuisson | Un thermomètre entre deux traits | 1 3 4 5 7 16 18 60 64 66 68 69 71 72 73 74 81 |
+| 24 | `cuisson` | Cuire à cœur, mesuré | 74 °C le gibier, 82 °C l'oiseau entier, 70 °C le poisson ; ce qui se mange cuit | Un thermomètre à sonde | 2 3 4 5 6 7 8 9 16 17 18 19 20 21 26 29 36 38 39 40 41 42 44 46 47 48 49 50 51 52 54 57 60 62 63 64 65 69 70 71 74 75 76 77 81 83 87 88 93 100 101 |
+| 25 | `trichine` | Ours et phoque : ni sel, ni fumée, ni gel | La larve est dans le muscle ; seule la chaleur à cœur la tue | Une tête d'ours, un flocon et un grain de sel barrés | 3 4 5 6 7 8 9 16 17 18 19 20 21 22 23 35 39 40 41 42 44 46 52 55 56 61 62 64 65 66 67 68 69 70 71 72 73 74 77 78 80 81 83 102 112 |
+| 26 | `abats` | Abats qui ne se mangent pas | Foie et reins de cervidés (cadmium), cerveau, moelle et ganglions de cervidés (prion), foie d'ours et de phoque (vitamine A) | Un foie barré | 2 3 4 5 6 7 8 9 16 18 19 20 21 22 23 26 35 36 38 39 40 41 42 44 46 56 61 62 63 64 65 66 68 69 71 72 73 74 77 78 96 102 |
+| 27 | `botulisme` | Botulisme | Sans air, la toxine se fait sans rien changer à l'aliment ; celle du poisson, dès 3 °C | Un bocal fermé, une tête de poisson | 3 4 5 6 7 8 9 16 17 18 21 22 23 29 33 34 35 39 40 41 46 49 52 54 56 57 58 59 60 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 86 87 91 92 93 97 |
+| 28 | `zone-de-danger` | Les heures entre 4 et 60 °C | Les heures s'additionnent ; certaines toxines restent après la cuisson | Un thermomètre entre deux traits | 3 4 5 7 16 18 60 64 66 68 69 71 72 73 74 81 |
 | 29 | `mal-de-caribou` | Viande maigre seule | La viande sans gras tue en quelques semaines, le ventre plein, les enfants d'abord | Un morceau maigre et une goutte de gras | 1 3 4 5 6 8 9 16 17 18 19 20 21 35 36 38 39 40 41 42 44 45 46 47 48 49 51 52 53 58 59 61 62 63 64 66 71 73 74 75 76 81 92 93 101 103 112 |
-| 30 | `thuyone` | Le cèdre ne se boit pas | La thuyone du cèdre donne des convulsions : sapin baumier ou épinette | Un rameau en écailles, une tasse barrée | 5 8 9 12 13 17 20 21 32 33 34 35 36 38 39 42 78 92 94 95 98 103 110 112 |
+| 30 | `thuyone` | Le cèdre ne se boit pas | La thuyone du cèdre donne des convulsions : sapin baumier ou épinette | Un rameau en écailles, une tasse barrée | 5 8 9 12 13 17 20 21 26 32 33 34 35 36 38 39 42 78 92 94 95 98 103 110 112 |
 | 31 | `plante` | Plante, graine ou coquillage qui empoisonne | Ni le goût ni la cuisson ne protègent : identifier à l'espèce, jamais goûter | Une feuille et une baie, un point d'exclamation | 20 33 34 41 59 88 91 92 93 94 95 96 97 98 100 |
 | 32 | `plomb` | Plomb | Grenaille, balle, soudure d'étain, vieux métal : invisible, sans goût, pour les enfants d'abord | Une bille et un enfant | 10 47 49 54 62 85 94 107 |
 | 33 | `selles` | Des selles à la bouche | Eau claire contaminée, mains, jardin au fumier cru, crottes de canidés, chien nourri cru | Une goutte et une main | 8 10 18 22 23 31 43 50 52 55 63 91 95 96 97 103 |
@@ -72,8 +72,25 @@ flèche, flocon).
 
 ## 2. La matière de chaque explication
 
-Pour chaque pictogramme : ce qu'il faut dire une fois, au début du tome. Le mécanisme, ce qu'on voit, ce qu'on
-fait. Les faits propres à un chapitre n'y sont pas : ils sont à la section 3, avec leur étape.
+Pour chaque pictogramme, ce qu'il faut dire une fois, au début du tome. Les faits propres à un chapitre n'y sont
+pas : ils sont à la section 3, avec leur étape. Chaque sous-section est un relevé, pas un texte du livre.
+
+**La page d'un danger.** Elle suit l'ordre de ce qui arrive à la personne (JP, 28 octobre 2026, décision 5 de
+`plan/decisions-jp.md`), et chaque danger y a trois parties, dans cet ordre :
+
+1. **Ce qui arrive** dit d'abord d'où vient le danger, puis ce qu'il fait à la personne. Le paragraphe porte un seul
+   danger.
+2. **Comment on le reconnaît** donne les signes, et surtout celui qu'on lirait de travers (skill `ecriture`, P13).
+3. **Ce qu'on fait** donne trois à cinq gestes, en étapes numérotées, à l'infinitif (skill `ecriture`, P9).
+
+Le modèle est le paragraphe « Ce qui arrive » de la page du monoxyde (`dangers/partie-1.md`), que JP a adoré le
+28 octobre 2026. Il nomme d'abord ce qui fait le gaz et le moment où le poêle en fait plus, puis ce que le gaz fait dans
+le sang, et il finit sur le réflexe qui ne sert à rien. On met **deux dangers par page au moins, de 150 à 230 mots
+chacun** (JP, 28 octobre 2026 : « Les pages danger on passe trop de temps à tourner autour du pot, sérieux on pourrait
+mettre minimum 2 dangers par page, pi les condenser à ce qu'on doit vraiment savoir. »). Pour condenser, on choisit
+les faits qu'on garde et on coupe les autres en entier, sans couper les « parce que » ni les « mais » des phrases qui
+restent (skill `ecriture`, P2). Ce qu'un chapitre dit déjà (l'essai d'un appareil, le geste d'une situation qui a son étape ailleurs) sort de la page (JP, 29 octobre 2026 : « si c'est présent dans d'autre chapitre on enlève ») ; il reste un renvoi court quand le lecteur doit savoir, ici, que le geste change (« Sauf pendant des retombées (ch. 4, étape 18), sortir tout le monde »). Il n'y a plus de paragraphe « Où il revient », parce que la liste des chapitres est en
+tête. On écrit un renvoi à un autre danger `{>id}` (section 6, point 6).
 
 ### 2.1 `co` : Monoxyde de carbone
 
@@ -483,7 +500,7 @@ Les deux conduites sont opposées : l'explication les met côte à côte, et l'�
 
 ### 2.21 `tularemie` : Gants sur la bête crue
 
-- **La tularémie entre par les mains, pas par la bouche** (tableau de `CLAUDE.md`). *Francisella tularensis* est
+- **La tularémie entre par les mains, pas par la bouche** (tableau de `CLAUDE.md`). La bactérie de la tularémie est
   présente dans toutes les régions du Québec ; 70 à 85 % des cas sont ceux d'une personne qui a préparé du petit
   gibier avec des lésions aux mains ; une gerçure suffit, et la bactérie passe aussi par l'œil et par la
   poussière de poil respirée (ch. 48, 53). Lièvre, castor, rat musqué et petits rongeurs sont les plus à risque
@@ -551,7 +568,7 @@ Les deux conduites sont opposées : l'explication les met côte à côte, et l'�
 - **Ce qui se mange cuit** pour les enfants, les femmes enceintes, les personnes âgées : germes de graines (les
   bactéries sont dans la graine, le rinçage ne les enlève pas : ch. 100), pâte et farine crues (ch. 88), lait
   cru chauffé avant d'être bu (ch. 101), œufs (74 °C : ch. 101), poisson cru ou fumé à froid, qui porte
-  *Listeria* (elle pousse de −0,4 à 45 °C, survit au fumage à froid, signes jusqu'à 70 jours plus tard : ch. 29,
+  la listeria (elle pousse de −0,4 à 45 °C, survit au fumage à froid, signes jusqu'à 70 jours plus tard : ch. 29,
   70, 77) et des parasites (−20 °C pendant 7 jours ou −35 °C pendant 15 h, températures du poisson et non de
   l'air ; le congélateur à −18 °C ne suffit pas : ch. 60, 75, 76, 77).
 - **Provenance.** `01-mapaq-gibier-sauvage-chasseurs.md`, `11-mapaq-gibier-cuisson-cadmium.md`,
@@ -562,7 +579,7 @@ Les deux conduites sont opposées : l'explication les met côte à côte, et l'�
 - **Le mécanisme** (tableau de `CLAUDE.md`). La larve est enkystée dans le muscle strié (cœur et diaphragme
   compris : ch. 22) ; le sel diffuse trop lentement et trop faiblement, la fumée reste en surface, le séchage
   retire une eau dont la larve n'a pas besoin, le micro-ondes chauffe inégalement, et la plupart des espèces
-  sauvages résistent au gel (*Trichinella nativa* passe l'hiver dans les carcasses gelées) (ch. 52, 56, 73). Au
+  sauvages résistent au gel (la trichine des bêtes sauvages du Nord passe l'hiver dans les carcasses gelées) (ch. 52, 56, 73). Au
   Québec, l'ours noir est l'animal le plus susceptible de la transmettre ; elle vise aussi le phoque et tous
   les carnivores (martre, vison, renard, lynx, loup), parce que tous les mammifères peuvent être infectés
   (ch. 41, 52, 55).
@@ -604,7 +621,7 @@ Trois interdits, trois mécanismes, un seul point commun : la cuisson n'y change
 
 ### 2.27 `botulisme` : Botulisme
 
-- **Le mécanisme** (tableau de `CLAUDE.md`). *Clostridium botulinum* est partout (sol, poussière, fond des lacs
+- **Le mécanisme** (tableau de `CLAUDE.md`). La bactérie du botulisme est partout (sol, poussière, fond des lacs
   et du fleuve) ; ses spores survivent à l'eau bouillante ; elle ne produit sa toxine qu'à l'abri de l'air, en
   milieu humide et peu acide (pH au-dessus de 4,6) (ch. 5, 6, 78, 91). Conserve maison de viande, de poisson ou
   de légumes au bain d'eau bouillante, confit, viande ou poisson sous une couche de gras, huile aux herbes, à
@@ -635,8 +652,8 @@ Trois interdits, trois mécanismes, un seul point commun : la cuisson n'y change
 ### 2.28 `zone-de-danger` : Les heures entre 4 et 60 °C
 
 - **Le mécanisme.** Entre 4 °C et 60 °C, les bactéries se multiplient vite et certaines fabriquent des toxines ;
-  la cuisson tue la bactérie et laisse la toxine (ch. 1, 18, 66, 73). Au-dessus de 15,6 °C, *Staphylococcus
-  aureus* produit une toxine qui résiste à la chaleur et ne donne ni odeur ni altération (ch. 66, 68, 69, 81).
+  la cuisson tue la bactérie et laisse la toxine (ch. 1, 18, 66, 73). Au-dessus de 15,6 °C, le staphylocoque
+  doré produit une toxine qui résiste à la chaleur et ne donne ni odeur ni altération (ch. 66, 68, 69, 81).
 - **Les heures s'additionnent et ne s'effacent pas.** Le gel met les bactéries en pause, il ne les tue pas ;
   recongeler ne répare rien ; ce qui a dégelé au-dessus de 4 °C se jette, même si ça paraît bon (ch. 1, 73, 74).
   Un grand volume (marmite, épaule, os) traverse la zone lentement : plats peu profonds, 2 h au plus hors du
@@ -743,9 +760,9 @@ Trois interdits, trois mécanismes, un seul point commun : la cuisson n'y change
 
 - **Le mécanisme.** Une contamination fécale ne se voit ni ne se sent, et frappe le plus durement les enfants
   de moins de 5 ans, les femmes enceintes et les personnes âgées (ch. 95, 96, 97).
-- **L'eau.** Une eau contaminée a l'apparence, l'odeur et le goût d'une eau propre : 10 kystes de *Giardia*
-  suffisent (8 × 14 µm) ; 132 oocystes de *Cryptosporidium* ; un coliforme fécal par 100 mL condamne une source
-  (ch. 10, 31). Le chlore ne protège pas contre *Cryptosporidium* (et peu contre *Giardia* au froid : CT de 65 à
+- **L'eau.** Une eau contaminée a l'apparence, l'odeur et le goût d'une eau propre : 10 kystes de giardia
+  suffisent (8 × 14 µm) ; 132 oocystes de cryptosporidie ; un coliforme fécal par 100 mL condamne une source
+  (ch. 10, 31). Le chlore ne protège pas contre la cryptosporidie (et peu contre la giardia au froid : CT de 65 à
   360 à 3 à 5 °C) : chaleur ou filtre à 1 µm (ch. 10, 50). Le gel ne stérilise pas : des oocystes restent
   infectieux 31 jours à −22 °C (ch. 31). Les distances aux latrines ne se négocient pas au jugé (ch. 31).
 - **Les mains et le groupe.** La gastro passe par l'eau, les aliments, les mains, la louche, la poignée de porte ;
@@ -1074,9 +1091,9 @@ posés.
 
 **Ch. 10, Eau : puiser, filtrer, désinfecter.** Fait à la refonte du 18 octobre 2026 : douze poses, aux étapes
 actuelles.
-- `selles` → étape 2 (« Puiser en amont de tout ce qui peut salir l'eau ») : dix kystes de *Giardia* peuvent suffire,
+- `selles` → étape 2 (« Puiser en amont de tout ce qui peut salir l'eau ») : dix kystes de giardia peuvent suffire,
   un kyste mesure 8 × 14 µm, une eau claire ne prouve rien. Et étape 19, puce « Passer une eau de lac, de ruisseau ou
-  de neige au filtre à 1 µm avant de la chlorer » : le chlore ne fait presque rien contre *Cryptosporidium* (7
+  de neige au filtre à 1 µm avant de la chlorer » : le chlore ne fait presque rien contre la cryptosporidie (7
   000 mg-min/L).
 - `generatrice` → étape 6 (« Si la pompe tourne sur une génératrice ») : dehors, à au moins 6 m de tout bâtiment,
   l'échappement tourné à l'opposé des portes et des fenêtres.
@@ -1361,15 +1378,28 @@ actuelles.
   motoneige qu'on fait tourner pour se réchauffer ; le détecteur dit quand rentrer dormir → nouvelle phrase à
   l'étape 1 (« Couper le vent avant tout autre geste ») ou dans « Nourrir le poêle intérieur ».
 
-**Ch. 26, Soigner quand il n'y a personne.**
-- `coupure` + `vie-en-jeu` : le saignement qu'on ne voit pas (fémur fermé, coup au ventre, bassin) ; pouls, peau
-  froide et moite, soif, agitation, somnolence → étapes 36 (« Compter le pouls ») et 40 (« Partir tôt plutôt que
-  vite »).
-- `co` : la famille qui soigne calfeutre et chauffe plus ; la génératrice pour veiller le malade ; avertisseur
-  testé chaque semaine ; si ça va mieux dehors, c'est répondu → étape 8 (« Regarder la scène avant le blessé »).
-- `rage` : chauve-souris, mouffette, renard, raton ; la mort dans les 14 jours après les signes ; l'égratignure de
-  chauve-souris est une urgence, la belle plaie de couteau non → étape 25 (« Une morsure ou une griffure d'animal se
-  lave »), déjà là.
+**Ch. 26, Soigner quand il n'y a personne** (section Danger et bloc « H — Les rappels » sortis le 26 octobre 2026,
+pilote du tome 2).
+- `coupure` + `vie-en-jeu` : le saignement qu'on ne voit pas (cuisse cassée, coup au ventre, bassin écrasé sous une
+  bûche) ; pouls qui monte, peau froide, moite et pâle ; partir pendant qu'elle a l'air correcte → étape 33 (« Compter
+  le pouls »).
+- `vie-en-jeu` : la réaction allergique qui peut revenir 4 à 8 h après → étape 16 ; la rougeur qui dépasse le trait,
+  la traînée rouge → étape 30 ; le ventre dur, la cuisse ou le bassin cassé, la fièvre après une plaie, la personne qui
+  soigne qui flanche → étape 41 (« Partir aussi quand le chalet n'a pas ce qui soigne »).
+- `froid` : la grande brûlure ou l'enfant refroidi par 20 minutes d'eau fraîche dans un chalet froid → étape 22.
+- `tetanos` : la date de la dernière dose après une plaie souillée ou une piqûre (5 ans, 10 ans) ; le cou raide onze
+  jours après un clou → étape 27.
+- `rage` : laver 10 à 15 minutes et partir le jour même ; l'égratignure de chauve-souris contre la belle coupure de
+  couteau ; la chauve-souris sur un vêtement ou dans la chambre d'un enfant qui dormait → étape 28.
+- `co` : la personne tombée dans un bâtiment où tourne une génératrice, un poêle ou un réchaud : ouvrir en restant dehors,
+  la sortir à l'air avant de la soigner → étape 1.
+- `co` + `generatrice` : la famille qui veille un malade ferme la maison, chauffe plus fort et fait entrer la
+  génératrice ; les maux de tête des gens qui veillent, mis sur le compte de l'inquiétude → étape 36.
+- `abats` + `cuisson` : le foie qu'on sert à une personne qui a perdu du sang ; le rôti à peu près cuit servi au
+  malade quand la maison est épuisée → étape 37.
+- `thuyone` : les tisanes de la maisonnée qui veille → étape 38.
+- Sorti : le botulisme des conserves (signes, type E dès 3 °C), sans étape où il s'applique dans ce chapitre ; il reste
+  aux ch. 77 et 78 et à sa page.
 
 **Ch. 27, Les dents.**
 - `vie-en-jeu` : l'abcès qui sort de l'os ferme la gorge en heures ; vers l'œil ; la liste des signes et ses notes ;
@@ -1712,7 +1742,7 @@ actuelles.
 **Ch. 56, Phoque du Saint-Laurent.**
 - `eau-froide` : sur le fleuve l'hiver ; une minute, dix minutes, une heure ; le VFI garde la tête hors de l'eau ; le
   linge mouillé au vent ; le rechange sec à bord → étape 5 (« Embarquer les vêtements de rechange »), déjà là.
-- `trichine` : *Trichinella nativa* résiste au gel ; trouvée chez le phoque gris ; signes 5 à 15 jours après → 5-J
+- `trichine` : la trichine des bêtes sauvages du Nord résiste au gel ; trouvée chez le phoque gris ; signes 5 à 15 jours après → 5-J
   (« Où va la viande »).
 - `botulisme` : le phoque est nommé parmi les sources ; les gestes soignés produisent la toxine (viande scellée dans
   sa graisse, peau repliée, sac sur la galerie) ; aucune conserve de phoque dans le livre → 5-I (« Ce qui ne se garde
@@ -1965,7 +1995,7 @@ actuelles.
   (« Congeler »), déjà là.
 - `vie-en-jeu` (signes du botulisme) : 12 à 72 h ; dire ce qui a été mangé, quand, et que c'était du poisson fumé
   maison → étape 22 ou nouvelle phrase en fin de procédure.
-- `cuisson` : le fumé à froid est cru ; parasites, *Listeria* de −0,4 à 45 °C ; enfants, enceintes, âgés mangent cuit
+- `cuisson` : le fumé à froid est cru ; parasites, listeria de −0,4 à 45 °C ; enfants, enceintes, âgés mangent cuit
   → sous-section 5-D (« Fumage à froid, la voie réservée »), déjà en partie là.
 - `co` : le fumoir sous l'appentis à la première averse → étape 1 (« Nommer la sortie du produit ») ou la mise en
   place du fumoir.
@@ -2266,7 +2296,7 @@ du chapitre.
   bottes → étapes 3 (« Régler l'eau »), 14 (« Tenue dédiée ») et 16 (« Moulée servie sèche et à l'abri »), déjà là.
 - `cuisson` : salmonelle dans l'œuf avant la ponte ; une coquille propre ne prouve rien ; pas d'œuf coulant ; 74 °C ;
   6 à 72 h → sous-section E (« Les œufs »).
-- `cuisson` (lait cru) : *Salmonella*, *E. coli*, *Listeria* ; insuffisance rénale, fausse couche ; le lait de chèvre se
+- `cuisson` (lait cru) : salmonelle, E. coli, listeria ; insuffisance rénale, fausse couche ; le lait de chèvre se
   chauffe → étape 33 (« Cuisson, les trois valeurs »).
 - `mal-de-caribou` : le lapin a donné son nom anglais à la maladie ; les enfants avant les adultes (note) → étape 2
   (« Mesurer la ration réelle ») ou 4.
@@ -2533,11 +2563,16 @@ les ch. 13 et 15 l'ont en 7. Quand la section sort, la Variante d'urgence devien
 
 1. JP choisit ou corrige la liste des 35 (section 1), et tranche les cas de la section 4.
 2. Les chiffres de la section 5 se règlent à la source avant d'écrire les pages d'explication (règle 1).
-3. Les pages d'explication s'écrivent à partir de la section 2, une par pictogramme, par le skill `ecriture` (la
-   matière de la section 2 est un relevé, pas un texte du livre) ; chaque tome reçoit seulement les pictogrammes que
-   ses chapitres emploient (la colonne « Chapitres » de la section 1).
+3. On écrit l'explication de chaque pictogramme à partir de la section 2, dans l'ordre de « La page d'un danger »
+   (section 2), avec le skill `ecriture` ; chaque tome reçoit seulement les pictogrammes que ses chapitres emploient
+   (la colonne « Chapitres » de la section 1).
 4. Les pictogrammes se prennent dans des jeux libres professionnels et se montrent à JP (plan de match, point 31),
    lisibles à 8 mm, une seule idée chacun ; les pages qui les expliquent vont dans chaque tome, avec « Comment le
    livre fonctionne ».
 5. La migration des chapitres suit la section 3 : chaque fait propre va dans son étape avec son pictogramme, le reste
    de la section Danger saute ; contrôle `controle.py` ensuite.
+6. **Une page de danger qui renvoie à une autre s'écrit `{>id}`** dans `dangers/*.md`, entre parenthèses : « (`{>co}`) ».
+   L'assembleur imprime le petit pictogramme, le nom court et la page de ce danger dans le tome : « (▣ Monoxyde,
+   p. 8) » ; sans page si le tome n'imprime pas ce danger. Jamais « (pictogramme du monoxyde) » en toutes lettres (JP,
+   27 octobre 2026, sur l'épreuve du tome 1 : « (Pictogramme du monoxyde) c'est tu normal ça ou il y devait avoir un
+   pictogramme »).

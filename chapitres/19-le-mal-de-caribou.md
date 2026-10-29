@@ -160,8 +160,7 @@ pas une réserve de calories.
 par jour, soit **520 g pour quatre**, soit environ **2 100 kcal**. En farine,
 en avoine, en riz et en sucre, cela représente de l'ordre de 600 g de denrées sèches par jour
 pour la maisonnée, à ajuster selon ce qui est en tablette. Sur un hiver de 150 jours :
-**environ 78 kg de glucides**. C'est la ligne du chapitre d'achat (00b) qu'on sous-estime le
-plus souvent, et elle se transporte et se garde mieux que n'importe quelle autre.
+**environ 78 kg de glucides**. C'est la part de la réserve qu'on sous-estime le plus souvent, et elle se transporte et se garde mieux que n'importe quelle autre.
 
 **8. Combler le reste avec du gras.** Il reste alors près de **3 300 kcal par jour**, soit
 **environ 370 g de gras pur par jour pour la famille**, à 9 kcal par gramme. Sur 150 jours,

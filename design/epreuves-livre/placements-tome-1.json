@@ -1,22 +1,13 @@
 {
-  "_lisez-moi": "Tome 1 (Tenir, ch. 00, 00b, 1 à 18), à fusionner dans placements.json. Même format : clés et numéros de planche en numérotation NOUVELLE ; « apres » = début du paragraphe (texte Markdown) après lequel la figure vient ; photos : fichier, apres, taille (quart | demi), legende. Le constructeur insère chaque figure juste après son ancrage : deux figures sur le même paragraphe s'inversent. Les planches a et b ont donc chacune leur paragraphe ; les deux photos du ch. 13 partagent le leur et sont inscrites dans l'ordre inverse de la lecture (gomme, puis bouleau) pour sortir bouleau, puis gomme. Photos : les quatre fichiers de images/photos/tri/ qui portent un numéro ACTUEL du tome 1 (04, 05, 13), donnés par leur chemin complet parce que le constructeur cherche les noms courts sous l'ANCIEN numéro (tri/04-… tomberait au ch. 03, ancien 04). Les 100 images que credits.md demande aux anciens ch. 00 à 23 restent « à acquérir ». Vérifié le 28 septembre 2026 : chaque « apres » tombe sur un seul bloc, avec la logique même de place() dans build_chapitre.py. Ajout du 29 septembre 2026 : images/photos/manquantes/ (registre-manquantes.md). Posée : 10-hutte-castor. Non posées, raison dans la note _photos du chapitre : 10-barrage-castor, 10-gros-bouillons, 10-trou-puisage-glace, 05-boites-rouillees-serti.",
+  "_lisez-moi": "Tome 1 (Tenir, ch. 1 à 18 ; le 00 et le 00b sont coupés), à fusionner dans placements.json. Même format : clés et numéros de planche en numérotation NOUVELLE ; « apres » = début du paragraphe (texte Markdown) après lequel la figure vient ; photos : fichier, apres, taille (quart | demi), legende. Le constructeur insère chaque figure juste après son ancrage : deux figures sur le même paragraphe s'inversent. Les planches a et b ont donc chacune leur paragraphe ; les deux photos du ch. 13 partagent le leur et sont inscrites dans l'ordre inverse de la lecture (gomme, puis bouleau) pour sortir bouleau, puis gomme. Photos : les quatre fichiers de images/photos/tri/ qui portent un numéro ACTUEL du tome 1 (04, 05, 13), donnés par leur chemin complet parce que le constructeur cherche les noms courts sous l'ANCIEN numéro (tri/04-… tomberait au ch. 03, ancien 04). Les 100 images que credits.md demande aux anciens ch. 00 à 23 restent « à acquérir ». Vérifié le 28 septembre 2026 : chaque « apres » tombe sur un seul bloc, avec la logique même de place() dans build_chapitre.py. Ajout du 29 septembre 2026 : images/photos/manquantes/ (registre-manquantes.md). Posée : 10-hutte-castor. Non posées, raison dans la note _photos du chapitre : 10-barrage-castor, 10-gros-bouillons, 10-trou-puisage-glace, 05-boites-rouillees-serti.",
   "00": {
     "planches": [],
     "photos": []
   },
-  "00b": {
-    "planches": [],
-    "photos": []
-  },
   "01": {
-    "planches": [
-      {
-        "id": "01-02",
-        "apres": "15. **S'il faut quitter la maison, même une nuit, poser un témoin de dégel"
-      }
-    ],
+    "planches": [],
     "photos": [],
-    "_planches": "01-01 (fiche des quatre horloges) non posée : c'est un formulaire (images/formulaires/01-01.pdf), le chapitre ne demande plus de feuille à remplir, et la bande du haut porte un numéro de téléphone. Si JP la garde : après « 1. **Écrire l'heure sur la porte du congélateur.** »."
+    "_planches": "La 01-02 (le témoin de dégel) est devenue la 03-13 le 28 octobre 2026, avec l'étape qui l'appelle (JP : « les chapitres doivent parler de ce qu'ils parlent »). 01-01 (fiche des quatre horloges) non posée : c'est un formulaire (images/formulaires/01-01.pdf), le chapitre ne demande plus de feuille à remplir, et la bande du haut porte un numéro de téléphone. Si JP la garde : après « 1. **Écrire l'heure sur la porte du congélateur.** »."
   },
   "02": {
     "planches": [],
@@ -48,6 +39,10 @@
       {
         "id": "03-12",
         "apres": "**Fermer les fenêtres.**"
+      },
+      {
+        "id": "03-13",
+        "apres": "S'il faut quitter la maison, même une nuit, poser un témoin de dégel"
       }
     ],
     "photos": [],

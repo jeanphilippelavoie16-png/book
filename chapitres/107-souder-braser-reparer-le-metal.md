@@ -53,7 +53,7 @@ maison (ch. 109).
 
 **Ce qui n'est pas dans ce chapitre.** La forge, la chauffe au rouge, la trempe et le revenu :
 ch. 111. Quand il n'y a ni Hydro, ni génératrice, ni bouteille, c'est le §9 qui s'ouvre en premier, et le ch. 111 ensuite. L'affûtage et la remise en état d'un tranchant abîmé par une réparation :
-ch. 105. Les moteurs, leurs réservoirs et leurs carburants : ch. 106. Le poste, ses électrodes et le chalumeau à acheter : ch. 00b.
+ch. 105. Les moteurs, leurs réservoirs et leurs carburants : ch. 106.
 Le cuir des gants et du tablier : ch. 102. La lessive et le savon qui remplacent le solvant pour
 dégraisser : ch. 112.
 
@@ -250,7 +250,7 @@ L'arc brûle l'œil et la peau aux ultraviolets, et vaporise le métal avec tout
 
 | Moment | Ce qu'on vérifie | Cible chiffrée | Si c'est hors cible |
 | --- | --- | --- | --- |
-| Avant de sortir le matériel | Historique de la pièce | Aucun contact avec carburant, solvant, huile, propane ; aucune mise sous pression ; aucune charge levée au-dessus de quelqu'un | On ne répare pas tel quel : soit la préparation complète du §9, soit on remplace (ch. 109, et la pièce de rechange au chapitre d'achat 00b) |
+| Avant de sortir le matériel | Historique de la pièce | Aucun contact avec carburant, solvant, huile, propane ; aucune mise sous pression ; aucune charge levée au-dessus de quelqu'un | On ne répare pas tel quel : soit la préparation complète du §9, soit on remplace la pièce (ch. 109) |
 | Avant d'allumer | Composition de la baguette de brasage | Mention **«sans cadmium »** lisible sur l'emballage | Baguette inconnue = baguette qui reste dans la boîte |
 | Avant d'allumer | Bouteille d'acétylène ayant voyagé couchée | **1 heure** debout minimum | Attendre. Le délai n'est pas négociable |
 | Avant d'allumer | Réglage du détendeur d'acétylène | **≤ 103 kPa (15 lb/po²)** | Baisser. Au-dessus, le gaz se décompose sans air |

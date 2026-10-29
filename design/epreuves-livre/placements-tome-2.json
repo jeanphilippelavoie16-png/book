@@ -200,37 +200,46 @@
     "_photos": "La ligne prévue (25·03-6) voulait deux gros plans, gelure superficielle et gelure profonde. La profonde vient du tri, la superficielle de images/photos/manquantes/ (29 septembre 2026) : prise après le dégel, pas blanche et cireuse comme à l'étape 15, elle va donc avec la profonde à l'étape 22, ampoules claires contre ampoule de la gelure profonde. Inscrite après la profonde pour sortir avant elle (même ancrage, ordre inversé)."
   },
   "26": {
+    "logigramme": {
+      "fichier": "images/logigrammes/26-soigner-livre.svg",
+      "apres": "**Montre à trotteuse**",
+      "orange": true
+    },
     "planches": [
       {
         "id": "26-40",
-        "apres": "17. **Bourrer la plaie profonde**"
+        "apres": "6. **Appuyer avec la paume, directement sur la plaie"
       },
       {
         "id": "26-11",
-        "apres": "**Le pansement absorbant, quand ça coule plus vite que le coton ne boit.**"
+        "apres": "Faire bouillir à gros bouillons du coton propre"
       },
       {
         "id": "26-04",
-        "apres": "**Le garrot.** Une bande large"
+        "apres": "Prendre une bande large, jamais une corde"
       },
       {
         "id": "26-08",
-        "apres": "**L'attelle.** Une plaque d'écorce de bouleau"
+        "apres": "Tremper une plaque d'écorce de bouleau"
       },
       {
         "id": "26-09a",
-        "apres": "**Le moyen de déplacer un blessé.**"
+        "apres": "Sur la neige, tirer la personne dans un traîneau"
       },
       {
         "id": "26-09b",
-        "apres": "**Le moyen de déplacer un blessé.**"
+        "apres": "Sangler ensuite la personne à ce qui la porte"
+      },
+      {
+        "id": "26-41",
+        "apres": "Refendre du ruban à conduits en lanières"
       }
     ],
     "photos": [
       {
         "fichier": "images/photos/tri/26-rougeur-cernee-crayon.jpg",
-        "apres": "26. **Marquer le pourtour de la rougeur au crayon feutre, avec l'heure.**",
-        "taille": "demi",
+        "apres": "29. **Tracer au crayon feutre le bord de la rougeur",
+        "taille": "quart",
         "legende": "Le pourtour de la rougeur cerné au crayon : le lendemain, on regarde si le rouge a passé le trait."
       }
     ],

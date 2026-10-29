@@ -550,8 +550,7 @@ reste le pèse-personne du dimanche et les signes de la section 7, et c'est tout
 
 La **vitamine D**. Les foies et le poisson gras en donnent, mais personne au chalet ne peut savoir
 si la famille atteint ses 600 UI par jour, et le soleil de janvier ne comble rien. C'est le nutriment le plus mal couvert par cette variante, et c'est le seul poste du
-chapitre qu'un flacon de la taille d'un pouce règle pour tout l'hiver : les gouttes valent leur
-place au stock permanent (ch. 00b).
+chapitre qu'un flacon de la taille d'un pouce règle pour tout l'hiver : les gouttes valent leur place au stock permanent.
 
 Le **74 °C**. Il ne se négocie pas, il ne s'estime pas à l'œil, et la couleur d'une viande cuite ne
 dit rien de sa température à cœur (section 8). Un thermomètre à sonde ne demande aucune énergie,
