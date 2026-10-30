@@ -87,23 +87,18 @@ function doPost(e) {
 
     var commande = texte.trim().toLowerCase().replace(/[éèêë]/g, 'e');
 
-    // Faits sur les eclipses. "stop" seul vient du destinataire: Twilio
-    // le bloque deja et refuse toute reponse, d'ou le try. Ne pas texter
-    // "stop" seul soi-meme: Twilio bloquerait aussi nos propres reponses
-    // jusqu'a un "START".
+    // Faits sur les eclipses: "eclipse" demarre, "eclipse stop" arrete.
+    // Jamais "stop" seul: Twilio le traite lui-meme et bloque toute
+    // reponse vers ce telephone jusqu'a un "START".
     if (commande === 'eclipse') {
       demarrerEclipse();
       envoyerSms(expediteur, 'Faits eclipse: 1 texto/min vers '
         + ECLIPSE_NUMERO + '. "eclipse stop" pour arreter.');
       return reponseVide();
     }
-    if (/^(eclipse\s+)?(stop|arret)$/.test(commande)) {
+    if (/^eclipse\s+(stop|arret)$/.test(commande)) {
       arreterEclipse();
-      try {
-        envoyerSms(expediteur, 'Faits eclipse arretes.');
-      } catch (errStop) {
-        Logger.log('Confirmation eclipse non envoyee: ' + errStop.toString());
-      }
+      envoyerSms(expediteur, 'Faits eclipse arretes.');
       return reponseVide();
     }
 
@@ -836,7 +831,7 @@ function pointCardinal(deg) {
  * testerEclipse() verifie les longueurs. Le premier texto se presente.
  */
 var FAITS_ECLIPSE = [
-  'Faits sur les eclipses solaires, un texto par minute. Repondez STOP pour arreter.',
+  'Faits sur les eclipses solaires, un texto par minute.',
   'Le Soleil est 400 fois plus large que la Lune, mais aussi environ 400 fois plus loin: les deux paraissent de la meme taille dans le ciel.',
   'Une eclipse solaire ne se produit qu\'a la nouvelle lune, quand la Lune passe exactement entre la Terre et le Soleil.',
   'Pas d\'eclipse a chaque nouvelle lune: l\'orbite de la Lune penche d\'environ 5 degres, et son ombre passe le plus souvent a cote de la Terre.',
