@@ -977,18 +977,18 @@ function arreterEclipse() {
  * testerVente() verifie les longueurs sans rien envoyer.
  */
 var MESSAGES_VENTE = [
-  'Garage Flip-a-Truck: t\'as achete 3 pickups en 3 ans? Viens-en chercher un 4e, on sait que t\'es pas capable de t\'en passer.',
-  'Felicitations! Client VIP de l\'annee: 3 trucks achetes, 3 revendus a perte. Viens battre ton record.',
-  'Nouveau Ram en lot. On t\'a garde celui que tu vas revendre dans 8 mois de toute facon.',
-  'Ton dernier truck a meme pas fini de se deprecier que tu regardes deja les annonces. On t\'attend.',
-  'Promo special indecis: achete un pickup aujourd\'hui, revends-le-nous demain a moitie prix. Gagnant-gagnant (pour nous).',
-  'On a vu que t\'as reparde Kijiji a 2h du matin. Le 4e truck t\'appelle. Reponds-lui.',
-  'Un vrai gars change de pickup plus souvent que d\'huile a moteur. T\'es en retard.',
-  'T\'hesites entre garder ton char ou en racheter un? On a deja rempli les papiers. Signe icitte.',
-  'Financement approuve pour un truck que t\'as pas encore vu. On te connait mieux que toi-meme.',
+  'Garage Flip-a-Truck: t\'as achete 3 pickups neufs en 3 ans? Viens-en chercher un 4e, on sait que t\'es pas capable de t\'en passer.',
+  'Felicitations! Client VIP de l\'annee: 3 pickups neufs en 3 ans. Viens battre ton record.',
+  'Nouveau Ram flambant neuf arrive. On te l\'a reserve: on savait que t\'en voudrais un autre.',
+  'Ton pickup a meme pas 10 000 km que tu regardes deja le modele de l\'an prochain. On t\'attend.',
+  'Promo special indecis: signe aujourd\'hui pour un pickup neuf, on comprend que t\'es pas capable d\'attendre.',
+  'Le nouveau modele vient de sortir. On sait que t\'as deja hate. Le 4e truck t\'appelle.',
+  'Un vrai gars change de pickup neuf plus souvent que d\'huile a moteur. T\'es en retard.',
+  'T\'hesites a racheter un pickup neuf? On a deja rempli les papiers. Signe icitte.',
+  'Financement approuve pour un truck neuf que t\'as pas encore vu. On te connait mieux que toi-meme.',
   'Ton banquier a pleure en voyant ton historique de trucks. Nous on applaudit. Viens-t\'en.',
-  'Reprise de ton vieux truck: on te donne 3 piastres pi un cafe. C\'est deja plus que ta derniere revente.',
-  'Alerte: 48h sans avoir change de pickup. Tout va bien chez vous? Passe nous voir pour etre sur.'
+  'Ton historique: un pickup neuf par annee, comme une horloge. On a juste a te garder une place.',
+  'Alerte: 48h sans avoir achete un pickup neuf. Tout va bien chez vous? Passe nous voir pour etre sur.'
 ];
 
 /**
