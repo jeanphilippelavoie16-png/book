@@ -50,6 +50,15 @@ var ECLIPSE_NUMERO = '+14182979261';
 // true = recommence au premier: 1440 textos par jour, jusqu'a l'arret.
 var ECLIPSE_BOUCLE = false;
 
+// Gag "concessionnaire": messages taquins vers un ami qui change de
+// pickup chaque annee. Demarrer: demarrerVente() dans l'editeur, ou
+// texter "vente". Arreter: arreterVente(), ou "vente stop". Meme
+// logique que les faits d'eclipses, liste et numero a part.
+var VENTE_NUMERO = '+14182979261';
+// true = la campagne tourne en boucle jusqu'a l'arret, le gag se repete.
+// false = s'arrete seule apres le dernier message.
+var VENTE_BOUCLE = true;
+
 function doGet(e) {
   return ContentService
     .createTextOutput('OK - serveur actif')
@@ -99,6 +108,19 @@ function doPost(e) {
     if (/^eclipse\s+(stop|arret)$/.test(commande)) {
       arreterEclipse();
       envoyerSms(expediteur, 'Faits eclipse arretes.');
+      return reponseVide();
+    }
+
+    // Gag concessionnaire: "vente" demarre, "vente stop" arrete.
+    if (commande === 'vente') {
+      demarrerVente();
+      envoyerSms(expediteur, 'Gag vente: 1 texto/min vers '
+        + VENTE_NUMERO + '. "vente stop" pour arreter.');
+      return reponseVide();
+    }
+    if (/^vente\s+(stop|arret)$/.test(commande)) {
+      arreterVente();
+      envoyerSms(expediteur, 'Gag vente arrete.');
       return reponseVide();
     }
 
@@ -949,6 +971,84 @@ function arreterEclipse() {
   }
 }
 
+/**
+ * Gag concessionnaire: messages taquins a un ami qui rachete un pickup
+ * chaque annee. 140 caracteres au plus, sans accents (GSM-7).
+ * testerVente() verifie les longueurs sans rien envoyer.
+ */
+var MESSAGES_VENTE = [
+  'Garage Flip-a-Truck: t\'as achete 3 pickups en 3 ans? Viens-en chercher un 4e, on sait que t\'es pas capable de t\'en passer.',
+  'Felicitations! Client VIP de l\'annee: 3 trucks achetes, 3 revendus a perte. Viens battre ton record.',
+  'Nouveau Ram en lot. On t\'a garde celui que tu vas revendre dans 8 mois de toute facon.',
+  'Ton dernier truck a meme pas fini de se deprecier que tu regardes deja les annonces. On t\'attend.',
+  'Promo special indecis: achete un pickup aujourd\'hui, revends-le-nous demain a moitie prix. Gagnant-gagnant (pour nous).',
+  'On a vu que t\'as reparde Kijiji a 2h du matin. Le 4e truck t\'appelle. Reponds-lui.',
+  'Un vrai gars change de pickup plus souvent que d\'huile a moteur. T\'es en retard.',
+  'T\'hesites entre garder ton char ou en racheter un? On a deja rempli les papiers. Signe icitte.',
+  'Financement approuve pour un truck que t\'as pas encore vu. On te connait mieux que toi-meme.',
+  'Ton banquier a pleure en voyant ton historique de trucks. Nous on applaudit. Viens-t\'en.',
+  'Reprise de ton vieux truck: on te donne 3 piastres pi un cafe. C\'est deja plus que ta derniere revente.',
+  'Alerte: 48h sans avoir change de pickup. Tout va bien chez vous? Passe nous voir pour etre sur.'
+];
+
+/**
+ * Appelee chaque minute par le declencheur: envoie le message suivant a
+ * VENTE_NUMERO. Le rang vit dans les proprietes du script, meme logique
+ * que les faits d'eclipses.
+ */
+function envoyerMessageVente() {
+  var props = PropertiesService.getScriptProperties();
+  var rang = parseInt(props.getProperty('VENTE_RANG') || '0', 10);
+  if (!(rang >= 0 && rang < MESSAGES_VENTE.length)) {
+    rang = 0;
+  }
+
+  try {
+    envoyerSms(VENTE_NUMERO, MESSAGES_VENTE[rang]);
+  } catch (err) {
+    // 21610 = le destinataire a texte STOP: Twilio refuse les envois
+    // suivants. On arrete plutot que d'echouer chaque minute.
+    if (err.toString().indexOf('21610') >= 0) {
+      arreterVente();
+      return;
+    }
+    throw err;
+  }
+
+  rang++;
+  if (rang >= MESSAGES_VENTE.length) {
+    if (!VENTE_BOUCLE) {
+      arreterVente();
+      return;
+    }
+    rang = 0;
+  }
+  props.setProperty('VENTE_RANG', String(rang));
+}
+
+/**
+ * Repart du premier message, l'envoie tout de suite, puis pose le
+ * declencheur aux minutes. Un seul declencheur a la fois.
+ */
+function demarrerVente() {
+  arreterVente();
+  PropertiesService.getScriptProperties().setProperty('VENTE_RANG', '0');
+  envoyerMessageVente();
+  ScriptApp.newTrigger('envoyerMessageVente')
+    .timeBased()
+    .everyMinutes(1)
+    .create();
+}
+
+function arreterVente() {
+  var declencheurs = ScriptApp.getProjectTriggers();
+  for (var i = 0; i < declencheurs.length; i++) {
+    if (declencheurs[i].getHandlerFunction() === 'envoyerMessageVente') {
+      ScriptApp.deleteTrigger(declencheurs[i]);
+    }
+  }
+}
+
 function appelerClaude(question) {
   var cle = PropertiesService
     .getScriptProperties()
@@ -1300,4 +1400,21 @@ function testerEclipse() {
     }
   }
   Logger.log(FAITS_ECLIPSE.length + ' faits, ' + trop + ' a corriger');
+}
+
+/**
+ * TEST 6 - verifie que chaque message du gag vente tient dans un texto,
+ * sans rien envoyer.
+ */
+function testerVente() {
+  var trop = 0;
+  for (var i = 0; i < MESSAGES_VENTE.length; i++) {
+    if (MESSAGES_VENTE[i].length > SMS_TAILLE
+        || retirerAccents(MESSAGES_VENTE[i]) !== MESSAGES_VENTE[i]) {
+      Logger.log('MESSAGE ' + i + ' (' + MESSAGES_VENTE[i].length + ' car.): '
+        + MESSAGES_VENTE[i]);
+      trop++;
+    }
+  }
+  Logger.log(MESSAGES_VENTE.length + ' messages, ' + trop + ' a corriger');
 }
