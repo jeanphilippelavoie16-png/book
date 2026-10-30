@@ -2,7 +2,8 @@
  * Twilio SMS -> Claude API (Fable, effort max, recherche web) -> SMS sortant via API Twilio
  * Commandes: "ping" (test), "meteo" (aujourd'hui + demain, heure par heure),
  * "meteo 2" a "meteo 4" (un texto par journee), "meteo 5" a "meteo 7"
- * (bulletin condense, une ligne par jour)
+ * (bulletin condense, une ligne par jour), "eclipse" (un fait sur les
+ * eclipses solaires par minute vers ECLIPSE_NUMERO), "eclipse stop"
  *
  * Envoi en SERIE de textos courts: le SMS satellite iPhone plafonne a 140
  * caracteres par message, et les longs SMS concatenes (segments) se perdent
@@ -40,6 +41,15 @@ var METEO_TZ = 'America/Montreal';
 // false = garde les accents mais force l'encodage UCS-2 (67 car./segment).
 var STRIP_ACCENTS = true;
 
+// Faits sur les eclipses solaires: un texto par minute vers ce numero,
+// par un declencheur Apps Script. Demarrer: demarrerEclipse() dans
+// l'editeur, ou texter "eclipse" au numero Twilio. Arreter:
+// arreterEclipse(), ou texter "eclipse stop".
+var ECLIPSE_NUMERO = '+14182979261';
+// false = s'arrete seul apres le dernier fait (une soixantaine de textos).
+// true = recommence au premier: 1440 textos par jour, jusqu'a l'arret.
+var ECLIPSE_BOUCLE = false;
+
 function doGet(e) {
   return ContentService
     .createTextOutput('OK - serveur actif')
@@ -75,11 +85,31 @@ function doPost(e) {
       return reponseVide();
     }
 
+    var commande = texte.trim().toLowerCase().replace(/[éèêë]/g, 'e');
+
+    // Faits sur les eclipses. "stop" seul vient du destinataire: Twilio
+    // le bloque deja et refuse toute reponse, d'ou le try. Ne pas texter
+    // "stop" seul soi-meme: Twilio bloquerait aussi nos propres reponses
+    // jusqu'a un "START".
+    if (commande === 'eclipse') {
+      demarrerEclipse();
+      envoyerSms(expediteur, 'Faits eclipse: 1 texto/min vers '
+        + ECLIPSE_NUMERO + '. "eclipse stop" pour arreter.');
+      return reponseVide();
+    }
+    if (/^(eclipse\s+)?(stop|arret)$/.test(commande)) {
+      arreterEclipse();
+      try {
+        envoyerSms(expediteur, 'Faits eclipse arretes.');
+      } catch (errStop) {
+        Logger.log('Confirmation eclipse non envoyee: ' + errStop.toString());
+      }
+      return reponseVide();
+    }
+
     // Commande meteo, sans passer par Claude. Gratuit sauf les SMS.
     // "meteo" = 48 h heure par heure. "meteo 5" = 5 jours resumes (1 a 7).
-    var cmdMeteo = texte.trim().toLowerCase()
-      .replace(/[éèêë]/g, 'e')
-      .match(/^meteo\s*(\d)?\s*$/);
+    var cmdMeteo = commande.match(/^meteo\s*(\d)?\s*$/);
     if (cmdMeteo) {
       if (cmdMeteo[1]) {
         var nbJours = Math.max(2, Math.min(7, parseInt(cmdMeteo[1], 10)));
@@ -801,6 +831,129 @@ function pointCardinal(deg) {
   return dirs[Math.round(deg / 45) % 8];
 }
 
+/**
+ * Un fait par texto, 140 caracteres au plus, sans accents (GSM-7).
+ * testerEclipse() verifie les longueurs. Le premier texto se presente.
+ */
+var FAITS_ECLIPSE = [
+  'Faits sur les eclipses solaires, un texto par minute. Repondez STOP pour arreter.',
+  'Le Soleil est 400 fois plus large que la Lune, mais aussi environ 400 fois plus loin: les deux paraissent de la meme taille dans le ciel.',
+  'Une eclipse solaire ne se produit qu\'a la nouvelle lune, quand la Lune passe exactement entre la Terre et le Soleil.',
+  'Pas d\'eclipse a chaque nouvelle lune: l\'orbite de la Lune penche d\'environ 5 degres, et son ombre passe le plus souvent a cote de la Terre.',
+  'La Terre voit au moins 2 et au plus 5 eclipses solaires par annee. Cinq dans la meme annee: 1935, et la prochaine fois en 2206.',
+  'Trois sortes: partielle (la Lune mord le Soleil), annulaire (il reste un anneau de feu) et totale (le Soleil disparait).',
+  'Eclipse annulaire: la Lune est trop loin de la Terre pour couvrir tout le Soleil. Il reste un anneau brillant, trop fort pour l\'oeil nu.',
+  'La Lune passe de 356 000 a 407 000 km de la Terre environ. Sa distance decide si une eclipse centrale sera totale ou annulaire.',
+  'Eclipse hybride: annulaire a un bout du trajet, totale ailleurs, parce que la Terre est ronde. La derniere: 20 avril 2023, Australie.',
+  'La totalite ne peut pas durer plus d\'environ 7 min 30 s. La plus longue du 21e siecle: 6 min 39 s, le 22 juillet 2009, en Asie.',
+  'La plus longue totalite du 3e millenaire: 7 min 29 s, le 16 juillet 2186. Presque le maximum possible.',
+  'Prochaine grande totale: 2 aout 2027, jusqu\'a 6 min 23 s pres de Louxor, en Egypte. Elle passe aussi sur l\'Espagne et l\'Afrique du Nord.',
+  '12 aout 2026: eclipse totale sur le Groenland, l\'Islande et l\'Espagne, en soiree.',
+  '8 avril 2024: totale sur le Mexique, les Etats-Unis et l\'Est du Canada, dont le sud du Quebec. Jusqu\'a 4 min 28 s au Mexique.',
+  'L\'ombre de la Lune file d\'ouest en est sur la Terre a plus de 1 700 km/h. Pres des poles, elle va plusieurs fois plus vite.',
+  'La bande de totalite fait au plus 270 km de large environ, souvent bien moins. A cote, on ne voit qu\'une eclipse partielle.',
+  'Meme a 99 %, une partielle n\'a rien d\'une totale: le 1 % de Soleil qui reste suffit a garder le jour.',
+  'Une eclipse totale revient au meme endroit en moyenne une fois tous les 375 ans environ.',
+  'Le saros: les eclipses se repetent aux 18 ans, 11 jours et 8 heures. Les 8 heures poussent la suivante d\'un tiers de tour vers l\'ouest.',
+  'Trois saros, soit 54 ans et 33 jours, ramenent une eclipse a peu pres a la meme longitude.',
+  'Une serie de saros dure 12 a 15 siecles et compte 70 a 85 eclipses. Elle commence pres d\'un pole et finit pres de l\'autre.',
+  'Les eclipses viennent par saisons, environ aux 173 jours. Une eclipse de Soleil a souvent une eclipse de Lune a deux semaines pres.',
+  'Une eclipse de Soleil se voit sur une bande etroite. Une eclipse de Lune se voit de toute la moitie de la Terre ou il fait nuit.',
+  'Vue du Quebec, la Lune entame le Soleil par la droite (l\'ouest) et le quitte par la gauche: elle avance vers l\'est dans le ciel.',
+  'Une eclipse totale dure 2 a 3 heures en tout: plus d\'une heure de partielle avant la totalite, autant apres.',
+  'Ne jamais fixer le Soleil partiellement eclipse sans filtre: la retine brule sans douleur. Elle n\'a pas de recepteurs de douleur.',
+  'Les lunettes de soleil, meme tres foncees, ne protegent pas. Il faut un filtre solaire fait pour ca, sans trou ni egratignure.',
+  'Verre de soudeur: teinte 12 au minimum, 13 ou 14 plus confortable. Pas de masque auto-assombrissant: il peut reagir trop tard.',
+  'Seule la totalite se regarde a l\'oeil nu, et seulement tant qu\'elle dure. Au premier eclat de Soleil, le filtre revient.',
+  'Une eclipse annulaire ne fait jamais la nuit: l\'anneau qui reste est trop brillant pour etre regarde sans filtre.',
+  'Stenope: un petit trou dans un carton projette l\'image du Soleil sur une feuille. Pendant l\'eclipse, on y voit le croissant.',
+  'Sous un arbre pendant l\'eclipse, les trous entre les feuilles projettent des centaines de petits croissants de Soleil au sol.',
+  'Une passoire, ou les doigts croises en grille, font aussi des stenopes: chaque trou projette un petit croissant.',
+  'Pendant une partielle profonde, les ombres deviennent etrangement nettes: le Soleil n\'est plus qu\'un mince croissant.',
+  'Juste avant la totalite, des bandes d\'ombre ondulent parfois au sol: l\'air turbulent brouille le dernier filet de Soleil.',
+  'Grains de Baily: des perles de lumiere qui passent par les vallees du relief lunaire, quelques secondes avant la totalite.',
+  'La bague a diamant: le dernier grain de Baily brille comme une pierre sur un anneau. Elle revient a la fin de la totalite.',
+  'La chromosphere apparait comme un mince filet rose au bord de la Lune, quelques secondes au debut et a la fin de la totalite.',
+  'Pendant la totalite, des proeminences rose-rouge depassent du bord de la Lune: des jets de gaz plus grands que la Terre.',
+  'La couronne, l\'atmosphere exterieure du Soleil, ne se voit a l\'oeil nu que pendant la totalite. Elle depasse le million de degres.',
+  'La couronne est des centaines de fois plus chaude que la surface du Soleil, a environ 5 500 degres. Pourquoi? On le cherche encore.',
+  'En totalite, il fait sombre comme au crepuscule: Venus et les etoiles brillantes sortent, et tout l\'horizon prend les couleurs du soir.',
+  'La temperature baisse de quelques degres sous l\'ombre de la Lune, et le vent change souvent quand l\'air refroidit.',
+  'Les animaux s\'y trompent: des oiseaux se taisent ou rentrent au nid, les grillons se mettent a chanter.',
+  'L\'helium a ete repere dans le spectre du Soleil pendant l\'eclipse du 18 aout 1868, 27 ans avant d\'etre trouve sur Terre.',
+  '29 mai 1919: pendant une eclipse, Eddington mesure la deviation de la lumiere des etoiles par le Soleil. Einstein avait raison.',
+  'Premiere photo de la couronne: un daguerreotype du 28 juillet 1851, pris a Konigsberg, en Prusse.',
+  '1715: Edmond Halley predit a 4 minutes pres l\'eclipse totale sur Londres, et publie d\'avance la premiere carte d\'une eclipse.',
+  '30 juin 1973: le Concorde 001 poursuit l\'ombre de la Lune au-dessus de l\'Afrique. Les savants a bord ont 74 minutes de totalite.',
+  'Selon Herodote, une eclipse a arrete une bataille entre Medes et Lydiens, le 28 mai 585 av. J.-C. Thales l\'aurait predite.',
+  'Selon une legende chinoise, les astronomes Hsi et Ho auraient ete executes pour ne pas avoir prevu une eclipse.',
+  'Les eclipses anciennes servent a mesurer le ralentissement de la Terre: sans lui, elles tombent au mauvais endroit dans les calculs.',
+  'On connait deja les dates et les bandes des eclipses jusqu\'en l\'an 3000.',
+  'Le mot eclipse vient du grec ekleipsis: abandon, disparition.',
+  'La Lune s\'eloigne d\'environ 3,8 cm par annee. Dans quelques centaines de millions d\'annees, elle ne cachera plus tout le Soleil.',
+  'Aucune autre lune du systeme solaire ne couvre le Soleil aussi exactement que la notre. Une coincidence de notre epoque.',
+  'Depuis Mars, la lune Phobos passe devant le Soleil en une quarantaine de secondes. Le rover Perseverance l\'a filme en avril 2022.',
+  'Mercure et Venus passent aussi devant le Soleil, trop petites pour l\'eclipser: un point noir. Prochain passage de Venus: decembre 2117.'
+];
+
+/**
+ * Appelee chaque minute par le declencheur: envoie le fait suivant a
+ * ECLIPSE_NUMERO. Le rang du prochain fait vit dans les proprietes du
+ * script, d'une execution a l'autre.
+ */
+function envoyerFaitEclipse() {
+  var props = PropertiesService.getScriptProperties();
+  var rang = parseInt(props.getProperty('ECLIPSE_RANG') || '0', 10);
+  if (!(rang >= 0 && rang < FAITS_ECLIPSE.length)) {
+    rang = 0;
+  }
+
+  try {
+    envoyerSms(ECLIPSE_NUMERO, FAITS_ECLIPSE[rang]);
+  } catch (err) {
+    // 21610 = le destinataire a texte STOP: Twilio refusera tous les
+    // envois suivants. On arrete plutot que d'echouer chaque minute.
+    if (err.toString().indexOf('21610') >= 0) {
+      arreterEclipse();
+      return;
+    }
+    throw err;
+  }
+
+  rang++;
+  if (rang >= FAITS_ECLIPSE.length) {
+    if (!ECLIPSE_BOUCLE) {
+      arreterEclipse();
+      return;
+    }
+    rang = 0;
+  }
+  props.setProperty('ECLIPSE_RANG', String(rang));
+}
+
+/**
+ * Repart du premier fait, l'envoie tout de suite, puis pose le
+ * declencheur aux minutes. Un seul declencheur a la fois.
+ */
+function demarrerEclipse() {
+  arreterEclipse();
+  PropertiesService.getScriptProperties().setProperty('ECLIPSE_RANG', '0');
+  envoyerFaitEclipse();
+  ScriptApp.newTrigger('envoyerFaitEclipse')
+    .timeBased()
+    .everyMinutes(1)
+    .create();
+}
+
+function arreterEclipse() {
+  var declencheurs = ScriptApp.getProjectTriggers();
+  for (var i = 0; i < declencheurs.length; i++) {
+    if (declencheurs[i].getHandlerFunction() === 'envoyerFaitEclipse') {
+      ScriptApp.deleteTrigger(declencheurs[i]);
+    }
+  }
+}
+
 function appelerClaude(question) {
   var cle = PropertiesService
     .getScriptProperties()
@@ -1135,4 +1288,21 @@ function testerDecoupe() {
  */
 function testerSms() {
   envoyerSms('+14182973188', 'Test envoi direct depuis Apps Script');
+}
+
+/**
+ * TEST 5 - verifie que chaque fait eclipse tient dans un texto, sans
+ * rien envoyer.
+ */
+function testerEclipse() {
+  var trop = 0;
+  for (var i = 0; i < FAITS_ECLIPSE.length; i++) {
+    if (FAITS_ECLIPSE[i].length > SMS_TAILLE
+        || retirerAccents(FAITS_ECLIPSE[i]) !== FAITS_ECLIPSE[i]) {
+      Logger.log('FAIT ' + i + ' (' + FAITS_ECLIPSE[i].length + ' car.): '
+        + FAITS_ECLIPSE[i]);
+      trop++;
+    }
+  }
+  Logger.log(FAITS_ECLIPSE.length + ' faits, ' + trop + ' a corriger');
 }
