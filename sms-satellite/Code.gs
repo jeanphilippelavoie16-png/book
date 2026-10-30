@@ -972,23 +972,25 @@ function arreterEclipse() {
 }
 
 /**
- * Gag concessionnaire: messages taquins a un ami qui rachete un pickup
- * chaque annee. 140 caracteres au plus, sans accents (GSM-7).
- * testerVente() verifie les longueurs sans rien envoyer.
+ * Gag concessionnaire: pour un ami qui rachete un pickup neuf chaque
+ * annee. Ecrit dans le ton d'une vraie promo de garage, vouvoiement.
+ * Garage invente (jamais une vraie entreprise), aucune demande d'argent
+ * ni d'infos: ca reste une annonce. 140 caracteres au plus, sans accents
+ * (GSM-7). testerVente() verifie les longueurs sans rien envoyer.
  */
 var MESSAGES_VENTE = [
-  'Garage Flip-a-Truck: t\'as achete 3 pickups neufs en 3 ans? Viens-en chercher un 4e, on sait que t\'es pas capable de t\'en passer.',
-  'Felicitations! Client VIP de l\'annee: 3 pickups neufs en 3 ans. Viens battre ton record.',
-  'Nouveau Ram flambant neuf arrive. On te l\'a reserve: on savait que t\'en voudrais un autre.',
-  'Ton pickup a meme pas 10 000 km que tu regardes deja le modele de l\'an prochain. On t\'attend.',
-  'Promo special indecis: signe aujourd\'hui pour un pickup neuf, on comprend que t\'es pas capable d\'attendre.',
-  'Le nouveau modele vient de sortir. On sait que t\'as deja hate. Le 4e truck t\'appelle.',
-  'Un vrai gars change de pickup neuf plus souvent que d\'huile a moteur. T\'es en retard.',
-  'T\'hesites a racheter un pickup neuf? On a deja rempli les papiers. Signe icitte.',
-  'Financement approuve pour un truck neuf que t\'as pas encore vu. On te connait mieux que toi-meme.',
-  'Ton banquier a pleure en voyant ton historique de trucks. Nous on applaudit. Viens-t\'en.',
-  'Ton historique: un pickup neuf par annee, comme une horloge. On a juste a te garder une place.',
-  'Alerte: 48h sans avoir achete un pickup neuf. Tout va bien chez vous? Passe nous voir pour etre sur.'
+  'Camions Select: nos pickups neufs 2026 viennent d\'arriver en salle de montre. Prenez rendez-vous cette semaine pour un essai routier.',
+  'Offre VIP reservee a nos clients fideles: financement a taux reduit sur tout pickup neuf jusqu\'a vendredi.',
+  'Nouveaux arrivages de pickups neufs chaque semaine. Venez choisir le votre avant tout le monde.',
+  'Edition limitee: les versions haut de gamme partent vite. On vous en reserve une pour l\'essai.',
+  'Comme client privilegie, vous avez droit a une offre speciale sur votre prochain pickup neuf.',
+  'Rappel: notre promotion sur les pickups neufs se termine bientot. Il reste quelques modeles en stock.',
+  'Nos conseillers ont preselectionne un pickup neuf qui vous conviendrait. Venez le voir en personne.',
+  'Financement preapprouve disponible sur les pickups neufs en inventaire. Passez quand ca vous convient.',
+  'Votre excellent dossier vous ouvre nos meilleures conditions sur les pickups neufs. Profitez-en.',
+  'Un pickup neuf par annee, c\'est la marque d\'un vrai connaisseur. On a deja le prochain pour vous.',
+  'Votre historique fait de vous un client en or chez nous. Venez voir ce qu\'on vous reserve.',
+  'Portes ouvertes ce week-end chez Camions Select: cafe, essais routiers et rabais sur nos pickups neufs.'
 ];
 
 /**
