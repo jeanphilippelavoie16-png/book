@@ -1,5 +1,5 @@
 // Catalogue des Souhaits : tout le catalogue reste dans l'iPad, même sans réseau.
-const VERSION = "souhaits-d546db2a77";
+const VERSION = "souhaits-c517586b2e";
 const COQUILLE = [
   "./",
   "index.html",
