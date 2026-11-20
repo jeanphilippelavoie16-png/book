@@ -2,7 +2,7 @@ import json, os, sys
 
 D = "/tmp/claude-0/-home-user-book/cb220ab1-a615-5cba-b429-4b85a382651f/scratchpad/catalogue"
 items = []
-for f in ("lego.json", "autres.json", "lego2.json", "batir2.json", "autres2.json", "lego3.json", "batir3.json", "figurines3.json", "jeux3.json", "art4.json", "dehors4.json", "teleguides5.json", "jeux6.json", "livres6.json", "lego6.json", "teleguides7.json", "cool7.json", "dehors7.json", "batir7.json", "hotwheels7.json", "jouer7.json", "art7.json", "deuxans7.json", "deuxans-moteur.json", "deuxans-educ.json", "deuxans-cool.json", "deuxans-livres.json", "deuxans-bain.json", "deuxans-peluches.json", "deuxans-musique.json", "deuxans-art.json", "deuxans-vehicules.json", "deuxans-role.json", "papa.json", "deuxans-qc-livres.json", "deuxans-qc-apprendre.json", "deuxans-qc-beaux.json", "grands-cool.json", "grands-teleguides.json", "papa2.json"):
+for f in ("lego.json", "autres.json", "lego2.json", "batir2.json", "autres2.json", "lego3.json", "batir3.json", "figurines3.json", "jeux3.json", "art4.json", "dehors4.json", "teleguides5.json", "jeux6.json", "livres6.json", "lego6.json", "teleguides7.json", "cool7.json", "dehors7.json", "batir7.json", "hotwheels7.json", "jouer7.json", "art7.json", "deuxans7.json", "deuxans-moteur.json", "deuxans-educ.json", "deuxans-cool.json", "deuxans-livres.json", "deuxans-bain.json", "deuxans-peluches.json", "deuxans-musique.json", "deuxans-art.json", "deuxans-vehicules.json", "deuxans-role.json", "papa.json", "deuxans-qc-livres.json", "deuxans-qc-apprendre.json", "deuxans-qc-beaux.json", "grands-cool.json", "grands-teleguides.json", "papa2.json", "papa3.json", "retro.json", "grands-qualite.json"):
     p = os.path.join(D, f)
     if os.path.exists(p):
         items += json.load(open(p))
@@ -50,8 +50,21 @@ GENERIQUE = {"k7-cible-collante", "k7-popper", "k7-baguette-lumineuse", "k7-casq
 def _liste(nom):
     p = os.path.join(D, nom)
     return {l.split()[0] for l in open(p) if l.strip() and not l.startswith("#")} if os.path.exists(p) else set()
-PERCEUSE = MULTIPIECES | SCRAP | GENERIQUE | _liste("livres-pas-qc.txt") | _liste("teleguides-generiques.txt") | {"b-battat-grue", "yc-bluey-chantier", "t7-char-type-90", "d4-filet-papillons", "yc-waterworks", "yv-lp-pompiers", "yc-lp-ferme", "b7-stanley-5-outils", "yr-bureau-vtech", "lego-42199", "lego-60402", "c-hw-maker-kitz", "t5-torque-twister", "t5-rouleau-cascades", "ya-crayola-touch-lights"}
+PERCEUSE = MULTIPIECES | SCRAP | GENERIQUE | _liste("livres-pas-qc.txt") | _liste("teleguides-generiques.txt") | _liste("deguisements-dehors-a-retirer.txt") | {"b-battat-grue", "yc-bluey-chantier", "t7-char-type-90", "d4-filet-papillons", "yc-waterworks", "yv-lp-pompiers", "yc-lp-ferme", "b7-stanley-5-outils", "yr-bureau-vtech", "lego-42199", "lego-60402", "c-hw-maker-kitz", "t5-torque-twister", "t5-rouleau-cascades", "ya-crayola-touch-lights"}
 TELE = {"b-dickie-grue", "b-pompiers-a-construire", "b-driven-depanneuse-rc", "c-monster-jam-rc", "c-cybertruck-rc"}
+NATUREL = {"y7-cozy-coupe": "d2-bouger", "y7-glissoire": "d2-bouger", "y7-table-eau": "d2-bain", "y7-micro-mini": "d2-bouger",
+           "y7-draisienne": "d2-bouger", "y7-lp-ferme": "d2-vehicules", "y7-mega-bloks": "d2-apprendre", "y7-spinagain": "d2-apprendre",
+           "y7-jardin-formes": "d2-apprendre", "y7-waterworks": "d2-bain", "y7-labo-eau": "d2-bain", "y7-lp-pompiers": "d2-vehicules",
+           "y7-corn-popper": "d2-bouger", "y7-telephone": "d2-semblant", "y7-crayola-lumiere": "d2-art", "y7-tambour-poule": "d2-musique",
+           "y7-xylophone": "d2-musique", "y7-tunnel": "d2-bouger", "y7-casse-tete": "d2-apprendre", "y7-jellycat-lapin": "d2-calins",
+           "y7-gund-outils": "d2-semblant", "y7-placote-de": "d2-apprendre", "y7-bateau-peche": "d2-bain", "y7-bilibo": "d2-bouger",
+           "y7-jelly-tracteur": "d2-apprendre", "y7-gobelets": "d2-apprendre", "y7-livre-animaux": "d2-livres",
+           "yc-lp-autobus": "d2-vehicules", "yc-lp-camion-benne": "d2-vehicules", "yc-b-garage": "d2-vehicules", "yc-b-transporteur": "d2-vehicules",
+           "yc-xylo-renard": "d2-musique", "yc-b-tambour": "d2-musique", "yc-micro-okidokee": "d2-musique", "yc-funkeys": "d2-semblant",
+           "yc-water-lab": "d2-bain", "yc-boon-tuyaux": "d2-bain", "yc-twilight-chevreuil": "d2-calins", "yc-munchkin-etoile": "d2-bain",
+           "y7-qc-placote-tour-consignes": "d2-apprendre"}
+RETRO = _liste("retro-deplacer.txt")
+COUPS = _liste("coups-grands.txt") | _liste("coups-1an.txt")
 ok = []
 vus = set()
 for it in items:
@@ -81,13 +94,18 @@ for it in items:
              "yp-": "d2-calins", "ys-": "d2-musique", "ya-": "d2-art", "yv-": "d2-vehicules", "yr-": "d2-semblant"}
     for pre, cat in SOUS2.items():
         if it["id"].startswith(pre): it["categorie"] = cat
+    # les coups de cœur du tout-petit retournent dans leur rayon ; seuls ceux de la liste choisie restent en tête
+    if it.get("categorie") == "d2-coups": it["categorie"] = NATUREL.get(it["id"], "d2-apprendre")
+    if it["id"].startswith("yz-"): it["categorie"] = "d2-retro"
+    if it["id"] in RETRO: it["categorie"] = "d2-retro" if it["categorie"].startswith("d2-") else "retro"
+    if it["id"] in COUPS: it["categorie"] = "d2-coups" if it["categorie"].startswith("d2-") else "coups"
     if it.get("categorie") == "figurines":
         continue
     if it.get("categorie") == "duplo" or "DUPLO" in (it.get("marque") or "").upper():
         continue
     if it["id"].startswith("zz-"):
         pass
-    elif isinstance(it.get("prix"), (int, float)) and (it["prix"] > 150 or (it["prix"] > 80 and not it["id"].startswith(("t7-", "k7-", "e7-", "b7-", "h7-", "p7-", "r7-", "k8-", "t8-", "p8-", "h8-", "y7-", "ym-", "ye-", "yc-", "yl-", "yb-", "yp-", "ys-", "ya-", "yv-", "yr-"))) or (it["prix"] > 50 and it["id"] not in GROS_OK and not it["id"].startswith(("c-", "f-", "g-", "a4-", "d4-", "t5-", "j6-", "l6-", "t7-", "k7-", "e7-", "b7-", "h7-", "p7-", "r7-", "k8-", "t8-", "p8-", "h8-", "y7-", "ym-", "ye-", "yc-", "yl-", "yb-", "yp-", "ys-", "ya-", "yv-", "yr-")) and it["id"] not in NOUVEAUX_LEGO6 and it["id"] not in NOUVEAUX_LEGO)):
+    elif isinstance(it.get("prix"), (int, float)) and (it["prix"] > 150 or (it["prix"] > 80 and not it["id"].startswith(("t7-", "k7-", "e7-", "b7-", "h7-", "p7-", "r7-", "k8-", "t8-", "p8-", "h8-", "r9-", "yz-", "p9-", "e9-", "y7-", "ym-", "ye-", "yc-", "yl-", "yb-", "yp-", "ys-", "ya-", "yv-", "yr-"))) or (it["prix"] > 50 and it["id"] not in GROS_OK and not it["id"].startswith(("c-", "f-", "g-", "a4-", "d4-", "t5-", "j6-", "l6-", "t7-", "k7-", "e7-", "b7-", "h7-", "p7-", "r7-", "k8-", "t8-", "p8-", "h8-", "r9-", "yz-", "p9-", "e9-", "y7-", "ym-", "ye-", "yc-", "yl-", "yb-", "yp-", "ys-", "ya-", "yv-", "yr-")) and it["id"] not in NOUVEAUX_LEGO6 and it["id"] not in NOUVEAUX_LEGO)):
         continue
     img = os.path.join(D, it.get("img", ""))
     if not os.path.isfile(img):
@@ -109,8 +127,8 @@ for it in items:
     ok.append(keep)
 # ---- planches d'images : 36 jouets par fichier, dans l'ordre des sections ----
 from PIL import Image
-ORDRE = ["lego", "batir", "teleguides", "autos", "cool", "jouer", "jeux", "livres", "art", "dehors",
-         "d2-coups", "d2-bouger", "d2-apprendre", "d2-vehicules", "d2-semblant", "d2-musique", "d2-art", "d2-bain", "d2-calins", "d2-livres", "papa"]
+ORDRE = ["retro", "coups", "lego", "batir", "teleguides", "autos", "cool", "jouer", "jeux", "livres", "art", "dehors",
+         "d2-retro", "d2-coups", "d2-bouger", "d2-apprendre", "d2-vehicules", "d2-semblant", "d2-musique", "d2-art", "d2-bain", "d2-calins", "d2-livres", "papa"]
 rang = {c: i for i, c in enumerate(ORDRE)}
 tri = sorted(ok, key=lambda it: (rang.get(it["categorie"], 99), it["prix"]))
 CELL, N = 384, 6

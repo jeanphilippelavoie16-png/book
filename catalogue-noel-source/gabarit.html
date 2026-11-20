@@ -370,7 +370,30 @@ svg { display: block; }
 .sceau b { font: 400 27px/1 var(--titre); }
 .sceau span { font: 800 10px/1.1 var(--ui); letter-spacing: .2em; text-transform: uppercase; }
 @media (max-width: 560px) { .sceau { width: 72px; height: 72px; right: -12px; } .sceau b { font-size: 21px; } .rameau { opacity: .5; } }
-@media (prefers-reduced-motion: reduce) { .neige { display: none; } }
+
+/* dernière touche : grain de papier, ficelle des étiquettes, entrée douce, signature */
+#accueil .grain { position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: .09; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+.carte-enf .ficelle { position: absolute; left: 16px; top: 50%; width: 46px; height: 2px; margin-top: -1px; transform-origin: 0 50%; transform: rotate(-152deg);
+  background: repeating-linear-gradient(90deg, #C9A86A 0 3px, #A8864C 3px 5px); border-radius: 2px; pointer-events: none; z-index: 1; }
+.carte-enf { overflow: visible; }
+.carte-enf:nth-child(even) .ficelle { transform: rotate(-200deg); }
+@keyframes entree { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+.scene-accueil > * { animation: entree .7s cubic-bezier(.2, .7, .2, 1) both; }
+.scene-accueil > .cote-droit { animation-delay: .12s; }
+.enfants .carte-enf { animation: entree .6s cubic-bezier(.2, .7, .2, 1) both; }
+.enfants .carte-enf:nth-child(1) { animation-delay: .25s; } .enfants .carte-enf:nth-child(2) { animation-delay: .32s; }
+.enfants .carte-enf:nth-child(3) { animation-delay: .39s; } .enfants .carte-enf:nth-child(4) { animation-delay: .46s; }
+.dedicace { margin: -4px 0 0; font: italic 400 16px/1.45 "Fraunces", Georgia, serif; color: rgba(246,239,223,.78); max-width: 34em; }
+.pied-accueil { display: flex; align-items: center; gap: 18px; margin-top: 2px; }
+.cote-droit .lien-parents { display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 999px; text-decoration: none;
+  border: 1px solid rgba(214,178,94,.45); color: #F2D58F; background: rgba(11,36,26,.35); font: 600 13px var(--ui); letter-spacing: .04em; }
+.cote-droit .lien-parents svg { width: 15px; height: 15px; }
+.cote-droit .lien-parents:active { background: rgba(214,178,94,.15); }
+.signature { position: fixed; z-index: 1; left: 0; right: 0; bottom: calc(env(safe-area-inset-bottom, 0px) + 20px); text-align: center; pointer-events: none;
+  font: 600 10px/1 var(--ui); letter-spacing: .32em; text-transform: uppercase; color: rgba(214,178,94,.55); }
+@media (max-aspect-ratio: 1/1) { .signature { position: static; margin: 10px 0 30px; } }
+@media (prefers-reduced-motion: reduce) { .neige { display: none; } .scene-accueil > *, .enfants .carte-enf { animation: none; } }
 
 #accueil.ouverture::after { content: ""; position: fixed; inset: 0; z-index: 10; background: #FBF4E4; opacity: 0; animation: fondu .22s forwards; }
 @keyframes fondu { to { opacity: 1; } }
@@ -438,6 +461,7 @@ svg { display: block; }
 </style>
 
 <main id="accueil">
+  <div class="grain" aria-hidden="true"></div>
   <div class="neige" id="neige" aria-hidden="true"></div>
   <svg class="rameau rameau-hg" id="rameau-hg" viewBox="0 0 220 220" aria-hidden="true"></svg>
   <svg class="rameau rameau-bd" id="rameau-bd" viewBox="0 0 220 220" aria-hidden="true"></svg>
@@ -456,6 +480,7 @@ svg { display: block; }
     <div class="cote-droit">
       <div class="surtitre">Joyeux Noël</div>
       <h2 class="question">Qui feuillette ce soir?</h2>
+      <p class="dedicace">Un rond de crayon pour chaque souhait, trois super cœurs pour les plus grands. Le père Noël regarde par-dessus ton épaule.</p>
       <div class="rebours" id="rebours"></div>
       <div class="enfants" id="enfants"></div>
       <div class="astuce-accueil">
@@ -463,9 +488,12 @@ svg { display: block; }
         <span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.3 3 4.5 6.7 4.5c2.1 0 3.6 1.2 4.4 2.6.8-1.4 2.3-2.6 4.4-2.6 3.7 0 5.8 3.8 4.3 7.2C19.5 16.4 12 21 12 21z"/></svg>3 super cœurs</span>
         <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V11"/><path d="M12 10V4.5a1.5 1.5 0 0 1 3 0V11"/><path d="M15 10.5V6.5a1.5 1.5 0 0 1 3 0V14a7 7 0 0 1-7 7h-.5a6 6 0 0 1-4.6-2.2L3.4 15.6a1.6 1.6 0 0 1 2.4-2.1L9 16V8.5a1.5 1.5 0 0 1 0 0"/></svg>Le doigt tourne les pages</span>
       </div>
-      <button class="lien-parents" id="ouvrir-parents" type="button">Coin des parents</button>
+      <div class="pied-accueil">
+        <button class="lien-parents" id="ouvrir-parents" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Coin des parents</button>
+      </div>
     </div>
   </div>
+  <div class="signature">Le Catalogue des Souhaits · Noël 2026</div>
 </main>
 
 <section id="lecteur" hidden>
@@ -582,6 +610,8 @@ svg { display: block; }
   const estDuplo = p => /duplo/i.test(p.marque + " " + p.nom);
   const SECTIONS = [
     { cle: "duplo", titre: "LEGO DUPLO" },
+    { cle: "retro", titre: "Les classiques des années 90" },
+    { cle: "coups", titre: "Nos coups de cœur" },
     { cle: "lego", titre: "Les ensembles LEGO" },
     { cle: "batir", titre: "Pour bâtir" },
     { cle: "teleguides", titre: "Les téléguidés" },
@@ -592,6 +622,7 @@ svg { display: block; }
     { cle: "livres", titre: "Les livres d'ici" },
     { cle: "art", titre: "Bricoler et découvrir" },
     { cle: "dehors", titre: "Jouer dehors" },
+    { cle: "d2-retro", titre: "2 ans · Les classiques des années 90" },
     { cle: "d2-coups", titre: "2 ans · Coups de cœur" },
     { cle: "d2-bouger", titre: "2 ans · Bouger" },
     { cle: "d2-apprendre", titre: "2 ans · Apprendre" },
@@ -1536,7 +1567,7 @@ svg { display: block; }
     ENFANTS.forEach(e => {
       const n = choisis(e.id).length, nc = (etat.coeurs[e.id] || []).length, c = CRAYONS[etat.crayon[e.id]].c, nom = nomDe(e.id);
       const o = document.createElement("div"); o.className = "carte-enf"; o.style.setProperty("--c", c);
-      o.innerHTML = `<button class="boule" type="button"></button><span class="pastille-age"></span>
+      o.innerHTML = `<span class="ficelle" aria-hidden="true"></span><button class="boule" type="button"></button><span class="pastille-age"></span>
         <span class="texte"><b></b><small></small></span>
         <button class="mini-liste" type="button">${SVG_LISTE}<span>Liste et prix</span></button>`;
       o.querySelector(".pastille-age").textContent = initiale(nom);
