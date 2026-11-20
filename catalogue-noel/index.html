@@ -368,92 +368,65 @@ svg { display: block; }
 #accueil.ouverture .ornement.choisie .boule { transform: scale(1.25); box-shadow: 0 0 120px color-mix(in srgb, var(--c) 85%, transparent); }
 #accueil.ouverture::after { content: ""; position: fixed; inset: 0; z-index: 10; background: #0E1117; opacity: 0; animation: fondu .3s .6s forwards; }
 @keyframes fondu { to { opacity: 1; } }
-/* ===== Lecteur : la feuille plein écran, les boutons en boules de Noël ===== */
+/* ===== Lecteur : la feuille plein écran, une rangée de boutons ronds, sobres, posés sur le bandeau rouge ===== */
 #lecteur { background: #FBF4E4; }
 #toile { left: 0; top: 0; border-radius: 0; box-shadow: none; background: #FBF4E4; }
 .pied { display: none !important; }
 .outils.barre-verre {
   top: 0; left: 0; right: 0; transform: none; max-width: none; border-radius: 0; border: 0; box-shadow: none;
   background: none; -webkit-backdrop-filter: none; backdrop-filter: none;
-  padding: calc(env(safe-area-inset-top, 0px) + 2px) max(8px, env(safe-area-inset-right, 0px)) 2px max(8px, env(safe-area-inset-left, 0px));
-  display: flex; justify-content: center; align-items: flex-start; gap: 6px; flex-wrap: nowrap;
+  padding: calc(env(safe-area-inset-top, 0px) + 12px) max(12px, env(safe-area-inset-right, 0px)) 6px max(12px, env(safe-area-inset-left, 0px));
+  display: flex; justify-content: center; align-items: center; gap: 8px; flex-wrap: nowrap;
   pointer-events: none;
 }
 .outils.barre-verre > * { pointer-events: auto; }
-.outils.barre-verre::before { content: ""; position: absolute; left: -2%; right: -2%; top: calc(env(safe-area-inset-top, 0px) + 4px); height: 14px; border-top: 3px solid #0E3B28; border-radius: 0 0 50% 50% / 0 0 100% 100%; filter: drop-shadow(0 1px 1px rgba(0,0,0,.35)); pointer-events: none; }
-.outils.barre-verre::after {
-  content: ""; position: absolute; left: 0; right: 0; top: calc(env(safe-area-inset-top, 0px) + 7px); height: 14px; pointer-events: none;
-  background:
-    radial-gradient(3.5px 5px at 50% 55%, #FF4D5E 95%, transparent) 0 0 / 150px 14px repeat-x,
-    radial-gradient(3.5px 5px at 50% 55%, #FFD45C 95%, transparent) 30px 0 / 150px 14px repeat-x,
-    radial-gradient(3.5px 5px at 50% 55%, #4DC3FF 95%, transparent) 60px 0 / 150px 14px repeat-x,
-    radial-gradient(3.5px 5px at 50% 55%, #6CFF8E 95%, transparent) 90px 0 / 150px 14px repeat-x,
-    radial-gradient(3.5px 5px at 50% 55%, #FF8AE2 95%, transparent) 120px 0 / 150px 14px repeat-x;
-  filter: drop-shadow(0 0 4px rgba(255,220,120,.9));
-  animation: ampoules 1.6s ease-in-out infinite alternate;
-}
-@keyframes ampoules { from { opacity: .55; } to { opacity: 1; } }
-.outils .sep { display: block; width: 4px; height: 1px; margin: 0; background: none; }
-.outils .pastilles { display: contents; }
-.outils .ic, .outils .pastille, .outils .qui {
-  --c: #C9A54A; --fil: 12px; --d: 50px;
+.outils .sep { width: 1px; height: 26px; margin: 0 4px; background: rgba(255,255,255,.28); }
+.outils .pastilles { display: flex; gap: 4px; }
+.outils .ic, .outils .qui, .outils .pastille {
+  --d: 46px;
   position: relative; flex: none; width: var(--d); height: var(--d); min-width: 0; padding: 0; gap: 0;
-  margin-top: calc(var(--fil) + 16px);
-  border: 0; border-radius: 50%; display: grid; place-items: center; color: #fff;
-  background:
-    radial-gradient(circle at 33% 27%, rgba(255,255,255,.95) 0 5%, rgba(255,255,255,.35) 10%, transparent 22%),
-    radial-gradient(circle at 50% 50%, transparent 58%, rgba(0,0,0,.32) 100%),
-    radial-gradient(circle at 40% 35%, color-mix(in srgb, var(--c) 55%, white), var(--c) 52%, color-mix(in srgb, var(--c) 50%, black));
-  box-shadow: 0 6px 12px rgba(40,20,0,.32);
-  transform-origin: 50% calc(-1 * (var(--fil) + 16px));
-  transition: transform .35s cubic-bezier(.3, 1.7, .5, 1), box-shadow .2s;
+  border-radius: 50%; display: grid; place-items: center; color: #fff;
+  transition: transform .15s ease, background-color .15s ease, color .15s ease, box-shadow .15s ease;
 }
-.outils .ic::before, .outils .pastille::before, .outils .qui::before {
-  content: ""; position: absolute; bottom: calc(100% + 4px); left: 50%; width: 2px; height: calc(var(--fil) + 12px);
-  transform: translateX(-50%); background: linear-gradient(#5A4520, #C9A54A); pointer-events: none;
+.outils .ic, .outils .qui {
+  background: rgba(255,255,255,.14);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.22);
 }
-.outils .ic::after, .outils .pastille::after, .outils .qui::after {
-  content: ""; position: absolute; top: -6px; left: 50%; width: 15px; height: 9px; transform: translateX(-50%);
-  border-radius: 3px 3px 2px 2px; background: linear-gradient(90deg, #8C6A26, #FFE7A0 45%, #B98A2B);
-  box-shadow: 0 1px 2px rgba(0,0,0,.3); pointer-events: none;
-}
-.outils .ic:hover { background-color: transparent; }
-.outils .ic:active, .outils .pastille:active, .outils .qui:active { transform: rotate(9deg) scale(.94); }
-.outils .ic[aria-pressed="true"], .outils .pastille[aria-pressed="true"] {
-  transform: scale(1.16); color: #fff;
-  box-shadow: 0 0 0 3px #fff, 0 0 0 5px var(--c), 0 0 24px var(--c);
-}
-.outils .ic svg { width: 22px; height: 22px; filter: drop-shadow(0 1px 1px rgba(0,0,0,.5)); }
-.outils .etiq, .outils .pastille i, .outils .qui span:last-child { display: none; }
+.outils .ic:hover { background: rgba(255,255,255,.22); }
+.outils .ic:active, .outils .qui:active, .outils .pastille:active { transform: scale(.92); }
+.outils .ic[aria-pressed="true"] { background: #fff; color: #C8302A; box-shadow: 0 4px 14px rgba(80,0,0,.3); }
 .outils .ic:disabled { opacity: .35; }
-.outils .qui .mini-avatar { width: auto; height: auto; background: none !important; font-family: var(--titre); font-size: 22px; text-shadow: 0 2px 0 rgba(0,0,0,.25); }
-.outils .compte { position: absolute; top: -6px; right: -10px; z-index: 2; box-shadow: 0 2px 6px rgba(0,0,0,.35); }
-.outils .coeurs-restants { position: absolute; bottom: -9px; left: 50%; transform: translateX(-50%); gap: 0; background: #fff; border-radius: 999px; padding: 1px 3px; box-shadow: 0 1px 3px rgba(0,0,0,.3); }
-.outils .coeurs-restants svg { width: 11px; height: 11px; }
-.outils .coeur-btn[aria-pressed="true"] { background-color: transparent; }
-#maison { --c: #C9A54A; --fil: 6px; }
-#outil-gomme { --c: #9AA3B8; --fil: 16px; }
-#outil-coeur { --c: #E23B55; --fil: 8px; }
-#annuler { --c: #9AA3B8; --fil: 20px; }
-#voir-sommaire { --c: #1F8A4C; --fil: 10px; }
-#voir-liste { --c: #D9A520; --fil: 18px; }
-#prec { --c: #1B64C8; --fil: 8px; }
-#suiv { --c: #1B64C8; --fil: 14px; }
-#qui { --fil: 16px; }
+.outils .ic svg { width: 21px; height: 21px; }
+.outils .etiq, .outils .qui span:last-child { display: none; }
+.outils .qui { background: var(--c, #1B64C8); box-shadow: inset 0 0 0 2px rgba(255,255,255,.85), 0 3px 10px rgba(80,0,0,.25); }
+.outils .qui .mini-avatar { width: auto; height: auto; background: none !important; font-family: var(--titre); font-size: 20px; color: #fff; }
+.outils .pastille { --d: 38px; background: none; }
+.outils .pastille i { width: 24px; height: 24px; border-radius: 50%; display: block; background: var(--c); box-shadow: inset 0 0 0 2px rgba(255,255,255,.9); transition: transform .15s ease, box-shadow .15s ease; }
+.outils .pastille[aria-pressed="true"] i { transform: scale(1.25); box-shadow: inset 0 0 0 2px rgba(255,255,255,.9), 0 0 0 3px #fff, 0 4px 12px rgba(80,0,0,.35); }
+.outils .compte { position: absolute; top: -4px; right: -6px; min-width: 20px; height: 20px; padding: 0 6px; font-size: 12px; background: #F3C352; color: #3A1A08; box-shadow: 0 2px 6px rgba(80,0,0,.3); }
+.outils .coeurs-restants { position: static; width: 30px; display: flex; flex-wrap: wrap; justify-content: center; gap: 0 1px; line-height: 0; }
+.outils .coeurs-restants svg { width: 14px; height: 14px; }
+.outils .coeur-btn[aria-pressed="true"] { background: #fff; }
 @media (max-width: 900px) {
-  .outils .ic, .outils .pastille, .outils .qui { --d: 42px; }
-  .outils.barre-verre { gap: 3px; }
-  .outils .sep { width: 1px; }
+  .outils .ic, .outils .qui { --d: 40px; }
+  .outils .pastille { --d: 32px; }
+  .outils .pastille i { width: 20px; height: 20px; }
+  .outils .coeurs-restants svg { width: 12px; height: 12px; }
+  .outils.barre-verre { gap: 4px; }
+  .outils .sep { margin: 0 2px; }
 }
 @media (max-width: 640px) {
-  .outils .ic, .outils .pastille, .outils .qui { --d: 24px; --fil: 4px !important; margin-top: 18px; }
-  .outils .ic svg { width: 13px; height: 13px; }
-  .outils .ic::after, .outils .pastille::after, .outils .qui::after { width: 9px; height: 6px; top: -4px; }
-  .outils .compte { min-width: 16px; height: 16px; font-size: 10px; padding: 0 4px; right: -6px; }
-  .outils .qui .mini-avatar { font-size: 15px; }
-  .outils .coeurs-restants svg { width: 7px; height: 7px; }
-  .outils.barre-verre { gap: 2px; padding-left: 2px; padding-right: 2px; }
-  .outils .sep { width: 0; }
+  .outils .ic, .outils .qui { --d: 28px; }
+  .outils .pastille { --d: 18px; }
+  .outils .pastille i { width: 14px; height: 14px; }
+  .outils .pastilles { gap: 1px; }
+  .outils .ic svg { width: 14px; height: 14px; }
+  .outils .qui .mini-avatar { font-size: 14px; }
+  .outils.barre-verre { gap: 2px; padding-left: 4px; padding-right: 4px; padding-top: calc(env(safe-area-inset-top, 0px) + 8px); }
+  .outils .sep { display: none; }
+  .outils .compte { min-width: 15px; height: 15px; font-size: 9px; padding: 0 3px; }
+  .outils .coeurs-restants { width: 20px; }
+  .outils .coeurs-restants svg { width: 9px; height: 9px; }
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
 </style>
@@ -1602,7 +1575,7 @@ svg { display: block; }
   function rendrePastilles() {
     const box = $("pastilles"); box.innerHTML = "";
     CRAYONS.forEach((cr, i) => {
-      const b = document.createElement("button"); b.type = "button"; b.className = "pastille"; b.style.color = cr.c; b.style.setProperty("--c", cr.c); b.style.setProperty("--fil", [8, 18, 12, 22, 10, 16][i % 6] + "px");
+      const b = document.createElement("button"); b.type = "button"; b.className = "pastille"; b.style.color = cr.c; b.style.setProperty("--c", cr.c);
       b.setAttribute("aria-label", "Crayon " + cr.nom.toLowerCase());
       b.setAttribute("aria-pressed", String(etat.outil === "crayon" && etat.crayon[etat.enfant] === i));
       b.innerHTML = `<i style="background:${cr.c}"></i>`;
