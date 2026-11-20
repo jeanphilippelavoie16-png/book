@@ -1,5 +1,5 @@
 // Catalogue des Souhaits : tout le catalogue reste dans l'iPad, même sans réseau.
-const VERSION = "souhaits-cb604aa76a";
+const VERSION = "souhaits-be19c01671";
 const COQUILLE = [
   "./",
   "index.html",
@@ -24,8 +24,7 @@ const COQUILLE = [
   "planches/p14.jpg",
   "planches/p15.jpg",
   "planches/p16.jpg",
-  "planches/p17.jpg",
-  "planches/p18.jpg"
+  "planches/p17.jpg"
 ];
 const EXTERNES = ["https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"];
 
