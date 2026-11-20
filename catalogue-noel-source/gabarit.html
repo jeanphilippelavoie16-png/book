@@ -710,13 +710,13 @@ svg { display: block; }
     const lot = () => {
       const t0 = performance.now(), faits = new Set();
       while (reste.length && performance.now() - t0 < 25) { const p = reste.shift(); const c = decouper(im, p.sp); DECOUPES.set(p.id, c); faits.add(p); enImage(p, c); }
-      rafraichir(faits);
+      redessinerDecoupes(faits);
       if (reste.length) setTimeout(lot, 0);
       else attendus.push(k);
     };
     lot();
   }
-  function rafraichir(faits) {
+  function redessinerDecoupes(faits) {
     PAGES.forEach((pg, i) => { if (pg.items.some(p => faits.has(p))) BASES.delete(i); });
     if (etat.vue === "catalogue") planifier(); else if (typeof dessinerCollage === "function") dessinerCollage();
   }
