@@ -345,6 +345,31 @@ svg { display: block; }
 .cote-droit .lien-parents { justify-self: start; padding: 0; color: #F2D58F; font: 600 13.5px var(--ui); letter-spacing: .04em; text-decoration: underline; text-underline-offset: 4px; text-decoration-color: rgba(242,213,143,.4); background: none; }
 @media (max-aspect-ratio: 1/1) { .cote-droit { justify-items: stretch; } }
 @media (max-width: 560px) { .enfants { grid-template-columns: 1fr; } .scene-accueil { padding-left: 28px; padding-right: 28px; } }
+
+/* rameaux dorés au trait, dans deux coins du cadre */
+.rameau { position: fixed; z-index: 1; width: clamp(120px, 16vw, 200px); height: auto; pointer-events: none; opacity: .75; }
+.rameau-hg { top: calc(env(safe-area-inset-top, 0px) + 6px); left: max(6px, env(safe-area-inset-left, 0px)); }
+.rameau-bd { bottom: calc(env(safe-area-inset-bottom, 0px) + 6px); right: max(6px, env(safe-area-inset-right, 0px)); transform: rotate(180deg); }
+.rameau .tige { fill: none; stroke: #D6B25E; stroke-width: 2; stroke-linecap: round; }
+.rameau .aiguille { stroke: #D6B25E; stroke-width: 1.4; stroke-linecap: round; opacity: .85; }
+.rameau .baie { fill: #C8302A; stroke: #F2D58F; stroke-width: 1; }
+/* l'épaisseur du catalogue : la tranche des pages, à droite et en bas */
+.livre::before {
+  content: ""; position: absolute; inset: 6px -7px -7px 6px; border-radius: 3px 10px 10px 3px; z-index: -1;
+  background: repeating-linear-gradient(90deg, #EFE6D2 0 2px, #D9CDB2 2px 3px), #EFE6D2;
+  box-shadow: 0 20px 40px -14px rgba(0,0,0,.55);
+}
+/* le sceau doré, comme le macaron des vieux catalogues */
+.sceau {
+  position: absolute; z-index: 5; top: -22px; right: -26px; width: 92px; height: 92px; border-radius: 50%;
+  display: grid; place-content: center; text-align: center; color: #5A3A0A; transform: rotate(12deg);
+  background: radial-gradient(circle at 35% 30%, #FFF0B8, #E9C25E 45%, #B98A2B 100%);
+  box-shadow: 0 0 0 3px #F6E3A6, 0 0 0 4px #A97D27, 0 10px 20px rgba(0,0,0,.4);
+}
+.sceau::before { content: ""; position: absolute; inset: 7px; border-radius: 50%; border: 1px dashed rgba(90,58,10,.5); }
+.sceau b { font: 400 27px/1 var(--titre); }
+.sceau span { font: 800 10px/1.1 var(--ui); letter-spacing: .2em; text-transform: uppercase; }
+@media (max-width: 560px) { .sceau { width: 72px; height: 72px; right: -12px; } .sceau b { font-size: 21px; } .rameau { opacity: .5; } }
 @media (prefers-reduced-motion: reduce) { .neige { display: none; } }
 
 #accueil.ouverture::after { content: ""; position: fixed; inset: 0; z-index: 10; background: #FBF4E4; opacity: 0; animation: fondu .22s forwards; }
@@ -414,11 +439,14 @@ svg { display: block; }
 
 <main id="accueil">
   <div class="neige" id="neige" aria-hidden="true"></div>
+  <svg class="rameau rameau-hg" id="rameau-hg" viewBox="0 0 220 220" aria-hidden="true"></svg>
+  <svg class="rameau rameau-bd" id="rameau-bd" viewBox="0 0 220 220" aria-hidden="true"></svg>
   <div class="scene-accueil">
     <div class="livre-zone">
       <div class="livre" id="livre">
+        <div class="sceau" aria-hidden="true"><b id="sceau-n"></b><span>jouets</span></div>
         <div class="couverture">
-          <div class="couv-ruban">NOËL 2026 · CÔTE-NORD</div>
+          <div class="couv-ruban">ÉDITION DE NOËL 2026</div>
           <h1 class="couv-titre">Le Catalogue<br>des Souhaits</h1>
           <div class="couv-cadre"><canvas id="couv-collage" aria-hidden="true"></canvas></div>
           <div class="couv-pied" id="sous-titre"></div>
@@ -1499,6 +1527,7 @@ svg { display: block; }
   const SVG_LISTE = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/><path d="M9 13h7M9 17h5"/></svg>`;
   function rendreAccueil() {
     $("sous-titre").textContent = "Plus de " + Math.floor(PRODUITS.length / 50) * 50 + " jouets à encercler";
+    $("sceau-n").textContent = Math.floor(PRODUITS.length / 50) * 50 + "+";
     const auj = new Date(), noel = new Date(auj.getFullYear(), 11, 25);
     if (auj > new Date(auj.getFullYear(), 11, 25, 23, 59)) noel.setFullYear(noel.getFullYear() + 1);
     const jours = Math.ceil((noel - new Date(auj.getFullYear(), auj.getMonth(), auj.getDate())) / 86400000);
@@ -1821,6 +1850,25 @@ svg { display: block; }
     }
     box.innerHTML = h;
   })();
+
+  function dessinerRameau(svg, graine) {
+    const r = hasard(graine); let h = "";
+    const tiges = [[[14, 14], [96, 40], [170, 112]], [[14, 14], [40, 92], [104, 176]], [[60, 30], [110, 50], [150, 46]]];
+    tiges.forEach(([a, c, b], ti) => {
+      h += `<path d="M${a} Q${c} ${b}" class="tige"/>`;
+      const N = ti === 2 ? 9 : 18;
+      for (let i = 2; i <= N; i++) {
+        const t = i / (N + 1), u = 1 - t;
+        const x = u * u * a[0] + 2 * u * t * c[0] + t * t * b[0], y = u * u * a[1] + 2 * u * t * c[1] + t * t * b[1];
+        const dx = 2 * u * (c[0] - a[0]) + 2 * t * (b[0] - c[0]), dy = 2 * u * (c[1] - a[1]) + 2 * t * (b[1] - c[1]), L = Math.hypot(dx, dy);
+        const nx = -dy / L, ny = dx / L, tx = dx / L, ty = dy / L, l = (ti === 2 ? 9 : 15) * (1 - t * .45);
+        for (const sgn of [1, -1]) h += `<path d="M${x.toFixed(1)} ${y.toFixed(1)} l${((nx * sgn + tx * .55) * l).toFixed(1)} ${((ny * sgn + ty * .55) * l).toFixed(1)}" class="aiguille"/>`;
+      }
+    });
+    for (const [x, y] of [[58, 58], [68, 52], [62, 68]]) h += `<circle cx="${x}" cy="${y}" r="5" class="baie"/>`;
+    svg.innerHTML = h;
+  }
+  dessinerRameau($("rameau-hg"), 5); dessinerRameau($("rameau-bd"), 9);
 
   /* ---------- Démarrage ---------- */
   lireLocal();
