@@ -15,3 +15,8 @@ le déploiement repart tout seul.
 3. L'app s'ouvre ensuite en plein écran, sans barre de Safari, et marche sans réseau.
 
 Les ronds et les super cœurs restent dans l'iPad (une liste par appareil).
+
+## Crédit d'image
+
+- Photo de la page « Pour les 33 ans » : *Adolf Hitler cropped restored.jpg*, 1937, auteur inconnu
+  (Bundesarchiv), CC BY-SA 3.0 de — https://commons.wikimedia.org/wiki/File:Adolf_Hitler_cropped_restored.jpg
