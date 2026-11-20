@@ -50,7 +50,7 @@ GENERIQUE = {"k7-cible-collante", "k7-popper", "k7-baguette-lumineuse", "k7-casq
 def _liste(nom):
     p = os.path.join(D, nom)
     return {l.split()[0] for l in open(p) if l.strip() and not l.startswith("#")} if os.path.exists(p) else set()
-PERCEUSE = MULTIPIECES | SCRAP | GENERIQUE | _liste("livres-pas-qc.txt") | _liste("teleguides-generiques.txt") | _liste("deguisements-dehors-a-retirer.txt") | {"b-battat-grue", "yc-bluey-chantier", "t7-char-type-90", "d4-filet-papillons", "yc-waterworks", "yv-lp-pompiers", "yc-lp-ferme", "b7-stanley-5-outils", "yr-bureau-vtech", "lego-42199", "lego-60402", "c-hw-maker-kitz", "t5-torque-twister", "t5-rouleau-cascades", "ya-crayola-touch-lights"}
+PERCEUSE = MULTIPIECES | SCRAP | GENERIQUE | _liste("livres-pas-qc.txt") | _liste("teleguides-generiques.txt") | _liste("deguisements-dehors-a-retirer.txt") | _liste("retires-divers.txt") | {"b-battat-grue", "yc-bluey-chantier", "t7-char-type-90", "d4-filet-papillons", "yc-waterworks", "yv-lp-pompiers", "yc-lp-ferme", "b7-stanley-5-outils", "yr-bureau-vtech", "lego-42199", "lego-60402", "c-hw-maker-kitz", "t5-torque-twister", "t5-rouleau-cascades", "ya-crayola-touch-lights"}
 TELE = {"b-dickie-grue", "b-pompiers-a-construire", "b-driven-depanneuse-rc", "c-monster-jam-rc", "c-cybertruck-rc"}
 NATUREL = {"y7-cozy-coupe": "d2-bouger", "y7-glissoire": "d2-bouger", "y7-table-eau": "d2-bain", "y7-micro-mini": "d2-bouger",
            "y7-draisienne": "d2-bouger", "y7-lp-ferme": "d2-vehicules", "y7-mega-bloks": "d2-apprendre", "y7-spinagain": "d2-apprendre",

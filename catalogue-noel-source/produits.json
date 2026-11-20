@@ -8,13 +8,13 @@
 "prix": 18.69,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/3107830-fr-lego-camion-echelle-de-pompiers-city-82-pieces",
-"img": "planches/p00.jpg",
+"img": "planches/p01.jpg",
 "ageCible": "les deux",
 "accroche": "L'échelle monte jusqu'en haut du feu",
 "sp": [
-0,
+1,
 1924,
-1924,
+772,
 376,
 376
 ]
@@ -34,7 +34,7 @@
 "sp": [
 1,
 1540,
-4,
+1156,
 376,
 376
 ]
@@ -48,13 +48,13 @@
 "prix": 12.99,
 "source": "Clément",
 "url": "https://clement.ca/products/lego-city-poursuite-moto-polic-lgo-60455",
-"img": "planches/p00.jpg",
+"img": "planches/p01.jpg",
 "ageCible": "les deux",
 "accroche": "Attrape le voleur en moto de police!",
 "sp": [
-0,
+1,
 1156,
-1156,
+4,
 376,
 376
 ]
@@ -68,13 +68,13 @@
 "prix": 44.99,
 "source": "Clément",
 "url": "https://clement.ca/products/spidey-les-vehicules-sous-lgo-11207",
-"img": "planches/p01.jpg",
+"img": "planches/p02.jpg",
 "ageCible": "les deux",
 "accroche": "Spidey plonge sous l'eau avec ses amis",
 "sp": [
-1,
+2,
 1924,
-1924,
+772,
 376,
 376
 ]
@@ -94,7 +94,7 @@
 "sp": [
 2,
 388,
-388,
+1540,
 376,
 376
 ]
@@ -114,7 +114,7 @@
 "sp": [
 2,
 4,
-388,
+1540,
 376,
 376
 ]
@@ -134,7 +134,7 @@
 "sp": [
 1,
 1924,
-4,
+1156,
 376,
 376
 ]
@@ -148,13 +148,13 @@
 "prix": 34.99,
 "source": "Clément (même prix sur LEGO.com Canada)",
 "url": "https://clement.ca/products/lego-le-chasse-neige-lgo-60490",
-"img": "planches/p01.jpg",
+"img": "planches/p02.jpg",
 "ageCible": "6",
 "accroche": "Le chasse-neige qui déblaie et sale la rue",
 "sp": [
-1,
+2,
 1924,
-1156,
+4,
 376,
 376
 ]
@@ -168,13 +168,13 @@
 "prix": 70.0,
 "source": "Indigo",
 "url": "https://www.indigo.ca/fr/products/magna-tiles%C2%AE-62-piece-magnetic-construction-set",
-"img": "planches/p02.jpg",
+"img": "planches/p03.jpg",
 "ageCible": "les deux",
 "accroche": "Des tours qui collent toutes seules!",
 "sp": [
-2,
+3,
 388,
-1924,
+772,
 376,
 376
 ]
@@ -194,7 +194,7 @@
 "sp": [
 2,
 1966,
-388,
+1540,
 291,
 376
 ]
@@ -208,13 +208,13 @@
 "prix": 49.99,
 "source": "Mastermind Toys",
 "url": "https://www.mastermindtoys.com/products/plip-kit",
-"img": "planches/p02.jpg",
+"img": "planches/p03.jpg",
 "ageCible": "6",
 "accroche": "Ça plie, ça clique, ça tient!",
 "sp": [
-2,
+3,
 388,
-1540,
+388,
 376,
 376
 ]
@@ -234,7 +234,7 @@
 "sp": [
 4,
 1156,
-394,
+1546,
 376,
 364
 ]
@@ -248,13 +248,13 @@
 "prix": 22.99,
 "source": "Mastermind Toys",
 "url": "https://www.mastermindtoys.com/products/gund-paw-patrol-9-plush-chase",
-"img": "planches/p05.jpg",
+"img": "planches/p06.jpg",
 "ageCible": "4",
 "accroche": "Chase s'en vient à la rescousse!",
 "sp": [
-5,
-1924,
-1924,
+6,
+1540,
+772,
 376,
 376
 ]
@@ -273,8 +273,8 @@
 "accroche": "Ramène les hiboux au nid avant le jour",
 "sp": [
 7,
-772,
-1156,
+4,
+1924,
 376,
 376
 ]
@@ -293,48 +293,28 @@
 "accroche": "Habille trois squelettes de dinosaures",
 "sp": [
 9,
-4,
-1156,
-376,
-376
-]
-},
-{
-"id": "walkie-talkies",
-"categorie": "dehors",
-"marque": "Spy X",
-"nom": "Walkie-talkies Spy X – communications entre espions",
-"age": "6+",
-"prix": 26.99,
-"source": "Mastermind Toys",
-"url": "https://www.mastermindtoys.com/products/spy-x-walkie-talkies",
-"img": "planches/p10.jpg",
-"ageCible": "6",
-"accroche": "Agent secret, à toi la parole!",
-"sp": [
-10,
-772,
-1924,
+1540,
+1540,
 376,
 376
 ]
 },
 {
 "id": "crazy-carpet",
-"categorie": "dehors",
+"categorie": "retro",
 "marque": "Winter Fun",
 "nom": "Traîneau Crazy Carpet",
 "age": "5+",
 "prix": 6.98,
 "source": "Mastermind Toys",
 "url": "https://www.mastermindtoys.com/products/crazy-carpet-sled",
-"img": "planches/p10.jpg",
+"img": "planches/p00.jpg",
 "ageCible": "les deux",
 "accroche": "La glissade la plus rapide de la côte",
 "sp": [
-10,
-1540,
-388,
+0,
+4,
+4,
 376,
 376
 ]
@@ -348,13 +328,13 @@
 "prix": 11.04,
 "source": "Clément",
 "url": "https://clement.ca/products/lego-city-vehicule-camion-poli-lgo-60481",
-"img": "planches/p00.jpg",
+"img": "planches/p01.jpg",
 "ageCible": null,
 "accroche": "Le camion de police fonce au secours",
 "sp": [
-0,
+1,
 4,
-1156,
+4,
 376,
 376
 ]
@@ -368,13 +348,13 @@
 "prix": 11.04,
 "source": "Clément",
 "url": "https://clement.ca/products/lego-city-vehicule-camion-pomp-lgo-60482",
-"img": "planches/p00.jpg",
+"img": "planches/p01.jpg",
 "ageCible": null,
 "accroche": "Un gros camion rouge pour le feu",
 "sp": [
-0,
+1,
 388,
-1156,
+4,
 376,
 376
 ]
@@ -388,13 +368,13 @@
 "prix": 11.04,
 "source": "Clément",
 "url": "https://clement.ca/products/lego-city-vehicule-chargeuse-lgo-60483",
-"img": "planches/p00.jpg",
+"img": "planches/p01.jpg",
 "ageCible": null,
 "accroche": "La grosse pelle orange ramasse tout",
 "sp": [
-0,
+1,
 772,
-1156,
+4,
 376,
 376
 ]
@@ -408,13 +388,13 @@
 "prix": 39.99,
 "source": "Clément",
 "url": "https://clement.ca/products/lego-city-bateau-secours-pompi-lgo-60373",
-"img": "planches/p01.jpg",
+"img": "planches/p02.jpg",
 "ageCible": null,
 "accroche": "Les pompiers arrosent le feu sur l'eau",
 "sp": [
-1,
+2,
 4,
-1540,
+388,
 376,
 376
 ]
@@ -428,13 +408,13 @@
 "prix": 12.99,
 "source": "Clément",
 "url": "https://clement.ca/products/spiderman-sur-sa-moto-contre-lgo-11206",
-"img": "planches/p00.jpg",
+"img": "planches/p01.jpg",
 "ageCible": null,
 "accroche": "Spidey attrape Rhino avec sa toile",
 "sp": [
-0,
+1,
 1540,
-1156,
+4,
 376,
 376
 ]
@@ -454,7 +434,7 @@
 "sp": [
 1,
 4,
-4,
+1156,
 376,
 376
 ]
@@ -468,13 +448,13 @@
 "prix": 39.99,
 "source": "Clément",
 "url": "https://clement.ca/products/lego-friends-clinique-veterina-lgo-42696",
-"img": "planches/p01.jpg",
+"img": "planches/p02.jpg",
 "ageCible": null,
 "accroche": "On soigne le cheval et le chaton",
 "sp": [
-1,
+2,
 388,
-1540,
+388,
 376,
 376
 ]
@@ -494,7 +474,7 @@
 "sp": [
 0,
 1156,
-4,
+1156,
 376,
 376
 ]
@@ -514,7 +494,7 @@
 "sp": [
 1,
 4,
-388,
+1540,
 376,
 376
 ]
@@ -534,7 +514,7 @@
 "sp": [
 1,
 388,
-388,
+1540,
 376,
 376
 ]
@@ -554,7 +534,7 @@
 "sp": [
 2,
 772,
-4,
+1156,
 376,
 376
 ]
@@ -568,13 +548,13 @@
 "prix": 12.99,
 "source": "Clément",
 "url": "https://clement.ca/products/lego-technic-chargeuse-pellete-lgo-42197",
-"img": "planches/p00.jpg",
+"img": "planches/p01.jpg",
 "ageCible": null,
 "accroche": "Une vraie pelle qui creuse et lève",
 "sp": [
-0,
+1,
 1924,
-1156,
+4,
 376,
 376
 ]
@@ -594,7 +574,7 @@
 "sp": [
 1,
 772,
-388,
+1540,
 376,
 376
 ]
@@ -608,13 +588,13 @@
 "prix": 49.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/3180451-en-connetix-charity-pack-teal-20-pieces",
-"img": "planches/p02.jpg",
+"img": "planches/p03.jpg",
 "ageCible": null,
 "accroche": "Des fenêtres et des portes aimantées!",
 "sp": [
-2,
+3,
 772,
-1540,
+388,
 376,
 376
 ]
@@ -628,13 +608,13 @@
 "prix": 39.99,
 "source": "Clément",
 "url": "https://clement.ca/products/boite-a-outils-49pcs-rav-63458600",
-"img": "planches/p02.jpg",
+"img": "planches/p03.jpg",
 "ageCible": null,
 "accroche": "Visse, boulonne, invente ta machine!",
 "sp": [
-2,
+3,
 388,
-1156,
+4,
 376,
 376
 ]
@@ -654,7 +634,7 @@
 "sp": [
 2,
 388,
-772,
+1924,
 376,
 376
 ]
@@ -674,7 +654,7 @@
 "sp": [
 2,
 1540,
-772,
+1924,
 376,
 376
 ]
@@ -694,7 +674,7 @@
 "sp": [
 2,
 1156,
-772,
+1924,
 376,
 376
 ]
@@ -708,13 +688,13 @@
 "prix": 9.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/3197320-fr-mattel-assortiment-de-vehicules-matchbox-working-rigs",
-"img": "planches/p03.jpg",
+"img": "planches/p04.jpg",
 "ageCible": null,
 "accroche": "Des camions de travail en métal!",
 "sp": [
-3,
+4,
 1924,
-1540,
+388,
 376,
 376
 ]
@@ -734,7 +714,7 @@
 "sp": [
 4,
 1540,
-388,
+1540,
 376,
 376
 ]
@@ -754,7 +734,7 @@
 "sp": [
 4,
 1156,
-4,
+1156,
 376,
 376
 ]
@@ -774,7 +754,7 @@
 "sp": [
 4,
 4,
-388,
+1540,
 376,
 376
 ]
@@ -793,8 +773,8 @@
 "accroche": "Qui a volé la tarte? Trouve le renard!",
 "sp": [
 7,
-1924,
-772,
+1156,
+1540,
 376,
 376
 ]
@@ -808,33 +788,33 @@
 "prix": 12.95,
 "source": "Board Game Bliss",
 "url": "https://www.boardgamebliss.com/products/spot-it-jr-animals",
-"img": "planches/p06.jpg",
+"img": "planches/p07.jpg",
 "ageCible": null,
 "accroche": "Le plus rapide à trouver gagne!",
 "sp": [
-6,
-772,
+7,
 1924,
+388,
 376,
 376
 ]
 },
 {
 "id": "o-candy-land",
-"categorie": "jeux",
+"categorie": "retro",
 "marque": "Hasbro",
 "nom": "Candy Land – le jeu du pays des bonbons",
 "age": "3+",
 "prix": 13.99,
 "source": "Mastermind Toys",
 "url": "https://www.mastermindtoys.com/products/candy-land",
-"img": "planches/p06.jpg",
+"img": "planches/p00.jpg",
 "ageCible": null,
 "accroche": "Un chemin de bonbons jusqu’au château!",
 "sp": [
-6,
-1156,
-1924,
+0,
+1540,
+4,
 376,
 376
 ]
@@ -853,8 +833,8 @@
 "accroche": "Sors le camion de crème glacée!",
 "sp": [
 7,
-1540,
 772,
+1540,
 376,
 376
 ]
@@ -874,7 +854,7 @@
 "sp": [
 7,
 1540,
-4,
+772,
 376,
 376
 ]
@@ -888,13 +868,13 @@
 "prix": 14.99,
 "source": "Mastermind Toys",
 "url": "https://www.mastermindtoys.com/products/bluey-matching",
-"img": "planches/p06.jpg",
+"img": "planches/p07.jpg",
 "ageCible": null,
 "accroche": "Trouve les paires de Bluey!",
 "sp": [
-6,
-1590,
-1924,
+7,
+54,
+772,
 276,
 376
 ]
@@ -908,33 +888,33 @@
 "prix": 39.99,
 "source": "DeSerres",
 "url": "https://www.deserres.ca/fr/products/paint-create-easel-case",
-"img": "planches/p09.jpg",
+"img": "planches/p10.jpg",
 "ageCible": null,
 "accroche": "Ton atelier de peintre dans une valise",
 "sp": [
-9,
-1924,
-1933,
+10,
+388,
+397,
 376,
 358
 ]
 },
 {
 "id": "o-play-doh-20",
-"categorie": "art",
+"categorie": "retro",
 "marque": "Play-Doh",
 "nom": "Super paquet de 20 pots de couleurs",
 "age": "3+",
 "prix": 29.99,
 "source": "Mastermind Toys",
 "url": "https://www.mastermindtoys.com/products/play-doh-super-colour-pack",
-"img": "planches/p09.jpg",
+"img": "planches/p00.jpg",
 "ageCible": null,
 "accroche": "Vingt couleurs à écraser et mouler!",
 "sp": [
-9,
-388,
-1156,
+0,
+4,
+772,
 376,
 376
 ]
@@ -948,13 +928,13 @@
 "prix": 16.99,
 "source": "DeSerres",
 "url": "https://www.deserres.ca/fr/products/scratch-boards-country-creatures",
-"img": "planches/p08.jpg",
+"img": "planches/p09.jpg",
 "ageCible": null,
 "accroche": "Gratte, et les couleurs apparaissent!",
 "sp": [
-8,
-781,
-1924,
+9,
+13,
+388,
 358,
 376
 ]
@@ -973,8 +953,8 @@
 "accroche": "Colle, décolle et recolle!",
 "sp": [
 8,
-4,
 1540,
+1924,
 376,
 376
 ]
@@ -993,8 +973,8 @@
 "accroche": "Une lumière sur le front, comme papa!",
 "sp": [
 9,
-772,
-1156,
+1924,
+1540,
 376,
 376
 ]
@@ -1013,48 +993,8 @@
 "accroche": "Les petites bêtes deviennent géantes!",
 "sp": [
 9,
-1156,
-1156,
-376,
-376
-]
-},
-{
-"id": "o-costume-construction",
-"categorie": "jouer",
-"marque": "Great Pretenders",
-"nom": "Costume d’ouvrier de la construction avec accessoires (5-6 ans)",
-"age": "5-6 ans",
-"prix": 39.99,
-"source": "Clément",
-"url": "https://www.clement.ca/products/ouvrier-de-la-construction-grp-81505",
-"img": "planches/p06.jpg",
-"ageCible": null,
-"accroche": "Casque, veste et outils: au chantier!",
-"sp": [
-6,
-1156,
-388,
-376,
-376
-]
-},
-{
-"id": "o-costume-pompier",
-"categorie": "jouer",
-"marque": "Great Pretenders",
-"nom": "Costume de pompier avec accessoires (5-6 ans)",
-"age": "5-6 ans",
-"prix": 49.99,
-"source": "Clément",
-"url": "https://www.clement.ca/products/pompier-avec-accessoires-grp-81305",
-"img": "planches/p06.jpg",
-"ageCible": null,
-"accroche": "Au feu! Le pompier arrive!",
-"sp": [
-6,
-1156,
-1156,
+4,
+1924,
 376,
 376
 ]
@@ -1073,8 +1013,8 @@
 "accroche": "Chante et joue du piano avec Bluey!",
 "sp": [
 6,
-1156,
 772,
+1540,
 376,
 376
 ]
@@ -1088,13 +1028,13 @@
 "prix": 12.98,
 "source": "Mastermind Toys",
 "url": "https://www.mastermindtoys.com/products/squishmallow-7-5-assortment-b",
-"img": "planches/p05.jpg",
+"img": "planches/p06.jpg",
 "ageCible": null,
 "accroche": "Le toutou le plus moelleux du monde",
 "sp": [
-5,
+6,
+388,
 772,
-1924,
 376,
 376
 ]
@@ -1113,50 +1053,10 @@
 "accroche": "Un gros câlin de Bluey!",
 "sp": [
 6,
-388,
 4,
+1156,
 376,
 376
-]
-},
-{
-"id": "o-briques-neige",
-"categorie": "dehors",
-"marque": "Wishbone",
-"nom": "Moule à briques de neige",
-"age": "5+",
-"prix": 7.99,
-"source": "Toytown",
-"url": "https://www.toytown.ca/products/sno-brick-maker",
-"img": "planches/p10.jpg",
-"ageCible": null,
-"accroche": "Bâtis ton fort brique par brique!",
-"sp": [
-10,
-4,
-797,
-376,
-326
-]
-},
-{
-"id": "o-boules-neige",
-"categorie": "dehors",
-"marque": "Wishbone",
-"nom": "Moule à 3 boules de neige",
-"age": "5+",
-"prix": 11.99,
-"source": "Toytown",
-"url": "https://www.toytown.ca/products/3-snowball-maker-mold",
-"img": "planches/p10.jpg",
-"ageCible": null,
-"accroche": "Trois boules de neige d’un coup!",
-"sp": [
-10,
-1156,
-810,
-376,
-299
 ]
 },
 {
@@ -1173,8 +1073,8 @@
 "accroche": "Ça tourne et ça glisse vite!",
 "sp": [
 10,
-388,
-772,
+4,
+1156,
 376,
 376
 ]
@@ -1193,7 +1093,7 @@
 "accroche": "Espionne les oiseaux de la forêt",
 "sp": [
 10,
-1156,
+772,
 1924,
 376,
 376
@@ -1213,28 +1113,28 @@
 "accroche": "Ta pelle à toi pour le fort!",
 "sp": [
 10,
-772,
-772,
+388,
+1156,
 376,
 376
 ]
 },
 {
 "id": "o-stomp-rocket",
-"categorie": "dehors",
+"categorie": "retro",
 "marque": "Stomp Rocket",
 "nom": "Stomp Rocket – avions acrobatiques",
 "age": "5+",
 "prix": 39.99,
 "source": "Toytown",
 "url": "https://www.toytown.ca/products/stomp-rocket-stunt-planes",
-"img": "planches/p11.jpg",
+"img": "planches/p00.jpg",
 "ageCible": null,
 "accroche": "Saute dessus, l’avion s’envole!",
 "sp": [
-11,
+0,
+1156,
 772,
-388,
 376,
 376
 ]
@@ -1248,13 +1148,13 @@
 "prix": 14.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/3081315-fr-lego-la-moto-de-sauvetage-des-pompiers-de-la-ville-57-pieces",
-"img": "planches/p00.jpg",
+"img": "planches/p01.jpg",
 "ageCible": null,
 "accroche": "Vroum! Les pompiers éteignent le feu",
 "sp": [
-0,
+1,
 772,
-1924,
+772,
 376,
 376
 ]
@@ -1274,7 +1174,7 @@
 "sp": [
 1,
 1156,
-388,
+1540,
 376,
 376
 ]
@@ -1288,13 +1188,13 @@
 "prix": 39.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/3122358-fr-lego-city-police-la-poursuite-en-bateau-de-police",
-"img": "planches/p01.jpg",
+"img": "planches/p02.jpg",
 "ageCible": null,
 "accroche": "Le bateau flotte vraiment dans l'eau!",
 "sp": [
-1,
+2,
 772,
-1540,
+388,
 376,
 376
 ]
@@ -1308,13 +1208,13 @@
 "prix": 14.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/3138889-fr-lego-city-great-vehicles-le-taxi-jaune",
-"img": "planches/p00.jpg",
+"img": "planches/p01.jpg",
 "ageCible": null,
 "accroche": "Bip bip! Le taxi jaune arrive",
 "sp": [
-0,
+1,
 1156,
-1924,
+772,
 376,
 376
 ]
@@ -1328,13 +1228,13 @@
 "prix": 42.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/3196795-fr-lego-city-great-vehicles-lavion-de-ligne-118-pieces",
-"img": "planches/p01.jpg",
+"img": "planches/p02.jpg",
 "ageCible": null,
 "accroche": "On décolle en avion de ligne!",
 "sp": [
-1,
+2,
 772,
-1924,
+772,
 376,
 376
 ]
@@ -1354,7 +1254,7 @@
 "sp": [
 1,
 1540,
-388,
+1540,
 376,
 376
 ]
@@ -1374,7 +1274,7 @@
 "sp": [
 1,
 1924,
-388,
+1540,
 376,
 376
 ]
@@ -1388,13 +1288,13 @@
 "prix": 12.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/3135941-fr-lego-friends-laire-de-jeux-des-chiots-ensemble-de-construction-jouet-de-chien-pour-un-jeu-de-simulation-42665",
-"img": "planches/p00.jpg",
+"img": "planches/p01.jpg",
 "ageCible": null,
 "accroche": "Les chiots jouent dans la glissade",
 "sp": [
-0,
+1,
 4,
-1540,
+388,
 376,
 376
 ]
@@ -1414,7 +1314,7 @@
 "sp": [
 1,
 4,
-772,
+1924,
 376,
 376
 ]
@@ -1434,7 +1334,7 @@
 "sp": [
 2,
 1156,
-4,
+1156,
 376,
 376
 ]
@@ -1448,13 +1348,13 @@
 "prix": 39.99,
 "source": "Clément",
 "url": "https://clement.ca/products/combat-des-robots-spiderman-lgo-76338",
-"img": "planches/p01.jpg",
+"img": "planches/p02.jpg",
 "ageCible": null,
 "accroche": "Deux robots géants qui se battent!",
 "sp": [
-1,
+2,
 1156,
-1540,
+388,
 376,
 376
 ]
@@ -1474,7 +1374,7 @@
 "sp": [
 2,
 4,
-4,
+1156,
 376,
 376
 ]
@@ -1494,7 +1394,7 @@
 "sp": [
 1,
 1156,
-4,
+1156,
 376,
 376
 ]
@@ -1508,13 +1408,13 @@
 "prix": 12.99,
 "source": "Clément",
 "url": "https://clement.ca/products/laventure-de-steve-minecraft-lgo-21583",
-"img": "planches/p00.jpg",
+"img": "planches/p01.jpg",
 "ageCible": null,
 "accroche": "Steve affronte le creeper dans la neige",
 "sp": [
-0,
+1,
 388,
-1540,
+388,
 376,
 376
 ]
@@ -1528,13 +1428,13 @@
 "prix": 42.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/3172397-fr-lego-city-great-vehicles-la-chargeuse-pelleteuse-jaune",
-"img": "planches/p01.jpg",
+"img": "planches/p02.jpg",
 "ageCible": null,
 "accroche": "Pelle devant, pelle derrière : on creuse!",
 "sp": [
-1,
+2,
 1156,
-1924,
+772,
 376,
 376
 ]
@@ -1548,13 +1448,13 @@
 "prix": 12.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/3138867-fr-lego-technic-labatteuse-faconneuse-a-roues-john-deere-1470h",
-"img": "planches/p00.jpg",
+"img": "planches/p01.jpg",
 "ageCible": null,
 "accroche": "La machine qui coupe les arbres",
 "sp": [
-0,
+1,
 772,
-1540,
+388,
 376,
 376
 ]
@@ -1574,7 +1474,7 @@
 "sp": [
 1,
 388,
-772,
+1924,
 376,
 376
 ]
@@ -1588,13 +1488,13 @@
 "prix": 44.99,
 "source": "Toytown",
 "url": "https://www.toytown.ca/products/1-2-3-build-it-rocket-train-copter",
-"img": "planches/p02.jpg",
+"img": "planches/p03.jpg",
 "ageCible": null,
 "accroche": "Une fusée? Non, un train!",
 "sp": [
-2,
+3,
 1156,
-1156,
+4,
 376,
 376
 ]
@@ -1608,13 +1508,13 @@
 "prix": 49.99,
 "source": "Toytown",
 "url": "https://www.toytown.ca/products/quercetti-kaleido-gears",
-"img": "planches/p02.jpg",
+"img": "planches/p03.jpg",
 "ageCible": null,
 "accroche": "Tourne la manivelle, tout bouge!",
 "sp": [
-2,
+3,
 1156,
-1540,
+388,
 376,
 376
 ]
@@ -1634,7 +1534,7 @@
 "sp": [
 4,
 1924,
-772,
+1924,
 376,
 376
 ]
@@ -1648,93 +1548,13 @@
 "prix": 19.99,
 "source": "Clément",
 "url": "https://clement.ca/products/jeu-appareil-photo-de-bluey-inc-mtbl18965",
-"img": "planches/p05.jpg",
+"img": "planches/p06.jpg",
 "ageCible": null,
 "accroche": "Chikit chikit! Souriez!",
 "sp": [
-5,
-1540,
-1924,
-376,
-376
-]
-},
-{
-"id": "f-cape-dragon-chevalier",
-"categorie": "jouer",
-"marque": "Great Pretenders",
-"nom": "Cape réversible Dragon/Chevalier (5-6 ans)",
-"age": "5-6 ans",
-"prix": 29.99,
-"source": "Clément",
-"url": "https://clement.ca/products/cape-reversible-dragon-chevali-grp-55693",
-"img": "planches/p06.jpg",
-"ageCible": null,
-"accroche": "Chevalier d'un bord, dragon de l'autre!",
-"sp": [
 6,
+1156,
 772,
-4,
-376,
-376
-]
-},
-{
-"id": "f-costume-pirate",
-"categorie": "jouer",
-"marque": "Great Pretenders",
-"nom": "Veste de pirate avec pantalon (5-6 ans)",
-"age": "5-6 ans",
-"prix": 29.99,
-"source": "Clément",
-"url": "https://clement.ca/products/veste-de-pirate-avec-pantalon-grp-65203",
-"img": "planches/p06.jpg",
-"ageCible": null,
-"accroche": "À l'abordage, moussaillon!",
-"sp": [
-6,
-1156,
-4,
-376,
-376
-]
-},
-{
-"id": "f-costume-policier",
-"categorie": "jouer",
-"marque": "Great Pretenders",
-"nom": "Ensemble policier et accessoires (3-4 ans)",
-"age": "3-4 ans",
-"prix": 39.99,
-"source": "Clément",
-"url": "https://clement.ca/products/ens-policier-et-accessoires-grp-81483",
-"img": "planches/p06.jpg",
-"ageCible": null,
-"accroche": "Halte! La police du salon!",
-"sp": [
-6,
-1540,
-388,
-376,
-376
-]
-},
-{
-"id": "f-robe-alicorne",
-"categorie": "jouer",
-"marque": "Great Pretenders",
-"nom": "Robe d'alicorne avec ailes et bandeau",
-"age": "3+",
-"prix": 49.99,
-"source": "Clément",
-"url": "https://clement.ca/products/robe-alicorne-ailes-et-bandeau-grp-31015",
-"img": "planches/p06.jpg",
-"ageCible": null,
-"accroche": "Des ailes, une corne, de la magie!",
-"sp": [
-6,
-1540,
-1156,
 376,
 376
 ]
@@ -1753,8 +1573,8 @@
 "accroche": "RAAAWR! Le T. rex est arrivé!",
 "sp": [
 6,
-1986,
-1156,
+1602,
+1924,
 251,
 376
 ]
@@ -1773,8 +1593,8 @@
 "accroche": "Le petit suisse qui parle!",
 "sp": [
 6,
-772,
-772,
+388,
+1540,
 376,
 376
 ]
@@ -1793,8 +1613,8 @@
 "accroche": "Le plus doux des câlins!",
 "sp": [
 6,
+1156,
 1540,
-772,
 376,
 376
 ]
@@ -1813,8 +1633,8 @@
 "accroche": "Une cachette rien qu'à moi!",
 "sp": [
 6,
-772,
 1156,
+1924,
 376,
 376
 ]
@@ -1833,27 +1653,27 @@
 "accroche": "Il aspire pour vrai!",
 "sp": [
 6,
-4,
-1540,
+1924,
+1924,
 376,
 376
 ]
 },
 {
 "id": "g-hippos-gloutons",
-"categorie": "jeux",
+"categorie": "retro",
 "marque": "Hasbro",
 "nom": "Hippos gloutons – le jeu",
 "age": "4+",
 "prix": 16.09,
 "source": "Mastermind Toys",
 "url": "https://www.mastermindtoys.com/products/hungry-hungry-hippos-board-game",
-"img": "planches/p07.jpg",
+"img": "planches/p00.jpg",
 "ageCible": null,
 "accroche": "Vite, vite, mange toutes les billes!",
 "sp": [
-7,
-388,
+0,
+1924,
 4,
 376,
 376
@@ -1861,39 +1681,39 @@
 },
 {
 "id": "g-operation",
-"categorie": "jeux",
+"categorie": "retro",
 "marque": "Hasbro",
 "nom": "Opération – le jeu classique, édition rafraîchie",
 "age": "6+",
 "prix": 17.49,
 "source": "Mastermind Toys",
 "url": "https://www.mastermindtoys.com/products/classic-operation-refresh",
-"img": "planches/p07.jpg",
+"img": "planches/p00.jpg",
 "ageCible": null,
 "accroche": "Bzzzt! Opère sans toucher le bord!",
 "sp": [
-7,
-1156,
+0,
 4,
+388,
 376,
 376
 ]
 },
 {
 "id": "g-puissance-4",
-"categorie": "jeux",
+"categorie": "retro",
 "marque": "Hasbro",
 "nom": "Puissance 4 (Connect 4) – le jeu classique",
 "age": "6+",
 "prix": 24.99,
 "source": "Mastermind Toys",
 "url": "https://www.mastermindtoys.com/products/connect-4",
-"img": "planches/p07.jpg",
+"img": "planches/p00.jpg",
 "ageCible": null,
 "accroche": "Aligne quatre jetons avant moi!",
 "sp": [
-7,
-1156,
+0,
+388,
 388,
 376,
 376
@@ -1913,8 +1733,8 @@
 "accroche": "Devine le code secret des animaux!",
 "sp": [
 7,
-1156,
-1176,
+388,
+1944,
 376,
 336
 ]
@@ -1933,8 +1753,8 @@
 "accroche": "Quel escargot gagnera la course?",
 "sp": [
 7,
-1540,
-1156,
+772,
+1924,
 376,
 376
 ]
@@ -1948,32 +1768,32 @@
 "prix": 39.99,
 "source": "Clément",
 "url": "https://clement.ca/products/croque-carotte-rav-22393",
-"img": "planches/p07.jpg",
+"img": "planches/p08.jpg",
 "ageCible": null,
 "accroche": "Attention aux trous, petits lapins!",
 "sp": [
-7,
-388,
+8,
 1924,
+4,
 376,
 376
 ]
 },
 {
 "id": "g-reveille-papa",
-"categorie": "jeux",
+"categorie": "retro",
 "marque": "Goliath",
 "nom": "Réveille pas papa! – jeu de société (version française)",
 "age": "5+",
 "prix": 24.99,
 "source": "Clément",
 "url": "https://clement.ca/products/reveille-pas-papa-kij-34770582",
-"img": "planches/p07.jpg",
+"img": "planches/p00.jpg",
 "ageCible": null,
 "accroche": "Chut! Papa dort, prends le gâteau!",
 "sp": [
-7,
-1540,
+0,
+772,
 388,
 376,
 376
@@ -1993,8 +1813,8 @@
 "accroche": "Un océan géant sur le plancher!",
 "sp": [
 7,
-1924,
-388,
+1156,
+1156,
 376,
 376
 ]
@@ -2014,7 +1834,7 @@
 "sp": [
 7,
 1924,
-4,
+772,
 376,
 376
 ]
@@ -2033,8 +1853,8 @@
 "accroche": "Une pizza toute chaude en pâte!",
 "sp": [
 9,
-388,
-772,
+1924,
+1156,
 376,
 376
 ]
@@ -2048,13 +1868,13 @@
 "prix": 34.99,
 "source": "Toytown",
 "url": "https://www.toytown.ca/products/crayola-colour-wonder-magic-light-brush",
-"img": "planches/p09.jpg",
+"img": "planches/p10.jpg",
 "ageCible": null,
 "accroche": "Le pinceau s'allume de la couleur!",
 "sp": [
-9,
-772,
-1924,
+10,
+1540,
+4,
 376,
 376
 ]
@@ -2073,8 +1893,8 @@
 "accroche": "De l'eau, et les dinos apparaissent!",
 "sp": [
 8,
-388,
-1540,
+1924,
+1924,
 376,
 376
 ]
@@ -2088,13 +1908,13 @@
 "prix": 14.99,
 "source": "Clément",
 "url": "https://clement.ca/products/peinture-a-la-palette-les-sauv-dje-dj09132",
-"img": "planches/p08.jpg",
+"img": "planches/p09.jpg",
 "ageCible": null,
 "accroche": "Peins l'éléphant comme un vrai artiste!",
 "sp": [
-8,
-1540,
-1540,
+9,
+772,
+4,
 376,
 376
 ]
@@ -2108,13 +1928,13 @@
 "prix": 14.92,
 "source": "Clément",
 "url": "https://clement.ca/products/seau-a-craies-52-daw-32200",
-"img": "planches/p08.jpg",
+"img": "planches/p09.jpg",
 "ageCible": null,
 "accroche": "Dessine partout sur le trottoir!",
 "sp": [
-8,
-1156,
-1540,
+9,
+388,
+4,
 376,
 376
 ]
@@ -2133,8 +1953,8 @@
 "accroche": "Des perles qui collent avec de l'eau!",
 "sp": [
 9,
-4,
-4,
+1540,
+388,
 376,
 376
 ]
@@ -2153,8 +1973,8 @@
 "accroche": "Une maison pour tes insectes trouvés!",
 "sp": [
 10,
-63,
-4,
+831,
+388,
 258,
 376
 ]
@@ -2173,8 +1993,8 @@
 "accroche": "Regarde une fourmi en géant!",
 "sp": [
 10,
+1156,
 388,
-4,
 376,
 376
 ]
@@ -2193,8 +2013,8 @@
 "accroche": "Ça bouillonne, une créature apparaît!",
 "sp": [
 9,
-1540,
-1156,
+388,
+1924,
 376,
 376
 ]
@@ -2213,8 +2033,8 @@
 "accroche": "Fais rouler l'auto sans la toucher!",
 "sp": [
 9,
-1924,
-1161,
+772,
+1929,
 376,
 365
 ]
@@ -2233,7 +2053,7 @@
 "accroche": "On descend la côte à deux!",
 "sp": [
 10,
-4,
+772,
 1540,
 376,
 376
@@ -2253,7 +2073,7 @@
 "accroche": "Il lance… et compte!",
 "sp": [
 10,
-1924,
+1156,
 1540,
 376,
 376
@@ -2273,8 +2093,8 @@
 "accroche": "Un ballon doux pour botter fort!",
 "sp": [
 10,
-1924,
-1156,
+388,
+1540,
 376,
 376
 ]
@@ -2293,7 +2113,7 @@
 "accroche": "Il bat des ailes dans le ciel!",
 "sp": [
 10,
-772,
+1924,
 1156,
 376,
 376
@@ -2341,41 +2161,21 @@
 },
 {
 "id": "g-frisbee",
-"categorie": "dehors",
+"categorie": "retro",
 "marque": "Wham-O",
 "nom": "Frisbee Pro Classic 130 g",
 "age": "5+",
 "prix": 12.99,
 "source": "Toytown",
 "url": "https://www.toytown.ca/products/pro-classic-frisbee-130g",
-"img": "planches/p10.jpg",
+"img": "planches/p00.jpg",
 "ageCible": null,
 "accroche": "Lance-le jusqu'au bout du terrain!",
 "sp": [
-10,
-1924,
-772,
+0,
+1156,
+4,
 376,
-376
-]
-},
-{
-"id": "g-raquettes-ours",
-"categorie": "dehors",
-"marque": "Sno Stompers",
-"nom": "Pieds d'ours d'hiver – raquettes à neige (bleu pâle)",
-"age": "5+",
-"prix": 21.99,
-"source": "Toytown",
-"url": "https://www.toytown.ca/products/sno-stompers",
-"img": "planches/p10.jpg",
-"ageCible": null,
-"accroche": "Laisse des traces d'ours dans la neige!",
-"sp": [
-10,
-1585,
-1540,
-286,
 376
 ]
 },
@@ -2393,7 +2193,7 @@
 "accroche": "Verse le sable, la roue tourne!",
 "sp": [
 11,
-1924,
+772,
 388,
 376,
 376
@@ -2408,13 +2208,13 @@
 "prix": 14.0,
 "source": "Indigo",
 "url": "https://www.indigo.ca/fr/products/crayola-super-tips-washable-markers-50-count",
-"img": "planches/p08.jpg",
+"img": "planches/p09.jpg",
 "ageCible": null,
 "accroche": "Cinquante couleurs pour tout colorier!",
 "sp": [
-8,
-872,
-1540,
+9,
+104,
+4,
 176,
 376
 ]
@@ -2433,8 +2233,8 @@
 "accroche": "Des petits gâteaux pour toute la famille!",
 "sp": [
 9,
-1924,
-812,
+1156,
+1580,
 376,
 296
 ]
@@ -2453,8 +2253,8 @@
 "accroche": "Clac! Le chien colle les autocollants!",
 "sp": [
 9,
-459,
-4,
+1995,
+388,
 233,
 376
 ]
@@ -2473,8 +2273,8 @@
 "accroche": "De grosses perles pour petits doigts!",
 "sp": [
 9,
-811,
-772,
+43,
+1540,
 298,
 376
 ]
@@ -2488,13 +2288,13 @@
 "prix": 17.99,
 "source": "Clément",
 "url": "https://clement.ca/products/ensemble-coloriage-dinosaures-tig-14-013",
-"img": "planches/p08.jpg",
+"img": "planches/p09.jpg",
 "ageCible": null,
 "accroche": "Des dinos à colorier partout!",
 "sp": [
-8,
-1594,
-1924,
+9,
+826,
+388,
 268,
 376
 ]
@@ -2513,8 +2313,8 @@
 "accroche": "Fabrique tes propres petits monstres!",
 "sp": [
 9,
-7,
-772,
+1543,
+1156,
 369,
 376
 ]
@@ -2533,8 +2333,8 @@
 "accroche": "Couds ton sac papillon tout seul!",
 "sp": [
 9,
-388,
-440,
+1924,
+824,
 376,
 271
 ]
@@ -2548,13 +2348,13 @@
 "prix": 32.99,
 "source": "Clément",
 "url": "https://clement.ca/products/comme-une-fee-diy-dje-dj07939",
-"img": "planches/p09.jpg",
+"img": "planches/p10.jpg",
 "ageCible": null,
 "accroche": "Décore tes ailes qui brillent!",
 "sp": [
-9,
-388,
-1965,
+10,
+1156,
+45,
 376,
 293
 ]
@@ -2573,8 +2373,8 @@
 "accroche": "Des bestioles brillantes dans la fenêtre!",
 "sp": [
 8,
-1983,
-1156,
+1215,
+1924,
 258,
 376
 ]
@@ -2593,8 +2393,8 @@
 "accroche": "Un doigt, un point, une couleur!",
 "sp": [
 9,
-772,
-446,
+4,
+1214,
 376,
 260
 ]
@@ -2613,8 +2413,8 @@
 "accroche": "Dessine et regarde ça s’allumer!",
 "sp": [
 9,
-772,
-12,
+4,
+780,
 376,
 359
 ]
@@ -2628,13 +2428,13 @@
 "prix": 32.0,
 "source": "Indigo",
 "url": "https://www.indigo.ca/fr/products/crayola-pokemon-art-case",
-"img": "planches/p09.jpg",
+"img": "planches/p10.jpg",
 "ageCible": null,
 "accroche": "Colorie Pikachu et ses amis!",
 "sp": [
+10,
+388,
 9,
-1924,
-1545,
 376,
 365
 ]
@@ -2648,13 +2448,13 @@
 "prix": 14.99,
 "source": "Toytown",
 "url": "https://www.toytown.ca/products/pom-pom-pets",
-"img": "planches/p08.jpg",
+"img": "planches/p09.jpg",
 "ageCible": null,
 "accroche": "Deux bestioles toutes douces à fabriquer!",
 "sp": [
-8,
-2001,
-1540,
+9,
+1233,
+4,
 221,
 376
 ]
@@ -2668,13 +2468,13 @@
 "prix": 34.99,
 "source": "Mastermind Toys",
 "url": "https://www.mastermindtoys.com/products/geosafari-r-jr-explorer-scope",
-"img": "planches/p09.jpg",
+"img": "planches/p10.jpg",
 "ageCible": null,
 "accroche": "Regarde loin, puis tout près!",
 "sp": [
-9,
-1156,
-1965,
+10,
+1924,
+45,
 376,
 293
 ]
@@ -2693,8 +2493,8 @@
 "accroche": "Les étoiles au plafond de ta chambre!",
 "sp": [
 10,
-825,
-4,
+1593,
+388,
 269,
 376
 ]
@@ -2713,8 +2513,8 @@
 "accroche": "Creuse et trouve de vrais fossiles!",
 "sp": [
 10,
-1156,
-12,
+1924,
+396,
 376,
 360
 ]
@@ -2728,13 +2528,13 @@
 "prix": 14.99,
 "source": "Mastermind Toys",
 "url": "https://www.mastermindtoys.com/products/toy-mystery-crystals-geode-excavation-2pc",
-"img": "planches/p08.jpg",
+"img": "planches/p09.jpg",
 "ageCible": null,
 "accroche": "Casse la roche, découvre les cristaux!",
 "sp": [
-8,
-67,
-1924,
+9,
+1603,
+4,
 249,
 376
 ]
@@ -2753,8 +2553,8 @@
 "accroche": "Programme ton petit chien rigolo!",
 "sp": [
 10,
-772,
-397,
+1540,
+781,
 376,
 357
 ]
@@ -2773,8 +2573,8 @@
 "accroche": "Branche les fils, le rover s’allume!",
 "sp": [
 10,
-388,
-407,
+1156,
+791,
 376,
 338
 ]
@@ -2793,8 +2593,8 @@
 "accroche": "Ton dino qui fait pousser du gazon!",
 "sp": [
 9,
-1156,
-4,
+388,
+772,
 376,
 375
 ]
@@ -2813,8 +2613,8 @@
 "accroche": "Qu’y a-t-il dans un requin?",
 "sp": [
 9,
-4,
-1546,
+1156,
+1930,
 376,
 363
 ]
@@ -2833,8 +2633,8 @@
 "accroche": "Regarde éclore tes petites bêtes!",
 "sp": [
 9,
-1540,
-24,
+772,
+792,
 376,
 336
 ]
@@ -2848,13 +2648,13 @@
 "prix": 16.99,
 "source": "Toytown",
 "url": "https://www.toytown.ca/products/4m-kidz-labs-fun-magnet",
-"img": "planches/p08.jpg",
+"img": "planches/p09.jpg",
 "ageCible": null,
 "accroche": "Le gros aimant attire tout!",
 "sp": [
-8,
-1167,
-1924,
+9,
+399,
+388,
 353,
 376
 ]
@@ -2868,13 +2668,13 @@
 "prix": 17.99,
 "source": "Toytown",
 "url": "https://www.toytown.ca/products/space-explorer-slide-projector",
-"img": "planches/p08.jpg",
+"img": "planches/p09.jpg",
 "ageCible": null,
 "accroche": "L’espace projeté sur ton mur!",
 "sp": [
-8,
-1982,
-1924,
+9,
+1214,
+388,
 259,
 376
 ]
@@ -2893,30 +2693,10 @@
 "accroche": "Creuse le sable, trouve les squelettes!",
 "sp": [
 9,
-388,
-1636,
+1540,
+2020,
 376,
 184
-]
-},
-{
-"id": "d4-moule-pingouin",
-"categorie": "dehors",
-"marque": "Wishbone",
-"nom": "Moule à neige Sno-Buddy – pingouin",
-"age": "5+",
-"prix": 15.99,
-"source": "Toytown",
-"url": "https://www.toytown.ca/products/sno-buddy-penguin",
-"img": "planches/p10.jpg",
-"ageCible": null,
-"accroche": "Un pingouin de neige en deux secondes!",
-"sp": [
-10,
-1156,
-1156,
-376,
-376
 ]
 },
 {
@@ -2933,70 +2713,10 @@
 "accroche": "Glisse sur le dos d'un ours polaire!",
 "sp": [
 11,
-4,
-795,
+1156,
+411,
 376,
 329
-]
-},
-{
-"id": "d4-luge-ronde",
-"categorie": "dehors",
-"marque": "Mastermind Toys",
-"nom": "Luge ronde en mousse",
-"age": "2+",
-"prix": 20.98,
-"source": "Mastermind Toys",
-"url": "https://www.mastermindtoys.com/products/mastermind-toys-sled-round",
-"img": "planches/p10.jpg",
-"ageCible": null,
-"accroche": "Ça tourne en descendant la côte!",
-"sp": [
-10,
-1156,
-1540,
-376,
-376
-]
-},
-{
-"id": "d4-bonhomme-neige",
-"categorie": "dehors",
-"marque": "Iscream",
-"nom": "Moule à boules de neige – petits bonshommes de neige",
-"age": "5+",
-"prix": 6.99,
-"source": "Toytown",
-"url": "https://www.toytown.ca/products/iscream-snowman-snowball-maker",
-"img": "planches/p10.jpg",
-"ageCible": null,
-"accroche": "Une armée de petits bonshommes de neige!",
-"sp": [
-10,
-1924,
-388,
-376,
-376
-]
-},
-{
-"id": "d4-bulles-glace",
-"categorie": "dehors",
-"marque": "Wishbone",
-"nom": "Bulles gelées Crazy Ice Bubbles avec souffleur électronique",
-"age": "3+",
-"prix": 19.99,
-"source": "Toytown",
-"url": "https://www.toytown.ca/products/crazy-ice-bubbles-in-electronic-blower",
-"img": "planches/p10.jpg",
-"ageCible": null,
-"accroche": "Des bulles qui gèlent dans l'air!",
-"sp": [
-10,
-388,
-1581,
-376,
-294
 ]
 },
 {
@@ -3013,7 +2733,7 @@
 "accroche": "Un contre un dans l'entrée!",
 "sp": [
 10,
-388,
+4,
 1924,
 376,
 376
@@ -3033,30 +2753,10 @@
 "accroche": "Ma lumière à moi, sur ma tuque!",
 "sp": [
 11,
-1210,
+442,
 388,
 267,
 376
-]
-},
-{
-"id": "d4-patins-double-lame",
-"categorie": "dehors",
-"marque": "Tempish",
-"nom": "Patins à glace Feeez à double lame, ajustables",
-"age": "Tous âges",
-"prix": 38.95,
-"source": "SkatePro",
-"url": "https://www.skatepro.ca/fr/233-16477.htm",
-"img": "planches/p11.jpg",
-"ageCible": null,
-"accroche": "Mes premiers coups de patin!",
-"sp": [
-11,
-4,
-446,
-376,
-259
 ]
 },
 {
@@ -3073,7 +2773,7 @@
 "accroche": "Ma canne pour le lac gelé!",
 "sp": [
 10,
-1540,
+1156,
 1924,
 376,
 376
@@ -3093,8 +2793,8 @@
 "accroche": "Le drapeau se lève : ça mord!",
 "sp": [
 10,
-4,
-1924,
+1540,
+1540,
 376,
 376
 ]
@@ -3113,7 +2813,7 @@
 "accroche": "Elle rebondit jusqu'à la lune!",
 "sp": [
 10,
-4,
+772,
 1156,
 376,
 376
@@ -3133,7 +2833,7 @@
 "accroche": "Tout le monde tient le parachute!",
 "sp": [
 11,
-772,
+388,
 772,
 376,
 376
@@ -3153,7 +2853,7 @@
 "accroche": "Pèse sur sa bedaine : des bulles!",
 "sp": [
 10,
-388,
+1540,
 1156,
 376,
 376
@@ -3173,28 +2873,8 @@
 "accroche": "Saute dessus, la méduse t'arrose!",
 "sp": [
 10,
-1924,
-1924,
-376,
-376
-]
-},
-{
-"id": "d4-craie-tampons",
-"categorie": "dehors",
-"marque": "Alex (Crazy Cool Chalk)",
-"nom": "Tampons à craie Stomp Stampers – étoiles et lunes",
-"age": "5+",
-"prix": 11.99,
-"source": "Mastermind Toys",
-"url": "https://www.mastermindtoys.com/products/crazy-cool-chalk-stomp-stampers",
-"img": "planches/p10.jpg",
-"ageCible": null,
-"accroche": "Des étoiles à chaque pas!",
-"sp": [
-10,
 1540,
-772,
+1924,
 376,
 376
 ]
@@ -3213,7 +2893,7 @@
 "accroche": "Marche sur une corde entre deux arbres!",
 "sp": [
 11,
-388,
+4,
 388,
 376,
 376
@@ -3233,8 +2913,8 @@
 "accroche": "Cours dessous, tu vas être trempé!",
 "sp": [
 10,
+4,
 1540,
-1156,
 376,
 376
 ]
@@ -3254,7 +2934,7 @@
 "sp": [
 3,
 1924,
-388,
+1540,
 376,
 376
 ]
@@ -3268,13 +2948,13 @@
 "prix": 47.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/935239-fr-jeux-bleu-orange-pengoloo-bois",
-"img": "planches/p07.jpg",
+"img": "planches/p08.jpg",
 "ageCible": null,
 "accroche": "Trouve les œufs sous les pingouins!",
 "sp": [
-7,
-1156,
-1924,
+8,
+388,
+388,
 376,
 376
 ]
@@ -3288,13 +2968,13 @@
 "prix": 47.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/2883767-fr-jeu-rhino-hero-super-combat",
-"img": "planches/p07.jpg",
+"img": "planches/p08.jpg",
 "ageCible": null,
 "accroche": "Grimpe la tour sans tout faire tomber!",
 "sp": [
-7,
-1540,
-1924,
+8,
+772,
+388,
 376,
 376
 ]
@@ -3313,8 +2993,8 @@
 "accroche": "Devine qui se cache chez Bluey!",
 "sp": [
 7,
-1924,
 1156,
+1924,
 376,
 376
 ]
@@ -3328,13 +3008,13 @@
 "prix": 14.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/3168156-fr-zygomatic-asmodee-spot-it-bluey-2-a-8-joueurs",
-"img": "planches/p06.jpg",
+"img": "planches/p07.jpg",
 "ageCible": null,
 "accroche": "Le plus rapide trouve le pareil!",
 "sp": [
-6,
-1924,
-1924,
+7,
+388,
+772,
 376,
 376
 ]
@@ -3348,13 +3028,13 @@
 "prix": 9.95,
 "source": "Board Game Bliss",
 "url": "https://www.boardgamebliss.com/products/uno-junior-2-0",
-"img": "planches/p06.jpg",
+"img": "planches/p07.jpg",
 "ageCible": null,
 "accroche": "Mon premier UNO avec des animaux!",
 "sp": [
-6,
+7,
+1540,
 388,
-1924,
 376,
 376
 ]
@@ -3373,8 +3053,8 @@
 "accroche": "Achète, encaisse et deviens riche!",
 "sp": [
 7,
-4,
 1540,
+1924,
 376,
 376
 ]
@@ -3393,8 +3073,8 @@
 "accroche": "Bloque les tunnels du bandit, ensemble!",
 "sp": [
 7,
-4,
-4,
+772,
+772,
 376,
 376
 ]
@@ -3413,8 +3093,8 @@
 "accroche": "Cinq bananes? Vite, sonne la cloche!",
 "sp": [
 7,
-1203,
-772,
+435,
+1540,
 281,
 376
 ]
@@ -3428,13 +3108,13 @@
 "prix": 59.95,
 "source": "Board Game Bliss",
 "url": "https://www.boardgamebliss.com/products/orchard",
-"img": "planches/p07.jpg",
+"img": "planches/p08.jpg",
 "ageCible": null,
 "accroche": "Cueillons les fruits avant le corbeau!",
 "sp": [
-7,
-1924,
-1949,
+8,
+1156,
+413,
 376,
 325
 ]
@@ -3448,13 +3128,13 @@
 "prix": 38.95,
 "source": "Board Game Bliss",
 "url": "https://www.boardgamebliss.com/products/my-very-first-games-animal-upon-animal-junior",
-"img": "planches/p07.jpg",
+"img": "planches/p08.jpg",
 "ageCible": null,
 "accroche": "Empile les animaux, tout doucement!",
 "sp": [
-7,
-1928,
-1540,
+8,
+1160,
+4,
 368,
 376
 ]
@@ -3468,13 +3148,13 @@
 "prix": 37.95,
 "source": "Board Game Bliss",
 "url": "https://www.boardgamebliss.com/products/my-first-carcassonne-new-edition",
-"img": "planches/p07.jpg",
+"img": "planches/p08.jpg",
 "ageCible": null,
 "accroche": "Fais courir tes enfants dans le village!",
 "sp": [
-7,
-1205,
-1540,
+8,
+437,
+4,
 278,
 376
 ]
@@ -3488,13 +3168,13 @@
 "prix": 39.95,
 "source": "Board Game Bliss",
 "url": "https://www.boardgamebliss.com/products/catan-junior",
-"img": "planches/p07.jpg",
+"img": "planches/p08.jpg",
 "ageCible": null,
 "accroche": "Construis tes repaires de pirates!",
 "sp": [
-7,
-13,
-1924,
+8,
+1549,
+4,
 357,
 376
 ]
@@ -3513,8 +3193,8 @@
 "accroche": "Attrape la noix de coco le premier!",
 "sp": [
 7,
-4,
-1156,
+1540,
+1540,
 376,
 376
 ]
@@ -3533,8 +3213,8 @@
 "accroche": "Chasse les monstres du placard!",
 "sp": [
 7,
-4,
-772,
+1540,
+1156,
 376,
 376
 ]
@@ -3553,8 +3233,8 @@
 "accroche": "Une licorne qui pète? Ça se peut!",
 "sp": [
 7,
-388,
-772,
+1924,
+1156,
 376,
 376
 ]
@@ -3573,8 +3253,8 @@
 "accroche": "Recrute le chat super-héros!",
 "sp": [
 7,
+1156,
 772,
-4,
 376,
 376
 ]
@@ -3594,7 +3274,7 @@
 "sp": [
 7,
 772,
-388,
+1156,
 376,
 376
 ]
@@ -3613,8 +3293,8 @@
 "accroche": "Le gros mange le petit!",
 "sp": [
 7,
-388,
-1169,
+1924,
+1553,
 376,
 349
 ]
@@ -3633,8 +3313,8 @@
 "accroche": "Pousse les murs, trouve tes amis!",
 "sp": [
 7,
-388,
-1540,
+1924,
+1924,
 376,
 376
 ]
@@ -3654,7 +3334,7 @@
 "sp": [
 7,
 4,
-388,
+1156,
 376,
 376
 ]
@@ -3668,13 +3348,13 @@
 "prix": 46.99,
 "source": "Clément",
 "url": "https://clement.ca/products/pandaland-egl-gla3155",
-"img": "planches/p07.jpg",
+"img": "planches/p08.jpg",
 "ageCible": null,
 "accroche": "Une journée au parc des pandas!",
 "sp": [
-7,
-772,
-1924,
+8,
+4,
+388,
 376,
 376
 ]
@@ -3693,8 +3373,8 @@
 "accroche": "Brasse les dés des animaux!",
 "sp": [
 7,
-772,
-772,
+4,
+1540,
 376,
 376
 ]
@@ -3708,13 +3388,13 @@
 "prix": 38.24,
 "source": "Randolph (boutique)",
 "url": "https://randolph.ca/products/cascadia-junior-fr",
-"img": "planches/p07.jpg",
+"img": "planches/p08.jpg",
 "ageCible": null,
 "accroche": "Ours, saumons et forêts à placer!",
 "sp": [
-7,
-1540,
-1540,
+8,
+772,
+4,
 376,
 376
 ]
@@ -3728,13 +3408,13 @@
 "prix": 34.99,
 "source": "Clément",
 "url": "https://clement.ca/products/coco-crazy-rav-20902",
-"img": "planches/p07.jpg",
+"img": "planches/p08.jpg",
 "ageCible": null,
 "accroche": "Lance la balle dans les cocos!",
 "sp": [
-7,
-772,
-1540,
+8,
+4,
+4,
 376,
 376
 ]
@@ -3754,7 +3434,7 @@
 "sp": [
 7,
 388,
-388,
+1156,
 376,
 376
 ]
@@ -3773,8 +3453,8 @@
 "accroche": "Un lion, un oiseau, un hiver.",
 "sp": [
 8,
-426,
-1156,
+1962,
+1540,
 299,
 376
 ]
@@ -3793,8 +3473,8 @@
 "accroche": "Glissade, flocons et bons amis!",
 "sp": [
 8,
-1156,
-811,
+388,
+1579,
 376,
 298
 ]
@@ -3813,8 +3493,8 @@
 "accroche": "On va à la pêche!",
 "sp": [
 8,
-1585,
-388,
+817,
+1156,
 285,
 376
 ]
@@ -3833,8 +3513,8 @@
 "accroche": "Le tout nouveau petit héros!",
 "sp": [
 8,
+1924,
 388,
-4,
 376,
 376
 ]
@@ -3853,8 +3533,8 @@
 "accroche": "Attention, un loup dans les pages!",
 "sp": [
 8,
-1965,
-388,
+1197,
+1156,
 294,
 376
 ]
@@ -3873,8 +3553,8 @@
 "accroche": "Frisson prépare un Noël parfait!",
 "sp": [
 8,
-810,
-772,
+42,
+1540,
 300,
 376
 ]
@@ -3893,8 +3573,8 @@
 "accroche": "Colorie avec Passe-Carreau!",
 "sp": [
 8,
-26,
-4,
+1562,
+388,
 332,
 376
 ]
@@ -3914,7 +3594,7 @@
 "sp": [
 0,
 427,
-4,
+1156,
 297,
 376
 ]
@@ -3933,8 +3613,8 @@
 "accroche": "Livraison de lettres dans l'espace!",
 "sp": [
 8,
-1581,
-1156,
+813,
+1924,
 294,
 376
 ]
@@ -3953,8 +3633,8 @@
 "accroche": "Un petit garçon pas comme les autres.",
 "sp": [
 8,
-1216,
-1156,
+448,
+1924,
 255,
 376
 ]
@@ -3973,8 +3653,8 @@
 "accroche": "Pompiers, bétonnière ou déménagement?",
 "sp": [
 8,
-398,
-388,
+1934,
+772,
 356,
 376
 ]
@@ -3993,8 +3673,8 @@
 "accroche": "Un monstre pas si terrible!",
 "sp": [
 8,
-773,
-4,
+5,
+772,
 374,
 376
 ]
@@ -4013,8 +3693,8 @@
 "accroche": "Vive les insectes rigolos!",
 "sp": [
 8,
-822,
-1156,
+54,
+1924,
 276,
 376
 ]
@@ -4034,7 +3714,7 @@
 "sp": [
 0,
 6,
-4,
+1156,
 371,
 376
 ]
@@ -4053,8 +3733,8 @@
 "accroche": "Une grand-maman chez les monstres!",
 "sp": [
 8,
-48,
-772,
+1584,
+1156,
 288,
 376
 ]
@@ -4073,8 +3753,8 @@
 "accroche": "Une course folle à en rire!",
 "sp": [
 8,
-1174,
-4,
+406,
+772,
 339,
 376
 ]
@@ -4093,8 +3773,8 @@
 "accroche": "La doudou fête Noël aussi!",
 "sp": [
 8,
-1540,
-4,
+772,
+772,
 376,
 376
 ]
@@ -4113,8 +3793,8 @@
 "accroche": "La nuit magique du 24!",
 "sp": [
 8,
-1575,
-772,
+807,
+1540,
 305,
 376
 ]
@@ -4133,8 +3813,8 @@
 "accroche": "De la neige pour Noël, vite!",
 "sp": [
 8,
-1966,
-772,
+1198,
+1540,
 291,
 376
 ]
@@ -4153,8 +3833,8 @@
 "accroche": "Qu'y a-t-il derrière les arbres?",
 "sp": [
 8,
-54,
-1156,
+1590,
+1540,
 276,
 376
 ]
@@ -4173,8 +3853,8 @@
 "accroche": "Trouve celui qui cloche!",
 "sp": [
 8,
-1950,
-4,
+1182,
+772,
 323,
 376
 ]
@@ -4193,8 +3873,8 @@
 "accroche": "Un chien en forme de banane!",
 "sp": [
 8,
-804,
-388,
+36,
+1156,
 312,
 376
 ]
@@ -4213,8 +3893,8 @@
 "accroche": "Brrr! Un hiver bien froid!",
 "sp": [
 8,
-388,
-772,
+1924,
+1156,
 376,
 376
 ]
@@ -4233,8 +3913,8 @@
 "accroche": "Qui gâte le père Noël?",
 "sp": [
 8,
-1156,
-430,
+388,
+1198,
 376,
 292
 ]
@@ -4253,8 +3933,8 @@
 "accroche": "Trouve les monstres partout au Québec!",
 "sp": [
 8,
-16,
-388,
+1552,
+772,
 352,
 376
 ]
@@ -4274,7 +3954,7 @@
 "sp": [
 0,
 1540,
-388,
+1540,
 376,
 376
 ]
@@ -4294,7 +3974,7 @@
 "sp": [
 0,
 388,
-388,
+1540,
 376,
 376
 ]
@@ -4314,7 +3994,7 @@
 "sp": [
 0,
 772,
-388,
+1540,
 376,
 376
 ]
@@ -4334,7 +4014,7 @@
 "sp": [
 2,
 1540,
-4,
+1156,
 376,
 376
 ]
@@ -4354,7 +4034,7 @@
 "sp": [
 2,
 1924,
-4,
+1156,
 376,
 376
 ]
@@ -4374,7 +4054,7 @@
 "sp": [
 2,
 388,
-4,
+1156,
 376,
 376
 ]
@@ -4388,13 +4068,13 @@
 "prix": 39.99,
 "source": "Clément",
 "url": "https://clement.ca/products/lavion-a-reaction-contre-la-lgo-60489",
-"img": "planches/p01.jpg",
+"img": "planches/p02.jpg",
 "ageCible": null,
 "accroche": "Qui gagne : l'avion ou l'auto?",
 "sp": [
-1,
+2,
 1540,
-1540,
+388,
 376,
 376
 ]
@@ -4408,13 +4088,13 @@
 "prix": 39.99,
 "source": "Clément",
 "url": "https://clement.ca/products/lego-city-camping-car-lgo-60454",
-"img": "planches/p01.jpg",
+"img": "planches/p02.jpg",
 "ageCible": null,
 "accroche": "En route pour le camping!",
 "sp": [
-1,
+2,
 1924,
-1540,
+388,
 376,
 376
 ]
@@ -4434,7 +4114,7 @@
 "sp": [
 1,
 772,
-772,
+1924,
 376,
 376
 ]
@@ -4454,7 +4134,7 @@
 "sp": [
 1,
 1156,
-772,
+1924,
 376,
 376
 ]
@@ -4468,13 +4148,13 @@
 "prix": 12.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/3138888-fr-lego-city-great-vehicles-la-supervoiture-electrique",
-"img": "planches/p00.jpg",
+"img": "planches/p01.jpg",
 "ageCible": null,
 "accroche": "Vroum, sans bruit et rapide!",
 "sp": [
-0,
+1,
 1156,
-1540,
+388,
 376,
 376
 ]
@@ -4488,13 +4168,13 @@
 "prix": 29.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/3138894-fr-lego-city-great-vehicles-la-fourgonnette-lego",
-"img": "planches/p01.jpg",
+"img": "planches/p02.jpg",
 "ageCible": null,
 "accroche": "La camionnette du livreur LEGO",
 "sp": [
-1,
+2,
 1156,
-1156,
+4,
 376,
 376
 ]
@@ -4508,13 +4188,13 @@
 "prix": 39.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/3062553-fr-lego-city-les-aventures-du-4x4-tout-terrain-252-pieces",
-"img": "planches/p01.jpg",
+"img": "planches/p02.jpg",
 "ageCible": null,
 "accroche": "Dans la boue avec le 4x4!",
 "sp": [
-1,
+2,
 4,
-1924,
+772,
 376,
 376
 ]
@@ -4528,13 +4208,13 @@
 "prix": 17.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/3158779-fr-lego-creator-les-animaux-sauvages-le-toucan-tropical",
-"img": "planches/p00.jpg",
+"img": "planches/p01.jpg",
 "ageCible": null,
 "accroche": "Toucan, papillon ou grenouille!",
 "sp": [
-0,
+1,
 1540,
-1924,
+772,
 376,
 376
 ]
@@ -4548,13 +4228,13 @@
 "prix": 12.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/3196800-fr-lego-creator-la-tortue-avec-un-nenuphar-124-pieces",
-"img": "planches/p00.jpg",
+"img": "planches/p01.jpg",
 "ageCible": null,
 "accroche": "Une tortue sur son nénuphar",
 "sp": [
-0,
+1,
 1540,
-1540,
+388,
 376,
 376
 ]
@@ -4568,13 +4248,13 @@
 "prix": 12.99,
 "source": "Clément",
 "url": "https://clement.ca/products/lego-classic-les-aliments-crea-lgo-11039",
-"img": "planches/p00.jpg",
+"img": "planches/p01.jpg",
 "ageCible": null,
 "accroche": "Des aliments avec des yeux!",
 "sp": [
-0,
+1,
 1924,
-1540,
+388,
 376,
 376
 ]
@@ -4594,7 +4274,7 @@
 "sp": [
 1,
 1540,
-772,
+1924,
 376,
 376
 ]
@@ -4608,13 +4288,13 @@
 "prix": 12.99,
 "source": "Clément",
 "url": "https://clement.ca/products/lego-friends-bateau-av-axolot-lgo-42681",
-"img": "planches/p00.jpg",
+"img": "planches/p01.jpg",
 "ageCible": null,
 "accroche": "Un bateau en forme d'axolotl!",
 "sp": [
-0,
+1,
 4,
-1924,
+772,
 376,
 376
 ]
@@ -4634,7 +4314,7 @@
 "sp": [
 1,
 388,
-4,
+1156,
 376,
 376
 ]
@@ -4648,13 +4328,13 @@
 "prix": 39.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/3138879-fr-lego-friends-la-remorque-pour-le-cheval-et-le-poulain",
-"img": "planches/p01.jpg",
+"img": "planches/p02.jpg",
 "ageCible": null,
 "accroche": "Le poulain part en balade",
 "sp": [
-1,
+2,
 388,
-1924,
+772,
 376,
 376
 ]
@@ -4668,13 +4348,13 @@
 "prix": 27.99,
 "source": "Clément",
 "url": "https://clement.ca/products/les-jeux-de-plage-lilo-stitc-lgo-43280",
-"img": "planches/p01.jpg",
+"img": "planches/p02.jpg",
 "ageCible": null,
 "accroche": "Stitch fait du surf!",
 "sp": [
-1,
+2,
 772,
-1156,
+4,
 376,
 376
 ]
@@ -4688,13 +4368,13 @@
 "prix": 33.99,
 "source": "Clément",
 "url": "https://clement.ca/products/duplo-escapade-a-la-plage-blue-lgo-11202",
-"img": "planches/p01.jpg",
+"img": "planches/p02.jpg",
 "ageCible": null,
 "accroche": "Bluey s'en va à la plage!",
 "sp": [
-1,
+2,
 1540,
-1156,
+4,
 376,
 376
 ]
@@ -4714,7 +4394,7 @@
 "sp": [
 1,
 772,
-4,
+1156,
 376,
 376
 ]
@@ -4734,7 +4414,7 @@
 "sp": [
 1,
 1924,
-772,
+1924,
 376,
 376
 ]
@@ -4748,13 +4428,13 @@
 "prix": 42.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/3177702-fr-lego-jurassic-world-bebe-dinosaure-le-pteranodon",
-"img": "planches/p01.jpg",
+"img": "planches/p02.jpg",
 "ageCible": null,
 "accroche": "Un dino qui vole!",
 "sp": [
-1,
+2,
 1540,
-1924,
+772,
 376,
 376
 ]
@@ -4768,13 +4448,13 @@
 "prix": 12.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/3124126-fr-lego-ninjago-la-course-a-moto-de-kai",
-"img": "planches/p00.jpg",
+"img": "planches/p01.jpg",
 "ageCible": null,
 "accroche": "Kai fonce sur sa moto!",
 "sp": [
-0,
+1,
 388,
-1924,
+772,
 376,
 376
 ]
@@ -4788,13 +4468,13 @@
 "prix": 24.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/3124125-fr-lego-ninjago-le-robot-de-combat-de-spinjitzu-darin",
-"img": "planches/p01.jpg",
+"img": "planches/p02.jpg",
 "ageCible": null,
 "accroche": "Un robot ninja géant!",
 "sp": [
-1,
+2,
 4,
-1156,
+4,
 376,
 376
 ]
@@ -4808,13 +4488,13 @@
 "prix": 24.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/3081330-fr-lego-dreamzzz-la-montgolfiere-narval-dizzie-156-pieces",
-"img": "planches/p01.jpg",
+"img": "planches/p02.jpg",
 "ageCible": null,
 "accroche": "Un narval qui vole en ballon!",
 "sp": [
-1,
+2,
 388,
-1156,
+4,
 376,
 376
 ]
@@ -4834,7 +4514,7 @@
 "sp": [
 3,
 388,
-41,
+1193,
 376,
 301
 ]
@@ -4854,7 +4534,7 @@
 "sp": [
 3,
 1540,
-388,
+1540,
 376,
 376
 ]
@@ -4868,13 +4548,13 @@
 "prix": 29.99,
 "source": "Chris House Hobbies (chrishouse.ca)",
 "url": "https://chrishouse.ca/products/rc-mack-garbage-truck-white-green",
-"img": "planches/p02.jpg",
+"img": "planches/p03.jpg",
 "ageCible": null,
 "accroche": "Bip bip, c'est le jour des vidanges !",
 "sp": [
-2,
+3,
 1540,
-1961,
+809,
 376,
 301
 ]
@@ -4894,7 +4574,7 @@
 "sp": [
 3,
 4,
-104,
+1256,
 376,
 176
 ]
@@ -4914,7 +4594,7 @@
 "sp": [
 3,
 1156,
-4,
+1156,
 376,
 376
 ]
@@ -4934,7 +4614,7 @@
 "sp": [
 3,
 1540,
-4,
+1156,
 376,
 376
 ]
@@ -4954,7 +4634,7 @@
 "sp": [
 3,
 1924,
-4,
+1156,
 376,
 376
 ]
@@ -4974,7 +4654,7 @@
 "sp": [
 3,
 4,
-772,
+1924,
 376,
 376
 ]
@@ -4994,7 +4674,7 @@
 "sp": [
 3,
 388,
-772,
+1924,
 376,
 376
 ]
@@ -5008,13 +4688,13 @@
 "prix": 79.99,
 "source": "Chris House Hobbies (chrishouse.ca)",
 "url": "https://chrishouse.ca/products/1-16-hollywood-rides-r-c-jurassic-world-jeep-wrangler",
-"img": "planches/p03.jpg",
+"img": "planches/p04.jpg",
 "ageCible": null,
 "accroche": "Vite, le T. rex nous suit !",
 "sp": [
-3,
+4,
 388,
-1218,
+66,
 376,
 251
 ]
@@ -5028,13 +4708,13 @@
 "prix": 75.0,
 "source": "Indigo",
 "url": "https://www.indigo.ca/fr/products/sharper-image%C2%AE-porsche-taycan-turbo-s-1-20-scale-rc-electric-vehicle",
-"img": "planches/p03.jpg",
+"img": "planches/p04.jpg",
 "ageCible": null,
 "accroche": "Je conduis avec un vrai volant !",
 "sp": [
-3,
 4,
-1156,
+4,
+4,
 376,
 376
 ]
@@ -5054,7 +4734,7 @@
 "sp": [
 3,
 772,
-772,
+1924,
 376,
 376
 ]
@@ -5074,7 +4754,7 @@
 "sp": [
 3,
 1156,
-772,
+1924,
 376,
 376
 ]
@@ -5094,7 +4774,7 @@
 "sp": [
 3,
 1540,
-772,
+1924,
 376,
 376
 ]
@@ -5108,13 +4788,13 @@
 "prix": 123.99,
 "source": "Energy Powersports (shop.energypowersports.ca)",
 "url": "https://shop.energypowersports.ca/products/ski-doo-1-6-scale-mxz-blizzard-rc-snowmobile-b107590010",
-"img": "planches/p03.jpg",
+"img": "planches/p04.jpg",
 "ageCible": null,
 "accroche": "Une vraie Ski-Doo dans la neige !",
 "sp": [
-3,
+4,
 1540,
-1156,
+4,
 376,
 376
 ]
@@ -5128,13 +4808,13 @@
 "prix": 149.98,
 "source": "Kids On Wheelz (kidsonwheelz.ca)",
 "url": "https://kidsonwheelz.ca/products/1-24-rc-cat-745-articulated-truck-25004",
-"img": "planches/p03.jpg",
+"img": "planches/p04.jpg",
 "ageCible": null,
 "accroche": "Sa benne bascule pour vrai !",
 "sp": [
-3,
+4,
 772,
-1540,
+388,
 376,
 376
 ]
@@ -5148,13 +4828,13 @@
 "prix": 134.99,
 "source": "Mastermind Toys",
 "url": "https://www.mastermindtoys.com/products/polar-express-ready-to-play-train-set-w-bluetooth",
-"img": "planches/p03.jpg",
+"img": "planches/p04.jpg",
 "ageCible": null,
 "accroche": "En voiture pour le pôle Nord !",
 "sp": [
-3,
+4,
 388,
-1587,
+435,
 376,
 282
 ]
@@ -5174,7 +4854,7 @@
 "sp": [
 0,
 1540,
-772,
+1924,
 376,
 376
 ]
@@ -5194,7 +4874,7 @@
 "sp": [
 0,
 388,
-772,
+1924,
 376,
 376
 ]
@@ -5208,13 +4888,13 @@
 "prix": 99.99,
 "source": "Mastermind Toys",
 "url": "https://www.mastermindtoys.com/products/mastermind-toys-deluxe-diy-fort-150-piece-set",
-"img": "planches/p05.jpg",
+"img": "planches/p06.jpg",
 "ageCible": null,
 "accroche": "Une cabane géante dans le salon!",
 "sp": [
-5,
-388,
-1924,
+6,
+4,
+772,
 376,
 376
 ]
@@ -5228,13 +4908,13 @@
 "prix": 69.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/3099618-fr-vtech-kidizoom-smartwatch-dx4-bleu",
-"img": "planches/p05.jpg",
+"img": "planches/p06.jpg",
 "ageCible": null,
 "accroche": "Une vraie montre avec une caméra!",
 "sp": [
-5,
-1924,
+6,
 1540,
+388,
 376,
 376
 ]
@@ -5248,13 +4928,13 @@
 "prix": 69.99,
 "source": "Mastermind Toys",
 "url": "https://www.mastermindtoys.com/products/laser-x-revolution-ultra-double-blasters",
-"img": "planches/p05.jpg",
+"img": "planches/p06.jpg",
 "ageCible": null,
 "accroche": "Tag laser dans le sous-sol!",
 "sp": [
-5,
-4,
+6,
 1924,
+388,
 376,
 376
 ]
@@ -5268,13 +4948,13 @@
 "prix": 59.99,
 "source": "Mastermind Toys",
 "url": "https://www.mastermindtoys.com/products/educational-insights-geosafari-jr-my-first-telescope-2020",
-"img": "planches/p05.jpg",
+"img": "planches/p06.jpg",
 "ageCible": null,
 "accroche": "Je vois la lune de proche!",
 "sp": [
-5,
-1540,
-1540,
+6,
+1156,
+388,
 376,
 376
 ]
@@ -5288,13 +4968,13 @@
 "prix": 49.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/3196966-fr-bitzee-aquarium-jouet-numerique-interactif-avec-30-poissons-virtuels-ecran-led-tactile-enfant-5-ans-et",
-"img": "planches/p05.jpg",
+"img": "planches/p06.jpg",
 "ageCible": null,
 "accroche": "Des poissons qui répondent à mon doigt!",
 "sp": [
-5,
+6,
+4,
 388,
-1540,
 376,
 376
 ]
@@ -5313,8 +4993,8 @@
 "accroche": "Je vois dans le noir!",
 "sp": [
 5,
-803,
-388,
+419,
+1540,
 313,
 376
 ]
@@ -5328,13 +5008,13 @@
 "prix": 39.99,
 "source": "Mastermind Toys",
 "url": "https://www.mastermindtoys.com/products/spy-x-lazer-trap-alarm",
-"img": "planches/p05.jpg",
+"img": "planches/p06.jpg",
 "ageCible": null,
 "accroche": "Personne n'entre dans ma chambre!",
 "sp": [
-5,
-772,
-1156,
+6,
+388,
+4,
 376,
 376
 ]
@@ -5348,13 +5028,13 @@
 "prix": 49.99,
 "source": "Mastermind Toys",
 "url": "https://www.mastermindtoys.com/products/spy-x-micro-gear-set",
-"img": "planches/p05.jpg",
+"img": "planches/p06.jpg",
 "ageCible": null,
 "accroche": "Quatre gadgets d'espion sur ma ceinture!",
 "sp": [
-5,
-772,
-1540,
+6,
+388,
+388,
 376,
 376
 ]
@@ -5373,8 +5053,8 @@
 "accroche": "Que la Force soit avec moi!",
 "sp": [
 5,
-772,
-4,
+388,
+1156,
 376,
 376
 ]
@@ -5388,13 +5068,13 @@
 "prix": 44.99,
 "source": "Toytown",
 "url": "https://toytown.ca/products/marvel-studios-spider-man-brand-new-day-nerf-web-strike-blaster",
-"img": "planches/p05.jpg",
+"img": "planches/p06.jpg",
 "ageCible": null,
 "accroche": "Pchou! Comme Spider-Man!",
 "sp": [
-5,
-1924,
-1156,
+6,
+1540,
+4,
 376,
 376
 ]
@@ -5413,8 +5093,8 @@
 "accroche": "Abracadabra, c'est moi le magicien!",
 "sp": [
 5,
-4,
-1156,
+1924,
+1924,
 376,
 376
 ]
@@ -5433,8 +5113,8 @@
 "accroche": "Je chante avec une voix de monstre!",
 "sp": [
 5,
+1540,
 1924,
-772,
 376,
 376
 ]
@@ -5448,13 +5128,13 @@
 "prix": 44.99,
 "source": "Clément",
 "url": "https://clement.ca/products/fabrique-de-slime-daw-277004",
-"img": "planches/p05.jpg",
+"img": "planches/p06.jpg",
 "ageCible": null,
 "accroche": "Ma propre usine à slime!",
 "sp": [
-5,
+6,
+1924,
 4,
-1540,
 376,
 376
 ]
@@ -5473,8 +5153,8 @@
 "accroche": "Des trésors cachés dans la pâte!",
 "sp": [
 5,
-4,
-388,
+1924,
+1156,
 376,
 376
 ]
@@ -5493,8 +5173,8 @@
 "accroche": "Des dinos dans un jardin qui brille!",
 "sp": [
 5,
-1156,
-388,
+772,
+1540,
 376,
 376
 ]
@@ -5513,8 +5193,8 @@
 "accroche": "Mon histoire projetée au plafond!",
 "sp": [
 5,
+772,
 1156,
-4,
 376,
 376
 ]
@@ -5533,8 +5213,8 @@
 "accroche": "Des vrais outils, comme papa!",
 "sp": [
 5,
-388,
-772,
+4,
+1924,
 376,
 376
 ]
@@ -5548,13 +5228,13 @@
 "prix": 39.99,
 "source": "Mastermind Toys",
 "url": "https://www.mastermindtoys.com/products/pokemon-tcg-first-partner-illustration-collection-series-3",
-"img": "planches/p05.jpg",
+"img": "planches/p06.jpg",
 "ageCible": null,
 "accroche": "Mes premières vraies cartes Pokémon!",
 "sp": [
-5,
-1156,
-1156,
+6,
+772,
+4,
 376,
 376
 ]
@@ -5568,13 +5248,13 @@
 "prix": 9.99,
 "source": "Toytown",
 "url": "https://toytown.ca/products/hexbots-nano-bug-bytes",
-"img": "planches/p04.jpg",
+"img": "planches/p05.jpg",
 "ageCible": null,
 "accroche": "Une bibitte robot qui court partout!",
 "sp": [
-4,
-1924,
+5,
 1540,
+388,
 376,
 376
 ]
@@ -5588,13 +5268,13 @@
 "prix": 49.99,
 "source": "Toytown",
 "url": "https://toytown.ca/products/b-summer-rocketglow%E2%84%A2-light-disc-launcher",
-"img": "planches/p05.jpg",
+"img": "planches/p06.jpg",
 "ageCible": null,
 "accroche": "Un coup de pied, ça s'envole!",
 "sp": [
-5,
-1156,
-1540,
+6,
+772,
+388,
 376,
 376
 ]
@@ -5613,8 +5293,8 @@
 "accroche": "Le bain devient une discothèque!",
 "sp": [
 5,
-1591,
-4,
+1207,
+1156,
 273,
 376
 ]
@@ -5700,26 +5380,6 @@
 ]
 },
 {
-"id": "e7-hop-ball",
-"categorie": "dehors",
-"marque": "Hedstrom",
-"nom": "Ballon sauteur Pogo Hop Ball (couleur assortie)",
-"age": "6+",
-"prix": 39.99,
-"source": "L'Entrejeux",
-"url": "https://lentrejeux.com/products/pogo-hop-ball-2-couleurs-assorties",
-"img": "planches/p11.jpg",
-"ageCible": null,
-"accroche": "Saute comme un kangourou sur ton ballon!",
-"sp": [
-11,
-1540,
-406,
-376,
-339
-]
-},
-{
 "id": "e7-echasses",
 "categorie": "dehors",
 "marque": "B. toys",
@@ -5728,13 +5388,13 @@
 "prix": 29.99,
 "source": "L'Entrejeux",
 "url": "https://lentrejeux.com/products/echasses-step-n-stomp",
-"img": "planches/p11.jpg",
+"img": "planches/p10.jpg",
 "ageCible": null,
 "accroche": "Plus grand à chaque pas!",
 "sp": [
-11,
-4,
-4,
+10,
+1924,
+1924,
 376,
 376
 ]
@@ -5760,26 +5420,6 @@
 ]
 },
 {
-"id": "e7-disques-cible",
-"categorie": "dehors",
-"marque": "HearthSong",
-"nom": "Jeu de lancer de disques dans les paniers (Disc Toss)",
-"age": "5+",
-"prix": 29.99,
-"source": "Toytown",
-"url": "https://www.toytown.ca/products/disc-toss-game-set",
-"img": "planches/p11.jpg",
-"ageCible": null,
-"accroche": "Lance le disque dans le panier!",
-"sp": [
-11,
-405,
-4,
-342,
-376
-]
-},
-{
 "id": "e7-vestes-monstre",
 "categorie": "dehors",
 "marque": "B. toys",
@@ -5793,28 +5433,8 @@
 "accroche": "Esquive les balles du monstre!",
 "sp": [
 11,
-772,
 4,
-376,
-376
-]
-},
-{
-"id": "e7-track-ball",
-"categorie": "dehors",
-"marque": "Battat",
-"nom": "Jeu de lancer Track ball",
-"age": "5+",
-"prix": 19.99,
-"source": "L'Entrejeux",
-"url": "https://lentrejeux.com/products/jeu-de-lancer-track-ball",
-"img": "planches/p10.jpg",
-"ageCible": null,
-"accroche": "Lance, attrape et relance!",
-"sp": [
-10,
-772,
-1540,
+4,
 376,
 376
 ]
@@ -5833,8 +5453,8 @@
 "accroche": "Abats-les toutes avec la boule lumineuse!",
 "sp": [
 11,
+1540,
 388,
-772,
 376,
 376
 ]
@@ -5854,7 +5474,7 @@
 "sp": [
 0,
 1924,
-841,
+1993,
 376,
 237
 ]
@@ -5868,13 +5488,13 @@
 "prix": 81.99,
 "source": "L'Entrejeux",
 "url": "https://lentrejeux.com/products/magformers-basic-plus-30",
-"img": "planches/p02.jpg",
+"img": "planches/p03.jpg",
 "ageCible": null,
 "accroche": "Clic! Ça colle et ça se plie!",
 "sp": [
-2,
+3,
 772,
-1926,
+774,
 376,
 371
 ]
@@ -5888,13 +5508,13 @@
 "prix": 59.99,
 "source": "Mastermind Toys",
 "url": "https://www.mastermindtoys.com/products/magna-tiles-rail-racers-33-piece",
-"img": "planches/p02.jpg",
+"img": "planches/p03.jpg",
 "ageCible": null,
 "accroche": "Bâtis la piste, lance la bille!",
 "sp": [
-2,
+3,
 1540,
-1540,
+388,
 376,
 376
 ]
@@ -5908,13 +5528,13 @@
 "prix": 67.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/24485082-fr-learning-resources-engrenages-engrenages-engrenages-robots-en-mouvement",
-"img": "planches/p02.jpg",
+"img": "planches/p03.jpg",
 "ageCible": null,
 "accroche": "Tourne la manivelle, le robot bouge!",
 "sp": [
-2,
+3,
 4,
-1924,
+772,
 376,
 376
 ]
@@ -5928,13 +5548,13 @@
 "prix": 59.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/3199960-fr-clixo-ensemble-de-construction-magnetique-mars-rovers-de-30-pieces",
-"img": "planches/p02.jpg",
+"img": "planches/p03.jpg",
 "ageCible": null,
 "accroche": "Des rovers qui brillent dans le noir!",
 "sp": [
-2,
+3,
 1924,
-1540,
+388,
 376,
 376
 ]
@@ -5954,7 +5574,7 @@
 "sp": [
 0,
 1554,
-4,
+1156,
 348,
 376
 ]
@@ -5974,7 +5594,7 @@
 "sp": [
 2,
 1565,
-388,
+1540,
 326,
 376
 ]
@@ -5988,13 +5608,13 @@
 "prix": 47.99,
 "source": "L'Entrejeux",
 "url": "https://lentrejeux.com/products/marble-rush-m100e-ensemble-de-depart",
-"img": "planches/p02.jpg",
+"img": "planches/p03.jpg",
 "ageCible": null,
 "accroche": "Trois, deux, un… lancement de billes!",
 "sp": [
-2,
+3,
 22,
-1558,
+406,
 340,
 340
 ]
@@ -6014,7 +5634,7 @@
 "sp": [
 2,
 1924,
-772,
+1924,
 376,
 376
 ]
@@ -6028,13 +5648,13 @@
 "prix": 36.99,
 "source": "L'Entrejeux",
 "url": "https://lentrejeux.com/products/apprend-a-batir-dinosaures-600-pcs",
-"img": "planches/p02.jpg",
+"img": "planches/p03.jpg",
 "ageCible": null,
 "accroche": "Un volcan et plein de dinos!",
 "sp": [
-2,
+3,
 4,
-1179,
+27,
 376,
 329
 ]
@@ -6054,7 +5674,7 @@
 "sp": [
 2,
 4,
-772,
+1924,
 376,
 376
 ]
@@ -6074,7 +5694,7 @@
 "sp": [
 2,
 809,
-388,
+1540,
 301,
 376
 ]
@@ -6088,13 +5708,13 @@
 "prix": 46.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/3199959-fr-clixo-dino-discovery-ensemble-de-construction-magnetique-de-22-pieces",
-"img": "planches/p02.jpg",
+"img": "planches/p03.jpg",
 "ageCible": null,
 "accroche": "Des dinos mous qui s'aimantent!",
 "sp": [
-2,
+3,
 1924,
-1156,
+4,
 376,
 376
 ]
@@ -6114,7 +5734,7 @@
 "sp": [
 2,
 1156,
-388,
+1540,
 376,
 376
 ]
@@ -6128,13 +5748,13 @@
 "prix": 44.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/24384099-fr-snap-circuits-debutant",
-"img": "planches/p02.jpg",
+"img": "planches/p03.jpg",
 "ageCible": null,
 "accroche": "Clic, clic… la lumière s'allume!",
 "sp": [
-2,
+3,
 1540,
-1156,
+4,
 376,
 376
 ]
@@ -6148,13 +5768,13 @@
 "prix": 39.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/24567628-fr-learning-resources-les-explorateurs-stem-et-les-fabricants-de-machines-lot-de-60",
-"img": "planches/p02.jpg",
+"img": "planches/p03.jpg",
 "ageCible": null,
 "accroche": "Des machines qui tournent et grincent!",
 "sp": [
-2,
+3,
 772,
-1156,
+4,
 376,
 376
 ]
@@ -6174,7 +5794,7 @@
 "sp": [
 2,
 772,
-772,
+1924,
 376,
 376
 ]
@@ -6194,7 +5814,7 @@
 "sp": [
 4,
 1540,
-4,
+1156,
 376,
 376
 ]
@@ -6208,13 +5828,13 @@
 "prix": 54.97,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/3098560-fr-mattel-coffret-de-piste-mattel-hot-wheels-action-figure-8",
-"img": "planches/p04.jpg",
+"img": "planches/p05.jpg",
 "ageCible": null,
 "accroche": "Plus haute que toi, ou presque !",
 "sp": [
+5,
 4,
 4,
-1156,
 376,
 376
 ]
@@ -6234,27 +5854,27 @@
 "sp": [
 4,
 388,
-772,
+1924,
 376,
 376
 ]
 },
 {
 "id": "h7-20-voitures",
-"categorie": "autos",
+"categorie": "retro",
 "marque": "Hot Wheels",
 "nom": "Pack de 20 voitures de base",
 "age": "3+",
 "prix": 67.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/24590700-fr-hot-wheels-pack-de-20-voitures-de-base-hot-wheels",
-"img": "planches/p04.jpg",
+"img": "planches/p00.jpg",
 "ageCible": null,
 "accroche": "Vingt bolides d'un coup !",
 "sp": [
-4,
+0,
 1924,
-1156,
+772,
 376,
 376
 ]
@@ -6274,7 +5894,7 @@
 "sp": [
 4,
 1924,
-4,
+1156,
 376,
 376
 ]
@@ -6288,13 +5908,13 @@
 "prix": 79.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/3197508-fr-hot-wheels-city-station-de-lavage-requin",
-"img": "planches/p04.jpg",
+"img": "planches/p05.jpg",
 "ageCible": null,
 "accroche": "Le requin avale ton auto !",
 "sp": [
+5,
 4,
 388,
-1540,
 376,
 376
 ]
@@ -6308,13 +5928,13 @@
 "prix": 10.49,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/3197509-fr-hot-wheels-assortiment-super-transporteur-les-modeles-peuvent-varier",
-"img": "planches/p03.jpg",
+"img": "planches/p04.jpg",
 "ageCible": null,
 "accroche": "Un gros camion pour ton char",
 "sp": [
-3,
+4,
 388,
-1924,
+772,
 376,
 376
 ]
@@ -6328,13 +5948,13 @@
 "prix": 12.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/3197510-fr-hot-wheels-mario-kart-vehicule-personnage-avec-planeur-les-modeles-peuvent-varier",
-"img": "planches/p03.jpg",
+"img": "planches/p04.jpg",
 "ageCible": null,
 "accroche": "Yoshi, Peach ou Luigi qui volent !",
 "sp": [
-3,
+4,
 772,
-1924,
+772,
 376,
 376
 ]
@@ -6348,13 +5968,13 @@
 "prix": 14.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/3197511-fr-hot-wheels-coffret-lets-race-inspire-de-la-serie-netflix-les-modeles-peuvent-varier",
-"img": "planches/p03.jpg",
+"img": "planches/p04.jpg",
 "ageCible": null,
 "accroche": "L'auto de la série télé !",
 "sp": [
-3,
+4,
 1924,
-1924,
+772,
 376,
 376
 ]
@@ -6368,13 +5988,13 @@
 "prix": 9.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/3197514-fr-hot-wheels-bolides-a-retrofriction-echelle-143-tirer-et-relacher-les-modeles-peuvent-varier",
-"img": "planches/p03.jpg",
+"img": "planches/p04.jpg",
 "ageCible": null,
 "accroche": "Tire, lâche… et zoum !",
 "sp": [
-3,
 4,
-1924,
+4,
+772,
 376,
 376
 ]
@@ -6388,13 +6008,13 @@
 "prix": 54.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/3086410-fr-hot-wheels-ensemble-abc-racersspeed-readers-26-vehicules",
-"img": "planches/p04.jpg",
+"img": "planches/p05.jpg",
 "ageCible": null,
 "accroche": "Une auto pour chaque lettre !",
 "sp": [
-4,
+5,
 388,
-1156,
+4,
 376,
 376
 ]
@@ -6408,13 +6028,13 @@
 "prix": 12.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/3200950-fr-mattel-hot-wheels-lanceur-de-poche",
-"img": "planches/p03.jpg",
+"img": "planches/p04.jpg",
 "ageCible": null,
 "accroche": "Trois vitesses dans ta poche",
 "sp": [
-3,
+4,
 1156,
-1924,
+772,
 376,
 376
 ]
@@ -6434,7 +6054,7 @@
 "sp": [
 4,
 1540,
-772,
+1924,
 376,
 376
 ]
@@ -6454,7 +6074,7 @@
 "sp": [
 4,
 388,
-388,
+1540,
 376,
 376
 ]
@@ -6474,7 +6094,7 @@
 "sp": [
 4,
 772,
-4,
+1156,
 376,
 376
 ]
@@ -6494,7 +6114,7 @@
 "sp": [
 4,
 4,
-4,
+1156,
 376,
 376
 ]
@@ -6514,7 +6134,7 @@
 "sp": [
 4,
 1924,
-410,
+1562,
 376,
 331
 ]
@@ -6534,7 +6154,7 @@
 "sp": [
 4,
 777,
-388,
+1540,
 365,
 376
 ]
@@ -6548,13 +6168,13 @@
 "prix": 7.99,
 "source": "Toytown.ca",
 "url": "https://www.toytown.ca/products/hot-wheels-1-64-color-shifters-vehicle-assortment",
-"img": "planches/p03.jpg",
+"img": "planches/p04.jpg",
 "ageCible": null,
 "accroche": "Eau chaude, eau froide : magie !",
 "sp": [
-3,
+4,
 1580,
-1540,
+388,
 296,
 376
 ]
@@ -6574,7 +6194,7 @@
 "sp": [
 4,
 4,
-772,
+1924,
 376,
 376
 ]
@@ -6588,13 +6208,13 @@
 "prix": 4.99,
 "source": "Mastermind Toys",
 "url": "https://www.mastermindtoys.com/products/hot-wheels-r-track-creator-straight-track-pack",
-"img": "planches/p03.jpg",
+"img": "planches/p04.jpg",
 "ageCible": null,
 "accroche": "Encore plus de piste !",
 "sp": [
-3,
+4,
 1156,
-1540,
+388,
 376,
 376
 ]
@@ -6608,13 +6228,13 @@
 "prix": 99.99,
 "source": "Toytown.ca",
 "url": "https://www.toytown.ca/products/hot-wheels-mario-kart-moto-rc",
-"img": "planches/p04.jpg",
+"img": "planches/p05.jpg",
 "ageCible": null,
 "accroche": "Mario fait des wheelies !",
 "sp": [
-4,
-1156,
-1540,
+5,
+772,
+388,
 376,
 376
 ]
@@ -6628,13 +6248,13 @@
 "prix": 13.92,
 "source": "Clément",
 "url": "https://clement.ca/products/coffret-5-vehicules-formule-1-kij-595jgf58",
-"img": "planches/p03.jpg",
+"img": "planches/p04.jpg",
 "ageCible": null,
 "accroche": "Cinq vraies écuries de F1",
 "sp": [
-3,
+4,
 1540,
-1924,
+772,
 376,
 376
 ]
@@ -6648,13 +6268,13 @@
 "prix": 49.99,
 "source": "STIHL Canada",
 "url": "https://shop.stihl.ca/products/toy-chainsaw",
-"img": "planches/p06.jpg",
+"img": "planches/p07.jpg",
 "ageCible": null,
 "accroche": "Comme la vraie scie de papa!",
 "sp": [
-6,
-388,
-1602,
+7,
+4,
+66,
 376,
 251
 ]
@@ -6668,13 +6288,13 @@
 "prix": 49.99,
 "source": "STIHL Canada",
 "url": "https://shop.stihl.ca/products/toy-helmet",
-"img": "planches/p06.jpg",
+"img": "planches/p07.jpg",
 "ageCible": null,
 "accroche": "Le casque orange du bûcheron!",
 "sp": [
-6,
-772,
-1602,
+7,
+388,
+66,
 376,
 251
 ]
@@ -6688,115 +6308,15 @@
 "prix": 64.99,
 "source": "STIHL Canada",
 "url": "https://shop.stihl.ca/products/toy-blower",
-"img": "planches/p06.jpg",
+"img": "planches/p07.jpg",
 "ageCible": null,
 "accroche": "Vroum! Les feuilles s'envolent!",
 "sp": [
-6,
-1924,
-1602,
+7,
+772,
+450,
 376,
 252
-]
-},
-{
-"id": "p7-gardien-forestier",
-"categorie": "jouer",
-"marque": "Great Pretenders",
-"nom": "Costume de gardien forestier avec jumelles et pot à insectes",
-"age": "5-6 ans",
-"prix": 39.99,
-"source": "L'Entrejeux",
-"url": "https://lentrejeux.com/products/costume-de-gardien-forestier",
-"img": "planches/p06.jpg",
-"ageCible": null,
-"accroche": "Le garde-forêt part en expédition!",
-"sp": [
-6,
-1987,
-388,
-250,
-376
-]
-},
-{
-"id": "p7-chevalier",
-"categorie": "jouer",
-"marque": "Great Pretenders",
-"nom": "Costume de chevalier – tunique, cape et couronne",
-"age": "5-6 ans",
-"prix": 36.99,
-"source": "L'Entrejeux",
-"url": "https://lentrejeux.com/products/costume-de-chevalier",
-"img": "planches/p06.jpg",
-"ageCible": null,
-"accroche": "Sire chevalier, à l'attaque!",
-"sp": [
-6,
-834,
-388,
-251,
-376
-]
-},
-{
-"id": "p7-docteur",
-"categorie": "jouer",
-"marque": "Great Pretenders",
-"nom": "Costume de docteur avec accessoires (8 pièces)",
-"age": "5-6 ans",
-"prix": 39.99,
-"source": "L'Entrejeux",
-"url": "https://lentrejeux.com/products/costume-de-docteur-5-6-ans",
-"img": "planches/p06.jpg",
-"ageCible": null,
-"accroche": "Dites « ahh », docteur!",
-"sp": [
-6,
-4,
-772,
-376,
-376
-]
-},
-{
-"id": "p7-cape-araignee",
-"categorie": "jouer",
-"marque": "Great Pretenders",
-"nom": "Cape réversible Araignée/Chauve-souris avec masques",
-"age": "4-6 ans",
-"prix": 29.99,
-"source": "Clément",
-"url": "https://clement.ca/products/cape-reversible-araignee-chauv-grp-55273",
-"img": "planches/p06.jpg",
-"ageCible": null,
-"accroche": "Deux super-héros dans une cape!",
-"sp": [
-6,
-1540,
-4,
-376,
-376
-]
-},
-{
-"id": "p7-loup",
-"categorie": "jouer",
-"marque": "Great Pretenders",
-"nom": "Veste de grand méchant loup avec gants",
-"age": "5-6 ans",
-"prix": 44.99,
-"source": "L'Entrejeux",
-"url": "https://lentrejeux.com/products/veste-de-grand-mechant-loup-avec-gants",
-"img": "planches/p06.jpg",
-"ageCible": null,
-"accroche": "Je vais souffler sur ta maison!",
-"sp": [
-6,
-1924,
-772,
-376,
-376
 ]
 },
 {
@@ -6813,8 +6333,8 @@
 "accroche": "Brosse les grosses dents d'Hippo!",
 "sp": [
 6,
-4,
-388,
+1156,
+1156,
 376,
 376
 ]
@@ -6833,8 +6353,8 @@
 "accroche": "Les outils toujours à la ceinture!",
 "sp": [
 6,
-4,
-1156,
+1540,
+1540,
 376,
 376
 ]
@@ -6848,13 +6368,13 @@
 "prix": 59.99,
 "source": "Clément",
 "url": "https://clement.ca/products/mon-ensemble-de-cuisinier-kitc-aid-754srp912-ka",
-"img": "planches/p06.jpg",
+"img": "planches/p07.jpg",
 "ageCible": null,
 "accroche": "Trois appareils de vrai chef!",
 "sp": [
-6,
-1540,
-1540,
+7,
+1924,
+4,
 376,
 376
 ]
@@ -6873,8 +6393,8 @@
 "accroche": "Un café pour maman, s'il vous plaît!",
 "sp": [
 6,
-388,
-1156,
+1924,
+1540,
 376,
 376
 ]
@@ -6888,13 +6408,13 @@
 "prix": 64.99,
 "source": "Toytown",
 "url": "https://toytown.ca/products/hanging-doorway-puppet-theatre",
-"img": "planches/p06.jpg",
+"img": "planches/p07.jpg",
 "ageCible": null,
 "accroche": "Le rideau se lève : spectacle!",
 "sp": [
-6,
-4,
-1924,
+7,
+1156,
+388,
 376,
 376
 ]
@@ -6913,8 +6433,8 @@
 "accroche": "Attrape-les tous… en peluche!",
 "sp": [
 6,
-4,
-4,
+1924,
+772,
 376,
 376
 ]
@@ -6933,8 +6453,8 @@
 "accroche": "Botley obéit à ton code secret!",
 "sp": [
 10,
-1156,
-388,
+1924,
+772,
 376,
 376
 ]
@@ -6953,8 +6473,8 @@
 "accroche": "Ça mousse, ça bouillonne, ça pétille!",
 "sp": [
 10,
-4,
-388,
+772,
+772,
 376,
 376
 ]
@@ -6973,8 +6493,8 @@
 "accroche": "Fabrique ton kaléidoscope qui tourbillonne!",
 "sp": [
 9,
-1159,
-388,
+391,
+1156,
 369,
 376
 ]
@@ -6988,13 +6508,13 @@
 "prix": 32.0,
 "source": "Indigo",
 "url": "https://www.indigo.ca/fr/products/national-geographicglow-in-the-dark-t-rex-dissection-kit",
-"img": "planches/p09.jpg",
+"img": "planches/p10.jpg",
 "ageCible": null,
 "accroche": "Le squelette du T. rex brille!",
 "sp": [
-9,
+10,
+772,
 4,
-1924,
 376,
 376
 ]
@@ -7008,13 +6528,13 @@
 "prix": 15.99,
 "source": "Toytown",
 "url": "https://www.toytown.ca/products/power-lab",
-"img": "planches/p08.jpg",
+"img": "planches/p09.jpg",
 "ageCible": null,
 "accroche": "Allume ta première ampoule toi-même!",
 "sp": [
-8,
-388,
+9,
 1924,
+4,
 376,
 376
 ]
@@ -7033,8 +6553,8 @@
 "accroche": "Un petit jardin qui brille la nuit!",
 "sp": [
 9,
-1156,
-772,
+388,
+1540,
 376,
 376
 ]
@@ -7053,8 +6573,8 @@
 "accroche": "Colorie tes dinos, lave, recommence!",
 "sp": [
 9,
-1540,
 772,
+1540,
 376,
 376
 ]
@@ -7073,8 +6593,8 @@
 "accroche": "Tes dessins s’allument et bougent!",
 "sp": [
 9,
-772,
-1540,
+1924,
+1924,
 376,
 376
 ]
@@ -7093,8 +6613,8 @@
 "accroche": "Dessine ton histoire, raconte-la!",
 "sp": [
 10,
-1540,
 4,
+772,
 376,
 376
 ]
@@ -7108,13 +6628,13 @@
 "prix": 29.99,
 "source": "Toytown",
 "url": "https://www.toytown.ca/products/play-doh-drill-n-fill-dentist",
-"img": "planches/p09.jpg",
+"img": "planches/p10.jpg",
 "ageCible": null,
 "accroche": "Ouvre grand, docteur dentiste!",
 "sp": [
-9,
-1156,
-1583,
+10,
+4,
+47,
 376,
 289
 ]
@@ -7133,8 +6653,8 @@
 "accroche": "Colle les carrés, l’image apparaît!",
 "sp": [
 9,
-1540,
-388,
+772,
+1156,
 376,
 376
 ]
@@ -7148,13 +6668,13 @@
 "prix": 34.99,
 "source": "Toytown",
 "url": "https://www.toytown.ca/products/klutz-latch-hook-animals-red-panda-frog-shark",
-"img": "planches/p09.jpg",
+"img": "planches/p10.jpg",
 "ageCible": null,
 "accroche": "Des bestioles toutes douces à crocheter!",
 "sp": [
-9,
-1562,
-1924,
+10,
+26,
+388,
 332,
 376
 ]
@@ -7173,28 +6693,8 @@
 "accroche": "Quarante bracelets pour toi et tes amis!",
 "sp": [
 9,
-1924,
-4,
-376,
-376
-]
-},
-{
-"id": "r7-cape-heros",
-"categorie": "art",
-"marque": "Great Pretenders",
-"nom": "Cape de superhéros à colorier, réversible (4-7 ans)",
-"age": "4+",
-"prix": 29.99,
-"source": "Toytown",
-"url": "https://www.toytown.ca/products/colour-a-cape-superhero",
-"img": "planches/p09.jpg",
-"ageCible": null,
-"accroche": "Colorie ta cape, deviens un héros!",
-"sp": [
-9,
-1540,
-1540,
+1156,
+772,
 376,
 376
 ]
@@ -7213,8 +6713,8 @@
 "accroche": "Un vrai tableau, numéro par numéro!",
 "sp": [
 9,
-4,
-426,
+1540,
+810,
 376,
 299
 ]
@@ -7233,8 +6733,8 @@
 "accroche": "Trace comme un vrai dessinateur!",
 "sp": [
 10,
-1924,
-4,
+388,
+772,
 376,
 376
 ]
@@ -7253,15 +6753,15 @@
 "accroche": "Gratte le noir, l’arc-en-ciel apparaît!",
 "sp": [
 9,
-1926,
-388,
+1158,
+1156,
 372,
 376
 ]
 },
 {
 "id": "y7-cozy-coupe",
-"categorie": "d2-bouger",
+"categorie": "d2-retro",
 "marque": "Little Tikes",
 "nom": "Voiture Cozy Coupe",
 "age": "18 mois+",
@@ -7273,15 +6773,15 @@
 "accroche": "Vroum! Ma première auto à moi.",
 "sp": [
 12,
-1156,
-1156,
+772,
+4,
 376,
 376
 ]
 },
 {
 "id": "y7-glissoire",
-"categorie": "d2-bouger",
+"categorie": "d2-retro",
 "marque": "Little Tikes",
 "nom": "Ma première glissoire (First Slide)",
 "age": "18 mois+",
@@ -7293,8 +6793,8 @@
 "accroche": "Je grimpe, je glisse, encore!",
 "sp": [
 12,
-1540,
-772,
+388,
+4,
 376,
 376
 ]
@@ -7314,7 +6814,7 @@
 "sp": [
 16,
 1156,
-420,
+1188,
 376,
 312
 ]
@@ -7328,13 +6828,13 @@
 "prix": 144.49,
 "source": "Clément",
 "url": "https://clement.ca/products/trottinette-mini-deluxe-led-nr-kib-mmd118",
-"img": "planches/p12.jpg",
+"img": "planches/p13.jpg",
 "ageCible": null,
 "accroche": "Mes roues s'allument quand je file!",
 "sp": [
-12,
+13,
+4,
 388,
-1540,
 376,
 376
 ]
@@ -7348,53 +6848,53 @@
 "prix": 89.99,
 "source": "L'Entrejeux",
 "url": "https://lentrejeux.com/products/smoby-draisienne-balance-first-bike",
-"img": "planches/p12.jpg",
+"img": "planches/p13.jpg",
 "ageCible": null,
 "accroche": "Mon vélo sans pédales!",
 "sp": [
-12,
+13,
 4,
-1156,
+4,
 376,
 376
 ]
 },
 {
 "id": "y7-lp-ferme",
-"categorie": "d2-vehicules",
+"categorie": "d2-retro",
 "marque": "Fisher-Price",
 "nom": "Little People – Ferme",
 "age": "1+",
 "prix": 64.99,
 "source": "L'Entrejeux",
 "url": "https://lentrejeux.com/products/little-people-ferme",
-"img": "planches/p14.jpg",
+"img": "planches/p12.jpg",
 "ageCible": null,
 "accroche": "Meuh! Les animaux vont dodo.",
 "sp": [
-14,
-1924,
-772,
+12,
+4,
+4,
 376,
 376
 ]
 },
 {
 "id": "y7-mega-bloks",
-"categorie": "d2-apprendre",
+"categorie": "d2-retro",
 "marque": "Mega Bloks",
 "nom": "Sac de construction First Builders, 80 blocs",
 "age": "1+",
 "prix": 33.0,
 "source": "Indigo",
 "url": "https://www.indigo.ca/fr/products/mega-bloks%C2%AE-first-builders%E2%84%A2-big-building-bag",
-"img": "planches/p13.jpg",
+"img": "planches/p11.jpg",
 "ageCible": null,
 "accroche": "J'empile jusqu'au plafond!",
 "sp": [
-13,
-1156,
-1156,
+11,
+772,
+1924,
 376,
 376
 ]
@@ -7408,13 +6908,13 @@
 "prix": 44.99,
 "source": "Mastermind Toys",
 "url": "https://www.mastermindtoys.com/products/spin-again-spinning-stacker",
-"img": "planches/p11.jpg",
+"img": "planches/p12.jpg",
 "ageCible": null,
 "accroche": "Ça tourne, ça descend!",
 "sp": [
-11,
+12,
+1540,
 772,
-1924,
 376,
 376
 ]
@@ -7428,13 +6928,13 @@
 "prix": 32.0,
 "source": "Indigo",
 "url": "https://www.indigo.ca/fr/products/shape-colour-garden",
-"img": "planches/p13.jpg",
+"img": "planches/p14.jpg",
 "ageCible": null,
 "accroche": "Je plante mes fleurs-formes!",
 "sp": [
-13,
-388,
-1156,
+14,
+4,
+4,
 376,
 376
 ]
@@ -7454,7 +6954,7 @@
 "sp": [
 16,
 4,
-388,
+1156,
 376,
 376
 ]
@@ -7468,13 +6968,13 @@
 "prix": 26.99,
 "source": "Indigo",
 "url": "https://www.indigo.ca/fr/products/spin-n-sprinkle-water-lab",
-"img": "planches/p15.jpg",
+"img": "planches/p16.jpg",
 "ageCible": null,
 "accroche": "Ça arrose partout!",
 "sp": [
-15,
+16,
 1924,
-1924,
+388,
 376,
 376
 ]
@@ -7493,48 +6993,48 @@
 "accroche": "Pin-pon! Au feu, vite!",
 "sp": [
 14,
+388,
 1156,
-4,
 376,
 376
 ]
 },
 {
 "id": "y7-corn-popper",
-"categorie": "d2-bouger",
+"categorie": "d2-retro",
 "marque": "Fisher-Price",
 "nom": "Pousse-popcorn Corn Popper",
 "age": "1+",
 "prix": 29.99,
 "source": "Toytown",
 "url": "https://www.toytown.ca/products/fisher-price-corn-popper",
-"img": "planches/p12.jpg",
+"img": "planches/p11.jpg",
 "ageCible": null,
 "accroche": "Pop-pop-pop quand je marche!",
 "sp": [
-12,
-1562,
-4,
+11,
+26,
+1924,
 331,
 376
 ]
 },
 {
 "id": "y7-telephone",
-"categorie": "d2-semblant",
+"categorie": "d2-retro",
 "marque": "Fisher-Price",
 "nom": "Téléphone à tirer Chatter",
 "age": "1+",
 "prix": 17.99,
 "source": "Toytown",
 "url": "https://www.toytown.ca/products/fisher-price-chatter-telephone",
-"img": "planches/p14.jpg",
+"img": "planches/p11.jpg",
 "ageCible": null,
 "accroche": "Allô? C'est grand-maman!",
 "sp": [
-14,
-414,
-1156,
+11,
+1566,
+1540,
 324,
 376
 ]
@@ -7554,7 +7054,7 @@
 "sp": [
 15,
 1540,
-772,
+1540,
 376,
 376
 ]
@@ -7568,13 +7068,13 @@
 "prix": 12.99,
 "source": "Clément",
 "url": "https://clement.ca/products/tambour-musical-poule-ski-9r249216",
-"img": "planches/p14.jpg",
+"img": "planches/p15.jpg",
 "ageCible": null,
 "accroche": "Cot-cot! Je tape fort!",
 "sp": [
-14,
+15,
+388,
 4,
-1540,
 376,
 376
 ]
@@ -7588,13 +7088,13 @@
 "prix": 19.99,
 "source": "Clément",
 "url": "https://clement.ca/products/le-1er-xylophone-sardines-itz-406831966",
-"img": "planches/p14.jpg",
+"img": "planches/p15.jpg",
 "ageCible": null,
 "accroche": "Ding ding, les sardines chantent!",
 "sp": [
-14,
-388,
-1540,
+15,
+772,
+4,
 376,
 376
 ]
@@ -7613,8 +7113,8 @@
 "accroche": "Je rampe dans le tunnel!",
 "sp": [
 12,
-772,
-772,
+1156,
+1924,
 376,
 376
 ]
@@ -7628,13 +7128,13 @@
 "prix": 14.99,
 "source": "Mastermind Toys",
 "url": "https://www.mastermindtoys.com/products/ravensburger-my-first-puzzles-on-safari-2-5pc-puzzles",
-"img": "planches/p12.jpg",
+"img": "planches/p13.jpg",
 "ageCible": null,
 "accroche": "Le lion va où?",
 "sp": [
-12,
-1540,
-1540,
+13,
+1156,
+388,
 376,
 376
 ]
@@ -7648,13 +7148,13 @@
 "prix": 44.99,
 "source": "Clément",
 "url": "https://clement.ca/products/lapin-beige-jlc-bas3b",
-"img": "planches/p11.jpg",
+"img": "planches/p12.jpg",
 "ageCible": null,
 "accroche": "Mon lapin tout doux!",
 "sp": [
-11,
-1156,
+12,
 1924,
+772,
 376,
 376
 ]
@@ -7673,8 +7173,8 @@
 "accroche": "Je répare tout, comme papa!",
 "sp": [
 14,
-1156,
-1156,
+1540,
+1924,
 376,
 376
 ]
@@ -7688,13 +7188,13 @@
 "prix": 34.99,
 "source": "Clément",
 "url": "https://clement.ca/products/le-de-des-premiers-mots-pot-pla1",
-"img": "planches/p11.jpg",
+"img": "planches/p12.jpg",
 "ageCible": null,
 "accroche": "Je lance, je dis le mot!",
 "sp": [
-11,
+12,
+1156,
 388,
-1540,
 376,
 376
 ]
@@ -7708,13 +7208,13 @@
 "prix": 19.99,
 "source": "Clément",
 "url": "https://clement.ca/products/bateau-de-peche-aimante-mun-30028",
-"img": "planches/p15.jpg",
+"img": "planches/p16.jpg",
 "ageCible": null,
 "accroche": "J'attrape les poissons!",
 "sp": [
-15,
+16,
 388,
-1540,
+4,
 376,
 376
 ]
@@ -7728,13 +7228,13 @@
 "prix": 39.99,
 "source": "L'Entrejeux",
 "url": "https://lentrejeux.com/products/bilibo-rouge",
-"img": "planches/p11.jpg",
+"img": "planches/p12.jpg",
 "ageCible": null,
 "accroche": "Je tourne, je bascule!",
 "sp": [
-11,
-1540,
-1604,
+12,
+4,
+836,
 376,
 248
 ]
@@ -7748,13 +7248,13 @@
 "prix": 34.99,
 "source": "L'Entrejeux",
 "url": "https://lentrejeux.com/products/jelly-blox-ensemble-tracteur",
-"img": "planches/p13.jpg",
+"img": "planches/p14.jpg",
 "ageCible": null,
 "accroche": "Des blocs mous qui roulent!",
 "sp": [
-13,
-1540,
-1193,
+14,
+772,
+41,
 376,
 301
 ]
@@ -7768,13 +7268,13 @@
 "prix": 12.0,
 "source": "Indigo",
 "url": "https://www.indigo.ca/fr/products/b-toys-stackin-squishy-cups-soft-stacking-cups-for-babies",
-"img": "planches/p12.jpg",
+"img": "planches/p13.jpg",
 "ageCible": null,
 "accroche": "J'empile, je renverse!",
 "sp": [
-12,
-772,
-1540,
+13,
+388,
+388,
 376,
 376
 ]
@@ -7793,8 +7293,8 @@
 "accroche": "Le castor a des dents orange!",
 "sp": [
 17,
-1924,
-388,
+1156,
+1156,
 376,
 376
 ]
@@ -7808,13 +7308,13 @@
 "prix": 119.99,
 "source": "Clément",
 "url": "https://clement.ca/products/velo-metal-trail-sauge-kdf-k03693",
-"img": "planches/p12.jpg",
+"img": "planches/p13.jpg",
 "ageCible": null,
 "accroche": "Pas de pédales, juste l'équilibre!",
 "sp": [
-12,
-1540,
+13,
 1156,
+4,
 376,
 376
 ]
@@ -7828,13 +7328,13 @@
 "prix": 125.99,
 "source": "Clément",
 "url": "https://clement.ca/products/trottinette-5en1-scoobi-rouge-lak-lk60003",
-"img": "planches/p12.jpg",
+"img": "planches/p13.jpg",
 "ageCible": null,
 "accroche": "Tricycle aujourd'hui, trottinette demain!",
 "sp": [
-12,
+13,
+1924,
 4,
-1540,
 376,
 376
 ]
@@ -7848,13 +7348,13 @@
 "prix": 99.99,
 "source": "Clément",
 "url": "https://clement.ca/products/tricycle-rookie-rouge-smo-892742000",
-"img": "planches/p12.jpg",
+"img": "planches/p13.jpg",
 "ageCible": null,
 "accroche": "Mes premiers coups de pédale!",
 "sp": [
-12,
+13,
 772,
-1156,
+4,
 376,
 376
 ]
@@ -7868,13 +7368,13 @@
 "prix": 89.99,
 "source": "Clément",
 "url": "https://clement.ca/products/trotinette-3en-1-chien-ski-187602",
-"img": "planches/p12.jpg",
+"img": "planches/p13.jpg",
 "ageCible": null,
 "accroche": "Wouf! Je roule sur mon chien!",
 "sp": [
-12,
+13,
 388,
-1156,
+4,
 376,
 376
 ]
@@ -7894,7 +7394,7 @@
 "sp": [
 12,
 1924,
-772,
+1924,
 376,
 376
 ]
@@ -7908,13 +7408,13 @@
 "prix": 119.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/2516841-fr-winther-gonge-mini-haut",
-"img": "planches/p12.jpg",
+"img": "planches/p13.jpg",
 "ageCible": null,
 "accroche": "Je tourne, je bascule, je ris!",
 "sp": [
-12,
-1924,
-1156,
+13,
+1540,
+4,
 376,
 376
 ]
@@ -7933,8 +7433,8 @@
 "accroche": "Strike! Les petites balles rebondissent!",
 "sp": [
 12,
-772,
-388,
+1156,
+1540,
 376,
 376
 ]
@@ -7948,13 +7448,13 @@
 "prix": 29.99,
 "source": "Clément",
 "url": "https://clement.ca/products/traineau-plastique-rouge-era-3000313",
-"img": "planches/p11.jpg",
+"img": "planches/p12.jpg",
 "ageCible": null,
 "accroche": "Papa tire, moi je glisse!",
 "sp": [
-11,
-4,
-1540,
+12,
+772,
+388,
 376,
 376
 ]
@@ -7973,8 +7473,8 @@
 "accroche": "Je déneige comme papa!",
 "sp": [
 12,
-388,
-4,
+1156,
+1156,
 376,
 376
 ]
@@ -7993,8 +7493,8 @@
 "accroche": "La baleine arrose, je cours!",
 "sp": [
 12,
-388,
-388,
+772,
+1540,
 376,
 376
 ]
@@ -8013,8 +7513,8 @@
 "accroche": "Un gros ballon à botter!",
 "sp": [
 12,
-772,
-4,
+1540,
+1156,
 376,
 376
 ]
@@ -8033,8 +7533,8 @@
 "accroche": "Pop pop! Un arc-en-ciel qui roule",
 "sp": [
 12,
+1924,
 1156,
-4,
 376,
 376
 ]
@@ -8053,8 +7553,8 @@
 "accroche": "Coin-coin! Ses ailes battent!",
 "sp": [
 12,
-1924,
 4,
+1540,
 376,
 376
 ]
@@ -8073,8 +7573,8 @@
 "accroche": "Elle me suit, les balles roulent!",
 "sp": [
 12,
-1156,
-388,
+1540,
+1540,
 376,
 376
 ]
@@ -8093,8 +7593,8 @@
 "accroche": "Je tire, il ramasse mes blocs!",
 "sp": [
 12,
-1156,
-772,
+1540,
+1924,
 376,
 376
 ]
@@ -8113,8 +7613,8 @@
 "accroche": "Vroum-vroum, je tonds avec papa!",
 "sp": [
 12,
+1924,
 1540,
-388,
 376,
 376
 ]
@@ -8133,8 +7633,8 @@
 "accroche": "Ses huit pattes m'arrosent partout!",
 "sp": [
 12,
-4,
-816,
+388,
+1968,
 376,
 288
 ]
@@ -8148,13 +7648,13 @@
 "prix": 14.99,
 "source": "Mastermind Toys",
 "url": "https://www.mastermindtoys.com/products/pipsquigz-loops-teal",
-"img": "planches/p12.jpg",
+"img": "planches/p13.jpg",
 "ageCible": null,
 "accroche": "Colle, tire… et pop!",
 "sp": [
-12,
-1924,
+13,
 1540,
+388,
 376,
 376
 ]
@@ -8168,13 +7668,13 @@
 "prix": 49.99,
 "source": "Mastermind Toys",
 "url": "https://www.mastermindtoys.com/products/sortagain",
-"img": "planches/p13.jpg",
+"img": "planches/p14.jpg",
 "ageCible": null,
 "accroche": "Tourne la manivelle, les billes se trient!",
 "sp": [
-13,
+14,
+4,
 772,
-1924,
 376,
 376
 ]
@@ -8188,13 +7688,13 @@
 "prix": 35.99,
 "source": "L’Entrejeux",
 "url": "https://lentrejeux.com/products/maison-trieur-de-formes",
-"img": "planches/p13.jpg",
+"img": "planches/p14.jpg",
 "ageCible": null,
 "accroche": "La bonne clé ouvre la porte!",
 "sp": [
-13,
-1156,
-1547,
+14,
+388,
+395,
 376,
 361
 ]
@@ -8208,13 +7708,13 @@
 "prix": 34.99,
 "source": "L’Entrejeux",
 "url": "https://lentrejeux.com/products/cube-dactivites-lock-learn",
-"img": "planches/p13.jpg",
+"img": "planches/p14.jpg",
 "ageCible": null,
 "accroche": "Empile, déverrouille, trouve la lettre!",
 "sp": [
-13,
-1924,
+14,
 1156,
+4,
 376,
 376
 ]
@@ -8233,8 +7733,8 @@
 "accroche": "Les animaux montent dans le camion!",
 "sp": [
 13,
-1167,
-388,
+783,
+1540,
 353,
 376
 ]
@@ -8248,13 +7748,13 @@
 "prix": 39.99,
 "source": "L’Entrejeux",
 "url": "https://lentrejeux.com/products/smartmax-animaux-de-la-ferme",
-"img": "planches/p13.jpg",
+"img": "planches/p14.jpg",
 "ageCible": null,
 "accroche": "Clic! La vache a des pattes.",
 "sp": [
-13,
-1964,
-1540,
+14,
+1196,
+388,
 295,
 376
 ]
@@ -8273,8 +7773,8 @@
 "accroche": "Pique les couleurs à la bonne place.",
 "sp": [
 13,
-4,
-821,
+1924,
+1589,
 376,
 277
 ]
@@ -8288,13 +7788,13 @@
 "prix": 32.99,
 "source": "Toytown",
 "url": "https://www.toytown.ca/products/ravensburger-3-in-1-stacking-cups-birds-nest",
-"img": "planches/p13.jpg",
+"img": "planches/p14.jpg",
 "ageCible": null,
 "accroche": "L’oiseau trône au sommet de la tour!",
 "sp": [
-13,
-796,
-1156,
+14,
+412,
+4,
 328,
 376
 ]
@@ -8313,8 +7813,8 @@
 "accroche": "Clic, zip, j’attache tout seul!",
 "sp": [
 13,
-388,
-772,
+4,
+1924,
 376,
 376
 ]
@@ -8333,8 +7833,8 @@
 "accroche": "Touche l’image, elle te parle!",
 "sp": [
 13,
-1540,
-4,
+1156,
+1156,
 376,
 376
 ]
@@ -8348,33 +7848,33 @@
 "prix": 16.95,
 "source": "Clément",
 "url": "https://clement.ca/products/cache-cachalot-lce-921596",
-"img": "planches/p12.jpg",
+"img": "planches/p13.jpg",
 "ageCible": null,
 "accroche": "Où se cache le cachalot?",
 "sp": [
-12,
-1156,
-1924,
+13,
+772,
+772,
 376,
 376
 ]
 },
 {
 "id": "yc-lp-autobus",
-"categorie": "d2-vehicules",
+"categorie": "d2-retro",
 "marque": "Fisher-Price",
 "nom": "Little People – Autobus scolaire avec 2 figurines",
 "age": "12 mois+",
 "prix": 29.99,
 "source": "L'Entrejeux",
 "url": "https://lentrejeux.com/products/little-people-autobus-scolaire",
-"img": "planches/p14.jpg",
+"img": "planches/p11.jpg",
 "ageCible": null,
 "accroche": "Tout le monde à bord!",
 "sp": [
-14,
-1540,
-4,
+11,
+388,
+1924,
 376,
 376
 ]
@@ -8393,8 +7893,8 @@
 "accroche": "On charge, on vide, on recommence!",
 "sp": [
 14,
-772,
-388,
+1924,
+1156,
 376,
 376
 ]
@@ -8413,8 +7913,8 @@
 "accroche": "Ascenseur, glissade… et vroum!",
 "sp": [
 14,
-388,
-772,
+1540,
+1540,
 376,
 376
 ]
@@ -8433,8 +7933,8 @@
 "accroche": "Les autos montent sur la remorque!",
 "sp": [
 14,
-1924,
-4,
+772,
+1156,
 376,
 376
 ]
@@ -8448,13 +7948,13 @@
 "prix": 27.99,
 "source": "Clément",
 "url": "https://clement.ca/products/xylophone-renard-ski-303109",
-"img": "planches/p14.jpg",
+"img": "planches/p15.jpg",
 "ageCible": null,
 "accroche": "Ding-ding, le renard qui roule!",
 "sp": [
-14,
+15,
+772,
 388,
-1924,
 376,
 376
 ]
@@ -8473,8 +7973,8 @@
 "accroche": "Boum-boum! La parade commence!",
 "sp": [
 15,
-1540,
-4,
+1924,
+772,
 376,
 376
 ]
@@ -8488,13 +7988,13 @@
 "prix": 27.99,
 "source": "L'Entrejeux",
 "url": "https://lentrejeux.com/products/micro-okidokee",
-"img": "planches/p14.jpg",
+"img": "planches/p15.jpg",
 "ageCible": null,
 "accroche": "Une petite vedette au micro!",
 "sp": [
-14,
-772,
-1924,
+15,
+1156,
+388,
 376,
 376
 ]
@@ -8513,8 +8013,8 @@
 "accroche": "Allô? Mes clés, mon téléphone!",
 "sp": [
 14,
-772,
 1156,
+1924,
 376,
 376
 ]
@@ -8534,7 +8034,7 @@
 "sp": [
 16,
 1924,
-4,
+772,
 376,
 376
 ]
@@ -8548,13 +8048,13 @@
 "prix": 24.99,
 "source": "Clément",
 "url": "https://clement.ca/products/jeu-de-4-tuyaux-pour-le-bain-bo2-b11379a",
-"img": "planches/p15.jpg",
+"img": "planches/p16.jpg",
 "ageCible": null,
 "accroche": "Des tuyaux sur le mur du bain!",
 "sp": [
-15,
+16,
 772,
-1924,
+388,
 376,
 376
 ]
@@ -8568,13 +8068,13 @@
 "prix": 69.99,
 "source": "Clément",
 "url": "https://clement.ca/products/lampe-chevreuil-crepuscule-doo-bga81-fw",
-"img": "planches/p16.jpg",
+"img": "planches/p17.jpg",
 "ageCible": null,
 "accroche": "Des étoiles plein le plafond!",
 "sp": [
-16,
+17,
+4,
 388,
-1924,
 376,
 376
 ]
@@ -8594,7 +8094,7 @@
 "sp": [
 15,
 1540,
-1156,
+1924,
 376,
 376
 ]
@@ -8608,13 +8108,13 @@
 "prix": 13.95,
 "source": "Leslibraires.ca",
 "url": "https://www.leslibraires.ca/livres/c-est-moi-qui-decide-elise-gravel-9782897742843.html",
-"img": "planches/p11.jpg",
+"img": "planches/p12.jpg",
 "ageCible": null,
 "accroche": "Moi! C'est moi qui choisis!",
 "sp": [
-11,
-388,
+12,
 1156,
+4,
 376,
 376
 ]
@@ -8633,8 +8133,8 @@
 "accroche": "Une petite mouche très gourmande",
 "sp": [
 17,
-1540,
-4,
+772,
+772,
 376,
 376
 ]
@@ -8653,8 +8153,8 @@
 "accroche": "Accroché bien fort au dos de Baba",
 "sp": [
 17,
-1924,
-4,
+1156,
+772,
 376,
 376
 ]
@@ -8673,8 +8173,8 @@
 "accroche": "Oh oh! Qu'est-ce qu'il voit?",
 "sp": [
 17,
-4,
-772,
+1540,
+1156,
 376,
 376
 ]
@@ -8693,8 +8193,8 @@
 "accroche": "Splash dans la boue!",
 "sp": [
 17,
-388,
-772,
+1924,
+1156,
 376,
 376
 ]
@@ -8713,8 +8213,8 @@
 "accroche": "Ourson veut son lit!",
 "sp": [
 17,
-1156,
-1156,
+388,
+1924,
 376,
 376
 ]
@@ -8733,8 +8233,8 @@
 "accroche": "Vroum! Gaston répare tout!",
 "sp": [
 17,
-414,
-1540,
+1950,
+1924,
 323,
 376
 ]
@@ -8748,13 +8248,13 @@
 "prix": 19.95,
 "source": "Leslibraires.ca",
 "url": "https://www.leslibraires.ca/livres/mes-comptines-de-noel-a-ecouter-maryse-letarte-9782898240355.html",
-"img": "planches/p17.jpg",
+"img": "planches/p18.jpg",
 "ageCible": null,
 "accroche": "Chante Noël avec Maryse!",
 "sp": [
-17,
-793,
-1540,
+18,
+25,
+4,
 333,
 376
 ]
@@ -8768,13 +8268,13 @@
 "prix": 19.95,
 "source": "Leslibraires.ca",
 "url": "https://www.leslibraires.ca/livres/mon-premier-imagier-de-noel-9782898248313",
-"img": "planches/p17.jpg",
+"img": "planches/p18.jpg",
 "ageCible": null,
 "accroche": "Le sapin, les lutins, les cadeaux!",
 "sp": [
-17,
-1163,
-1540,
+18,
+395,
+4,
 362,
 376
 ]
@@ -8788,13 +8288,13 @@
 "prix": 15.95,
 "source": "Leslibraires.ca",
 "url": "https://www.leslibraires.ca/livres/ne-touche-jamais-un-orignal-9782898532962",
-"img": "planches/p11.jpg",
+"img": "planches/p12.jpg",
 "ageCible": null,
 "accroche": "Touche pas l'orignal… ou oui!",
 "sp": [
-11,
-1540,
-1156,
+12,
+4,
+388,
 376,
 376
 ]
@@ -8808,13 +8308,13 @@
 "prix": 24.95,
 "source": "Leslibraires.ca",
 "url": "https://www.leslibraires.ca/livres/mon-livre-a-toucher-de-noel-kim-huynh-9782898530746.html",
-"img": "planches/p17.jpg",
+"img": "planches/p18.jpg",
 "ageCible": null,
 "accroche": "Touche la barbe du père Noël!",
 "sp": [
-17,
-9,
-1924,
+18,
+1545,
+4,
 365,
 376
 ]
@@ -8833,8 +8333,8 @@
 "accroche": "Plouf! Enzo flotte dans le bain!",
 "sp": [
 17,
-4,
-4,
+1540,
+388,
 376,
 376
 ]
@@ -8848,33 +8348,33 @@
 "prix": 9.95,
 "source": "Leslibraires.ca",
 "url": "https://www.leslibraires.ca/livres/mes-100-premiers-mots-anne-paradis-9782924786970.html",
-"img": "planches/p16.jpg",
+"img": "planches/p17.jpg",
 "ageCible": null,
 "accroche": "Cent mots dans ma poignée",
 "sp": [
-16,
-1184,
-1924,
+17,
+800,
+388,
 319,
 376
 ]
 },
 {
 "id": "yl-caillou-bon-dodo",
-"categorie": "d2-livres",
+"categorie": "d2-retro",
 "marque": "Hélène Desputeaux · Desputeaux + Aubin",
 "nom": "Caillou : Bon dodo !",
 "age": "18 mois+",
 "prix": 9.95,
 "source": "Leslibraires.ca",
 "url": "https://www.leslibraires.ca/livres/bon-dodo-helene-desputeaux-9782923506449.html",
-"img": "planches/p16.jpg",
+"img": "planches/p11.jpg",
 "ageCible": null,
 "accroche": "Bonne nuit, Caillou!",
 "sp": [
-16,
-1540,
+11,
 1924,
+1156,
 375,
 376
 ]
@@ -8893,8 +8393,8 @@
 "accroche": "Dodo, petit bonhomme de neige!",
 "sp": [
 17,
-4,
-1163,
+1540,
+1547,
 376,
 361
 ]
@@ -8913,8 +8413,8 @@
 "accroche": "Même la mouffette, on l'aime!",
 "sp": [
 17,
-772,
-772,
+4,
+1540,
 376,
 376
 ]
@@ -8933,8 +8433,8 @@
 "accroche": "Appuie, ça chante Alouette!",
 "sp": [
 17,
-404,
-1156,
+1940,
+1540,
 343,
 376
 ]
@@ -8954,7 +8454,7 @@
 "sp": [
 16,
 772,
-4,
+772,
 376,
 376
 ]
@@ -8968,13 +8468,13 @@
 "prix": 24.99,
 "source": "Clément",
 "url": "https://clement.ca/products/parapluie-paon-mauve-yoo-40226",
-"img": "planches/p15.jpg",
+"img": "planches/p16.jpg",
 "ageCible": null,
 "accroche": "Il pleut sur le paon!",
 "sp": [
-15,
+16,
 1156,
-1924,
+388,
 376,
 376
 ]
@@ -8994,7 +8494,7 @@
 "sp": [
 16,
 772,
-388,
+1156,
 376,
 376
 ]
@@ -9014,7 +8514,7 @@
 "sp": [
 16,
 388,
-388,
+1156,
 376,
 376
 ]
@@ -9028,13 +8528,13 @@
 "prix": 23.99,
 "source": "Clément",
 "url": "https://clement.ca/products/animaux-de-bain-gicleurs-mun-21353-21363",
-"img": "planches/p15.jpg",
+"img": "planches/p16.jpg",
 "ageCible": null,
 "accroche": "Pschitt! La girafe m'arrose!",
 "sp": [
-15,
+16,
 388,
-1924,
+388,
 376,
 376
 ]
@@ -9054,7 +8554,7 @@
 "sp": [
 15,
 388,
-1247,
+2015,
 376,
 193
 ]
@@ -9068,13 +8568,13 @@
 "prix": 19.99,
 "source": "Clément",
 "url": "https://clement.ca/products/xylophone-poisson-pour-bain-mun-44189-44199",
-"img": "planches/p15.jpg",
+"img": "planches/p16.jpg",
 "ageCible": null,
 "accroche": "Ding! Ding! dans le bain",
 "sp": [
-15,
+16,
 772,
-1540,
+4,
 376,
 376
 ]
@@ -9094,7 +8594,7 @@
 "sp": [
 15,
 772,
-1156,
+1924,
 376,
 376
 ]
@@ -9114,7 +8614,7 @@
 "sp": [
 15,
 4,
-1156,
+1924,
 376,
 376
 ]
@@ -9134,7 +8634,7 @@
 "sp": [
 16,
 4,
-4,
+772,
 376,
 376
 ]
@@ -9148,13 +8648,13 @@
 "prix": 17.99,
 "source": "Clément",
 "url": "https://clement.ca/products/sous-marin-pour-le-bain-tig-6-1553",
-"img": "planches/p15.jpg",
+"img": "planches/p16.jpg",
 "ageCible": null,
 "accroche": "Le sous-marin m'arrose!",
 "sp": [
-15,
+16,
 4,
-1540,
+4,
 376,
 376
 ]
@@ -9174,7 +8674,7 @@
 "sp": [
 16,
 1156,
-4,
+772,
 376,
 376
 ]
@@ -9188,13 +8688,13 @@
 "prix": 19.99,
 "source": "Toytown",
 "url": "https://www.toytown.ca/products/plui-rain-cloud-bath-toy-weather-set",
-"img": "planches/p11.jpg",
+"img": "planches/p12.jpg",
 "ageCible": null,
 "accroche": "Je fais pleuvoir le nuage!",
 "sp": [
-11,
-1924,
-1157,
+12,
+388,
+389,
 376,
 374
 ]
@@ -9208,13 +8708,13 @@
 "prix": 22.99,
 "source": "Clément",
 "url": "https://clement.ca/products/ens-jouet-plage-ocean-ori-w64143",
-"img": "planches/p15.jpg",
+"img": "planches/p16.jpg",
 "ageCible": null,
 "accroche": "Mon seau tout doux!",
 "sp": [
-15,
+16,
 1924,
-1540,
+4,
 376,
 376
 ]
@@ -9228,13 +8728,13 @@
 "prix": 21.99,
 "source": "Clément",
 "url": "https://clement.ca/products/seau-avec-pelle-et-camion-john-fye-47339",
-"img": "planches/p15.jpg",
+"img": "planches/p16.jpg",
 "ageCible": null,
 "accroche": "Le tracteur va au sable!",
 "sp": [
-15,
+16,
 1540,
-1540,
+4,
 376,
 376
 ]
@@ -9248,13 +8748,13 @@
 "prix": 24.99,
 "source": "Clément",
 "url": "https://clement.ca/products/ens-bateau-et-seau-pastel-dat-2740",
-"img": "planches/p15.jpg",
+"img": "planches/p16.jpg",
 "ageCible": null,
 "accroche": "Mon bateau sur la plage!",
 "sp": [
-15,
+16,
 1540,
-1924,
+388,
 376,
 376
 ]
@@ -9268,13 +8768,13 @@
 "prix": 19.99,
 "source": "Clément",
 "url": "https://clement.ca/products/petit-ens-plage-seau-et-outil-dat-2625",
-"img": "planches/p15.jpg",
+"img": "planches/p16.jpg",
 "ageCible": null,
 "accroche": "Je creuse un gros trou!",
 "sp": [
-15,
+16,
 1156,
-1540,
+4,
 376,
 376
 ]
@@ -9293,8 +8793,8 @@
 "accroche": "Un petit cochon tout frisé",
 "sp": [
 16,
-1540,
 1156,
+1924,
 376,
 376
 ]
@@ -9313,8 +8813,8 @@
 "accroche": "Un livre qui fait crouche-crouche",
 "sp": [
 16,
+1156,
 1540,
-772,
 376,
 376
 ]
@@ -9328,13 +8828,13 @@
 "prix": 61.99,
 "source": "Clément",
 "url": "https://clement.ca/products/sirop-derable-jlc-a2maps",
-"img": "planches/p16.jpg",
+"img": "planches/p17.jpg",
 "ageCible": null,
 "accroche": "Le cruchon de sirop qui sourit",
 "sp": [
-16,
-4,
+17,
 1924,
+4,
 376,
 376
 ]
@@ -9348,13 +8848,13 @@
 "prix": 39.99,
 "source": "Clément",
 "url": "https://clement.ca/products/vache-highland-mmr-mm56440",
-"img": "planches/p16.jpg",
+"img": "planches/p17.jpg",
 "ageCible": null,
 "accroche": "Une vache poilue à flatter",
 "sp": [
-16,
-388,
-1540,
+17,
+4,
+4,
 376,
 376
 ]
@@ -9368,13 +8868,13 @@
 "prix": 39.99,
 "source": "Clément",
 "url": "https://clement.ca/products/pingouin-manteau-rouge-mmr-mm23307",
-"img": "planches/p16.jpg",
+"img": "planches/p17.jpg",
 "ageCible": null,
 "accroche": "Prêt pour la tempête de neige",
 "sp": [
-16,
-772,
-1540,
+17,
+388,
+4,
 376,
 376
 ]
@@ -9393,8 +8893,8 @@
 "accroche": "Plein d'étiquettes à tripoter",
 "sp": [
 16,
-772,
-1156,
+388,
+1924,
 376,
 376
 ]
@@ -9413,8 +8913,8 @@
 "accroche": "Bingo vient faire dodo",
 "sp": [
 16,
-4,
-772,
+1924,
+1156,
 376,
 376
 ]
@@ -9433,8 +8933,8 @@
 "accroche": "Ruben arrive avec son casque",
 "sp": [
 16,
-1924,
-388,
+1540,
+1156,
 376,
 376
 ]
@@ -9453,28 +8953,28 @@
 "accroche": "La maman de Bluey, toute moelleuse",
 "sp": [
 16,
-4,
-1156,
+1924,
+1540,
 376,
 376
 ]
 },
 {
 "id": "yp-winnie",
-"categorie": "d2-calins",
+"categorie": "d2-retro",
 "marque": "Disney",
 "nom": "Peluche Winnie l'ourson – 100e anniversaire",
 "age": "6 mois+",
 "prix": 15.0,
 "source": "Mastermind Toys",
 "url": "https://www.mastermindtoys.com/products/winnie-the-pooh-100-medium",
-"img": "planches/p16.jpg",
+"img": "planches/p11.jpg",
 "ageCible": null,
 "accroche": "Winnie cherche son miel",
 "sp": [
-16,
+11,
+772,
 1540,
-388,
 376,
 376
 ]
@@ -9488,13 +8988,13 @@
 "prix": 69.99,
 "source": "Clément",
 "url": "https://clement.ca/products/billy-le-lapin-lumineux-musica-doo-bga120-bu",
-"img": "planches/p16.jpg",
+"img": "planches/p17.jpg",
 "ageCible": null,
 "accroche": "Il s'allume et chante pour dormir",
 "sp": [
-16,
-772,
-1924,
+17,
+388,
+388,
 376,
 376
 ]
@@ -9508,13 +9008,13 @@
 "prix": 39.99,
 "source": "Clément",
 "url": "https://clement.ca/products/peluche-veilleuse-lapinoo-crem-klo-k218030",
-"img": "planches/p16.jpg",
+"img": "planches/p17.jpg",
 "ageCible": null,
 "accroche": "Une petite lumière dans le ventre",
 "sp": [
-16,
-1156,
-1540,
+17,
+772,
+4,
 376,
 376
 ]
@@ -9528,13 +9028,13 @@
 "prix": 49.99,
 "source": "Clément",
 "url": "https://clement.ca/products/peluche-lestee-panda-roux-klo-k206006",
-"img": "planches/p16.jpg",
+"img": "planches/p17.jpg",
 "ageCible": null,
 "accroche": "Lourd juste assez pour rassurer",
 "sp": [
-16,
-1924,
+17,
 1540,
+4,
 376,
 376
 ]
@@ -9548,13 +9048,13 @@
 "prix": 39.99,
 "source": "Clément",
 "url": "https://clement.ca/products/orignal-musical-bruce-ltb-303877",
-"img": "planches/p16.jpg",
+"img": "planches/p17.jpg",
 "ageCible": null,
 "accroche": "On tire, l'orignal chante Noël",
 "sp": [
-16,
-1540,
-1540,
+17,
+1156,
+4,
 376,
 376
 ]
@@ -9573,8 +9073,8 @@
 "accroche": "Une berceuse dans un renard",
 "sp": [
 16,
-1924,
-772,
+1540,
+1540,
 376,
 376
 ]
@@ -9593,8 +9093,8 @@
 "accroche": "Une poupée toute en tissu",
 "sp": [
 16,
-388,
-1156,
+4,
+1924,
 376,
 376
 ]
@@ -9613,8 +9113,8 @@
 "accroche": "Une boîte qui chante au dodo",
 "sp": [
 12,
-4,
-4,
+772,
+1156,
 376,
 376
 ]
@@ -9628,13 +9128,13 @@
 "prix": 26.99,
 "source": "Tonies.ca",
 "url": "https://tonies.ca/fr/products/traveling-songs-tonie-france",
-"img": "planches/p14.jpg",
+"img": "planches/p15.jpg",
 "ageCible": null,
 "accroche": "Des comptines pour la route",
 "sp": [
-14,
-1924,
-1540,
+15,
+4,
+388,
 376,
 376
 ]
@@ -9648,13 +9148,13 @@
 "prix": 26.99,
 "source": "Tonies.ca",
 "url": "https://tonies.ca/fr/products/mes-comptines-preferees-pour-apprendre-tonie",
-"img": "planches/p14.jpg",
+"img": "planches/p15.jpg",
 "ageCible": null,
 "accroche": "Chanter, compter, apprendre !",
 "sp": [
-14,
-4,
-1924,
+15,
+388,
+388,
 376,
 376
 ]
@@ -9673,8 +9173,8 @@
 "accroche": "Trois Tonies tout doux",
 "sp": [
 15,
-4,
-4,
+388,
+772,
 376,
 376
 ]
@@ -9688,13 +9188,13 @@
 "prix": 29.99,
 "source": "Tonies.ca",
 "url": "https://tonies.ca/fr/products/sleepy-crocodile-night-light-tonie",
-"img": "planches/p14.jpg",
+"img": "planches/p15.jpg",
 "ageCible": null,
 "accroche": "Un croco qui brille la nuit",
 "sp": [
-14,
-1156,
-1924,
+15,
+1540,
+388,
 376,
 376
 ]
@@ -9708,13 +9208,13 @@
 "prix": 23.99,
 "source": "Clément",
 "url": "https://clement.ca/products/jouet-musical-stegosaure-2en1-ski-9q691310",
-"img": "planches/p14.jpg",
+"img": "planches/p15.jpg",
 "ageCible": null,
 "accroche": "Le dino qui fait tambourin",
 "sp": [
-14,
-1540,
-1540,
+15,
+1924,
+4,
 376,
 376
 ]
@@ -9728,13 +9228,13 @@
 "prix": 34.99,
 "source": "Clément",
 "url": "https://clement.ca/products/banc-musical-a-taper-geometriq-ski-9t468610",
-"img": "planches/p14.jpg",
+"img": "planches/p15.jpg",
 "ageCible": null,
 "accroche": "Tape, tape, la girafe chante !",
 "sp": [
-14,
-1924,
-1924,
+15,
+4,
+772,
 376,
 376
 ]
@@ -9748,13 +9248,13 @@
 "prix": 19.99,
 "source": "Clément",
 "url": "https://clement.ca/products/bitzy-tunes-piano-oie-itz-403801964",
-"img": "planches/p14.jpg",
+"img": "planches/p15.jpg",
 "ageCible": null,
 "accroche": "Une oie qui joue du piano",
 "sp": [
-14,
-772,
-1540,
+15,
+1156,
+4,
 376,
 376
 ]
@@ -9773,8 +9273,8 @@
 "accroche": "Tout un orchestre dans la boîte",
 "sp": [
 15,
-388,
-4,
+772,
+772,
 376,
 376
 ]
@@ -9793,8 +9293,8 @@
 "accroche": "Boum, chika, ding : quel orchestre !",
 "sp": [
 15,
+1156,
 772,
-4,
 376,
 376
 ]
@@ -9808,13 +9308,13 @@
 "prix": 32.99,
 "source": "Well.ca",
 "url": "https://well.ca/fr/produits/b-toys-woofers-musical-driving_356862.html",
-"img": "planches/p14.jpg",
+"img": "planches/p15.jpg",
 "ageCible": null,
 "accroche": "Vroum ! Woofer prend la route",
 "sp": [
-14,
-1540,
+15,
 1924,
+388,
 376,
 376
 ]
@@ -9833,8 +9333,8 @@
 "accroche": "Le piano chat qui miaule",
 "sp": [
 15,
-1924,
 4,
+1156,
 376,
 376
 ]
@@ -9853,8 +9353,8 @@
 "accroche": "Des crayons faits pour sa menotte",
 "sp": [
 15,
-4,
 388,
+1156,
 376,
 376
 ]
@@ -9873,8 +9373,8 @@
 "accroche": "Gros marqueurs, zéro tache",
 "sp": [
 15,
-772,
-388,
+1156,
+1156,
 376,
 376
 ]
@@ -9893,8 +9393,8 @@
 "accroche": "Un peu d'eau, et voilà!",
 "sp": [
 15,
-389,
-388,
+773,
+1156,
 374,
 376
 ]
@@ -9914,7 +9414,7 @@
 "sp": [
 15,
 1540,
-388,
+1156,
 376,
 376
 ]
@@ -9934,27 +9434,27 @@
 "sp": [
 15,
 1924,
-388,
+1156,
 376,
 376
 ]
 },
 {
 "id": "ya-playdoh-8-pots",
-"categorie": "d2-art",
+"categorie": "d2-retro",
 "marque": "Play-Doh",
 "nom": "Pâte à modeler Play-Doh, paquet de 8 pots",
 "age": "2+",
 "prix": 11.99,
 "source": "Toytown",
 "url": "https://www.toytown.ca/products/play-doh-8-pack-assortment",
-"img": "planches/p15.jpg",
+"img": "planches/p11.jpg",
 "ageCible": null,
 "accroche": "Huit couleurs à pétrir",
 "sp": [
-15,
-1156,
-388,
+11,
+4,
+1540,
 376,
 376
 ]
@@ -9974,7 +9474,7 @@
 "sp": [
 15,
 1156,
-772,
+1540,
 376,
 376
 ]
@@ -9994,7 +9494,7 @@
 "sp": [
 15,
 772,
-772,
+1540,
 376,
 376
 ]
@@ -10014,7 +9514,7 @@
 "sp": [
 15,
 388,
-772,
+1540,
 376,
 376
 ]
@@ -10034,7 +9534,7 @@
 "sp": [
 15,
 4,
-772,
+1540,
 376,
 376
 ]
@@ -10054,7 +9554,7 @@
 "sp": [
 15,
 1924,
-772,
+1540,
 376,
 376
 ]
@@ -10073,8 +9573,8 @@
 "accroche": "En route vers la ferme!",
 "sp": [
 14,
-4,
-388,
+1156,
+1156,
 376,
 376
 ]
@@ -10093,8 +9593,8 @@
 "accroche": "Charge l'auto, on la remorque!",
 "sp": [
 14,
-1924,
-388,
+772,
+1540,
 376,
 376
 ]
@@ -10108,13 +9608,13 @@
 "prix": 14.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/3200948-fr-mattel-fisher-price-little-people-coffret-vehicules-travaux-routiers",
-"img": "planches/p13.jpg",
+"img": "planches/p14.jpg",
 "ageCible": null,
 "accroche": "Un bulldozer et un pick-up!",
 "sp": [
-13,
-1540,
-1924,
+14,
+772,
+772,
 376,
 376
 ]
@@ -10133,8 +9633,8 @@
 "accroche": "On trie, on charge, on chante!",
 "sp": [
 14,
-4,
-4,
+1540,
+772,
 376,
 376
 ]
@@ -10153,8 +9653,8 @@
 "accroche": "Ta première auto téléguidée!",
 "sp": [
 14,
-4,
-1188,
+772,
+1956,
 376,
 312
 ]
@@ -10168,13 +9668,13 @@
 "prix": 10.39,
 "source": "Clément",
 "url": "https://www.clement.ca/products/voiture-cabriolet-olo-76020",
-"img": "planches/p13.jpg",
+"img": "planches/p14.jpg",
 "ageCible": null,
 "accroche": "Une petite auto toute ronde!",
 "sp": [
-13,
-1156,
-1924,
+14,
+388,
+772,
 376,
 376
 ]
@@ -10193,8 +9693,8 @@
 "accroche": "Remplis l'auto de blocs doux!",
 "sp": [
 14,
-4,
-772,
+1156,
+1540,
 376,
 376
 ]
@@ -10213,8 +9713,8 @@
 "accroche": "Le rouleau mange les blocs!",
 "sp": [
 14,
-772,
-772,
+1924,
+1540,
 376,
 376
 ]
@@ -10233,8 +9733,8 @@
 "accroche": "Recule, lâche… et vroum!",
 "sp": [
 14,
-1156,
-772,
+4,
+1924,
 376,
 376
 ]
@@ -10253,8 +9753,8 @@
 "accroche": "Six portes, six clés, deux p'tits patients !",
 "sp": [
 14,
-1540,
-1156,
+1924,
+1924,
 376,
 376
 ]
@@ -10268,13 +9768,13 @@
 "prix": 22449,
 "source": "Energy Powersports (concessionnaire BRP, Oakville ON)",
 "url": "https://www.energypowersports.ca/en/new/snowmobile/inventory/2027-ski-doo-expedition-le-24-900-ace-turbo-r-silent-cobra-15-es-for-sale-ins02982/",
-"img": "planches/p17.jpg",
+"img": "planches/p18.jpg",
 "ageCible": null,
 "accroche": "Papa a été très sage cette année",
 "sp": [
-17,
-1540,
-1971,
+18,
+772,
+435,
 376,
 282
 ]
@@ -10288,13 +9788,13 @@
 "prix": 14.95,
 "source": "Leslibraires.ca",
 "url": "https://www.leslibraires.ca/livres/pierre-9782897747862",
-"img": "planches/p11.jpg",
+"img": "planches/p12.jpg",
 "ageCible": null,
 "accroche": "Pierre le caillou veut un ami",
 "sp": [
-11,
-772,
-1156,
+12,
+1540,
+4,
 376,
 376
 ]
@@ -10313,8 +9813,8 @@
 "accroche": "Miam! Le petit monstre a faim!",
 "sp": [
 17,
-4,
-388,
+1540,
+772,
 376,
 376
 ]
@@ -10328,13 +9828,13 @@
 "prix": 10.95,
 "source": "Leslibraires.ca",
 "url": "https://www.leslibraires.ca/livres/deux-amis-gilles-tibo-9782897742072.html",
-"img": "planches/p16.jpg",
+"img": "planches/p17.jpg",
 "ageCible": null,
 "accroche": "Deux souris, du matin au dodo",
 "sp": [
-16,
-1924,
-1924,
+17,
+1156,
+388,
 376,
 376
 ]
@@ -10353,8 +9853,8 @@
 "accroche": "Où se cache le chat?",
 "sp": [
 17,
-445,
-4,
+1981,
+388,
 261,
 376
 ]
@@ -10373,8 +9873,8 @@
 "accroche": "Quel bruit ça fait?",
 "sp": [
 17,
-772,
-1156,
+4,
+1924,
 376,
 376
 ]
@@ -10393,8 +9893,8 @@
 "accroche": "Deux bébés et une tétine",
 "sp": [
 17,
-388,
-388,
+1924,
+772,
 376,
 376
 ]
@@ -10413,8 +9913,8 @@
 "accroche": "On fait un gâteau ensemble!",
 "sp": [
 17,
-1156,
-772,
+388,
+1540,
 376,
 376
 ]
@@ -10433,8 +9933,8 @@
 "accroche": "Une rôtie qui fait des grimaces",
 "sp": [
 17,
-1577,
-772,
+809,
+1540,
 301,
 376
 ]
@@ -10448,13 +9948,13 @@
 "prix": 38.95,
 "source": "Leslibraires.ca",
 "url": "https://www.leslibraires.ca/livres/le-petit-livre-pour-les-geants-obom-9782924332665.html",
-"img": "planches/p17.jpg",
+"img": "planches/p18.jpg",
 "ageCible": null,
 "accroche": "Un livre aussi grand que moi!",
 "sp": [
-17,
-451,
-1924,
+18,
+1987,
+4,
 250,
 376
 ]
@@ -10468,13 +9968,13 @@
 "prix": 22.95,
 "source": "Leslibraires.ca",
 "url": "https://www.leslibraires.ca/livres/peter-le-chat-debout-version-cartonnee-nadine-robert-9782924332948.html",
-"img": "planches/p17.jpg",
+"img": "planches/p18.jpg",
 "ageCible": null,
 "accroche": "Un chat qui marche debout!",
 "sp": [
-17,
-1586,
-1540,
+18,
+818,
+4,
 283,
 376
 ]
@@ -10493,8 +9993,8 @@
 "accroche": "Chut! L'hippo va faire dodo",
 "sp": [
 17,
-1924,
-772,
+1156,
+1540,
 375,
 376
 ]
@@ -10513,8 +10013,8 @@
 "accroche": "Tout plein d'amis dans la ruelle",
 "sp": [
 17,
-1593,
-1156,
+825,
+1924,
 269,
 376
 ]
@@ -10533,8 +10033,8 @@
 "accroche": "Popote attend le père Noël!",
 "sp": [
 17,
-1924,
 1156,
+1924,
 376,
 376
 ]
@@ -10553,8 +10053,8 @@
 "accroche": "En route dans l'auto bleue!",
 "sp": [
 17,
-4,
 1540,
+1924,
 376,
 376
 ]
@@ -10568,13 +10068,13 @@
 "prix": 14.95,
 "source": "Leslibraires.ca",
 "url": "https://www.leslibraires.ca/livres/les-amis-du-pere-noel-maude-iris-hamelin-ouellette-9782898790287.html",
-"img": "planches/p11.jpg",
+"img": "planches/p12.jpg",
 "ageCible": null,
 "accroche": "Soulève les volets du père Noël",
 "sp": [
-11,
-1206,
-1156,
+12,
+1974,
+4,
 276,
 376
 ]
@@ -10593,8 +10093,8 @@
 "accroche": "Tire, l'ours polaire bouge!",
 "sp": [
 17,
-779,
-388,
+11,
+1156,
 361,
 376
 ]
@@ -10613,8 +10113,8 @@
 "accroche": "Lance et compte, comme les grands!",
 "sp": [
 17,
-1163,
-388,
+395,
+1156,
 361,
 376
 ]
@@ -10628,13 +10128,13 @@
 "prix": 22.95,
 "source": "Leslibraires.ca",
 "url": "https://www.leslibraires.ca/livres/mon-premier-imagier-a-toucher-emma-martinez-9782898246333.html",
-"img": "planches/p17.jpg",
+"img": "planches/p18.jpg",
 "ageCible": null,
 "accroche": "Touche, c'est doux ou ça pique?",
 "sp": [
-17,
-1960,
-1540,
+18,
+1192,
+4,
 304,
 376
 ]
@@ -10653,8 +10153,8 @@
 "accroche": "Pas de sieste! Je me cache!",
 "sp": [
 17,
-772,
 4,
+772,
 375,
 376
 ]
@@ -10673,8 +10173,8 @@
 "accroche": "Qui se cache dans la neige?",
 "sp": [
 17,
-1160,
-4,
+392,
+772,
 367,
 376
 ]
@@ -10693,8 +10193,8 @@
 "accroche": "Des tableaux pleins de couleurs",
 "sp": [
 17,
-1540,
-388,
+772,
+1156,
 376,
 376
 ]
@@ -10713,8 +10213,8 @@
 "accroche": "Où se cache le petit chat?",
 "sp": [
 13,
-772,
-772,
+388,
+1924,
 376,
 376
 ]
@@ -10728,13 +10228,13 @@
 "prix": 36.99,
 "source": "Placote",
 "url": "https://placote.com/products/la-tour-des-consignes",
-"img": "planches/p11.jpg",
+"img": "planches/p12.jpg",
 "ageCible": null,
 "accroche": "Empile, écoute, fais-la tomber!",
 "sp": [
-11,
-1156,
-1540,
+12,
+1924,
+388,
 376,
 376
 ]
@@ -10753,8 +10253,8 @@
 "accroche": "Le chien mange, le lapin dort",
 "sp": [
 13,
+1156,
 1540,
-388,
 376,
 376
 ]
@@ -10773,8 +10273,8 @@
 "accroche": "Ouvre la fenêtre : qui saute?",
 "sp": [
 13,
-1156,
 772,
+1924,
 376,
 376
 ]
@@ -10793,8 +10293,8 @@
 "accroche": "Content, fâché, triste : trouve pareil!",
 "sp": [
 13,
-1924,
-388,
+1540,
+1540,
 376,
 376
 ]
@@ -10808,13 +10308,13 @@
 "prix": 15.0,
 "source": "Placote",
 "url": "https://placote.com/products/doudou-des-emotions",
-"img": "planches/p12.jpg",
+"img": "planches/p13.jpg",
 "ageCible": null,
 "accroche": "Qui est triste? Qui rit?",
 "sp": [
-12,
+13,
+388,
 772,
-1924,
 376,
 376
 ]
@@ -10833,8 +10333,8 @@
 "accroche": "Le nez, le pied, dans le bain!",
 "sp": [
 13,
-1540,
-772,
+1156,
+1924,
 376,
 376
 ]
@@ -10853,8 +10353,8 @@
 "accroche": "Dans, sur, sous : cherche bien!",
 "sp": [
 13,
+1540,
 1924,
-772,
 376,
 376
 ]
@@ -10868,13 +10368,13 @@
 "prix": 36.99,
 "source": "Placote",
 "url": "https://placote.com/products/cherche-et-trouve-les-emotions",
-"img": "planches/p13.jpg",
+"img": "planches/p14.jpg",
 "ageCible": null,
 "accroche": "Trouve l'ami qui a peur",
 "sp": [
-13,
-1540,
-1540,
+14,
+772,
+388,
 376,
 376
 ]
@@ -10893,8 +10393,8 @@
 "accroche": "Lance le dé, dis le mot!",
 "sp": [
 13,
-4,
-4,
+1924,
+772,
 376,
 376
 ]
@@ -10913,8 +10413,8 @@
 "accroche": "Un, deux, trois… jusqu'à dix!",
 "sp": [
 13,
-4,
-388,
+1924,
+1156,
 376,
 376
 ]
@@ -10928,13 +10428,13 @@
 "prix": 39.99,
 "source": "B. toys Canada",
 "url": "https://btoys.ca/products/giggly-zippies-zebb-bx1692",
-"img": "planches/p11.jpg",
+"img": "planches/p12.jpg",
 "ageCible": null,
 "accroche": "Zippe, boutonne… et il rigole!",
 "sp": [
-11,
-1924,
-1540,
+12,
+388,
+772,
 376,
 376
 ]
@@ -10948,13 +10448,13 @@
 "prix": 34.99,
 "source": "B. toys Canada",
 "url": "https://btoys.ca/products/whacky-ball-red-bx1996",
-"img": "planches/p13.jpg",
+"img": "planches/p14.jpg",
 "ageCible": null,
 "accroche": "Tape la balle, elle roule!",
 "sp": [
-13,
-4,
+14,
 1540,
+4,
 376,
 376
 ]
@@ -10973,8 +10473,8 @@
 "accroche": "Étire le cochon, il s'allonge!",
 "sp": [
 13,
-388,
-388,
+4,
+1540,
 376,
 376
 ]
@@ -10993,8 +10493,8 @@
 "accroche": "Appuie : les balles sautent!",
 "sp": [
 13,
+772,
 1156,
-4,
 376,
 376
 ]
@@ -11008,13 +10508,13 @@
 "prix": 13.5,
 "source": "Indigo",
 "url": "https://www.indigo.ca/fr/products/mega-bloks-fisher-price-abc-toddler-blocks-building-toy-abc-building-bag-with-30-pieces-and-1-reusable-storage-bag",
-"img": "planches/p12.jpg",
+"img": "planches/p13.jpg",
 "ageCible": null,
 "accroche": "Empile les lettres de ton nom",
 "sp": [
-12,
-1156,
-1540,
+13,
+772,
+388,
 376,
 376
 ]
@@ -11028,13 +10528,13 @@
 "prix": 34.99,
 "source": "Scholar's Choice",
 "url": "https://scholarschoice.ca/products/dimpl-digits-by-fat-brain-toys",
-"img": "planches/p13.jpg",
+"img": "planches/p14.jpg",
 "ageCible": null,
 "accroche": "Pousse les bulles jusqu'à dix",
 "sp": [
-13,
-388,
-1540,
+14,
+1924,
+4,
 376,
 376
 ]
@@ -11048,13 +10548,13 @@
 "prix": 39.99,
 "source": "Scholar's Choice",
 "url": "https://scholarschoice.ca/products/whirly-squigz-by-fat-brain-toys",
-"img": "planches/p11.jpg",
+"img": "planches/p12.jpg",
 "ageCible": null,
 "accroche": "Colle, pousse : ça tourne vite!",
 "sp": [
-11,
-17,
-1924,
+12,
+785,
+772,
 349,
 376
 ]
@@ -11068,13 +10568,13 @@
 "prix": 44.99,
 "source": "Scholar's Choice",
 "url": "https://scholarschoice.ca/products/inny-bin-by-fat-brain-toys",
-"img": "planches/p13.jpg",
+"img": "planches/p14.jpg",
 "ageCible": null,
 "accroche": "Glisse les formes entre les élastiques",
 "sp": [
-13,
-388,
+14,
 1924,
+388,
 376,
 376
 ]
@@ -11088,13 +10588,13 @@
 "prix": 34.99,
 "source": "Scholar's Choice",
 "url": "https://scholarschoice.ca/products/hix-pastel-colours",
-"img": "planches/p13.jpg",
+"img": "planches/p14.jpg",
 "ageCible": null,
 "accroche": "Quatre cônes, plein de formes",
 "sp": [
-13,
-772,
-1540,
+14,
+4,
+388,
 376,
 376
 ]
@@ -11108,13 +10608,13 @@
 "prix": 14.99,
 "source": "Clément",
 "url": "https://clement.ca/products/puzzle-duo-couleurs-dje-dj08273",
-"img": "planches/p12.jpg",
+"img": "planches/p13.jpg",
 "ageCible": null,
 "accroche": "La fraise rouge, la coccinelle rouge",
 "sp": [
-12,
-4,
+13,
 1924,
+388,
 376,
 376
 ]
@@ -11128,13 +10628,13 @@
 "prix": 14.99,
 "source": "Clément",
 "url": "https://clement.ca/products/puzzle-duo-premiers-chiffres-dje-dj08272",
-"img": "planches/p12.jpg",
+"img": "planches/p13.jpg",
 "ageCible": null,
 "accroche": "Touche les trous : un, deux, trois",
 "sp": [
-12,
-388,
-1924,
+13,
+4,
+772,
 376,
 376
 ]
@@ -11148,13 +10648,13 @@
 "prix": 17.99,
 "source": "Clément",
 "url": "https://clement.ca/products/casse-tete-primo-a-la-ferme-dje-dj07153",
-"img": "planches/p12.jpg",
+"img": "planches/p13.jpg",
 "ageCible": null,
 "accroche": "Le cochon en trois morceaux",
 "sp": [
-12,
-1924,
-1924,
+13,
+1540,
+772,
 376,
 376
 ]
@@ -11173,8 +10673,8 @@
 "accroche": "Grand, petit; chaud, froid",
 "sp": [
 13,
-388,
 4,
+1156,
 376,
 376
 ]
@@ -11193,8 +10693,8 @@
 "accroche": "Où est le bébé de la vache?",
 "sp": [
 13,
-772,
-4,
+388,
+1156,
 376,
 376
 ]
@@ -11208,13 +10708,13 @@
 "prix": 39.99,
 "source": "Clément",
 "url": "https://clement.ca/products/casse-tete-tactile-polaire-20p-jad-j02493",
-"img": "planches/p13.jpg",
+"img": "planches/p14.jpg",
 "ageCible": null,
 "accroche": "Touche le poil de l'ours blanc",
 "sp": [
-13,
-4,
-1924,
+14,
+1540,
+388,
 376,
 376
 ]
@@ -11233,8 +10733,8 @@
 "accroche": "Trouve tout ce qui est jaune",
 "sp": [
 13,
-1924,
-4,
+1540,
+1156,
 376,
 376
 ]
@@ -11253,8 +10753,8 @@
 "accroche": "Rond, carré, triangle : ça rentre!",
 "sp": [
 13,
-772,
-392,
+388,
+1544,
 376,
 368
 ]
@@ -11273,8 +10773,8 @@
 "accroche": "Tire le cordon, il revient!",
 "sp": [
 13,
-4,
-1156,
+1924,
+1924,
 376,
 376
 ]
@@ -11288,13 +10788,13 @@
 "prix": 17.49,
 "source": "Clément",
 "url": "https://clement.ca/products/livre-apprentissage-les-formes-lip-590071",
-"img": "planches/p12.jpg",
+"img": "planches/p13.jpg",
 "ageCible": null,
 "accroche": "Colle le carré sur la vache",
 "sp": [
-12,
-1540,
-1924,
+13,
+1156,
+772,
 376,
 376
 ]
@@ -11313,8 +10813,8 @@
 "accroche": "Un lapin doux, cousu ici",
 "sp": [
 16,
-1200,
-1156,
+816,
+1924,
 288,
 376
 ]
@@ -11328,13 +10828,13 @@
 "prix": 34.99,
 "source": "Clément",
 "url": "https://clement.ca/products/doudou-bebe-ours-noisette-vst-oursnoisette",
-"img": "planches/p11.jpg",
+"img": "planches/p12.jpg",
 "ageCible": null,
 "accroche": "Un petit ours pour la sieste",
 "sp": [
-11,
-842,
-1540,
+12,
+1610,
+388,
 236,
 376
 ]
@@ -11353,8 +10853,8 @@
 "accroche": "Meuh! Une vache toute douce",
 "sp": [
 16,
-388,
-772,
+4,
+1540,
 376,
 376
 ]
@@ -11373,8 +10873,8 @@
 "accroche": "Le vrai nounours d'autrefois",
 "sp": [
 16,
-1156,
 772,
+1540,
 376,
 376
 ]
@@ -11393,8 +10893,8 @@
 "accroche": "Un minou à flatter",
 "sp": [
 16,
+1540,
 1924,
-1156,
 376,
 376
 ]
@@ -11413,8 +10913,8 @@
 "accroche": "Coin-coin, en salopette!",
 "sp": [
 16,
-772,
-772,
+388,
+1540,
 376,
 376
 ]
@@ -11433,8 +10933,8 @@
 "accroche": "Un mouton pour faire dodo",
 "sp": [
 16,
-83,
-1540,
+2003,
+1924,
 217,
 376
 ]
@@ -11453,8 +10953,8 @@
 "accroche": "La pelle monte et descend",
 "sp": [
 14,
-388,
-388,
+1540,
+1156,
 376,
 376
 ]
@@ -11468,13 +10968,13 @@
 "prix": 16.99,
 "source": "B. toys Canada (btoys.ca)",
 "url": "https://btoys.ca/products/happy-cruisers-6-mini-vehicles-bx2265",
-"img": "planches/p13.jpg",
+"img": "planches/p14.jpg",
 "ageCible": null,
 "accroche": "Six petites autos à pousser",
 "sp": [
-13,
-1924,
-1924,
+14,
+1156,
+772,
 376,
 376
 ]
@@ -11493,8 +10993,8 @@
 "accroche": "Le tracteur tire sa remorque",
 "sp": [
 14,
-388,
-4,
+1924,
+772,
 376,
 376
 ]
@@ -11513,8 +11013,8 @@
 "accroche": "Pin-pon, l'échelle monte!",
 "sp": [
 14,
-1156,
-388,
+4,
+1540,
 376,
 376
 ]
@@ -11533,8 +11033,8 @@
 "accroche": "Le camion vide les bacs",
 "sp": [
 14,
-1540,
 388,
+1540,
 376,
 376
 ]
@@ -11548,13 +11048,13 @@
 "prix": 39.99,
 "source": "Snuggle Bugz",
 "url": "https://snugglebugz.ca/products/viking-toys-ecoline-jumbo-tipper-truck",
-"img": "planches/p11.jpg",
+"img": "planches/p12.jpg",
 "ageCible": null,
 "accroche": "Un gros camion qui bascule",
 "sp": [
-11,
-388,
-1924,
+12,
+1156,
+772,
 376,
 376
 ]
@@ -11573,8 +11073,8 @@
 "accroche": "On trie, on ramasse!",
 "sp": [
 14,
-1540,
-772,
+388,
+1924,
 376,
 376
 ]
@@ -11593,8 +11093,8 @@
 "accroche": "Vide la benne, recommence!",
 "sp": [
 14,
-772,
 4,
+1156,
 376,
 376
 ]
@@ -11608,13 +11108,13 @@
 "prix": 22.99,
 "source": "Clément",
 "url": "https://clement.ca/products/animaux-4-de-bain-canada-nou-ca01",
-"img": "planches/p15.jpg",
+"img": "planches/p16.jpg",
 "ageCible": null,
 "accroche": "Les bêtes du bois au bain",
 "sp": [
-15,
+16,
 4,
-1924,
+388,
 376,
 376
 ]
@@ -11634,7 +11134,7 @@
 "sp": [
 15,
 1924,
-1156,
+1924,
 376,
 376
 ]
@@ -11654,7 +11154,7 @@
 "sp": [
 16,
 1540,
-4,
+772,
 376,
 376
 ]
@@ -11674,7 +11174,7 @@
 "sp": [
 16,
 388,
-4,
+772,
 376,
 376
 ]
@@ -11694,7 +11194,7 @@
 "sp": [
 15,
 1156,
-1156,
+1924,
 376,
 376
 ]
@@ -11708,13 +11208,13 @@
 "prix": 54.99,
 "source": "Clément",
 "url": "https://clement.ca/products/peluche-musicale-moka-mok-moka",
-"img": "planches/p11.jpg",
+"img": "planches/p12.jpg",
 "ageCible": null,
 "accroche": "Trois berceuses pour s'endormir",
 "sp": [
-11,
-1540,
-1924,
+12,
+4,
+1156,
 376,
 376
 ]
@@ -11733,8 +11233,8 @@
 "accroche": "Une baleine qui chante doucement",
 "sp": [
 15,
-1156,
-4,
+1540,
+772,
 376,
 376
 ]
@@ -11748,13 +11248,13 @@
 "prix": 19.99,
 "source": "L'Entre-Jeux",
 "url": "https://www.lentrejeux.com/products/tambourine-ocean",
-"img": "planches/p14.jpg",
+"img": "planches/p15.jpg",
 "ageCible": null,
 "accroche": "Écoute la mer qui roule",
 "sp": [
-14,
-1156,
+15,
 1540,
+4,
 376,
 376
 ]
@@ -11768,13 +11268,13 @@
 "prix": 8.99,
 "source": "Toytown",
 "url": "https://www.toytown.ca/products/tube-shaker",
-"img": "planches/p14.jpg",
+"img": "planches/p15.jpg",
 "ageCible": null,
 "accroche": "Secoue, ça fait la pluie",
 "sp": [
-14,
-1962,
-1194,
+15,
+42,
+42,
 300,
 300
 ]
@@ -11793,8 +11293,8 @@
 "accroche": "Je pousse ma brouette!",
 "sp": [
 12,
-388,
 772,
+1924,
 376,
 376
 ]
@@ -11813,8 +11313,8 @@
 "accroche": "Boing, boing dans le salon!",
 "sp": [
 12,
+4,
 1924,
-388,
 376,
 376
 ]
@@ -11833,8 +11333,8 @@
 "accroche": "L'orignal suit tes pas",
 "sp": [
 12,
-4,
 388,
+1540,
 376,
 376
 ]
@@ -11848,13 +11348,13 @@
 "prix": 69.99,
 "source": "B. toys Canada (btoys.ca)",
 "url": "https://btoys.ca/products/gogo-ride-on-lolo-bx2299",
-"img": "planches/p11.jpg",
+"img": "planches/p12.jpg",
 "ageCible": null,
 "accroche": "Un chat-valise à chevaucher",
 "sp": [
-11,
-1924,
-1924,
+12,
+388,
+1156,
 376,
 376
 ]
@@ -11873,8 +11373,8 @@
 "accroche": "Hop! Mon robot devient camion!",
 "sp": [
 5,
-388,
-388,
+4,
+1540,
 376,
 376
 ]
@@ -11893,8 +11393,8 @@
 "accroche": "Optimus Prime à la rescousse!",
 "sp": [
 5,
-1924,
-4,
+1540,
+1156,
 376,
 376
 ]
@@ -11908,13 +11408,13 @@
 "prix": 14.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/3198022-fr-hasbro-transformers-cyberworld-energon-surge-cyber-changers-figurine-optimus-prime-de-10-cm-jouet",
-"img": "planches/p04.jpg",
+"img": "planches/p05.jpg",
 "ageCible": null,
 "accroche": "Le vrai chef des Autobots!",
 "sp": [
+5,
 4,
-388,
-1924,
+772,
 376,
 376
 ]
@@ -11928,13 +11428,13 @@
 "prix": 14.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/3198023-fr-hasbro-transformers-cyberworld-energon-surge-cyber-changers-figurine-bumblebee-de-10-cm-jouet",
-"img": "planches/p04.jpg",
+"img": "planches/p05.jpg",
 "ageCible": null,
 "accroche": "Bumblebee, robot ou char!",
 "sp": [
-4,
+5,
+388,
 772,
-1924,
 376,
 376
 ]
@@ -11953,8 +11453,8 @@
 "accroche": "Un gros robot bleu de combat!",
 "sp": [
 5,
-772,
-772,
+388,
+1924,
 376,
 376
 ]
@@ -11973,8 +11473,8 @@
 "accroche": "Mon robot met son armure!",
 "sp": [
 5,
+1156,
 1540,
-388,
 376,
 376
 ]
@@ -11994,7 +11494,7 @@
 "sp": [
 0,
 1164,
-772,
+1924,
 360,
 376
 ]
@@ -12014,7 +11514,7 @@
 "sp": [
 0,
 4,
-388,
+1540,
 376,
 376
 ]
@@ -12028,13 +11528,13 @@
 "prix": 14.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/3197995-fr-hasbro-figurine-articulee-spider-man-de-30-cm-serie-titan-hero",
-"img": "planches/p04.jpg",
+"img": "planches/p05.jpg",
 "ageCible": null,
 "accroche": "Un grand Spider-Man rien qu'à moi!",
 "sp": [
-4,
-1156,
-1924,
+5,
+772,
+772,
 376,
 376
 ]
@@ -12053,8 +11553,8 @@
 "accroche": "Hulk écrase tout! GRRR!",
 "sp": [
 5,
-1156,
 772,
+1924,
 376,
 376
 ]
@@ -12073,8 +11573,8 @@
 "accroche": "Spider-Man en moto, vroum!",
 "sp": [
 5,
-4,
-772,
+1924,
+1540,
 376,
 376
 ]
@@ -12093,8 +11593,8 @@
 "accroche": "L'hélico de Spidey décolle!",
 "sp": [
 5,
-1540,
-772,
+1156,
+1924,
 376,
 376
 ]
@@ -12108,13 +11608,13 @@
 "prix": 12.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/3197279-fr-figurines-de-superheros-dc-comics-de-6-po-modeles-assortis",
-"img": "planches/p04.jpg",
+"img": "planches/p05.jpg",
 "ageCible": null,
 "accroche": "Je suis Batman!",
 "sp": [
-4,
-4,
+5,
 1924,
+388,
 376,
 376
 ]
@@ -12134,7 +11634,7 @@
 "sp": [
 0,
 1924,
-388,
+1540,
 376,
 376
 ]
@@ -12154,7 +11654,7 @@
 "sp": [
 0,
 772,
-4,
+1156,
 376,
 376
 ]
@@ -12168,13 +11668,13 @@
 "prix": 39.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/3171627-fr-mattel-assortiment-de-dinosaures-jurassic-world-gigantesques-destructeurs",
-"img": "planches/p05.jpg",
+"img": "planches/p06.jpg",
 "ageCible": null,
 "accroche": "Un dino géant qui mord!",
 "sp": [
-5,
-1540,
+6,
 1156,
+4,
 376,
 376
 ]
@@ -12194,7 +11694,7 @@
 "sp": [
 0,
 1924,
-4,
+1156,
 376,
 376
 ]
@@ -12213,8 +11713,8 @@
 "accroche": "Quatre bras pour frapper!",
 "sp": [
 5,
-4,
-4,
+1924,
+772,
 376,
 376
 ]
@@ -12233,8 +11733,8 @@
 "accroche": "Un Pokémon monstre en roche!",
 "sp": [
 5,
-388,
 4,
+1156,
 376,
 376
 ]
@@ -12253,8 +11753,8 @@
 "accroche": "Mon dino tape du pied!",
 "sp": [
 5,
-1924,
-388,
+1540,
+1540,
 376,
 376
 ]
@@ -12268,13 +11768,13 @@
 "prix": 14.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/3198028-fr-hasbro-hache-nerf-storm-rage-thunderbeast-jouet",
-"img": "planches/p04.jpg",
+"img": "planches/p05.jpg",
 "ageCible": null,
 "accroche": "Une hache de guerrier, en mousse!",
 "sp": [
-4,
-1540,
-1924,
+5,
+1156,
+772,
 376,
 376
 ]
@@ -12288,13 +11788,13 @@
 "prix": 34.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/3198011-fr-hasbro-marvel-studios-avengers-apocalypse-blaster-phosphorescent-de-docteur-doom-blaster-nerf-jouet",
-"img": "planches/p05.jpg",
+"img": "planches/p06.jpg",
 "ageCible": null,
 "accroche": "Pow pow pow, ça brille!",
 "sp": [
-5,
-388,
-1156,
+6,
+4,
+4,
 376,
 376
 ]
@@ -12308,13 +11808,13 @@
 "prix": 14.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/3198015-fr-hasbro-star-wars-titan-series-figurine-stormtrooper-de-30-cm-jouet",
-"img": "planches/p04.jpg",
+"img": "planches/p05.jpg",
 "ageCible": null,
 "accroche": "Un soldat de l'Empire!",
 "sp": [
-4,
-1924,
-1924,
+5,
+1540,
+772,
 376,
 376
 ]
@@ -12333,8 +11833,8 @@
 "accroche": "J'ai les mains de Hulk!",
 "sp": [
 6,
-1924,
-4,
+772,
+1156,
 376,
 376
 ]
@@ -12353,8 +11853,8 @@
 "accroche": "Mon bouclier s'allume quand je bloque!",
 "sp": [
 6,
-388,
-772,
+1924,
+1156,
 376,
 376
 ]
@@ -12368,13 +11868,13 @@
 "prix": 14.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/3197994-fr-hasbro-masque-de-super-heros-spider-man-jouet",
-"img": "planches/p05.jpg",
+"img": "planches/p06.jpg",
 "ageCible": null,
 "accroche": "Personne sait que c'est moi!",
 "sp": [
-5,
-1156,
-1924,
+6,
+772,
+772,
 376,
 376
 ]
@@ -12388,13 +11888,13 @@
 "prix": 49.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/3197548-fr-jurassic-world-masque-velociraptor-rugissements",
-"img": "planches/p06.jpg",
+"img": "planches/p07.jpg",
 "ageCible": null,
 "accroche": "J'ouvre la bouche : il rugit!",
 "sp": [
-6,
-1156,
-1540,
+7,
+772,
+4,
 376,
 376
 ]
@@ -12413,8 +11913,8 @@
 "accroche": "Je suis le Mandalorien!",
 "sp": [
 6,
-388,
-388,
+1540,
+1156,
 376,
 376
 ]
@@ -12434,7 +11934,7 @@
 "sp": [
 0,
 1156,
-388,
+1540,
 376,
 376
 ]
@@ -12454,7 +11954,7 @@
 "sp": [
 4,
 388,
-4,
+1156,
 376,
 376
 ]
@@ -12474,7 +11974,7 @@
 "sp": [
 4,
 772,
-811,
+1963,
 376,
 298
 ]
@@ -12488,13 +11988,13 @@
 "prix": 109.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/3170048-fr-paw-patrol-pat-patrouilleur-transformable-avec-lanceurs-de-vehicules",
-"img": "planches/p04.jpg",
+"img": "planches/p05.jpg",
 "ageCible": null,
 "accroche": "Le gros camion de toute l'équipe!",
 "sp": [
-4,
-1540,
-1540,
+5,
+1156,
+388,
 376,
 376
 ]
@@ -12508,13 +12008,13 @@
 "prix": 54.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/3170047-fr-paw-patrol-camion-de-pompiers-marshall-elephant-avec-lance-projectiles",
-"img": "planches/p04.jpg",
+"img": "planches/p05.jpg",
 "ageCible": null,
 "accroche": "La trompe lance des boules!",
 "sp": [
-4,
+5,
 772,
-1156,
+4,
 376,
 376
 ]
@@ -12528,13 +12028,13 @@
 "prix": 79.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/3196969-fr-paw-patrol-vehicule-dino-megasaurus-avec-dinosaure-gonflable-rocky-des-3-ans",
-"img": "planches/p04.jpg",
+"img": "planches/p05.jpg",
 "ageCible": null,
 "accroche": "Un dino géant sort du camion!",
 "sp": [
-4,
-772,
-1540,
+5,
+388,
+388,
 376,
 376
 ]
@@ -12554,7 +12054,7 @@
 "sp": [
 4,
 1156,
-772,
+1924,
 376,
 376
 ]
@@ -12568,13 +12068,13 @@
 "prix": 129.99,
 "source": "Mastermind Toys",
 "url": "https://www.mastermindtoys.com/products/transformers-optimus-prime-converting-r-c",
-"img": "planches/p03.jpg",
+"img": "planches/p04.jpg",
 "ageCible": null,
 "accroche": "Un bouton : camion, puis robot !",
 "sp": [
-3,
+4,
 1925,
-1156,
+4,
 373,
 376
 ]
@@ -12588,13 +12088,13 @@
 "prix": 129.99,
 "source": "Mastermind Toys",
 "url": "https://www.mastermindtoys.com/products/transformers-bumblebee-prime-converting-r-c",
-"img": "planches/p03.jpg",
+"img": "planches/p04.jpg",
 "ageCible": null,
 "accroche": "L'auto jaune devient un robot !",
 "sp": [
-3,
 4,
-1540,
+4,
+388,
 376,
 376
 ]
@@ -12614,7 +12114,7 @@
 "sp": [
 0,
 772,
-772,
+1924,
 376,
 376
 ]
@@ -12628,13 +12128,13 @@
 "prix": 89.98,
 "source": "Well.ca",
 "url": "https://well.ca/products/carrera-mario-kart-race-kart-132_358595.html",
-"img": "planches/p03.jpg",
+"img": "planches/p04.jpg",
 "ageCible": null,
 "accroche": "Yoshi fonce dans le salon !",
 "sp": [
-3,
+4,
 1156,
-1192,
+40,
 376,
 303
 ]
@@ -12654,7 +12154,7 @@
 "sp": [
 3,
 772,
-4,
+1156,
 376,
 376
 ]
@@ -12668,13 +12168,13 @@
 "prix": 79.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/3197553-fr-minecraft-wagonnet-telecommande",
-"img": "planches/p03.jpg",
+"img": "planches/p04.jpg",
 "ageCible": null,
 "accroche": "Steve fait des wheelies !",
 "sp": [
-3,
+4,
 772,
-1156,
+4,
 376,
 376
 ]
@@ -12694,7 +12194,7 @@
 "sp": [
 0,
 4,
-772,
+1924,
 376,
 376
 ]
@@ -12708,13 +12208,13 @@
 "prix": 29.98,
 "source": "Well.ca",
 "url": "https://well.ca/products/hot-wheels-remote-control-dodge_360467.html",
-"img": "planches/p02.jpg",
+"img": "planches/p03.jpg",
 "ageCible": null,
 "accroche": "Elle fait le looping toute seule !",
 "sp": [
-2,
+3,
 1156,
-1924,
+772,
 376,
 376
 ]
@@ -12728,13 +12228,13 @@
 "prix": 32.99,
 "source": "L'Entrejeux",
 "url": "https://lentrejeux.com/products/hot-wheels-rc-1-64-ferrari-sf90",
-"img": "planches/p02.jpg",
+"img": "planches/p03.jpg",
 "ageCible": null,
 "accroche": "Course sur ma piste orange !",
 "sp": [
-2,
+3,
 1924,
-1924,
+772,
 376,
 376
 ]
@@ -12748,13 +12248,13 @@
 "prix": 63.0,
 "source": "Mall of Toys",
 "url": "https://malloftoys.com/en-ca/products/carrera-mario-kart%E2%84%A2-mario-vs-luigi-vehicle-toy",
-"img": "planches/p04.jpg",
+"img": "planches/p05.jpg",
 "ageCible": null,
 "accroche": "Mario contre Luigi, go !",
 "sp": [
-4,
+5,
 1540,
-1235,
+83,
 376,
 218
 ]
@@ -12768,13 +12268,13 @@
 "prix": 74.99,
 "source": "L'Entrejeux",
 "url": "https://lentrejeux.com/products/carrera-first-disney-pixar-cars",
-"img": "planches/p04.jpg",
+"img": "planches/p05.jpg",
 "ageCible": null,
 "accroche": "Katchow ! Flash gagne !",
 "sp": [
-4,
-4,
-1598,
+5,
+1924,
+62,
 376,
 260
 ]
@@ -12788,13 +12288,13 @@
 "prix": 59.0,
 "source": "Mall of Toys",
 "url": "https://malloftoys.com/en-ca/products/carrera-paw-patrol-adventure-bay-legends-vehicle-toy",
-"img": "planches/p04.jpg",
+"img": "planches/p05.jpg",
 "ageCible": null,
 "accroche": "Chase et Stella font la course !",
 "sp": [
-4,
+5,
 1156,
-1232,
+80,
 376,
 223
 ]
@@ -12814,7 +12314,7 @@
 "sp": [
 3,
 4,
-388,
+1540,
 376,
 376
 ]
@@ -12834,7 +12334,7 @@
 "sp": [
 3,
 388,
-388,
+1540,
 376,
 376
 ]
@@ -12854,7 +12354,7 @@
 "sp": [
 3,
 772,
-388,
+1540,
 376,
 376
 ]
@@ -12874,7 +12374,7 @@
 "sp": [
 3,
 1924,
-772,
+1924,
 376,
 376
 ]
@@ -12894,7 +12394,7 @@
 "sp": [
 3,
 1156,
-388,
+1540,
 376,
 376
 ]
@@ -12908,13 +12408,13 @@
 "prix": 6189.0,
 "source": "Canada Welding Supply",
 "url": "https://canadaweldingsupply.ca/fr/products/miller-multimatic-220-ac-dc-907757",
-"img": "planches/p17.jpg",
+"img": "planches/p18.jpg",
 "ageCible": null,
 "accroche": "Pour souder le cadeau de maman",
 "sp": [
-17,
-1156,
-1924,
+18,
+388,
+388,
 376,
 376
 ]
@@ -12928,13 +12428,13 @@
 "prix": 2769.0,
 "source": "Lefebvre's (carabine, 1 170 $) + Rangeview Sports (lunette, 1 599 $)",
 "url": "https://www.lefebvres.ca/remington-700-sps-bolt-action-rifle-4-round-308-wi.html",
-"img": "planches/p17.jpg",
+"img": "planches/p18.jpg",
 "ageCible": null,
 "accroche": "L'orignal n'a qu'à bien se tenir",
 "sp": [
-17,
-772,
-1924,
+18,
+4,
+388,
 376,
 376
 ]
@@ -12948,13 +12448,13 @@
 "prix": 25149.0,
 "source": "Can-Am (BRP, PDSF Canada)",
 "url": "https://can-am.brp.com/off-road/ca/fr/modeles/vtt/utilitaire-recreatif/outlander-6x6.html",
-"img": "planches/p17.jpg",
+"img": "planches/p18.jpg",
 "ageCible": null,
 "accroche": "Quatre roues, c'était pas assez",
 "sp": [
-17,
-1924,
-1975,
+18,
+1156,
+439,
 376,
 273
 ]
@@ -12973,10 +12473,730 @@
 "accroche": "Le fleuve est à papa",
 "sp": [
 18,
-4,
-51,
+1540,
+435,
 376,
 282
+]
+},
+{
+"id": "zz-kubota-kx040-5-cabine",
+"categorie": "papa",
+"marque": "Kubota",
+"nom": "Mini-pelle KX040-5 à cabine fermée, 4,6 t",
+"age": "33 ans et +",
+"prix": 90993.77,
+"source": "Kubota Canada (kubota.ca), PDSF « à partir de » du KX040-5 neuf : 90 593,77 $ + 400 $ de frais d'administration",
+"url": "https://www.kubota.ca/fr/products/KX040-5-Series",
+"img": "planches/p18.jpg",
+"ageCible": null,
+"accroche": "Le carré de sable chauffé de papa",
+"sp": [
+18,
+1924,
+388,
+376,
+376
+]
+},
+{
+"id": "r9-etch-a-sketch",
+"categorie": "retro",
+"marque": "Etch A Sketch (Spin Master)",
+"nom": "Etch A Sketch classique – l'écran magique rouge",
+"age": "3+",
+"prix": 27.99,
+"source": "Toytown",
+"url": "https://www.toytown.ca/products/etch-a-sketch-classic",
+"img": "planches/p00.jpg",
+"ageCible": null,
+"accroche": "On secoue, et tout s'efface!",
+"sp": [
+0,
+1924,
+388,
+376,
+376
+]
+},
+{
+"id": "r9-lite-brite",
+"categorie": "retro",
+"marque": "Lite-Brite (Basic Fun)",
+"nom": "Lite-Brite Classique – tableau lumineux et 200 chevilles",
+"age": "4+",
+"prix": 29.99,
+"source": "Mastermind Toys",
+"url": "https://www.mastermindtoys.com/products/lite-brite-classic-refresh",
+"img": "planches/p00.jpg",
+"ageCible": null,
+"accroche": "Des dessins qui s'allument dans le noir",
+"sp": [
+0,
+388,
+772,
+376,
+376
+]
+},
+{
+"id": "r9-croco-dentiste",
+"categorie": "retro",
+"marque": "Crocodile Dentist",
+"nom": "Crocodile Dentist – le croco qui mord",
+"age": "4+",
+"prix": 24.99,
+"source": "Mastermind Toys",
+"url": "https://www.mastermindtoys.com/products/crocodile-dentist-1",
+"img": "planches/p00.jpg",
+"ageCible": null,
+"accroche": "Quelle dent va le faire mordre?",
+"sp": [
+0,
+1156,
+429,
+376,
+293
+]
+},
+{
+"id": "r9-mouse-trap",
+"categorie": "retro",
+"marque": "Hasbro",
+"nom": "Mouse Trap – le jeu de l'attrape-souris",
+"age": "6+",
+"prix": 34.99,
+"source": "Indigo",
+"url": "https://www.indigo.ca/fr/products/mouse-trap-board-game",
+"img": "planches/p00.jpg",
+"ageCible": null,
+"accroche": "La machine folle qui attrape la souris",
+"sp": [
+0,
+772,
+772,
+376,
+376
+]
+},
+{
+"id": "r9-kerplunk",
+"categorie": "retro",
+"marque": "Mattel Games",
+"nom": "Ker Plunk! – retire les bâtonnets sans échapper les billes",
+"age": "5+",
+"prix": 24.99,
+"source": "Indigo",
+"url": "https://www.indigo.ca/fr/products/ker-plunk-%C2%AE-game",
+"img": "planches/p00.jpg",
+"ageCible": null,
+"accroche": "Pas une bille ne doit tomber!",
+"sp": [
+0,
+1540,
+388,
+376,
+376
+]
+},
+{
+"id": "r9-slinky",
+"categorie": "retro",
+"marque": "Slinky",
+"nom": "Slinky original en métal",
+"age": "5+",
+"prix": 9.99,
+"source": "Mastermind Toys",
+"url": "https://www.mastermindtoys.com/products/classic-slinky",
+"img": "planches/p00.jpg",
+"ageCible": null,
+"accroche": "Il descend l'escalier tout seul",
+"sp": [
+0,
+772,
+4,
+376,
+376
+]
+},
+{
+"id": "r9-koosh",
+"categorie": "retro",
+"marque": "Koosh",
+"nom": "Balle Koosh originale de 7,5 cm (couleur au hasard)",
+"age": "3+",
+"prix": 7.99,
+"source": "Toytown",
+"url": "https://www.toytown.ca/products/koosh-3-neon-ball-assorted",
+"img": "planches/p00.jpg",
+"ageCible": null,
+"accroche": "La balle poilue de la récré",
+"sp": [
+0,
+388,
+4,
+376,
+376
+]
+},
+{
+"id": "r9-super-soaker",
+"categorie": "retro",
+"marque": "Nerf Super Soaker",
+"nom": "Pistolet à eau Super Soaker Power Drench avec station de remplissage",
+"age": "6+",
+"prix": 39.99,
+"source": "Toytown",
+"url": "https://www.toytown.ca/products/nerf-super-soaker-power-drench",
+"img": "planches/p00.jpg",
+"ageCible": null,
+"accroche": "La guerre d'eau comme dans l'temps",
+"sp": [
+0,
+1540,
+772,
+376,
+376
+]
+},
+{
+"id": "yz-see-n-say",
+"categorie": "d2-retro",
+"marque": "Fisher-Price (Schylling)",
+"nom": "See 'n Say La ferme – la roue qui fait parler 12 animaux",
+"age": "18 mois+",
+"prix": 35.99,
+"source": "Toy Sense",
+"url": "https://toysense.ca/products/fisher-price-farmer-says-see-n-say",
+"img": "planches/p11.jpg",
+"ageCible": null,
+"accroche": "Tire la corde, la vache meugle!",
+"sp": [
+11,
+1156,
+1931,
+376,
+361
+]
+},
+{
+"id": "yz-rock-a-stack",
+"categorie": "d2-retro",
+"marque": "Fisher-Price",
+"nom": "Rock-a-Stack – la pyramide d'anneaux qui bascule",
+"age": "6 mois+",
+"prix": 11.99,
+"source": "Toytown",
+"url": "https://www.toytown.ca/products/fisher-price-eco-rock-a-stack",
+"img": "planches/p11.jpg",
+"ageCible": null,
+"accroche": "Les anneaux de chez grand-maman",
+"sp": [
+11,
+388,
+1540,
+376,
+375
+]
+},
+{
+"id": "yz-premiers-blocs",
+"categorie": "d2-retro",
+"marque": "Fisher-Price",
+"nom": "Seau de premiers blocs – trieur de formes (Baby's First Blocks)",
+"age": "6 mois+",
+"prix": 16.99,
+"source": "Toytown",
+"url": "https://www.toytown.ca/products/fisher-price-babys-first-blocks",
+"img": "planches/p11.jpg",
+"ageCible": null,
+"accroche": "Plouf, le bloc tombe dans le seau",
+"sp": [
+11,
+1156,
+1581,
+376,
+293
+]
+},
+{
+"id": "yz-barney",
+"categorie": "d2-retro",
+"marque": "Fisher-Price – Barney's World",
+"nom": "Peluche Barney, 16 cm",
+"age": "2+",
+"prix": 19.99,
+"source": "Toytown",
+"url": "https://www.toytown.ca/products/barneys-world-8-plush-character?variant=46622957273324",
+"img": "planches/p11.jpg",
+"ageCible": null,
+"accroche": "Je t'aime, tu m'aimes…",
+"sp": [
+11,
+1924,
+1540,
+376,
+376
+]
+},
+{
+"id": "yz-grand-oiseau",
+"categorie": "d2-retro",
+"marque": "GUND – Sesame Street",
+"nom": "Peluche Big Bird de Sesame Street, 36 cm",
+"age": "12 mois+",
+"prix": 44.99,
+"source": "Toytown",
+"url": "https://www.toytown.ca/products/big-bird-plush-toy",
+"img": "planches/p11.jpg",
+"ageCible": null,
+"accroche": "Le grand ami jaune de Sésame",
+"sp": [
+11,
+1924,
+1924,
+376,
+376
+]
+},
+{
+"id": "yz-elmo-boite",
+"categorie": "d2-retro",
+"marque": "Kids Preferred – Sesame Street",
+"nom": "Boîte à surprise Elmo en métal, à manivelle",
+"age": "6 mois+",
+"prix": 39.99,
+"source": "Toytown",
+"url": "https://www.toytown.ca/products/elmo-jack-in-the-box",
+"img": "planches/p11.jpg",
+"ageCible": null,
+"accroche": "Tourne, tourne… coucou Elmo!",
+"sp": [
+11,
+1540,
+1924,
+376,
+376
+]
+},
+{
+"id": "p9-pompier-md",
+"categorie": "jouer",
+"marque": "Melissa & Doug",
+"nom": "Costume de chef pompier : manteau à bandes réfléchissantes, casque, extincteur et porte-voix",
+"age": "3+",
+"prix": 59.99,
+"source": "Brightbean",
+"url": "https://brightbean.com/products/melissa-doug-fire-chief-costume",
+"img": "planches/p07.jpg",
+"ageCible": null,
+"accroche": "Au feu! Le chef arrive!",
+"sp": [
+7,
+4,
+388,
+376,
+376
+]
+},
+{
+"id": "p9-policier-md",
+"categorie": "jouer",
+"marque": "Melissa & Doug",
+"nom": "Costume de policier : veste, casquette, badge, menottes et walkie-talkie",
+"age": "3+",
+"prix": 59.99,
+"source": "Brightbean",
+"url": "https://brightbean.com/products/melissa-doug-police-officer-costume",
+"img": "planches/p07.jpg",
+"ageCible": null,
+"accroche": "Halte! C'est la police!",
+"sp": [
+7,
+388,
+388,
+376,
+376
+]
+},
+{
+"id": "p9-astronaute-cv",
+"categorie": "jouer",
+"marque": "Coco Village (Montréal)",
+"nom": "Costume d'astronaute – combinaison blanche et capuchon (taille 5-6 ans)",
+"age": "3+",
+"prix": 45.0,
+"source": "Mastermind Toys",
+"url": "https://www.mastermindtoys.com/products/coco-village-astronaut-play-costume",
+"img": "planches/p06.jpg",
+"ageCible": null,
+"accroche": "Trois, deux, un… décollage!",
+"sp": [
+6,
+57,
+1924,
+269,
+376
+]
+},
+{
+"id": "p9-triceratops-cv",
+"categorie": "jouer",
+"marque": "Coco Village (Montréal)",
+"nom": "Costume de tricératops – combinaison et collerette à cornes (taille 5-6 ans)",
+"age": "3+",
+"prix": 50.0,
+"source": "Mastermind Toys",
+"url": "https://www.mastermindtoys.com/products/coco-village-dinosaur-play-costume",
+"img": "planches/p07.jpg",
+"ageCible": null,
+"accroche": "Je suis un vrai tricératops!",
+"sp": [
+7,
+1218,
+4,
+251,
+376
+]
+},
+{
+"id": "p9-pilote-course-cv",
+"categorie": "jouer",
+"marque": "Coco Village (Montréal)",
+"nom": "Costume de pilote de course – combinaison no 1 et casque (taille 5-6 ans)",
+"age": "3+",
+"prix": 45.0,
+"source": "Mastermind Toys",
+"url": "https://www.mastermindtoys.com/products/coco-village-car-racer-play-costume",
+"img": "planches/p06.jpg",
+"ageCible": null,
+"accroche": "Vroum! Premier à l'arrivée!",
+"sp": [
+6,
+441,
+1924,
+269,
+376
+]
+},
+{
+"id": "p9-pirate-cv",
+"categorie": "jouer",
+"marque": "Coco Village (Montréal)",
+"nom": "Costume de pirate avec chapeau tricorne, veste et ceinture (taille 5-6 ans)",
+"age": "3+",
+"prix": 50.0,
+"source": "Mastermind Toys",
+"url": "https://www.mastermindtoys.com/products/coco-village-pirate-play-costume-with-hat",
+"img": "planches/p07.jpg",
+"ageCible": null,
+"accroche": "À l'abordage, moussaillon!",
+"sp": [
+7,
+1593,
+4,
+269,
+376
+]
+},
+{
+"id": "p9-aviateur-cv",
+"categorie": "jouer",
+"marque": "Coco Village (Montréal)",
+"nom": "Costume d'aviateur – combinaison brune et casque de pilote (taille 5-6 ans)",
+"age": "3+",
+"prix": 45.0,
+"source": "Coco Village",
+"url": "https://cocovillage.com/products/aviator-play-costume-3-4y",
+"img": "planches/p06.jpg",
+"ageCible": null,
+"accroche": "Je pilote mon avion!",
+"sp": [
+6,
+825,
+1924,
+269,
+376
+]
+},
+{
+"id": "p9-chevalier-armure",
+"categorie": "jouer",
+"marque": "Great Pretenders",
+"nom": "Chevalier légendaire : plastron d'armure, cape et couronne (taille 4-6 ans)",
+"age": "4+",
+"prix": 41.99,
+"source": "Brightbean",
+"url": "https://brightbean.com/products/great-pretenders-legendary-knight-cape-chest-plate-crown-3pcs-size-4-6",
+"img": "planches/p06.jpg",
+"ageCible": null,
+"accroche": "Mon armure de vrai chevalier!",
+"sp": [
+6,
+66,
+1540,
+251,
+376
+]
+},
+{
+"id": "p9-chevalier-casque",
+"categorie": "jouer",
+"marque": "Coco Village (Montréal)",
+"nom": "Ensemble de chevalier : casque à visière, bouclier et épée",
+"age": "3+",
+"prix": 25.0,
+"source": "Mastermind Toys",
+"url": "https://www.mastermindtoys.com/products/role-play-dress-up-knight-set-sword-shied-helmet",
+"img": "planches/p06.jpg",
+"ageCible": null,
+"accroche": "En garde, dragon!",
+"sp": [
+6,
+441,
+1156,
+269,
+376
+]
+},
+{
+"id": "e9-zipfy",
+"categorie": "dehors",
+"marque": "Zipfy",
+"nom": "Mini-luge Zipfy Red Dart – on se couche les pieds devant et on tourne en se penchant",
+"age": "5+",
+"prix": 69.99,
+"source": "Toy Sense",
+"url": "https://toysense.ca/products/zipfy-red-dart",
+"img": "planches/p11.jpg",
+"ageCible": null,
+"accroche": "La luge la plus rapide!",
+"sp": [
+11,
+388,
+1156,
+376,
+376
+]
+},
+{
+"id": "e9-raquettes-gv",
+"categorie": "dehors",
+"marque": "GV (Wendake, Québec)",
+"nom": "Raquettes à neige junior Trio 7 x 21 po en aluminium, avec bâtons et sac",
+"age": "5+",
+"prix": 99.99,
+"source": "Gosport",
+"url": "https://gosport.ca/products/trio-raquette-gv-raquettes-pour-enfants-junior-gv",
+"img": "planches/p11.jpg",
+"ageCible": null,
+"accroche": "Des vraies raquettes comme papa!",
+"sp": [
+11,
+1156,
+1156,
+376,
+376
+]
+},
+{
+"id": "e9-ski-drifter",
+"categorie": "dehors",
+"marque": "Flybar",
+"nom": "Luge-ski Ski Drifter à siège réglable, on dirige avec le corps",
+"age": "6+",
+"prix": 149.98,
+"source": "Mastermind Toys",
+"url": "https://www.mastermindtoys.com/products/ski-drifter-sled-mystic-green",
+"img": "planches/p11.jpg",
+"ageCible": null,
+"accroche": "Je descends en ski-bob!",
+"sp": [
+11,
+1540,
+1156,
+376,
+376
+]
+},
+{
+"id": "e9-luge-zeus",
+"categorie": "dehors",
+"marque": "Slippery Racer",
+"nom": "Soucoupe en mousse Downhill Zeus avec poignées",
+"age": "5+",
+"prix": 44.99,
+"source": "Toytown",
+"url": "https://www.toytown.ca/products/slippery-racer-downhill-zeus-foam-saucer-sled",
+"img": "planches/p11.jpg",
+"ageCible": null,
+"accroche": "Je tourne en descendant!",
+"sp": [
+11,
+1924,
+397,
+376,
+357
+]
+},
+{
+"id": "e9-mini-hockey",
+"categorie": "dehors",
+"marque": "Franklin Sports (LNH)",
+"nom": "Ensemble de mini-hockey Graffiti de la LNH : but de 71 cm, 2 mini-bâtons et 2 balles",
+"age": "3+",
+"prix": 50.0,
+"source": "Indigo",
+"url": "https://www.indigo.ca/fr/products/nhl-graffiti-mini-hockey-set",
+"img": "planches/p11.jpg",
+"ageCible": null,
+"accroche": "Il lance… et compte!",
+"sp": [
+11,
+772,
+772,
+376,
+376
+]
+},
+{
+"id": "e9-swingball",
+"categorie": "dehors",
+"marque": "Swingball",
+"nom": "Tennis-ballon Swingball Early Fun – balle attachée au poteau, raquettes pour petites mains",
+"age": "3+",
+"prix": 74.99,
+"source": "Toy Sense",
+"url": "https://toysense.ca/products/nsg-swingball-early-fun-tetherball-game",
+"img": "planches/p11.jpg",
+"ageCible": null,
+"accroche": "Frappe fort, elle revient!",
+"sp": [
+11,
+858,
+1156,
+203,
+376
+]
+},
+{
+"id": "e9-sky-board",
+"categorie": "dehors",
+"marque": "Slackers",
+"nom": "Planche sauteuse Sky Board avec ballon et lumières sous la planche",
+"age": "6+",
+"prix": 48.99,
+"source": "Toy Sense",
+"url": "https://toysense.ca/products/b44-slackers-sky-boar",
+"img": "planches/p11.jpg",
+"ageCible": null,
+"accroche": "Boing! Je saute dans le ciel!",
+"sp": [
+11,
+4,
+798,
+376,
+324
+]
+},
+{
+"id": "e9-corde-ninja",
+"categorie": "dehors",
+"marque": "Slackers",
+"nom": "Corde d'escalade ninja de 2,1 m à 4 prises, à suspendre à une branche",
+"age": "5+",
+"prix": 31.49,
+"source": "Toy Sense",
+"url": "https://toysense.ca/products/b44-slackers-ninja-climbing",
+"img": "planches/p11.jpg",
+"ageCible": null,
+"accroche": "Je grimpe comme un ninja!",
+"sp": [
+11,
+772,
+72,
+376,
+239
+]
+},
+{
+"id": "e9-hawkrocket",
+"categorie": "dehors",
+"marque": "LiteHawk",
+"nom": "Fusée Hawkrocket lancée par télécommande, monte à 12 m et redescend en parachute",
+"age": "5+",
+"prix": 29.99,
+"source": "Mastermind Toys",
+"url": "https://www.mastermindtoys.com/products/litehawk-hawkrocket",
+"img": "planches/p11.jpg",
+"ageCible": null,
+"accroche": "Ma fusée touche le ciel!",
+"sp": [
+11,
+388,
+4,
+376,
+376
+]
+},
+{
+"id": "e9-wingman",
+"categorie": "dehors",
+"marque": "Waboba",
+"nom": "Disque volant souple Wingman en tissu",
+"age": "5+",
+"prix": 12.99,
+"source": "Toytown",
+"url": "https://www.toytown.ca/products/wingman-disc",
+"img": "planches/p10.jpg",
+"ageCible": null,
+"accroche": "Attrape-le au vol!",
+"sp": [
+10,
+1156,
+1156,
+376,
+376
+]
+},
+{
+"id": "e9-gazillion",
+"categorie": "dehors",
+"marque": "Gazillion",
+"nom": "Machine à bulles Rollin' Wave avec solution Gazillion",
+"age": "3+",
+"prix": 25.99,
+"source": "Scholar's Choice",
+"url": "https://scholarschoice.ca/products/gazillion-rollin-wave-bubble-machine",
+"img": "planches/p10.jpg",
+"ageCible": null,
+"accroche": "Des milliers de bulles!",
+"sp": [
+10,
+388,
+1924,
+376,
+376
+]
+},
+{
+"id": "e9-slip-n-slide",
+"categorie": "dehors",
+"marque": "Wham-O",
+"nom": "Glissade d'eau Slip 'n Slide originale de 4,9 m (16 pi)",
+"age": "5+",
+"prix": 24.99,
+"source": "Toytown",
+"url": "https://www.toytown.ca/products/wham-o-original-slip-n-slide",
+"img": "planches/p10.jpg",
+"ageCible": null,
+"accroche": "Splash! Je glisse sur le ventre!",
+"sp": [
+10,
+1924,
+1540,
+376,
+376
 ]
 }
 ]

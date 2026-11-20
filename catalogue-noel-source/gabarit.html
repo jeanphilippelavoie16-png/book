@@ -299,7 +299,7 @@ svg { display: block; }
 .couverture::before { content: ""; position: absolute; inset: 12px; border: 1px solid rgba(255,226,150,.55); border-radius: 2px 6px 6px 2px; pointer-events: none; }
 .couv-ruban { margin: 26px auto 0; font: 700 10.5px/1 var(--ui); letter-spacing: .26em; color: #F2D58F; position: relative; z-index: 2; }
 .couv-titre { margin: 12px 22px 0; font-family: var(--titre); font-weight: 400; font-size: clamp(30px, 4vw, 46px); line-height: 1; color: #FFF4DA; position: relative; z-index: 2; }
-.couv-cadre { position: relative; min-height: 0; min-width: 0; z-index: 1; margin: 4px 16px 0; }
+.couv-cadre { position: relative; min-height: 0; min-width: 0; z-index: 1; margin: 2px 10px 0; }
 #couv-collage { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
 .couv-pied { margin: 4px auto 26px; font: 700 10.5px/1.2 var(--ui); color: #F2D58F; letter-spacing: .22em; text-transform: uppercase; position: relative; z-index: 2; }
 
@@ -393,7 +393,42 @@ svg { display: block; }
 .signature { position: fixed; z-index: 1; left: 0; right: 0; bottom: calc(env(safe-area-inset-bottom, 0px) + 20px); text-align: center; pointer-events: none;
   font: 600 10px/1 var(--ui); letter-spacing: .32em; text-transform: uppercase; color: rgba(214,178,94,.55); }
 @media (max-aspect-ratio: 1/1) { .signature { position: static; margin: 10px 0 30px; } }
-@media (prefers-reduced-motion: reduce) { .neige { display: none; } .scene-accueil > *, .enfants .carte-enf { animation: none; } }
+.livre-zone { position: relative; }
+.livre-zone::before { content: ""; position: absolute; left: 50%; top: 50%; width: 140%; aspect-ratio: 1; transform: translate(-50%, -50%); border-radius: 50%; pointer-events: none;
+  background: radial-gradient(closest-side, rgba(255,196,110,.20), rgba(255,160,90,.07) 55%, transparent 72%); }
+.sceau { overflow: hidden; }
+.sceau::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: linear-gradient(115deg, transparent 35%, rgba(255,255,255,.55) 50%, transparent 65%);
+  background-size: 300% 100%; animation: reflet-sceau 6s ease-in-out infinite; pointer-events: none; }
+@keyframes reflet-sceau { 0%, 70% { background-position: 120% 0; } 100% { background-position: -120% 0; } }
+
+/* les étiquettes des enfants, une par rangée, et la petite étiquette de prix à côté */
+.enfants { grid-template-columns: 1fr; gap: 12px; }
+.rang-enf { display: flex; align-items: center; gap: 14px; animation: entree .6s cubic-bezier(.2, .7, .2, 1) both; }
+.rang-enf:nth-child(1) { animation-delay: .25s; } .rang-enf:nth-child(2) { animation-delay: .32s; }
+.rang-enf:nth-child(3) { animation-delay: .39s; } .rang-enf:nth-child(4) { animation-delay: .46s; }
+.rang-enf .carte-enf { flex: 1; min-width: 0; padding-top: 12px; padding-bottom: 12px; animation: none; }
+.carte-enf .ficelle { display: none; }
+.etiquette-prix {
+  position: relative; flex: none; width: 96px; height: 58px; display: grid; place-content: center; text-align: center; gap: 1px;
+  padding: 0 0 0 18px; color: #5A3A0A; transform: rotate(-5deg);
+  background: linear-gradient(180deg, #E9D3A4, #D9BC82);
+  clip-path: polygon(16px 0, 100% 0, 100% 100%, 16px 100%, 0 50%);
+  border-radius: 0 6px 6px 0; transition: transform .2s ease;
+}
+.rang-enf:nth-child(even) .etiquette-prix { transform: rotate(4deg); }
+.etiquette-prix:hover { transform: rotate(0) translateY(-2px); }
+.etiquette-prix:active { transform: scale(.95); }
+.etiquette-prix .oeillet { position: absolute; left: 12px; top: 50%; width: 8px; height: 8px; margin-top: -4px; border-radius: 50%; background: #123526; box-shadow: 0 0 0 2px #F6EFDF; }
+.etiquette-prix b { font: italic 600 17px/1 "Fraunces", Georgia, serif; }
+.etiquette-prix small { font: 700 10.5px/1.2 var(--ui); letter-spacing: .14em; text-transform: uppercase; }
+.etiquette-prix::after { content: ""; position: absolute; left: -20px; top: 50%; width: 24px; height: 2px; background: repeating-linear-gradient(90deg, #C9A86A 0 3px, #A8864C 3px 5px); }
+@media (max-width: 560px) { .etiquette-prix { width: 78px; height: 50px; } .etiquette-prix b { font-size: 15px; } }
+.choix-mode { display: grid; gap: 8px; }
+.choix-mode button { display: grid; gap: 3px; text-align: left; padding: 12px 14px; border-radius: 14px; background: rgba(255,255,255,.05); box-shadow: inset 0 0 0 1px var(--ligne); color: var(--texte); }
+.choix-mode button b { font-size: 15px; } .choix-mode button small { color: var(--texte-2); font-size: 13px; line-height: 1.35; }
+.choix-mode button[aria-checked="true"] { box-shadow: inset 0 0 0 2px var(--or); background: rgba(243,195,82,.1); }
+#outil-crayon[aria-pressed="true"] { color: var(--crayon, #C8302A); }
+@media (prefers-reduced-motion: reduce) { .neige { display: none; } .scene-accueil > *, .enfants .carte-enf, .sceau::after { animation: none; } }
 
 #accueil.ouverture::after { content: ""; position: fixed; inset: 0; z-index: 10; background: #FBF4E4; opacity: 0; animation: fondu .22s forwards; }
 @keyframes fondu { to { opacity: 1; } }
@@ -505,7 +540,9 @@ svg { display: block; }
     </button>
     <div class="qui" id="qui"></div>
     <div class="sep"></div>
-    <div class="pastilles" id="pastilles" role="group" aria-label="Couleur du crayon"></div>
+    <button class="ic" id="outil-crayon" type="button" aria-pressed="true" aria-label="Crayon : entourer un jouet">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3l4 4L8 20l-5 1 1-5z"/><path d="M14 6l4 4"/></svg>
+    </button>
     <button class="ic" id="outil-gomme" type="button" aria-pressed="false" aria-label="Gomme">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><path d="M16.2 3.8 21 8.6 10.6 19H6.4L3 15.6z"/><path d="M8.6 9.4l6 6"/><path d="M11 19h10"/></svg>
     </button>
@@ -539,11 +576,11 @@ svg { display: block; }
     <div class="gestes">
       <div class="geste">
         <svg class="main-glisse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V11"/><path d="M12 10V4.5a1.5 1.5 0 0 1 3 0V11"/><path d="M15 10.5V6.5a1.5 1.5 0 0 1 3 0V14a7 7 0 0 1-7 7h-.5a6 6 0 0 1-4.6-2.2L3.4 15.6a1.6 1.6 0 0 1 2.4-2.1L9 16V8.5"/></svg>
-        Glisse ton doigt pour tourner la page
+        <span id="astuce-tourner">Glisse ton doigt pour tourner la page</span>
       </div>
       <div class="geste">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3l4 4L8 20l-5 1 1-5z"/><path d="M14 6l4 4"/></svg>
-        Fais un rond avec le crayon autour de ce que tu veux
+        <span id="astuce-rond">Fais un rond avec le crayon autour de ce que tu veux</span>
       </div>
     </div>
   </div>
@@ -815,7 +852,9 @@ svg { display: block; }
   }
 
   /* ---------- État ---------- */
-  const etat = { vue: "accueil", enfant: null, pages: {}, crayon: {}, outil: "crayon", noms: {}, doigtDessine: false, coeurs: {} };
+  const etat = { vue: "accueil", enfant: null, pages: {}, crayon: {}, outil: "crayon", noms: {}, doigtDessine: false, coeurs: {},
+    // « dessin » : on trace le rond (Apple Pencil, souris) ; « clic » : toucher ou cliquer un jouet l'entoure tout seul
+    mode: (window.matchMedia && matchMedia("(pointer: fine)").matches && !("ontouchstart" in window)) ? "clic" : "dessin" };
   // chaque enfant a son propre catalogue : seulement les pages de son âge
   const PAGES_DE = {};
   ENFANTS.forEach(e => { PAGES_DE[e.id] = PAGES.map((_, i) => i).filter(i => e.voit(PAGES[i].cle)); });
@@ -1315,6 +1354,11 @@ svg { display: block; }
     if (geste && geste.type === "glisse") { if (tour && !tour.anim) tour = null; geste = null; planifier(); }
     if (geste || tour || !dansPage(e)) return;
     if (etat.outil === "coeur") { basculerCoeur(e); return; }
+    if (etat.mode === "clic" && etat.outil === "crayon") {
+      geste = { type: "glisse", id: e.pointerId, x0: e.clientX, y0: e.clientY, hist: [[now, e.clientX]] };
+      try { scene.setPointerCapture(e.pointerId); } catch (_) {}
+      return;
+    }
     debutTrait(e);
   });
   scene.addEventListener("pointermove", e => {
@@ -1350,6 +1394,7 @@ svg { display: block; }
     if (g.type === "glisse") {
       // un simple toucher du doigt avec l'outil cœur donne (ou reprend) un super cœur
       if (!tour && (g.bouge || 0) < 12 && etat.outil === "coeur" && e.type === "pointerup" && dansPage(e)) { basculerCoeur(e); return; }
+      if (!tour && (g.bouge || 0) < 12 && etat.mode === "clic" && etat.outil === "crayon" && e.type === "pointerup" && dansPage(e)) { entourerAuClic(e); return; }
       if (!tour || tour.anim) return;
       let v = 0;
       if (g.hist.length > 1) { const a = g.hist[0], b = g.hist[g.hist.length - 1]; v = (b[1] - a[1]) / Math.max(16, b[0] - a[0]); }
@@ -1363,6 +1408,35 @@ svg { display: block; }
     if (g.type === "gomme") { if (g.change) { sauverPage(k); majCompte(); } }
     else if (trait) { (T[k] = T[k] || []).push(trait); trait = null; sauverPage(k); majCompte(); }
     planifier();
+  }
+  function jouetSous(x, y) {
+    const pg = PAGES[pageCourante()], m = pg.m[FMT];
+    let i = -1, mieux = Infinity;
+    pg.items.forEach((p, j) => {
+      for (const r of [m.posee && m.posee[j], m.zones[j].photo, m.zones[j].texte]) {
+        if (!r || !(x >= r.x && x <= r.x + r.w && y >= r.y && y <= r.y + r.h)) continue;
+        const d = Math.hypot(x - (r.x + r.w / 2), y - (r.y + r.h / 2)) / Math.max(r.w, r.h);
+        if (d < mieux) { mieux = d; i = j; }
+      }
+    });
+    return i;
+  }
+  function entourerAuClic(e) {
+    const [x, y] = versPage(e), i = jouetSous(x, y); if (i < 0) return;
+    const pg = PAGES[pageCourante()], m = pg.m[FMT], id = pg.items[i].id, k = cle(etat.enfant, pageCourante());
+    const arr = T[k] = T[k] || [], deja = arr.findIndex(st => st.auto === id);
+    if (deja >= 0) arr.splice(deja, 1);
+    else {
+      const r = (m.posee && m.posee[i]) || m.zones[i].photo, cx = r.x + r.w / 2, cy = r.y + r.h / 2;
+      const rx = r.w / 2 + 16, ry = r.h / 2 + 14, rnd = hasard(id.length * 31 + arr.length), p = [];
+      const a0 = -2.2 + rnd() * .4, tours = 1.12;
+      for (let t = 0; t <= 1.0001; t += 1 / 64) {
+        const a = a0 + t * tours * Math.PI * 2, w = 1 + .04 * Math.sin(a * 3 + rnd()) + (t > .9 ? (t - .9) * .6 : 0);
+        p.push(Math.round(cx + Math.cos(a) * rx * w), Math.round(cy + Math.sin(a) * ry * w));
+      }
+      arr.push({ c: etat.crayon[etat.enfant], p, auto: id });
+    }
+    sauverPage(k); majCompte(); planifier();
   }
   function basculerCoeur(e) {
     const [x, y] = versPage(e), pg = PAGES[pageCourante()], m = pg.m[FMT];
@@ -1568,18 +1642,22 @@ svg { display: block; }
       const n = choisis(e.id).length, nc = (etat.coeurs[e.id] || []).length, c = CRAYONS[etat.crayon[e.id]].c, nom = nomDe(e.id);
       const o = document.createElement("div"); o.className = "carte-enf"; o.style.setProperty("--c", c);
       o.innerHTML = `<span class="ficelle" aria-hidden="true"></span><button class="boule" type="button"></button><span class="pastille-age"></span>
-        <span class="texte"><b></b><small></small></span>
-        <button class="mini-liste" type="button">${SVG_LISTE}<span>Liste et prix</span></button>`;
+        <span class="texte"><b></b><small></small></span>`;
+      // la liste de prix : une petite étiquette à part, attachée à côté
+      const rang = document.createElement("div"); rang.className = "rang-enf"; rang.style.setProperty("--c", c);
+      const prixEtq = document.createElement("button"); prixEtq.type = "button"; prixEtq.className = "mini-liste etiquette-prix";
+      prixEtq.innerHTML = `<span class="oeillet" aria-hidden="true"></span><b>Liste</b><small>et prix</small>`;
+      rang.append(o, prixEtq);
       o.querySelector(".pastille-age").textContent = initiale(nom);
       o.querySelector(".texte b").textContent = nom;
       o.querySelector(".texte small").textContent = n ? nbCadeaux(n) + (nc ? " · " + nc + " ♥" : "") : "Ouvrir le catalogue";
       const boule = o.querySelector(".boule");
       boule.setAttribute("aria-label", "Ouvrir le catalogue de " + nom);
       boule.addEventListener("click", () => lancerOuverture(e.id));
-      const l = o.querySelector(".mini-liste");
+      const l = prixEtq;
       l.setAttribute("aria-label", "Consulter la liste de " + nom + " avec les prix et où l'acheter");
       l.addEventListener("click", () => { rendreAchats(e.id); ouvrir("fen-achats"); });
-      box.appendChild(o);
+      box.appendChild(rang);
     });
   }
   let ouvertureEnCours = false;
@@ -1589,15 +1667,10 @@ svg { display: block; }
     setTimeout(() => { ouvrirCatalogue(id); $("accueil").classList.remove("ouverture"); ouvertureEnCours = false; }, 200);
   }
   function rendrePastilles() {
-    const box = $("pastilles"); box.innerHTML = "";
-    CRAYONS.forEach((cr, i) => {
-      const b = document.createElement("button"); b.type = "button"; b.className = "pastille"; b.style.color = cr.c; b.style.setProperty("--c", cr.c);
-      b.setAttribute("aria-label", "Crayon " + cr.nom.toLowerCase());
-      b.setAttribute("aria-pressed", String(etat.outil === "crayon" && etat.crayon[etat.enfant] === i));
-      b.innerHTML = `<i style="background:${cr.c}"></i>`;
-      b.addEventListener("click", () => { etat.crayon[etat.enfant] = i; choisirOutil("crayon"); });
-      box.appendChild(b);
-    });
+    const b = $("outil-crayon"); if (!b || !etat.enfant) return;
+    b.style.setProperty("--crayon", CRAYONS[etat.crayon[etat.enfant]].c);
+    b.setAttribute("aria-pressed", String(etat.outil === "crayon"));
+    b.setAttribute("aria-label", etat.mode === "clic" ? "Crayon : toucher un jouet l'entoure" : "Crayon : dessiner un rond autour d'un jouet");
   }
   function choisirOutil(o) {
     etat.outil = o;
@@ -1637,6 +1710,8 @@ svg { display: block; }
     if (astuceVue) return;
     astuceVue = true;
     try { sessionStorage.setItem("astuce-vue", "1"); } catch (_) {}
+    $("astuce-tourner").textContent = etat.mode === "clic" ? "Glisse la page ou clique sur les flèches pour la tourner" : "Glisse ton doigt pour tourner la page";
+    $("astuce-rond").textContent = etat.mode === "clic" ? "Touche ou clique un jouet : le rond se fait tout seul" : "Fais un rond avec le crayon autour de ce que tu veux";
     $("astuce").hidden = false;
     setTimeout(() => { $("astuce").hidden = true; }, 3800);
   }
@@ -1666,6 +1741,7 @@ svg { display: block; }
   $("prec").addEventListener("click", () => tournerAuto(-1));
   $("suiv").addEventListener("click", () => tournerAuto(1));
   $("outil-gomme").addEventListener("click", () => choisirOutil(etat.outil === "gomme" ? "crayon" : "gomme"));
+  $("outil-crayon").addEventListener("click", () => choisirOutil("crayon"));
   $("outil-coeur").addEventListener("click", () => choisirOutil(etat.outil === "coeur" ? "crayon" : "coeur"));
   $("annuler").addEventListener("click", () => {
     const k = cle(etat.enfant, pageCourante());
@@ -1695,6 +1771,7 @@ svg { display: block; }
     if (c.coeur) { const h = document.createElement("span"); h.className = "badge-coeur"; h.innerHTML = SVG_COEUR(true); d.appendChild(h); }
     return d;
   }
+  const TROP_CHER = 50;
   function rendreListe(k) {
     const liste = choisis(k);
     $("titre-liste").textContent = "La liste de " + nomDe(k);
@@ -1754,6 +1831,19 @@ svg { display: block; }
     }
     corps.appendChild(noms);
 
+    const modeB = document.createElement("div"); modeB.className = "bloc-parent";
+    modeB.innerHTML = `<h3>Comment on entoure</h3><div class="choix-mode" role="radiogroup" aria-label="Façon d'entourer">
+      <button type="button" data-mode="dessin" role="radio"><b>On dessine le rond</b><small>Apple Pencil (ou souris). Le doigt tourne les pages.</small></button>
+      <button type="button" data-mode="clic" role="radio"><b>Un toucher entoure</b><small>Ordinateur, souris ou doigt : touche un jouet et le rond se fait tout seul. Touche encore pour l'enlever.</small></button></div>`;
+    modeB.querySelectorAll("[data-mode]").forEach(b => {
+      b.setAttribute("aria-checked", String(etat.mode === b.dataset.mode));
+      b.addEventListener("click", () => {
+        etat.mode = b.dataset.mode; try { localStorage.setItem("catalogue-mode", etat.mode); } catch (_) {}
+        modeB.querySelectorAll("[data-mode]").forEach(x => x.setAttribute("aria-checked", String(etat.mode === x.dataset.mode)));
+        rendrePastilles();
+      });
+    });
+    corps.appendChild(modeB);
     const reglage = document.createElement("div"); reglage.className = "bloc-parent";
     const ligne = document.createElement("div"); ligne.className = "interrupteur";
     ligne.innerHTML = `<div>Dessiner avec le doigt<small>Pour une tablette sans crayon. Les pages se tournent alors avec les flèches du bas.</small></div>`;
@@ -1807,7 +1897,8 @@ svg { display: block; }
       ? nbCadeaux(liste.length) + " · total " + prix(liste.reduce((s, c) => s + c.p.prix, 0)) + ". Prix vus en ligne le 20 novembre 2026, avant taxes. Le bouton ouvre la page du magasin."
       : "Rien d'entouré pour l'instant.";
     corps.appendChild(intro);
-    const groupes = [["Super cœurs", liste.filter(c => c.coeur)], ["Les autres choix", liste.filter(c => !c.coeur)]];
+    const ok = c => c.p.prix <= TROP_CHER;
+    const groupes = [["Super cœurs", liste.filter(c => c.coeur && ok(c))], ["Les autres choix", liste.filter(c => !c.coeur && ok(c))], ["Trop cher (plus de 50 $)", liste.filter(c => !ok(c))]];
     for (const [titre, lot] of groupes) {
       if (!lot.length) continue;
       const h = document.createElement("p"); h.className = "titre-section";
@@ -1852,17 +1943,21 @@ svg { display: block; }
     const d = Math.min(devicePixelRatio || 1, 2), w = Math.round(r.width * d), h = Math.round(r.height * d);
     if (cv.width !== w || cv.height !== h) { cv.width = w; cv.height = h; }
     const x = cv.getContext("2d"); x.clearRect(0, 0, w, h);
-    const cases = [[0, 0], [1, 0], [2, 0], [0, 1], [1, 1], [2, 1]], pad = Math.min(w, h) * .02, cw = w / 3, ch = h / 2;
-    cases.forEach(([c, l], i) => {
+    // une vraie couverture de catalogue : la vedette au centre, les autres qui la chevauchent tout autour
+    // [centre x, centre y, largeur max, hauteur max, rotation] en fractions du cadre
+    const POSES2 = [[.50, .50, .66, .50, -.03], [.21, .16, .46, .34, -.07], [.79, .17, .44, .36, .06], [.20, .84, .46, .32, .05],
+                    [.78, .85, .44, .30, -.05], [.17, .50, .36, .28, .12], [.52, .90, .34, .22, -.02]];
+    const dessinerUn = i => {
       const p = VEDETTES[i], im = p && imageDe(p.id); if (!im) return;
-      const k = Math.min(cw * 1.12 / im.width, (ch - 2 * pad) / im.height), iw = im.width * k, ih = im.height * k;
-      x.save(); x.translate(c * cw + cw / 2, l * ch + ch / 2); x.rotate([-.04, .03, -.03, .03, -.02, .04][i]);
-      x.shadowColor = "rgba(60,0,0,.35)"; x.shadowBlur = 10 * d; x.shadowOffsetY = 5 * d;
+      const [cx, cy, bw, bh, rot] = POSES2[i], k = Math.min(bw * w / im.width, bh * h / im.height), iw = im.width * k, ih = im.height * k;
+      x.save(); x.translate(cx * w, cy * h); x.rotate(rot);
+      x.shadowColor = "rgba(50,0,0,.45)"; x.shadowBlur = 14 * d; x.shadowOffsetY = 7 * d;
       x.drawImage(im, -iw / 2, -ih / 2, iw, ih); x.restore();
-    });
+    };
+    [0, 6, 5, 1, 2, 3, 4].forEach(dessinerUn);
     if (PHOTO_GAG.naturalWidth) {
-      const ph2 = h * .26, pw2 = ph2 * PHOTO_GAG.naturalWidth / PHOTO_GAG.naturalHeight, b = pw2 * .07;
-      x.save(); x.translate(w - pw2 / 2 - b * 1.5, h * .5); x.rotate(.08);
+      const ph2 = h * .14, pw2 = ph2 * PHOTO_GAG.naturalWidth / PHOTO_GAG.naturalHeight, b = pw2 * .07;
+      x.save(); x.translate(w * .9, h * .52); x.rotate(.1);
       x.shadowColor = "rgba(40,0,0,.45)"; x.shadowBlur = 14 * d; x.shadowOffsetY = 6 * d;
       x.fillStyle = "#FDFBF6"; x.fillRect(-pw2 / 2 - b, -ph2 / 2 - b, pw2 + 2 * b, ph2 + b * 4.5);
       x.shadowColor = "transparent";
@@ -1903,7 +1998,7 @@ svg { display: block; }
 
   /* ---------- Démarrage ---------- */
   lireLocal();
-  try { etat.doigtDessine = localStorage.getItem("catalogue-doigt") === "1"; } catch (_) {}
+  try { etat.doigtDessine = localStorage.getItem("catalogue-doigt") === "1"; const m = localStorage.getItem("catalogue-mode"); if (m === "clic" || m === "dessin") etat.mode = m; } catch (_) {}
   rendreAccueil();
   const polices = ["48px Shrikhand", "900 26px Archivo", "800 16px Archivo", "500 14px Archivo", "700 16px Archivo"];
   Promise.race([Promise.all(polices.map(p => document.fonts.load(p))), new Promise(r => setTimeout(r, 2500))])
