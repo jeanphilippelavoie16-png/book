@@ -1,0 +1,2003 @@
+<title>Catalogue des Souhaits</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400..900&family=Inter:wght@400..800&family=Shrikhand&display=swap">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+/* Mise en page : une liseuse plein écran, sombre comme une salle de lecture ; la page du catalogue (papier, vintage)
+   au centre, l'interface autour en verre dépoli, discrète, façon iOS. Un seul thème, choisi : sombre. */
+:root {
+  --fond: #0E1117;
+  --fond-2: #161A22;
+  --verre: rgba(30, 34, 44, .72);
+  --verre-fort: rgba(38, 43, 55, .92);
+  --ligne: rgba(255, 255, 255, .09);
+  --texte: #F4F1EA;
+  --texte-2: #A3A9B6;
+  --texte-3: #6E7482;
+  --rouge: #E5483D;
+  --rouge-fonce: #B8322A;
+  --or: #F3C352;
+  --creme: #FBF4E4;
+  --ui: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", system-ui, sans-serif;
+  --titre: "Shrikhand", "Cooper Black", Georgia, serif;
+  --rayon: 22px;
+  color-scheme: dark;
+}
+html, body { height: 100%; }
+body {
+  background: var(--fond); color: var(--texte);
+  font-family: var(--ui); font-size: 16px;
+  overflow: hidden; overscroll-behavior: none;
+  -webkit-user-select: none; user-select: none;
+  -webkit-touch-callout: none; -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+}
+button { font: inherit; color: inherit; cursor: pointer; border: 0; background: none; }
+button:focus-visible, input:focus-visible { outline: 2px solid var(--or); outline-offset: 2px; }
+svg { display: block; }
+
+/* ---------- Accueil ---------- */
+#accueil {
+  height: 100%; overflow-y: auto; -webkit-overflow-scrolling: touch;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+  padding-block: 40px 40px;
+  background:
+    radial-gradient(1100px 520px at 50% -120px, rgba(229, 72, 61, .32), transparent 70%),
+    radial-gradient(700px 400px at 90% 110%, rgba(243, 195, 82, .10), transparent 70%),
+    var(--fond);
+  display: grid; place-items: center;
+}
+.accueil-col { width: min(680px, 100%); display: grid; gap: 28px; }
+.marque { text-align: center; display: grid; gap: 10px; justify-items: center; }
+.sur-titre { font-size: 13px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--or); }
+.titre-grand { font-family: var(--titre); font-weight: 400; font-size: clamp(44px, 8vw, 76px); line-height: .98; margin: 0; color: var(--creme); text-wrap: balance; text-shadow: 0 6px 30px rgba(229, 72, 61, .35); }
+.sous-titre { color: var(--texte-2); font-size: 17px; margin: 0; }
+.question { font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--texte-3); margin: 6px 0 -14px 4px; }
+.enfants { display: grid; gap: 14px; }
+.carte-enfant {
+  display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 18px;
+  text-align: left; padding: 18px 20px; border-radius: var(--rayon);
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.025));
+  border: 1px solid var(--ligne);
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+  transition: transform .18s ease, background .18s ease;
+}
+.carte-enfant:active { transform: scale(.98); background: rgba(255,255,255,.08); }
+.avatar { width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center; font-family: var(--titre); font-size: 30px; color: #fff; box-shadow: inset 0 -6px 14px rgba(0,0,0,.18), 0 6px 18px rgba(0,0,0,.3); }
+.carte-texte { display: grid; gap: 3px; min-width: 0; }
+.carte-nom { font-size: 24px; font-weight: 700; letter-spacing: -.01em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.carte-info { color: var(--texte-2); font-size: 15px; }
+.chevron { color: var(--texte-3); width: 22px; height: 22px; }
+.rangee-enfant { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px; align-items: stretch; }
+.btn-consulter {
+  display: grid; place-items: center; gap: 6px; padding: 12px 16px; border-radius: var(--rayon);
+  background: rgba(255,255,255,.04); border: 1px solid var(--ligne); color: var(--texte-2);
+  font-size: 13px; font-weight: 700; text-align: center; min-width: 108px;
+}
+.btn-consulter svg { width: 22px; height: 22px; color: var(--or); }
+.btn-consulter:active { transform: scale(.97); }
+@media (max-width: 520px) { .rangee-enfant { grid-template-columns: 1fr; } .btn-consulter { grid-auto-flow: column; padding: 10px; } }
+.achat { display: grid; grid-template-columns: 76px minmax(0, 1fr) auto; gap: 14px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--ligne); }
+.achat img { width: 76px; height: 76px; object-fit: contain; background: #fff; border-radius: 12px; padding: 6px; box-sizing: border-box; }
+.achat .infos { display: grid; gap: 3px; min-width: 0; }
+.achat b { font-size: 15px; font-weight: 700; line-height: 1.25; }
+.achat small { color: var(--texte-3); font-size: 13px; }
+.achat .droite { display: grid; gap: 6px; justify-items: end; }
+.achat .prix { color: var(--or); font-weight: 800; font-size: 16px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.achat a { display: inline-flex; align-items: center; gap: 6px; padding: 8px 12px; border-radius: 10px; background: rgba(255,255,255,.08); color: var(--texte); font-size: 13px; font-weight: 700; text-decoration: none; white-space: nowrap; }
+.achat a svg { width: 14px; height: 14px; }
+.achat .coeur-mini { display: inline-block; width: 16px; height: 16px; vertical-align: -2px; margin-right: 4px; }
+.achat .coeur-mini svg { width: 16px; height: 16px; }
+@media (max-width: 520px) { .achat { grid-template-columns: 60px minmax(0, 1fr); } .achat img { width: 60px; height: 60px; } .achat .droite { grid-column: 2; justify-items: start; grid-auto-flow: column; align-items: center; } }
+.astuce-accueil { display: flex; gap: 22px; justify-content: center; flex-wrap: wrap; color: var(--texte-2); font-size: 15px; }
+.astuce-accueil span { display: inline-flex; align-items: center; gap: 8px; }
+.astuce-accueil svg { width: 20px; height: 20px; color: var(--or); }
+.lien-parents { justify-self: center; color: var(--texte-3); font-size: 15px; font-weight: 600; padding: 10px 16px; border-radius: 999px; }
+.lien-parents:active { background: rgba(255,255,255,.06); }
+
+/* ---------- Lecteur ---------- */
+#lecteur { position: fixed; inset: 0; background: radial-gradient(900px 600px at 50% 40%, #1A1F29, var(--fond) 70%); }
+.scene { position: absolute; inset: 0; touch-action: none; }
+#toile {
+  position: absolute; display: block;
+  border-radius: 3px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.25), 0 30px 80px rgba(0,0,0,.55);
+  background: var(--creme);
+}
+.barre-verre {
+  position: absolute; left: 50%; transform: translateX(-50%);
+  display: flex; align-items: center; gap: 4px;
+  padding: 6px; border-radius: 20px;
+  background: var(--verre);
+  -webkit-backdrop-filter: blur(24px) saturate(160%); backdrop-filter: blur(24px) saturate(160%);
+  border: 1px solid var(--ligne);
+  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+  max-width: calc(100% - 24px - env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px));
+  z-index: 5;
+}
+.outils { top: calc(env(safe-area-inset-top, 0px) + 10px); }
+.pied { bottom: calc(env(safe-area-inset-bottom, 0px) + 10px); gap: 2px; }
+.ic {
+  height: 44px; min-width: 44px; padding: 0 10px; border-radius: 14px;
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  color: var(--texte); font-weight: 600; font-size: 15px; white-space: nowrap;
+  transition: background .15s ease, transform .1s ease;
+}
+.ic svg { width: 22px; height: 22px; flex: none; }
+.ic:active { transform: scale(.94); }
+.ic:hover { background: rgba(255,255,255,.06); }
+.ic[aria-pressed="true"] { background: var(--texte); color: var(--fond); }
+.ic:disabled { opacity: .3; cursor: default; }
+.sep { width: 1px; height: 26px; background: var(--ligne); margin: 0 4px; flex: none; }
+.qui { display: inline-flex; align-items: center; gap: 8px; padding: 0 8px 0 4px; font-weight: 700; font-size: 15px; min-width: 0; }
+.qui .mini-avatar { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; font-family: var(--titre); font-size: 15px; color: #fff; flex: none; }
+.qui span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 140px; }
+.pastilles { display: flex; align-items: center; gap: 2px; }
+.pastille {
+  width: 40px; height: 44px; border-radius: 14px; display: grid; place-items: center;
+}
+.pastille i { width: 24px; height: 24px; border-radius: 50%; display: block; box-shadow: inset 0 -3px 6px rgba(0,0,0,.25); transition: transform .15s ease, box-shadow .15s ease; }
+.pastille[aria-pressed="true"] i { transform: scale(1.12); box-shadow: 0 0 0 3px var(--fond-2), 0 0 0 5px currentColor; }
+.coeurs-restants { display: inline-flex; gap: 1px; }
+.coeurs-restants svg { width: 19px; height: 19px; transition: transform .2s ease; }
+.coeur-btn[aria-pressed="true"] { background: #FFE4EA; }
+.coeur-btn.secoue { animation: secoue .4s ease; }
+@keyframes secoue { 20%, 60% { transform: translateX(-5px); } 40%, 80% { transform: translateX(5px); } }
+.titre-section { margin: 4px 0 -6px; font-size: 13px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--texte-3); display: flex; align-items: center; gap: 8px; }
+.titre-section svg { width: 16px; height: 16px; color: #FF4D6D; }
+.choix { position: relative; }
+.choix .badge-coeur { position: absolute; top: -8px; right: -8px; width: 44px; height: 44px; filter: drop-shadow(0 4px 8px rgba(0,0,0,.35)); transform: rotate(12deg); }
+.compte { background: var(--rouge); color: #fff; border-radius: 999px; min-width: 22px; height: 22px; padding: 0 7px; display: inline-grid; place-items: center; font-size: 13px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.lieu { padding: 0 12px; display: grid; gap: 1px; text-align: center; min-width: 0; }
+.lieu b { font-size: 14px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.lieu small { font-size: 12px; color: var(--texte-2); font-variant-numeric: tabular-nums; }
+.progres { position: absolute; left: 14px; right: 14px; bottom: 3px; height: 2px; border-radius: 2px; background: rgba(255,255,255,.08); overflow: hidden; }
+.progres i { display: block; height: 100%; background: var(--or); border-radius: 2px; transition: width .3s ease; }
+.etiquette-mobile { display: none; }
+@media (max-width: 860px) {
+  .ic .etiq { display: none; }
+  .qui span { display: none; }
+}
+@media (max-width: 600px) {
+  .pastille { width: 32px; }
+  .pastille i { width: 20px; height: 20px; }
+}
+
+.astuce {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  background: var(--verre-fort); border: 1px solid var(--ligne); border-radius: 24px;
+  -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px);
+  padding: 22px 26px; display: grid; gap: 16px; justify-items: center; text-align: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,.5); z-index: 6; pointer-events: none;
+  animation: apparait .3s ease both;
+}
+.astuce .gestes { display: flex; gap: 28px; }
+.astuce .geste { display: grid; gap: 8px; justify-items: center; font-size: 15px; font-weight: 600; color: var(--texte); max-width: 150px; }
+.astuce svg { width: 54px; height: 54px; color: var(--or); }
+.main-glisse { animation: glisse 1.6s ease-in-out infinite; }
+@keyframes glisse { 0%, 15% { transform: translateX(14px); opacity: 0; } 30% { opacity: 1; } 75% { transform: translateX(-14px); opacity: 1; } 100% { transform: translateX(-14px); opacity: 0; } }
+@keyframes apparait { from { opacity: 0; transform: translate(-50%, -46%); } to { opacity: 1; transform: translate(-50%, -50%); } }
+
+/* ---------- Feuilles modales ---------- */
+.voile {
+  position: fixed; inset: 0; z-index: 20;
+  background: rgba(5, 7, 10, .55);
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  display: grid; align-items: end; justify-items: center;
+  padding-top: calc(env(safe-area-inset-top, 0px) + 40px);
+}
+.boite {
+  width: min(820px, 100%); max-height: 100%; overflow-y: auto; -webkit-overflow-scrolling: touch;
+  background: var(--fond-2); border: 1px solid var(--ligne); border-bottom: 0;
+  border-radius: 26px 26px 0 0;
+  box-shadow: 0 -20px 60px rgba(0,0,0,.5);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  animation: monte .32s cubic-bezier(.2, .9, .3, 1) both;
+  -webkit-user-select: text; user-select: text;
+}
+@keyframes monte { from { transform: translateY(40px); opacity: .4; } to { transform: none; opacity: 1; } }
+.boite-haut {
+  position: sticky; top: 0; z-index: 1;
+  display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 12px;
+  padding: 10px 20px 14px;
+  padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px));
+  background: rgba(22, 26, 34, .92);
+  -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+}
+.boite-haut::before { content: ""; grid-column: 1 / -1; justify-self: center; width: 40px; height: 5px; border-radius: 3px; background: rgba(255,255,255,.18); margin-bottom: 6px; }
+.boite-haut h2 { margin: 0; font-size: 24px; font-weight: 800; letter-spacing: -.02em; min-width: 0; text-wrap: balance; }
+.fermer { width: 34px; height: 34px; border-radius: 50%; background: rgba(255,255,255,.1); display: grid; place-items: center; color: var(--texte-2); }
+.fermer svg { width: 16px; height: 16px; }
+.boite-corps { padding: 6px 20px 24px; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); display: grid; gap: 18px; }
+.vide { text-align: center; color: var(--texte-2); padding: 30px 0; margin: 0; font-size: 17px; }
+.grille-liste { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 14px; }
+.choix { display: grid; gap: 6px; align-content: start; min-width: 0; }
+.choix img { width: 100%; aspect-ratio: 1; object-fit: contain; background: #fff; border-radius: 16px; padding: 10px; box-sizing: border-box; }
+.choix b { font-size: 15px; line-height: 1.25; font-weight: 650; }
+.choix small { color: var(--texte-3); font-size: 13px; }
+.choix .prix { color: var(--or); font-weight: 800; font-size: 15px; font-variant-numeric: tabular-nums; }
+.actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.total { color: var(--texte-2); font-weight: 600; font-variant-numeric: tabular-nums; }
+.btn {
+  min-height: 50px; padding: 0 20px; border-radius: 14px;
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  font-weight: 700; font-size: 16px;
+  background: var(--texte); color: var(--fond);
+}
+.btn svg { width: 20px; height: 20px; }
+.btn:active { transform: scale(.97); }
+.btn.clair { background: rgba(255,255,255,.08); color: var(--texte); }
+.btn.danger { background: transparent; color: var(--rouge); box-shadow: inset 0 0 0 1px rgba(229,72,61,.5); }
+.btn.danger.arme { background: var(--rouge); color: #fff; box-shadow: none; }
+.btn:disabled { opacity: .5; cursor: progress; }
+.bloc-parent { background: rgba(255,255,255,.04); border: 1px solid var(--ligne); border-radius: 18px; padding: 16px; display: grid; gap: 12px; }
+.bloc-parent h3 { margin: 0; font-size: 17px; font-weight: 750; }
+.champ { display: grid; gap: 6px; color: var(--texte-2); font-size: 14px; font-weight: 600; }
+.champ input { font: inherit; font-size: 17px; color: var(--texte); background: rgba(255,255,255,.06); border: 1px solid var(--ligne); border-radius: 12px; padding: 12px 14px; min-width: 0; }
+.note { color: var(--texte-2); font-size: 14px; line-height: 1.5; margin: 0; }
+.interrupteur { display: flex; align-items: center; justify-content: space-between; gap: 16px; color: var(--texte); font-weight: 600; }
+.interrupteur small { display: block; color: var(--texte-2); font-weight: 400; font-size: 13px; margin-top: 2px; }
+.bascule { width: 52px; height: 32px; border-radius: 16px; background: rgba(255,255,255,.16); position: relative; flex: none; transition: background .2s; }
+.bascule::after { content: ""; position: absolute; top: 3px; left: 3px; width: 26px; height: 26px; border-radius: 50%; background: #fff; box-shadow: 0 2px 6px rgba(0,0,0,.3); transition: transform .2s; }
+.bascule[aria-checked="true"] { background: #34C759; }
+.bascule[aria-checked="true"]::after { transform: translateX(20px); }
+.grille-sommaire { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 14px; }
+.rubrique { display: grid; gap: 8px; text-align: left; padding: 0; }
+.rubrique .vignette { aspect-ratio: 4 / 3; background: var(--creme); border-radius: 16px; display: grid; place-items: center; overflow: hidden; transition: transform .15s; }
+.rubrique:active .vignette { transform: scale(.97); }
+.rubrique img { width: 82%; height: 82%; object-fit: contain; }
+.rubrique b { font-size: 16px; font-weight: 700; line-height: 1.2; }
+.rubrique small { color: var(--texte-3); font-size: 13px; font-weight: 600; }
+
+#toast {
+  position: fixed; left: 50%; bottom: calc(env(safe-area-inset-bottom, 0px) + 84px); transform: translateX(-50%);
+  z-index: 40; max-width: min(520px, calc(100% - 32px));
+  background: var(--verre-fort); border: 1px solid var(--ligne);
+  -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px);
+  color: var(--texte); padding: 13px 18px; border-radius: 16px; font-weight: 600; font-size: 15px;
+  box-shadow: 0 12px 30px rgba(0,0,0,.4);
+}
+/* ===== Accueil : un soir de décembre sur la Côte-Nord ===== */
+#accueil { position: relative; display: block; padding: 0; background: #050A1C; }
+#paysage { position: fixed; inset: 0; width: 100%; height: 100%; display: block; z-index: 0; }
+.scene-accueil {
+  position: relative; z-index: 2; min-height: 100%; box-sizing: border-box;
+  max-width: 1280px; margin: 0 auto;
+  display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(24px, 4vw, 64px); align-items: center;
+  padding-block: calc(env(safe-area-inset-top, 0px) + 30px) calc(env(safe-area-inset-bottom, 0px) + 30px);
+  padding-left: max(24px, env(safe-area-inset-left, 0px)); padding-right: max(24px, env(safe-area-inset-right, 0px));
+}
+@media (max-aspect-ratio: 1/1) { .scene-accueil { grid-template-columns: 1fr; align-content: start; gap: 22px; } }
+
+/* le catalogue en 3D */
+.livre-zone { position: relative; perspective: 1800px; display: grid; place-items: center; padding: 18px 0; }
+.halo { position: absolute; width: 130%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(closest-side, rgba(255,196,110,.30), rgba(255,140,80,.10) 55%, transparent 75%); filter: blur(10px); animation: respire 5s ease-in-out infinite; }
+@keyframes respire { 50% { transform: scale(1.06); opacity: .85; } }
+.etincelles { position: absolute; inset: -6%; pointer-events: none; z-index: 3; }
+.etincelle { position: absolute; width: 14px; height: 14px; background: #FFE9A8; clip-path: polygon(50% 0, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0 50%, 39% 39%); filter: drop-shadow(0 0 6px #FFD36B); opacity: 0; animation: scintille 3.2s ease-in-out infinite; }
+@keyframes scintille { 0%, 100% { opacity: 0; transform: scale(.3) rotate(0deg); } 45% { opacity: 1; transform: scale(1) rotate(45deg); } }
+.livre { position: relative; width: min(420px, 70vw, 56vh); aspect-ratio: 3 / 4; transform: rotateY(-20deg) rotateX(5deg); transform-style: preserve-3d; animation: flotte 7s ease-in-out infinite; z-index: 2; }
+@keyframes flotte { 0%, 100% { transform: rotateY(-20deg) rotateX(5deg) translateY(0); } 50% { transform: rotateY(-13deg) rotateX(3deg) translateY(-12px); } }
+.interieur { position: absolute; inset: 0; border-radius: 4px 14px 14px 4px; background: linear-gradient(90deg, #E8DDC2, #FBF4E4 12%); box-shadow: 3px 3px 0 #F3EAD3, 6px 6px 0 #E4D8BB, 9px 9px 0 #D2C5A4, 12px 12px 0 #BFB08C, 28px 50px 80px rgba(0,0,0,.6); display: grid; place-items: center; }
+.interieur span { font-family: var(--titre); font-size: clamp(34px, 4.5vw, 54px); line-height: 1; color: #C8302A; text-align: center; transform: rotate(-6deg); }
+.couverture {
+  position: absolute; inset: 0; overflow: hidden; border-radius: 4px 14px 14px 4px; transform-origin: left center; backface-visibility: hidden; -webkit-backface-visibility: hidden;
+  background: radial-gradient(120% 80% at 30% 0%, #F2493B 0%, #C4271E 45%, #8E1712 100%);
+  box-shadow: inset 10px 0 14px -6px rgba(0,0,0,.45), inset -1px 0 0 rgba(255,255,255,.15);
+  display: grid; grid-template-rows: auto auto 1fr auto; text-align: center;
+  transition: transform .85s cubic-bezier(.6, 0, .3, 1);
+}
+.couverture::before { content: ""; position: absolute; inset: 10px; border: 2px solid rgba(243,195,82,.55); border-radius: 2px 8px 8px 2px; pointer-events: none; }
+.couv-ruban { margin: 22px auto 0; padding: 6px 14px; font: 800 11px/1 var(--ui); letter-spacing: .22em; color: #3A1A08; background: linear-gradient(90deg, #E9B53C, #FFE08A, #E9B53C); border-radius: 999px; box-shadow: 0 4px 10px rgba(0,0,0,.25); position: relative; z-index: 2; }
+.couv-titre { margin: 14px 18px 0; font-family: var(--titre); font-weight: 400; font-size: clamp(30px, 4.3vw, 50px); line-height: .98; background: linear-gradient(180deg, #FFF6DD 0%, #FFE9A8 55%, #E9B53C 100%); -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 3px 0 #7E140F) drop-shadow(0 10px 18px rgba(0,0,0,.35)); position: relative; z-index: 2; }
+#couv-collage { width: 100%; height: 100%; min-height: 0; display: block; position: relative; z-index: 1; }
+.couv-pied { margin: 0 auto 22px; font: 800 13px/1.2 var(--ui); color: #FFE9A8; letter-spacing: .06em; text-transform: uppercase; position: relative; z-index: 2; }
+.reflet { position: absolute; inset: 0; z-index: 3; pointer-events: none; background: linear-gradient(115deg, transparent 35%, rgba(255,255,255,.22) 48%, transparent 60%); background-size: 260% 100%; animation: reflet 7s ease-in-out infinite; mix-blend-mode: soft-light; }
+@keyframes reflet { 0%, 55% { background-position: 130% 0; } 100% { background-position: -130% 0; } }
+
+/* colonne de droite */
+.cote-droit { display: grid; gap: 14px; min-width: 0; justify-items: start; }
+.rebours { display: inline-flex; align-items: center; gap: 10px; padding: 6px 14px 6px 6px; border-radius: 999px; background: rgba(8,12,30,.55); border: 1px solid rgba(255,255,255,.14); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); color: #fff; font: 700 14px var(--ui); }
+.rebours .jours { background: linear-gradient(135deg, #F0574B, #B8322A); color: #fff; border-radius: 999px; padding: 5px 11px; font: 900 16px var(--ui); font-variant-numeric: tabular-nums; box-shadow: 0 4px 14px rgba(229,72,61,.45); }
+.cote-droit .question { margin: 0; font-family: var(--titre); font-weight: 400; font-size: clamp(32px, 4.2vw, 50px); line-height: 1.02; letter-spacing: 0; text-transform: none; background: linear-gradient(180deg, #FFF8E4 10%, #F3C352 95%); -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 4px 18px rgba(124,92,255,.45)); }
+.boules-zone { position: relative; width: 100%; padding-top: 4px; }
+#guirlande { position: absolute; left: -20px; top: -10px; height: 70px; overflow: visible; pointer-events: none; z-index: 3; }
+#guirlande .cordon { fill: none; stroke: #0E3B28; stroke-width: 3.5; stroke-linecap: round; }
+#guirlande .ampoule { animation: clignote 1.6s ease-in-out infinite; }
+@keyframes clignote { 0%, 100% { opacity: 1; } 50% { opacity: .35; } }
+.enfants { display: flex; justify-content: space-around; align-items: flex-start; gap: 6px; width: 100%; }
+.ornement { --c: #1B64C8; --fil: 40px; display: flex; flex-direction: column; align-items: center; flex: 1 1 0; min-width: 0; transform-origin: 50% 0; animation: balance 4s ease-in-out infinite alternate; }
+@keyframes balance { from { transform: rotate(-3.5deg); } to { transform: rotate(3.5deg); } }
+.ornement .fil { width: 2px; height: var(--fil); background: linear-gradient(#EAD9A4, #9C7B3A); }
+.ornement .capuchon { width: 26px; height: 15px; border-radius: 4px 4px 2px 2px; background: linear-gradient(90deg, #8C6A26, #FFE7A0 45%, #B98A2B); box-shadow: 0 2px 4px rgba(0,0,0,.4); position: relative; margin-bottom: -5px; z-index: 2; }
+.ornement .capuchon::before { content: ""; position: absolute; top: -9px; left: 50%; width: 9px; height: 9px; transform: translateX(-50%); border: 2px solid #D9BC6A; border-radius: 50%; }
+.boule {
+  width: clamp(104px, 11vw, 150px); aspect-ratio: 1; border-radius: 50%; border: 0; padding: 0; position: relative; display: grid; place-items: center; overflow: hidden;
+  background:
+    radial-gradient(circle at 30% 24%, rgba(255,255,255,.95) 0 3%, rgba(255,255,255,.4) 7%, transparent 17%),
+    radial-gradient(circle at 72% 84%, rgba(255,255,255,.2), transparent 28%),
+    radial-gradient(circle at 50% 50%, transparent 55%, rgba(0,0,0,.38) 100%),
+    radial-gradient(circle at 40% 35%, color-mix(in srgb, var(--c) 55%, white) 0%, var(--c) 45%, color-mix(in srgb, var(--c) 55%, black) 100%);
+  box-shadow: 0 18px 40px rgba(0,0,0,.45), 0 0 46px color-mix(in srgb, var(--c) 45%, transparent);
+  transition: transform .3s cubic-bezier(.3, 1.6, .5, 1), box-shadow .3s;
+}
+.boule::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: conic-gradient(from 0deg, transparent 0 78%, rgba(255,255,255,.22) 87%, transparent 95%); animation: tourne 7s linear infinite; mix-blend-mode: screen; }
+@keyframes tourne { to { transform: rotate(360deg); } }
+.boule:hover, .boule:focus-visible { transform: scale(1.07); box-shadow: 0 22px 50px rgba(0,0,0,.5), 0 0 80px color-mix(in srgb, var(--c) 70%, transparent); }
+.boule:active { transform: scale(.95); }
+.boule .bande { position: absolute; left: 3%; right: 3%; top: 60%; height: 15%; border-radius: 50%; background: radial-gradient(circle, #FFE7A0 0 2.4px, transparent 3px) 0 50% / 13px 100% repeat-x, linear-gradient(transparent 30%, rgba(255,231,160,.45) 30% 70%, transparent 70%); opacity: .8; }
+.boule .chiffre { position: relative; z-index: 2; font-family: var(--titre); font-size: clamp(38px, 4.3vw, 58px); color: #fff; line-height: 1; margin-top: -10%; text-shadow: 0 3px 0 rgba(0,0,0,.25), 0 0 18px rgba(255,255,255,.35); }
+.etiquette { margin-top: 10px; display: grid; justify-items: center; gap: 2px; text-align: center; max-width: 100%; padding: 6px 12px; border-radius: 14px; background: rgba(8,12,30,.55); border: 1px solid rgba(255,255,255,.1); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+.etiquette b { font: 800 19px/1.1 var(--ui); color: #FFF6DD; text-shadow: 0 2px 8px rgba(0,0,0,.6); }
+.etiquette small { font-size: 12.5px; line-height: 1.3; color: rgba(255,255,255,.78); text-shadow: 0 1px 6px rgba(0,0,0,.6); }
+.mini-liste { margin-top: 8px; display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px; border-radius: 999px; background: rgba(8,12,30,.6); border: 1px solid rgba(255,231,160,.35); color: #FFE7A0; font: 700 12.5px/1 var(--ui); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); white-space: nowrap; }
+.mini-liste svg { width: 14px; height: 14px; }
+.mini-liste:active { transform: scale(.96); }
+.cote-droit .astuce-accueil { justify-content: flex-start; color: rgba(255,255,255,.85); gap: 8px 16px; font-size: 13.5px; margin-top: 6px; padding: 10px 16px; border-radius: 16px; background: rgba(8,12,30,.55); border: 1px solid rgba(255,255,255,.1); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+.cote-droit .lien-parents { color: rgba(255,255,255,.75); border: 1px solid rgba(255,255,255,.2); background: rgba(8,12,30,.45); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+@media (max-aspect-ratio: 1/1) { .cote-droit { justify-items: center; text-align: center; } .cote-droit .astuce-accueil { justify-content: center; } }
+@media (max-width: 560px) { .couv-ruban { font-size: 9px; letter-spacing: .1em; } }
+@media (max-width: 560px) { .enfants { flex-wrap: wrap; row-gap: 18px; } .ornement { flex: 0 0 45%; --fil: 14px !important; } #guirlande { display: none; } }
+
+/* ouverture du catalogue */
+#accueil.ouverture .couverture { transform: rotateY(-150deg); }
+#accueil.ouverture .livre { animation: none; transform: rotateY(-6deg) scale(1.06); transition: transform .85s cubic-bezier(.6, 0, .3, 1); }
+#accueil.ouverture .ornement:not(.choisie), #accueil.ouverture .rebours, #accueil.ouverture .question, #accueil.ouverture .astuce-accueil, #accueil.ouverture .lien-parents { opacity: 0; transition: opacity .35s; }
+#accueil.ouverture .ornement.choisie .boule { transform: scale(1.25); box-shadow: 0 0 120px color-mix(in srgb, var(--c) 85%, transparent); }
+#accueil.ouverture::after { content: ""; position: fixed; inset: 0; z-index: 10; background: #0E1117; opacity: 0; animation: fondu .3s .6s forwards; }
+@keyframes fondu { to { opacity: 1; } }
+/* ===== Lecteur : la feuille plein écran, les boutons en boules de Noël ===== */
+#lecteur { background: #FBF4E4; }
+#toile { left: 0; top: 0; border-radius: 0; box-shadow: none; background: #FBF4E4; }
+.pied { display: none !important; }
+.outils.barre-verre {
+  top: 0; left: 0; right: 0; transform: none; max-width: none; border-radius: 0; border: 0; box-shadow: none;
+  background: none; -webkit-backdrop-filter: none; backdrop-filter: none;
+  padding: calc(env(safe-area-inset-top, 0px) + 2px) max(8px, env(safe-area-inset-right, 0px)) 2px max(8px, env(safe-area-inset-left, 0px));
+  display: flex; justify-content: center; align-items: flex-start; gap: 6px; flex-wrap: nowrap;
+  pointer-events: none;
+}
+.outils.barre-verre > * { pointer-events: auto; }
+.outils.barre-verre::before { content: ""; position: absolute; left: -2%; right: -2%; top: calc(env(safe-area-inset-top, 0px) + 4px); height: 14px; border-top: 3px solid #0E3B28; border-radius: 0 0 50% 50% / 0 0 100% 100%; filter: drop-shadow(0 1px 1px rgba(0,0,0,.35)); pointer-events: none; }
+.outils.barre-verre::after {
+  content: ""; position: absolute; left: 0; right: 0; top: calc(env(safe-area-inset-top, 0px) + 7px); height: 14px; pointer-events: none;
+  background:
+    radial-gradient(3.5px 5px at 50% 55%, #FF4D5E 95%, transparent) 0 0 / 150px 14px repeat-x,
+    radial-gradient(3.5px 5px at 50% 55%, #FFD45C 95%, transparent) 30px 0 / 150px 14px repeat-x,
+    radial-gradient(3.5px 5px at 50% 55%, #4DC3FF 95%, transparent) 60px 0 / 150px 14px repeat-x,
+    radial-gradient(3.5px 5px at 50% 55%, #6CFF8E 95%, transparent) 90px 0 / 150px 14px repeat-x,
+    radial-gradient(3.5px 5px at 50% 55%, #FF8AE2 95%, transparent) 120px 0 / 150px 14px repeat-x;
+  filter: drop-shadow(0 0 4px rgba(255,220,120,.9));
+  animation: ampoules 1.6s ease-in-out infinite alternate;
+}
+@keyframes ampoules { from { opacity: .55; } to { opacity: 1; } }
+.outils .sep { display: block; width: 4px; height: 1px; margin: 0; background: none; }
+.outils .pastilles { display: contents; }
+.outils .ic, .outils .pastille, .outils .qui {
+  --c: #C9A54A; --fil: 12px; --d: 50px;
+  position: relative; flex: none; width: var(--d); height: var(--d); min-width: 0; padding: 0; gap: 0;
+  margin-top: calc(var(--fil) + 16px);
+  border: 0; border-radius: 50%; display: grid; place-items: center; color: #fff;
+  background:
+    radial-gradient(circle at 33% 27%, rgba(255,255,255,.95) 0 5%, rgba(255,255,255,.35) 10%, transparent 22%),
+    radial-gradient(circle at 50% 50%, transparent 58%, rgba(0,0,0,.32) 100%),
+    radial-gradient(circle at 40% 35%, color-mix(in srgb, var(--c) 55%, white), var(--c) 52%, color-mix(in srgb, var(--c) 50%, black));
+  box-shadow: 0 6px 12px rgba(40,20,0,.32);
+  transform-origin: 50% calc(-1 * (var(--fil) + 16px));
+  transition: transform .35s cubic-bezier(.3, 1.7, .5, 1), box-shadow .2s;
+}
+.outils .ic::before, .outils .pastille::before, .outils .qui::before {
+  content: ""; position: absolute; bottom: calc(100% + 4px); left: 50%; width: 2px; height: calc(var(--fil) + 12px);
+  transform: translateX(-50%); background: linear-gradient(#5A4520, #C9A54A); pointer-events: none;
+}
+.outils .ic::after, .outils .pastille::after, .outils .qui::after {
+  content: ""; position: absolute; top: -6px; left: 50%; width: 15px; height: 9px; transform: translateX(-50%);
+  border-radius: 3px 3px 2px 2px; background: linear-gradient(90deg, #8C6A26, #FFE7A0 45%, #B98A2B);
+  box-shadow: 0 1px 2px rgba(0,0,0,.3); pointer-events: none;
+}
+.outils .ic:hover { background-color: transparent; }
+.outils .ic:active, .outils .pastille:active, .outils .qui:active { transform: rotate(9deg) scale(.94); }
+.outils .ic[aria-pressed="true"], .outils .pastille[aria-pressed="true"] {
+  transform: scale(1.16); color: #fff;
+  box-shadow: 0 0 0 3px #fff, 0 0 0 5px var(--c), 0 0 24px var(--c);
+}
+.outils .ic svg { width: 22px; height: 22px; filter: drop-shadow(0 1px 1px rgba(0,0,0,.5)); }
+.outils .etiq, .outils .pastille i, .outils .qui span:last-child { display: none; }
+.outils .ic:disabled { opacity: .35; }
+.outils .qui .mini-avatar { width: auto; height: auto; background: none !important; font-family: var(--titre); font-size: 22px; text-shadow: 0 2px 0 rgba(0,0,0,.25); }
+.outils .compte { position: absolute; top: -6px; right: -10px; z-index: 2; box-shadow: 0 2px 6px rgba(0,0,0,.35); }
+.outils .coeurs-restants { position: absolute; bottom: -9px; left: 50%; transform: translateX(-50%); gap: 0; background: #fff; border-radius: 999px; padding: 1px 3px; box-shadow: 0 1px 3px rgba(0,0,0,.3); }
+.outils .coeurs-restants svg { width: 11px; height: 11px; }
+.outils .coeur-btn[aria-pressed="true"] { background-color: transparent; }
+#maison { --c: #C9A54A; --fil: 6px; }
+#outil-gomme { --c: #9AA3B8; --fil: 16px; }
+#outil-coeur { --c: #E23B55; --fil: 8px; }
+#annuler { --c: #9AA3B8; --fil: 20px; }
+#voir-sommaire { --c: #1F8A4C; --fil: 10px; }
+#voir-liste { --c: #D9A520; --fil: 18px; }
+#prec { --c: #1B64C8; --fil: 8px; }
+#suiv { --c: #1B64C8; --fil: 14px; }
+#qui { --fil: 16px; }
+@media (max-width: 900px) {
+  .outils .ic, .outils .pastille, .outils .qui { --d: 42px; }
+  .outils.barre-verre { gap: 3px; }
+  .outils .sep { width: 1px; }
+}
+@media (max-width: 640px) {
+  .outils .ic, .outils .pastille, .outils .qui { --d: 24px; --fil: 4px !important; margin-top: 18px; }
+  .outils .ic svg { width: 13px; height: 13px; }
+  .outils .ic::after, .outils .pastille::after, .outils .qui::after { width: 9px; height: 6px; top: -4px; }
+  .outils .compte { min-width: 16px; height: 16px; font-size: 10px; padding: 0 4px; right: -6px; }
+  .outils .qui .mini-avatar { font-size: 15px; }
+  .outils .coeurs-restants svg { width: 7px; height: 7px; }
+  .outils.barre-verre { gap: 2px; padding-left: 2px; padding-right: 2px; }
+  .outils .sep { width: 0; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+</style>
+
+<main id="accueil">
+  <canvas id="paysage" aria-hidden="true"></canvas>
+  <div class="scene-accueil">
+    <div class="livre-zone">
+      <div class="halo" aria-hidden="true"></div>
+      <div class="etincelles" id="etincelles" aria-hidden="true"></div>
+      <div class="livre" id="livre">
+        <div class="interieur" aria-hidden="true"><span>Joyeux<br>Noël!</span></div>
+        <div class="couverture">
+          <div class="couv-ruban">NOËL 2026 · ÉDITION CÔTE-NORD</div>
+          <h1 class="couv-titre">Le Catalogue<br>des Souhaits</h1>
+          <canvas id="couv-collage" aria-hidden="true"></canvas>
+          <div class="couv-pied" id="sous-titre"></div>
+          <div class="reflet"></div>
+        </div>
+      </div>
+    </div>
+    <div class="cote-droit">
+      <div class="rebours" id="rebours"></div>
+      <h2 class="question">Qui feuillette ce soir?</h2>
+      <div class="boules-zone"><svg id="guirlande" aria-hidden="true"></svg><div class="enfants" id="enfants"></div></div>
+      <div class="astuce-accueil">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3l4 4L8 20l-5 1 1-5z"/><path d="M14 6l4 4"/></svg>Le crayon fait des ronds</span>
+        <span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.3 3 4.5 6.7 4.5c2.1 0 3.6 1.2 4.4 2.6.8-1.4 2.3-2.6 4.4-2.6 3.7 0 5.8 3.8 4.3 7.2C19.5 16.4 12 21 12 21z"/></svg>3 super cœurs pour tes préférés</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V11"/><path d="M12 10V4.5a1.5 1.5 0 0 1 3 0V11"/><path d="M15 10.5V6.5a1.5 1.5 0 0 1 3 0V14a7 7 0 0 1-7 7h-.5a6 6 0 0 1-4.6-2.2L3.4 15.6a1.6 1.6 0 0 1 2.4-2.1L9 16V8.5a1.5 1.5 0 0 1 0 0"/></svg>Le doigt tourne les pages</span>
+      </div>
+      <button class="lien-parents" id="ouvrir-parents" type="button">Coin des parents</button>
+    </div>
+  </div>
+</main>
+
+<section id="lecteur" hidden>
+  <div class="scene" id="scene"><canvas id="toile" aria-label="Page du catalogue. Fais un rond autour des jouets que tu veux."></canvas></div>
+
+  <div class="barre-verre outils" id="outils">
+    <button class="ic" id="maison" type="button" aria-label="Retour à l'accueil">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <div class="qui" id="qui"></div>
+    <div class="sep"></div>
+    <div class="pastilles" id="pastilles" role="group" aria-label="Couleur du crayon"></div>
+    <button class="ic" id="outil-gomme" type="button" aria-pressed="false" aria-label="Gomme">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><path d="M16.2 3.8 21 8.6 10.6 19H6.4L3 15.6z"/><path d="M8.6 9.4l6 6"/><path d="M11 19h10"/></svg>
+    </button>
+    <button class="ic coeur-btn" id="outil-coeur" type="button" aria-pressed="false" aria-label="Super cœur : touche un jouet pour lui donner un cœur">
+      <span class="coeurs-restants" id="coeurs-restants"></span>
+    </button>
+    <button class="ic" id="annuler" type="button" aria-label="Défaire le dernier trait">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11"/></svg>
+    </button>
+    <div class="sep"></div>
+    <button class="ic" id="voir-sommaire" type="button" aria-label="Sommaire">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg>
+      <span class="etiq">Sommaire</span>
+    </button>
+    <button class="ic" id="voir-liste" type="button" aria-label="Ma liste">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.8l2.8 5.7 6.3.9-4.6 4.4 1.1 6.2L12 17l-5.6 3 1.1-6.2-4.6-4.4 6.3-.9z"/></svg>
+      <span class="etiq">Ma liste</span><span class="compte" id="compte">0</span>
+    </button>
+    <div class="sep"></div>
+    <button class="ic" id="prec" type="button" aria-label="Page d'avant">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <button class="ic" id="suiv" type="button" aria-label="Page suivante">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+  </div>
+
+  <div class="pied" id="pied" hidden><b id="lieu-titre"></b><small id="lieu-page"></small><i id="progres"></i></div>
+
+  <div class="astuce" id="astuce" hidden>
+    <div class="gestes">
+      <div class="geste">
+        <svg class="main-glisse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V11"/><path d="M12 10V4.5a1.5 1.5 0 0 1 3 0V11"/><path d="M15 10.5V6.5a1.5 1.5 0 0 1 3 0V14a7 7 0 0 1-7 7h-.5a6 6 0 0 1-4.6-2.2L3.4 15.6a1.6 1.6 0 0 1 2.4-2.1L9 16V8.5"/></svg>
+        Glisse ton doigt pour tourner la page
+      </div>
+      <div class="geste">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3l4 4L8 20l-5 1 1-5z"/><path d="M14 6l4 4"/></svg>
+        Fais un rond avec le crayon autour de ce que tu veux
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="voile" id="fen-liste" hidden>
+  <div class="boite" role="dialog" aria-modal="true" aria-labelledby="titre-liste">
+    <div class="boite-haut"><h2 id="titre-liste">Ma liste</h2><button class="fermer" type="button" data-fermer aria-label="Fermer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+    <div class="boite-corps" id="corps-liste"></div>
+  </div>
+</div>
+<div class="voile" id="fen-sommaire" hidden>
+  <div class="boite" role="dialog" aria-modal="true" aria-labelledby="titre-sommaire">
+    <div class="boite-haut"><h2 id="titre-sommaire">Sommaire</h2><button class="fermer" type="button" data-fermer aria-label="Fermer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+    <div class="boite-corps"><div class="grille-sommaire" id="grille-sommaire"></div></div>
+  </div>
+</div>
+<div class="voile" id="fen-achats" hidden>
+  <div class="boite" role="dialog" aria-modal="true" aria-labelledby="titre-achats">
+    <div class="boite-haut"><h2 id="titre-achats">La liste</h2><button class="fermer" type="button" data-fermer aria-label="Fermer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+    <div class="boite-corps" id="corps-achats"></div>
+  </div>
+</div>
+<div class="voile" id="fen-parents" hidden>
+  <div class="boite" role="dialog" aria-modal="true" aria-labelledby="titre-parents">
+    <div class="boite-haut"><h2 id="titre-parents">Coin des parents</h2><button class="fermer" type="button" data-fermer aria-label="Fermer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+    <div class="boite-corps" id="corps-parents"></div>
+  </div>
+</div>
+
+<div id="toast" role="status" hidden></div>
+
+<script id="donnees" type="application/json">/*PRODUITS*/</script>
+<script>
+(() => {
+  "use strict";
+  const PRODUITS = JSON.parse(document.getElementById("donnees").textContent);
+
+  /* ---------- Constantes ---------- */
+  // Deux formats de page : portrait (tablette debout) et paysage (tablette couchée).
+  const FORMATS = { P: { W: 1000, H: 1300 }, L: { W: 1300, H: 910 } };
+  let FMT = "P", W = 1000, H = 1300, BAS = H - 30, H_ENTREE = 50;
+  function regler(f) { FMT = f; W = FORMATS[f].W; H = FORMATS[f].H; BAS = H - 30; H_ENTREE = f === "L" ? 46 : 50; }
+  const M = 32, G = 24, HAUT = 96;
+  const CW = (W - 2 * M - G) / 2, CH = (BAS - HAUT - 2 * G) / 3, PAR_PAGE = 9;
+  const LETTRES = "ABCDEFGHIJ";
+  const CRAYONS = [
+    { nom: "Rouge", c: "#D7263D" }, { nom: "Bleu", c: "#1B64C8" }, { nom: "Vert", c: "#1F8A4C" },
+    { nom: "Mauve", c: "#7B3FBF" }, { nom: "Orange", c: "#EE7A12" },
+  ];
+  const ENFANTS = [
+    { id: "k1", defaut: "5 ans", crayon: 1, voit: c => !c.startsWith("d2-") && c !== "papa" },
+    { id: "k2", defaut: "4 ans", crayon: 0, voit: c => !c.startsWith("d2-") && c !== "papa" },
+    { id: "k3", defaut: "1 an", crayon: 2, voit: c => c.startsWith("d2-") },
+    { id: "k4", defaut: "33 ans", crayon: 4, voit: c => c === "papa" },
+  ];
+  const COUL = { papier: "#FBF4E4", encre: "#1E2740", douce: "#5B5E6E", rouge: "#C8302A", or: "#E9B53C", vert: "#1F7A4D", filet: "#E3D7BD" };
+  const F_TITRE = '"Shrikhand", "Cooper Black", Georgia, serif';
+  const F_TEXTE = '"Archivo", "Helvetica Neue", Arial, sans-serif';
+  const CLE_LOCALE = "catalogue-souhaits-v5";
+
+  /* ---------- Pages du catalogue ---------- */
+  const estLego = p => /^lego/i.test(p.id) || /lego/i.test(p.marque || "");
+  const estDuplo = p => /duplo/i.test(p.marque + " " + p.nom);
+  const SECTIONS = [
+    { cle: "duplo", titre: "LEGO DUPLO" },
+    { cle: "lego", titre: "Les ensembles LEGO" },
+    { cle: "batir", titre: "Pour bâtir" },
+    { cle: "teleguides", titre: "Les téléguidés" },
+    { cle: "autos", titre: "Autos, camions et pistes" },
+    { cle: "cool", titre: "Des affaires cool" },
+    { cle: "jouer", titre: "Pour faire semblant" },
+    { cle: "jeux", titre: "Jeux en famille" },
+    { cle: "livres", titre: "Les livres d'ici" },
+    { cle: "art", titre: "Bricoler et découvrir" },
+    { cle: "dehors", titre: "Jouer dehors" },
+    { cle: "d2-coups", titre: "2 ans · Coups de cœur" },
+    { cle: "d2-bouger", titre: "2 ans · Bouger" },
+    { cle: "d2-apprendre", titre: "2 ans · Apprendre" },
+    { cle: "d2-vehicules", titre: "2 ans · Petits véhicules" },
+    { cle: "d2-semblant", titre: "2 ans · Faire semblant" },
+    { cle: "d2-musique", titre: "2 ans · Musique" },
+    { cle: "d2-art", titre: "2 ans · Bricoler" },
+    { cle: "d2-bain", titre: "2 ans · Bain et sable" },
+    { cle: "d2-calins", titre: "2 ans · Câlins" },
+    { cle: "d2-livres", titre: "2 ans · Livres" },
+    { cle: "papa", titre: "Pour les 33 ans" },
+  ];
+  const PAGES = [];
+  {
+    const restants = new Set(PRODUITS);
+    for (const sec of SECTIONS) {
+      const lot = [...restants].filter(p => p.categorie === sec.cle).sort((a, b) => a.prix - b.prix);
+      lot.forEach(p => restants.delete(p));
+      sec.debut = PAGES.length;
+      const nb = Math.ceil(lot.length / PAR_PAGE);
+      for (let k = 0, i = 0; k < nb; k++) { const t = Math.ceil((lot.length - i) / (nb - k)); PAGES.push({ titre: sec.titre, cle: sec.cle, items: lot.slice(i, i + t) }); i += t; }
+    }
+    if (restants.size) { const lot = [...restants]; for (let i = 0; i < lot.length; i += PAR_PAGE) PAGES.push({ titre: "Encore plus de jouets", cle: "autres", items: lot.slice(i, i + PAR_PAGE) }); }
+  }
+  const SOMMAIRE = SECTIONS.filter(sec => PAGES[sec.debut] && PAGES[sec.debut].titre === sec.titre);
+  const cellule = i => { const col = i % 2, lig = Math.floor(i / 2); return { x: M + col * (CW + G), y: HAUT + lig * (CH + G), w: CW, h: CH }; };
+
+  /* Collage façon vieux catalogue : photos détourées, tailles et angles variés,
+     lettres sur les photos, descriptions et prix en colonnes en bas de page. */
+  const RANGEES = { 1: [1], 2: [2], 3: [3], 4: [2, 2], 5: [2, 3], 6: [3, 3], 7: [2, 3, 2], 8: [3, 2, 3], 9: [3, 3, 3], 10: [3, 4, 3] };
+  const COLS_TXT = 3;
+  const RANGEES_L = { 1: [1], 2: [2], 3: [3], 4: [2, 2], 5: [2, 3], 6: [3, 3], 7: [3, 4], 8: [4, 4], 9: [4, 5], 10: [5, 5] };
+  function hasard(graine) { let a = graine * 9301 + 49297; return () => { a = (a * 9301 + 49297) % 233280; return a / 233280; }; }
+  function disposer(pg, idx) {
+    const n = pg.items.length, rnd = hasard(idx * 7 + 3);
+    const lignesTxt = Math.ceil(n / COLS_TXT);
+    const yTexte = BAS - lignesTxt * H_ENTREE - 8;
+    const X0 = 26, X1 = W - 26, Y0 = HAUT - 6, Y1 = yTexte - 14;
+    const rangees = (FMT === "L" ? RANGEES_L[n] : RANGEES[n]) || [3, 3, 3];
+    const vedette = pg.items.reduce((m, p, i) => (p.prix > pg.items[m].prix ? i : m), 0);
+    // ordre de placement : on mélange un peu pour que la vedette ne soit pas toujours au même endroit
+    const ordre = pg.items.map((_, i) => i);
+    for (let i = ordre.length - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); [ordre[i], ordre[j]] = [ordre[j], ordre[i]]; }
+    const hPoids = rangees.map(() => 0.85 + rnd() * 0.3);
+    const zones = new Array(n);
+    let k = 0, y = Y0;
+    const hTot = hPoids.reduce((a, b) => a + b, 0);
+    rangees.forEach((nb, ri) => {
+      const hr = (Y1 - Y0) * hPoids[ri] / hTot;
+      const ids = ordre.slice(k, k + nb); k += nb;
+      const poids = ids.map(i => (i === vedette ? 1.55 : 0.8 + rnd() * 0.45));
+      const pTot = poids.reduce((a, b) => a + b, 0);
+      let x = X0 + (ri % 2 ? 10 : 0);
+      ids.forEach((i, j) => {
+        const wr = (X1 - X0 - 10) * poids[j] / pTot;
+        const ech = i === vedette ? 1.12 : 0.98 + rnd() * 0.16;
+        const cw = wr * ech, ch = hr * ech;
+        const cx = x + wr / 2 + (rnd() - 0.5) * 18, cy = y + hr / 2 + (rnd() - 0.5) * 18;
+        zones[i] = { photo: { x: cx - cw / 2, y: cy - ch / 2, w: cw, h: ch }, rot: (rnd() - 0.5) * 0.09, coin: rnd() < 0.5 ? "hg" : "bd", vedette: i === vedette };
+        x += wr;
+      });
+      y += hr;
+    });
+    const colW = (W - 2 * M - 2 * 22) / COLS_TXT;
+    pg.items.forEach((p, i) => {
+      const col = Math.floor(i / lignesTxt), lig = i % lignesTxt;
+      zones[i].texte = { x: M + col * (colW + 22), y: yTexte + lig * H_ENTREE + 8, w: colW, h: H_ENTREE - 8 };
+    });
+    // les petites photos d'abord, la vedette par-dessus
+    return { zones, ordre: ordre.slice().sort((a, b) => (zones[a].vedette - zones[b].vedette) || (rnd() - 0.5)), yTexte };
+  }
+  PAGES.forEach((pg, i) => {
+    pg.m = {};
+    for (const f of ["P", "L"]) { regler(f); pg.m[f] = disposer(pg, i); }
+    Object.defineProperties(pg, {
+      zones: { get() { return this.m[FMT].zones; } },
+      ordreDessin: { get() { return this.m[FMT].ordre; } },
+      yTexte: { get() { return this.m[FMT].yTexte; } },
+    });
+  });
+  regler("P");
+
+  /* ---------- Images ---------- */
+  const DECOUPES = new Map();
+  function decouper(im, rc) {
+    const w = rc[3], h = rc[4];
+    const c = document.createElement("canvas"); c.width = w; c.height = h;
+    const x = c.getContext("2d"); x.drawImage(im, rc[1], rc[2], w, h, 0, 0, w, h);
+    let d; try { d = x.getImageData(0, 0, w, h); } catch (e) { return im; }
+    const p = d.data, n = w * h, vu = new Uint8Array(n), pile = new Int32Array(n); let sp = 0;
+    const blanc = i => p[i * 4] > 234 && p[i * 4 + 1] > 234 && p[i * 4 + 2] > 234;
+    const pousse = i => { if (!vu[i]) { vu[i] = 1; if (blanc(i)) pile[sp++] = i; } };
+    for (let i = 0; i < w; i++) { pousse(i); pousse(n - w + i); }
+    for (let j = 0; j < h; j++) { pousse(j * w); pousse(j * w + w - 1); }
+    while (sp) {
+      const i = pile[--sp]; p[i * 4 + 3] = 0; const xx = i % w;
+      if (xx > 0) pousse(i - 1); if (xx < w - 1) pousse(i + 1); if (i >= w) pousse(i - w); if (i < n - w) pousse(i + w);
+    }
+    for (let i = w; i < n - w; i++) {
+      if (p[i * 4 + 3] === 255 && (p[(i - 1) * 4 + 3] === 0 || p[(i + 1) * 4 + 3] === 0 || p[(i - w) * 4 + 3] === 0 || p[(i + w) * 4 + 3] === 0)) p[i * 4 + 3] = 150;
+    }
+    x.putImageData(d, 0, 0);
+    // recadrer sur le jouet lui-même
+    let x0 = w, y0 = h, x1 = -1, y1 = -1;
+    for (let j = 0; j < h; j++) for (let i = 0; i < w; i++) if (p[(j * w + i) * 4 + 3] > 0) { if (i < x0) x0 = i; if (i > x1) x1 = i; if (j < y0) y0 = j; if (j > y1) y1 = j; }
+    if (x1 < x0 || (x1 - x0) * (y1 - y0) < n * 0.05) return c;
+    const r = document.createElement("canvas"); r.width = x1 - x0 + 1; r.height = y1 - y0 + 1;
+    r.getContext("2d").drawImage(c, x0, y0, r.width, r.height, 0, 0, r.width, r.height);
+    return r;
+  }
+  const imageDe = id => DECOUPES.get(id) || null;
+  /* Les photos arrivent en planches de 36 : on charge la planche, on découpe chaque jouet. */
+  const PLANCHES = [], PRETES = new Set(), parPlanche = new Map(), attenteVignettes = new Map(), VIGNETTES = new Map();
+  for (const p of PRODUITS) { const k = p.sp[0]; if (!parPlanche.has(k)) parPlanche.set(k, []); parPlanche.get(k).push(p); }
+  const fileAttente = [...parPlanche.keys()];
+  let enCharge = 0;
+  function chargerPlanche(k) {
+    if (PLANCHES[k]) return;
+    const im = new Image(); PLANCHES[k] = im; enCharge++;
+    im.onload = () => { enCharge--; traiterPlanche(k, im); suivante(); };
+    im.onerror = () => { enCharge--; PLANCHES[k] = null; suivante(); };
+    im.src = parPlanche.get(k)[0].img;
+  }
+  function suivante() { while (enCharge < 2 && fileAttente.length) { const k = fileAttente.shift(); if (!PLANCHES[k]) chargerPlanche(k); } }
+  function priorite(idx) {
+    for (const j of [idx, idx + 1, idx - 1]) (PAGES[j]?.items || []).forEach(p => { const k = p.sp[0]; if (!PLANCHES[k] && !fileAttente.slice(0, 2).includes(k)) fileAttente.unshift(k); });
+    suivante();
+  }
+  function traiterPlanche(k, im) {
+    PRETES.add(k);
+    for (const [p, els] of attenteVignettes) if (p.sp[0] === k) { els.forEach(el => { el.src = vignette(p); }); attenteVignettes.delete(p); }
+    const reste = parPlanche.get(k).slice();
+    const lot = () => {
+      const t0 = performance.now(), faits = new Set();
+      while (reste.length && performance.now() - t0 < 25) { const p = reste.shift(); DECOUPES.set(p.id, decouper(im, p.sp)); faits.add(p); }
+      PAGES.forEach((pg, i) => { if (pg.items.some(p => faits.has(p))) BASES.delete(i); });
+      if (etat.vue === "catalogue") planifier(); else if (typeof dessinerCollage === "function") dessinerCollage();
+      if (reste.length) setTimeout(lot, 0);
+    };
+    lot();
+  }
+  function vignette(p) {
+    if (VIGNETTES.has(p.id)) return VIGNETTES.get(p.id);
+    const im = PLANCHES[p.sp[0]], [, sx, sy, w, h] = p.sp, k = Math.min(1, 220 / Math.max(w, h));
+    const c = document.createElement("canvas"); c.width = Math.round(w * k); c.height = Math.round(h * k);
+    const x = c.getContext("2d"); x.fillStyle = "#fff"; x.fillRect(0, 0, c.width, c.height); x.drawImage(im, sx, sy, w, h, 0, 0, c.width, c.height);
+    const url = c.toDataURL("image/jpeg", 0.85); VIGNETTES.set(p.id, url); return url;
+  }
+  function vignetteDans(el, p) {
+    el.alt = "";
+    if (PRETES.has(p.sp[0])) { el.src = vignette(p); return; }
+    if (!attenteVignettes.has(p)) attenteVignettes.set(p, []);
+    attenteVignettes.get(p).push(el);
+    fileAttente.unshift(p.sp[0]); suivante();
+  }
+
+  /* ---------- État ---------- */
+  const etat = { vue: "accueil", enfant: null, pages: {}, crayon: {}, outil: "crayon", noms: {}, doigtDessine: false, coeurs: {} };
+  // chaque enfant a son propre catalogue : seulement les pages de son âge
+  const PAGES_DE = {};
+  ENFANTS.forEach(e => { PAGES_DE[e.id] = PAGES.map((_, i) => i).filter(i => e.voit(PAGES[i].cle)); });
+  function numeroPage(idx) {
+    const c = PAGES[idx].cle; if (c === "papa") return null;
+    const groupe = PAGES.map((_, i) => i).filter(i => PAGES[i].cle !== "papa" && PAGES[i].cle.startsWith("d2-") === c.startsWith("d2-"));
+    return [groupe.indexOf(idx) + 1, groupe.length];
+  }
+  const voisin = (idx, dir) => { const L = PAGES_DE[etat.enfant] || []; const p = L.indexOf(idx); return p < 0 ? (L[0] ?? -1) : (L[p + dir] ?? -1); };
+  ENFANTS.forEach(e => { etat.pages[e.id] = PAGES_DE[e.id][0] ?? 0; etat.crayon[e.id] = e.crayon; etat.coeurs[e.id] = []; });
+  const MAX_COEURS = 3;
+  let T = {};                                  // "k1:3" -> [{c, p:[x,y,...]}]
+  const pageCourante = () => etat.pages[etat.enfant] ?? 0;
+  const cle = (k, pg, f = FMT) => k + ":" + pg + ":" + f;
+  const nomDe = id => (etat.noms[id] || "").trim() || ENFANTS.find(e => e.id === id).defaut;
+
+  const enc = st => st.c + ";" + st.p.join(",");
+  const dec = s => { const [c, pts] = String(s).split(";"); return { c: +c || 0, p: (pts || "").split(",").filter(Boolean).map(Number) }; };
+
+  /* ---------- Stockage ---------- */
+  let db = null;
+  const enEcriture = new Map();
+
+  function lireLocal() {
+    try {
+      const brut = localStorage.getItem(CLE_LOCALE);
+      if (!brut) return;
+      const o = JSON.parse(brut);
+      for (const k in (o.T || {})) T[k] = o.T[k].map(dec);
+      etat.noms = o.noms || {};
+      for (const k in (o.coeurs || {})) if (Array.isArray(o.coeurs[k])) etat.coeurs[k] = o.coeurs[k].slice(0, MAX_COEURS);
+    } catch (e) { /* stockage indisponible */ }
+  }
+  function ecrireLocal() {
+    try {
+      const o = { T: {}, noms: etat.noms, coeurs: etat.coeurs };
+      for (const k in T) if (T[k].length) o.T[k] = T[k].map(enc);
+      localStorage.setItem(CLE_LOCALE, JSON.stringify(o));
+    } catch (e) { /* stockage indisponible */ }
+  }
+
+  function sauverPage(k) {
+    ecrireLocal();
+    if (!db) return;
+    const st = enEcriture.get(k) || { occupe: false, encore: false };
+    enEcriture.set(k, st);
+    if (st.occupe) { st.encore = true; return; }
+    st.occupe = true;
+    (async () => {
+      do {
+        st.encore = false;
+        const [enfant, pg, fm] = k.split(":");
+        const ref = db.collection("ronds5").doc(enfant + "-p" + pg + "-" + fm);
+        const traits = (T[k] || []).map(enc);
+        try {
+          if (traits.length) await ref.set({ enfant, page: +pg, fmt: fm, traits });
+          else await ref.delete();
+        } catch (e) {
+          avis("La sauvegarde en ligne a échoué. Les ronds restent gardés sur cette tablette.");
+        }
+      } while (st.encore);
+      st.occupe = false;
+    })();
+  }
+
+  let ecritureNoms = Promise.resolve();
+  function sauverNoms() {
+    ecrireLocal();
+    if (!db) return;
+    const noms = { ...etat.noms };
+    ecritureNoms = ecritureNoms.then(() => db.doc("reglages/noms").set(noms)).catch(() => {});
+  }
+
+  let ecritureCoeurs = Promise.resolve();
+  function sauverCoeurs(k) {
+    ecrireLocal();
+    if (!db) return;
+    const ids = (etat.coeurs[k] || []).slice();
+    ecritureCoeurs = ecritureCoeurs.then(() => db.doc("coeurs/" + k).set({ ids })).catch(() => avis("La sauvegarde en ligne a échoué. Les cœurs restent gardés sur cette tablette."));
+  }
+  async function brancherDb() {
+    const c = window.claude;
+    if (!c || typeof c.use !== "function") return;
+    try { db = await c.use("db"); } catch (e) { db = null; }
+    if (!db) return;
+    const locaux = { ...T };
+    let premier = true;
+    db.collection("ronds5").onSnapshot(snap => {
+      for (const ch of snap.docChanges()) {
+        const d = ch.doc.data() || {};
+        if (!d.enfant && d.enfant !== 0) continue;
+        const k = cle(d.enfant, d.page, d.fmt || "P");
+        if (enEcriture.get(k)?.occupe) continue;
+        if (ch.type === "removed") delete T[k];
+        else T[k] = (d.traits || []).map(dec);
+      }
+      if (premier && !snap.metadata.fromCache) {
+        premier = false;
+        // Ce qui a été dessiné sur cette tablette avant la première connexion monte en ligne.
+        const enLigne = new Set(snap.docs.map(d => { const x = d.data() || {}; return cle(x.enfant, x.page, x.fmt || "P"); }));
+        for (const k in locaux) if (!enLigne.has(k) && locaux[k].length) { T[k] = locaux[k]; sauverPage(k); }
+      }
+      ecrireLocal();
+      rafraichir();
+    }, () => {});
+    db.collection("coeurs").onSnapshot(snap => {
+      for (const d of snap.docs) if (etat.coeurs[d.id] && Array.isArray(d.data()?.ids)) etat.coeurs[d.id] = d.data().ids.slice(0, MAX_COEURS);
+      ecrireLocal(); rafraichir();
+    }, () => {});
+    db.doc("reglages/noms").onSnapshot(s => {
+      if (s.exists) { etat.noms = { ...(s.data() || {}) }; ecrireLocal(); rafraichir(); }
+    }, () => {});
+  }
+
+  /* ---------- Dessin de la page ---------- */
+  function rondRect(ctx, x, y, w, h, r) {
+    ctx.beginPath();
+    ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r);
+    ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath();
+  }
+  function lignes(ctx, texte, largeur, max) {
+    const mots = String(texte).split(/\s+/); const out = []; let l = "";
+    for (const m of mots) {
+      const essai = l ? l + " " + m : m;
+      if (ctx.measureText(essai).width <= largeur || !l) l = essai; else { out.push(l); l = m; }
+    }
+    if (l) out.push(l);
+    if (out.length > max) {
+      const garde = out.slice(0, max); let der = garde[max - 1];
+      while (der.length && ctx.measureText(der + "…").width > largeur) der = der.slice(0, -1);
+      garde[max - 1] = der.trimEnd() + "…"; return garde;
+    }
+    return out;
+  }
+  const ageTexte = a => { if (!/\d/.test(a) || /^0\+?$/.test(String(a).trim())) return /^0/.test(String(a)) ? "Tous âges" : String(a); if (/mois/i.test(a)) return String(a).replace(/\s*\+$/, " et +"); const b = String(a).replace(/\s*ans?\s*/i, "").trim(); const plus = /\+$/.test(b); const n = b.replace(/\+$/, ""); return n + (/^1(½)?$/.test(n) ? " an" : " ans") + (plus ? " et +" : ""); };
+  const prix = n => n.toLocaleString("fr-CA", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " $";
+
+  function dessinerPage(ctx, idx, s, dx = 0, dy = 0) {
+    const pg = PAGES[idx];
+    ctx.save();
+    ctx.setTransform(s, 0, 0, s, dx, dy);
+    ctx.fillStyle = COUL.papier; ctx.fillRect(0, 0, W, H);
+    // bandeau
+    ctx.fillStyle = COUL.rouge; ctx.fillRect(0, 0, W, 72);
+    ctx.fillStyle = COUL.or; ctx.fillRect(0, 72, W, 6);
+    ctx.fillStyle = "#fff"; ctx.font = `36px ${F_TITRE}`; ctx.textBaseline = "alphabetic";
+    ctx.fillText(pg.titre, M, 50);
+    ctx.textAlign = "right"; ctx.fillStyle = COUL.or; ctx.font = `900 20px ${F_TEXTE}`;
+    { const nu = numeroPage(idx); ctx.fillText(nu ? "PAGE " + nu[0] : "PAGE BONUS", W - M, 46); }
+    ctx.textAlign = "left";
+
+    // filet de cadre
+    ctx.strokeStyle = COUL.filet; ctx.lineWidth = 2; ctx.strokeRect(10, 86, W - 20, H - 106);
+    const n = pg.items.length;
+    const posee = [];
+    for (const i of pg.ordreDessin) {
+      const z = pg.zones[i], p = pg.items[i], r = z.photo;
+      const im = imageDe(p.id);
+      let iw = r.w, ih = r.h;
+      if (im) { const k = Math.min(r.w / im.width, r.h / im.height); iw = im.width * k; ih = im.height * k; }
+      const cx = r.x + r.w / 2, cy = r.y + r.h / 2;
+      if (im) {
+        ctx.save(); ctx.translate(cx, cy); ctx.rotate(z.rot);
+        ctx.drawImage(im, -iw / 2, -ih / 2, iw, ih);
+        ctx.restore();
+      }
+      posee[i] = { x: cx - iw / 2, y: cy - ih / 2, w: iw, h: ih };
+    }
+    pg.m[FMT].posee = posee;
+    // lettres par-dessus toutes les photos
+    const badges = [];
+    for (let i = 0; i < n; i++) {
+      const z = pg.zones[i], q = posee[i], p = pg.items[i];
+      let bx = z.coin === "hg" ? q.x + 6 : q.x + q.w - 6, by = q.y + 8;
+      for (let essai = 0; essai < 6 && badges.some(b => Math.hypot(b[0] - bx, b[1] - by) < 44); essai++) bx += z.coin === "hg" ? 44 : -44;
+      badges.push([bx, by]);
+      ctx.beginPath(); ctx.arc(bx, by, 19, 0, Math.PI * 2);
+      ctx.fillStyle = COUL.papier; ctx.fill(); ctx.lineWidth = 3; ctx.strokeStyle = COUL.encre; ctx.stroke();
+      ctx.fillStyle = COUL.encre; ctx.font = `900 22px ${F_TEXTE}`; ctx.textAlign = "center";
+      ctx.fillText(LETTRES[i], bx, by + 8);
+    }
+    ctx.textAlign = "left";
+    // descriptions en colonnes, serrées : lettre, nom, marque et âge, prix
+    ctx.fillStyle = COUL.encre; ctx.fillRect(M, pg.yTexte - 2, W - 2 * M, 2);
+    for (let i = 0; i < n; i++) {
+      const t = pg.zones[i].texte, p = pg.items[i];
+      ctx.textAlign = "left";
+      ctx.fillStyle = COUL.rouge; ctx.font = `900 15px ${F_TEXTE}`;
+      ctx.fillText(LETTRES[i], t.x, t.y + 13);
+      ctx.font = `900 14px ${F_TEXTE}`;
+      const px = prix(p.prix), wpx = ctx.measureText(px).width;
+      ctx.textAlign = "right"; ctx.fillText(px, t.x + t.w, t.y + 13); ctx.textAlign = "left";
+      ctx.fillStyle = COUL.encre; ctx.font = `800 13px ${F_TEXTE}`;
+      const nom = lignes(ctx, p.nom, t.w - 16 - wpx - 8, 2);
+      ctx.fillText(nom[0], t.x + 16, t.y + 13);
+      let y = t.y + 13;
+      if (nom[1]) { y += 15; ctx.fillText(lignes(ctx, nom[1], t.w - 16, 1)[0], t.x + 16, y); }
+      ctx.fillStyle = COUL.douce; ctx.font = `500 11px ${F_TEXTE}`;
+      ctx.fillText(lignes(ctx, [p.marque, p.age ? ageTexte(p.age) : ""].filter(Boolean).join(" · "), t.w - 16, 1)[0], t.x + 16, y + 14);
+    }
+    // pied
+    ctx.fillStyle = COUL.douce; ctx.font = `700 11px ${F_TEXTE}`; ctx.textAlign = "center";
+    ctx.fillText("LE CATALOGUE DES SOUHAITS  ·  NOËL 2026  ·  " + (numeroPage(idx) ? numeroPage(idx).join(" / ") : "BONUS"), W / 2, H - 8);
+    ctx.textAlign = "left";
+    ctx.restore();
+  }
+  function cadreDessin(ctx, r) {
+    ctx.save();
+    ctx.setLineDash([14, 10]); ctx.lineWidth = 3; ctx.strokeStyle = "#C9BB9B";
+    rondRect(ctx, r.x + 4, r.y + 4, r.w - 8, r.h - 8, 18); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle = COUL.douce; ctx.textAlign = "center";
+    ctx.font = `28px ${F_TITRE}`; ctx.fillText("Dessine ici", r.x + r.w / 2, r.y + r.h / 2 - 8);
+    ctx.font = `600 20px ${F_TEXTE}`; ctx.fillText("un autre cadeau que tu voudrais", r.x + r.w / 2, r.y + r.h / 2 + 26);
+    ctx.restore();
+  }
+  function formeCoeur(c, r) {
+    c.beginPath();
+    c.moveTo(0, r * 0.92);
+    c.bezierCurveTo(-r * 1.3, r * 0.02, -r * 0.78, -r * 1.02, 0, -r * 0.36);
+    c.bezierCurveTo(r * 0.78, -r * 1.02, r * 1.3, r * 0.02, 0, r * 0.92);
+    c.closePath();
+  }
+  function peindreCoeur(c, r) {
+    c.save();
+    c.shadowColor = "rgba(120,0,20,.45)"; c.shadowBlur = r * 0.5; c.shadowOffsetY = r * 0.12;
+    formeCoeur(c, r);
+    const g = c.createLinearGradient(0, -r, 0, r); g.addColorStop(0, "#FF5C7A"); g.addColorStop(1, "#D3102F");
+    c.fillStyle = g; c.fill();
+    c.restore();
+    formeCoeur(c, r); c.lineWidth = r * 0.14; c.strokeStyle = "#fff"; c.stroke();
+    c.save(); c.beginPath(); c.ellipse(-r * 0.42, -r * 0.42, r * 0.22, r * 0.13, -0.6, 0, Math.PI * 2); c.fillStyle = "rgba(255,255,255,.65)"; c.fill(); c.restore();
+  }
+  let animCoeur = null;
+  const ressort = t => 1 - Math.cos(t * Math.PI * 2.5) * Math.exp(-5 * t);
+  function dessinerCoeurs(ctx, idx, s, kid, dx = 0, dy = 0) {
+    const ids = etat.coeurs[kid] || []; if (!ids.length) return false;
+    const pg = PAGES[idx], m = pg.m[FMT];
+    let enCours = false;
+    pg.items.forEach((p, i) => {
+      if (!ids.includes(p.id)) return;
+      const q = (m.posee && m.posee[i]) || m.zones[i].photo;
+      const r = Math.max(30, Math.min(52, Math.min(q.w, q.h) * 0.26));
+      let k = 1;
+      if (animCoeur && animCoeur.id === p.id) { const t = Math.min(1, (performance.now() - animCoeur.t0) / 650); k = ressort(t); if (t < 1) enCours = true; else animCoeur = null; }
+      ctx.save(); ctx.setTransform(s, 0, 0, s, dx, dy);
+      ctx.translate(q.x + q.w - r * 0.75, q.y + q.h - r * 0.7); ctx.rotate(0.2); ctx.scale(k, k);
+      peindreCoeur(ctx, r);
+      ctx.restore();
+    });
+    return enCours;
+  }
+  function dessinerTrait(ctx, st, s, dx = 0, dy = 0) {
+    const p = st.p; if (p.length < 2) return;
+    ctx.save();
+    ctx.setTransform(s, 0, 0, s, dx, dy);
+    ctx.lineCap = "round"; ctx.lineJoin = "round";
+    ctx.strokeStyle = (CRAYONS[st.c] || CRAYONS[0]).c;
+    ctx.beginPath(); ctx.moveTo(p[0], p[1]);
+    if (p.length === 2) ctx.lineTo(p[0] + 0.1, p[1]);
+    for (let i = 2; i < p.length; i += 2) ctx.lineTo(p[i], p[i + 1]);
+    ctx.globalAlpha = 0.28; ctx.lineWidth = 19; ctx.stroke();
+    ctx.globalAlpha = 0.9; ctx.lineWidth = 10; ctx.stroke();
+    ctx.restore();
+  }
+
+  /* ---------- Affichage, gestes et tourne-page ---------- */
+  const $ = id => document.getElementById(id);
+  const scene = $("scene"), toile = $("toile"), ctx = toile.getContext("2d");
+  const BASES = new Map();                 // idx -> page dessinée (sans les ronds) à la taille d'affichage
+  const tampons = [document.createElement("canvas"), document.createElement("canvas")];
+  const zone = { x: 0, y: 0, w: 0, h: 0 }; // position de la page à l'écran (px CSS)
+  let echelle = 1, pw = 0, ph = 0, ox = 0, oy = 0, dprAff = 1, trait = null, rafId = 0;
+  let tour = null;                         // page en train de tourner
+  let geste = null, dernierStylet = -1e9;
+
+  function base(idx) {
+    let c = BASES.get(idx);
+    if (!c) {
+      c = document.createElement("canvas"); c.width = pw; c.height = ph;
+      const x = c.getContext("2d");
+      // la feuille couvre tout l'écran : papier partout, bandeau rouge jusqu'en haut
+      x.fillStyle = COUL.papier; x.fillRect(0, 0, pw, ph);
+      x.fillStyle = COUL.rouge; x.fillRect(0, 0, pw, oy + 72 * echelle);
+      x.fillStyle = COUL.or; x.fillRect(0, oy + 72 * echelle, pw, 6 * echelle);
+      dessinerPage(x, idx, echelle, ox, oy);
+      BASES.set(idx, c);
+      for (const k of BASES.keys()) if (Math.abs(k - idx) > 2 && k !== pageCourante()) BASES.delete(k);
+    }
+    return c;
+  }
+  function avecRonds(idx, n) {
+    const c = tampons[n];
+    if (c.width !== pw || c.height !== ph) { c.width = pw; c.height = ph; }
+    const x = c.getContext("2d");
+    x.setTransform(1, 0, 0, 1, 0, 0); x.clearRect(0, 0, pw, ph);
+    x.drawImage(base(idx), 0, 0);
+    for (const st of (T[cle(etat.enfant, idx)] || [])) dessinerTrait(x, st, echelle, ox, oy);
+    dessinerCoeurs(x, idx, echelle, etat.enfant, ox, oy);
+    return c;
+  }
+
+  const sonde = document.createElement("div");
+  sonde.style.cssText = "position:fixed;inset:0;pointer-events:none;visibility:hidden;padding:env(safe-area-inset-top,0px) env(safe-area-inset-right,0px) env(safe-area-inset-bottom,0px) env(safe-area-inset-left,0px)";
+  document.body.appendChild(sonde);
+
+  function dimensionner() {
+    if (etat.vue !== "catalogue") return;
+    const cs = getComputedStyle(sonde);
+    const sg = parseFloat(cs.paddingLeft) || 0, sd = parseFloat(cs.paddingRight) || 0, sb = parseFloat(cs.paddingBottom) || 0;
+    const L = window.innerWidth, Hh = window.innerHeight;
+    const haut = $("outils").getBoundingClientRect().bottom + 4, bas = sb + 4, gauche = sg + 4, droite = sd + 4;
+    const dispoW = L - gauche - droite, dispoH = Hh - haut - bas;
+    if (dispoW < 50 || dispoH < 50) return;
+    const f = dispoW / dispoH > 1.05 ? "L" : "P";
+    if (f !== FMT) { regler(f); BASES.clear(); tour = null; trait = null; geste = null; }
+    let w = dispoW, h = w * H / W;
+    if (h > dispoH) { h = dispoH; w = h * W / H; }
+    zone.x = gauche + (dispoW - w) / 2; zone.y = haut; zone.w = w; zone.h = h;
+    Object.assign(toile.style, { left: "0px", top: "0px", width: L + "px", height: Hh + "px" });
+    const dpr = Math.min(window.devicePixelRatio || 1, 2.5);
+    const nw = Math.round(L * dpr), nh = Math.round(Hh * dpr);
+    const nox = Math.round(zone.x * dpr), noy = Math.round(zone.y * dpr), nech = (w * dpr) / W;
+    if (nw !== pw || nh !== ph || nox !== ox || noy !== oy || Math.abs(nech - echelle) > 1e-6) {
+      pw = nw; ph = nh; ox = nox; oy = noy; echelle = nech; toile.width = pw; toile.height = ph; BASES.clear(); tour = null;
+    }
+    dprAff = dpr;
+    planifier();
+  }
+
+  function planifier() { if (!rafId) rafId = requestAnimationFrame(() => { rafId = 0; composer(); }); }
+  let prechauffe = 0;
+  function composer() {
+    if (etat.vue !== "catalogue" || !pw) return;
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    if (tour) { dessinerTournant(ctx, tour.haut, tour.dessous, tour.P, tour.cy); return; }
+    const idx = pageCourante();
+    priorite(idx);
+    ctx.clearRect(0, 0, pw, ph);
+    ctx.drawImage(base(idx), 0, 0);
+    for (const st of (T[cle(etat.enfant, idx)] || [])) dessinerTrait(ctx, st, echelle, ox, oy);
+    if (trait) dessinerTrait(ctx, trait, echelle, ox, oy);
+    if (dessinerCoeurs(ctx, idx, echelle, etat.enfant, ox, oy)) planifier();
+    // préparer les pages voisines pendant que l'enfant regarde
+    clearTimeout(prechauffe);
+    prechauffe = setTimeout(() => {
+      for (const j of [voisin(idx, 1), voisin(idx, -1)]) if (j >= 0 && !BASES.has(j) && !tour && !geste) { base(j); break; }
+    }, 250);
+  }
+
+  /* La page qui tourne : le coin suit le doigt, la ligne de pli est la médiatrice entre le coin et le doigt.
+     On dessine la page du dessous, l'ombre du pli, le reste de la page du haut, puis le dos du rabat. */
+  function couper(poly, n, k, positif) {
+    const out = [], s = positif ? 1 : -1;
+    for (let i = 0; i < poly.length; i++) {
+      const a = poly[i], b = poly[(i + 1) % poly.length];
+      const da = s * (a.x * n.x + a.y * n.y - k), db = s * (b.x * n.x + b.y * n.y - k);
+      if (da >= 0) out.push(a);
+      if ((da >= 0) !== (db >= 0)) { const t = da / (da - db); out.push({ x: a.x + (b.x - a.x) * t, y: a.y + (b.y - a.y) * t }); }
+    }
+    return out;
+  }
+  function trace(c, poly) { c.beginPath(); poly.forEach((p, i) => (i ? c.lineTo(p.x, p.y) : c.moveTo(p.x, p.y))); c.closePath(); }
+  function dessinerTournant(c, haut, dessous, P, cy) {
+    const w = pw, h = ph;
+    c.clearRect(0, 0, w, h);
+    const C = { x: w, y: cy }, dx = P.x - C.x, dy = P.y - C.y, Ln = Math.hypot(dx, dy);
+    if (Ln < 1) { c.drawImage(haut, 0, 0); return; }
+    const n = { x: dx / Ln, y: dy / Ln }, mid = { x: (P.x + C.x) / 2, y: (P.y + C.y) / 2 }, k = mid.x * n.x + mid.y * n.y;
+    const page = [{ x: 0, y: 0 }, { x: w, y: 0 }, { x: w, y: h }, { x: 0, y: h }];
+    const reste = couper(page, n, k, true), plie = couper(page, n, k, false);
+    const rabat = plie.map(p => { const d = p.x * n.x + p.y * n.y - k; return { x: p.x - 2 * d * n.x, y: p.y - 2 * d * n.y }; });
+    // 1. la page découverte
+    c.drawImage(dessous, 0, 0);
+    if (plie.length > 2) {
+      c.save(); trace(c, plie); c.clip();
+      const o = Math.max(8, Math.min(Ln * 0.3, w * 0.14));
+      const g = c.createLinearGradient(mid.x, mid.y, mid.x - n.x * o, mid.y - n.y * o);
+      g.addColorStop(0, "rgba(0,0,0,0.38)"); g.addColorStop(1, "rgba(0,0,0,0)");
+      c.fillStyle = g; c.fillRect(0, 0, w, h);
+      c.restore();
+    }
+    // 2. ce qui reste à plat de la page qui tourne
+    if (reste.length > 2) { c.save(); trace(c, reste); c.clip(); c.drawImage(haut, 0, 0); c.restore(); }
+    // 3. le dos du rabat, avec son ombre portée
+    if (rabat.length > 2) {
+      c.save();
+      c.shadowColor = "rgba(0,0,0,0.35)"; c.shadowBlur = Math.max(10, w * 0.02);
+      trace(c, rabat); c.fillStyle = "#F3EAD6"; c.fill();
+      c.restore();
+      c.save(); trace(c, rabat); c.clip();
+      c.setTransform(1 - 2 * n.x * n.x, -2 * n.x * n.y, -2 * n.x * n.y, 1 - 2 * n.y * n.y, 2 * k * n.x, 2 * k * n.y);
+      c.globalAlpha = 0.11; c.drawImage(haut, 0, 0); c.globalAlpha = 1;
+      c.setTransform(1, 0, 0, 1, 0, 0);
+      const g = c.createLinearGradient(mid.x, mid.y, mid.x + n.x * Ln / 2, mid.y + n.y * Ln / 2);
+      g.addColorStop(0, "rgba(0,0,0,0.20)"); g.addColorStop(0.18, "rgba(255,255,255,0.18)"); g.addColorStop(0.6, "rgba(255,255,255,0.04)"); g.addColorStop(1, "rgba(0,0,0,0.10)");
+      c.fillStyle = g; c.fillRect(-w, -h, 3 * w, 3 * h);
+      c.restore();
+    }
+  }
+
+  function contraindre(P, cy) {
+    const A = { x: 0, y: cy }, B = { x: 0, y: ph - cy }, R = Math.hypot(pw, ph);
+    let d = Math.hypot(P.x - A.x, P.y - A.y);
+    if (d > pw) { P.x = A.x + (P.x - A.x) * pw / d; P.y = A.y + (P.y - A.y) * pw / d; }
+    d = Math.hypot(P.x - B.x, P.y - B.y);
+    if (d > R) { P.x = B.x + (P.x - B.x) * R / d; P.y = B.y + (P.y - B.y) * R / d; }
+    return P;
+  }
+  const levee = (x, cy) => (cy === ph ? -1 : 1) * Math.sin(Math.PI * Math.max(0, Math.min(1, (pw - x) / (2 * pw)))) * ph * 0.10;
+
+  function commencerTour(dir, cy) {
+    const idx = pageCourante(), autre = voisin(idx, dir);
+    if (autre < 0) return false;
+    // vers l'avant : la page courante tourne et découvre la suivante ;
+    // vers l'arrière : la page d'avant revient se poser par-dessus.
+    const haut = avecRonds(dir > 0 ? idx : autre, 0), dessous = avecRonds(dir > 0 ? autre : idx, 1);
+    tour = { dir, haut, dessous, cy, cible: autre, anim: false, P: { x: dir > 0 ? pw : -pw, y: cy } };
+    return true;
+  }
+  function majTour(dxCss, dyCss) {
+    const t = tour, k = dprAff;
+    let x = (t.dir > 0 ? pw : -pw) + dxCss * k * 1.1;
+    x = Math.max(-pw, Math.min(pw, x));
+    let y = t.cy + levee(x, t.cy) + dyCss * k * 0.35;
+    y = t.cy === ph ? Math.min(y, ph) : Math.max(y, 0);
+    t.P = contraindre({ x, y }, t.cy);
+    planifier();
+  }
+  const sortie = t => 1 - Math.pow(1 - t, 3);
+  const douce = t => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+  function animerVers(xCible, duree, courbe, fini) {
+    const t = tour; if (!t) return;
+    t.anim = true;
+    const x0 = t.P.x, r0 = t.P.y - (t.cy + levee(x0, t.cy)), debut = performance.now();
+    const pas = now => {
+      if (tour !== t) return;
+      const u = Math.min(1, (now - debut) / duree), e = courbe(u);
+      const x = x0 + (xCible - x0) * e;
+      t.P = contraindre({ x, y: t.cy + levee(x, t.cy) + r0 * (1 - e) }, t.cy);
+      composer();
+      if (u < 1) requestAnimationFrame(pas); else fini();
+    };
+    requestAnimationFrame(pas);
+  }
+  function terminerTour(valide) {
+    if (!tour) return;
+    if (valide) etat.pages[etat.enfant] = tour.cible;
+    tour = null;
+    rendreBarre(); planifier();
+  }
+  function tournerAuto(dir) {
+    if (tour || geste || etat.vue !== "catalogue") return;
+    if (!commencerTour(dir, ph)) return;
+    tour.P = { x: dir > 0 ? pw - 2 : -pw + 2, y: ph };
+    animerVers(dir > 0 ? -pw : pw, 720, douce, () => terminerTour(true));
+  }
+
+  /* ---------- Crayon, gomme et doigt ---------- */
+  const dansPage = e => e.clientX >= zone.x && e.clientX <= zone.x + zone.w && e.clientY >= zone.y && e.clientY <= zone.y + zone.h;
+  const versPage = e => [Math.round((e.clientX - zone.x) / zone.w * W), Math.round((e.clientY - zone.y) / zone.h * H)];
+  function gommer(x, y) {
+    const k = cle(etat.enfant, pageCourante()), arr = T[k] || [], avant = arr.length;
+    T[k] = arr.filter(st => { for (let i = 0; i < st.p.length; i += 2) if (Math.hypot(st.p[i] - x, st.p[i + 1] - y) < 28) return false; return true; });
+    return T[k].length !== avant;
+  }
+  function debutTrait(e) {
+    geste = { type: etat.outil === "gomme" ? "gomme" : "trait", id: e.pointerId, change: false };
+    try { scene.setPointerCapture(e.pointerId); } catch (_) {}
+    const [x, y] = versPage(e);
+    if (geste.type === "gomme") geste.change = gommer(x, y);
+    else trait = { c: etat.crayon[etat.enfant], p: [x, y] };
+    planifier();
+  }
+  scene.addEventListener("pointerdown", e => {
+    if (etat.vue !== "catalogue") return;
+    e.preventDefault();
+    const now = performance.now();
+    if (e.pointerType === "pen") dernierStylet = now;
+    if (e.pointerType === "touch") {
+      if (geste || (tour && tour.anim)) return;
+      if (now - dernierStylet < 800) return;                     // paume posée pendant qu'on dessine
+      if (Math.max(e.width || 0, e.height || 0) > 70) return;    // contact trop large : une paume
+      if (etat.doigtDessine) { if (dansPage(e) && !tour) { if (etat.outil === "coeur") basculerCoeur(e); else debutTrait(e); } return; }
+      geste = { type: "glisse", id: e.pointerId, x0: e.clientX, y0: e.clientY, hist: [[now, e.clientX]] };
+      try { scene.setPointerCapture(e.pointerId); } catch (_) {}
+      return;
+    }
+    // crayon ou souris : il a priorité sur un doigt (ou une paume) déjà posé
+    if (geste && geste.type === "glisse") { if (tour && !tour.anim) tour = null; geste = null; planifier(); }
+    if (geste || tour || !dansPage(e)) return;
+    if (etat.outil === "coeur") { basculerCoeur(e); return; }
+    debutTrait(e);
+  });
+  scene.addEventListener("pointermove", e => {
+    if (!geste || e.pointerId !== geste.id) return;
+    if (e.pointerType === "pen") dernierStylet = performance.now();
+    if (geste.type === "glisse") {
+      if (geste.bloque) return;
+      const dx = e.clientX - geste.x0, dy = e.clientY - geste.y0;
+      geste.bouge = Math.max(geste.bouge || 0, Math.hypot(dx, dy));
+      geste.hist.push([performance.now(), e.clientX]); if (geste.hist.length > 6) geste.hist.shift();
+      if (!tour) {
+        if (Math.abs(dx) < 10 || Math.abs(dx) < Math.abs(dy)) return;
+        const cy = geste.y0 - zone.y > zone.h * 0.45 ? ph : 0;
+        if (!commencerTour(dx < 0 ? 1 : -1, cy)) { geste.bloque = true; return; }
+        geste.dx0 = dx;
+      }
+      if (!tour.anim) majTour(dx - geste.dx0, dy);
+      return;
+    }
+    const evts = e.getCoalescedEvents ? e.getCoalescedEvents() : [];
+    for (const ev of (evts.length ? evts : [e])) {
+      const [x, y] = versPage(ev);
+      if (geste.type === "gomme") { geste.change = gommer(x, y) || geste.change; continue; }
+      if (!trait) continue;
+      const n = trait.p.length;
+      if (Math.hypot(x - trait.p[n - 2], y - trait.p[n - 1]) >= 2.5) trait.p.push(x, y);
+    }
+    planifier();
+  });
+  function finGeste(e) {
+    if (!geste || e.pointerId !== geste.id) return;
+    const g = geste; geste = null;
+    if (g.type === "glisse") {
+      // un simple toucher du doigt avec l'outil cœur donne (ou reprend) un super cœur
+      if (!tour && (g.bouge || 0) < 12 && etat.outil === "coeur" && e.type === "pointerup" && dansPage(e)) { basculerCoeur(e); return; }
+      if (!tour || tour.anim) return;
+      let v = 0;
+      if (g.hist.length > 1) { const a = g.hist[0], b = g.hist[g.hist.length - 1]; v = (b[1] - a[1]) / Math.max(16, b[0] - a[0]); }
+      const fait = (pw - tour.P.x) / (2 * pw);
+      const valide = e.type !== "pointercancel" && (tour.dir > 0 ? (fait > 0.25 || v < -0.35) && v < 0.35 : (fait < 0.75 || v > 0.35) && v > -0.35);
+      const cible = (tour.dir > 0) === valide ? -pw : pw;
+      animerVers(cible, 160 + 360 * Math.abs(cible - tour.P.x) / (2 * pw), sortie, () => terminerTour(valide));
+      return;
+    }
+    const k = cle(etat.enfant, pageCourante());
+    if (g.type === "gomme") { if (g.change) { sauverPage(k); majCompte(); } }
+    else if (trait) { (T[k] = T[k] || []).push(trait); trait = null; sauverPage(k); majCompte(); }
+    planifier();
+  }
+  function basculerCoeur(e) {
+    const [x, y] = versPage(e), pg = PAGES[pageCourante()], m = pg.m[FMT];
+    let i = -1, mieux = Infinity;
+    pg.items.forEach((p, j) => {
+      for (const r of [m.posee && m.posee[j], m.zones[j].photo, m.zones[j].texte]) {
+        if (!r || !(x >= r.x && x <= r.x + r.w && y >= r.y && y <= r.y + r.h)) continue;
+        const d = Math.hypot(x - (r.x + r.w / 2), y - (r.y + r.h / 2)) / Math.max(r.w, r.h);
+        if (d < mieux) { mieux = d; i = j; }
+      }
+    });
+    if (i < 0) return;
+    const id = pg.items[i].id, liste = etat.coeurs[etat.enfant];
+    const deja = liste.indexOf(id);
+    if (deja >= 0) liste.splice(deja, 1);
+    else if (liste.length >= MAX_COEURS) {
+      const b = $("outil-coeur"); b.classList.remove("secoue"); void b.offsetWidth; b.classList.add("secoue");
+      avis("Tes 3 super cœurs sont déjà donnés. Touche un de tes cœurs pour le reprendre.");
+      return;
+    } else { liste.push(id); animCoeur = { id, t0: performance.now() }; }
+    sauverCoeurs(etat.enfant); rendreBarre(); planifier();
+  }
+  scene.addEventListener("pointerup", finGeste);
+  scene.addEventListener("pointercancel", finGeste);
+  // empêcher le zoom et le menu contextuel d'iOS sur la page
+  scene.addEventListener("touchstart", e => { if (e.touches.length > 1) e.preventDefault(); }, { passive: false });
+  scene.addEventListener("contextmenu", e => e.preventDefault());
+  document.addEventListener("gesturestart", e => e.preventDefault());
+
+
+  /* ---------- Ce qui est entouré ---------- */
+  const dans = (x, y, r) => x >= r.x && x <= r.x + r.w && y >= r.y && y <= r.y + r.h;
+  function vise(st, pg) {
+    let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+    for (let i = 0; i < st.p.length; i += 2) { x0 = Math.min(x0, st.p[i]); x1 = Math.max(x1, st.p[i]); y0 = Math.min(y0, st.p[i + 1]); y1 = Math.max(y1, st.p[i + 1]); }
+    if (Math.max(x1 - x0, y1 - y0) < 30) return -1;
+    const cx = (x0 + x1) / 2, cy = (y0 + y1) / 2;
+    let meilleur = -1, dist = Infinity;
+    pg.zones.forEach((z, i) => {
+      for (const r of [z.photo, z.texte]) {
+        if (!dans(cx, cy, r)) continue;
+        const d = Math.hypot(cx - (r.x + r.w / 2), cy - (r.y + r.h / 2)) / Math.max(r.w, r.h);
+        if (d < dist) { dist = d; meilleur = i; }
+      }
+    });
+    return meilleur;
+  }
+  function choisis(k) {
+    const ronds = choisisRonds(k), ids = etat.coeurs[k] || [], out = [];
+    for (const id of ids) {
+      const pi = PAGES.findIndex(pg => pg.items.some(p => p.id === id)); if (pi < 0) continue;
+      const i = PAGES[pi].items.findIndex(p => p.id === id);
+      out.push({ p: PAGES[pi].items[i], page: pi, lettre: LETTRES[i], coeur: true });
+    }
+    for (const c of ronds) if (!ids.includes(c.p.id)) out.push(c);
+    return out;
+  }
+  function choisisRonds(k) {
+    const out = [];
+    PAGES.forEach((pg, pi) => {
+      const pris = new Set();
+      for (const f of ["P", "L"]) {
+        const arr = T[cle(k, pi, f)] || [];
+        for (const st of arr) { const i = vise(st, { zones: pg.m[f].zones }); if (i >= 0) pris.add(i); }
+      }
+      [...pris].sort((a, b) => a - b).forEach(i => out.push({ p: pg.items[i], page: pi, lettre: LETTRES[i] }));
+    });
+    return out;
+  }
+  const pagesDessinees = k => {
+    const out = [], ids = etat.coeurs[k] || [];
+    PAGES.forEach((pg, i) => {
+      const fs = ["P", "L"].filter(f => (T[cle(k, i, f)] || []).length);
+      if (!fs.length && pg.items.some(p => ids.includes(p.id))) fs.push("P");
+      fs.forEach(f => out.push([i, f]));
+    });
+    return out;
+  };
+
+  /* ---------- PDF ---------- */
+  function boutonPdf(k) {
+    const b = document.createElement("button"); b.type = "button"; b.className = "btn";
+    b.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 20h16"/></svg><span>PDF de ${nomDe(k).replace(/[<>&"]/g, "")}</span>`;
+    b.addEventListener("click", async () => { b.disabled = true; try { await exporterPdf(k); } finally { b.disabled = false; } });
+    return b;
+  }
+  async function enregistrerFichier(dl, { filename: nom, data: blob }) {
+    if (dl) return dl.save({ filename: nom, data: blob });
+    const fichier = new File([blob], nom, { type: "application/pdf" });
+    if (navigator.canShare && navigator.canShare({ files: [fichier] })) {
+      try { await navigator.share({ files: [fichier], title: nom }); return; }
+      catch (e) { if (e && e.name === "AbortError") throw { code: "declined" }; }
+    }
+    const url = URL.createObjectURL(blob), a = document.createElement("a");
+    a.href = url; a.download = nom; document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 60000);
+  }
+  async function exporterPdf(k) {
+    if (!window.jspdf?.jsPDF) { avis("L'outil PDF n'a pas pu se charger. Vérifiez la connexion et rouvrez la page."); return; }
+    const c = window.claude;
+    const dl = c && typeof c.use === "function" ? await c.use("downloads").catch(() => null) : null;
+    choisis(k).forEach(c => { if (!PLANCHES[c.p.sp[0]]) fileAttente.unshift(c.p.sp[0]); }); pagesDessinees(k).forEach(([i]) => priorite(i));
+    for (let t = 0; t < 150 && (choisis(k).some(c => !DECOUPES.has(c.p.id)) || pagesDessinees(k).some(([i]) => PAGES[i].items.some(p => !DECOUPES.has(p.id)))); t++) await new Promise(r => setTimeout(r, 100));
+
+    const { jsPDF } = window.jspdf;
+    const pdf = new jsPDF({ unit: "pt", format: "letter", compress: true });
+    const PW = 612, PH = 792, CWp = 1275, CHp = 1650, f = PW / CWp;
+    const liste = choisis(k), nom = nomDe(k);
+    const parPage = 7, nbRes = Math.max(1, Math.ceil(liste.length / parPage));
+
+    for (let r = 0; r < nbRes; r++) {
+      if (r) pdf.addPage();
+      const cv = document.createElement("canvas"); cv.width = CWp; cv.height = CHp;
+      const x = cv.getContext("2d");
+      x.fillStyle = COUL.papier; x.fillRect(0, 0, CWp, CHp);
+      x.fillStyle = COUL.rouge; x.fillRect(0, 0, CWp, 200);
+      x.fillStyle = COUL.or; x.fillRect(0, 200, CWp, 10);
+      x.fillStyle = "#fff"; x.font = `66px ${F_TITRE}`;
+      x.fillText(lignes(x, "La liste de Noël de " + nom, CWp - 120, 1)[0], 60, 110);
+      x.fillStyle = COUL.or; x.font = `800 26px ${F_TEXTE}`;
+      x.fillText("LE CATALOGUE DES SOUHAITS · NOËL 2026 · " + liste.length + (liste.length > 1 ? " CADEAUX ENTOURÉS" : " CADEAU ENTOURÉ"), 60, 162);
+      let y = 260;
+      if (!liste.length) {
+        x.fillStyle = COUL.douce; x.font = `600 34px ${F_TEXTE}`;
+        x.fillText("Rien d'entouré pour l'instant.", 60, y + 40);
+      }
+      for (const ch of liste.slice(r * parPage, r * parPage + parPage)) {
+        const p = ch.p, hRang = 168;
+        rondRect(x, 60, y, 150, 150, 12); x.fillStyle = "#fff"; x.fill(); x.lineWidth = 2; x.strokeStyle = COUL.filet; x.stroke();
+        const im = imageDe(p.id);
+        if (im) { const s = Math.min(134 / im.width, 134 / im.height); const iw = im.width * s, ih = im.height * s; x.drawImage(im, 60 + (150 - iw) / 2, y + (150 - ih) / 2, iw, ih); }
+        if (ch.coeur) { x.save(); x.translate(190, y + 28); x.rotate(0.2); peindreCoeur(x, 30); x.restore(); }
+        x.fillStyle = COUL.douce; x.font = `800 20px ${F_TEXTE}`;
+        x.fillText((String(p.marque || "") + "  ·  " + (p.age ? ageTexte(p.age) : "") + "  ·  page " + (ch.page + 1) + ", article " + ch.lettre).toUpperCase(), 240, y + 36);
+        if (ch.coeur) { x.fillStyle = "#D3102F"; x.font = `900 20px ${F_TEXTE}`; x.textAlign = "right"; x.fillText("SUPER CŒUR", CWp - 60, y + 36); x.textAlign = "left"; }
+        x.fillStyle = COUL.encre; x.font = `800 32px ${F_TEXTE}`;
+        let yy = y + 76;
+        for (const l of lignes(x, p.nom, CWp - 520, 2)) { x.fillText(l, 240, yy); yy += 38; }
+        x.fillStyle = COUL.vert; x.font = `700 21px ${F_TEXTE}`;
+        x.fillText("Vu chez " + (p.source || "—") + (p.url ? "  (toucher pour ouvrir la page)" : ""), 240, y + 144);
+        x.strokeStyle = COUL.filet; x.lineWidth = 2; x.beginPath(); x.moveTo(60, y + hRang - 2); x.lineTo(CWp - 60, y + hRang - 2); x.stroke();
+        x.fillStyle = COUL.rouge; x.font = `900 40px ${F_TEXTE}`; x.textAlign = "right";
+        x.fillText(prix(p.prix), CWp - 60, y + 80); x.textAlign = "left";
+        if (p.url) pdf.link(60 * f, y * f, (CWp - 120) * f, 150 * f, { url: p.url });
+        y += hRang;
+      }
+      if (r === nbRes - 1 && liste.length) {
+        x.fillStyle = COUL.encre; x.font = `900 34px ${F_TEXTE}`; x.textAlign = "right";
+        x.fillText("Total : " + prix(liste.reduce((s, c) => s + c.p.prix, 0)), CWp - 60, y + 60);
+        x.textAlign = "left";
+      }
+      x.fillStyle = COUL.douce; x.font = `600 20px ${F_TEXTE}`; x.textAlign = "center";
+      x.fillText("Prix vus en ligne le 20 novembre 2026, avant taxes. Les pages entourées suivent.", CWp / 2, CHp - 40);
+      pdf.addImage(cv.toDataURL("image/jpeg", 0.9), "JPEG", 0, 0, PW, PH, undefined, "FAST");
+    }
+
+    const sc = 1.6;
+    const fAvant = FMT;
+    for (const [i, fm] of pagesDessinees(k)) {
+      regler(fm);
+      pdf.addPage();
+      const cv = document.createElement("canvas"); cv.width = W * sc; cv.height = H * sc;
+      const x = cv.getContext("2d");
+      dessinerPage(x, i, sc);
+      for (const st of (T[cle(k, i, fm)] || [])) dessinerTrait(x, st, sc);
+      dessinerCoeurs(x, i, sc, k);
+      const mw = PW - 72, mh = mw * H / W;
+      x.save();
+      pdf.setFillColor(251, 244, 228); pdf.rect(0, 0, PW, PH, "F");
+      pdf.addImage(cv.toDataURL("image/jpeg", 0.88), "JPEG", 36, (PH - mh) / 2, mw, mh, undefined, "FAST");
+      x.restore();
+    }
+    regler(fAvant);
+
+    const blob = pdf.output("blob");
+    try {
+      await enregistrerFichier(dl, { filename: "Liste de Noël - " + nom.replace(/[\\/:*?"<>|]/g, "") + ".pdf", data: blob });
+      avis("PDF prêt : la liste de " + nom + ".");
+    } catch (e) {
+      if (e?.code === "declined") return;
+      if (e?.code === "rate_limited") { avis("Une autre demande de téléchargement est déjà ouverte."); return; }
+      avis("Le PDF n'a pas pu être enregistré ici.");
+    }
+  }
+
+  /* ---------- Petit message ---------- */
+  let minuterieAvis = 0;
+  function avis(t) { const el = $("toast"); el.textContent = t; el.hidden = false; clearTimeout(minuterieAvis); minuterieAvis = setTimeout(() => { el.hidden = true; }, 4500); }
+
+  /* ---------- Vues ---------- */
+  const initiale = nom => (/^\d/.test(nom) ? nom.match(/^\d+/)[0] : (nom.trim()[0] || "?").toUpperCase());
+  const nbCadeaux = n => n + (n > 1 ? " cadeaux entourés" : " cadeau entouré");
+  const SVG_LISTE = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/><path d="M9 13h7M9 17h5"/></svg>`;
+  function rendreAccueil() {
+    $("sous-titre").textContent = "Plus de " + Math.floor(PRODUITS.length / 50) * 50 + " jouets à encercler";
+    const auj = new Date(), noel = new Date(auj.getFullYear(), 11, 25);
+    if (auj > new Date(auj.getFullYear(), 11, 25, 23, 59)) noel.setFullYear(noel.getFullYear() + 1);
+    const jours = Math.ceil((noel - new Date(auj.getFullYear(), auj.getMonth(), auj.getDate())) / 86400000);
+    $("rebours").innerHTML = jours <= 0 ? `<span class="jours">★</span>C'est Noël!` : `<span class="jours">${jours}</span>${jours > 1 ? "dodos avant Noël" : "dodo avant Noël!"}`;
+    const box = $("enfants"); box.innerHTML = "";
+    const fils = [26, 64, 40, 78];
+    ENFANTS.forEach((e, i) => {
+      const n = choisis(e.id).length, nc = (etat.coeurs[e.id] || []).length, c = CRAYONS[etat.crayon[e.id]].c, nom = nomDe(e.id);
+      const o = document.createElement("div"); o.className = "ornement";
+      o.style.setProperty("--c", c); o.style.setProperty("--fil", fils[i % 4] + "px");
+      o.style.animationDuration = (3.4 + i * .65) + "s"; o.style.animationDelay = (-i * 1.1) + "s";
+      o.innerHTML = `<span class="fil"></span><span class="capuchon"></span>
+        <button class="boule" type="button"><span class="bande"></span><span class="chiffre"></span></button>
+        <span class="etiquette"><b></b><small></small></span>
+        <button class="mini-liste" type="button">${SVG_LISTE}<span>Voir la liste</span></button>`;
+      o.querySelector(".chiffre").textContent = initiale(nom);
+      o.querySelector(".etiquette b").textContent = nom;
+      o.querySelector(".etiquette small").textContent = n ? nbCadeaux(n) + (nc ? " · " + nc + " ♥" : "") : "Touche la boule!";
+      const boule = o.querySelector(".boule");
+      boule.setAttribute("aria-label", "Ouvrir le catalogue de " + nom);
+      boule.addEventListener("click", () => lancerOuverture(e.id, o));
+      const l = o.querySelector(".mini-liste");
+      l.setAttribute("aria-label", "Consulter la liste de " + nom + " avec les prix et où l'acheter");
+      l.addEventListener("click", () => { rendreAchats(e.id); ouvrir("fen-achats"); });
+      box.appendChild(o);
+    });
+    requestAnimationFrame(dessinerGuirlande);
+  }
+  let ouvertureEnCours = false;
+  function lancerOuverture(id, o) {
+    if (ouvertureEnCours) return;
+    if (calme) { ouvrirCatalogue(id); return; }
+    ouvertureEnCours = true; o.classList.add("choisie"); $("accueil").classList.add("ouverture");
+    setTimeout(() => { ouvrirCatalogue(id); $("accueil").classList.remove("ouverture"); o.classList.remove("choisie"); ouvertureEnCours = false; }, 950);
+  }
+  function dessinerGuirlande() {
+    const zone = document.querySelector(".boules-zone"), svg = $("guirlande"); if (!zone || !svg) return;
+    const zr = zone.getBoundingClientRect(); if (!zr.width) return;
+    const os = [...zone.querySelectorAll(".ornement")]; if (!os.length) return;
+    const top0 = Math.min(...os.map(o => o.getBoundingClientRect().top));
+    const xs = os.filter(o => Math.abs(o.getBoundingClientRect().top - top0) < 8).map(o => { const r = o.getBoundingClientRect(); return r.left + r.width / 2 - zr.left + 20; }).sort((a, b) => a - b);
+    const L = zr.width + 40, y0 = 10 + 4, pts = [[0, 0], ...xs.map(x => [x, y0]), [L, 0]];
+    let d = `M${pts[0][0]} ${pts[0][1]}`;
+    for (let i = 1; i < pts.length; i++) { const [x0, a0] = pts[i - 1], [x1, a1] = pts[i]; d += ` Q${(x0 + x1) / 2} ${Math.max(a0, a1) + 26} ${x1} ${a1}`; }
+    svg.setAttribute("width", L); svg.setAttribute("height", 70); svg.setAttribute("viewBox", `0 0 ${L} 70`);
+    svg.innerHTML = `<path class="cordon" d="${d}"/>`;
+    const p = svg.querySelector("path"), tot = p.getTotalLength(), couleurs = ["#FF4D5E", "#FFD45C", "#4DC3FF", "#6CFF8E", "#FF8AE2"];
+    let html = "";
+    for (let l = 12, k = 0; l < tot; l += 24, k++) {
+      const q = p.getPointAtLength(l), c = couleurs[k % couleurs.length];
+      html += `<g class="ampoule" style="animation-delay:${(-k * .37).toFixed(2)}s"><circle cx="${q.x}" cy="${q.y + 5}" r="9" fill="${c}" opacity=".28"/><rect x="${q.x - 2.5}" y="${q.y}" width="5" height="4" rx="1" fill="#2B4A3A"/><ellipse cx="${q.x}" cy="${q.y + 7}" rx="3.6" ry="5" fill="${c}"/></g>`;
+    }
+    svg.insertAdjacentHTML("beforeend", html);
+  }
+  function rendrePastilles() {
+    const box = $("pastilles"); box.innerHTML = "";
+    CRAYONS.forEach((cr, i) => {
+      const b = document.createElement("button"); b.type = "button"; b.className = "pastille"; b.style.color = cr.c; b.style.setProperty("--c", cr.c); b.style.setProperty("--fil", [8, 18, 12, 22, 10, 16][i % 6] + "px");
+      b.setAttribute("aria-label", "Crayon " + cr.nom.toLowerCase());
+      b.setAttribute("aria-pressed", String(etat.outil === "crayon" && etat.crayon[etat.enfant] === i));
+      b.innerHTML = `<i style="background:${cr.c}"></i>`;
+      b.addEventListener("click", () => { etat.crayon[etat.enfant] = i; choisirOutil("crayon"); });
+      box.appendChild(b);
+    });
+  }
+  function choisirOutil(o) {
+    etat.outil = o;
+    $("outil-gomme").setAttribute("aria-pressed", String(o === "gomme"));
+    $("outil-coeur").setAttribute("aria-pressed", String(o === "coeur"));
+    rendrePastilles(); rendreBarre();
+  }
+  function rendreBarre() {
+    if (!etat.enfant) return;
+    const c = CRAYONS[etat.crayon[etat.enfant]].c, nom = nomDe(etat.enfant);
+    $("qui").innerHTML = `<span class="mini-avatar" style="background:${c}"></span><span></span>`;
+    $("qui").style.setProperty("--c", c);
+    $("qui").firstElementChild.textContent = initiale(nom);
+    $("qui").lastElementChild.textContent = nom;
+    const idx = pageCourante();
+    $("lieu-titre").textContent = PAGES[idx].titre;
+    const L = PAGES_DE[etat.enfant], pos = L.indexOf(idx);
+    $("lieu-page").textContent = "Page " + (pos + 1) + " sur " + L.length;
+    $("progres").style.width = ((pos + 1) / L.length * 100) + "%";
+    $("prec").disabled = voisin(idx, -1) < 0;
+    $("suiv").disabled = voisin(idx, 1) < 0;
+    majCompte();
+  }
+  const SVG_COEUR = (plein) => `<svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.3 3 4.5 6.7 4.5c2.1 0 3.6 1.2 4.4 2.6.8-1.4 2.3-2.6 4.4-2.6 3.7 0 5.8 3.8 4.3 7.2C19.5 16.4 12 21 12 21z" fill="${plein ? "#FF4D6D" : "none"}" stroke="${plein ? "#fff" : "currentColor"}" stroke-width="${plein ? 1.6 : 2}" stroke-linejoin="round"/></svg>`;
+  function majCoeurs() {
+    if (!etat.enfant) return;
+    const reste = MAX_COEURS - (etat.coeurs[etat.enfant] || []).length;
+    $("coeurs-restants").innerHTML = [0, 1, 2].map(i => SVG_COEUR(i < reste)).join("");
+    $("outil-coeur").setAttribute("aria-label", "Super cœur : il t'en reste " + reste);
+  }
+  function majCompte() {
+    majCoeurs(); if (etat.enfant) $("compte").textContent = choisis(etat.enfant).length; }
+
+  let astuceVue = false;
+  function montrerAstuce() {
+    try { astuceVue = astuceVue || sessionStorage.getItem("astuce-vue") === "1"; } catch (_) {}
+    if (astuceVue) return;
+    astuceVue = true;
+    try { sessionStorage.setItem("astuce-vue", "1"); } catch (_) {}
+    $("astuce").hidden = false;
+    setTimeout(() => { $("astuce").hidden = true; }, 3800);
+  }
+  function ouvrirCatalogue(id) {
+    etat.enfant = id; etat.vue = "catalogue"; tour = null; trait = null; geste = null;
+    $("accueil").hidden = true; $("lecteur").hidden = false;
+    choisirOutil("crayon");
+    requestAnimationFrame(dimensionner);
+    montrerAstuce();
+  }
+  function allerAccueil() {
+    etat.vue = "accueil"; tour = null; geste = null; trait = null;
+    $("lecteur").hidden = true; $("accueil").hidden = false; rendreAccueil(); requestAnimationFrame(() => { dessinerCollage(); dessinerGuirlande(); });
+  }
+  function allerPage(n) {
+    n = Math.max(0, Math.min(PAGES.length - 1, n));
+    tour = null; trait = null; geste = null;
+    etat.pages[etat.enfant] = n; rendreBarre(); planifier();
+  }
+  function rafraichir() {
+    if (etat.vue === "accueil") rendreAccueil(); else { rendreBarre(); planifier(); }
+    if (!$("fen-liste").hidden) rendreListe(listeDe);
+    if (!$("fen-parents").hidden && !document.activeElement?.matches?.("#corps-parents input")) rendreParents();
+  }
+
+  $("maison").addEventListener("click", allerAccueil);
+  $("prec").addEventListener("click", () => tournerAuto(-1));
+  $("suiv").addEventListener("click", () => tournerAuto(1));
+  $("outil-gomme").addEventListener("click", () => choisirOutil(etat.outil === "gomme" ? "crayon" : "gomme"));
+  $("outil-coeur").addEventListener("click", () => choisirOutil(etat.outil === "coeur" ? "crayon" : "coeur"));
+  $("annuler").addEventListener("click", () => {
+    const k = cle(etat.enfant, pageCourante());
+    if ((T[k] || []).length) { T[k].pop(); sauverPage(k); majCompte(); planifier(); }
+  });
+  document.addEventListener("keydown", e => {
+    if (etat.vue !== "catalogue" || [...document.querySelectorAll(".voile")].some(v => !v.hidden)) return;
+    if (e.key === "ArrowLeft") tournerAuto(-1);
+    if (e.key === "ArrowRight") tournerAuto(1);
+  });
+  window.addEventListener("resize", () => requestAnimationFrame(dimensionner));
+
+  /* ---------- Feuilles ---------- */
+  let listeDe = null;
+  function ouvrir(id) { $(id).hidden = false; $(id).querySelector(".boite").scrollTop = 0; }
+  document.querySelectorAll(".voile").forEach(v => {
+    v.addEventListener("click", e => { if (e.target === v || e.target.closest("[data-fermer]")) v.hidden = true; });
+  });
+  document.addEventListener("keydown", e => { if (e.key === "Escape") document.querySelectorAll(".voile").forEach(v => v.hidden = true); });
+
+  function carteChoix(c) {
+    const d = document.createElement("div"); d.className = "choix";
+    const im = document.createElement("img"); vignetteDans(im, c.p); d.appendChild(im);
+    const b = document.createElement("b"); b.textContent = c.p.nom; d.appendChild(b);
+    const s = document.createElement("small"); s.textContent = "Page " + (c.page + 1) + " · article " + c.lettre; d.appendChild(s);
+    const pr = document.createElement("span"); pr.className = "prix"; pr.textContent = prix(c.p.prix); d.appendChild(pr);
+    if (c.coeur) { const h = document.createElement("span"); h.className = "badge-coeur"; h.innerHTML = SVG_COEUR(true); d.appendChild(h); }
+    return d;
+  }
+  function rendreListe(k) {
+    const liste = choisis(k);
+    $("titre-liste").textContent = "La liste de " + nomDe(k);
+    const corps = $("corps-liste"); corps.innerHTML = "";
+    if (!liste.length) {
+      const v = document.createElement("p"); v.className = "vide";
+      v.textContent = "Rien d'entouré pour l'instant. Fais un rond avec le crayon autour d'un jouet!";
+      corps.appendChild(v);
+    } else {
+      const groupes = [["Mes super cœurs", liste.filter(c => c.coeur)], ["Mes autres choix", liste.filter(c => !c.coeur)]];
+      for (const [titre, lot] of groupes) {
+        if (!lot.length) continue;
+        const h = document.createElement("p"); h.className = "titre-section";
+        h.innerHTML = (titre === "Mes super cœurs" ? SVG_COEUR(true) : "") + "<span></span>"; h.lastChild.textContent = titre;
+        corps.appendChild(h);
+        const g = document.createElement("div"); g.className = "grille-liste";
+        lot.forEach(c => g.appendChild(carteChoix(c)));
+        corps.appendChild(g);
+      }
+    }
+    const a = document.createElement("div"); a.className = "actions";
+    const t = document.createElement("span"); t.className = "total";
+    t.textContent = liste.length ? nbCadeaux(liste.length) + " · total " + prix(liste.reduce((s, c) => s + c.p.prix, 0)) : "";
+    a.appendChild(t);
+    a.appendChild(document.createElement("span")).style.flex = "1";
+    a.appendChild(boutonPdf(k));
+    corps.appendChild(a);
+  }
+  $("voir-sommaire").addEventListener("click", () => {
+    const g = $("grille-sommaire"); g.innerHTML = "";
+    for (const sec of SOMMAIRE.filter(x => (PAGES_DE[etat.enfant] || []).includes(x.debut))) {
+      const b = document.createElement("button"); b.type = "button"; b.className = "rubrique";
+      const v = document.createElement("span"); v.className = "vignette";
+      const vedette = PAGES[sec.debut].items.reduce((m, p) => (p.prix > m.prix ? p : m));
+      const im = document.createElement("img"); vignetteDans(im, vedette); v.appendChild(im); b.appendChild(v);
+      const t = document.createElement("b"); t.textContent = sec.titre; b.appendChild(t);
+      const pg = document.createElement("small"); pg.textContent = "Page " + ((PAGES_DE[etat.enfant] || []).indexOf(sec.debut) + 1); b.appendChild(pg);
+      b.addEventListener("click", () => { $("fen-sommaire").hidden = true; allerPage(sec.debut); });
+      g.appendChild(b);
+    }
+    ouvrir("fen-sommaire");
+  });
+  $("voir-liste").addEventListener("click", () => { listeDe = etat.enfant; rendreListe(listeDe); ouvrir("fen-liste"); });
+
+  const armes = new Set();
+  function rendreParents() {
+    const corps = $("corps-parents"); corps.innerHTML = "";
+    const noms = document.createElement("div"); noms.className = "bloc-parent";
+    noms.innerHTML = `<h3>Les prénoms</h3>`;
+    for (const e of ENFANTS) {
+      const l = document.createElement("label"); l.className = "champ";
+      l.textContent = "Catalogue « " + e.defaut + " »";
+      const i = document.createElement("input"); i.id = "nom-" + e.id; i.type = "text"; i.maxLength = 24;
+      i.value = etat.noms[e.id] || ""; i.placeholder = e.defaut; i.autocomplete = "off";
+      i.addEventListener("change", () => { etat.noms[e.id] = i.value.trim(); sauverNoms(); rendreParents(); });
+      l.appendChild(i); noms.appendChild(l);
+    }
+    corps.appendChild(noms);
+
+    const reglage = document.createElement("div"); reglage.className = "bloc-parent";
+    const ligne = document.createElement("div"); ligne.className = "interrupteur";
+    ligne.innerHTML = `<div>Dessiner avec le doigt<small>Pour une tablette sans crayon. Les pages se tournent alors avec les flèches du bas.</small></div>`;
+    const sw = document.createElement("button"); sw.type = "button"; sw.className = "bascule"; sw.setAttribute("role", "switch");
+    sw.setAttribute("aria-checked", String(etat.doigtDessine)); sw.setAttribute("aria-label", "Dessiner avec le doigt");
+    sw.addEventListener("click", () => {
+      etat.doigtDessine = !etat.doigtDessine; sw.setAttribute("aria-checked", String(etat.doigtDessine));
+      try { localStorage.setItem("catalogue-doigt", etat.doigtDessine ? "1" : "0"); } catch (_) {}
+    });
+    ligne.appendChild(sw); reglage.appendChild(ligne); corps.appendChild(reglage);
+
+    for (const e of ENFANTS) {
+      const liste = choisis(e.id);
+      const b = document.createElement("div"); b.className = "bloc-parent";
+      const h = document.createElement("h3"); h.textContent = nomDe(e.id); b.appendChild(h);
+      const p = document.createElement("p"); p.className = "note";
+      p.textContent = liste.length
+        ? nbCadeaux(liste.length) + " · total " + prix(liste.reduce((s, c) => s + c.p.prix, 0))
+        : (pagesDessinees(e.id).length ? "Des dessins, mais aucun jouet clairement entouré." : "Rien d'entouré pour l'instant.");
+      b.appendChild(p);
+      const a = document.createElement("div"); a.className = "actions";
+      const voir = document.createElement("button"); voir.type = "button"; voir.className = "btn clair"; voir.textContent = "Voir la liste";
+      voir.addEventListener("click", () => { $("fen-parents").hidden = true; listeDe = e.id; rendreListe(e.id); ouvrir("fen-liste"); });
+      a.appendChild(voir);
+      a.appendChild(boutonPdf(e.id));
+      const eff = document.createElement("button"); eff.type = "button"; eff.className = "btn danger" + (armes.has(e.id) ? " arme" : "");
+      eff.textContent = armes.has(e.id) ? "Toucher encore pour tout effacer" : "Tout effacer";
+      eff.addEventListener("click", () => {
+        if (!armes.has(e.id)) { armes.add(e.id); rendreParents(); setTimeout(() => { if (armes.delete(e.id) && !$("fen-parents").hidden) rendreParents(); }, 4000); return; }
+        armes.delete(e.id);
+        for (const k of Object.keys(T)) if (k.startsWith(e.id + ":")) { T[k] = []; sauverPage(k); }
+        etat.coeurs[e.id] = []; sauverCoeurs(e.id);
+        avis("Le catalogue de " + nomDe(e.id) + " est effacé.");
+        rendreParents();
+      });
+      a.appendChild(eff);
+      b.appendChild(a);
+      corps.appendChild(b);
+    }
+    const n = document.createElement("p"); n.className = "note";
+    n.textContent = (db ? "Les ronds se sauvegardent tout seuls, en ligne, à chaque trait. " : "Les ronds se sauvegardent tout seuls sur cette tablette. ")
+      + "Le PDF donne la liste des cadeaux entourés avec les prix, puis chaque page telle que l'enfant l'a laissée.";
+    corps.appendChild(n);
+  }
+  function rendreAchats(k) {
+    const liste = choisis(k), corps = $("corps-achats");
+    $("titre-achats").textContent = "La liste de " + nomDe(k);
+    corps.innerHTML = "";
+    const intro = document.createElement("p"); intro.className = "note";
+    intro.textContent = liste.length
+      ? nbCadeaux(liste.length) + " · total " + prix(liste.reduce((s, c) => s + c.p.prix, 0)) + ". Prix vus en ligne le 20 novembre 2026, avant taxes. Le bouton ouvre la page du magasin."
+      : "Rien d'entouré pour l'instant.";
+    corps.appendChild(intro);
+    const groupes = [["Super cœurs", liste.filter(c => c.coeur)], ["Les autres choix", liste.filter(c => !c.coeur)]];
+    for (const [titre, lot] of groupes) {
+      if (!lot.length) continue;
+      const h = document.createElement("p"); h.className = "titre-section";
+      h.innerHTML = (titre === "Super cœurs" ? SVG_COEUR(true) : "") + "<span></span>"; h.lastChild.textContent = titre;
+      corps.appendChild(h);
+      const box = document.createElement("div");
+      for (const c of lot) {
+        const r = document.createElement("div"); r.className = "achat";
+        const im = document.createElement("img"); vignetteDans(im, c.p); r.appendChild(im);
+        const inf = document.createElement("div"); inf.className = "infos";
+        const b = document.createElement("b"); b.textContent = c.p.nom; inf.appendChild(b);
+        const sm = document.createElement("small");
+        sm.textContent = [c.p.marque, c.p.age ? ageTexte(c.p.age) : "", "page " + (c.page + 1) + ", article " + c.lettre].filter(Boolean).join(" · ");
+        inf.appendChild(sm); r.appendChild(inf);
+        const dr = document.createElement("div"); dr.className = "droite";
+        const pr = document.createElement("span"); pr.className = "prix"; pr.textContent = prix(c.p.prix); dr.appendChild(pr);
+        if (c.p.url) {
+          const a = document.createElement("a"); a.href = c.p.url; a.target = "_blank"; a.rel = "noopener noreferrer";
+          a.innerHTML = `<span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>`;
+          a.firstChild.textContent = "Acheter chez " + (c.p.source || "le magasin");
+          dr.appendChild(a);
+        }
+        r.appendChild(dr); box.appendChild(r);
+      }
+      corps.appendChild(box);
+    }
+    const act = document.createElement("div"); act.className = "actions";
+    act.appendChild(boutonPdf(k));
+    corps.appendChild(act);
+  }
+  $("ouvrir-parents").addEventListener("click", () => { rendreParents(); ouvrir("fen-parents"); });
+
+  /* ---------- Accueil : un soir de décembre sur la Côte-Nord (aurores, fleuve, chalet, traîneau) ---------- */
+  const paysage = $("paysage"), px = paysage.getContext("2d");
+  const calme = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let PW = 0, PH = 0, fond = null, aurore = null, actx = null, bandes = [], etoiles = [], flocons = [], fumee = [], lumieres = [], poussieres = [], tPrec = 0, traineau = null, prochainTraineau = 4;
+  const geo = {};
+  function bruit(rnd, n) { const a = Array.from({ length: n }, () => rnd()); return x => { const i = ((Math.floor(x) % n) + n) % n, j = (i + 1) % n, f = x - Math.floor(x), s = f * f * (3 - 2 * f); return a[i] * (1 - s) + a[j] * s; }; }
+  function bande(c1, c2) {
+    const c = document.createElement("canvas"); c.width = 2; c.height = 256;
+    const x = c.getContext("2d"), g = x.createLinearGradient(0, 0, 0, 256);
+    g.addColorStop(0, "rgba(0,0,0,0)"); g.addColorStop(.5, c1); g.addColorStop(.9, c2); g.addColorStop(1, "rgba(0,0,0,0)");
+    x.fillStyle = g; x.fillRect(0, 0, 2, 256); return c;
+  }
+  function taillePaysage() {
+    const d = Math.min(devicePixelRatio || 1, 2);
+    PW = innerWidth; PH = innerHeight;
+    paysage.width = Math.round(PW * d); paysage.height = Math.round(PH * d); px.setTransform(d, 0, 0, d, 0, 0);
+    fond = document.createElement("canvas"); fond.width = paysage.width; fond.height = paysage.height;
+    const f = fond.getContext("2d"); f.setTransform(d, 0, 0, d, 0, 0);
+    const W = PW, H = PH, T = Math.min(W, H), rnd = hasard(7), horizon = H * .64;
+    // ciel
+    let g = f.createLinearGradient(0, 0, 0, horizon); g.addColorStop(0, "#02050F"); g.addColorStop(.5, "#081431"); g.addColorStop(1, "#1A2A5E");
+    f.fillStyle = g; f.fillRect(0, 0, W, H);
+    // lune
+    const mx = W * .84, my = H * .14, mr = Math.max(18, T * .045); geo.lune = { x: mx, y: my, r: mr };
+    g = f.createRadialGradient(mx, my, mr * .8, mx, my, mr * 7); g.addColorStop(0, "rgba(255,240,205,.32)"); g.addColorStop(1, "rgba(255,240,205,0)"); f.fillStyle = g; f.fillRect(0, 0, W, H);
+    g = f.createRadialGradient(mx - mr * .3, my - mr * .3, mr * .1, mx, my, mr); g.addColorStop(0, "#FFFCEE"); g.addColorStop(1, "#EED9A2");
+    f.fillStyle = g; f.beginPath(); f.arc(mx, my, mr, 0, 7); f.fill();
+    f.fillStyle = "rgba(170,150,105,.22)"; [[.3, -.2, .2], [-.28, .22, .13], [.12, .38, .09], [-.1, -.35, .07]].forEach(([a, b2, c]) => { f.beginPath(); f.arc(mx + a * mr, my + b2 * mr, c * mr, 0, 7); f.fill(); });
+    // collines des Laurentides
+    const colline = (base, amp, freq, coul, graine) => { const n = bruit(hasard(graine), 40); f.beginPath(); f.moveTo(0, H); for (let x = 0; x <= W + 6; x += 6) f.lineTo(x, base - amp * n(x / W * freq)); f.lineTo(W, H); f.closePath(); f.fillStyle = coul; f.fill(); };
+    colline(horizon, H * .17, 6, "#152452", 3);
+    colline(horizon + 3, H * .1, 10, "#0F1B43", 5);
+    // le fleuve
+    const f0 = horizon + 2, f1 = H * .74; geo.fleuve = [f0, f1];
+    g = f.createLinearGradient(0, f0, 0, f1); g.addColorStop(0, "#22366E"); g.addColorStop(1, "#0C1636"); f.fillStyle = g; f.fillRect(0, f0, W, f1 - f0);
+    // la rive enneigée
+    const sol = bruit(hasard(11), 20); geo.sol = x => f1 - 6 + 20 * sol(x / W * 5);
+    f.beginPath(); f.moveTo(0, H); for (let x = 0; x <= W + 6; x += 6) f.lineTo(x, geo.sol(x)); f.lineTo(W, H); f.closePath();
+    g = f.createLinearGradient(0, f1 - 10, 0, H); g.addColorStop(0, "#D2DDF7"); g.addColorStop(1, "#7A8DC4"); f.fillStyle = g; f.fill();
+    // épinettes
+    const epinette = (x, base, h, coul) => {
+      const w = h * .42, et = 6;
+      for (let k = 0; k < et; k++) {
+        const y0 = base - h + k / et * h * .88, y1 = base - h + (k + 1) / et * h, ww = w * (.3 + .7 * (k + 1) / et);
+        f.beginPath(); f.moveTo(x, y0); f.lineTo(x - ww / 2, y1); f.lineTo(x + ww / 2, y1); f.closePath(); f.fillStyle = coul; f.fill();
+        f.beginPath(); f.moveTo(x - ww / 2, y1); f.quadraticCurveTo(x, y1 - h * .035, x + ww / 2, y1); f.lineTo(x + ww * .32, y1 - h * .02); f.lineTo(x - ww * .32, y1 - h * .02); f.closePath(); f.fillStyle = "rgba(225,235,255,.6)"; f.fill();
+      }
+      f.fillStyle = coul; f.fillRect(x - h * .025, base - h * .02, h * .05, h * .06);
+    };
+    const arbres = [];
+    for (let i = 0; i < 46; i++) { const cote = i % 2 ? rnd() * .32 : 1 - rnd() * .26; const x = cote * W, b2 = geo.sol(x) + 6 + rnd() * H * .2; arbres.push([x, b2, T * (.1 + rnd() * .2) * (b2 / H) * 1.25, i % 3 ? "#091330" : "#0C183A"]); }
+    arbres.sort((a, b2) => a[1] - b2[1]).forEach(a => epinette(...a));
+    // le chalet
+    const cw = T * .16, cx = W - cw * .75, cb = Math.min(H - 10, geo.sol(cx) + H * .17), ch = cw * .55;
+    f.fillStyle = "#3C2622"; f.fillRect(cx - cw / 2, cb - ch, cw, ch);
+    f.strokeStyle = "rgba(0,0,0,.28)"; f.lineWidth = 1; for (let y = cb - ch + 6; y < cb; y += 7) { f.beginPath(); f.moveTo(cx - cw / 2, y); f.lineTo(cx + cw / 2, y); f.stroke(); }
+    f.beginPath(); f.moveTo(cx - cw * .64, cb - ch); f.lineTo(cx, cb - ch - cw * .38); f.lineTo(cx + cw * .64, cb - ch); f.closePath(); f.fillStyle = "#24161A"; f.fill();
+    f.beginPath(); f.moveTo(cx - cw * .66, cb - ch + 3); f.lineTo(cx, cb - ch - cw * .4); f.lineTo(cx + cw * .66, cb - ch + 3); f.lineTo(cx + cw * .55, cb - ch - 3); f.lineTo(cx, cb - ch - cw * .3); f.lineTo(cx - cw * .55, cb - ch - 3); f.closePath(); f.fillStyle = "#E9EFFF"; f.fill();
+    const chx = cx + cw * .24, chy = cb - ch - cw * .19; f.fillStyle = "#4A2E28"; f.fillRect(chx, chy - cw * .14, cw * .1, cw * .2); f.fillStyle = "#E9EFFF"; f.fillRect(chx - 2, chy - cw * .14 - 4, cw * .1 + 4, 5);
+    geo.cheminee = { x: chx + cw * .05, y: chy - cw * .14 - 5 };
+    f.fillStyle = "#24161A"; f.fillRect(cx - cw * .07, cb - ch * .62, cw * .14, ch * .62);
+    geo.fenetres = [[cx - cw * .36, cb - ch * .72, cw * .17, ch * .36], [cx + cw * .19, cb - ch * .72, cw * .17, ch * .36]];
+    f.fillStyle = "#D7E1FA"; f.beginPath(); f.ellipse(cx, cb + 2, cw * .78, ch * .13, 0, 0, 7); f.fill();
+    // le sapin décoré à côté du chalet
+    const sx = cx - cw * .88, sb = cb + 3, sh = ch * 2;
+    epinette(sx, sb, sh, "#0F2E28"); geo.sapin = { x: sx, base: sb, h: sh };
+    lumieres = Array.from({ length: 28 }, (_, i) => { const k = rnd(), y = sb - sh * (.1 + k * .8), larg = sh * .42 * (.3 + .7 * (1 - (sb - y) / sh)) / 2; return { x: sx + (rnd() * 2 - 1) * larg * .8, y, c: ["#FF5C5C", "#FFD45C", "#5CC8FF", "#7CFF8A", "#FF8AE2"][i % 5], p: rnd() * 6 }; });
+    // calques animés
+    aurore = document.createElement("canvas"); aurore.width = Math.max(1, Math.round(W / 6)); aurore.height = Math.max(1, Math.round(H / 6)); actx = aurore.getContext("2d");
+    bandes = [bande("rgba(50,230,170,.45)", "rgba(110,255,200,.95)"), bande("rgba(120,90,255,.35)", "rgba(170,120,255,.8)"), bande("rgba(40,180,255,.35)", "rgba(90,220,255,.85)")];
+    etoiles = Array.from({ length: Math.round(W * H / 4200) }, () => ({ x: rnd() * W, y: rnd() * horizon * .95, r: .4 + rnd() * 1.4, p: rnd() * 6, v: .6 + rnd() * 2.2 }));
+    flocons = Array.from({ length: Math.round(Math.min(230, W * H / 6500)) }, () => ({ x: rnd() * W, y: rnd() * H, r: .6 + rnd() * 2.7, v: 14 + rnd() * 40, p: rnd() * 6 }));
+    dessinerScene(performance.now() / 1000, 0);
+  }
+  function etoileOr(x, y, r) { px.beginPath(); for (let i = 0; i < 10; i++) { const a = -Math.PI / 2 + i * Math.PI / 5, rr = i % 2 ? r * .45 : r; px.lineTo(x + Math.cos(a) * rr, y + Math.sin(a) * rr); } px.closePath(); px.fill(); }
+  function dessinerTraineau(x, y, s, t) {
+    px.save(); px.translate(x, y); px.scale(s, s);
+    px.fillStyle = px.strokeStyle = "#0A0F26"; px.lineWidth = 1.4; px.lineCap = "round";
+    for (let k = 0; k < 4; k++) { // rennes
+      const rx = -34 - k * 20 - (k % 2) * 2, ry = -6 + Math.sin(t * 9 + k) * 2;
+      px.beginPath(); px.ellipse(rx, ry, 8, 3.4, 0, 0, 7); px.fill();
+      px.beginPath(); px.moveTo(rx - 7, ry - 1); px.lineTo(rx - 11, ry - 7); px.stroke();
+      px.beginPath(); px.ellipse(rx - 12, ry - 8, 3, 2, -.3, 0, 7); px.fill();
+      px.beginPath(); px.moveTo(rx - 12, ry - 10); px.lineTo(rx - 10, ry - 15); px.moveTo(rx - 11, ry - 13); px.lineTo(rx - 8, ry - 14); px.stroke();
+      const jambe = Math.sin(t * 12 + k * 1.5) * 3;
+      px.beginPath(); px.moveTo(rx - 5, ry + 2); px.lineTo(rx - 8 - jambe, ry + 8); px.moveTo(rx + 5, ry + 2); px.lineTo(rx + 8 + jambe, ry + 8); px.stroke();
+      if (k === 3) { px.fillStyle = "#FF3B3B"; px.beginPath(); px.arc(rx - 15, ry - 8, 1.8, 0, 7); px.fill(); px.fillStyle = "#0A0F26"; }
+    }
+    px.beginPath(); px.moveTo(-20, -4); px.lineTo(-30, -6); px.stroke(); // guides
+    px.beginPath(); px.moveTo(-16, 0); px.quadraticCurveTo(-4, 8, 16, 2); px.lineTo(18, -8); px.lineTo(-6, -8); px.closePath(); px.fill(); // traîneau
+    px.beginPath(); px.moveTo(-20, 6); px.quadraticCurveTo(0, 10, 22, 4); px.stroke(); // patin
+    px.beginPath(); px.arc(4, -13, 6, 0, 7); px.fill(); px.beginPath(); px.arc(12, -12, 5, 0, 7); px.fill(); // père Noël et sac
+    px.restore();
+  }
+  function dessinerScene(t, dt) {
+    const W = PW, H = PH;
+    px.drawImage(fond, 0, 0, W, H);
+    for (const e of etoiles) { px.globalAlpha = .3 + .7 * (.5 + .5 * Math.sin(e.p + t * e.v)); px.fillStyle = "#fff"; px.fillRect(e.x, e.y, e.r, e.r); }
+    // aurores en rideaux : dessinées petit, puis agrandies (ça les adoucit)
+    const aw = aurore.width, ah = aurore.height, sx = W / aw;
+    actx.clearRect(0, 0, aw, ah); actx.globalCompositeOperation = "lighter";
+    [[.22, .07, 1, 0], [.3, .05, 1.35, 1], [.16, .05, .8, 2]].forEach(([base, amp, v, k]) => {
+      for (let i = -2; i < aw + 2; i++) {
+        const x = i * sx;
+        const y = H * base + Math.sin(x * .0038 + t * .22 * v + k) * H * amp + Math.sin(x * .011 - t * .35 * v) * H * .022;
+        const h = H * (.16 + .1 * Math.sin(x * .006 + t * .27 + k * 2));
+        const a = .22 + .3 * Math.sin(x * .017 + t * .9 * v + k * 1.7);
+        if (a <= .03) continue;
+        actx.globalAlpha = a * (k ? .65 : 1);
+        actx.drawImage(bandes[k], i, (y - h) / sx, 1.6, h / sx);
+      }
+    });
+    actx.globalAlpha = 1; actx.globalCompositeOperation = "source-over";
+    px.globalCompositeOperation = "lighter"; px.imageSmoothingEnabled = true; px.drawImage(aurore, 0, 0, W, H);
+    px.globalCompositeOperation = "source-over"; px.globalAlpha = 1;
+    // le traîneau passe devant la lune
+    if (!traineau && t > prochainTraineau) traineau = { t0: t, dur: 11 };
+    if (traineau) {
+      const u = (t - traineau.t0) / traineau.dur, L = geo.lune;
+      if (u >= 1) { traineau = null; prochainTraineau = t + 24 + Math.random() * 10; }
+      else {
+        const x = W * 1.08 - u * W * 1.3, y = L.y + L.r * .15 - Math.sin(u * Math.PI) * H * .05 + (x - L.x) * .04, s = Math.max(.7, Math.min(W, H) / 900);
+        if (Math.random() < dt * 40) poussieres.push({ x: x + 20 * s, y: y + 2 * s, a: 1, vx: 20 + Math.random() * 20, vy: 10 + Math.random() * 20 });
+        dessinerTraineau(x, y, s, t);
+      }
+    }
+    for (const p of poussieres) { p.x += p.vx * dt; p.y += p.vy * dt; p.a -= dt * .8; }
+    poussieres = poussieres.filter(p => p.a > 0);
+    px.fillStyle = "#FFE08A"; for (const p of poussieres) { px.globalAlpha = p.a; etoileOr(p.x, p.y, 2.2); }
+    px.globalAlpha = 1;
+    // la lune se reflète dans le fleuve
+    const [f0, f1] = geo.fleuve, L = geo.lune;
+    px.fillStyle = "#FFF0C8";
+    for (let i = 0; i < 16; i++) { const y = f0 + 3 + i * (f1 - f0 - 6) / 16, w = L.r * (1.8 - i * .06) * (.55 + .45 * Math.sin(t * 2 + i)); px.globalAlpha = .18 + .18 * Math.sin(t * 2.6 + i * 1.7); px.fillRect(L.x - w / 2 + Math.sin(t * .8 + i) * 5, y, w, 1.6); }
+    px.globalAlpha = 1;
+    // fenêtres du chalet
+    const vac = .85 + .15 * Math.sin(t * 7) * Math.sin(t * 3.1);
+    for (const [x, y, w, h] of geo.fenetres) {
+      const g = px.createRadialGradient(x + w / 2, y + h / 2, 2, x + w / 2, y + h / 2, w * 2.2); g.addColorStop(0, `rgba(255,190,90,${.38 * vac})`); g.addColorStop(1, "rgba(255,190,90,0)");
+      px.fillStyle = g; px.fillRect(x - w * 2, y - h * 2, w * 5, h * 5);
+      px.fillStyle = `rgb(255,${(196 + 24 * vac) | 0},${(96 + 20 * vac) | 0})`; px.fillRect(x, y, w, h);
+      px.fillStyle = "#3C2622"; px.fillRect(x + w / 2 - 1, y, 2, h); px.fillRect(x, y + h / 2 - 1, w, 2);
+    }
+    // fumée de la cheminée
+    if (Math.random() < dt * 7) fumee.push({ x: geo.cheminee.x, y: geo.cheminee.y, r: 3, a: .45, vx: 5 + Math.random() * 7 });
+    for (const s of fumee) { s.y -= 13 * dt; s.x += s.vx * dt; s.r += 5 * dt; s.a -= .1 * dt; }
+    fumee = fumee.filter(s => s.a > 0);
+    px.fillStyle = "#B4BDDA"; for (const s of fumee) { px.globalAlpha = s.a; px.beginPath(); px.arc(s.x, s.y, s.r, 0, 7); px.fill(); }
+    px.globalAlpha = 1;
+    // lumières et étoile du sapin
+    for (const l of lumieres) { const a = .5 + .5 * Math.sin(t * 3 + l.p); px.fillStyle = l.c; px.globalAlpha = .25 * a; px.beginPath(); px.arc(l.x, l.y, 7, 0, 7); px.fill(); px.globalAlpha = .45 + .55 * a; px.beginPath(); px.arc(l.x, l.y, 2.2, 0, 7); px.fill(); }
+    const S = geo.sapin; px.globalAlpha = .5 + .3 * Math.sin(t * 2); px.fillStyle = "#FFD45C"; px.beginPath(); px.arc(S.x, S.base - S.h, 14, 0, 7); px.fill();
+    px.globalAlpha = 1; etoileOr(S.x, S.base - S.h, 8);
+    // la neige
+    px.fillStyle = "#fff";
+    for (const fl of flocons) {
+      if (dt) { fl.y += fl.v * dt * (.5 + fl.r / 3); fl.p += dt; fl.x += Math.sin(fl.p) * .35; if (fl.y > H + 4) { fl.y = -4; fl.x = Math.random() * W; } }
+      px.globalAlpha = .3 + fl.r / 4; px.beginPath(); px.arc(fl.x, fl.y, fl.r, 0, 7); px.fill();
+    }
+    px.globalAlpha = 1;
+  }
+  function bouclePaysage(now) {
+    requestAnimationFrame(bouclePaysage);
+    if (etat.vue !== "accueil" || calme || document.hidden || !fond) return;
+    if (now - tPrec < 30) return;
+    const dt = Math.min(.06, (now - tPrec) / 1000); tPrec = now;
+    dessinerScene(now / 1000, dt);
+  }
+  // étincelles autour du livre
+  (() => { const box = $("etincelles"); let h = ""; const r = hasard(3); for (let i = 0; i < 14; i++) h += `<span class="etincelle" style="left:${(r() * 100).toFixed(1)}%;top:${(r() * 100).toFixed(1)}%;animation-delay:${(-r() * 3.2).toFixed(2)}s;transform:scale(${(.5 + r() * .8).toFixed(2)})"></span>`; box.innerHTML = h; })();
+  // les jouets vedettes de la couverture : le plus beau de chaque section
+  const parId = new Map(PRODUITS.map(p => [p.id, p]));
+  const VEDETTES = [["lego-60496", "lego"], ["t7-skidoo-mxz", "teleguides"], ["h7-lavage-requin", "autos"], ["k7-laser-x", "cool"], ["b7-connetix-billes", "batir"], ["p7-stihl-scie", "jouer"], ["t7-chargeuse-cat-950m", "dehors"]]
+    .map(([id, c]) => parId.get(id) || PRODUITS.filter(p => p.categorie === c && p.prix <= 130).sort((a, b) => b.prix - a.prix)[0]).filter(Boolean);
+  VEDETTES.forEach(p => fileAttente.unshift(p.sp[0]));
+  const POSES = [[.5, .52, .62, -.05], [.2, .3, .38, -.18], [.8, .3, .38, .16], [.18, .75, .36, .12], [.82, .74, .36, -.12], [.5, .2, .3, .04], [.5, .86, .32, -.03]];
+  function dessinerCollage() {
+    const cv = $("couv-collage"); if (!cv || etat.vue !== "accueil") return;
+    const r = cv.getBoundingClientRect(); if (!r.width) return;
+    const d = Math.min(devicePixelRatio || 1, 2), w = Math.round(r.width * d), h = Math.round(r.height * d);
+    if (cv.width !== w || cv.height !== h) { cv.width = w; cv.height = h; }
+    const x = cv.getContext("2d"); x.clearRect(0, 0, w, h);
+    const ordre = [1, 2, 3, 4, 5, 6, 0];
+    for (const i of ordre) {
+      const p = VEDETTES[i], im = p && imageDe(p.id); if (!im) continue;
+      const [cx, cy, taille, rot] = POSES[i], s = Math.min(w, h) * taille;
+      const k = Math.min(s / im.width, s / im.height), iw = im.width * k, ih = im.height * k;
+      x.save(); x.translate(cx * w, cy * h); x.rotate(rot);
+      x.shadowColor = "rgba(60,0,0,.45)"; x.shadowBlur = 18 * d; x.shadowOffsetY = 8 * d;
+      x.drawImage(im, -iw / 2, -ih / 2, iw, ih); x.restore();
+    }
+  }
+  window.addEventListener("resize", () => { taillePaysage(); dessinerCollage(); dessinerGuirlande(); });
+
+  /* ---------- Démarrage ---------- */
+  lireLocal();
+  try { etat.doigtDessine = localStorage.getItem("catalogue-doigt") === "1"; } catch (_) {}
+  rendreAccueil();
+  const polices = ["48px Shrikhand", "900 26px Archivo", "800 16px Archivo", "500 14px Archivo", "700 16px Archivo"];
+  Promise.race([Promise.all(polices.map(p => document.fonts.load(p))), new Promise(r => setTimeout(r, 2500))])
+    .then(() => { BASES.clear(); planifier(); });
+  brancherDb();
+  suivante();
+  taillePaysage(); requestAnimationFrame(bouclePaysage);
+
+})();
+</script>
