@@ -2348,9 +2348,19 @@ svg { display: block; }
     const pdf = new jsPDF({ unit: "pt", format: "letter", compress: true });
     const PW = 612, PH = 792, CWp = 1275, CHp = 1650, f = PW / CWp;
     const liste = choisis(k), nom = nomDe(k);
-    const parPage = 7, nbRes = Math.max(1, Math.ceil(liste.length / parPage));
+    // les cadeaux de plus de 50 $ descendent tout en bas, sous leur propre titre
+    const abordables = liste.filter(c => c.p.prix <= TROP_CHER), chers = liste.filter(c => c.p.prix > TROP_CHER);
+    const rangs = [...abordables, ...(chers.length ? [{ titre: "Trop cher (plus de 50 $)" }] : []), ...chers];
+    // 7 cadeaux par feuille ; le titre « Trop cher » ne reste jamais seul en bas d'une feuille
+    const parPage = 7, pagesRes = [];
+    let feuille = [], n = 0;
+    for (const rg of rangs) {
+      if ((rg.titre ? n >= parPage - 1 : n >= parPage) && feuille.length) { pagesRes.push(feuille); feuille = []; n = 0; }
+      feuille.push(rg); if (!rg.titre) n++;
+    }
+    if (feuille.length) pagesRes.push(feuille);
 
-    for (let r = 0; r < nbRes; r++) {
+    for (let r = 0; r < Math.max(1, pagesRes.length); r++) {
       if (r) pdf.addPage();
       const cv = document.createElement("canvas"); cv.width = CWp; cv.height = CHp;
       const x = cv.getContext("2d");
@@ -2366,8 +2376,13 @@ svg { display: block; }
         x.fillStyle = COUL.douce; x.font = `600 34px ${F_TEXTE}`;
         x.fillText("Rien d'entouré pour l'instant.", 60, y + 40);
       }
-      for (const ch of liste.slice(r * parPage, r * parPage + parPage)) {
-        const p = ch.p, hRang = 168;
+      for (const ch of (pagesRes[r] || [])) {
+        if (ch.titre) {
+          y += 14; x.fillStyle = "#E5483D"; x.font = `900 30px ${F_TEXTE}`;
+          x.fillText(ch.titre.toUpperCase(), 60, y + 34);
+          x.fillRect(60, y + 50, CWp - 120, 4); y += 72; continue;
+        }
+        const p = ch.p, hRang = 168, cher = p.prix > TROP_CHER;
         rondRect(x, 60, y, 150, 150, 12); x.fillStyle = "#fff"; x.fill(); x.lineWidth = 2; x.strokeStyle = COUL.filet; x.stroke();
         const im = imageDe(p.id);
         if (im) { const s = Math.min(134 / im.width, 134 / im.height); const iw = im.width * s, ih = im.height * s; x.drawImage(im, 60 + (150 - iw) / 2, y + (150 - ih) / 2, iw, ih); }
@@ -2381,7 +2396,7 @@ svg { display: block; }
         x.fillStyle = COUL.vert; x.font = `700 21px ${F_TEXTE}`;
         x.fillText("Vu chez " + (p.source || "—") + (p.url ? "  (toucher pour ouvrir la page)" : ""), 240, y + 144);
         x.strokeStyle = COUL.filet; x.lineWidth = 2; x.beginPath(); x.moveTo(60, y + hRang - 2); x.lineTo(CWp - 60, y + hRang - 2); x.stroke();
-        x.fillStyle = COUL.rouge; x.font = `900 40px ${F_TEXTE}`; x.textAlign = "right";
+        x.fillStyle = cher ? "#E5483D" : COUL.rouge; x.font = `900 40px ${F_TEXTE}`; x.textAlign = "right";
         x.fillText(prix(p.prix), CWp - 60, y + 80); x.textAlign = "left";
         if (p.url) pdf.link(60 * f, y * f, (CWp - 120) * f, 150 * f, { url: p.url });
         y += hRang;
