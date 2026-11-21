@@ -1,31 +1,32 @@
 // Catalogue des Souhaits : tout le catalogue reste dans l'iPad, même sans réseau.
-const VERSION = "souhaits-602daba744";
+const VERSION = "souhaits-4c48ea8bbd";
 const COQUILLE = [
   "./",
   "index.html",
   "manifest.webmanifest",
   "rire.gif",
+  "couverture.webp",
   "icones/apple-touch-icon.png",
   "icones/icone-192.png",
   "icones/icone-512.png",
-  "planches/p00.jpg",
-  "planches/p01.jpg",
-  "planches/p02.jpg",
-  "planches/p03.jpg",
-  "planches/p04.jpg",
-  "planches/p05.jpg",
-  "planches/p06.jpg",
-  "planches/p07.jpg",
-  "planches/p08.jpg",
-  "planches/p09.jpg",
-  "planches/p10.jpg",
-  "planches/p11.jpg",
-  "planches/p12.jpg",
-  "planches/p13.jpg",
-  "planches/p14.jpg",
-  "planches/p15.jpg",
-  "planches/p16.jpg",
-  "planches/p17.jpg"
+  "planches/p00-b7c2934a.jpg",
+  "planches/p01-88364c10.jpg",
+  "planches/p02-0ebbec9b.jpg",
+  "planches/p03-93028fb4.jpg",
+  "planches/p04-16cf149e.jpg",
+  "planches/p05-55b8ab76.jpg",
+  "planches/p06-2a25a1a7.jpg",
+  "planches/p07-23a41da3.jpg",
+  "planches/p08-1d715f3f.jpg",
+  "planches/p09-4f1ea770.jpg",
+  "planches/p10-50b4f20c.jpg",
+  "planches/p11-171d713c.jpg",
+  "planches/p12-1e0bcf2b.jpg",
+  "planches/p13-376fe4b8.jpg",
+  "planches/p14-aad1228a.jpg",
+  "planches/p15-5c112830.jpg",
+  "planches/p16-1952ab20.jpg",
+  "planches/p17-69e12d40.jpg"
 ];
 const EXTERNES = ["https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"];
 

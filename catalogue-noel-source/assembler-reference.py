@@ -62,7 +62,7 @@ NATUREL = {"y7-cozy-coupe": "d2-bouger", "y7-glissoire": "d2-bouger", "y7-table-
            "yc-lp-autobus": "d2-vehicules", "yc-lp-camion-benne": "d2-vehicules", "yc-b-garage": "d2-vehicules", "yc-b-transporteur": "d2-vehicules",
            "yc-xylo-renard": "d2-musique", "yc-b-tambour": "d2-musique", "yc-micro-okidokee": "d2-musique", "yc-funkeys": "d2-semblant",
            "yc-water-lab": "d2-bain", "yc-boon-tuyaux": "d2-bain", "yc-twilight-chevreuil": "d2-calins", "yc-munchkin-etoile": "d2-bain",
-           "y7-qc-placote-tour-consignes": "d2-apprendre"}
+           "y7-qc-placote-tour-consignes": "d2-apprendre", "y7-qc-vst-ours-noisette": "d2-calins", "y7-qc-viking-benne": "d2-vehicules", "y7-qc-b-gogo-lolo": "d2-bouger"}
 RETRO = _liste("retro-deplacer.txt")
 COUPS = _liste("coups-grands.txt") | _liste("coups-1an.txt")
 ok = []
@@ -152,6 +152,11 @@ for k in range(0, len(tri), N * N):
         feuille.paste(im, (ox, oy))
         it["sp"] = [len(planches), ox, oy, im.width, im.height]
     feuille.save(os.path.join(D, nomp), quality=80, optimize=True, progressive=True)
+    # le nom porte l'empreinte du contenu : une planche refaite a un nouveau nom, jamais une vieille copie en cache
+    empreinte = hashlib.md5(open(os.path.join(D, nomp), "rb").read()).hexdigest()[:8]
+    final = nomp.replace(".jpg", "-" + empreinte + ".jpg")
+    os.replace(os.path.join(D, nomp), os.path.join(D, final))
+    nomp = final
     planches.append(nomp)
 for it in ok:
     it["img"] = planches[it["sp"][0]]
