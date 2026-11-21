@@ -2,7 +2,7 @@ import json, os, sys
 
 D = "/tmp/claude-0/-home-user-book/cb220ab1-a615-5cba-b429-4b85a382651f/scratchpad/catalogue"
 items = []
-for f in ("lego.json", "autres.json", "lego2.json", "batir2.json", "autres2.json", "lego3.json", "batir3.json", "figurines3.json", "jeux3.json", "art4.json", "dehors4.json", "teleguides5.json", "jeux6.json", "livres6.json", "lego6.json", "teleguides7.json", "cool7.json", "dehors7.json", "batir7.json", "hotwheels7.json", "jouer7.json", "art7.json", "deuxans7.json", "deuxans-moteur.json", "deuxans-educ.json", "deuxans-cool.json", "deuxans-livres.json", "deuxans-bain.json", "deuxans-peluches.json", "deuxans-musique.json", "deuxans-art.json", "deuxans-vehicules.json", "deuxans-role.json", "papa.json", "deuxans-qc-livres.json", "deuxans-qc-apprendre.json", "deuxans-qc-beaux.json", "grands-cool.json", "grands-teleguides.json", "papa2.json", "papa3.json", "retro.json", "grands-qualite.json", "grands-billes.json", "grands-magie.json", "deuxans-qc-luge.json"):
+for f in ("lego.json", "autres.json", "lego2.json", "batir2.json", "autres2.json", "lego3.json", "batir3.json", "figurines3.json", "jeux3.json", "art4.json", "dehors4.json", "teleguides5.json", "jeux6.json", "livres6.json", "lego6.json", "teleguides7.json", "cool7.json", "dehors7.json", "batir7.json", "hotwheels7.json", "jouer7.json", "art7.json", "deuxans7.json", "deuxans-moteur.json", "deuxans-educ.json", "deuxans-cool.json", "deuxans-livres.json", "deuxans-bain.json", "deuxans-peluches.json", "deuxans-musique.json", "deuxans-art.json", "deuxans-vehicules.json", "deuxans-role.json", "papa.json", "deuxans-qc-livres.json", "deuxans-qc-apprendre.json", "deuxans-qc-beaux.json", "grands-cool.json", "grands-teleguides.json", "papa2.json", "papa3.json", "retro.json", "grands-qualite.json", "grands-billes.json", "grands-magie.json", "deuxans-qc-luge.json", "deuxans-qc-cuisine.json", "deuxans-qc-montessori.json"):
     p = os.path.join(D, f)
     if os.path.exists(p):
         items += json.load(open(p))
@@ -97,6 +97,8 @@ for it in items:
     # les coups de cœur du tout-petit retournent dans leur rayon ; seuls ceux de la liste choisie restent en tête
     if it.get("categorie") == "d2-coups": it["categorie"] = NATUREL.get(it["id"], "d2-apprendre")
     if it["id"].startswith("yz-"): it["categorie"] = "d2-retro"
+    if it["id"].startswith(("yt-", "yr-qc-cuisine-")): it["categorie"] = "d2-montessori"
+    if it.get("categorie") == "d2-vehicules" and it["id"] not in COUPS and it["id"] not in RETRO: continue
     if it["id"] in RETRO: it["categorie"] = "d2-retro" if it["categorie"].startswith("d2-") else "retro"
     if it["id"] in COUPS: it["categorie"] = "d2-coups" if it["categorie"].startswith("d2-") else "coups"
     if it.get("categorie") == "figurines":
@@ -105,7 +107,7 @@ for it in items:
         continue
     if it["id"].startswith("zz-"):
         pass
-    elif isinstance(it.get("prix"), (int, float)) and (it["prix"] > 150 or (it["prix"] > 80 and not it["id"].startswith(("t7-", "k7-", "e7-", "b7-", "h7-", "p7-", "r7-", "k8-", "t8-", "p8-", "h8-", "r9-", "yz-", "p9-", "e9-", "b9-", "k9-", "y7-", "ym-", "ye-", "yc-", "yl-", "yb-", "yp-", "ys-", "ya-", "yv-", "yr-"))) or (it["prix"] > 50 and it["id"] not in GROS_OK and not it["id"].startswith(("c-", "f-", "g-", "a4-", "d4-", "t5-", "j6-", "l6-", "t7-", "k7-", "e7-", "b7-", "h7-", "p7-", "r7-", "k8-", "t8-", "p8-", "h8-", "r9-", "yz-", "p9-", "e9-", "b9-", "k9-", "y7-", "ym-", "ye-", "yc-", "yl-", "yb-", "yp-", "ys-", "ya-", "yv-", "yr-")) and it["id"] not in NOUVEAUX_LEGO6 and it["id"] not in NOUVEAUX_LEGO)):
+    elif isinstance(it.get("prix"), (int, float)) and (it["prix"] > 150 or (it["prix"] > 80 and not it["id"].startswith(("t7-", "k7-", "e7-", "b7-", "h7-", "p7-", "r7-", "k8-", "t8-", "p8-", "h8-", "r9-", "yz-", "yt-", "p9-", "e9-", "b9-", "k9-", "y7-", "ym-", "ye-", "yc-", "yl-", "yb-", "yp-", "ys-", "ya-", "yv-", "yr-"))) or (it["prix"] > 50 and it["id"] not in GROS_OK and not it["id"].startswith(("c-", "f-", "g-", "a4-", "d4-", "t5-", "j6-", "l6-", "t7-", "k7-", "e7-", "b7-", "h7-", "p7-", "r7-", "k8-", "t8-", "p8-", "h8-", "r9-", "yz-", "yt-", "p9-", "e9-", "b9-", "k9-", "y7-", "ym-", "ye-", "yc-", "yl-", "yb-", "yp-", "ys-", "ya-", "yv-", "yr-")) and it["id"] not in NOUVEAUX_LEGO6 and it["id"] not in NOUVEAUX_LEGO)):
         continue
     img = os.path.join(D, it.get("img", ""))
     if not os.path.isfile(img):
@@ -122,13 +124,13 @@ for it in items:
     if _a is not None and _c != "papa":
         if _a >= 14: continue
         if not _c.startswith("d2-") and _a >= 8 and _c != "teleguides": continue
-        if _c.startswith("d2-") and _a >= 3: continue
+        if _c.startswith("d2-") and _a >= 3 and it["id"] not in {"ym-luge-decathlon-freins"}: continue   # choisi par le parent malgré le 3+
     keep = {k: it.get(k) for k in ("id", "categorie", "marque", "nom", "age", "prix", "source", "url", "img", "ageCible", "accroche")}
     ok.append(keep)
 # ---- planches d'images : 36 jouets par fichier, dans l'ordre des sections ----
 from PIL import Image
 ORDRE = ["retro", "coups", "lego", "batir", "teleguides", "autos", "cool", "jouer", "jeux", "livres", "art", "dehors",
-         "d2-retro", "d2-coups", "d2-bouger", "d2-apprendre", "d2-vehicules", "d2-semblant", "d2-musique", "d2-art", "d2-bain", "d2-calins", "d2-livres", "papa"]
+         "d2-retro", "d2-coups", "d2-montessori", "d2-bouger", "d2-apprendre", "d2-semblant", "d2-musique", "d2-art", "d2-bain", "d2-calins", "d2-livres", "papa"]
 rang = {c: i for i, c in enumerate(ORDRE)}
 import hashlib
 # dans une même catégorie, un ordre mêlé mais toujours le même (pas par prix)
