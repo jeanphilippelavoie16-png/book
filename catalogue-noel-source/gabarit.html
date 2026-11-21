@@ -3,7 +3,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400..900&family=Inter:wght@400..800&family=Fraunces:ital,opsz,wght@0,9..144,800;1,9..144,600;1,9..144,800&family=Bungee&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400..900&family=Inter:wght@400..800&family=Fraunces:ital,opsz,wght@0,9..144,800;1,9..144,600;1,9..144,800&family=Bungee&family=Permanent+Marker&display=swap">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <style>
 /* Mise en page : une liseuse plein écran, sombre comme une salle de lecture ; la page du catalogue (papier, vintage)
@@ -514,13 +514,21 @@ svg { display: block; }
 .ouvrir-guide { justify-self: start; display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px 7px 7px; border-radius: 999px; border: 1px solid rgba(242,213,143,.45);
   background: rgba(11,36,26,.35); color: #F2D58F; font: 600 13px var(--ui); letter-spacing: .03em; cursor: pointer; }
 .ouvrir-guide span { width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; background: #F2D58F; color: #6A1A12; font: 800 13px var(--ui); }
-.guide { position: fixed; inset: 0; z-index: 60; display: grid; place-items: center; padding: 20px; background: rgba(6,20,14,.62); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); animation: guide-fondu .35s ease both; }
+.guide { position: fixed; inset: 0; z-index: 60; display: grid; place-items: center; padding: 28px 20px; overflow-y: auto; background: rgba(6,20,14,.62); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); animation: guide-fondu .35s ease both; }
 @keyframes guide-fondu { from { opacity: 0; } }
-.guide-carte { position: relative; width: min(560px, 100%); padding: 34px 30px 26px; border-radius: 22px; background: #FBF5E8; color: #1E2740; text-align: center;
+.guide-corps { display: grid; grid-template-columns: 1.25fr 1fr; gap: 18px; align-items: center; margin-bottom: 16px; }
+.guide-video { position: relative; border-radius: 14px; overflow: hidden; background: #1E2740; box-shadow: 0 0 0 4px #fff, 0 12px 26px -10px rgba(30,39,64,.55); }
+.guide-video video { display: block; width: 100%; height: auto; aspect-ratio: 1180 / 820; object-fit: cover; }
+.guide-corps .guide-etapes { grid-template-columns: 1fr; margin: 0; gap: 9px; }
+.guide-corps .guide-etapes li { padding: 10px 12px; }
+.guide-corps .g-ico { font-size: 22px; }
+@media (max-width: 760px), (max-aspect-ratio: 1/1) { .guide-corps { grid-template-columns: 1fr; } .guide-corps .guide-etapes { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 480px) { .guide-corps .guide-etapes { grid-template-columns: 1fr; } }
+.guide-carte { position: relative; width: min(900px, 100%); margin: auto; box-sizing: border-box; padding: 34px 30px 26px; border-radius: 22px; background: #FBF5E8; color: #1E2740; text-align: center;
   box-shadow: 0 0 0 1px rgba(214,178,94,.6), 0 0 0 8px #FBF5E8, 0 0 0 9px rgba(214,178,94,.45), 0 40px 80px -20px rgba(0,0,0,.6); animation: guide-monte .5s cubic-bezier(.2,.8,.2,1) both; }
 @keyframes guide-monte { from { opacity: 0; transform: translateY(24px) scale(.97); } }
 .guide-ruban { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); padding: 7px 18px; border-radius: 999px; background: #C8302A; color: #FFF3C4; font: 700 12px/1 var(--ui); letter-spacing: .2em; text-transform: uppercase; box-shadow: 0 6px 14px rgba(120,20,10,.35); white-space: nowrap; }
-.guide h2 { margin: 4px 0 18px; font: italic 600 clamp(28px, 4vw, 38px)/1.05 "Fraunces", Georgia, serif; color: #1A1F33; }
+.guide h2 { margin: 4px 0 14px; font: italic 600 clamp(28px, 4vw, 38px)/1.05 "Fraunces", Georgia, serif; color: #1A1F33; }
 .guide-etapes { list-style: none; margin: 0 0 18px; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; text-align: left; counter-reset: g; }
 .guide-etapes li { position: relative; display: grid; grid-template-columns: auto 1fr; column-gap: 12px; align-items: start; padding: 14px; border-radius: 16px; background: #fff; box-shadow: 0 1px 0 rgba(30,39,64,.06), 0 8px 18px -12px rgba(30,39,64,.4); counter-increment: g; }
 .guide-etapes li::before { content: counter(g); position: absolute; top: -8px; left: -8px; width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; background: #C8302A; color: #fff; font: 800 12px/1 var(--ui); }
@@ -533,11 +541,13 @@ svg { display: block; }
 .guide-go { padding: 13px 34px; border: 0; border-radius: 999px; background: linear-gradient(180deg, #2FA864, #1F7A4D); color: #fff; font: 800 16px var(--ui); letter-spacing: .02em; cursor: pointer; box-shadow: 0 10px 20px -8px rgba(31,122,77,.8); }
 .guide-go:active { transform: scale(.97); }
 @media (max-width: 560px) { .guide-etapes { grid-template-columns: 1fr; } .guide-carte { padding: 30px 18px 20px; } }
+.carte-enf .pastille-age.photo { width: 62px; height: 62px; margin: -4px 0; background-size: cover; background-position: center; background-color: #fff;
+  box-shadow: 0 0 0 3px #fff, 0 0 0 5px var(--c), 0 6px 14px rgba(0,0,0,.35); }
 .choix-mode { display: grid; gap: 8px; }
 .choix-mode button { display: grid; gap: 3px; text-align: left; padding: 12px 14px; border-radius: 14px; background: rgba(255,255,255,.05); box-shadow: inset 0 0 0 1px var(--ligne); color: var(--texte); }
 .choix-mode button b { font-size: 15px; } .choix-mode button small { color: var(--texte-2); font-size: 13px; line-height: 1.35; }
 .choix-mode button[aria-checked="true"] { box-shadow: inset 0 0 0 2px var(--or); background: rgba(243,195,82,.1); }
-#outil-crayon[aria-pressed="true"] { color: var(--crayon, #C8302A); }
+#outil-crayon[aria-pressed="true"] { background: var(--crayon, #1E2740); color: #fff; }
 @media (prefers-reduced-motion: reduce) { .neige { display: none; } .scene-accueil > *, .enfants .carte-enf, .sceau::after { animation: none; } }
 
 #accueil.ouverture::after { content: ""; position: fixed; inset: 0; z-index: 10; background: #FBF4E4; opacity: 0; animation: fondu .22s forwards; }
@@ -554,7 +564,7 @@ svg { display: block; }
   pointer-events: none;
 }
 .outils.barre-verre > * { pointer-events: auto; }
-.outils .sep { width: 1px; height: 26px; margin: 0 4px; background: rgba(255,255,255,.28); }
+.outils .sep { width: 1px; height: 26px; margin: 0 4px; background: rgba(255,255,255,.55); }
 .outils.barre-verre.dans-bandeau { width: auto; justify-content: flex-end; gap: 6px; padding-left: 0; padding-right: 12px; }
 .outils.dans-bandeau .ic, .outils.dans-bandeau .qui { --d: 40px; }
 .outils.dans-bandeau .ic svg { width: 19px; height: 19px; }
@@ -569,13 +579,13 @@ svg { display: block; }
   transition: transform .15s ease, background-color .15s ease, color .15s ease, box-shadow .15s ease;
 }
 .outils .ic, .outils .qui {
-  background: rgba(255,255,255,.14);
+  background: rgba(255,255,255,.94); color: #1E2740;
   box-shadow: inset 0 0 0 1px rgba(255,255,255,.22);
 }
-.outils .ic:hover { background: rgba(255,255,255,.22); }
+.outils .ic:hover { background: #fff; }
 .outils .ic:active, .outils .qui:active, .outils .pastille:active { transform: scale(.92); }
-.outils .ic[aria-pressed="true"] { background: #fff; color: #C8302A; box-shadow: 0 4px 14px rgba(80,0,0,.3); }
-.outils .ic:disabled { opacity: .35; }
+.outils .ic[aria-pressed="true"] { background: #1E2740; color: #fff; box-shadow: 0 0 0 3px #fff, 0 4px 14px rgba(0,0,0,.35); }
+.outils .ic:disabled { opacity: .45; background: rgba(255,255,255,.6); }
 .outils .ic svg { width: 21px; height: 21px; }
 .outils .etiq, .outils .qui span:last-child { display: none; }
 .outils .qui { background: var(--c, #1B64C8); box-shadow: inset 0 0 0 2px rgba(255,255,255,.85), 0 3px 10px rgba(80,0,0,.25); }
@@ -586,7 +596,7 @@ svg { display: block; }
 .outils .compte { position: absolute; top: -4px; right: -6px; min-width: 20px; height: 20px; padding: 0 6px; font-size: 12px; background: #F3C352; color: #3A1A08; box-shadow: 0 2px 6px rgba(80,0,0,.3); }
 .outils .coeurs-restants { position: static; width: 30px; display: flex; flex-wrap: wrap; justify-content: center; gap: 0 1px; line-height: 0; }
 .outils .coeurs-restants svg { width: 14px; height: 14px; }
-.outils .coeur-btn[aria-pressed="true"] { background: #fff; }
+.outils .coeur-btn[aria-pressed="true"] { background: #1E2740; }
 @media (max-width: 900px) {
   .outils .ic, .outils .qui { --d: 40px; }
   .outils .pastille { --d: 32px; }
@@ -609,48 +619,178 @@ svg { display: block; }
   .outils .coeurs-restants svg { width: 9px; height: 9px; }
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+
+/* ===== Accueil : le babillard de liège de la cuisine ===== */
+#accueil.babillard { background: #A9773F; color: #2A1A0C; overflow-x: hidden; overflow-y: auto; }
+#accueil.babillard::before, #accueil.babillard::after { content: none; }
+#accueil.babillard {
+  background-color: #B5824A;
+  background-image:
+    radial-gradient(rgba(70,40,10,.35) 1px, transparent 1.6px),
+    radial-gradient(rgba(255,235,200,.22) 1px, transparent 1.6px),
+    radial-gradient(rgba(70,40,10,.25) .8px, transparent 1.4px);
+  background-size: 7px 7px, 11px 11px, 5px 5px;
+  background-position: 0 0, 3px 5px, 2px 1px;
+  box-shadow: inset 0 0 0 14px #5C3A1C, inset 0 0 0 17px #3E2611, inset 0 0 60px 30px rgba(40,20,5,.35);
+}
+.tableau { position: relative; min-height: 100%; box-sizing: border-box; max-width: 1240px; margin: 0 auto;
+  display: grid; grid-template-columns: minmax(0, .82fr) minmax(0, 1.5fr) minmax(0, .62fr); grid-template-rows: auto 1fr; gap: 18px 26px;
+  grid-template-areas: "banniere enfants notes" "mag enfants notes";
+  padding: calc(env(safe-area-inset-top, 0px) + 40px) max(40px, env(safe-area-inset-right, 0px)) calc(env(safe-area-inset-bottom, 0px) + 40px) max(40px, env(safe-area-inset-left, 0px)); }
+
+.punaise { position: absolute; top: -9px; left: 50%; z-index: 3; width: 18px; height: 18px; margin-left: -9px; border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #fff 0 12%, var(--pc, #D7263D) 22%, color-mix(in srgb, var(--pc, #D7263D) 60%, black) 100%);
+  box-shadow: 2px 5px 4px rgba(0,0,0,.4); }
+.p-rouge { --pc: #D7263D; } .p-bleue { --pc: #1B64C8; } .p-verte { --pc: #1F8A4C; }
+.ruban-adh { position: absolute; z-index: 3; top: -12px; left: 50%; width: 92px; height: 26px; margin-left: -46px; transform: rotate(-4deg);
+  background: rgba(255,250,225,.62); box-shadow: 0 1px 2px rgba(0,0,0,.15); clip-path: polygon(3% 0, 97% 4%, 100% 50%, 96% 100%, 2% 96%, 0 50%); }
+
+/* la bannière découpée */
+.banniere { grid-area: banniere; position: relative; align-self: start; justify-self: start; padding: 22px 26px 18px; background: #FBF5E8; transform: rotate(-2deg);
+  box-shadow: 0 2px 0 rgba(0,0,0,.08), 6px 12px 18px rgba(40,20,5,.35); clip-path: polygon(0 3%, 100% 0, 98% 100%, 2% 97%); }
+.banniere h1 { margin: 0; font: 400 clamp(26px, 3vw, 38px)/1 "Bungee", sans-serif; color: #C8302A; text-shadow: 3px 3px 0 #FFD36B; }
+.banniere h1 em { font-style: normal; color: #1F7A4D; text-shadow: 3px 3px 0 #FFD36B; }
+.dodos { margin: 12px 0 0; font: 400 clamp(20px, 2.2vw, 26px)/1.1 "Permanent Marker", cursive; color: #1E2740; transform: rotate(-1deg); }
+.dodos b { font-weight: 400; color: #C8302A; font-size: 1.25em; }
+
+/* le catalogue, collé au ruban */
+.mag { grid-area: mag; position: relative; align-self: start; transform: rotate(3deg); max-width: 300px; justify-self: center; }
+.mag-couv { position: relative; aspect-ratio: 3 / 4; padding: 14px; display: grid; grid-template-rows: auto auto 1fr auto; gap: 6px; background: #C8302A; color: #FFF3C4;
+  box-shadow: inset 0 0 0 4px #C8302A, inset 0 0 0 5px rgba(255,231,160,.6), 8px 14px 22px rgba(40,20,5,.45); }
+.mag-haut { display: flex; justify-content: space-between; font: 700 9px/1 var(--ui); letter-spacing: .16em; text-transform: uppercase; color: #FFE7A0; }
+.mag-titre { font: italic 800 clamp(20px, 2.2vw, 28px)/1 "Fraunces", Georgia, serif; text-align: center; }
+.mag #couv-collage { position: static; width: 100%; height: 100%; min-height: 0; object-fit: contain; filter: drop-shadow(0 4px 6px rgba(60,0,0,.35)); }
+.mag-pied { text-align: center; font: 700 9px/1.2 var(--ui); letter-spacing: .16em; text-transform: uppercase; color: #FFE7A0; }
+
+/* les fiches des enfants : polaroïd + post-it + étiquette de prix */
+#accueil .enfants { grid-area: enfants; display: grid; grid-template-columns: 1fr 1fr; gap: 34px 30px; align-content: center; margin: 0; }
+.fiche { position: relative; transform: rotate(var(--r)); }
+.fiche .punaise { --pc: var(--c); }
+#accueil .polaroid { position: relative; display: grid; width: 100%; padding: 12px 12px 14px; background: #FDFBF5; border: 0; cursor: pointer; text-align: center;
+  box-shadow: 0 1px 0 rgba(0,0,0,.08), 8px 14px 20px rgba(40,20,5,.42); transition: transform .2s ease, box-shadow .2s ease; }
+#accueil .polaroid:hover, #accueil .polaroid:focus-visible { transform: translateY(-4px) rotate(-1deg); box-shadow: 0 1px 0 rgba(0,0,0,.08), 12px 22px 28px rgba(40,20,5,.5); }
+#accueil .polaroid:active { transform: scale(.98); }
+.polaroid .photo { display: grid; place-items: center; aspect-ratio: 1; background: var(--c) center / cover no-repeat; }
+.polaroid .init { font: 800 48px/1 "Fraunces", Georgia, serif; color: #fff; }
+.polaroid .nom { margin-top: 10px; font: 400 clamp(22px, 2.4vw, 30px)/1 "Permanent Marker", cursive; color: #1E2740; }
+.polaroid .sous { margin-top: 4px; min-height: 1em; font: 400 15px/1.1 "Permanent Marker", cursive; color: var(--c); }
+#accueil .coche-prete.postit-mini { position: absolute; left: -18px; bottom: 96px; z-index: 2; width: 70px; height: 62px; display: grid; place-items: center; align-content: center; gap: 0;
+  padding: 0; border: 0; background: #FFE76A; color: #6B5A00; transform: rotate(-8deg); box-shadow: 3px 6px 8px rgba(40,20,5,.35); cursor: pointer; }
+#accueil .postit-mini .crochet { font: 400 28px/1 "Permanent Marker", cursive; color: rgba(107,90,0,.25); }
+#accueil .postit-mini .mot { font: 400 15px/1 "Permanent Marker", cursive; }
+#accueil .coche-prete.postit-mini[aria-checked="true"] { background: #9BE38A; color: #145A22; }
+#accueil .postit-mini[aria-checked="true"] .crochet { color: #1F8A4C; }
+#accueil .mini-liste.carton { position: absolute; right: -20px; bottom: 100px; z-index: 2; display: grid; place-content: center; text-align: center; gap: 0; width: 90px; height: 54px;
+  padding: 0 0 0 14px; border: 0; background: #D8B27A; color: #3E2611; transform: rotate(7deg); cursor: pointer;
+  clip-path: polygon(14px 0, 100% 0, 100% 100%, 14px 100%, 0 50%); box-shadow: 3px 6px 8px rgba(40,20,5,.35); }
+.carton .trou { position: absolute; left: 10px; top: 50%; width: 8px; height: 8px; margin-top: -4px; border-radius: 50%; background: #B5824A; box-shadow: inset 0 1px 2px rgba(0,0,0,.5); }
+.carton b { font: 400 18px/1 "Permanent Marker", cursive; }
+.carton small { font: 700 10px/1.2 var(--ui); letter-spacing: .14em; text-transform: uppercase; }
+.fiche.prete .polaroid::after { content: "PRÊTE!"; position: absolute; top: 22px; right: 18px; padding: 4px 10px; border: 3px solid #1F8A4C; color: #1F8A4C; font: 400 18px/1 "Bungee", sans-serif;
+  transform: rotate(12deg); background: rgba(255,255,255,.8); }
+
+/* la colonne des notes */
+.notes { grid-area: notes; display: grid; align-content: start; gap: 26px; padding-top: 6px; }
+#accueil .postit { position: relative; width: 150px; height: 140px; justify-self: center; display: grid; place-content: center; gap: 6px; padding: 0; border: 0; cursor: pointer;
+  background: #FFE76A; color: #3E3300; transform: rotate(4deg); box-shadow: 4px 10px 14px rgba(40,20,5,.38); }
+#accueil .postit b { font: 400 22px/1.05 "Permanent Marker", cursive; }
+#accueil .postit small { font: 400 13px/1 "Permanent Marker", cursive; color: #8A7500; }
+#accueil .cle-parents { position: relative; justify-self: center; padding: 16px 18px 12px; border: 0; cursor: pointer; background: #9FD3F0; color: #10324A; transform: rotate(-5deg);
+  font: 400 19px/1.05 "Permanent Marker", cursive; box-shadow: 4px 10px 14px rgba(40,20,5,.38); }
+#accueil .notes .coupon { margin: 0; transform: rotate(2deg); max-width: none; }
+#accueil .notes .coupon .ruban-adh.r2 { top: -14px; }
+#accueil .notes .coupon .rire { right: -14px; bottom: -18px; width: 64px; height: 64px; }
+
+@media (max-aspect-ratio: 1/1), (max-width: 900px) {
+  .tableau { grid-template-columns: 1fr 1fr; grid-template-areas: "banniere mag" "enfants enfants" "notes notes"; gap: 26px; }
+  .mag { max-width: 220px; }
+  .notes { grid-template-columns: auto auto 1fr; align-items: start; }
+}
+@media (max-width: 560px) {
+  .tableau { grid-template-columns: 1fr; grid-template-areas: "banniere" "enfants" "mag" "notes"; padding-left: 24px; padding-right: 24px; }
+  #accueil .enfants { gap: 30px 20px; }
+  .notes { grid-template-columns: 1fr 1fr; } #accueil .notes .coupon { grid-column: 1 / -1; }
+}
+#accueil.ouverture::after { content: ""; position: fixed; inset: 0; z-index: 10; background: #FBF4E4; opacity: 0; animation: fondu .22s forwards; }
+
+/* ===== Babillard : finitions ===== */
+#accueil.babillard {
+  background-color: #B98A52;
+  background-image:
+    radial-gradient(ellipse at 50% 40%, rgba(255,230,190,.18), transparent 70%),
+    radial-gradient(rgba(70,40,10,.38) 1px, transparent 1.6px),
+    radial-gradient(rgba(255,235,200,.25) 1px, transparent 1.6px),
+    radial-gradient(rgba(70,40,10,.28) .8px, transparent 1.4px),
+    radial-gradient(rgba(120,70,25,.35) 2px, transparent 3px);
+  background-size: 100% 100%, 7px 7px, 11px 11px, 5px 5px, 23px 19px;
+  background-position: 0 0, 0 0, 3px 5px, 2px 1px, 9px 4px;
+  box-shadow: inset 0 0 0 4px #2E1B0B, inset 0 0 0 16px #6B4423, inset 0 0 0 18px #8A5A30, inset 0 0 0 20px #3E2611, inset 0 0 80px 30px rgba(40,20,5,.4);
+}
+.lumieres { position: fixed; left: 0; right: 0; top: calc(env(safe-area-inset-top, 0px) + 6px); width: 100%; height: 60px; z-index: 4; pointer-events: none; overflow: visible; }
+.lumieres .fil { fill: none; stroke: #1F3A28; stroke-width: 2.2; }
+.lumieres .ampoule { animation: lueur 2.4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes lueur { 0%, 100% { opacity: 1; } 50% { opacity: .55; } }
+.tableau { padding-top: calc(env(safe-area-inset-top, 0px) + 58px); }
+.banniere { background: #FDF8EC repeating-linear-gradient(0deg, transparent 0 26px, rgba(27,100,200,.12) 26px 27px); padding-left: 34px; }
+.banniere::before { content: ""; position: absolute; left: 20px; top: 0; bottom: 0; width: 2px; background: rgba(215,38,61,.35); }
+.banniere h1 { letter-spacing: .01em; }
+.mag { filter: drop-shadow(0 0 0 transparent); }
+.mag::before, .mag::after { content: ""; position: absolute; inset: 0; background: #F3EBDA; box-shadow: 4px 8px 14px rgba(40,20,5,.35); }
+.mag::before { transform: translate(7px, 6px) rotate(1.5deg); } .mag::after { transform: translate(3px, 3px) rotate(.6deg); background: #FBF5E8; }
+.mag-couv { position: relative; z-index: 1; }
+.mag .ruban-adh { z-index: 4; }
+.eclat { position: absolute; z-index: 5; top: 34%; right: -30px; width: 100px; height: 100px; display: grid; place-items: center; transform: rotate(14deg);
+  background: #FFD32E; color: #C8302A; font: 400 13px/1 "Bungee", sans-serif;
+  clip-path: polygon(50% 0, 61% 14%, 79% 7%, 80% 25%, 98% 28%, 88% 44%, 100% 58%, 83% 66%, 88% 84%, 69% 83%, 60% 100%, 48% 87%, 33% 98%, 28% 80%, 10% 82%, 15% 64%, 0 54%, 13% 41%, 4% 24%, 22% 22%, 24% 4%, 41% 12%); }
+#accueil .polaroid { background: #FEFCF7 linear-gradient(160deg, rgba(255,255,255,.6), rgba(0,0,0,.03)); }
+.polaroid .photo { position: relative; box-shadow: inset 0 0 0 1px rgba(0,0,0,.12), inset 0 2px 10px rgba(0,0,0,.18); filter: saturate(1.06) contrast(1.03); }
+.polaroid .photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,255,255,.18), transparent 40%); pointer-events: none; }
+.polaroid .nom { letter-spacing: .01em; }
+.polaroid .nom::after { content: ""; display: block; width: 62%; height: 3px; margin: 3px auto 0; border-radius: 3px; background: var(--c); opacity: .55; transform: rotate(-1.5deg); }
+#accueil .coche-prete.postit-mini::after, #accueil .postit::after { content: ""; position: absolute; right: 0; bottom: 0; width: 16px; height: 16px; background: linear-gradient(135deg, transparent 50%, rgba(0,0,0,.14) 50%, rgba(255,255,255,.4) 100%); }
+#accueil .postit { background: #FFE76A linear-gradient(180deg, rgba(255,255,255,.25), transparent 30%); }
+#accueil .cle-parents { display: grid; gap: 4px; text-align: left; padding: 14px 16px 12px; min-width: 150px; background: #FDFCF8 repeating-linear-gradient(0deg, transparent 0 21px, rgba(27,100,200,.18) 21px 22px); color: #10324A;
+  border-top: 22px solid #9FD3F0; }
+#accueil .cle-parents .fiche-titre { font: 400 19px/1 "Permanent Marker", cursive; margin-top: -2px; }
+#accueil .cle-parents .fiche-ligne { font: 400 13px/1.2 "Permanent Marker", cursive; color: #5B7A8E; }
+#accueil .cle-parents .punaise { top: -32px; }
+#accueil .mini-liste.carton { background: #D8B27A linear-gradient(170deg, rgba(255,255,255,.18), transparent 60%); }
+#accueil .mini-liste.carton::before { content: ""; position: absolute; left: -26px; top: 50%; width: 30px; height: 1.5px; background: #6B4423; transform: rotate(-12deg); }
 </style>
 
-<main id="accueil">
-  <div class="grain" aria-hidden="true"></div>
-  <div class="neige" id="neige" aria-hidden="true"></div>
-  <svg class="rameau rameau-hg" id="rameau-hg" viewBox="0 0 220 220" aria-hidden="true"></svg>
-  <svg class="rameau rameau-bd" id="rameau-bd" viewBox="0 0 220 220" aria-hidden="true"></svg>
-  <div class="scene-accueil">
-    <div class="livre-zone">
-      <div class="livre" id="livre">
-        <div class="sceau" aria-hidden="true"><b id="sceau-n"></b><span>jouets</span></div>
-        <div class="couverture">
-          <div class="couv-ruban">ÉDITION DE NOËL 2026</div>
-          <h1 class="couv-titre">Le Catalogue<br>des Souhaits</h1>
-          <div class="couv-cadre"><img id="couv-collage" src="couverture.webp" alt="" decoding="async"></div>
-          <div class="couv-pied" id="sous-titre"></div>
-        </div>
+<main id="accueil" class="babillard">
+  <svg class="lumieres" id="lumieres" aria-hidden="true" preserveAspectRatio="none"></svg>
+  <div class="tableau">
+    <header class="banniere">
+      <span class="punaise p-rouge" aria-hidden="true"></span>
+      <h1>La liste au<br><em>père Noël</em></h1>
+      <p class="dodos" id="rebours"></p>
+    </header>
+
+    <div class="mag" id="livre">
+      <span class="ruban-adh" aria-hidden="true"></span>
+      <span class="eclat" aria-hidden="true">Nouveau!</span>
+      <div class="mag-couv">
+        <div class="mag-haut"><span>Édition de Noël 2026</span><span id="sceau-n"></span></div>
+        <div class="mag-titre">Le Catalogue<br>des Souhaits</div>
+        <img id="couv-collage" src="couverture.webp" alt="" decoding="async">
+        <div class="mag-pied" id="sous-titre"></div>
       </div>
     </div>
-    <div class="cote-droit">
-      <div class="surtitre">Joyeux Noël</div>
-      <h2 class="question">Qui feuillette ce soir?</h2>
-      <button class="ouvrir-guide" id="ouvrir-guide" type="button"><span>?</span>Comment ça marche</button>
-      <div class="rebours" id="rebours"></div>
-      <div class="enfants" id="enfants"></div>
-      <div class="astuce-accueil">
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3l4 4L8 20l-5 1 1-5z"/><path d="M14 6l4 4"/></svg>Le crayon fait des ronds</span>
-        <span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.3 3 4.5 6.7 4.5c2.1 0 3.6 1.2 4.4 2.6.8-1.4 2.3-2.6 4.4-2.6 3.7 0 5.8 3.8 4.3 7.2C19.5 16.4 12 21 12 21z"/></svg>3 super cœurs</span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V11"/><path d="M12 10V4.5a1.5 1.5 0 0 1 3 0V11"/><path d="M15 10.5V6.5a1.5 1.5 0 0 1 3 0V14a7 7 0 0 1-7 7h-.5a6 6 0 0 1-4.6-2.2L3.4 15.6a1.6 1.6 0 0 1 2.4-2.1L9 16V8.5a1.5 1.5 0 0 1 0 0"/></svg>Le doigt tourne les pages</span>
-      </div>
-      <div class="pied-accueil">
-        <button class="lien-parents" id="ouvrir-parents" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Coin des parents</button>
-      </div>
-      <div class="coupon" role="note">
+
+    <section class="enfants" id="enfants" aria-label="Les catalogues"></section>
+
+    <aside class="notes">
+      <button class="postit" id="ouvrir-guide" type="button"><span class="punaise p-bleue" aria-hidden="true"></span><b>Comment<br>ça marche?</b><small>touche-moi</small></button>
+      <button class="cle-parents" id="ouvrir-parents" type="button"><span class="punaise p-verte" aria-hidden="true"></span><span class="fiche-titre">Coin des parents</span><span class="fiche-ligne">prénoms · réglages</span></button>
+      <div class="coupon" role="note"><span class="ruban-adh r2" aria-hidden="true"></span>
         <svg class="ciseaux" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.1 15.9M14.5 14.5 20 20M8.1 8.1 12 12"/></svg>
         <span class="coupon-titre">À lire, les parents!</span>
         <p>Dans la liste de prix, tout ce qui dépasse <b>50&nbsp;$</b> est rangé sous <b class="insec">«&nbsp;Trop&nbsp;cher&nbsp;»</b>.<br>Aucun risque de chicane&nbsp;: les enfants ne savent pas encore lire.</p>
         <img class="rire" alt="" src="rire.gif">
       </div>
-    </div>
+    </aside>
   </div>
-  <div class="signature">Le Catalogue des Souhaits · Noël 2026</div>
 </main>
 
 <section id="lecteur" hidden>
@@ -724,12 +864,15 @@ svg { display: block; }
   <div class="guide-carte">
     <div class="guide-ruban">Joyeux Noël!</div>
     <h2 id="guide-titre">Comment ça marche</h2>
+    <div class="guide-corps">
+    <div class="guide-video"><video id="guide-video" src="demo.mp4" poster="demo.jpg" muted loop playsinline preload="auto" aria-label="Démonstration : choisir son nom, entourer, super cœur, la liste, Prête, Je l'offre"></video></div>
     <ol class="guide-etapes">
       <li><span class="g-ico">🏷️</span><b>Choisis ton étiquette</b><small>Ton prénom ouvre <em>ton</em> catalogue.</small></li>
       <li><span class="g-ico">✏️</span><b>Un rond = un souhait</b><small>Entoure les jouets que tu veux. Glisse pour tourner la page.</small></li>
       <li><span class="g-ico">❤️</span><b>3 super cœurs</b><small>Pour tes trois préférés entre tous.</small></li>
       <li><span class="g-ico">✅</span><b>Coche « Prête »</b><small>Quand ta liste est finie.</small></li>
     </ol>
+    </div>
     <p class="guide-parents"><b>Pour les parents</b> — « Liste et prix » montre chaque souhait, son prix et où l'acheter. « Je l'offre » le raye pour toute la famille.</p>
     <button class="guide-go" id="guide-go" type="button">C'est parti!</button>
   </div>
@@ -776,22 +919,96 @@ svg { display: block; }
   const COUL = { papier: "#FBF4E4", encre: "#1E2740", douce: "#5B5E6E", rouge: "#C8302A", or: "#E9B53C", vert: "#1F7A4D", filet: "#E3D7BD" };
   const F_TITRE = '"Fraunces", Georgia, serif';
   const F_RETRO = '"Bungee", "Arial Black", sans-serif';
-  // bandeau de cassette des années 90 : mauve, bandes fluo en zigzag
-  function bandeauRetro(ctx, x0, y0, w, k = 1) {
-    const g = ctx.createLinearGradient(x0, 0, x0 + w, 0);
-    g.addColorStop(0, "#3B1C8C"); g.addColorStop(.55, "#7A1FA2"); g.addColorStop(1, "#D6246E");
-    ctx.fillStyle = g; ctx.fillRect(x0, y0, w, 72 * k);
-    ctx.save(); ctx.beginPath(); ctx.rect(x0, y0, w, 72 * k); ctx.clip();
-    ctx.lineWidth = 5 * k; ctx.lineJoin = "miter";
-    for (const [c, dy] of [["#00D6C9", 14], ["#FFE45C", 24]]) {
-      ctx.strokeStyle = c; ctx.globalAlpha = .55; ctx.beginPath();
-      for (let x = x0 + w * .55, i = 0; x < x0 + w + 20 * k; x += 16 * k, i++) ctx.lineTo(x, y0 + (dy + (i % 2 ? 9 : 0)) * k);
-      ctx.stroke();
-    }
-    ctx.restore();
-    ctx.fillStyle = "#00D6C9"; ctx.fillRect(x0, y0 + 72 * k, w, 3 * k);
-    ctx.fillStyle = "#FFE45C"; ctx.fillRect(x0, y0 + 75 * k, w, 3 * k);
+  // ---------- un bandeau à thème par section ----------
+  // chaque thème peint sa bande (hauteur h, dont les 72 du bas portent le titre), puis donne la police et les couleurs du titre
+  const pois = (ctx, x0, y0, w, h, pas, r, couleur, decal = 0) => { ctx.fillStyle = couleur; for (let y = y0 + pas / 2, l = 0; y < y0 + h; y += pas, l++) for (let x = x0 + (l % 2 ? pas / 2 : 0) + decal; x < x0 + w + pas; x += pas) { ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.fill(); } };
+  const degrade = (ctx, x0, w, a, b, c) => { const g = ctx.createLinearGradient(x0, 0, x0 + w, 0); g.addColorStop(0, a); if (c) { g.addColorStop(.55, b); g.addColorStop(1, c); } else g.addColorStop(1, b); return g; };
+  const etoile = (ctx, x, y, r) => { ctx.beginPath(); for (let i = 0; i < 10; i++) { const a = -Math.PI / 2 + i * Math.PI / 5, rr = i % 2 ? r * .45 : r; ctx.lineTo(x + Math.cos(a) * rr, y + Math.sin(a) * rr); } ctx.closePath(); ctx.fill(); };
+  const THEMES = {
+    retro: { liseré: ["#00D6C9", "#FFE45C"], titre: { police: k => `${38 * k}px ${F_RETRO}`, couleur: "#FFE45C", ombre: "#00D6C9" },
+      fond(ctx, x0, y0, w, h, k) { ctx.fillStyle = degrade(ctx, x0, w, "#3B1C8C", "#7A1FA2", "#D6246E"); ctx.fillRect(x0, y0, w, h);
+        const yb = y0 + h - 72 * k; ctx.lineWidth = 5 * k; ctx.globalAlpha = .55;
+        for (const [c, dy] of [["#00D6C9", 14], ["#FFE45C", 24]]) { ctx.strokeStyle = c; ctx.beginPath(); for (let x = x0 + w * .55, i = 0; x < x0 + w + 20 * k; x += 16 * k, i++) ctx.lineTo(x, yb + (dy + (i % 2 ? 9 : 0)) * k); ctx.stroke(); }
+        ctx.globalAlpha = 1; } },
+    coups: { liseré: ["#F3C352", "#7E140F"], titre: { police: k => `italic 800 ${38 * k}px ${F_TITRE}`, couleur: "#FFE7A0", ombre: "#5A0E0A" },
+      fond(ctx, x0, y0, w, h, k) { ctx.fillStyle = degrade(ctx, x0, w, "#8E1712", "#C8302A", "#8E1712"); ctx.fillRect(x0, y0, w, h);
+        const r = hasard(5); ctx.fillStyle = "rgba(255,226,140,.55)"; for (let i = 0; i < w / (26 * k); i++) etoile(ctx, x0 + r() * w, y0 + r() * h, (3 + r() * 6) * k); } },
+    lego: { liseré: ["#D01012", "#1E2740"], titre: { police: k => `${38 * k}px ${F_RETRO}`, couleur: "#D01012", ombre: "#7A0A0A" },
+      fond(ctx, x0, y0, w, h, k) { ctx.fillStyle = "#FFCF00"; ctx.fillRect(x0, y0, w, h);
+        const p = 30 * k; for (let y = y0 + p / 2; y < y0 + h; y += p) for (let x = x0 + p / 2; x < x0 + w + p; x += p) {
+          ctx.fillStyle = "rgba(160,110,0,.35)"; ctx.beginPath(); ctx.arc(x + 1.5 * k, y + 2 * k, 9 * k, 0, 7); ctx.fill();
+          ctx.fillStyle = "#FFDB33"; ctx.beginPath(); ctx.arc(x, y, 9 * k, 0, 7); ctx.fill();
+          ctx.fillStyle = "rgba(255,255,255,.55)"; ctx.beginPath(); ctx.arc(x - 3 * k, y - 3 * k, 3 * k, 0, 7); ctx.fill(); } } },
+    batir: { liseré: ["#111", "#F5B800"], titre: { police: k => `${38 * k}px ${F_RETRO}`, couleur: "#111", ombre: "#FFE680" },
+      fond(ctx, x0, y0, w, h, k) { ctx.fillStyle = "#F5B800"; ctx.fillRect(x0, y0, w, h);
+        ctx.save(); ctx.beginPath(); ctx.rect(x0 + w * .58, y0, w * .42, h); ctx.clip(); ctx.fillStyle = "#111";
+        for (let x = x0 + w * .5; x < x0 + w + h; x += 40 * k) { ctx.beginPath(); ctx.moveTo(x, y0 + h); ctx.lineTo(x + 20 * k, y0 + h); ctx.lineTo(x + 20 * k + h, y0); ctx.lineTo(x + h, y0); ctx.fill(); }
+        ctx.restore(); } },
+    teleguides: { liseré: ["#00F0FF", "#FF2BD6"], titre: { police: k => `${38 * k}px ${F_RETRO}`, couleur: "#E9FDFF", ombre: "#FF2BD6" },
+      fond(ctx, x0, y0, w, h, k) { const g = ctx.createLinearGradient(0, y0, 0, y0 + h); g.addColorStop(0, "#07081A"); g.addColorStop(1, "#2A0B4A"); ctx.fillStyle = g; ctx.fillRect(x0, y0, w, h);
+        ctx.strokeStyle = "rgba(0,240,255,.35)"; ctx.lineWidth = 1.5 * k; const yh = y0 + h - 30 * k, cx = x0 + w * .75;
+        for (let i = -12; i <= 12; i++) { ctx.beginPath(); ctx.moveTo(cx + i * 8 * k, yh); ctx.lineTo(cx + i * 70 * k, y0 + h); ctx.stroke(); }
+        for (let j = 0; j < 4; j++) { const y = yh + (j * j + 1) * 2.4 * k; ctx.beginPath(); ctx.moveTo(x0 + w * .45, y); ctx.lineTo(x0 + w, y); ctx.stroke(); } } },
+    autos: { liseré: ["#E10600", "#fff"], titre: { police: k => `${38 * k}px ${F_RETRO}`, couleur: "#fff", ombre: "#E10600" },
+      fond(ctx, x0, y0, w, h, k) { ctx.fillStyle = "#111"; ctx.fillRect(x0, y0, w, h); const c = 18 * k;
+        for (let y = y0, l = 0; y < y0 + h; y += c, l++) for (let x = x0 + w * .62, m = 0; x < x0 + w; x += c, m++) if ((l + m) % 2) { ctx.fillStyle = "#fff"; ctx.fillRect(x, y, c, c); } } },
+    cool: { liseré: ["#FFE45C", "#111"], titre: { police: k => `${38 * k}px ${F_RETRO}`, couleur: "#fff", ombre: "#111" },
+      fond(ctx, x0, y0, w, h, k) { ctx.fillStyle = degrade(ctx, x0, w, "#FF3E7F", "#FF8A00"); ctx.fillRect(x0, y0, w, h);
+        const cx = x0 + w * .85, cy = y0 + h; ctx.fillStyle = "rgba(255,255,255,.18)";
+        for (let i = 0; i < 18; i++) { const a = Math.PI + i * Math.PI / 18; ctx.beginPath(); ctx.moveTo(cx, cy); ctx.arc(cx, cy, w, a, a + Math.PI / 36); ctx.fill(); } } },
+    jouer: { liseré: ["#E9B53C", "#5A0E0A"], titre: { police: k => `italic 800 ${38 * k}px ${F_TITRE}`, couleur: "#FFE7A0", ombre: "#3A0806" },
+      fond(ctx, x0, y0, w, h, k) { const p = 34 * k; for (let x = x0, i = 0; x < x0 + w; x += p, i++) { const g = ctx.createLinearGradient(x, 0, x + p, 0); g.addColorStop(0, "#7A1010"); g.addColorStop(.5, "#C0221E"); g.addColorStop(1, "#7A1010"); ctx.fillStyle = g; ctx.fillRect(x, y0, p + 1, h); } } },
+    jeux: { liseré: ["#F3C352", "#0B3D24"], titre: { police: k => `italic 800 ${38 * k}px ${F_TITRE}`, couleur: "#fff", ombre: "#0B3D24" },
+      fond(ctx, x0, y0, w, h, k) { ctx.fillStyle = "#1E6B43"; ctx.fillRect(x0, y0, w, h);
+        const r = hasard(9); for (let i = 0; i < 7; i++) { const x = x0 + w * (.55 + r() * .42), y = y0 + h - (20 + r() * 40) * k, s = 26 * k, a = (r() - .5) * .8;
+          ctx.save(); ctx.translate(x, y); ctx.rotate(a); ctx.fillStyle = "#FBF5E8"; ctx.beginPath(); ctx.roundRect(-s / 2, -s / 2, s, s, 5 * k); ctx.fill();
+          ctx.fillStyle = "#1E2740"; const n = 1 + Math.floor(r() * 6), P = [[0, 0], [-1, -1], [1, 1], [-1, 1], [1, -1], [-1, 0], [1, 0]], sel = [[0], [1, 2], [0, 1, 2], [1, 2, 3, 4], [0, 1, 2, 3, 4], [1, 2, 3, 4, 5, 6]][n - 1];
+          for (const q of sel) { ctx.beginPath(); ctx.arc(P[q][0] * s * .27, P[q][1] * s * .27, 2.6 * k, 0, 7); ctx.fill(); } ctx.restore(); } } },
+    livres: { liseré: ["#E9B53C", "#0F1F3D"], titre: { police: k => `italic 800 ${38 * k}px ${F_TITRE}`, couleur: "#FBF5E8", ombre: "#0F1F3D" },
+      fond(ctx, x0, y0, w, h, k) { ctx.fillStyle = "#1B2F5C"; ctx.fillRect(x0, y0, w, h); const r = hasard(13), C = ["#C8302A", "#E9B53C", "#2E9E5B", "#FBF5E8", "#6A4C93", "#1B64C8"];
+        for (let x = x0 + w * .6; x < x0 + w; ) { const lw = (10 + r() * 14) * k, lh = h - (6 + r() * 26) * k; ctx.fillStyle = C[Math.floor(r() * C.length)]; ctx.fillRect(x, y0 + h - lh, lw, lh); ctx.fillStyle = "rgba(0,0,0,.18)"; ctx.fillRect(x, y0 + h - lh + 8 * k, lw, 3 * k); x += lw + 2 * k; } } },
+    art: { liseré: ["#1E2740", "#FF5B4A"], titre: { police: k => `${38 * k}px ${F_RETRO}`, couleur: "#1E2740", ombre: "#FFB020" },
+      fond(ctx, x0, y0, w, h, k) { ctx.fillStyle = "#FBF5E8"; ctx.fillRect(x0, y0, w, h); const r = hasard(17), C = ["#FF5B4A", "#FFB020", "#2EC4B6", "#6A4C93", "#1B64C8", "#2E9E5B"];
+        for (let i = 0; i < 26; i++) { const x = x0 + w * (.5 + r() * .5), y = y0 + r() * h, rr = (4 + r() * 12) * k; ctx.fillStyle = C[i % C.length]; ctx.beginPath(); ctx.arc(x, y, rr, 0, 7); ctx.fill(); for (let j = 0; j < 4; j++) { ctx.beginPath(); ctx.arc(x + (r() - .5) * rr * 3, y + (r() - .5) * rr * 3, rr * (.15 + r() * .25), 0, 7); ctx.fill(); } } } },
+    dehors: { liseré: ["#fff", "#7FB3D5"], titre: { police: k => `italic 800 ${38 * k}px ${F_TITRE}`, couleur: "#fff", ombre: "#2C5D86" },
+      fond(ctx, x0, y0, w, h, k) { const g = ctx.createLinearGradient(0, y0, 0, y0 + h); g.addColorStop(0, "#3E7CB1"); g.addColorStop(1, "#9CC9EA"); ctx.fillStyle = g; ctx.fillRect(x0, y0, w, h);
+        ctx.fillStyle = "#fff"; ctx.beginPath(); ctx.moveTo(x0 + w * .5, y0 + h); for (let x = x0 + w * .5; x <= x0 + w; x += 40 * k) ctx.quadraticCurveTo(x + 20 * k, y0 + h - 22 * k, x + 40 * k, y0 + h); ctx.fill();
+        pois(ctx, x0 + w * .45, y0, w * .55, h - 14 * k, 22 * k, 2 * k, "rgba(255,255,255,.8)"); } },
+    montessori: { liseré: ["#6B7F4F", "#E9DCC0"], titre: { police: k => `italic 800 ${38 * k}px ${F_TITRE}`, couleur: "#2F3A23", ombre: "rgba(255,255,255,.5)" },
+      fond(ctx, x0, y0, w, h, k) { ctx.fillStyle = "#B7C49A"; ctx.fillRect(x0, y0, w, h); const C = ["#E9DCC0", "#D9A57A", "#8DA37A", "#F2E9D8"];
+        for (let i = 0; i < 9; i++) { ctx.fillStyle = C[i % 4]; ctx.beginPath(); ctx.arc(x0 + w * (.6 + i * .05), y0 + h, (30 - i * 2) * k, Math.PI, 0); ctx.fill(); } } },
+    bouger: { liseré: ["#FFE45C", "#0E6E73"], titre: { police: k => `${38 * k}px ${F_RETRO}`, couleur: "#fff", ombre: "#0E6E73" },
+      fond(ctx, x0, y0, w, h, k) { ctx.fillStyle = "#14A3A8"; ctx.fillRect(x0, y0, w, h); ctx.fillStyle = "rgba(255,255,255,.25)";
+        for (let i = 0; i < 6; i++) ctx.fillRect(x0 + w * (.55 + i * .03), y0 + h - (18 + i * 9) * k, w * (.4 - i * .03), 4 * k); } },
+    apprendre: { liseré: ["#C9A66B", "#203B2C"], titre: { police: k => `italic 800 ${38 * k}px ${F_TITRE}`, couleur: "#F4F1E6", ombre: "#0F2018" },
+      fond(ctx, x0, y0, w, h, k) { ctx.fillStyle = "#2F5240"; ctx.fillRect(x0, y0, w, h); ctx.fillStyle = "rgba(255,255,255,.4)"; ctx.font = `${24 * k}px ${F_RETRO}`;
+        const t = "A B C  1 2 3  ★  A B C  1 2 3"; ctx.fillText(t, x0 + w * .55, y0 + h - 22 * k); } },
+    semblant: { liseré: ["#E85D8E", "#fff"], titre: { police: k => `italic 800 ${38 * k}px ${F_TITRE}`, couleur: "#7A1E48", ombre: "rgba(255,255,255,.6)" },
+      fond(ctx, x0, y0, w, h, k) { ctx.fillStyle = "#FFC9DD"; ctx.fillRect(x0, y0, w, h); pois(ctx, x0 + w * .5, y0, w * .5, h, 20 * k, 5 * k, "rgba(255,255,255,.75)"); } },
+    musique: { liseré: ["#FFD36B", "#2A1550"], titre: { police: k => `italic 800 ${38 * k}px ${F_TITRE}`, couleur: "#fff", ombre: "#2A1550" },
+      fond(ctx, x0, y0, w, h, k) { ctx.fillStyle = "#5B2A9E"; ctx.fillRect(x0, y0, w, h); ctx.strokeStyle = "rgba(255,255,255,.28)"; ctx.lineWidth = 1.2 * k;
+        for (let i = 0; i < 5; i++) { ctx.beginPath(); ctx.moveTo(x0 + w * .5, y0 + 18 * k + i * 9 * k); ctx.lineTo(x0 + w, y0 + 18 * k + i * 9 * k); ctx.stroke(); }
+        ctx.fillStyle = "rgba(255,255,255,.8)"; ctx.font = `${30 * k}px serif`; for (let i = 0; i < 6; i++) ctx.fillText(i % 2 ? "♪" : "♫", x0 + w * (.56 + i * .07), y0 + (34 + (i % 3) * 9) * k); } },
+    bain: { liseré: ["#fff", "#1A8FBF"], titre: { police: k => `italic 800 ${38 * k}px ${F_TITRE}`, couleur: "#fff", ombre: "#0E5C80" },
+      fond(ctx, x0, y0, w, h, k) { const g = ctx.createLinearGradient(0, y0, 0, y0 + h); g.addColorStop(0, "#38B6E0"); g.addColorStop(1, "#1A8FBF"); ctx.fillStyle = g; ctx.fillRect(x0, y0, w, h);
+        const r = hasard(23); ctx.strokeStyle = "rgba(255,255,255,.7)"; ctx.lineWidth = 2 * k; for (let i = 0; i < 18; i++) { ctx.beginPath(); ctx.arc(x0 + w * (.52 + r() * .46), y0 + r() * h, (3 + r() * 9) * k, 0, 7); ctx.stroke(); } } },
+    calins: { liseré: ["#E85D8E", "#FFF1E6"], titre: { police: k => `italic 800 ${38 * k}px ${F_TITRE}`, couleur: "#7A2E3A", ombre: "rgba(255,255,255,.6)" },
+      fond(ctx, x0, y0, w, h, k) { ctx.fillStyle = "#FFD8C2"; ctx.fillRect(x0, y0, w, h); ctx.fillStyle = "rgba(232,93,142,.35)"; ctx.font = `${22 * k}px sans-serif`;
+        const r = hasard(29); for (let i = 0; i < 14; i++) ctx.fillText("♥", x0 + w * (.52 + r() * .45), y0 + (20 + r() * (h / k - 24)) * k); } },
+    papa: { liseré: ["#111", "#C8302A"], titre: { police: k => `${38 * k}px ${F_RETRO}`, couleur: "#fff", ombre: "#111" },
+      fond(ctx, x0, y0, w, h, k) { ctx.fillStyle = "#B3201C"; ctx.fillRect(x0, y0, w, h); const c = 26 * k; ctx.fillStyle = "rgba(0,0,0,.45)";
+        for (let x = x0; x < x0 + w; x += c * 2) ctx.fillRect(x, y0, c, h); for (let y = y0; y < y0 + h; y += c * 2) ctx.fillRect(x0, y, w, c);
+        ctx.fillStyle = "rgba(0,0,0,.35)"; for (let x = x0; x < x0 + w; x += c * 2) for (let y = y0; y < y0 + h; y += c * 2) ctx.fillRect(x, y, c, c); } },
+  };
+  const themeDe = cle => THEMES[String(cle).replace(/^d2-/, "")] || THEMES.coups;
+  function bandeau(ctx, cle, x0, y0, w, k = 1, h = 72 * k) {
+    const t = themeDe(cle);
+    ctx.save(); ctx.beginPath(); ctx.rect(x0, y0, w, h); ctx.clip(); t.fond(ctx, x0, y0, w, h, k); ctx.restore();
+    ctx.fillStyle = t.liseré[0]; ctx.fillRect(x0, y0 + h, w, 3 * k);
+    ctx.fillStyle = t.liseré[1]; ctx.fillRect(x0, y0 + h + 3 * k, w, 3 * k);
   }
+
+
   const F_TEXTE = '"Archivo", "Helvetica Neue", Arial, sans-serif';
   // v6 : chaque rond est accroché à son jouet (id + case), plus à un numéro de page
   const CLE_LOCALE = "catalogue-souhaits-v6", CLE_ANCIENNE = "catalogue-souhaits-v5", RONDS = "ronds6";
@@ -1224,19 +1441,15 @@ svg { display: block; }
     const pg = PAGES[idx];
     ctx.save();
     ctx.setTransform(s, 0, 0, s, dx, dy);
-    ctx.fillStyle = COUL.papier; ctx.fillRect(0, 0, W, H);
+    ctx.fillStyle = COUL.papier; ctx.fillRect(0, dx || dy ? 78 : 0, W, H);   // à l'écran, le bandeau pleine largeur est déjà peint au-dessus
     // bandeau
-    const retro = /retro$/.test(pg.cle);
-    if (retro) bandeauRetro(ctx, 0, 0, W);
-    else { ctx.fillStyle = COUL.rouge; ctx.fillRect(0, 0, W, 72); ctx.fillStyle = COUL.or; ctx.fillRect(0, 72, W, 6); }
-    ctx.textBaseline = "alphabetic";
-    if (retro) {
-      // titre années 90 : lettres épaisses, ombre décalée turquoise
-      ctx.font = `38px ${F_RETRO}`;
-      ctx.fillStyle = "#00D6C9"; ctx.fillText(pg.titre, M + 3, 54);
-      ctx.fillStyle = "#FFE45C"; ctx.fillText(pg.titre, M, 51);
-    } else { ctx.fillStyle = "#fff"; ctx.font = `800 36px ${F_TITRE}`; ctx.fillText(pg.titre, M, 50); }
-    ctx.textAlign = "right"; ctx.fillStyle = COUL.or; ctx.font = `900 20px ${F_TEXTE}`;
+    // sur l'écran, le bandeau pleine largeur est déjà peint derrière la page (dx/dy non nuls)
+    if (!(dx || dy)) bandeau(ctx, pg.cle, 0, 0, W);
+    const th = themeDe(pg.cle);
+    ctx.textBaseline = "alphabetic"; ctx.font = th.titre.police(1);
+    ctx.fillStyle = th.titre.ombre; ctx.fillText(pg.titre, M + 3, 53);
+    ctx.fillStyle = th.titre.couleur; ctx.fillText(pg.titre, M, 50);
+    ctx.textAlign = "right"; ctx.fillStyle = th.titre.couleur; ctx.font = `900 20px ${F_TEXTE}`;
     if (!barreDansBandeau) { const nu = numeroPage(idx); ctx.fillText(nu ? "PAGE " + nu[0] : "PAGE BONUS", W - M, 46); }
     ctx.textAlign = "left";
 
@@ -1375,8 +1588,7 @@ svg { display: block; }
       const x = c.getContext("2d");
       // la feuille couvre tout l'écran : papier partout, bandeau rouge jusqu'en haut
       x.fillStyle = COUL.papier; x.fillRect(0, 0, pw, ph);
-      if (/retro$/.test(PAGES[idx].cle)) { x.save(); x.translate(0, oy - 72 * echelle * 0); x.restore(); x.fillStyle = "#3B1C8C"; x.fillRect(0, 0, pw, oy); bandeauRetro(x, 0, oy, pw, echelle); x.fillStyle = "#3B1C8C"; }
-      else { x.fillStyle = COUL.rouge; x.fillRect(0, 0, pw, oy + 72 * echelle); x.fillStyle = COUL.or; x.fillRect(0, oy + 72 * echelle, pw, 6 * echelle); }
+      bandeau(x, PAGES[idx].cle, 0, 0, pw, echelle, oy + 72 * echelle);
       dessinerPage(x, idx, echelle, ox, oy);
       BASES.set(idx, c);
       for (const k of BASES.keys()) if (Math.abs(k - idx) > 2 && k !== pageCourante()) BASES.delete(k);
@@ -1402,7 +1614,7 @@ svg { display: block; }
   // la largeur du plus long titre de ce catalogue, en unités de page
   function titreMax() {
     const c = document.createElement("canvas").getContext("2d");
-    return Math.max(0, ...(PAGES_DE[etat.enfant] || []).map(i => { c.font = /retro$/.test(PAGES[i].cle) ? `38px ${F_RETRO}` : `800 36px ${F_TITRE}`; return c.measureText(PAGES[i].titre).width; }));
+    return Math.max(0, ...(PAGES_DE[etat.enfant] || []).map(i => { c.font = themeDe(PAGES[i].cle).titre.police(1); return c.measureText(PAGES[i].titre).width; }));
   }
   function dimensionner() {
     if (etat.vue !== "catalogue") return;
@@ -1886,39 +2098,35 @@ svg { display: block; }
   const SVG_LISTE = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/><path d="M9 13h7M9 17h5"/></svg>`;
   function rendreAccueil() {
     $("sous-titre").textContent = "Plus de " + Math.floor(PRODUITS.length / 50) * 50 + " jouets à encercler";
-    $("sceau-n").textContent = Math.floor(PRODUITS.length / 50) * 50 + "+";
+    $("sceau-n").textContent = Math.floor(PRODUITS.length / 50) * 50 + "+ jouets";
     const auj = new Date(), noel = new Date(auj.getFullYear(), 11, 25);
     if (auj > new Date(auj.getFullYear(), 11, 25, 23, 59)) noel.setFullYear(noel.getFullYear() + 1);
     const jours = Math.ceil((noel - new Date(auj.getFullYear(), auj.getMonth(), auj.getDate())) / 86400000);
-    $("rebours").innerHTML = jours <= 0 ? "C'est Noël!" : `Encore <b>${jours}</b> ${jours > 1 ? "dodos" : "dodo"} avant Noël. Choisis ton catalogue.`;
+    $("rebours").innerHTML = jours <= 0 ? "C'est Noël!" : `Encore <b>${jours}</b> ${jours > 1 ? "dodos" : "dodo"}!`;
     const box = $("enfants"); box.innerHTML = "";
-    ENFANTS.forEach(e => {
-      const n = choisis(e.id).length, nc = (etat.coeurs[e.id] || []).length, c = CRAYONS[etat.crayon[e.id]].c, nom = nomDe(e.id);
-      const o = document.createElement("div"); o.className = "carte-enf"; o.style.setProperty("--c", c);
-      o.innerHTML = `<span class="ficelle" aria-hidden="true"></span><button class="boule" type="button"></button><span class="pastille-age"></span>
-        <span class="texte"><b></b><small></small></span>`;
-      // la liste de prix : une petite étiquette à part, attachée à côté
-      const rang = document.createElement("div"); rang.className = "rang-enf"; rang.style.setProperty("--c", c);
-      const prixEtq = document.createElement("button"); prixEtq.type = "button"; prixEtq.className = "mini-liste etiquette-prix";
-      prixEtq.innerHTML = `<span class="oeillet" aria-hidden="true"></span><b>Liste</b><small>et prix</small>`;
-      const pret = !!etat.pretes[e.id];
-      const coche = document.createElement("button"); coche.type = "button"; coche.className = "coche-prete";
-      coche.setAttribute("role", "checkbox"); coche.setAttribute("aria-checked", String(pret));
-      coche.setAttribute("aria-label", "La liste de " + nom + " est prête");
-      coche.innerHTML = `<span class="case"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="mot">${pret ? "Prête!" : "Prête?"}</span>`;
-      coche.addEventListener("click", () => { etat.pretes[e.id] = !etat.pretes[e.id]; if (!etat.pretes[e.id]) delete etat.pretes[e.id]; sauverPretes(); rendreAccueil(); });
-      if (pret) o.classList.add("prete");
-      rang.append(coche, o, prixEtq);
-      o.querySelector(".pastille-age").textContent = initiale(nom);
-      o.querySelector(".texte b").textContent = nom;
-      o.querySelector(".texte small").textContent = [e.age && !/\d/.test(nom) ? e.age : "", n ? nbCadeaux(n) + (nc ? " · " + nc + " ♥" : "") : "Ouvrir le catalogue"].filter(Boolean).join(" · ");
-      const boule = o.querySelector(".boule");
+    ENFANTS.forEach((e, i) => {
+      const n = choisis(e.id).length, nc = (etat.coeurs[e.id] || []).length, c = CRAYONS[etat.crayon[e.id]].c, nom = nomDe(e.id), pret = !!etat.pretes[e.id];
+      const f = document.createElement("div"); f.className = "fiche" + (pret ? " prete" : ""); f.style.setProperty("--c", c); f.style.setProperty("--r", [-3, 2.5, -1.5, 3][i % 4] + "deg");
+      f.innerHTML = `<span class="punaise" aria-hidden="true"></span>
+        <button class="boule polaroid" type="button"><span class="photo"><span class="init"></span></span><span class="nom"></span><span class="sous"></span></button>
+        <button class="coche-prete postit-mini" type="button" role="checkbox"><span class="crochet">✓</span><span class="mot"></span></button>
+        <button class="mini-liste carton" type="button"><span class="trou" aria-hidden="true"></span><b>Liste</b><small>et prix</small></button>`;
+      const photo = f.querySelector(".photo"), init = f.querySelector(".init");
+      init.textContent = initiale(nom);
+      const ph = new Image(); ph.onload = () => { init.remove(); photo.style.backgroundImage = `url("${ph.src}")`; }; ph.src = "portraits/" + e.id + ".jpg";
+      f.querySelector(".nom").textContent = nom;
+      f.querySelector(".sous").textContent = [e.age && !/\d/.test(nom) ? e.age : "", n ? nbCadeaux(n) + (nc ? " · " + nc + " ♥" : "") : ""].filter(Boolean).join(" · ");
+      const boule = f.querySelector(".boule");
       boule.setAttribute("aria-label", "Ouvrir le catalogue de " + nom);
       boule.addEventListener("click", () => lancerOuverture(e.id));
-      const l = prixEtq;
+      const coche = f.querySelector(".coche-prete");
+      coche.setAttribute("aria-checked", String(pret)); coche.setAttribute("aria-label", "La liste de " + nom + " est prête");
+      coche.querySelector(".mot").textContent = pret ? "Prête!" : "Prête?";
+      coche.addEventListener("click", () => { etat.pretes[e.id] = !etat.pretes[e.id]; if (!etat.pretes[e.id]) delete etat.pretes[e.id]; sauverPretes(); rendreAccueil(); });
+      const l = f.querySelector(".mini-liste");
       l.setAttribute("aria-label", "Consulter la liste de " + nom + " avec les prix et où l'acheter");
       l.addEventListener("click", () => { rendreAchats(e.id); ouvrir("fen-achats"); });
-      box.appendChild(rang);
+      box.appendChild(f);
     });
   }
   let ouvertureEnCours = false;
@@ -2220,37 +2428,26 @@ svg { display: block; }
   function dessinerCollage() {}
   window.addEventListener("resize", dessinerCollage);
 
-  (() => {
-    const box = $("neige"), r = hasard(11); let h = "";
-    for (let i = 0; i < 46; i++) {
-      const t = (1.5 + r() * 3.5).toFixed(1), d = (9 + r() * 12).toFixed(1);
-      h += `<i style="left:${(r() * 100).toFixed(1)}%;--t:${t}px;--o:${(.25 + r() * .5).toFixed(2)};--d:${d}s;--r:${(-r() * d).toFixed(1)}s;--x:${((r() - .5) * 80).toFixed(0)}px"></i>`;
-    }
-    box.innerHTML = h;
-  })();
 
-  function dessinerRameau(svg, graine) {
-    const r = hasard(graine); let h = "";
-    const tiges = [[[14, 14], [96, 40], [170, 112]], [[14, 14], [40, 92], [104, 176]], [[60, 30], [110, 50], [150, 46]]];
-    tiges.forEach(([a, c, b], ti) => {
-      h += `<path d="M${a} Q${c} ${b}" class="tige"/>`;
-      const N = ti === 2 ? 9 : 18;
-      for (let i = 2; i <= N; i++) {
-        const t = i / (N + 1), u = 1 - t;
-        const x = u * u * a[0] + 2 * u * t * c[0] + t * t * b[0], y = u * u * a[1] + 2 * u * t * c[1] + t * t * b[1];
-        const dx = 2 * u * (c[0] - a[0]) + 2 * t * (b[0] - c[0]), dy = 2 * u * (c[1] - a[1]) + 2 * t * (b[1] - c[1]), L = Math.hypot(dx, dy);
-        const nx = -dy / L, ny = dx / L, tx = dx / L, ty = dy / L, l = (ti === 2 ? 9 : 15) * (1 - t * .45);
-        for (const sgn of [1, -1]) h += `<path d="M${x.toFixed(1)} ${y.toFixed(1)} l${((nx * sgn + tx * .55) * l).toFixed(1)} ${((ny * sgn + ty * .55) * l).toFixed(1)}" class="aiguille"/>`;
-      }
-    });
-    for (const [x, y] of [[58, 58], [68, 52], [62, 68]]) h += `<circle cx="${x}" cy="${y}" r="5" class="baie"/>`;
-    svg.innerHTML = h;
+  function guirlande() {
+    const sv = $("lumieres"); if (!sv) return;
+    const W = innerWidth, n = Math.max(2, Math.round(W / 260)), pas = W / n, C = ["#FF4D5E", "#FFD45C", "#4DC3FF", "#7CF08F", "#FF8AE2"];
+    let d = "M -10 4", h = "";
+    for (let i = 0; i < n; i++) { const x0 = i * pas, x1 = x0 + pas; d += ` Q ${x0 + pas / 2} 46 ${x1} 4`; }
+    sv.setAttribute("viewBox", `0 0 ${W} 60`);
+    sv.innerHTML = `<path class="fil" d="${d}"/>`;
+    const p = sv.querySelector("path"), L = p.getTotalLength();
+    for (let l = 20, k = 0; l < L; l += 46, k++) {
+      const q = p.getPointAtLength(l), c = C[k % C.length];
+      h += `<g class="ampoule" style="animation-delay:${(-k * .37).toFixed(2)}s"><circle cx="${q.x}" cy="${q.y + 9}" r="10" fill="${c}" opacity=".25"/><rect x="${q.x - 3}" y="${q.y}" width="6" height="5" rx="1" fill="#2B3A2E"/><ellipse cx="${q.x}" cy="${q.y + 10}" rx="4.2" ry="6" fill="${c}"/><ellipse cx="${q.x - 1.4}" cy="${q.y + 8}" rx="1.2" ry="2" fill="#fff" opacity=".7"/></g>`;
+    }
+    sv.insertAdjacentHTML("beforeend", h);
   }
-  dessinerRameau($("rameau-hg"), 5); dessinerRameau($("rameau-bd"), 9);
+  guirlande(); addEventListener("resize", guirlande);
 
   // le guide s'ouvre à la première visite sur cet appareil ; le bouton « Comment ça marche » le rouvre
-  const ouvrirGuide = () => { $("guide").hidden = false; setTimeout(() => $("guide-go").focus(), 50); };
-  const fermerGuide = () => { $("guide").hidden = true; try { localStorage.setItem("catalogue-guide-vu", "1"); } catch (_) {} };
+  const ouvrirGuide = () => { $("guide").hidden = false; const v = $("guide-video"); try { v.currentTime = 0; v.play().catch(() => {}); } catch (_) {} setTimeout(() => $("guide-go").focus(), 50); };
+  const fermerGuide = () => { $("guide").hidden = true; try { $("guide-video").pause(); } catch (_) {} try { localStorage.setItem("catalogue-guide-vu", "1"); } catch (_) {} };
   $("guide-go").addEventListener("click", fermerGuide);
   $("guide").addEventListener("click", e => { if (e.target === $("guide")) fermerGuide(); });
   $("ouvrir-guide").addEventListener("click", ouvrirGuide);
