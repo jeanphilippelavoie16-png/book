@@ -307,7 +307,7 @@ svg { display: block; }
 .surtitre { display: flex; align-items: center; gap: 12px; font: 600 11.5px/1 var(--ui); letter-spacing: .28em; text-transform: uppercase; color: #D6B25E; }
 .surtitre::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, rgba(214,178,94,.6), transparent); }
 .cote-droit .question {
-  margin: 0; font-family: "Fraunces", Georgia, serif; font-style: italic; font-weight: 600; font-size: clamp(36px, 4.6vw, 58px);
+  margin: 0; font-family: "Fraunces", Georgia, serif; font-style: italic; font-weight: 600; font-size: clamp(32px, 4vw, 50px);
   line-height: 1.02; letter-spacing: -.01em; color: #F6EFDF; text-transform: none; background: none; -webkit-text-fill-color: currentColor; filter: none;
 }
 .rebours { font: 500 15px/1.4 var(--ui); color: rgba(246,239,223,.72); }
@@ -402,11 +402,11 @@ svg { display: block; }
 @keyframes reflet-sceau { 0%, 70% { background-position: 120% 0; } 100% { background-position: -120% 0; } }
 
 /* les étiquettes des enfants, une par rangée, et la petite étiquette de prix à côté */
-.enfants { grid-template-columns: 1fr; gap: 12px; }
+.enfants { grid-template-columns: 1fr; gap: 8px; }
 .rang-enf { display: flex; align-items: center; gap: 14px; animation: entree .6s cubic-bezier(.2, .7, .2, 1) both; }
 .rang-enf:nth-child(1) { animation-delay: .25s; } .rang-enf:nth-child(2) { animation-delay: .32s; }
 .rang-enf:nth-child(3) { animation-delay: .39s; } .rang-enf:nth-child(4) { animation-delay: .46s; }
-.rang-enf .carte-enf { flex: 1; min-width: 0; padding-top: 12px; padding-bottom: 12px; animation: none; }
+.rang-enf .carte-enf { flex: 1; min-width: 0; padding-top: 7px; padding-bottom: 7px; animation: none; }
 .carte-enf .ficelle { display: none; }
 .etiquette-prix {
   position: relative; flex: none; width: 96px; height: 58px; display: grid; place-content: center; text-align: center; gap: 1px;
@@ -425,7 +425,7 @@ svg { display: block; }
 @media (max-width: 560px) { .etiquette-prix { width: 78px; height: 50px; } .etiquette-prix b { font-size: 15px; } }
 .cote-droit .lien-parents { flex: none; white-space: nowrap; }
 .cote-droit .astuce-accueil { display: none; }
-.cote-droit { gap: 14px; }
+.cote-droit { gap: 11px; }
 .pied-accueil { margin-top: 4px; }
 .coupon {
   position: relative; margin-top: 6px; padding: 14px 18px 14px 20px; max-width: 34em; transform: rotate(-1.2deg);
@@ -475,6 +475,15 @@ svg { display: block; }
 .etiquette-prix { background: linear-gradient(160deg, #FFE7A0 0%, #F3C352 55%, #D9A520 100%); color: #6A1A12; box-shadow: 0 8px 16px -6px rgba(0,0,0,.5); }
 .etiquette-prix b { color: #9E1F17; }
 .sceau { box-shadow: 0 0 0 3px #F6E3A6, 0 0 0 4px #A97D27, 0 10px 20px rgba(0,0,0,.4), 0 0 40px rgba(255,210,120,.35); }
+.mode-emploi { display: grid; gap: 7px; padding: 10px 14px; border-radius: 14px; background: rgba(255,250,235,.07); border: 1px solid rgba(242,213,143,.28); }
+.mode-emploi .me-titre { font: 700 11px/1 var(--ui); letter-spacing: .22em; text-transform: uppercase; color: #D6B25E; }
+.mode-emploi ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 6px 16px; }
+.mode-emploi li { display: flex; align-items: center; gap: 9px; font: 500 13.5px/1.25 var(--ui); color: #F6EFDF; }
+.mode-emploi li b { flex: none; width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; background: #F2D58F; color: #6A1A12; font: 800 12px/1 var(--ui); }
+.mode-emploi li em { font-style: normal; color: #F2D58F; font-weight: 700; }
+.mode-emploi li svg { display: inline; width: 13px; height: 13px; fill: #FF5B6E; vertical-align: -2px; }
+.mode-emploi .me-parents { margin: 0; font: italic 400 12.5px/1.35 "Fraunces", Georgia, serif; color: rgba(246,239,223,.7); }
+@media (max-width: 560px) { .mode-emploi ol { grid-template-columns: 1fr; } }
 .choix-mode { display: grid; gap: 8px; }
 .choix-mode button { display: grid; gap: 3px; text-align: left; padding: 12px 14px; border-radius: 14px; background: rgba(255,255,255,.05); box-shadow: inset 0 0 0 1px var(--ligne); color: var(--texte); }
 .choix-mode button b { font-size: 15px; } .choix-mode button small { color: var(--texte-2); font-size: 13px; line-height: 1.35; }
@@ -573,7 +582,16 @@ svg { display: block; }
     <div class="cote-droit">
       <div class="surtitre">Joyeux Noël</div>
       <h2 class="question">Qui feuillette ce soir?</h2>
-      <p class="dedicace">Un rond de crayon pour chaque souhait, trois super cœurs pour les plus grands. Le père Noël regarde par-dessus ton épaule.</p>
+      <div class="mode-emploi" aria-label="Comment ça marche">
+        <span class="me-titre">Comment ça marche</span>
+        <ol>
+          <li><b>1</b><span>Choisis <em>ton</em> étiquette</span></li>
+          <li><b>2</b><span>Un rond autour d'un jouet&nbsp;= un souhait</span></li>
+          <li><b>3</b><span>3 super cœurs <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.3 3 4.5 6.7 4.5c2.1 0 3.6 1.2 4.4 2.6.8-1.4 2.3-2.6 4.4-2.6 3.7 0 5.8 3.8 4.3 7.2C19.5 16.4 12 21 12 21z"/></svg> pour tes préférés</span></li>
+          <li><b>4</b><span>Coche « Prête » quand ta liste est finie</span></li>
+        </ol>
+        <p class="me-parents">Parents : « Liste et prix » montre chaque souhait, son prix et où l'acheter.</p>
+      </div>
       <div class="rebours" id="rebours"></div>
       <div class="enfants" id="enfants"></div>
       <div class="astuce-accueil">
@@ -704,7 +722,8 @@ svg { display: block; }
   const COUL = { papier: "#FBF4E4", encre: "#1E2740", douce: "#5B5E6E", rouge: "#C8302A", or: "#E9B53C", vert: "#1F7A4D", filet: "#E3D7BD" };
   const F_TITRE = '"Fraunces", Georgia, serif';
   const F_TEXTE = '"Archivo", "Helvetica Neue", Arial, sans-serif';
-  const CLE_LOCALE = "catalogue-souhaits-v5";
+  // v6 : chaque rond est accroché à son jouet (id + case), plus à un numéro de page
+  const CLE_LOCALE = "catalogue-souhaits-v6", CLE_ANCIENNE = "catalogue-souhaits-v5", RONDS = "ronds6";
 
   /* ---------- Pages du catalogue ---------- */
   const estLego = p => /^lego/i.test(p.id) || /lego/i.test(p.marque || "");
@@ -937,8 +956,41 @@ svg { display: block; }
   const cle = (k, pg, f = FMT) => k + ":" + pg + ":" + f;
   const nomDe = id => (etat.noms[id] || "").trim() || ENFANTS.find(e => e.id === id).defaut;
 
-  const enc = st => st.c + ";" + st.p.join(",");
-  const dec = s => { const [c, pts] = String(s).split(";"); return { c: +c || 0, p: (pts || "").split(",").filter(Boolean).map(Number) }; };
+  const enc = st => st.c + ";" + st.p.join(",") + (st.id ? ";" + st.id + ";" + st.r.map(v => Math.round(v)).join(",") : "");
+  const dec = s => {
+    const [c, pts, id, r] = String(s).split(";"), st = { c: +c || 0, p: (pts || "").split(",").filter(Boolean).map(Number) };
+    if (id && r) { st.id = id; st.r = r.split(",").map(Number); }
+    return st;
+  };
+  // à quel jouet appartient ce rond, et dans quelle case il était quand on l'a fait
+  function accrocher(st, idx, f = FMT) {
+    const pg = PAGES[idx], i = vise(st, { zones: pg.m[f].zones });
+    if (i < 0) return st;
+    const z = pg.m[f].zones[i].photo; st.id = pg.items[i].id; st.r = [z.x, z.y, z.w, z.h]; return st;
+  }
+  // après un changement de mise en page (pages ajoutées, jouets mêlés), chaque rond suit son jouet
+  const OU = new Map(); PAGES.forEach((pg, pi) => pg.items.forEach((p, j) => OU.set(p.id, [pi, j])));
+  function recaler() {
+    const touches = new Set(), neuf = {};
+    for (const k in T) {
+      const [enfant, pg, f] = k.split(":");
+      for (const st of T[k]) {
+        if (!st.id) { (neuf[k] = neuf[k] || []).push(st); continue; }        // gribouillis : reste sur sa page
+        const ou = OU.get(st.id);
+        if (!ou) { touches.add(k); continue; }                                 // jouet retiré du catalogue : le rond part
+        const [pi, j] = ou, z = PAGES[pi].m[f].zones[j].photo, r = st.r;
+        const k2 = cle(enfant, pi, f);
+        if (k2 !== k || Math.abs(z.x - r[0]) > .5 || Math.abs(z.y - r[1]) > .5 || Math.abs(z.w - r[2]) > .5 || Math.abs(z.h - r[3]) > .5) {
+          st.p = st.p.map((v, n) => n % 2 ? z.y + (v - r[1]) / r[3] * z.h : z.x + (v - r[0]) / r[2] * z.w).map(Math.round);
+          st.r = [z.x, z.y, z.w, z.h]; touches.add(k); touches.add(k2);
+        }
+        (neuf[k2] = neuf[k2] || []).push(st);
+      }
+    }
+    for (const k in T) delete T[k];
+    Object.assign(T, neuf);
+    return touches;
+  }
 
   /* ---------- Stockage ---------- */
   let db = null;
@@ -946,10 +998,12 @@ svg { display: block; }
 
   function lireLocal() {
     try {
-      const brut = localStorage.getItem(CLE_LOCALE);
+      let brut = localStorage.getItem(CLE_LOCALE), ancien = false;
+      if (!brut) { brut = localStorage.getItem(CLE_ANCIENNE); ancien = true; }
       if (!brut) return;
       const o = JSON.parse(brut);
-      for (const k in (o.T || {})) T[k] = o.T[k].map(dec);
+      // les ronds de l'ancienne version ne savaient pas à quel jouet ils appartenaient : on ne les reprend pas
+      if (!ancien) { for (const k in (o.T || {})) T[k] = o.T[k].map(dec); if (recaler().size) setTimeout(ecrireLocal, 0); }
       etat.noms = o.noms || {}; etat.pretes = o.pretes || {};
       for (const k in (o.coeurs || {})) if (Array.isArray(o.coeurs[k])) etat.coeurs[k] = o.coeurs[k].slice(0, MAX_COEURS);
     } catch (e) { /* stockage indisponible */ }
@@ -973,7 +1027,7 @@ svg { display: block; }
       do {
         st.encore = false;
         const [enfant, pg, fm] = k.split(":");
-        const ref = db.collection("ronds5").doc(enfant + "-p" + pg + "-" + fm);
+        const ref = db.collection(RONDS).doc(enfant + "-p" + pg + "-" + fm);
         const traits = (T[k] || []).map(enc);
         try {
           if (traits.length) await ref.set({ enfant, page: +pg, fmt: fm, traits });
@@ -1029,7 +1083,7 @@ svg { display: block; }
     if (!db) return;
     const locaux = { ...T };
     let premier = true;
-    db.collection("ronds5").onSnapshot(snap => {
+    db.collection(RONDS).onSnapshot(snap => {
       for (const ch of snap.docChanges()) {
         const d = ch.doc.data() || {};
         if (!d.enfant && d.enfant !== 0) continue;
@@ -1043,6 +1097,8 @@ svg { display: block; }
         // Ce qui a été dessiné sur cette tablette avant la première connexion monte en ligne.
         const enLigne = new Set(snap.docs.map(d => { const x = d.data() || {}; return cle(x.enfant, x.page, x.fmt || "P"); }));
         for (const k in locaux) if (!enLigne.has(k) && locaux[k].length) { T[k] = locaux[k]; sauverPage(k); }
+        // ce qui vient d'une mise en page plus ancienne retrouve son jouet, et la base est remise à jour
+        for (const k of recaler()) sauverPage(k);
       }
       ecrireLocal();
       rafraichir();
@@ -1514,7 +1570,7 @@ svg { display: block; }
     }
     const k = cle(etat.enfant, pageCourante());
     if (g.type === "gomme") { if (g.change) { sauverPage(k); majCompte(); } }
-    else if (trait) { (T[k] = T[k] || []).push(trait); trait = null; sauverPage(k); majCompte(); }
+    else if (trait) { (T[k] = T[k] || []).push(accrocher(trait, pageCourante())); trait = null; sauverPage(k); majCompte(); }
     planifier();
   }
   function jouetSous(x, y) {
@@ -1532,7 +1588,7 @@ svg { display: block; }
   function entourerAuClic(e) {
     const [x, y] = versPage(e), i = jouetSous(x, y); if (i < 0) return;
     const pg = PAGES[pageCourante()], m = pg.m[FMT], id = pg.items[i].id, k = cle(etat.enfant, pageCourante());
-    const arr = T[k] = T[k] || [], deja = arr.findIndex(st => st.auto === id);
+    const arr = T[k] = T[k] || [], deja = arr.findIndex(st => (st.auto || st.id) === id && st.p.length === 130);
     if (deja >= 0) arr.splice(deja, 1);
     else {
       const r = (m.posee && m.posee[i]) || m.zones[i].photo, cx = r.x + r.w / 2, cy = r.y + r.h / 2;
@@ -1542,7 +1598,8 @@ svg { display: block; }
         const a = a0 + t * tours * Math.PI * 2, w = 1 + .04 * Math.sin(a * 3 + rnd()) + (t > .9 ? (t - .9) * .6 : 0);
         p.push(Math.round(cx + Math.cos(a) * rx * w), Math.round(cy + Math.sin(a) * ry * w));
       }
-      arr.push({ c: etat.crayon[etat.enfant], p, auto: id });
+      const zp = m.zones[i].photo;
+      arr.push({ c: etat.crayon[etat.enfant], p, auto: id, id, r: [zp.x, zp.y, zp.w, zp.h] });
     }
     sauverPage(k); majCompte(); planifier();
   }
