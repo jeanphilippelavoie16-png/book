@@ -55,11 +55,11 @@ open(os.path.join(APP, "index.html"), "w").write(index)
 h = hashlib.sha1(index.encode())
 for p in planches:
     h.update(open(os.path.join(APP, p), "rb").read())
-for _f in ("rire.gif", "couverture.webp"):
+for _f in ("rire.gif", "couverture.webp", "demo.mp4"):
     if os.path.exists(os.path.join(APP, _f)):
         h.update(open(os.path.join(APP, _f), "rb").read())
 version = h.hexdigest()[:10]
-coquille = ["./", "index.html", "manifest.webmanifest", "rire.gif", "couverture.webp", "icones/apple-touch-icon.png", "icones/icone-192.png", "icones/icone-512.png"] + planches
+coquille = ["./", "index.html", "manifest.webmanifest", "rire.gif", "couverture.webp", "demo.jpg", "portraits/k1.jpg", "portraits/k2.jpg", "portraits/k3.jpg", "portraits/k4.jpg", "icones/apple-touch-icon.png", "icones/icone-192.png", "icones/icone-512.png"] + planches
 sw = """// Catalogue des Souhaits : tout le catalogue reste dans l'iPad, même sans réseau.
 const VERSION = "souhaits-%s";
 const COQUILLE = %s;
@@ -84,6 +84,7 @@ self.addEventListener("activate", e => {
 self.addEventListener("fetch", e => {
   const req = e.request;
   if (req.method !== "GET") return;
+  if (/\.mp4$/.test(new URL(req.url).pathname)) return;
   const url = new URL(req.url);
   // la page : le réseau d'abord (pour recevoir les mises à jour), le cache si on est hors ligne
   if (req.mode === "navigate") {

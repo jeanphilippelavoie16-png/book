@@ -1,11 +1,16 @@
 // Catalogue des Souhaits : tout le catalogue reste dans l'iPad, même sans réseau.
-const VERSION = "souhaits-51c5dcdf55";
+const VERSION = "souhaits-21923f6b54";
 const COQUILLE = [
   "./",
   "index.html",
   "manifest.webmanifest",
   "rire.gif",
   "couverture.webp",
+  "demo.jpg",
+  "portraits/k1.jpg",
+  "portraits/k2.jpg",
+  "portraits/k3.jpg",
+  "portraits/k4.jpg",
   "icones/apple-touch-icon.png",
   "icones/icone-192.png",
   "icones/icone-512.png",
@@ -49,6 +54,7 @@ self.addEventListener("activate", e => {
 self.addEventListener("fetch", e => {
   const req = e.request;
   if (req.method !== "GET") return;
+  if (/\.mp4$/.test(new URL(req.url).pathname)) return;
   const url = new URL(req.url);
   // la page : le réseau d'abord (pour recevoir les mises à jour), le cache si on est hors ligne
   if (req.mode === "navigate") {
