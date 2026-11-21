@@ -1,0 +1,2035 @@
+<title>Catalogue des Souhaits</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400..900&family=Inter:wght@400..800&family=Shrikhand&family=Fraunces:ital,opsz,wght@1,9..144,600&display=swap">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+/* Mise en page : une liseuse plein écran, sombre comme une salle de lecture ; la page du catalogue (papier, vintage)
+   au centre, l'interface autour en verre dépoli, discrète, façon iOS. Un seul thème, choisi : sombre. */
+:root {
+  --fond: #0E1117;
+  --fond-2: #161A22;
+  --verre: rgba(30, 34, 44, .72);
+  --verre-fort: rgba(38, 43, 55, .92);
+  --ligne: rgba(255, 255, 255, .09);
+  --texte: #F4F1EA;
+  --texte-2: #A3A9B6;
+  --texte-3: #6E7482;
+  --rouge: #E5483D;
+  --rouge-fonce: #B8322A;
+  --or: #F3C352;
+  --creme: #FBF4E4;
+  --ui: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", system-ui, sans-serif;
+  --titre: "Shrikhand", "Cooper Black", Georgia, serif;
+  --rayon: 22px;
+  color-scheme: dark;
+}
+html, body { height: 100%; }
+body {
+  background: var(--fond); color: var(--texte);
+  font-family: var(--ui); font-size: 16px;
+  overflow: hidden; overscroll-behavior: none;
+  -webkit-user-select: none; user-select: none;
+  -webkit-touch-callout: none; -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+}
+button { font: inherit; color: inherit; cursor: pointer; border: 0; background: none; }
+button:focus-visible, input:focus-visible { outline: 2px solid var(--or); outline-offset: 2px; }
+svg { display: block; }
+
+/* ---------- Accueil ---------- */
+#accueil {
+  height: 100%; overflow-y: auto; -webkit-overflow-scrolling: touch;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+  padding-block: 40px 40px;
+  background:
+    radial-gradient(1100px 520px at 50% -120px, rgba(229, 72, 61, .32), transparent 70%),
+    radial-gradient(700px 400px at 90% 110%, rgba(243, 195, 82, .10), transparent 70%),
+    var(--fond);
+  display: grid; place-items: center;
+}
+.accueil-col { width: min(680px, 100%); display: grid; gap: 28px; }
+.marque { text-align: center; display: grid; gap: 10px; justify-items: center; }
+.sur-titre { font-size: 13px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--or); }
+.titre-grand { font-family: var(--titre); font-weight: 400; font-size: clamp(44px, 8vw, 76px); line-height: .98; margin: 0; color: var(--creme); text-wrap: balance; text-shadow: 0 6px 30px rgba(229, 72, 61, .35); }
+.sous-titre { color: var(--texte-2); font-size: 17px; margin: 0; }
+.question { font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--texte-3); margin: 6px 0 -14px 4px; }
+.enfants { display: grid; gap: 14px; }
+.carte-enfant {
+  display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 18px;
+  text-align: left; padding: 18px 20px; border-radius: var(--rayon);
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.025));
+  border: 1px solid var(--ligne);
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+  transition: transform .18s ease, background .18s ease;
+}
+.carte-enfant:active { transform: scale(.98); background: rgba(255,255,255,.08); }
+.avatar { width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center; font-family: var(--titre); font-size: 30px; color: #fff; box-shadow: inset 0 -6px 14px rgba(0,0,0,.18), 0 6px 18px rgba(0,0,0,.3); }
+.carte-texte { display: grid; gap: 3px; min-width: 0; }
+.carte-nom { font-size: 24px; font-weight: 700; letter-spacing: -.01em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.carte-info { color: var(--texte-2); font-size: 15px; }
+.chevron { color: var(--texte-3); width: 22px; height: 22px; }
+.rangee-enfant { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px; align-items: stretch; }
+.btn-consulter {
+  display: grid; place-items: center; gap: 6px; padding: 12px 16px; border-radius: var(--rayon);
+  background: rgba(255,255,255,.04); border: 1px solid var(--ligne); color: var(--texte-2);
+  font-size: 13px; font-weight: 700; text-align: center; min-width: 108px;
+}
+.btn-consulter svg { width: 22px; height: 22px; color: var(--or); }
+.btn-consulter:active { transform: scale(.97); }
+@media (max-width: 520px) { .rangee-enfant { grid-template-columns: 1fr; } .btn-consulter { grid-auto-flow: column; padding: 10px; } }
+.achat { display: grid; grid-template-columns: 76px minmax(0, 1fr) auto; gap: 14px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--ligne); }
+.achat img { width: 76px; height: 76px; object-fit: contain; background: #fff; border-radius: 12px; padding: 6px; box-sizing: border-box; }
+.achat .infos { display: grid; gap: 3px; min-width: 0; }
+.achat b { font-size: 15px; font-weight: 700; line-height: 1.25; }
+.achat small { color: var(--texte-3); font-size: 13px; }
+.achat .droite { display: grid; gap: 6px; justify-items: end; }
+.achat .prix { color: var(--or); font-weight: 800; font-size: 16px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.achat a { display: inline-flex; align-items: center; gap: 6px; padding: 8px 12px; border-radius: 10px; background: rgba(255,255,255,.08); color: var(--texte); font-size: 13px; font-weight: 700; text-decoration: none; white-space: nowrap; }
+.achat a svg { width: 14px; height: 14px; }
+.achat .coeur-mini { display: inline-block; width: 16px; height: 16px; vertical-align: -2px; margin-right: 4px; }
+.achat .coeur-mini svg { width: 16px; height: 16px; }
+@media (max-width: 520px) { .achat { grid-template-columns: 60px minmax(0, 1fr); } .achat img { width: 60px; height: 60px; } .achat .droite { grid-column: 2; justify-items: start; grid-auto-flow: column; align-items: center; } }
+.astuce-accueil { display: flex; gap: 22px; justify-content: center; flex-wrap: wrap; color: var(--texte-2); font-size: 15px; }
+.astuce-accueil span { display: inline-flex; align-items: center; gap: 8px; }
+.astuce-accueil svg { width: 20px; height: 20px; color: var(--or); }
+.lien-parents { justify-self: center; color: var(--texte-3); font-size: 15px; font-weight: 600; padding: 10px 16px; border-radius: 999px; }
+.lien-parents:active { background: rgba(255,255,255,.06); }
+
+/* ---------- Lecteur ---------- */
+#lecteur { position: fixed; inset: 0; background: radial-gradient(900px 600px at 50% 40%, #1A1F29, var(--fond) 70%); }
+.scene { position: absolute; inset: 0; touch-action: none; }
+#toile {
+  position: absolute; display: block;
+  border-radius: 3px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.25), 0 30px 80px rgba(0,0,0,.55);
+  background: var(--creme);
+}
+.barre-verre {
+  position: absolute; left: 50%; transform: translateX(-50%);
+  display: flex; align-items: center; gap: 4px;
+  padding: 6px; border-radius: 20px;
+  background: var(--verre);
+  -webkit-backdrop-filter: blur(24px) saturate(160%); backdrop-filter: blur(24px) saturate(160%);
+  border: 1px solid var(--ligne);
+  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+  max-width: calc(100% - 24px - env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px));
+  z-index: 5;
+}
+.outils { top: calc(env(safe-area-inset-top, 0px) + 10px); }
+.pied { bottom: calc(env(safe-area-inset-bottom, 0px) + 10px); gap: 2px; }
+.ic {
+  height: 44px; min-width: 44px; padding: 0 10px; border-radius: 14px;
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  color: var(--texte); font-weight: 600; font-size: 15px; white-space: nowrap;
+  transition: background .15s ease, transform .1s ease;
+}
+.ic svg { width: 22px; height: 22px; flex: none; }
+.ic:active { transform: scale(.94); }
+.ic:hover { background: rgba(255,255,255,.06); }
+.ic[aria-pressed="true"] { background: var(--texte); color: var(--fond); }
+.ic:disabled { opacity: .3; cursor: default; }
+.sep { width: 1px; height: 26px; background: var(--ligne); margin: 0 4px; flex: none; }
+.qui { display: inline-flex; align-items: center; gap: 8px; padding: 0 8px 0 4px; font-weight: 700; font-size: 15px; min-width: 0; }
+.qui .mini-avatar { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; font-family: var(--titre); font-size: 15px; color: #fff; flex: none; }
+.qui span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 140px; }
+.pastilles { display: flex; align-items: center; gap: 2px; }
+.pastille {
+  width: 40px; height: 44px; border-radius: 14px; display: grid; place-items: center;
+}
+.pastille i { width: 24px; height: 24px; border-radius: 50%; display: block; box-shadow: inset 0 -3px 6px rgba(0,0,0,.25); transition: transform .15s ease, box-shadow .15s ease; }
+.pastille[aria-pressed="true"] i { transform: scale(1.12); box-shadow: 0 0 0 3px var(--fond-2), 0 0 0 5px currentColor; }
+.coeurs-restants { display: inline-flex; gap: 1px; }
+.coeurs-restants svg { width: 19px; height: 19px; transition: transform .2s ease; }
+.coeur-btn[aria-pressed="true"] { background: #FFE4EA; }
+.coeur-btn.secoue { animation: secoue .4s ease; }
+@keyframes secoue { 20%, 60% { transform: translateX(-5px); } 40%, 80% { transform: translateX(5px); } }
+.titre-section { margin: 4px 0 -6px; font-size: 13px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--texte-3); display: flex; align-items: center; gap: 8px; }
+.titre-section svg { width: 16px; height: 16px; color: #FF4D6D; }
+.choix { position: relative; }
+.choix .badge-coeur { position: absolute; top: -8px; right: -8px; width: 44px; height: 44px; filter: drop-shadow(0 4px 8px rgba(0,0,0,.35)); transform: rotate(12deg); }
+.compte { background: var(--rouge); color: #fff; border-radius: 999px; min-width: 22px; height: 22px; padding: 0 7px; display: inline-grid; place-items: center; font-size: 13px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.lieu { padding: 0 12px; display: grid; gap: 1px; text-align: center; min-width: 0; }
+.lieu b { font-size: 14px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.lieu small { font-size: 12px; color: var(--texte-2); font-variant-numeric: tabular-nums; }
+.progres { position: absolute; left: 14px; right: 14px; bottom: 3px; height: 2px; border-radius: 2px; background: rgba(255,255,255,.08); overflow: hidden; }
+.progres i { display: block; height: 100%; background: var(--or); border-radius: 2px; transition: width .3s ease; }
+.etiquette-mobile { display: none; }
+@media (max-width: 860px) {
+  .ic .etiq { display: none; }
+  .qui span { display: none; }
+}
+@media (max-width: 600px) {
+  .pastille { width: 32px; }
+  .pastille i { width: 20px; height: 20px; }
+}
+
+.astuce {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  background: var(--verre-fort); border: 1px solid var(--ligne); border-radius: 24px;
+  -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px);
+  padding: 22px 26px; display: grid; gap: 16px; justify-items: center; text-align: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,.5); z-index: 6; pointer-events: none;
+  animation: apparait .3s ease both;
+}
+.astuce .gestes { display: flex; gap: 28px; }
+.astuce .geste { display: grid; gap: 8px; justify-items: center; font-size: 15px; font-weight: 600; color: var(--texte); max-width: 150px; }
+.astuce svg { width: 54px; height: 54px; color: var(--or); }
+.main-glisse { animation: glisse 1.6s ease-in-out infinite; }
+@keyframes glisse { 0%, 15% { transform: translateX(14px); opacity: 0; } 30% { opacity: 1; } 75% { transform: translateX(-14px); opacity: 1; } 100% { transform: translateX(-14px); opacity: 0; } }
+@keyframes apparait { from { opacity: 0; transform: translate(-50%, -46%); } to { opacity: 1; transform: translate(-50%, -50%); } }
+
+/* ---------- Feuilles modales ---------- */
+.voile {
+  position: fixed; inset: 0; z-index: 20;
+  background: rgba(5, 7, 10, .55);
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  display: grid; align-items: end; justify-items: center;
+  padding-top: calc(env(safe-area-inset-top, 0px) + 40px);
+}
+.boite {
+  width: min(820px, 100%); max-height: 100%; overflow-y: auto; -webkit-overflow-scrolling: touch;
+  background: var(--fond-2); border: 1px solid var(--ligne); border-bottom: 0;
+  border-radius: 26px 26px 0 0;
+  box-shadow: 0 -20px 60px rgba(0,0,0,.5);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  animation: monte .32s cubic-bezier(.2, .9, .3, 1) both;
+  -webkit-user-select: text; user-select: text;
+}
+@keyframes monte { from { transform: translateY(40px); opacity: .4; } to { transform: none; opacity: 1; } }
+.boite-haut {
+  position: sticky; top: 0; z-index: 1;
+  display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 12px;
+  padding: 10px 20px 14px;
+  padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px));
+  background: rgba(22, 26, 34, .92);
+  -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+}
+.boite-haut::before { content: ""; grid-column: 1 / -1; justify-self: center; width: 40px; height: 5px; border-radius: 3px; background: rgba(255,255,255,.18); margin-bottom: 6px; }
+.boite-haut h2 { margin: 0; font-size: 24px; font-weight: 800; letter-spacing: -.02em; min-width: 0; text-wrap: balance; }
+.fermer { width: 34px; height: 34px; border-radius: 50%; background: rgba(255,255,255,.1); display: grid; place-items: center; color: var(--texte-2); }
+.fermer svg { width: 16px; height: 16px; }
+.boite-corps { padding: 6px 20px 24px; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); display: grid; gap: 18px; }
+.vide { text-align: center; color: var(--texte-2); padding: 30px 0; margin: 0; font-size: 17px; }
+.grille-liste { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 14px; }
+.choix { display: grid; gap: 6px; align-content: start; min-width: 0; }
+.choix img { width: 100%; aspect-ratio: 1; object-fit: contain; background: #fff; border-radius: 16px; padding: 10px; box-sizing: border-box; }
+.choix b { font-size: 15px; line-height: 1.25; font-weight: 650; }
+.choix small { color: var(--texte-3); font-size: 13px; }
+.choix .prix { color: var(--or); font-weight: 800; font-size: 15px; font-variant-numeric: tabular-nums; }
+.actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.total { color: var(--texte-2); font-weight: 600; font-variant-numeric: tabular-nums; }
+.btn {
+  min-height: 50px; padding: 0 20px; border-radius: 14px;
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  font-weight: 700; font-size: 16px;
+  background: var(--texte); color: var(--fond);
+}
+.btn svg { width: 20px; height: 20px; }
+.btn:active { transform: scale(.97); }
+.btn.clair { background: rgba(255,255,255,.08); color: var(--texte); }
+.btn.danger { background: transparent; color: var(--rouge); box-shadow: inset 0 0 0 1px rgba(229,72,61,.5); }
+.btn.danger.arme { background: var(--rouge); color: #fff; box-shadow: none; }
+.btn:disabled { opacity: .5; cursor: progress; }
+.bloc-parent { background: rgba(255,255,255,.04); border: 1px solid var(--ligne); border-radius: 18px; padding: 16px; display: grid; gap: 12px; }
+.bloc-parent h3 { margin: 0; font-size: 17px; font-weight: 750; }
+.champ { display: grid; gap: 6px; color: var(--texte-2); font-size: 14px; font-weight: 600; }
+.champ input { font: inherit; font-size: 17px; color: var(--texte); background: rgba(255,255,255,.06); border: 1px solid var(--ligne); border-radius: 12px; padding: 12px 14px; min-width: 0; }
+.note { color: var(--texte-2); font-size: 14px; line-height: 1.5; margin: 0; }
+.interrupteur { display: flex; align-items: center; justify-content: space-between; gap: 16px; color: var(--texte); font-weight: 600; }
+.interrupteur small { display: block; color: var(--texte-2); font-weight: 400; font-size: 13px; margin-top: 2px; }
+.bascule { width: 52px; height: 32px; border-radius: 16px; background: rgba(255,255,255,.16); position: relative; flex: none; transition: background .2s; }
+.bascule::after { content: ""; position: absolute; top: 3px; left: 3px; width: 26px; height: 26px; border-radius: 50%; background: #fff; box-shadow: 0 2px 6px rgba(0,0,0,.3); transition: transform .2s; }
+.bascule[aria-checked="true"] { background: #34C759; }
+.bascule[aria-checked="true"]::after { transform: translateX(20px); }
+.grille-sommaire { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 14px; }
+.rubrique { display: grid; gap: 8px; text-align: left; padding: 0; }
+.rubrique .vignette { aspect-ratio: 4 / 3; background: var(--creme); border-radius: 16px; display: grid; place-items: center; overflow: hidden; transition: transform .15s; }
+.rubrique:active .vignette { transform: scale(.97); }
+.rubrique img { width: 82%; height: 82%; object-fit: contain; }
+.rubrique b { font-size: 16px; font-weight: 700; line-height: 1.2; }
+.rubrique small { color: var(--texte-3); font-size: 13px; font-weight: 600; }
+
+#toast {
+  position: fixed; left: 50%; bottom: calc(env(safe-area-inset-bottom, 0px) + 84px); transform: translateX(-50%);
+  z-index: 40; max-width: min(520px, calc(100% - 32px));
+  background: var(--verre-fort); border: 1px solid var(--ligne);
+  -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px);
+  color: var(--texte); padding: 13px 18px; border-radius: 16px; font-weight: 600; font-size: 15px;
+  box-shadow: 0 12px 30px rgba(0,0,0,.4);
+}
+/* ===== Accueil : un soir de Noël, sapin profond, or fin, neige qui tombe doucement ===== */
+#accueil {
+  position: relative; display: block; padding: 0; overflow-x: hidden; overflow-y: auto; -webkit-overflow-scrolling: touch;
+  background: radial-gradient(1200px 800px at 30% 45%, #1C4A37 0%, #123526 55%, #0B241A 100%);
+  color: #F6EFDF; color-scheme: dark;
+}
+/* un cadre doré, double filet, comme une carte de vœux */
+#accueil::before {
+  content: ""; position: fixed; z-index: 1; pointer-events: none;
+  inset: calc(env(safe-area-inset-top, 0px) + 12px) max(12px, env(safe-area-inset-right, 0px)) calc(env(safe-area-inset-bottom, 0px) + 12px) max(12px, env(safe-area-inset-left, 0px));
+  border: 1px solid rgba(214,178,94,.55); box-shadow: inset 0 0 0 4px rgba(11,36,26,.0), inset 0 0 0 5px rgba(214,178,94,.28);
+}
+.neige { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.neige i {
+  position: absolute; top: -12px; width: var(--t); height: var(--t); border-radius: 50%; background: #fff; opacity: var(--o);
+  animation: tombe var(--d) linear infinite; animation-delay: var(--r); will-change: transform;
+}
+@keyframes tombe { to { transform: translate3d(var(--x), 105vh, 0); } }
+.scene-accueil {
+  position: relative; z-index: 2; min-height: 100%; box-sizing: border-box; max-width: 1160px; margin: 0 auto;
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: clamp(28px, 5vw, 76px); align-items: center;
+  padding-block: calc(env(safe-area-inset-top, 0px) + 44px) calc(env(safe-area-inset-bottom, 0px) + 44px);
+  padding-left: max(40px, env(safe-area-inset-left, 0px)); padding-right: max(40px, env(safe-area-inset-right, 0px));
+}
+@media (max-aspect-ratio: 1/1) { .scene-accueil { grid-template-columns: 1fr; align-content: start; gap: 30px; } }
+
+.livre-zone { display: grid; place-items: center; }
+.livre { position: relative; width: min(390px, 76vw, 60vh); aspect-ratio: 3 / 4; transform: rotate(-2deg); transition: transform .35s ease; }
+.livre:hover { transform: rotate(-1deg) translateY(-4px); }
+.livre::after { content: ""; position: absolute; left: 8%; right: 8%; bottom: -18px; height: 30px; border-radius: 50%; background: rgba(0,0,0,.45); filter: blur(14px); z-index: -1; }
+.couverture {
+  position: absolute; inset: 0; overflow: hidden; border-radius: 3px 10px 10px 3px; background: #B9271F;
+  box-shadow: inset 7px 0 0 rgba(0,0,0,.14), inset 8px 0 0 rgba(255,255,255,.06), 0 30px 60px -18px rgba(0,0,0,.6);
+  display: grid; grid-template-rows: auto auto 1fr auto; text-align: center;
+}
+.couverture::before { content: ""; position: absolute; inset: 12px; border: 1px solid rgba(255,226,150,.55); border-radius: 2px 6px 6px 2px; pointer-events: none; }
+.couv-ruban { margin: 26px auto 0; font: 700 10.5px/1 var(--ui); letter-spacing: .26em; color: #F2D58F; position: relative; z-index: 2; }
+.couv-titre { margin: 12px 22px 0; font-family: var(--titre); font-weight: 400; font-size: clamp(30px, 4vw, 46px); line-height: 1; color: #FFF4DA; position: relative; z-index: 2; }
+.couv-cadre { position: relative; min-height: 0; min-width: 0; z-index: 1; margin: 2px 10px 0; }
+#couv-collage { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.couv-pied { margin: 4px auto 26px; font: 700 10.5px/1.2 var(--ui); color: #F2D58F; letter-spacing: .22em; text-transform: uppercase; position: relative; z-index: 2; }
+
+.cote-droit { display: grid; gap: 16px; min-width: 0; }
+.surtitre { display: flex; align-items: center; gap: 12px; font: 600 11.5px/1 var(--ui); letter-spacing: .28em; text-transform: uppercase; color: #D6B25E; }
+.surtitre::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, rgba(214,178,94,.6), transparent); }
+.cote-droit .question {
+  margin: 0; font-family: "Fraunces", Georgia, serif; font-style: italic; font-weight: 600; font-size: clamp(36px, 4.6vw, 58px);
+  line-height: 1.02; letter-spacing: -.01em; color: #F6EFDF; text-transform: none; background: none; -webkit-text-fill-color: currentColor; filter: none;
+}
+.rebours { font: 500 15px/1.4 var(--ui); color: rgba(246,239,223,.72); }
+.rebours b { color: #F2D58F; font-weight: 700; font-variant-numeric: tabular-nums; }
+.enfants { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 16px; margin-top: 8px; }
+/* les cartes sont des étiquettes-cadeaux : coins coupés, œillet, ficelle */
+.carte-enf {
+  --c: #1B64C8; position: relative; display: grid; grid-template-columns: auto 1fr; align-items: center; column-gap: 14px; row-gap: 10px;
+  padding: 16px 16px 14px 34px; background: #FBF5E8; color: #1E2740;
+  clip-path: polygon(16px 0, 100% 0, 100% 100%, 16px 100%, 0 calc(100% - 16px), 0 16px);
+  border-radius: 0 10px 10px 0; box-shadow: inset 0 -3px 0 rgba(0,0,0,.06);
+  transition: transform .2s ease;
+}
+.carte-enf::before { content: ""; position: absolute; left: 12px; top: 50%; width: 9px; height: 9px; margin-top: -5px; border-radius: 50%; background: #123526; box-shadow: 0 0 0 2px #D6B25E; }
+.carte-enf::after { content: ""; position: absolute; right: 0; top: 0; bottom: 0; width: 6px; background: var(--c); }
+.carte-enf:hover { transform: translateY(-2px); }
+.carte-enf .boule { position: absolute; inset: 0; background: none; border: 0; padding: 0; cursor: pointer; }
+.carte-enf .boule:active ~ .pastille-age { transform: scale(.94); }
+.carte-enf .pastille-age {
+  width: 54px; height: 54px; border-radius: 50%; display: grid; place-items: center; background: var(--c); color: #fff;
+  font-family: var(--titre); font-size: 25px; line-height: 1; pointer-events: none; transition: transform .15s ease;
+  box-shadow: inset 0 0 0 3px rgba(255,255,255,.35);
+}
+.carte-enf .texte { display: grid; gap: 3px; min-width: 0; pointer-events: none; }
+.carte-enf .texte b { font: italic 600 22px/1.05 "Fraunces", Georgia, serif; color: #1E2740; }
+.carte-enf .texte small { font: 500 12.5px/1.3 var(--ui); color: #6B6F7E; }
+.carte-enf .mini-liste {
+  position: relative; z-index: 2; grid-column: 1 / -1; justify-self: start; display: inline-flex; align-items: center; gap: 6px;
+  padding: 0; background: none; border: 0; color: #9A3B2A; font: 700 12.5px var(--ui); letter-spacing: .02em;
+  text-decoration: underline; text-decoration-color: rgba(154,59,42,.35); text-underline-offset: 3px;
+}
+.carte-enf .mini-liste svg { width: 14px; height: 14px; }
+.cote-droit .astuce-accueil { justify-content: flex-start; gap: 6px 20px; font-size: 13px; color: rgba(246,239,223,.6); margin-top: 4px; }
+.cote-droit .astuce-accueil svg { color: #D6B25E; width: 16px; height: 16px; }
+.cote-droit .lien-parents { justify-self: start; padding: 0; color: #F2D58F; font: 600 13.5px var(--ui); letter-spacing: .04em; text-decoration: underline; text-underline-offset: 4px; text-decoration-color: rgba(242,213,143,.4); background: none; }
+@media (max-aspect-ratio: 1/1) { .cote-droit { justify-items: stretch; } }
+@media (max-width: 560px) { .enfants { grid-template-columns: 1fr; } .scene-accueil { padding-left: 28px; padding-right: 28px; } }
+
+/* rameaux dorés au trait, dans deux coins du cadre */
+.rameau { position: fixed; z-index: 1; width: clamp(120px, 16vw, 200px); height: auto; pointer-events: none; opacity: .75; }
+.rameau-hg { top: calc(env(safe-area-inset-top, 0px) + 6px); left: max(6px, env(safe-area-inset-left, 0px)); }
+.rameau-bd { bottom: calc(env(safe-area-inset-bottom, 0px) + 6px); right: max(6px, env(safe-area-inset-right, 0px)); transform: rotate(180deg); }
+.rameau .tige { fill: none; stroke: #D6B25E; stroke-width: 2; stroke-linecap: round; }
+.rameau .aiguille { stroke: #D6B25E; stroke-width: 1.4; stroke-linecap: round; opacity: .85; }
+.rameau .baie { fill: #C8302A; stroke: #F2D58F; stroke-width: 1; }
+/* l'épaisseur du catalogue : la tranche des pages, à droite et en bas */
+.livre::before {
+  content: ""; position: absolute; inset: 6px -7px -7px 6px; border-radius: 3px 10px 10px 3px; z-index: -1;
+  background: repeating-linear-gradient(90deg, #EFE6D2 0 2px, #D9CDB2 2px 3px), #EFE6D2;
+  box-shadow: 0 20px 40px -14px rgba(0,0,0,.55);
+}
+/* le sceau doré, comme le macaron des vieux catalogues */
+.sceau {
+  position: absolute; z-index: 5; top: -22px; right: -26px; width: 92px; height: 92px; border-radius: 50%;
+  display: grid; place-content: center; text-align: center; color: #5A3A0A; transform: rotate(12deg);
+  background: radial-gradient(circle at 35% 30%, #FFF0B8, #E9C25E 45%, #B98A2B 100%);
+  box-shadow: 0 0 0 3px #F6E3A6, 0 0 0 4px #A97D27, 0 10px 20px rgba(0,0,0,.4);
+}
+.sceau::before { content: ""; position: absolute; inset: 7px; border-radius: 50%; border: 1px dashed rgba(90,58,10,.5); }
+.sceau b { font: 400 27px/1 var(--titre); }
+.sceau span { font: 800 10px/1.1 var(--ui); letter-spacing: .2em; text-transform: uppercase; }
+@media (max-width: 560px) { .sceau { width: 72px; height: 72px; right: -12px; } .sceau b { font-size: 21px; } .rameau { opacity: .5; } }
+
+/* dernière touche : grain de papier, ficelle des étiquettes, entrée douce, signature */
+#accueil .grain { position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: .09; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+.carte-enf .ficelle { position: absolute; left: 16px; top: 50%; width: 46px; height: 2px; margin-top: -1px; transform-origin: 0 50%; transform: rotate(-152deg);
+  background: repeating-linear-gradient(90deg, #C9A86A 0 3px, #A8864C 3px 5px); border-radius: 2px; pointer-events: none; z-index: 1; }
+.carte-enf { overflow: visible; }
+.carte-enf:nth-child(even) .ficelle { transform: rotate(-200deg); }
+@keyframes entree { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+.scene-accueil > * { animation: entree .7s cubic-bezier(.2, .7, .2, 1) both; }
+.scene-accueil > .cote-droit { animation-delay: .12s; }
+.enfants .carte-enf { animation: entree .6s cubic-bezier(.2, .7, .2, 1) both; }
+.enfants .carte-enf:nth-child(1) { animation-delay: .25s; } .enfants .carte-enf:nth-child(2) { animation-delay: .32s; }
+.enfants .carte-enf:nth-child(3) { animation-delay: .39s; } .enfants .carte-enf:nth-child(4) { animation-delay: .46s; }
+.dedicace { margin: -4px 0 0; font: italic 400 16px/1.45 "Fraunces", Georgia, serif; color: rgba(246,239,223,.78); max-width: 34em; }
+.pied-accueil { display: flex; align-items: center; gap: 18px; margin-top: 2px; }
+.cote-droit .lien-parents { display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 999px; text-decoration: none;
+  border: 1px solid rgba(214,178,94,.45); color: #F2D58F; background: rgba(11,36,26,.35); font: 600 13px var(--ui); letter-spacing: .04em; }
+.cote-droit .lien-parents svg { width: 15px; height: 15px; }
+.cote-droit .lien-parents:active { background: rgba(214,178,94,.15); }
+.signature { position: fixed; z-index: 1; left: 0; right: 0; bottom: calc(env(safe-area-inset-bottom, 0px) + 20px); text-align: center; pointer-events: none;
+  font: 600 10px/1 var(--ui); letter-spacing: .32em; text-transform: uppercase; color: rgba(214,178,94,.55); }
+@media (max-aspect-ratio: 1/1) { .signature { position: static; margin: 10px 0 30px; } }
+.livre-zone { position: relative; }
+.livre-zone::before { content: ""; position: absolute; left: 50%; top: 50%; width: 140%; aspect-ratio: 1; transform: translate(-50%, -50%); border-radius: 50%; pointer-events: none;
+  background: radial-gradient(closest-side, rgba(255,196,110,.20), rgba(255,160,90,.07) 55%, transparent 72%); }
+.sceau { overflow: hidden; }
+.sceau::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: linear-gradient(115deg, transparent 35%, rgba(255,255,255,.55) 50%, transparent 65%);
+  background-size: 300% 100%; animation: reflet-sceau 6s ease-in-out infinite; pointer-events: none; }
+@keyframes reflet-sceau { 0%, 70% { background-position: 120% 0; } 100% { background-position: -120% 0; } }
+
+/* les étiquettes des enfants, une par rangée, et la petite étiquette de prix à côté */
+.enfants { grid-template-columns: 1fr; gap: 12px; }
+.rang-enf { display: flex; align-items: center; gap: 14px; animation: entree .6s cubic-bezier(.2, .7, .2, 1) both; }
+.rang-enf:nth-child(1) { animation-delay: .25s; } .rang-enf:nth-child(2) { animation-delay: .32s; }
+.rang-enf:nth-child(3) { animation-delay: .39s; } .rang-enf:nth-child(4) { animation-delay: .46s; }
+.rang-enf .carte-enf { flex: 1; min-width: 0; padding-top: 12px; padding-bottom: 12px; animation: none; }
+.carte-enf .ficelle { display: none; }
+.etiquette-prix {
+  position: relative; flex: none; width: 96px; height: 58px; display: grid; place-content: center; text-align: center; gap: 1px;
+  padding: 0 0 0 18px; color: #5A3A0A; transform: rotate(-5deg);
+  background: linear-gradient(180deg, #E9D3A4, #D9BC82);
+  clip-path: polygon(16px 0, 100% 0, 100% 100%, 16px 100%, 0 50%);
+  border-radius: 0 6px 6px 0; transition: transform .2s ease;
+}
+.rang-enf:nth-child(even) .etiquette-prix { transform: rotate(4deg); }
+.etiquette-prix:hover { transform: rotate(0) translateY(-2px); }
+.etiquette-prix:active { transform: scale(.95); }
+.etiquette-prix .oeillet { position: absolute; left: 12px; top: 50%; width: 8px; height: 8px; margin-top: -4px; border-radius: 50%; background: #123526; box-shadow: 0 0 0 2px #F6EFDF; }
+.etiquette-prix b { font: italic 600 17px/1 "Fraunces", Georgia, serif; }
+.etiquette-prix small { font: 700 10.5px/1.2 var(--ui); letter-spacing: .14em; text-transform: uppercase; }
+.etiquette-prix::after { content: ""; position: absolute; left: -20px; top: 50%; width: 24px; height: 2px; background: repeating-linear-gradient(90deg, #C9A86A 0 3px, #A8864C 3px 5px); }
+@media (max-width: 560px) { .etiquette-prix { width: 78px; height: 50px; } .etiquette-prix b { font-size: 15px; } }
+.cote-droit .lien-parents { flex: none; white-space: nowrap; }
+.cote-droit .astuce-accueil { display: none; }
+.cote-droit { gap: 14px; }
+.pied-accueil { margin-top: 4px; }
+.coupon {
+  position: relative; margin-top: 6px; padding: 14px 18px 14px 20px; max-width: 34em; transform: rotate(-1.2deg);
+  background: #FFF3C4; color: #3A2410; border: 2px dashed #B23A2A; border-radius: 6px;
+  box-shadow: 0 0 0 6px #FFF3C4, 0 12px 24px -8px rgba(0,0,0,.5);
+}
+.coupon .ciseaux { position: absolute; top: -15px; left: 22px; width: 24px; height: 24px; padding: 2px; color: #B23A2A; background: #FFF3C4; border-radius: 50%; transform: rotate(-90deg); }
+.coupon-titre { display: inline-block; margin-bottom: 4px; padding: 3px 10px; border-radius: 3px; background: #B23A2A; color: #FFF3C4;
+  font: 900 12px/1.2 var(--ui); letter-spacing: .16em; text-transform: uppercase; }
+.coupon p { margin: 0; font: 500 14px/1.45 var(--ui); padding-right: 56px; text-wrap: pretty; }
+.coupon .insec { white-space: nowrap; }
+.coupon .rire { position: absolute; right: -20px; bottom: -24px; width: 78px; height: 78px; border-radius: 50%; object-fit: cover;
+  border: 3px solid #FFF3C4; box-shadow: 0 0 0 2px #B23A2A, 0 8px 18px rgba(0,0,0,.45); transform: rotate(8deg); }
+.coupon p b { font-weight: 800; color: #B23A2A; }
+.note-parents { margin: 0; max-width: 26em; font: italic 400 12.5px/1.4 "Fraunces", Georgia, serif; color: rgba(246,239,223,.6); }
+.note-parents b { font-style: normal; font-family: var(--ui); font-weight: 700; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: rgba(242,213,143,.75); }
+.choix-mode { display: grid; gap: 8px; }
+.choix-mode button { display: grid; gap: 3px; text-align: left; padding: 12px 14px; border-radius: 14px; background: rgba(255,255,255,.05); box-shadow: inset 0 0 0 1px var(--ligne); color: var(--texte); }
+.choix-mode button b { font-size: 15px; } .choix-mode button small { color: var(--texte-2); font-size: 13px; line-height: 1.35; }
+.choix-mode button[aria-checked="true"] { box-shadow: inset 0 0 0 2px var(--or); background: rgba(243,195,82,.1); }
+#outil-crayon[aria-pressed="true"] { color: var(--crayon, #C8302A); }
+@media (prefers-reduced-motion: reduce) { .neige { display: none; } .scene-accueil > *, .enfants .carte-enf, .sceau::after { animation: none; } }
+
+#accueil.ouverture::after { content: ""; position: fixed; inset: 0; z-index: 10; background: #FBF4E4; opacity: 0; animation: fondu .22s forwards; }
+@keyframes fondu { to { opacity: 1; } }
+/* ===== Lecteur : la feuille plein écran, une rangée de boutons ronds, sobres, posés sur le bandeau rouge ===== */
+#lecteur { background: #FBF4E4; }
+#toile { left: 0; top: 0; border-radius: 0; box-shadow: none; background: #FBF4E4; }
+.pied { display: none !important; }
+.outils.barre-verre {
+  top: 0; left: 0; right: 0; transform: none; max-width: none; border-radius: 0; border: 0; box-shadow: none;
+  background: none; -webkit-backdrop-filter: none; backdrop-filter: none;
+  padding: calc(env(safe-area-inset-top, 0px) + 12px) max(12px, env(safe-area-inset-right, 0px)) 6px max(12px, env(safe-area-inset-left, 0px));
+  display: flex; justify-content: center; align-items: center; gap: 8px; flex-wrap: nowrap;
+  pointer-events: none;
+}
+.outils.barre-verre > * { pointer-events: auto; }
+.outils .sep { width: 1px; height: 26px; margin: 0 4px; background: rgba(255,255,255,.28); }
+.outils .pastilles { display: flex; gap: 4px; }
+.outils .ic, .outils .qui, .outils .pastille {
+  --d: 46px;
+  position: relative; flex: none; width: var(--d); height: var(--d); min-width: 0; padding: 0; gap: 0;
+  border-radius: 50%; display: grid; place-items: center; color: #fff;
+  transition: transform .15s ease, background-color .15s ease, color .15s ease, box-shadow .15s ease;
+}
+.outils .ic, .outils .qui {
+  background: rgba(255,255,255,.14);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.22);
+}
+.outils .ic:hover { background: rgba(255,255,255,.22); }
+.outils .ic:active, .outils .qui:active, .outils .pastille:active { transform: scale(.92); }
+.outils .ic[aria-pressed="true"] { background: #fff; color: #C8302A; box-shadow: 0 4px 14px rgba(80,0,0,.3); }
+.outils .ic:disabled { opacity: .35; }
+.outils .ic svg { width: 21px; height: 21px; }
+.outils .etiq, .outils .qui span:last-child { display: none; }
+.outils .qui { background: var(--c, #1B64C8); box-shadow: inset 0 0 0 2px rgba(255,255,255,.85), 0 3px 10px rgba(80,0,0,.25); }
+.outils .qui .mini-avatar { width: auto; height: auto; background: none !important; font-family: var(--titre); font-size: 20px; color: #fff; }
+.outils .pastille { --d: 38px; background: none; }
+.outils .pastille i { width: 24px; height: 24px; border-radius: 50%; display: block; background: var(--c); box-shadow: inset 0 0 0 2px rgba(255,255,255,.9); transition: transform .15s ease, box-shadow .15s ease; }
+.outils .pastille[aria-pressed="true"] i { transform: scale(1.25); box-shadow: inset 0 0 0 2px rgba(255,255,255,.9), 0 0 0 3px #fff, 0 4px 12px rgba(80,0,0,.35); }
+.outils .compte { position: absolute; top: -4px; right: -6px; min-width: 20px; height: 20px; padding: 0 6px; font-size: 12px; background: #F3C352; color: #3A1A08; box-shadow: 0 2px 6px rgba(80,0,0,.3); }
+.outils .coeurs-restants { position: static; width: 30px; display: flex; flex-wrap: wrap; justify-content: center; gap: 0 1px; line-height: 0; }
+.outils .coeurs-restants svg { width: 14px; height: 14px; }
+.outils .coeur-btn[aria-pressed="true"] { background: #fff; }
+@media (max-width: 900px) {
+  .outils .ic, .outils .qui { --d: 40px; }
+  .outils .pastille { --d: 32px; }
+  .outils .pastille i { width: 20px; height: 20px; }
+  .outils .coeurs-restants svg { width: 12px; height: 12px; }
+  .outils.barre-verre { gap: 4px; }
+  .outils .sep { margin: 0 2px; }
+}
+@media (max-width: 640px) {
+  .outils .ic, .outils .qui { --d: 28px; }
+  .outils .pastille { --d: 18px; }
+  .outils .pastille i { width: 14px; height: 14px; }
+  .outils .pastilles { gap: 1px; }
+  .outils .ic svg { width: 14px; height: 14px; }
+  .outils .qui .mini-avatar { font-size: 14px; }
+  .outils.barre-verre { gap: 2px; padding-left: 4px; padding-right: 4px; padding-top: calc(env(safe-area-inset-top, 0px) + 8px); }
+  .outils .sep { display: none; }
+  .outils .compte { min-width: 15px; height: 15px; font-size: 9px; padding: 0 3px; }
+  .outils .coeurs-restants { width: 20px; }
+  .outils .coeurs-restants svg { width: 9px; height: 9px; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+</style>
+
+<main id="accueil">
+  <div class="grain" aria-hidden="true"></div>
+  <div class="neige" id="neige" aria-hidden="true"></div>
+  <svg class="rameau rameau-hg" id="rameau-hg" viewBox="0 0 220 220" aria-hidden="true"></svg>
+  <svg class="rameau rameau-bd" id="rameau-bd" viewBox="0 0 220 220" aria-hidden="true"></svg>
+  <div class="scene-accueil">
+    <div class="livre-zone">
+      <div class="livre" id="livre">
+        <div class="sceau" aria-hidden="true"><b id="sceau-n"></b><span>jouets</span></div>
+        <div class="couverture">
+          <div class="couv-ruban">ÉDITION DE NOËL 2026</div>
+          <h1 class="couv-titre">Le Catalogue<br>des Souhaits</h1>
+          <div class="couv-cadre"><canvas id="couv-collage" aria-hidden="true"></canvas></div>
+          <div class="couv-pied" id="sous-titre"></div>
+        </div>
+      </div>
+    </div>
+    <div class="cote-droit">
+      <div class="surtitre">Joyeux Noël</div>
+      <h2 class="question">Qui feuillette ce soir?</h2>
+      <p class="dedicace">Un rond de crayon pour chaque souhait, trois super cœurs pour les plus grands. Le père Noël regarde par-dessus ton épaule.</p>
+      <div class="rebours" id="rebours"></div>
+      <div class="enfants" id="enfants"></div>
+      <div class="astuce-accueil">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3l4 4L8 20l-5 1 1-5z"/><path d="M14 6l4 4"/></svg>Le crayon fait des ronds</span>
+        <span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.3 3 4.5 6.7 4.5c2.1 0 3.6 1.2 4.4 2.6.8-1.4 2.3-2.6 4.4-2.6 3.7 0 5.8 3.8 4.3 7.2C19.5 16.4 12 21 12 21z"/></svg>3 super cœurs</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V11"/><path d="M12 10V4.5a1.5 1.5 0 0 1 3 0V11"/><path d="M15 10.5V6.5a1.5 1.5 0 0 1 3 0V14a7 7 0 0 1-7 7h-.5a6 6 0 0 1-4.6-2.2L3.4 15.6a1.6 1.6 0 0 1 2.4-2.1L9 16V8.5a1.5 1.5 0 0 1 0 0"/></svg>Le doigt tourne les pages</span>
+      </div>
+      <div class="pied-accueil">
+        <button class="lien-parents" id="ouvrir-parents" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Coin des parents</button>
+      </div>
+      <div class="coupon" role="note">
+        <svg class="ciseaux" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.1 15.9M14.5 14.5 20 20M8.1 8.1 12 12"/></svg>
+        <span class="coupon-titre">À lire, les parents!</span>
+        <p>Dans la liste de prix, tout ce qui dépasse <b>50&nbsp;$</b> est rangé sous <b class="insec">«&nbsp;Trop&nbsp;cher&nbsp;»</b>.<br>Aucun risque de chicane&nbsp;: les enfants ne savent pas encore lire.</p>
+        <img class="rire" alt="" src="rire.gif">
+      </div>
+    </div>
+  </div>
+  <div class="signature">Le Catalogue des Souhaits · Noël 2026</div>
+</main>
+
+<section id="lecteur" hidden>
+  <div class="scene" id="scene"><canvas id="toile" aria-label="Page du catalogue. Fais un rond autour des jouets que tu veux."></canvas></div>
+
+  <div class="barre-verre outils" id="outils">
+    <button class="ic" id="maison" type="button" aria-label="Retour à l'accueil">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <div class="qui" id="qui"></div>
+    <div class="sep"></div>
+    <button class="ic" id="outil-crayon" type="button" aria-pressed="true" aria-label="Crayon : entourer un jouet">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3l4 4L8 20l-5 1 1-5z"/><path d="M14 6l4 4"/></svg>
+    </button>
+    <button class="ic" id="outil-gomme" type="button" aria-pressed="false" aria-label="Gomme">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><path d="M16.2 3.8 21 8.6 10.6 19H6.4L3 15.6z"/><path d="M8.6 9.4l6 6"/><path d="M11 19h10"/></svg>
+    </button>
+    <button class="ic coeur-btn" id="outil-coeur" type="button" aria-pressed="false" aria-label="Super cœur : touche un jouet pour lui donner un cœur">
+      <span class="coeurs-restants" id="coeurs-restants"></span>
+    </button>
+    <button class="ic" id="annuler" type="button" aria-label="Défaire le dernier trait">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11"/></svg>
+    </button>
+    <div class="sep"></div>
+    <button class="ic" id="voir-sommaire" type="button" aria-label="Sommaire">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg>
+      <span class="etiq">Sommaire</span>
+    </button>
+    <button class="ic" id="voir-liste" type="button" aria-label="Ma liste">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.8l2.8 5.7 6.3.9-4.6 4.4 1.1 6.2L12 17l-5.6 3 1.1-6.2-4.6-4.4 6.3-.9z"/></svg>
+      <span class="etiq">Ma liste</span><span class="compte" id="compte">0</span>
+    </button>
+    <div class="sep"></div>
+    <button class="ic" id="prec" type="button" aria-label="Page d'avant">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <button class="ic" id="suiv" type="button" aria-label="Page suivante">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+  </div>
+
+  <div class="pied" id="pied" hidden><b id="lieu-titre"></b><small id="lieu-page"></small><i id="progres"></i></div>
+
+  <div class="astuce" id="astuce" hidden>
+    <div class="gestes">
+      <div class="geste">
+        <svg class="main-glisse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V11"/><path d="M12 10V4.5a1.5 1.5 0 0 1 3 0V11"/><path d="M15 10.5V6.5a1.5 1.5 0 0 1 3 0V14a7 7 0 0 1-7 7h-.5a6 6 0 0 1-4.6-2.2L3.4 15.6a1.6 1.6 0 0 1 2.4-2.1L9 16V8.5"/></svg>
+        <span id="astuce-tourner">Glisse ton doigt pour tourner la page</span>
+      </div>
+      <div class="geste">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3l4 4L8 20l-5 1 1-5z"/><path d="M14 6l4 4"/></svg>
+        <span id="astuce-rond">Fais un rond avec le crayon autour de ce que tu veux</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="voile" id="fen-liste" hidden>
+  <div class="boite" role="dialog" aria-modal="true" aria-labelledby="titre-liste">
+    <div class="boite-haut"><h2 id="titre-liste">Ma liste</h2><button class="fermer" type="button" data-fermer aria-label="Fermer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+    <div class="boite-corps" id="corps-liste"></div>
+  </div>
+</div>
+<div class="voile" id="fen-sommaire" hidden>
+  <div class="boite" role="dialog" aria-modal="true" aria-labelledby="titre-sommaire">
+    <div class="boite-haut"><h2 id="titre-sommaire">Sommaire</h2><button class="fermer" type="button" data-fermer aria-label="Fermer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+    <div class="boite-corps"><div class="grille-sommaire" id="grille-sommaire"></div></div>
+  </div>
+</div>
+<div class="voile" id="fen-achats" hidden>
+  <div class="boite" role="dialog" aria-modal="true" aria-labelledby="titre-achats">
+    <div class="boite-haut"><h2 id="titre-achats">La liste</h2><button class="fermer" type="button" data-fermer aria-label="Fermer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+    <div class="boite-corps" id="corps-achats"></div>
+  </div>
+</div>
+<div class="voile" id="fen-parents" hidden>
+  <div class="boite" role="dialog" aria-modal="true" aria-labelledby="titre-parents">
+    <div class="boite-haut"><h2 id="titre-parents">Coin des parents</h2><button class="fermer" type="button" data-fermer aria-label="Fermer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+    <div class="boite-corps" id="corps-parents"></div>
+  </div>
+</div>
+
+<div id="toast" role="status" hidden></div>
+
+<script id="donnees" type="application/json">/*PRODUITS*/</script>
+<script>
+(() => {
+  "use strict";
+  const PRODUITS = JSON.parse(document.getElementById("donnees").textContent);
+
+  /* ---------- Constantes ---------- */
+  // Deux formats de page : portrait (tablette debout) et paysage (tablette couchée).
+  const FORMATS = { P: { W: 1000, H: 1300 }, L: { W: 1300, H: 910 } };
+  let FMT = "P", W = 1000, H = 1300, BAS = H - 30, H_ENTREE = 50;
+  function regler(f) { FMT = f; W = FORMATS[f].W; H = FORMATS[f].H; BAS = H - 30; H_ENTREE = f === "L" ? 46 : 50; }
+  const M = 32, G = 24, HAUT = 96;
+  const CW = (W - 2 * M - G) / 2, CH = (BAS - HAUT - 2 * G) / 3, PAR_PAGE = 9;
+  const LETTRES = "ABCDEFGHIJ";
+  const CRAYONS = [
+    { nom: "Rouge", c: "#D7263D" }, { nom: "Bleu", c: "#1B64C8" }, { nom: "Vert", c: "#1F8A4C" },
+    { nom: "Mauve", c: "#7B3FBF" }, { nom: "Orange", c: "#EE7A12" },
+  ];
+  const ENFANTS = [
+    { id: "k1", defaut: "5 ans", crayon: 1, voit: c => !c.startsWith("d2-") && c !== "papa" },
+    { id: "k2", defaut: "4 ans", crayon: 0, voit: c => !c.startsWith("d2-") && c !== "papa" },
+    { id: "k3", defaut: "1 an", crayon: 2, voit: c => c.startsWith("d2-") },
+    { id: "k4", defaut: "33 ans", crayon: 4, voit: c => c === "papa" },
+  ];
+  const COUL = { papier: "#FBF4E4", encre: "#1E2740", douce: "#5B5E6E", rouge: "#C8302A", or: "#E9B53C", vert: "#1F7A4D", filet: "#E3D7BD" };
+  const F_TITRE = '"Shrikhand", "Cooper Black", Georgia, serif';
+  const F_TEXTE = '"Archivo", "Helvetica Neue", Arial, sans-serif';
+  const CLE_LOCALE = "catalogue-souhaits-v5";
+
+  /* ---------- Pages du catalogue ---------- */
+  const estLego = p => /^lego/i.test(p.id) || /lego/i.test(p.marque || "");
+  const estDuplo = p => /duplo/i.test(p.marque + " " + p.nom);
+  const SECTIONS = [
+    { cle: "duplo", titre: "LEGO DUPLO" },
+    { cle: "retro", titre: "Les classiques des années 90" },
+    { cle: "coups", titre: "Nos coups de cœur" },
+    { cle: "lego", titre: "Les ensembles LEGO" },
+    { cle: "batir", titre: "Pour bâtir" },
+    { cle: "teleguides", titre: "Les téléguidés" },
+    { cle: "autos", titre: "Autos, camions et pistes" },
+    { cle: "cool", titre: "Des affaires cool" },
+    { cle: "jouer", titre: "Pour faire semblant" },
+    { cle: "jeux", titre: "Jeux en famille" },
+    { cle: "livres", titre: "Les livres d'ici" },
+    { cle: "art", titre: "Bricoler et découvrir" },
+    { cle: "dehors", titre: "Jouer dehors" },
+    { cle: "d2-retro", titre: "2 ans · Les classiques des années 90" },
+    { cle: "d2-coups", titre: "2 ans · Coups de cœur" },
+    { cle: "d2-bouger", titre: "2 ans · Bouger" },
+    { cle: "d2-apprendre", titre: "2 ans · Apprendre" },
+    { cle: "d2-vehicules", titre: "2 ans · Petits véhicules" },
+    { cle: "d2-semblant", titre: "2 ans · Faire semblant" },
+    { cle: "d2-musique", titre: "2 ans · Musique" },
+    { cle: "d2-art", titre: "2 ans · Bricoler" },
+    { cle: "d2-bain", titre: "2 ans · Bain et sable" },
+    { cle: "d2-calins", titre: "2 ans · Câlins" },
+    { cle: "d2-livres", titre: "2 ans · Livres" },
+    { cle: "papa", titre: "Pour les 33 ans" },
+  ];
+  const PAGES = [];
+  {
+    const restants = new Set(PRODUITS);
+    for (const sec of SECTIONS) {
+      const lot = [...restants].filter(p => p.categorie === sec.cle);   // l'ordre mêlé vient de l'assembleur
+      lot.forEach(p => restants.delete(p));
+      sec.debut = PAGES.length;
+      const nb = Math.ceil(lot.length / PAR_PAGE);
+      for (let k = 0, i = 0; k < nb; k++) { const t = Math.ceil((lot.length - i) / (nb - k)); PAGES.push({ titre: sec.titre, cle: sec.cle, items: lot.slice(i, i + t) }); i += t; }
+    }
+    if (restants.size) { const lot = [...restants]; for (let i = 0; i < lot.length; i += PAR_PAGE) PAGES.push({ titre: "Encore plus de jouets", cle: "autres", items: lot.slice(i, i + PAR_PAGE) }); }
+  }
+  const SOMMAIRE = SECTIONS.filter(sec => PAGES[sec.debut] && PAGES[sec.debut].titre === sec.titre);
+  const cellule = i => { const col = i % 2, lig = Math.floor(i / 2); return { x: M + col * (CW + G), y: HAUT + lig * (CH + G), w: CW, h: CH }; };
+
+  /* Collage façon vieux catalogue : photos détourées, tailles et angles variés,
+     lettres sur les photos, descriptions et prix en colonnes en bas de page. */
+  const RANGEES = { 1: [1], 2: [2], 3: [3], 4: [2, 2], 5: [2, 3], 6: [3, 3], 7: [2, 3, 2], 8: [3, 2, 3], 9: [3, 3, 3], 10: [3, 4, 3] };
+  const COLS_TXT = 3;
+  const RANGEES_L = { 1: [1], 2: [2], 3: [3], 4: [2, 2], 5: [2, 3], 6: [3, 3], 7: [3, 4], 8: [4, 4], 9: [4, 5], 10: [5, 5] };
+  function hasard(graine) { let a = graine * 9301 + 49297; return () => { a = (a * 9301 + 49297) % 233280; return a / 233280; }; }
+  function disposer(pg, idx) {
+    const n = pg.items.length, rnd = hasard(idx * 7 + 3);
+    const lignesTxt = Math.ceil(n / COLS_TXT);
+    const yTexte = BAS - lignesTxt * H_ENTREE - 8;
+    const X0 = 26, X1 = W - 26, Y0 = HAUT - 6, Y1 = yTexte - 14;
+    const rangees = (FMT === "L" ? RANGEES_L[n] : RANGEES[n]) || [3, 3, 3];
+    const vedette = pg.items.reduce((m, p, i) => (p.prix > pg.items[m].prix ? i : m), 0);
+    // ordre de placement : on mélange un peu pour que la vedette ne soit pas toujours au même endroit
+    const ordre = pg.items.map((_, i) => i);
+    for (let i = ordre.length - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); [ordre[i], ordre[j]] = [ordre[j], ordre[i]]; }
+    const hPoids = rangees.map(() => 0.85 + rnd() * 0.3);
+    const zones = new Array(n);
+    let k = 0, y = Y0;
+    const hTot = hPoids.reduce((a, b) => a + b, 0);
+    rangees.forEach((nb, ri) => {
+      const hr = (Y1 - Y0) * hPoids[ri] / hTot;
+      const ids = ordre.slice(k, k + nb); k += nb;
+      const poids = ids.map(i => (i === vedette ? 1.55 : 0.8 + rnd() * 0.45));
+      const pTot = poids.reduce((a, b) => a + b, 0);
+      let x = X0 + (ri % 2 ? 10 : 0);
+      ids.forEach((i, j) => {
+        const wr = (X1 - X0 - 10) * poids[j] / pTot;
+        const pad = 9;
+        zones[i] = { photo: { x: x + pad, y: y + pad, w: wr - 2 * pad, h: hr - 2 * pad }, rot: (rnd() - 0.5) * 0.06,
+                     fx: 0.2 + rnd() * 0.6, fy: 0.25 + rnd() * 0.5, vedette: i === vedette };
+        x += wr;
+      });
+      y += hr;
+    });
+    const colW = (W - 2 * M - 2 * 22) / COLS_TXT;
+    pg.items.forEach((p, i) => {
+      const col = Math.floor(i / lignesTxt), lig = i % lignesTxt;
+      zones[i].texte = { x: M + col * (colW + 22), y: yTexte + lig * H_ENTREE + 8, w: colW, h: H_ENTREE - 8 };
+    });
+    // les petites photos d'abord, la vedette par-dessus
+    return { zones, ordre: ordre.slice().sort((a, b) => (zones[a].vedette - zones[b].vedette) || (rnd() - 0.5)), yTexte };
+  }
+  PAGES.forEach((pg, i) => {
+    pg.m = {};
+    for (const f of ["P", "L"]) { regler(f); pg.m[f] = disposer(pg, i); }
+    Object.defineProperties(pg, {
+      zones: { get() { return this.m[FMT].zones; } },
+      ordreDessin: { get() { return this.m[FMT].ordre; } },
+      yTexte: { get() { return this.m[FMT].yTexte; } },
+    });
+  });
+  regler("P");
+
+  /* ---------- Images ---------- */
+  const DECOUPES = new Map();
+  // iOS plafonne la mémoire de TOUS les canvas d'une page (≈ 384 Mo) : au-delà, les nouveaux sortent vides.
+  // On rend donc la mémoire à la main, et les jouets découpés deviennent des images PNG (hors plafond).
+  const jeter = c => { if (c && c.getContext) { c.width = 0; c.height = 0; } };
+  function decouper(im, rc) {
+    const w = rc[3], h = rc[4];
+    const c = document.createElement("canvas"); c.width = w; c.height = h;
+    const x = c.getContext("2d"); x.drawImage(im, rc[1], rc[2], w, h, 0, 0, w, h);
+    let d; try { d = x.getImageData(0, 0, w, h); } catch (e) { return im; }
+    const p = d.data, n = w * h, vu = new Uint8Array(n), pile = new Int32Array(n); let sp = 0;
+    const blanc = i => p[i * 4] > 234 && p[i * 4 + 1] > 234 && p[i * 4 + 2] > 234;
+    const pousse = i => { if (!vu[i]) { vu[i] = 1; if (blanc(i)) pile[sp++] = i; } };
+    for (let i = 0; i < w; i++) { pousse(i); pousse(n - w + i); }
+    for (let j = 0; j < h; j++) { pousse(j * w); pousse(j * w + w - 1); }
+    while (sp) {
+      const i = pile[--sp]; p[i * 4 + 3] = 0; const xx = i % w;
+      if (xx > 0) pousse(i - 1); if (xx < w - 1) pousse(i + 1); if (i >= w) pousse(i - w); if (i < n - w) pousse(i + w);
+    }
+    for (let i = w; i < n - w; i++) {
+      if (p[i * 4 + 3] === 255 && (p[(i - 1) * 4 + 3] === 0 || p[(i + 1) * 4 + 3] === 0 || p[(i - w) * 4 + 3] === 0 || p[(i + w) * 4 + 3] === 0)) p[i * 4 + 3] = 150;
+    }
+    x.putImageData(d, 0, 0);
+    // recadrer sur le jouet lui-même
+    let x0 = w, y0 = h, x1 = -1, y1 = -1;
+    for (let j = 0; j < h; j++) for (let i = 0; i < w; i++) if (p[(j * w + i) * 4 + 3] > 0) { if (i < x0) x0 = i; if (i > x1) x1 = i; if (j < y0) y0 = j; if (j > y1) y1 = j; }
+    if (x1 < x0 || (x1 - x0) * (y1 - y0) < n * 0.05) return c;
+    const r = document.createElement("canvas"); r.width = x1 - x0 + 1; r.height = y1 - y0 + 1;
+    r.getContext("2d").drawImage(c, x0, y0, r.width, r.height, 0, 0, r.width, r.height);
+    jeter(c);
+    return r;
+  }
+  const imageDe = id => DECOUPES.get(id) || null;
+  /* Les photos arrivent en planches de 36 : on charge la planche, on découpe chaque jouet. */
+  const PLANCHES = [], PRETES = new Set(), parPlanche = new Map(), attenteVignettes = new Map(), VIGNETTES = new Map();
+  for (const p of PRODUITS) { const k = p.sp[0]; if (!parPlanche.has(k)) parPlanche.set(k, []); parPlanche.get(k).push(p); }
+  const fileAttente = [...parPlanche.keys()];
+  let enCharge = 0;
+  function chargerPlanche(k) {
+    if (PLANCHES[k]) return;
+    const im = new Image(); PLANCHES[k] = im; enCharge++;
+    im.onload = () => { enCharge--; traiterPlanche(k, im); suivante(); };
+    im.onerror = () => { enCharge--; PLANCHES[k] = null; suivante(); };
+    im.src = parPlanche.get(k)[0].img;
+  }
+  function suivante() { while (enCharge < 2 && fileAttente.length) { const k = fileAttente.shift(); if (!PLANCHES[k]) chargerPlanche(k); } }
+  function priorite(idx) {
+    for (const j of [idx, idx + 1, idx - 1]) (PAGES[j]?.items || []).forEach(p => { const k = p.sp[0]; if (!PLANCHES[k] && !fileAttente.slice(0, 2).includes(k)) fileAttente.unshift(k); });
+    suivante();
+  }
+  function traiterPlanche(k, im) {
+    PRETES.add(k);
+    for (const [p, els] of attenteVignettes) if (p.sp[0] === k) { els.forEach(el => { el.src = vignette(p); }); attenteVignettes.delete(p); }
+    const reste = parPlanche.get(k).slice();
+    const lot = () => {
+      const t0 = performance.now(), faits = new Set();
+      while (reste.length && performance.now() - t0 < 25) { const p = reste.shift(); const c = decouper(im, p.sp); DECOUPES.set(p.id, c); faits.add(p); enImage(p, c); }
+      redessinerDecoupes(faits);
+      if (reste.length) setTimeout(lot, 0);
+      else attendus.push(k);
+    };
+    lot();
+  }
+  function redessinerDecoupes(faits) {
+    PAGES.forEach((pg, i) => { if (pg.items.some(p => faits.has(p))) BASES.delete(i); });
+    if (etat.vue === "catalogue") planifier(); else if (typeof dessinerCollage === "function") dessinerCollage();
+  }
+  // le canvas découpé devient une image PNG : même dessin, mais la mémoire ne compte plus dans le plafond des canvas
+  let conversions = 0;
+  const attendus = [];
+  function enImage(p, c) {
+    if (!c || !c.toBlob || c === PLANCHES[p.sp[0]]) return;
+    conversions++;
+    c.toBlob(b => {
+      if (!b) { conversions--; return; }
+      const img = new Image(), url = URL.createObjectURL(b);
+      img.onload = () => {
+        conversions--;
+        if (DECOUPES.get(p.id) === c) { DECOUPES.set(p.id, img); jeter(c); }
+        libererPlanches();
+      };
+      img.onerror = () => { conversions--; URL.revokeObjectURL(url); };
+      img.src = url;
+    }, "image/png");
+  }
+  // une planche entièrement découpée n'a plus besoin de rester décodée en mémoire
+  function libererPlanches() {
+    if (conversions) return;
+    while (attendus.length) { const k = attendus.shift(); const im = PLANCHES[k]; if (im && im.src) { PLANCHES[k] = "fait"; } }
+  }
+  function vignette(p) {
+    if (VIGNETTES.has(p.id)) return VIGNETTES.get(p.id);
+    const pl = PLANCHES[p.sp[0]], dec = DECOUPES.get(p.id);
+    let im, sx, sy, w, h;
+    if (pl && pl.naturalWidth) { im = pl; [, sx, sy, w, h] = p.sp; }
+    else if (dec) { im = dec; sx = 0; sy = 0; w = dec.width; h = dec.height; }
+    else return "data:image/gif;base64,R0lGODlhAQABAAAAACw=";
+    const k = Math.min(1, 220 / Math.max(w, h));
+    const c = document.createElement("canvas"); c.width = Math.max(1, Math.round(w * k)); c.height = Math.max(1, Math.round(h * k));
+    const x = c.getContext("2d"); x.fillStyle = "#fff"; x.fillRect(0, 0, c.width, c.height); x.drawImage(im, sx, sy, w, h, 0, 0, c.width, c.height);
+    const url = c.toDataURL("image/jpeg", 0.85); jeter(c); VIGNETTES.set(p.id, url); return url;
+  }
+  function vignetteDans(el, p) {
+    el.alt = "";
+    if (PRETES.has(p.sp[0])) { el.src = vignette(p); return; }
+    if (!attenteVignettes.has(p)) attenteVignettes.set(p, []);
+    attenteVignettes.get(p).push(el);
+    fileAttente.unshift(p.sp[0]); suivante();
+  }
+
+  /* ---------- État ---------- */
+  const etat = { vue: "accueil", enfant: null, pages: {}, crayon: {}, outil: "crayon", noms: {}, doigtDessine: false, coeurs: {},
+    // « dessin » : on trace le rond (Apple Pencil, souris) ; « clic » : toucher ou cliquer un jouet l'entoure tout seul
+    mode: (window.matchMedia && matchMedia("(pointer: fine)").matches && !("ontouchstart" in window)) ? "clic" : "dessin" };
+  // chaque enfant a son propre catalogue : seulement les pages de son âge
+  const PAGES_DE = {};
+  ENFANTS.forEach(e => { PAGES_DE[e.id] = PAGES.map((_, i) => i).filter(i => e.voit(PAGES[i].cle)); });
+  function numeroPage(idx) {
+    const c = PAGES[idx].cle; if (c === "papa") return null;
+    const groupe = PAGES.map((_, i) => i).filter(i => PAGES[i].cle !== "papa" && PAGES[i].cle.startsWith("d2-") === c.startsWith("d2-"));
+    return [groupe.indexOf(idx) + 1, groupe.length];
+  }
+  const voisin = (idx, dir) => { const L = PAGES_DE[etat.enfant] || []; const p = L.indexOf(idx); return p < 0 ? (L[0] ?? -1) : (L[p + dir] ?? -1); };
+  ENFANTS.forEach(e => { etat.pages[e.id] = PAGES_DE[e.id][0] ?? 0; etat.crayon[e.id] = e.crayon; etat.coeurs[e.id] = []; });
+  const MAX_COEURS = 3;
+  let T = {};                                  // "k1:3" -> [{c, p:[x,y,...]}]
+  const pageCourante = () => etat.pages[etat.enfant] ?? 0;
+  const cle = (k, pg, f = FMT) => k + ":" + pg + ":" + f;
+  const nomDe = id => (etat.noms[id] || "").trim() || ENFANTS.find(e => e.id === id).defaut;
+
+  const enc = st => st.c + ";" + st.p.join(",");
+  const dec = s => { const [c, pts] = String(s).split(";"); return { c: +c || 0, p: (pts || "").split(",").filter(Boolean).map(Number) }; };
+
+  /* ---------- Stockage ---------- */
+  let db = null;
+  const enEcriture = new Map();
+
+  function lireLocal() {
+    try {
+      const brut = localStorage.getItem(CLE_LOCALE);
+      if (!brut) return;
+      const o = JSON.parse(brut);
+      for (const k in (o.T || {})) T[k] = o.T[k].map(dec);
+      etat.noms = o.noms || {};
+      for (const k in (o.coeurs || {})) if (Array.isArray(o.coeurs[k])) etat.coeurs[k] = o.coeurs[k].slice(0, MAX_COEURS);
+    } catch (e) { /* stockage indisponible */ }
+  }
+  function ecrireLocal() {
+    try {
+      const o = { T: {}, noms: etat.noms, coeurs: etat.coeurs };
+      for (const k in T) if (T[k].length) o.T[k] = T[k].map(enc);
+      localStorage.setItem(CLE_LOCALE, JSON.stringify(o));
+    } catch (e) { /* stockage indisponible */ }
+  }
+
+  function sauverPage(k) {
+    ecrireLocal();
+    if (!db) return;
+    const st = enEcriture.get(k) || { occupe: false, encore: false };
+    enEcriture.set(k, st);
+    if (st.occupe) { st.encore = true; return; }
+    st.occupe = true;
+    (async () => {
+      do {
+        st.encore = false;
+        const [enfant, pg, fm] = k.split(":");
+        const ref = db.collection("ronds5").doc(enfant + "-p" + pg + "-" + fm);
+        const traits = (T[k] || []).map(enc);
+        try {
+          if (traits.length) await ref.set({ enfant, page: +pg, fmt: fm, traits });
+          else await ref.delete();
+        } catch (e) {
+          avis("La sauvegarde en ligne a échoué. Les ronds restent gardés sur cette tablette.");
+        }
+      } while (st.encore);
+      st.occupe = false;
+    })();
+  }
+
+  let ecritureNoms = Promise.resolve();
+  function sauverNoms() {
+    ecrireLocal();
+    if (!db) return;
+    const noms = { ...etat.noms };
+    ecritureNoms = ecritureNoms.then(() => db.doc("reglages/noms").set(noms)).catch(() => {});
+  }
+
+  let ecritureCoeurs = Promise.resolve();
+  function sauverCoeurs(k) {
+    ecrireLocal();
+    if (!db) return;
+    const ids = (etat.coeurs[k] || []).slice();
+    ecritureCoeurs = ecritureCoeurs.then(() => db.doc("coeurs/" + k).set({ ids })).catch(() => avis("La sauvegarde en ligne a échoué. Les cœurs restent gardés sur cette tablette."));
+  }
+  async function brancherDb() {
+    const c = window.claude;
+    if (!c || typeof c.use !== "function") return;
+    try { db = await c.use("db"); } catch (e) { db = null; }
+    if (!db) return;
+    const locaux = { ...T };
+    let premier = true;
+    db.collection("ronds5").onSnapshot(snap => {
+      for (const ch of snap.docChanges()) {
+        const d = ch.doc.data() || {};
+        if (!d.enfant && d.enfant !== 0) continue;
+        const k = cle(d.enfant, d.page, d.fmt || "P");
+        if (enEcriture.get(k)?.occupe) continue;
+        if (ch.type === "removed") delete T[k];
+        else T[k] = (d.traits || []).map(dec);
+      }
+      if (premier && !snap.metadata.fromCache) {
+        premier = false;
+        // Ce qui a été dessiné sur cette tablette avant la première connexion monte en ligne.
+        const enLigne = new Set(snap.docs.map(d => { const x = d.data() || {}; return cle(x.enfant, x.page, x.fmt || "P"); }));
+        for (const k in locaux) if (!enLigne.has(k) && locaux[k].length) { T[k] = locaux[k]; sauverPage(k); }
+      }
+      ecrireLocal();
+      rafraichir();
+    }, () => {});
+    db.collection("coeurs").onSnapshot(snap => {
+      for (const d of snap.docs) if (etat.coeurs[d.id] && Array.isArray(d.data()?.ids)) etat.coeurs[d.id] = d.data().ids.slice(0, MAX_COEURS);
+      ecrireLocal(); rafraichir();
+    }, () => {});
+    db.doc("reglages/noms").onSnapshot(s => {
+      if (s.exists) { etat.noms = { ...(s.data() || {}) }; ecrireLocal(); rafraichir(); }
+    }, () => {});
+  }
+
+  /* ---------- Dessin de la page ---------- */
+  function rondRect(ctx, x, y, w, h, r) {
+    ctx.beginPath();
+    ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r);
+    ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath();
+  }
+  function lignes(ctx, texte, largeur, max) {
+    const mots = String(texte).split(/\s+/); const out = []; let l = "";
+    for (const m of mots) {
+      const essai = l ? l + " " + m : m;
+      if (ctx.measureText(essai).width <= largeur || !l) l = essai; else { out.push(l); l = m; }
+    }
+    if (l) out.push(l);
+    if (out.length > max) {
+      const garde = out.slice(0, max); let der = garde[max - 1];
+      while (der.length && ctx.measureText(der + "…").width > largeur) der = der.slice(0, -1);
+      garde[max - 1] = der.trimEnd() + "…"; return garde;
+    }
+    return out;
+  }
+  const ageTexte = a => { if (!/\d/.test(a) || /^0\+?$/.test(String(a).trim())) return /^0/.test(String(a)) ? "Tous âges" : String(a); if (/mois/i.test(a)) return String(a).replace(/\s*\+$/, " et +"); const b = String(a).replace(/\s*ans?\s*/i, "").trim(); const plus = /\+$/.test(b); const n = b.replace(/\+$/, ""); return n + (/^1(½)?$/.test(n) ? " an" : " ans") + (plus ? " et +" : ""); };
+  const prix = n => n.toLocaleString("fr-CA", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " $";
+
+  function dessinerPage(ctx, idx, s, dx = 0, dy = 0) {
+    const pg = PAGES[idx];
+    ctx.save();
+    ctx.setTransform(s, 0, 0, s, dx, dy);
+    ctx.fillStyle = COUL.papier; ctx.fillRect(0, 0, W, H);
+    // bandeau
+    ctx.fillStyle = COUL.rouge; ctx.fillRect(0, 0, W, 72);
+    ctx.fillStyle = COUL.or; ctx.fillRect(0, 72, W, 6);
+    ctx.fillStyle = "#fff"; ctx.font = `36px ${F_TITRE}`; ctx.textBaseline = "alphabetic";
+    ctx.fillText(pg.titre, M, 50);
+    ctx.textAlign = "right"; ctx.fillStyle = COUL.or; ctx.font = `900 20px ${F_TEXTE}`;
+    { const nu = numeroPage(idx); ctx.fillText(nu ? "PAGE " + nu[0] : "PAGE BONUS", W - M, 46); }
+    ctx.textAlign = "left";
+
+    // filet de cadre
+    ctx.strokeStyle = COUL.filet; ctx.lineWidth = 2; ctx.strokeRect(10, 86, W - 20, H - 106);
+    const n = pg.items.length;
+    const posee = [];
+    for (const i of pg.ordreDessin) {
+      const z = pg.zones[i], p = pg.items[i], r = z.photo;
+      const im = imageDe(p.id);
+      let iw = r.w * .9, ih = r.h * .9;
+      // le jouet entre dans sa case même penché (marge de 5 %) ; s'il reste du jeu, il ne se centre pas toujours
+      if (im) { const k = Math.min(r.w / im.width, r.h / im.height) * .95; iw = im.width * k; ih = im.height * k; }
+      const cx = r.x + iw / 2 + (r.w - iw) * z.fx, cy = r.y + ih / 2 + (r.h - ih) * z.fy;
+      if (im) {
+        ctx.save(); ctx.translate(cx, cy); ctx.rotate(z.rot);
+        ctx.drawImage(im, -iw / 2, -ih / 2, iw, ih);
+        ctx.restore();
+      }
+      posee[i] = { x: cx - iw / 2, y: cy - ih / 2, w: iw, h: ih };
+    }
+    pg.m[FMT].posee = posee;
+    // lettres par-dessus toutes les photos
+    const badges = [];
+    for (let i = 0; i < n; i++) {
+      const z = pg.zones[i], q = posee[i], p = pg.items[i];
+      const r = z.photo, bx = Math.max(r.x + 12, Math.min(q.x + 14, r.x + r.w - 12)), by = Math.max(r.y + 12, Math.min(q.y + 14, r.y + r.h - 12));
+      badges.push([bx, by]);
+      ctx.beginPath(); ctx.arc(bx, by, 19, 0, Math.PI * 2);
+      ctx.fillStyle = COUL.papier; ctx.fill(); ctx.lineWidth = 3; ctx.strokeStyle = COUL.encre; ctx.stroke();
+      ctx.fillStyle = COUL.encre; ctx.font = `900 22px ${F_TEXTE}`; ctx.textAlign = "center";
+      ctx.fillText(LETTRES[i], bx, by + 8);
+    }
+    ctx.textAlign = "left";
+    // descriptions en colonnes, serrées : lettre, nom, marque et âge, prix
+    ctx.fillStyle = COUL.encre; ctx.fillRect(M, pg.yTexte - 2, W - 2 * M, 2);
+    for (let i = 0; i < n; i++) {
+      const t = pg.zones[i].texte, p = pg.items[i];
+      ctx.textAlign = "left";
+      ctx.fillStyle = COUL.rouge; ctx.font = `900 15px ${F_TEXTE}`;
+      ctx.fillText(LETTRES[i], t.x, t.y + 13);
+      ctx.font = `900 14px ${F_TEXTE}`;
+      const px = prix(p.prix), wpx = ctx.measureText(px).width;
+      ctx.textAlign = "right"; ctx.fillText(px, t.x + t.w, t.y + 13); ctx.textAlign = "left";
+      ctx.fillStyle = COUL.encre; ctx.font = `800 13px ${F_TEXTE}`;
+      const nom = lignes(ctx, p.nom, t.w - 16 - wpx - 8, 2);
+      ctx.fillText(nom[0], t.x + 16, t.y + 13);
+      let y = t.y + 13;
+      if (nom[1]) { y += 15; ctx.fillText(lignes(ctx, nom[1], t.w - 16, 1)[0], t.x + 16, y); }
+      ctx.fillStyle = COUL.douce; ctx.font = `500 11px ${F_TEXTE}`;
+      ctx.fillText(lignes(ctx, [p.marque, p.age ? ageTexte(p.age) : ""].filter(Boolean).join(" · "), t.w - 16, 1)[0], t.x + 16, y + 14);
+    }
+    // pied
+    ctx.fillStyle = COUL.douce; ctx.font = `700 11px ${F_TEXTE}`; ctx.textAlign = "center";
+    ctx.fillText("LE CATALOGUE DES SOUHAITS  ·  NOËL 2026  ·  " + (numeroPage(idx) ? numeroPage(idx).join(" / ") : "BONUS"), W / 2, H - 8);
+    ctx.textAlign = "left";
+    ctx.restore();
+  }
+  function cadreDessin(ctx, r) {
+    ctx.save();
+    ctx.setLineDash([14, 10]); ctx.lineWidth = 3; ctx.strokeStyle = "#C9BB9B";
+    rondRect(ctx, r.x + 4, r.y + 4, r.w - 8, r.h - 8, 18); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle = COUL.douce; ctx.textAlign = "center";
+    ctx.font = `28px ${F_TITRE}`; ctx.fillText("Dessine ici", r.x + r.w / 2, r.y + r.h / 2 - 8);
+    ctx.font = `600 20px ${F_TEXTE}`; ctx.fillText("un autre cadeau que tu voudrais", r.x + r.w / 2, r.y + r.h / 2 + 26);
+    ctx.restore();
+  }
+  function formeCoeur(c, r) {
+    c.beginPath();
+    c.moveTo(0, r * 0.92);
+    c.bezierCurveTo(-r * 1.3, r * 0.02, -r * 0.78, -r * 1.02, 0, -r * 0.36);
+    c.bezierCurveTo(r * 0.78, -r * 1.02, r * 1.3, r * 0.02, 0, r * 0.92);
+    c.closePath();
+  }
+  function peindreCoeur(c, r) {
+    c.save();
+    c.shadowColor = "rgba(120,0,20,.45)"; c.shadowBlur = r * 0.5; c.shadowOffsetY = r * 0.12;
+    formeCoeur(c, r);
+    const g = c.createLinearGradient(0, -r, 0, r); g.addColorStop(0, "#FF5C7A"); g.addColorStop(1, "#D3102F");
+    c.fillStyle = g; c.fill();
+    c.restore();
+    formeCoeur(c, r); c.lineWidth = r * 0.14; c.strokeStyle = "#fff"; c.stroke();
+    c.save(); c.beginPath(); c.ellipse(-r * 0.42, -r * 0.42, r * 0.22, r * 0.13, -0.6, 0, Math.PI * 2); c.fillStyle = "rgba(255,255,255,.65)"; c.fill(); c.restore();
+  }
+  let animCoeur = null;
+  const ressort = t => 1 - Math.cos(t * Math.PI * 2.5) * Math.exp(-5 * t);
+  function dessinerCoeurs(ctx, idx, s, kid, dx = 0, dy = 0) {
+    const ids = etat.coeurs[kid] || []; if (!ids.length) return false;
+    const pg = PAGES[idx], m = pg.m[FMT];
+    let enCours = false;
+    pg.items.forEach((p, i) => {
+      if (!ids.includes(p.id)) return;
+      const q = (m.posee && m.posee[i]) || m.zones[i].photo;
+      const r = Math.max(30, Math.min(52, Math.min(q.w, q.h) * 0.26));
+      let k = 1;
+      if (animCoeur && animCoeur.id === p.id) { const t = Math.min(1, (performance.now() - animCoeur.t0) / 650); k = ressort(t); if (t < 1) enCours = true; else animCoeur = null; }
+      ctx.save(); ctx.setTransform(s, 0, 0, s, dx, dy);
+      ctx.translate(q.x + q.w - r * 0.75, q.y + q.h - r * 0.7); ctx.rotate(0.2); ctx.scale(k, k);
+      peindreCoeur(ctx, r);
+      ctx.restore();
+    });
+    return enCours;
+  }
+  function dessinerTrait(ctx, st, s, dx = 0, dy = 0) {
+    const p = st.p; if (p.length < 2) return;
+    ctx.save();
+    ctx.setTransform(s, 0, 0, s, dx, dy);
+    ctx.lineCap = "round"; ctx.lineJoin = "round";
+    ctx.strokeStyle = (CRAYONS[st.c] || CRAYONS[0]).c;
+    ctx.beginPath(); ctx.moveTo(p[0], p[1]);
+    if (p.length === 2) ctx.lineTo(p[0] + 0.1, p[1]);
+    for (let i = 2; i < p.length; i += 2) ctx.lineTo(p[i], p[i + 1]);
+    ctx.globalAlpha = 0.28; ctx.lineWidth = 19; ctx.stroke();
+    ctx.globalAlpha = 0.9; ctx.lineWidth = 10; ctx.stroke();
+    ctx.restore();
+  }
+
+  /* ---------- Affichage, gestes et tourne-page ---------- */
+  const $ = id => document.getElementById(id);
+  const scene = $("scene"), toile = $("toile"), ctx = toile.getContext("2d");
+  const BASES = new (class extends Map {   // idx -> page dessinée (sans les ronds) à la taille d'affichage
+    delete(k) { jeter(this.get(k)); return super.delete(k); }
+    clear() { for (const c of this.values()) jeter(c); super.clear(); }
+  })();
+  const tampons = [document.createElement("canvas"), document.createElement("canvas")];
+  const zone = { x: 0, y: 0, w: 0, h: 0 }; // position de la page à l'écran (px CSS)
+  let echelle = 1, pw = 0, ph = 0, ox = 0, oy = 0, dprAff = 1, trait = null, rafId = 0;
+  let tour = null;                         // page en train de tourner
+  let geste = null, dernierStylet = -1e9;
+
+  // la joke entre frères : une vieille photo collée au ruban sur la couverture
+  const PHOTO_GAG = new Image();
+  PHOTO_GAG.onload = () => dessinerCollage();
+  PHOTO_GAG.src = "data:image/jpeg;base64,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";
+  function base(idx) {
+    let c = BASES.get(idx);
+    if (!c) {
+      c = document.createElement("canvas"); c.width = pw; c.height = ph;
+      const x = c.getContext("2d");
+      // la feuille couvre tout l'écran : papier partout, bandeau rouge jusqu'en haut
+      x.fillStyle = COUL.papier; x.fillRect(0, 0, pw, ph);
+      x.fillStyle = COUL.rouge; x.fillRect(0, 0, pw, oy + 72 * echelle);
+      x.fillStyle = COUL.or; x.fillRect(0, oy + 72 * echelle, pw, 6 * echelle);
+      dessinerPage(x, idx, echelle, ox, oy);
+      BASES.set(idx, c);
+      for (const k of BASES.keys()) if (Math.abs(k - idx) > 2 && k !== pageCourante()) BASES.delete(k);
+    }
+    return c;
+  }
+  function avecRonds(idx, n) {
+    const c = tampons[n];
+    if (c.width !== pw || c.height !== ph) { c.width = pw; c.height = ph; }
+    const x = c.getContext("2d");
+    x.setTransform(1, 0, 0, 1, 0, 0); x.clearRect(0, 0, pw, ph);
+    x.drawImage(base(idx), 0, 0);
+    for (const st of (T[cle(etat.enfant, idx)] || [])) dessinerTrait(x, st, echelle, ox, oy);
+    dessinerCoeurs(x, idx, echelle, etat.enfant, ox, oy);
+    return c;
+  }
+
+  const sonde = document.createElement("div");
+  sonde.style.cssText = "position:fixed;inset:0;pointer-events:none;visibility:hidden;padding:env(safe-area-inset-top,0px) env(safe-area-inset-right,0px) env(safe-area-inset-bottom,0px) env(safe-area-inset-left,0px)";
+  document.body.appendChild(sonde);
+
+  function dimensionner() {
+    if (etat.vue !== "catalogue") return;
+    const cs = getComputedStyle(sonde);
+    const sg = parseFloat(cs.paddingLeft) || 0, sd = parseFloat(cs.paddingRight) || 0, sb = parseFloat(cs.paddingBottom) || 0;
+    const L = window.innerWidth, Hh = window.innerHeight;
+    const haut = $("outils").getBoundingClientRect().bottom + 4, bas = sb + 4, gauche = sg + 4, droite = sd + 4;
+    const dispoW = L - gauche - droite, dispoH = Hh - haut - bas;
+    if (dispoW < 50 || dispoH < 50) return;
+    const f = dispoW / dispoH > 1.05 ? "L" : "P";
+    if (f !== FMT) { regler(f); BASES.clear(); tour = null; trait = null; geste = null; }
+    let w = dispoW, h = w * H / W;
+    if (h > dispoH) { h = dispoH; w = h * W / H; }
+    zone.x = gauche + (dispoW - w) / 2; zone.y = haut; zone.w = w; zone.h = h;
+    Object.assign(toile.style, { left: "0px", top: "0px", width: L + "px", height: Hh + "px" });
+    const dpr = Math.min(window.devicePixelRatio || 1, 2.5);
+    const nw = Math.round(L * dpr), nh = Math.round(Hh * dpr);
+    const nox = Math.round(zone.x * dpr), noy = Math.round(zone.y * dpr), nech = (w * dpr) / W;
+    if (nw !== pw || nh !== ph || nox !== ox || noy !== oy || Math.abs(nech - echelle) > 1e-6) {
+      pw = nw; ph = nh; ox = nox; oy = noy; echelle = nech; toile.width = pw; toile.height = ph; BASES.clear(); tour = null;
+    }
+    dprAff = dpr;
+    planifier();
+  }
+
+  function planifier() { if (!rafId) rafId = requestAnimationFrame(() => { rafId = 0; composer(); }); }
+  let prechauffe = 0;
+  function composer() {
+    if (etat.vue !== "catalogue" || !pw) return;
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    if (tour) { dessinerTournant(ctx, tour.haut, tour.dessous, tour.P, tour.cy); return; }
+    const idx = pageCourante();
+    priorite(idx);
+    ctx.clearRect(0, 0, pw, ph);
+    ctx.drawImage(base(idx), 0, 0);
+    for (const st of (T[cle(etat.enfant, idx)] || [])) dessinerTrait(ctx, st, echelle, ox, oy);
+    if (trait) dessinerTrait(ctx, trait, echelle, ox, oy);
+    if (dessinerCoeurs(ctx, idx, echelle, etat.enfant, ox, oy)) planifier();
+    // préparer les pages voisines pendant que l'enfant regarde
+    clearTimeout(prechauffe);
+    prechauffe = setTimeout(() => {
+      for (const j of [voisin(idx, 1), voisin(idx, -1)]) if (j >= 0 && !BASES.has(j) && !tour && !geste) { base(j); break; }
+    }, 250);
+  }
+
+  /* La page qui tourne : le coin suit le doigt, la ligne de pli est la médiatrice entre le coin et le doigt.
+     On dessine la page du dessous, l'ombre du pli, le reste de la page du haut, puis le dos du rabat. */
+  function couper(poly, n, k, positif) {
+    const out = [], s = positif ? 1 : -1;
+    for (let i = 0; i < poly.length; i++) {
+      const a = poly[i], b = poly[(i + 1) % poly.length];
+      const da = s * (a.x * n.x + a.y * n.y - k), db = s * (b.x * n.x + b.y * n.y - k);
+      if (da >= 0) out.push(a);
+      if ((da >= 0) !== (db >= 0)) { const t = da / (da - db); out.push({ x: a.x + (b.x - a.x) * t, y: a.y + (b.y - a.y) * t }); }
+    }
+    return out;
+  }
+  function trace(c, poly) { c.beginPath(); poly.forEach((p, i) => (i ? c.lineTo(p.x, p.y) : c.moveTo(p.x, p.y))); c.closePath(); }
+  function dessinerTournant(c, haut, dessous, P, cy) {
+    const w = pw, h = ph;
+    c.clearRect(0, 0, w, h);
+    const C = { x: w, y: cy }, dx = P.x - C.x, dy = P.y - C.y, Ln = Math.hypot(dx, dy);
+    if (Ln < 1) { c.drawImage(haut, 0, 0); return; }
+    const n = { x: dx / Ln, y: dy / Ln }, mid = { x: (P.x + C.x) / 2, y: (P.y + C.y) / 2 }, k = mid.x * n.x + mid.y * n.y;
+    const page = [{ x: 0, y: 0 }, { x: w, y: 0 }, { x: w, y: h }, { x: 0, y: h }];
+    const reste = couper(page, n, k, true), plie = couper(page, n, k, false);
+    const rabat = plie.map(p => { const d = p.x * n.x + p.y * n.y - k; return { x: p.x - 2 * d * n.x, y: p.y - 2 * d * n.y }; });
+    // 1. la page découverte
+    c.drawImage(dessous, 0, 0);
+    if (plie.length > 2) {
+      c.save(); trace(c, plie); c.clip();
+      const o = Math.max(8, Math.min(Ln * 0.3, w * 0.14));
+      const g = c.createLinearGradient(mid.x, mid.y, mid.x - n.x * o, mid.y - n.y * o);
+      g.addColorStop(0, "rgba(0,0,0,0.38)"); g.addColorStop(1, "rgba(0,0,0,0)");
+      c.fillStyle = g; c.fillRect(0, 0, w, h);
+      c.restore();
+    }
+    // 2. ce qui reste à plat de la page qui tourne
+    if (reste.length > 2) { c.save(); trace(c, reste); c.clip(); c.drawImage(haut, 0, 0); c.restore(); }
+    // 3. le dos du rabat, avec son ombre portée
+    if (rabat.length > 2) {
+      c.save();
+      c.shadowColor = "rgba(0,0,0,0.35)"; c.shadowBlur = Math.max(10, w * 0.02);
+      trace(c, rabat); c.fillStyle = "#F3EAD6"; c.fill();
+      c.restore();
+      c.save(); trace(c, rabat); c.clip();
+      c.setTransform(1 - 2 * n.x * n.x, -2 * n.x * n.y, -2 * n.x * n.y, 1 - 2 * n.y * n.y, 2 * k * n.x, 2 * k * n.y);
+      c.globalAlpha = 0.11; c.drawImage(haut, 0, 0); c.globalAlpha = 1;
+      c.setTransform(1, 0, 0, 1, 0, 0);
+      const g = c.createLinearGradient(mid.x, mid.y, mid.x + n.x * Ln / 2, mid.y + n.y * Ln / 2);
+      g.addColorStop(0, "rgba(0,0,0,0.20)"); g.addColorStop(0.18, "rgba(255,255,255,0.18)"); g.addColorStop(0.6, "rgba(255,255,255,0.04)"); g.addColorStop(1, "rgba(0,0,0,0.10)");
+      c.fillStyle = g; c.fillRect(-w, -h, 3 * w, 3 * h);
+      c.restore();
+    }
+  }
+
+  function contraindre(P, cy) {
+    const A = { x: 0, y: cy }, B = { x: 0, y: ph - cy }, R = Math.hypot(pw, ph);
+    let d = Math.hypot(P.x - A.x, P.y - A.y);
+    if (d > pw) { P.x = A.x + (P.x - A.x) * pw / d; P.y = A.y + (P.y - A.y) * pw / d; }
+    d = Math.hypot(P.x - B.x, P.y - B.y);
+    if (d > R) { P.x = B.x + (P.x - B.x) * R / d; P.y = B.y + (P.y - B.y) * R / d; }
+    return P;
+  }
+  const levee = (x, cy) => (cy === ph ? -1 : 1) * Math.sin(Math.PI * Math.max(0, Math.min(1, (pw - x) / (2 * pw)))) * ph * 0.10;
+
+  function commencerTour(dir, cy) {
+    const idx = pageCourante(), autre = voisin(idx, dir);
+    if (autre < 0) return false;
+    // vers l'avant : la page courante tourne et découvre la suivante ;
+    // vers l'arrière : la page d'avant revient se poser par-dessus.
+    const haut = avecRonds(dir > 0 ? idx : autre, 0), dessous = avecRonds(dir > 0 ? autre : idx, 1);
+    tour = { dir, haut, dessous, cy, cible: autre, anim: false, P: { x: dir > 0 ? pw : -pw, y: cy } };
+    return true;
+  }
+  function majTour(dxCss, dyCss) {
+    const t = tour, k = dprAff;
+    let x = (t.dir > 0 ? pw : -pw) + dxCss * k * 1.1;
+    x = Math.max(-pw, Math.min(pw, x));
+    let y = t.cy + levee(x, t.cy) + dyCss * k * 0.35;
+    y = t.cy === ph ? Math.min(y, ph) : Math.max(y, 0);
+    t.P = contraindre({ x, y }, t.cy);
+    planifier();
+  }
+  const sortie = t => 1 - Math.pow(1 - t, 3);
+  const douce = t => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+  function animerVers(xCible, duree, courbe, fini) {
+    const t = tour; if (!t) return;
+    t.anim = true;
+    const x0 = t.P.x, r0 = t.P.y - (t.cy + levee(x0, t.cy)), debut = performance.now();
+    const pas = now => {
+      if (tour !== t) return;
+      const u = Math.min(1, (now - debut) / duree), e = courbe(u);
+      const x = x0 + (xCible - x0) * e;
+      t.P = contraindre({ x, y: t.cy + levee(x, t.cy) + r0 * (1 - e) }, t.cy);
+      composer();
+      if (u < 1) requestAnimationFrame(pas); else fini();
+    };
+    requestAnimationFrame(pas);
+  }
+  function terminerTour(valide) {
+    if (!tour) return;
+    if (valide) etat.pages[etat.enfant] = tour.cible;
+    tour = null;
+    rendreBarre(); planifier();
+  }
+  function tournerAuto(dir) {
+    if (tour || geste || etat.vue !== "catalogue") return;
+    if (!commencerTour(dir, ph)) return;
+    tour.P = { x: dir > 0 ? pw - 2 : -pw + 2, y: ph };
+    animerVers(dir > 0 ? -pw : pw, 720, douce, () => terminerTour(true));
+  }
+
+  /* ---------- Crayon, gomme et doigt ---------- */
+  const dansPage = e => e.clientX >= zone.x && e.clientX <= zone.x + zone.w && e.clientY >= zone.y && e.clientY <= zone.y + zone.h;
+  const versPage = e => [Math.round((e.clientX - zone.x) / zone.w * W), Math.round((e.clientY - zone.y) / zone.h * H)];
+  function gommer(x, y) {
+    const k = cle(etat.enfant, pageCourante()), arr = T[k] || [], avant = arr.length;
+    T[k] = arr.filter(st => { for (let i = 0; i < st.p.length; i += 2) if (Math.hypot(st.p[i] - x, st.p[i + 1] - y) < 28) return false; return true; });
+    return T[k].length !== avant;
+  }
+  function debutTrait(e) {
+    geste = { type: etat.outil === "gomme" ? "gomme" : "trait", id: e.pointerId, change: false };
+    try { scene.setPointerCapture(e.pointerId); } catch (_) {}
+    const [x, y] = versPage(e);
+    if (geste.type === "gomme") geste.change = gommer(x, y);
+    else trait = { c: etat.crayon[etat.enfant], p: [x, y] };
+    planifier();
+  }
+  scene.addEventListener("pointerdown", e => {
+    if (etat.vue !== "catalogue") return;
+    e.preventDefault();
+    const now = performance.now();
+    if (e.pointerType === "pen") dernierStylet = now;
+    if (e.pointerType === "touch") {
+      if (geste || (tour && tour.anim)) return;
+      if (now - dernierStylet < 800) return;                     // paume posée pendant qu'on dessine
+      if (Math.max(e.width || 0, e.height || 0) > 70) return;    // contact trop large : une paume
+      if (etat.doigtDessine) { if (dansPage(e) && !tour) { if (etat.outil === "coeur") basculerCoeur(e); else debutTrait(e); } return; }
+      geste = { type: "glisse", id: e.pointerId, x0: e.clientX, y0: e.clientY, hist: [[now, e.clientX]] };
+      try { scene.setPointerCapture(e.pointerId); } catch (_) {}
+      return;
+    }
+    // crayon ou souris : il a priorité sur un doigt (ou une paume) déjà posé
+    if (geste && geste.type === "glisse") { if (tour && !tour.anim) tour = null; geste = null; planifier(); }
+    if (geste || tour || !dansPage(e)) return;
+    if (etat.outil === "coeur") { basculerCoeur(e); return; }
+    if (etat.mode === "clic" && etat.outil === "crayon") {
+      geste = { type: "glisse", id: e.pointerId, x0: e.clientX, y0: e.clientY, hist: [[now, e.clientX]] };
+      try { scene.setPointerCapture(e.pointerId); } catch (_) {}
+      return;
+    }
+    debutTrait(e);
+  });
+  scene.addEventListener("pointermove", e => {
+    if (!geste || e.pointerId !== geste.id) return;
+    if (e.pointerType === "pen") dernierStylet = performance.now();
+    if (geste.type === "glisse") {
+      if (geste.bloque) return;
+      const dx = e.clientX - geste.x0, dy = e.clientY - geste.y0;
+      geste.bouge = Math.max(geste.bouge || 0, Math.hypot(dx, dy));
+      geste.hist.push([performance.now(), e.clientX]); if (geste.hist.length > 6) geste.hist.shift();
+      if (!tour) {
+        if (Math.abs(dx) < 10 || Math.abs(dx) < Math.abs(dy)) return;
+        const cy = geste.y0 - zone.y > zone.h * 0.45 ? ph : 0;
+        if (!commencerTour(dx < 0 ? 1 : -1, cy)) { geste.bloque = true; return; }
+        geste.dx0 = dx;
+      }
+      if (!tour.anim) majTour(dx - geste.dx0, dy);
+      return;
+    }
+    const evts = e.getCoalescedEvents ? e.getCoalescedEvents() : [];
+    for (const ev of (evts.length ? evts : [e])) {
+      const [x, y] = versPage(ev);
+      if (geste.type === "gomme") { geste.change = gommer(x, y) || geste.change; continue; }
+      if (!trait) continue;
+      const n = trait.p.length;
+      if (Math.hypot(x - trait.p[n - 2], y - trait.p[n - 1]) >= 2.5) trait.p.push(x, y);
+    }
+    planifier();
+  });
+  function finGeste(e) {
+    if (!geste || e.pointerId !== geste.id) return;
+    const g = geste; geste = null;
+    if (g.type === "glisse") {
+      // un simple toucher du doigt avec l'outil cœur donne (ou reprend) un super cœur
+      if (!tour && (g.bouge || 0) < 12 && etat.outil === "coeur" && e.type === "pointerup" && dansPage(e)) { basculerCoeur(e); return; }
+      if (!tour && (g.bouge || 0) < 12 && etat.mode === "clic" && etat.outil === "crayon" && e.type === "pointerup" && dansPage(e)) { entourerAuClic(e); return; }
+      if (!tour || tour.anim) return;
+      let v = 0;
+      if (g.hist.length > 1) { const a = g.hist[0], b = g.hist[g.hist.length - 1]; v = (b[1] - a[1]) / Math.max(16, b[0] - a[0]); }
+      const fait = (pw - tour.P.x) / (2 * pw);
+      const valide = e.type !== "pointercancel" && (tour.dir > 0 ? (fait > 0.25 || v < -0.35) && v < 0.35 : (fait < 0.75 || v > 0.35) && v > -0.35);
+      const cible = (tour.dir > 0) === valide ? -pw : pw;
+      animerVers(cible, 160 + 360 * Math.abs(cible - tour.P.x) / (2 * pw), sortie, () => terminerTour(valide));
+      return;
+    }
+    const k = cle(etat.enfant, pageCourante());
+    if (g.type === "gomme") { if (g.change) { sauverPage(k); majCompte(); } }
+    else if (trait) { (T[k] = T[k] || []).push(trait); trait = null; sauverPage(k); majCompte(); }
+    planifier();
+  }
+  function jouetSous(x, y) {
+    const pg = PAGES[pageCourante()], m = pg.m[FMT];
+    let i = -1, mieux = Infinity;
+    pg.items.forEach((p, j) => {
+      for (const r of [m.posee && m.posee[j], m.zones[j].photo, m.zones[j].texte]) {
+        if (!r || !(x >= r.x && x <= r.x + r.w && y >= r.y && y <= r.y + r.h)) continue;
+        const d = Math.hypot(x - (r.x + r.w / 2), y - (r.y + r.h / 2)) / Math.max(r.w, r.h);
+        if (d < mieux) { mieux = d; i = j; }
+      }
+    });
+    return i;
+  }
+  function entourerAuClic(e) {
+    const [x, y] = versPage(e), i = jouetSous(x, y); if (i < 0) return;
+    const pg = PAGES[pageCourante()], m = pg.m[FMT], id = pg.items[i].id, k = cle(etat.enfant, pageCourante());
+    const arr = T[k] = T[k] || [], deja = arr.findIndex(st => st.auto === id);
+    if (deja >= 0) arr.splice(deja, 1);
+    else {
+      const r = (m.posee && m.posee[i]) || m.zones[i].photo, cx = r.x + r.w / 2, cy = r.y + r.h / 2;
+      const rx = r.w / 2 + 16, ry = r.h / 2 + 14, rnd = hasard(id.length * 31 + arr.length), p = [];
+      const a0 = -2.2 + rnd() * .4, tours = 1.12;
+      for (let t = 0; t <= 1.0001; t += 1 / 64) {
+        const a = a0 + t * tours * Math.PI * 2, w = 1 + .04 * Math.sin(a * 3 + rnd()) + (t > .9 ? (t - .9) * .6 : 0);
+        p.push(Math.round(cx + Math.cos(a) * rx * w), Math.round(cy + Math.sin(a) * ry * w));
+      }
+      arr.push({ c: etat.crayon[etat.enfant], p, auto: id });
+    }
+    sauverPage(k); majCompte(); planifier();
+  }
+  function basculerCoeur(e) {
+    const [x, y] = versPage(e), pg = PAGES[pageCourante()], m = pg.m[FMT];
+    let i = -1, mieux = Infinity;
+    pg.items.forEach((p, j) => {
+      for (const r of [m.posee && m.posee[j], m.zones[j].photo, m.zones[j].texte]) {
+        if (!r || !(x >= r.x && x <= r.x + r.w && y >= r.y && y <= r.y + r.h)) continue;
+        const d = Math.hypot(x - (r.x + r.w / 2), y - (r.y + r.h / 2)) / Math.max(r.w, r.h);
+        if (d < mieux) { mieux = d; i = j; }
+      }
+    });
+    if (i < 0) return;
+    const id = pg.items[i].id, liste = etat.coeurs[etat.enfant];
+    const deja = liste.indexOf(id);
+    if (deja >= 0) liste.splice(deja, 1);
+    else if (liste.length >= MAX_COEURS) {
+      const b = $("outil-coeur"); b.classList.remove("secoue"); void b.offsetWidth; b.classList.add("secoue");
+      avis("Tes 3 super cœurs sont déjà donnés. Touche un de tes cœurs pour le reprendre.");
+      return;
+    } else { liste.push(id); animCoeur = { id, t0: performance.now() }; }
+    sauverCoeurs(etat.enfant); rendreBarre(); planifier();
+  }
+  scene.addEventListener("pointerup", finGeste);
+  scene.addEventListener("pointercancel", finGeste);
+  // empêcher le zoom et le menu contextuel d'iOS sur la page
+  scene.addEventListener("touchstart", e => { if (e.touches.length > 1) e.preventDefault(); }, { passive: false });
+  scene.addEventListener("contextmenu", e => e.preventDefault());
+  document.addEventListener("gesturestart", e => e.preventDefault());
+
+
+  /* ---------- Ce qui est entouré ---------- */
+  const dans = (x, y, r) => x >= r.x && x <= r.x + r.w && y >= r.y && y <= r.y + r.h;
+  function vise(st, pg) {
+    let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+    for (let i = 0; i < st.p.length; i += 2) { x0 = Math.min(x0, st.p[i]); x1 = Math.max(x1, st.p[i]); y0 = Math.min(y0, st.p[i + 1]); y1 = Math.max(y1, st.p[i + 1]); }
+    if (Math.max(x1 - x0, y1 - y0) < 30) return -1;
+    const cx = (x0 + x1) / 2, cy = (y0 + y1) / 2;
+    let meilleur = -1, dist = Infinity;
+    pg.zones.forEach((z, i) => {
+      for (const r of [z.photo, z.texte]) {
+        if (!dans(cx, cy, r)) continue;
+        const d = Math.hypot(cx - (r.x + r.w / 2), cy - (r.y + r.h / 2)) / Math.max(r.w, r.h);
+        if (d < dist) { dist = d; meilleur = i; }
+      }
+    });
+    return meilleur;
+  }
+  function choisis(k) {
+    const ronds = choisisRonds(k), ids = etat.coeurs[k] || [], out = [];
+    for (const id of ids) {
+      const pi = PAGES.findIndex(pg => pg.items.some(p => p.id === id)); if (pi < 0) continue;
+      const i = PAGES[pi].items.findIndex(p => p.id === id);
+      out.push({ p: PAGES[pi].items[i], page: pi, lettre: LETTRES[i], coeur: true });
+    }
+    for (const c of ronds) if (!ids.includes(c.p.id)) out.push(c);
+    return out;
+  }
+  function choisisRonds(k) {
+    const out = [];
+    PAGES.forEach((pg, pi) => {
+      const pris = new Set();
+      for (const f of ["P", "L"]) {
+        const arr = T[cle(k, pi, f)] || [];
+        for (const st of arr) { const i = vise(st, { zones: pg.m[f].zones }); if (i >= 0) pris.add(i); }
+      }
+      [...pris].sort((a, b) => a - b).forEach(i => out.push({ p: pg.items[i], page: pi, lettre: LETTRES[i] }));
+    });
+    return out;
+  }
+  const pagesDessinees = k => {
+    const out = [], ids = etat.coeurs[k] || [];
+    PAGES.forEach((pg, i) => {
+      const fs = ["P", "L"].filter(f => (T[cle(k, i, f)] || []).length);
+      if (!fs.length && pg.items.some(p => ids.includes(p.id))) fs.push("P");
+      fs.forEach(f => out.push([i, f]));
+    });
+    return out;
+  };
+
+  /* ---------- PDF ---------- */
+  function boutonPdf(k) {
+    const b = document.createElement("button"); b.type = "button"; b.className = "btn";
+    b.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 20h16"/></svg><span>PDF de ${nomDe(k).replace(/[<>&"]/g, "")}</span>`;
+    b.addEventListener("click", async () => { b.disabled = true; try { await exporterPdf(k); } finally { b.disabled = false; } });
+    return b;
+  }
+  async function enregistrerFichier(dl, { filename: nom, data: blob }) {
+    if (dl) return dl.save({ filename: nom, data: blob });
+    const fichier = new File([blob], nom, { type: "application/pdf" });
+    if (navigator.canShare && navigator.canShare({ files: [fichier] })) {
+      try { await navigator.share({ files: [fichier], title: nom }); return; }
+      catch (e) { if (e && e.name === "AbortError") throw { code: "declined" }; }
+    }
+    const url = URL.createObjectURL(blob), a = document.createElement("a");
+    a.href = url; a.download = nom; document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 60000);
+  }
+  async function exporterPdf(k) {
+    if (!window.jspdf?.jsPDF) { avis("L'outil PDF n'a pas pu se charger. Vérifiez la connexion et rouvrez la page."); return; }
+    const c = window.claude;
+    const dl = c && typeof c.use === "function" ? await c.use("downloads").catch(() => null) : null;
+    choisis(k).forEach(c => { if (!PLANCHES[c.p.sp[0]]) fileAttente.unshift(c.p.sp[0]); }); pagesDessinees(k).forEach(([i]) => priorite(i));
+    for (let t = 0; t < 150 && (choisis(k).some(c => !DECOUPES.has(c.p.id)) || pagesDessinees(k).some(([i]) => PAGES[i].items.some(p => !DECOUPES.has(p.id)))); t++) await new Promise(r => setTimeout(r, 100));
+
+    const { jsPDF } = window.jspdf;
+    const pdf = new jsPDF({ unit: "pt", format: "letter", compress: true });
+    const PW = 612, PH = 792, CWp = 1275, CHp = 1650, f = PW / CWp;
+    const liste = choisis(k), nom = nomDe(k);
+    const parPage = 7, nbRes = Math.max(1, Math.ceil(liste.length / parPage));
+
+    for (let r = 0; r < nbRes; r++) {
+      if (r) pdf.addPage();
+      const cv = document.createElement("canvas"); cv.width = CWp; cv.height = CHp;
+      const x = cv.getContext("2d");
+      x.fillStyle = COUL.papier; x.fillRect(0, 0, CWp, CHp);
+      x.fillStyle = COUL.rouge; x.fillRect(0, 0, CWp, 200);
+      x.fillStyle = COUL.or; x.fillRect(0, 200, CWp, 10);
+      x.fillStyle = "#fff"; x.font = `66px ${F_TITRE}`;
+      x.fillText(lignes(x, "La liste de Noël de " + nom, CWp - 120, 1)[0], 60, 110);
+      x.fillStyle = COUL.or; x.font = `800 26px ${F_TEXTE}`;
+      x.fillText("LE CATALOGUE DES SOUHAITS · NOËL 2026 · " + liste.length + (liste.length > 1 ? " CADEAUX ENTOURÉS" : " CADEAU ENTOURÉ"), 60, 162);
+      let y = 260;
+      if (!liste.length) {
+        x.fillStyle = COUL.douce; x.font = `600 34px ${F_TEXTE}`;
+        x.fillText("Rien d'entouré pour l'instant.", 60, y + 40);
+      }
+      for (const ch of liste.slice(r * parPage, r * parPage + parPage)) {
+        const p = ch.p, hRang = 168;
+        rondRect(x, 60, y, 150, 150, 12); x.fillStyle = "#fff"; x.fill(); x.lineWidth = 2; x.strokeStyle = COUL.filet; x.stroke();
+        const im = imageDe(p.id);
+        if (im) { const s = Math.min(134 / im.width, 134 / im.height); const iw = im.width * s, ih = im.height * s; x.drawImage(im, 60 + (150 - iw) / 2, y + (150 - ih) / 2, iw, ih); }
+        if (ch.coeur) { x.save(); x.translate(190, y + 28); x.rotate(0.2); peindreCoeur(x, 30); x.restore(); }
+        x.fillStyle = COUL.douce; x.font = `800 20px ${F_TEXTE}`;
+        x.fillText((String(p.marque || "") + "  ·  " + (p.age ? ageTexte(p.age) : "") + "  ·  page " + (ch.page + 1) + ", article " + ch.lettre).toUpperCase(), 240, y + 36);
+        if (ch.coeur) { x.fillStyle = "#D3102F"; x.font = `900 20px ${F_TEXTE}`; x.textAlign = "right"; x.fillText("SUPER CŒUR", CWp - 60, y + 36); x.textAlign = "left"; }
+        x.fillStyle = COUL.encre; x.font = `800 32px ${F_TEXTE}`;
+        let yy = y + 76;
+        for (const l of lignes(x, p.nom, CWp - 520, 2)) { x.fillText(l, 240, yy); yy += 38; }
+        x.fillStyle = COUL.vert; x.font = `700 21px ${F_TEXTE}`;
+        x.fillText("Vu chez " + (p.source || "—") + (p.url ? "  (toucher pour ouvrir la page)" : ""), 240, y + 144);
+        x.strokeStyle = COUL.filet; x.lineWidth = 2; x.beginPath(); x.moveTo(60, y + hRang - 2); x.lineTo(CWp - 60, y + hRang - 2); x.stroke();
+        x.fillStyle = COUL.rouge; x.font = `900 40px ${F_TEXTE}`; x.textAlign = "right";
+        x.fillText(prix(p.prix), CWp - 60, y + 80); x.textAlign = "left";
+        if (p.url) pdf.link(60 * f, y * f, (CWp - 120) * f, 150 * f, { url: p.url });
+        y += hRang;
+      }
+      if (r === nbRes - 1 && liste.length) {
+        x.fillStyle = COUL.encre; x.font = `900 34px ${F_TEXTE}`; x.textAlign = "right";
+        x.fillText("Total : " + prix(liste.reduce((s, c) => s + c.p.prix, 0)), CWp - 60, y + 60);
+        x.textAlign = "left";
+      }
+      x.fillStyle = COUL.douce; x.font = `600 20px ${F_TEXTE}`; x.textAlign = "center";
+      x.fillText("Prix vus en ligne le 20 novembre 2026, avant taxes. Les pages entourées suivent.", CWp / 2, CHp - 40);
+      pdf.addImage(cv.toDataURL("image/jpeg", 0.9), "JPEG", 0, 0, PW, PH, undefined, "FAST");
+    }
+
+    const sc = 1.6;
+    const fAvant = FMT;
+    for (const [i, fm] of pagesDessinees(k)) {
+      regler(fm);
+      pdf.addPage();
+      const cv = document.createElement("canvas"); cv.width = W * sc; cv.height = H * sc;
+      const x = cv.getContext("2d");
+      dessinerPage(x, i, sc);
+      for (const st of (T[cle(k, i, fm)] || [])) dessinerTrait(x, st, sc);
+      dessinerCoeurs(x, i, sc, k);
+      const mw = PW - 72, mh = mw * H / W;
+      x.save();
+      pdf.setFillColor(251, 244, 228); pdf.rect(0, 0, PW, PH, "F");
+      pdf.addImage(cv.toDataURL("image/jpeg", 0.88), "JPEG", 36, (PH - mh) / 2, mw, mh, undefined, "FAST");
+      x.restore();
+    }
+    regler(fAvant);
+
+    const blob = pdf.output("blob");
+    try {
+      await enregistrerFichier(dl, { filename: "Liste de Noël - " + nom.replace(/[\\/:*?"<>|]/g, "") + ".pdf", data: blob });
+      avis("PDF prêt : la liste de " + nom + ".");
+    } catch (e) {
+      if (e?.code === "declined") return;
+      if (e?.code === "rate_limited") { avis("Une autre demande de téléchargement est déjà ouverte."); return; }
+      avis("Le PDF n'a pas pu être enregistré ici.");
+    }
+  }
+
+  /* ---------- Petit message ---------- */
+  let minuterieAvis = 0;
+  function avis(t) { const el = $("toast"); el.textContent = t; el.hidden = false; clearTimeout(minuterieAvis); minuterieAvis = setTimeout(() => { el.hidden = true; }, 4500); }
+
+  /* ---------- Vues ---------- */
+  const initiale = nom => (/^\d/.test(nom) ? nom.match(/^\d+/)[0] : (nom.trim()[0] || "?").toUpperCase());
+  const nbCadeaux = n => n + (n > 1 ? " cadeaux entourés" : " cadeau entouré");
+  const SVG_LISTE = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/><path d="M9 13h7M9 17h5"/></svg>`;
+  function rendreAccueil() {
+    $("sous-titre").textContent = "Plus de " + Math.floor(PRODUITS.length / 50) * 50 + " jouets à encercler";
+    $("sceau-n").textContent = Math.floor(PRODUITS.length / 50) * 50 + "+";
+    const auj = new Date(), noel = new Date(auj.getFullYear(), 11, 25);
+    if (auj > new Date(auj.getFullYear(), 11, 25, 23, 59)) noel.setFullYear(noel.getFullYear() + 1);
+    const jours = Math.ceil((noel - new Date(auj.getFullYear(), auj.getMonth(), auj.getDate())) / 86400000);
+    $("rebours").innerHTML = jours <= 0 ? "C'est Noël!" : `Encore <b>${jours}</b> ${jours > 1 ? "dodos" : "dodo"} avant Noël. Choisis ton catalogue.`;
+    const box = $("enfants"); box.innerHTML = "";
+    ENFANTS.forEach(e => {
+      const n = choisis(e.id).length, nc = (etat.coeurs[e.id] || []).length, c = CRAYONS[etat.crayon[e.id]].c, nom = nomDe(e.id);
+      const o = document.createElement("div"); o.className = "carte-enf"; o.style.setProperty("--c", c);
+      o.innerHTML = `<span class="ficelle" aria-hidden="true"></span><button class="boule" type="button"></button><span class="pastille-age"></span>
+        <span class="texte"><b></b><small></small></span>`;
+      // la liste de prix : une petite étiquette à part, attachée à côté
+      const rang = document.createElement("div"); rang.className = "rang-enf"; rang.style.setProperty("--c", c);
+      const prixEtq = document.createElement("button"); prixEtq.type = "button"; prixEtq.className = "mini-liste etiquette-prix";
+      prixEtq.innerHTML = `<span class="oeillet" aria-hidden="true"></span><b>Liste</b><small>et prix</small>`;
+      rang.append(o, prixEtq);
+      o.querySelector(".pastille-age").textContent = initiale(nom);
+      o.querySelector(".texte b").textContent = nom;
+      o.querySelector(".texte small").textContent = n ? nbCadeaux(n) + (nc ? " · " + nc + " ♥" : "") : "Ouvrir le catalogue";
+      const boule = o.querySelector(".boule");
+      boule.setAttribute("aria-label", "Ouvrir le catalogue de " + nom);
+      boule.addEventListener("click", () => lancerOuverture(e.id));
+      const l = prixEtq;
+      l.setAttribute("aria-label", "Consulter la liste de " + nom + " avec les prix et où l'acheter");
+      l.addEventListener("click", () => { rendreAchats(e.id); ouvrir("fen-achats"); });
+      box.appendChild(rang);
+    });
+  }
+  let ouvertureEnCours = false;
+  function lancerOuverture(id) {
+    if (ouvertureEnCours) return;
+    ouvertureEnCours = true; $("accueil").classList.add("ouverture");
+    setTimeout(() => { ouvrirCatalogue(id); $("accueil").classList.remove("ouverture"); ouvertureEnCours = false; }, 200);
+  }
+  function rendrePastilles() {
+    const b = $("outil-crayon"); if (!b || !etat.enfant) return;
+    b.style.setProperty("--crayon", CRAYONS[etat.crayon[etat.enfant]].c);
+    b.setAttribute("aria-pressed", String(etat.outil === "crayon"));
+    b.setAttribute("aria-label", etat.mode === "clic" ? "Crayon : toucher un jouet l'entoure" : "Crayon : dessiner un rond autour d'un jouet");
+  }
+  function choisirOutil(o) {
+    etat.outil = o;
+    $("outil-gomme").setAttribute("aria-pressed", String(o === "gomme"));
+    $("outil-coeur").setAttribute("aria-pressed", String(o === "coeur"));
+    rendrePastilles(); rendreBarre();
+  }
+  function rendreBarre() {
+    if (!etat.enfant) return;
+    const c = CRAYONS[etat.crayon[etat.enfant]].c, nom = nomDe(etat.enfant);
+    $("qui").innerHTML = `<span class="mini-avatar" style="background:${c}"></span><span></span>`;
+    $("qui").style.setProperty("--c", c);
+    $("qui").firstElementChild.textContent = initiale(nom);
+    $("qui").lastElementChild.textContent = nom;
+    const idx = pageCourante();
+    $("lieu-titre").textContent = PAGES[idx].titre;
+    const L = PAGES_DE[etat.enfant], pos = L.indexOf(idx);
+    $("lieu-page").textContent = "Page " + (pos + 1) + " sur " + L.length;
+    $("progres").style.width = ((pos + 1) / L.length * 100) + "%";
+    $("prec").disabled = voisin(idx, -1) < 0;
+    $("suiv").disabled = voisin(idx, 1) < 0;
+    majCompte();
+  }
+  const SVG_COEUR = (plein) => `<svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.3 3 4.5 6.7 4.5c2.1 0 3.6 1.2 4.4 2.6.8-1.4 2.3-2.6 4.4-2.6 3.7 0 5.8 3.8 4.3 7.2C19.5 16.4 12 21 12 21z" fill="${plein ? "#FF4D6D" : "none"}" stroke="${plein ? "#fff" : "currentColor"}" stroke-width="${plein ? 1.6 : 2}" stroke-linejoin="round"/></svg>`;
+  function majCoeurs() {
+    if (!etat.enfant) return;
+    const reste = MAX_COEURS - (etat.coeurs[etat.enfant] || []).length;
+    $("coeurs-restants").innerHTML = [0, 1, 2].map(i => SVG_COEUR(i < reste)).join("");
+    $("outil-coeur").setAttribute("aria-label", "Super cœur : il t'en reste " + reste);
+  }
+  function majCompte() {
+    majCoeurs(); if (etat.enfant) $("compte").textContent = choisis(etat.enfant).length; }
+
+  let astuceVue = false;
+  function montrerAstuce() {
+    try { astuceVue = astuceVue || sessionStorage.getItem("astuce-vue") === "1"; } catch (_) {}
+    if (astuceVue) return;
+    astuceVue = true;
+    try { sessionStorage.setItem("astuce-vue", "1"); } catch (_) {}
+    $("astuce-tourner").textContent = etat.mode === "clic" ? "Glisse la page ou clique sur les flèches pour la tourner" : "Glisse ton doigt pour tourner la page";
+    $("astuce-rond").textContent = etat.mode === "clic" ? "Touche ou clique un jouet : le rond se fait tout seul" : "Fais un rond avec le crayon autour de ce que tu veux";
+    $("astuce").hidden = false;
+    setTimeout(() => { $("astuce").hidden = true; }, 3800);
+  }
+  function ouvrirCatalogue(id) {
+    etat.enfant = id; etat.vue = "catalogue"; tour = null; trait = null; geste = null;
+    $("accueil").hidden = true; $("lecteur").hidden = false;
+    choisirOutil("crayon");
+    requestAnimationFrame(dimensionner);
+    montrerAstuce();
+  }
+  function allerAccueil() {
+    etat.vue = "accueil"; tour = null; geste = null; trait = null;
+    $("lecteur").hidden = true; $("accueil").hidden = false; rendreAccueil(); requestAnimationFrame(dessinerCollage);
+  }
+  function allerPage(n) {
+    n = Math.max(0, Math.min(PAGES.length - 1, n));
+    tour = null; trait = null; geste = null;
+    etat.pages[etat.enfant] = n; rendreBarre(); planifier();
+  }
+  function rafraichir() {
+    if (etat.vue === "accueil") rendreAccueil(); else { rendreBarre(); planifier(); }
+    if (!$("fen-liste").hidden) rendreListe(listeDe);
+    if (!$("fen-parents").hidden && !document.activeElement?.matches?.("#corps-parents input")) rendreParents();
+  }
+
+  $("maison").addEventListener("click", allerAccueil);
+  $("prec").addEventListener("click", () => tournerAuto(-1));
+  $("suiv").addEventListener("click", () => tournerAuto(1));
+  $("outil-gomme").addEventListener("click", () => choisirOutil(etat.outil === "gomme" ? "crayon" : "gomme"));
+  $("outil-crayon").addEventListener("click", () => choisirOutil("crayon"));
+  $("outil-coeur").addEventListener("click", () => choisirOutil(etat.outil === "coeur" ? "crayon" : "coeur"));
+  $("annuler").addEventListener("click", () => {
+    const k = cle(etat.enfant, pageCourante());
+    if ((T[k] || []).length) { T[k].pop(); sauverPage(k); majCompte(); planifier(); }
+  });
+  document.addEventListener("keydown", e => {
+    if (etat.vue !== "catalogue" || [...document.querySelectorAll(".voile")].some(v => !v.hidden)) return;
+    if (e.key === "ArrowLeft") tournerAuto(-1);
+    if (e.key === "ArrowRight") tournerAuto(1);
+  });
+  window.addEventListener("resize", () => requestAnimationFrame(dimensionner));
+
+  /* ---------- Feuilles ---------- */
+  let listeDe = null;
+  function ouvrir(id) { $(id).hidden = false; $(id).querySelector(".boite").scrollTop = 0; }
+  document.querySelectorAll(".voile").forEach(v => {
+    v.addEventListener("click", e => { if (e.target === v || e.target.closest("[data-fermer]")) v.hidden = true; });
+  });
+  document.addEventListener("keydown", e => { if (e.key === "Escape") document.querySelectorAll(".voile").forEach(v => v.hidden = true); });
+
+  function carteChoix(c) {
+    const d = document.createElement("div"); d.className = "choix";
+    const im = document.createElement("img"); vignetteDans(im, c.p); d.appendChild(im);
+    const b = document.createElement("b"); b.textContent = c.p.nom; d.appendChild(b);
+    const s = document.createElement("small"); s.textContent = "Page " + (c.page + 1) + " · article " + c.lettre; d.appendChild(s);
+    const pr = document.createElement("span"); pr.className = "prix"; pr.textContent = prix(c.p.prix); d.appendChild(pr);
+    if (c.coeur) { const h = document.createElement("span"); h.className = "badge-coeur"; h.innerHTML = SVG_COEUR(true); d.appendChild(h); }
+    return d;
+  }
+  const TROP_CHER = 50;
+  function rendreListe(k) {
+    const liste = choisis(k);
+    $("titre-liste").textContent = "La liste de " + nomDe(k);
+    const corps = $("corps-liste"); corps.innerHTML = "";
+    if (!liste.length) {
+      const v = document.createElement("p"); v.className = "vide";
+      v.textContent = "Rien d'entouré pour l'instant. Fais un rond avec le crayon autour d'un jouet!";
+      corps.appendChild(v);
+    } else {
+      const groupes = [["Mes super cœurs", liste.filter(c => c.coeur)], ["Mes autres choix", liste.filter(c => !c.coeur)]];
+      for (const [titre, lot] of groupes) {
+        if (!lot.length) continue;
+        const h = document.createElement("p"); h.className = "titre-section";
+        h.innerHTML = (titre === "Mes super cœurs" ? SVG_COEUR(true) : "") + "<span></span>"; h.lastChild.textContent = titre;
+        corps.appendChild(h);
+        const g = document.createElement("div"); g.className = "grille-liste";
+        lot.forEach(c => g.appendChild(carteChoix(c)));
+        corps.appendChild(g);
+      }
+    }
+    const a = document.createElement("div"); a.className = "actions";
+    const t = document.createElement("span"); t.className = "total";
+    t.textContent = liste.length ? nbCadeaux(liste.length) + " · total " + prix(liste.reduce((s, c) => s + c.p.prix, 0)) : "";
+    a.appendChild(t);
+    a.appendChild(document.createElement("span")).style.flex = "1";
+    a.appendChild(boutonPdf(k));
+    corps.appendChild(a);
+  }
+  $("voir-sommaire").addEventListener("click", () => {
+    const g = $("grille-sommaire"); g.innerHTML = "";
+    for (const sec of SOMMAIRE.filter(x => (PAGES_DE[etat.enfant] || []).includes(x.debut))) {
+      const b = document.createElement("button"); b.type = "button"; b.className = "rubrique";
+      const v = document.createElement("span"); v.className = "vignette";
+      const vedette = PAGES[sec.debut].items.reduce((m, p) => (p.prix > m.prix ? p : m));
+      const im = document.createElement("img"); vignetteDans(im, vedette); v.appendChild(im); b.appendChild(v);
+      const t = document.createElement("b"); t.textContent = sec.titre; b.appendChild(t);
+      const pg = document.createElement("small"); pg.textContent = "Page " + ((PAGES_DE[etat.enfant] || []).indexOf(sec.debut) + 1); b.appendChild(pg);
+      b.addEventListener("click", () => { $("fen-sommaire").hidden = true; allerPage(sec.debut); });
+      g.appendChild(b);
+    }
+    ouvrir("fen-sommaire");
+  });
+  $("voir-liste").addEventListener("click", () => { listeDe = etat.enfant; rendreListe(listeDe); ouvrir("fen-liste"); });
+
+  const armes = new Set();
+  function rendreParents() {
+    const corps = $("corps-parents"); corps.innerHTML = "";
+    const noms = document.createElement("div"); noms.className = "bloc-parent";
+    noms.innerHTML = `<h3>Les prénoms</h3>`;
+    for (const e of ENFANTS) {
+      const l = document.createElement("label"); l.className = "champ";
+      l.textContent = "Catalogue « " + e.defaut + " »";
+      const i = document.createElement("input"); i.id = "nom-" + e.id; i.type = "text"; i.maxLength = 24;
+      i.value = etat.noms[e.id] || ""; i.placeholder = e.defaut; i.autocomplete = "off";
+      i.addEventListener("change", () => { etat.noms[e.id] = i.value.trim(); sauverNoms(); rendreParents(); });
+      l.appendChild(i); noms.appendChild(l);
+    }
+    corps.appendChild(noms);
+
+    const modeB = document.createElement("div"); modeB.className = "bloc-parent";
+    modeB.innerHTML = `<h3>Comment on entoure</h3><div class="choix-mode" role="radiogroup" aria-label="Façon d'entourer">
+      <button type="button" data-mode="dessin" role="radio"><b>On dessine le rond</b><small>Apple Pencil (ou souris). Le doigt tourne les pages.</small></button>
+      <button type="button" data-mode="clic" role="radio"><b>Un toucher entoure</b><small>Ordinateur, souris ou doigt : touche un jouet et le rond se fait tout seul. Touche encore pour l'enlever.</small></button></div>`;
+    modeB.querySelectorAll("[data-mode]").forEach(b => {
+      b.setAttribute("aria-checked", String(etat.mode === b.dataset.mode));
+      b.addEventListener("click", () => {
+        etat.mode = b.dataset.mode; try { localStorage.setItem("catalogue-mode", etat.mode); } catch (_) {}
+        modeB.querySelectorAll("[data-mode]").forEach(x => x.setAttribute("aria-checked", String(etat.mode === x.dataset.mode)));
+        rendrePastilles();
+      });
+    });
+    corps.appendChild(modeB);
+    const reglage = document.createElement("div"); reglage.className = "bloc-parent";
+    const ligne = document.createElement("div"); ligne.className = "interrupteur";
+    ligne.innerHTML = `<div>Dessiner avec le doigt<small>Pour une tablette sans crayon. Les pages se tournent alors avec les flèches du bas.</small></div>`;
+    const sw = document.createElement("button"); sw.type = "button"; sw.className = "bascule"; sw.setAttribute("role", "switch");
+    sw.setAttribute("aria-checked", String(etat.doigtDessine)); sw.setAttribute("aria-label", "Dessiner avec le doigt");
+    sw.addEventListener("click", () => {
+      etat.doigtDessine = !etat.doigtDessine; sw.setAttribute("aria-checked", String(etat.doigtDessine));
+      try { localStorage.setItem("catalogue-doigt", etat.doigtDessine ? "1" : "0"); } catch (_) {}
+    });
+    ligne.appendChild(sw); reglage.appendChild(ligne); corps.appendChild(reglage);
+
+    for (const e of ENFANTS) {
+      const liste = choisis(e.id);
+      const b = document.createElement("div"); b.className = "bloc-parent";
+      const h = document.createElement("h3"); h.textContent = nomDe(e.id); b.appendChild(h);
+      const p = document.createElement("p"); p.className = "note";
+      p.textContent = liste.length
+        ? nbCadeaux(liste.length) + " · total " + prix(liste.reduce((s, c) => s + c.p.prix, 0))
+        : (pagesDessinees(e.id).length ? "Des dessins, mais aucun jouet clairement entouré." : "Rien d'entouré pour l'instant.");
+      b.appendChild(p);
+      const a = document.createElement("div"); a.className = "actions";
+      const voir = document.createElement("button"); voir.type = "button"; voir.className = "btn clair"; voir.textContent = "Voir la liste";
+      voir.addEventListener("click", () => { $("fen-parents").hidden = true; listeDe = e.id; rendreListe(e.id); ouvrir("fen-liste"); });
+      a.appendChild(voir);
+      a.appendChild(boutonPdf(e.id));
+      const eff = document.createElement("button"); eff.type = "button"; eff.className = "btn danger" + (armes.has(e.id) ? " arme" : "");
+      eff.textContent = armes.has(e.id) ? "Toucher encore pour tout effacer" : "Tout effacer";
+      eff.addEventListener("click", () => {
+        if (!armes.has(e.id)) { armes.add(e.id); rendreParents(); setTimeout(() => { if (armes.delete(e.id) && !$("fen-parents").hidden) rendreParents(); }, 4000); return; }
+        armes.delete(e.id);
+        for (const k of Object.keys(T)) if (k.startsWith(e.id + ":")) { T[k] = []; sauverPage(k); }
+        etat.coeurs[e.id] = []; sauverCoeurs(e.id);
+        avis("Le catalogue de " + nomDe(e.id) + " est effacé.");
+        rendreParents();
+      });
+      a.appendChild(eff);
+      b.appendChild(a);
+      corps.appendChild(b);
+    }
+    const n = document.createElement("p"); n.className = "note";
+    n.textContent = (db ? "Les ronds se sauvegardent tout seuls, en ligne, à chaque trait. " : "Les ronds se sauvegardent tout seuls sur cette tablette. ")
+      + "Le PDF donne la liste des cadeaux entourés avec les prix, puis chaque page telle que l'enfant l'a laissée.";
+    corps.appendChild(n);
+  }
+  function rendreAchats(k) {
+    const liste = choisis(k), corps = $("corps-achats");
+    $("titre-achats").textContent = "La liste de " + nomDe(k);
+    corps.innerHTML = "";
+    const intro = document.createElement("p"); intro.className = "note";
+    intro.textContent = liste.length
+      ? nbCadeaux(liste.length) + " · total " + prix(liste.reduce((s, c) => s + c.p.prix, 0)) + ". Prix vus en ligne le 20 novembre 2026, avant taxes. Le bouton ouvre la page du magasin."
+      : "Rien d'entouré pour l'instant.";
+    corps.appendChild(intro);
+    const ok = c => c.p.prix <= TROP_CHER;
+    const groupes = [["Super cœurs", liste.filter(c => c.coeur && ok(c))], ["Les autres choix", liste.filter(c => !c.coeur && ok(c))], ["Trop cher (plus de 50 $)", liste.filter(c => !ok(c))]];
+    for (const [titre, lot] of groupes) {
+      if (!lot.length) continue;
+      const h = document.createElement("p"); h.className = "titre-section";
+      h.innerHTML = (titre === "Super cœurs" ? SVG_COEUR(true) : "") + "<span></span>"; h.lastChild.textContent = titre;
+      corps.appendChild(h);
+      const box = document.createElement("div");
+      for (const c of lot) {
+        const r = document.createElement("div"); r.className = "achat";
+        const im = document.createElement("img"); vignetteDans(im, c.p); r.appendChild(im);
+        const inf = document.createElement("div"); inf.className = "infos";
+        const b = document.createElement("b"); b.textContent = c.p.nom; inf.appendChild(b);
+        const sm = document.createElement("small");
+        sm.textContent = [c.p.marque, c.p.age ? ageTexte(c.p.age) : "", "page " + (c.page + 1) + ", article " + c.lettre].filter(Boolean).join(" · ");
+        inf.appendChild(sm); r.appendChild(inf);
+        const dr = document.createElement("div"); dr.className = "droite";
+        const pr = document.createElement("span"); pr.className = "prix"; pr.textContent = prix(c.p.prix); dr.appendChild(pr);
+        if (c.p.url) {
+          const a = document.createElement("a"); a.href = c.p.url; a.target = "_blank"; a.rel = "noopener noreferrer";
+          a.innerHTML = `<span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>`;
+          a.firstChild.textContent = "Acheter chez " + (c.p.source || "le magasin");
+          dr.appendChild(a);
+        }
+        r.appendChild(dr); box.appendChild(r);
+      }
+      corps.appendChild(box);
+    }
+    const act = document.createElement("div"); act.className = "actions";
+    act.appendChild(boutonPdf(k));
+    corps.appendChild(act);
+  }
+  $("ouvrir-parents").addEventListener("click", () => { rendreParents(); ouvrir("fen-parents"); });
+
+  // les jouets vedettes de la couverture : le plus beau de chaque section
+  const parId = new Map(PRODUITS.map(p => [p.id, p]));
+  const VEDETTES = [["lego-60496", "lego"], ["t7-skidoo-mxz", "teleguides"], ["h7-lavage-requin", "autos"], ["k7-laser-x", "cool"], ["b7-connetix-billes", "batir"], ["p7-stihl-scie", "jouer"], ["t7-chargeuse-cat-950m", "dehors"]]
+    .map(([id, c]) => parId.get(id) || PRODUITS.filter(p => p.categorie === c && p.prix <= 130).sort((a, b) => b.prix - a.prix)[0]).filter(Boolean);
+  VEDETTES.forEach(p => fileAttente.unshift(p.sp[0]));
+  const POSES = [[.5, .52, .62, -.05], [.2, .3, .38, -.18], [.55, .2, .34, .1], [.18, .75, .36, .12], [.82, .74, .36, -.12], [.5, .2, .3, .04], [.5, .86, .32, -.03]];
+  function dessinerCollage() {
+    const cv = $("couv-collage"); if (!cv || etat.vue !== "accueil") return;
+    const r = cv.getBoundingClientRect(); if (!r.width) return;
+    const d = Math.min(devicePixelRatio || 1, 2), w = Math.round(r.width * d), h = Math.round(r.height * d);
+    if (cv.width !== w || cv.height !== h) { cv.width = w; cv.height = h; }
+    const x = cv.getContext("2d"); x.clearRect(0, 0, w, h);
+    // une vraie couverture de catalogue : la vedette au centre, les autres qui la chevauchent tout autour
+    // [centre x, centre y, largeur max, hauteur max, rotation] en fractions du cadre
+    const POSES2 = [[.50, .50, .66, .50, -.03], [.21, .16, .46, .34, -.07], [.79, .17, .44, .36, .06], [.20, .84, .46, .32, .05],
+                    [.78, .85, .44, .30, -.05], [.17, .50, .36, .28, .12], [.52, .90, .34, .22, -.02]];
+    const dessinerUn = i => {
+      const p = VEDETTES[i], im = p && imageDe(p.id); if (!im) return;
+      const [cx, cy, bw, bh, rot] = POSES2[i], k = Math.min(bw * w / im.width, bh * h / im.height), iw = im.width * k, ih = im.height * k;
+      x.save(); x.translate(cx * w, cy * h); x.rotate(rot);
+      x.shadowColor = "rgba(50,0,0,.45)"; x.shadowBlur = 14 * d; x.shadowOffsetY = 7 * d;
+      x.drawImage(im, -iw / 2, -ih / 2, iw, ih); x.restore();
+    };
+    [0, 6, 5, 1, 2, 3, 4].forEach(dessinerUn);
+    if (PHOTO_GAG.naturalWidth) {
+      const ph2 = h * .14, pw2 = ph2 * PHOTO_GAG.naturalWidth / PHOTO_GAG.naturalHeight, b = pw2 * .07;
+      x.save(); x.translate(w * .9, h * .52); x.rotate(.1);
+      x.shadowColor = "rgba(40,0,0,.45)"; x.shadowBlur = 14 * d; x.shadowOffsetY = 6 * d;
+      x.fillStyle = "#FDFBF6"; x.fillRect(-pw2 / 2 - b, -ph2 / 2 - b, pw2 + 2 * b, ph2 + b * 4.5);
+      x.shadowColor = "transparent";
+      x.filter = "grayscale(1)"; x.drawImage(PHOTO_GAG, -pw2 / 2, -ph2 / 2, pw2, ph2); x.filter = "none";
+      x.fillStyle = "rgba(240,228,190,.8)"; x.rotate(-.15); x.fillRect(-pw2 * .22, -ph2 / 2 - b * 2.4, pw2 * .44, b * 2.6);
+      x.restore();
+    }
+  }
+  window.addEventListener("resize", dessinerCollage);
+
+  (() => {
+    const box = $("neige"), r = hasard(11); let h = "";
+    for (let i = 0; i < 46; i++) {
+      const t = (1.5 + r() * 3.5).toFixed(1), d = (9 + r() * 12).toFixed(1);
+      h += `<i style="left:${(r() * 100).toFixed(1)}%;--t:${t}px;--o:${(.25 + r() * .5).toFixed(2)};--d:${d}s;--r:${(-r() * d).toFixed(1)}s;--x:${((r() - .5) * 80).toFixed(0)}px"></i>`;
+    }
+    box.innerHTML = h;
+  })();
+
+  function dessinerRameau(svg, graine) {
+    const r = hasard(graine); let h = "";
+    const tiges = [[[14, 14], [96, 40], [170, 112]], [[14, 14], [40, 92], [104, 176]], [[60, 30], [110, 50], [150, 46]]];
+    tiges.forEach(([a, c, b], ti) => {
+      h += `<path d="M${a} Q${c} ${b}" class="tige"/>`;
+      const N = ti === 2 ? 9 : 18;
+      for (let i = 2; i <= N; i++) {
+        const t = i / (N + 1), u = 1 - t;
+        const x = u * u * a[0] + 2 * u * t * c[0] + t * t * b[0], y = u * u * a[1] + 2 * u * t * c[1] + t * t * b[1];
+        const dx = 2 * u * (c[0] - a[0]) + 2 * t * (b[0] - c[0]), dy = 2 * u * (c[1] - a[1]) + 2 * t * (b[1] - c[1]), L = Math.hypot(dx, dy);
+        const nx = -dy / L, ny = dx / L, tx = dx / L, ty = dy / L, l = (ti === 2 ? 9 : 15) * (1 - t * .45);
+        for (const sgn of [1, -1]) h += `<path d="M${x.toFixed(1)} ${y.toFixed(1)} l${((nx * sgn + tx * .55) * l).toFixed(1)} ${((ny * sgn + ty * .55) * l).toFixed(1)}" class="aiguille"/>`;
+      }
+    });
+    for (const [x, y] of [[58, 58], [68, 52], [62, 68]]) h += `<circle cx="${x}" cy="${y}" r="5" class="baie"/>`;
+    svg.innerHTML = h;
+  }
+  dessinerRameau($("rameau-hg"), 5); dessinerRameau($("rameau-bd"), 9);
+
+  /* ---------- Démarrage ---------- */
+  lireLocal();
+  try { etat.doigtDessine = localStorage.getItem("catalogue-doigt") === "1"; const m = localStorage.getItem("catalogue-mode"); if (m === "clic" || m === "dessin") etat.mode = m; } catch (_) {}
+  rendreAccueil();
+  const polices = ["48px Shrikhand", "900 26px Archivo", "800 16px Archivo", "500 14px Archivo", "700 16px Archivo"];
+  Promise.race([Promise.all(polices.map(p => document.fonts.load(p))), new Promise(r => setTimeout(r, 2500))])
+    .then(() => { BASES.clear(); planifier(); });
+  brancherDb();
+  suivante();
+
+})();
+</script>
