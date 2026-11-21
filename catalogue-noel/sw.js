@@ -1,5 +1,5 @@
 // Catalogue des Souhaits : tout le catalogue reste dans l'iPad, même sans réseau.
-const VERSION = "souhaits-350543fc19";
+const VERSION = "souhaits-602daba744";
 const COQUILLE = [
   "./",
   "index.html",
@@ -63,7 +63,7 @@ self.addEventListener("fetch", e => {
     return;
   }
   // images, polices, bibliothèque PDF : le cache d'abord, puis on le garnit
-  if (url.origin === location.origin || /fonts\.(googleapis|gstatic)\.com|cdnjs\.cloudflare\.com/.test(url.host)) {
+  if (url.origin === location.origin || /fonts\.(googleapis|gstatic)\.com|cdnjs\.cloudflare\.com/.test(url.host) || url.href.includes("gstatic.com/firebasejs/")) {
     e.respondWith((async () => {
       const deja = await caches.match(req, { ignoreSearch: url.origin === location.origin });
       if (deja) return deja;

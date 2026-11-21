@@ -1,0 +1,9 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Les listes d'une famille vivent sous familles/<code-famille>/… ; il faut être connecté (connexion anonyme de l'app).
+    match /familles/{famille}/{document=**} {
+      allow read, write: if request.auth != null;
+    }
+  }
+}
