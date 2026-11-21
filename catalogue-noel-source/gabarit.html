@@ -3,7 +3,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400..900&family=Inter:wght@400..800&family=Fraunces:ital,opsz,wght@0,9..144,800;1,9..144,600;1,9..144,800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400..900&family=Inter:wght@400..800&family=Fraunces:ital,opsz,wght@0,9..144,800;1,9..144,600;1,9..144,800&family=Bungee&display=swap">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <style>
 /* Mise en page : une liseuse plein écran, sombre comme une salle de lecture ; la page du catalogue (papier, vintage)
@@ -484,6 +484,55 @@ svg { display: block; }
 .mode-emploi li svg { display: inline; width: 13px; height: 13px; fill: #FF5B6E; vertical-align: -2px; }
 .mode-emploi .me-parents { margin: 0; font: italic 400 12.5px/1.35 "Fraunces", Georgia, serif; color: rgba(246,239,223,.7); }
 @media (max-width: 560px) { .mode-emploi ol { grid-template-columns: 1fr; } }
+/* liste de cadeaux des parents */
+.resume-achats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 6px; }
+.resume-achats div { display: grid; gap: 2px; padding: 12px; border-radius: 14px; background: rgba(255,255,255,.06); box-shadow: inset 0 0 0 1px var(--ligne); }
+.resume-achats b { font: 800 22px/1 var(--ui); color: var(--or); font-variant-numeric: tabular-nums; }
+.resume-achats span { font-size: 12px; color: var(--texte-2); }
+.grille-achats { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 10px; }
+.carte-achat { position: relative; display: grid; grid-template-columns: 84px minmax(0, 1fr); grid-template-rows: 1fr auto; column-gap: 12px; row-gap: 8px;
+  padding: 12px; border-radius: 16px; background: rgba(255,255,255,.05); box-shadow: inset 0 0 0 1px var(--ligne); transition: opacity .2s, background .2s; }
+.carte-achat img { grid-row: 1 / span 2; width: 84px; height: 84px; object-fit: contain; background: #fff; border-radius: 12px; padding: 6px; box-sizing: border-box; }
+.carte-achat .infos { display: grid; gap: 3px; min-width: 0; align-content: start; text-align: left; justify-items: start; }
+.carte-achat .bas { justify-self: stretch; }
+.carte-achat .marque { font: 700 11px/1.2 var(--ui); letter-spacing: .08em; text-transform: uppercase; color: var(--texte-3); }
+.carte-achat b { font-size: 14.5px; font-weight: 700; line-height: 1.25; }
+.carte-achat small { color: var(--texte-3); font-size: 12px; }
+.carte-achat .bas { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-top: 4px; }
+.carte-achat .prix { color: var(--or); font-weight: 800; font-size: 16px; font-variant-numeric: tabular-nums; margin-right: auto; }
+.carte-achat .lien-magasin { display: inline-flex; align-items: center; gap: 5px; padding: 6px 10px; border-radius: 999px; background: rgba(255,255,255,.08); color: var(--texte); font-size: 12px; font-weight: 700; text-decoration: none; }
+.carte-achat .lien-magasin svg { width: 12px; height: 12px; }
+.carte-achat .offrir { grid-column: 2; justify-self: stretch; display: inline-flex; align-items: center; justify-content: center; gap: 7px; padding: 9px 12px; border-radius: 12px;
+  background: #2E9E5B; color: #fff; font: 700 13.5px var(--ui); border: 0; cursor: pointer; transition: background .15s, transform .1s; }
+.carte-achat .offrir svg { width: 16px; height: 16px; }
+.carte-achat .offrir:active { transform: scale(.97); }
+.carte-achat.offert { opacity: .55; background: rgba(255,255,255,.02); }
+.carte-achat.offert b { text-decoration: line-through; text-decoration-thickness: 2px; text-decoration-color: rgba(255,255,255,.6); }
+.carte-achat.offert .offrir { background: rgba(255,255,255,.1); color: var(--texte-2); }
+.carte-achat.offert::after { content: "OFFERT"; position: absolute; top: 14px; left: 18px; padding: 3px 7px; border-radius: 6px; background: #2E9E5B; color: #fff; font: 800 10px/1 var(--ui); letter-spacing: .12em; transform: rotate(-8deg); }
+@media (max-width: 560px) { .resume-achats b { font-size: 18px; } .grille-achats { grid-template-columns: 1fr; } }
+.ouvrir-guide { justify-self: start; display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px 7px 7px; border-radius: 999px; border: 1px solid rgba(242,213,143,.45);
+  background: rgba(11,36,26,.35); color: #F2D58F; font: 600 13px var(--ui); letter-spacing: .03em; cursor: pointer; }
+.ouvrir-guide span { width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; background: #F2D58F; color: #6A1A12; font: 800 13px var(--ui); }
+.guide { position: fixed; inset: 0; z-index: 60; display: grid; place-items: center; padding: 20px; background: rgba(6,20,14,.62); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); animation: guide-fondu .35s ease both; }
+@keyframes guide-fondu { from { opacity: 0; } }
+.guide-carte { position: relative; width: min(560px, 100%); padding: 34px 30px 26px; border-radius: 22px; background: #FBF5E8; color: #1E2740; text-align: center;
+  box-shadow: 0 0 0 1px rgba(214,178,94,.6), 0 0 0 8px #FBF5E8, 0 0 0 9px rgba(214,178,94,.45), 0 40px 80px -20px rgba(0,0,0,.6); animation: guide-monte .5s cubic-bezier(.2,.8,.2,1) both; }
+@keyframes guide-monte { from { opacity: 0; transform: translateY(24px) scale(.97); } }
+.guide-ruban { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); padding: 7px 18px; border-radius: 999px; background: #C8302A; color: #FFF3C4; font: 700 12px/1 var(--ui); letter-spacing: .2em; text-transform: uppercase; box-shadow: 0 6px 14px rgba(120,20,10,.35); white-space: nowrap; }
+.guide h2 { margin: 4px 0 18px; font: italic 600 clamp(28px, 4vw, 38px)/1.05 "Fraunces", Georgia, serif; color: #1A1F33; }
+.guide-etapes { list-style: none; margin: 0 0 18px; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; text-align: left; counter-reset: g; }
+.guide-etapes li { position: relative; display: grid; grid-template-columns: auto 1fr; column-gap: 12px; align-items: start; padding: 14px; border-radius: 16px; background: #fff; box-shadow: 0 1px 0 rgba(30,39,64,.06), 0 8px 18px -12px rgba(30,39,64,.4); counter-increment: g; }
+.guide-etapes li::before { content: counter(g); position: absolute; top: -8px; left: -8px; width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; background: #C8302A; color: #fff; font: 800 12px/1 var(--ui); }
+.g-ico { grid-row: 1 / span 2; font-size: 28px; line-height: 1; }
+.guide-etapes b { font: 800 15px/1.2 var(--ui); }
+.guide-etapes small { font: 500 13px/1.35 var(--ui); color: #5B5E6E; }
+.guide-etapes em { font-style: normal; color: #C8302A; font-weight: 700; }
+.guide-parents { margin: 0 0 20px; font: italic 400 14px/1.45 "Fraunces", Georgia, serif; color: #5B5E6E; }
+.guide-parents b { font-style: normal; font-family: var(--ui); color: #1E2740; }
+.guide-go { padding: 13px 34px; border: 0; border-radius: 999px; background: linear-gradient(180deg, #2FA864, #1F7A4D); color: #fff; font: 800 16px var(--ui); letter-spacing: .02em; cursor: pointer; box-shadow: 0 10px 20px -8px rgba(31,122,77,.8); }
+.guide-go:active { transform: scale(.97); }
+@media (max-width: 560px) { .guide-etapes { grid-template-columns: 1fr; } .guide-carte { padding: 30px 18px 20px; } }
 .choix-mode { display: grid; gap: 8px; }
 .choix-mode button { display: grid; gap: 3px; text-align: left; padding: 12px 14px; border-radius: 14px; background: rgba(255,255,255,.05); box-shadow: inset 0 0 0 1px var(--ligne); color: var(--texte); }
 .choix-mode button b { font-size: 15px; } .choix-mode button small { color: var(--texte-2); font-size: 13px; line-height: 1.35; }
@@ -582,16 +631,7 @@ svg { display: block; }
     <div class="cote-droit">
       <div class="surtitre">Joyeux Noël</div>
       <h2 class="question">Qui feuillette ce soir?</h2>
-      <div class="mode-emploi" aria-label="Comment ça marche">
-        <span class="me-titre">Comment ça marche</span>
-        <ol>
-          <li><b>1</b><span>Choisis <em>ton</em> étiquette</span></li>
-          <li><b>2</b><span>Un rond autour d'un jouet&nbsp;= un souhait</span></li>
-          <li><b>3</b><span>3 super cœurs <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.3 3 4.5 6.7 4.5c2.1 0 3.6 1.2 4.4 2.6.8-1.4 2.3-2.6 4.4-2.6 3.7 0 5.8 3.8 4.3 7.2C19.5 16.4 12 21 12 21z"/></svg> pour tes préférés</span></li>
-          <li><b>4</b><span>Coche « Prête » quand ta liste est finie</span></li>
-        </ol>
-        <p class="me-parents">Parents : « Liste et prix » montre chaque souhait, son prix et où l'acheter.</p>
-      </div>
+      <button class="ouvrir-guide" id="ouvrir-guide" type="button"><span>?</span>Comment ça marche</button>
       <div class="rebours" id="rebours"></div>
       <div class="enfants" id="enfants"></div>
       <div class="astuce-accueil">
@@ -680,6 +720,20 @@ svg { display: block; }
     <div class="boite-corps"><div class="grille-sommaire" id="grille-sommaire"></div></div>
   </div>
 </div>
+<div class="guide" id="guide" hidden role="dialog" aria-modal="true" aria-labelledby="guide-titre">
+  <div class="guide-carte">
+    <div class="guide-ruban">Joyeux Noël!</div>
+    <h2 id="guide-titre">Comment ça marche</h2>
+    <ol class="guide-etapes">
+      <li><span class="g-ico">🏷️</span><b>Choisis ton étiquette</b><small>Ton prénom ouvre <em>ton</em> catalogue.</small></li>
+      <li><span class="g-ico">✏️</span><b>Un rond = un souhait</b><small>Entoure les jouets que tu veux. Glisse pour tourner la page.</small></li>
+      <li><span class="g-ico">❤️</span><b>3 super cœurs</b><small>Pour tes trois préférés entre tous.</small></li>
+      <li><span class="g-ico">✅</span><b>Coche « Prête »</b><small>Quand ta liste est finie.</small></li>
+    </ol>
+    <p class="guide-parents"><b>Pour les parents</b> — « Liste et prix » montre chaque souhait, son prix et où l'acheter. « Je l'offre » le raye pour toute la famille.</p>
+    <button class="guide-go" id="guide-go" type="button">C'est parti!</button>
+  </div>
+</div>
 <div class="voile" id="fen-achats" hidden>
   <div class="boite" role="dialog" aria-modal="true" aria-labelledby="titre-achats">
     <div class="boite-haut"><h2 id="titre-achats">La liste</h2><button class="fermer" type="button" data-fermer aria-label="Fermer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
@@ -714,13 +768,30 @@ svg { display: block; }
     { nom: "Mauve", c: "#7B3FBF" }, { nom: "Orange", c: "#EE7A12" },
   ];
   const ENFANTS = [
-    { id: "k1", defaut: "5 ans", crayon: 1, voit: c => !c.startsWith("d2-") && c !== "papa" },
-    { id: "k2", defaut: "4 ans", crayon: 0, voit: c => !c.startsWith("d2-") && c !== "papa" },
-    { id: "k3", defaut: "1 an", crayon: 2, voit: c => c.startsWith("d2-") },
-    { id: "k4", defaut: "33 ans", crayon: 4, voit: c => c === "papa" },
+    { id: "k3", defaut: "Laurent", age: "1 an", crayon: 2, voit: c => c.startsWith("d2-") },
+    { id: "k1", defaut: "Pierre-Alexis", age: "5 ans", crayon: 1, voit: c => !c.startsWith("d2-") && c !== "papa" },
+    { id: "k2", defaut: "Louis-Charles", age: "4 ans", crayon: 0, voit: c => !c.startsWith("d2-") && c !== "papa" },
+    { id: "k4", defaut: "Jean-Philippe", age: "33 ans", crayon: 4, voit: c => c === "papa" },
   ];
   const COUL = { papier: "#FBF4E4", encre: "#1E2740", douce: "#5B5E6E", rouge: "#C8302A", or: "#E9B53C", vert: "#1F7A4D", filet: "#E3D7BD" };
   const F_TITRE = '"Fraunces", Georgia, serif';
+  const F_RETRO = '"Bungee", "Arial Black", sans-serif';
+  // bandeau de cassette des années 90 : mauve, bandes fluo en zigzag
+  function bandeauRetro(ctx, x0, y0, w, k = 1) {
+    const g = ctx.createLinearGradient(x0, 0, x0 + w, 0);
+    g.addColorStop(0, "#3B1C8C"); g.addColorStop(.55, "#7A1FA2"); g.addColorStop(1, "#D6246E");
+    ctx.fillStyle = g; ctx.fillRect(x0, y0, w, 72 * k);
+    ctx.save(); ctx.beginPath(); ctx.rect(x0, y0, w, 72 * k); ctx.clip();
+    ctx.lineWidth = 5 * k; ctx.lineJoin = "miter";
+    for (const [c, dy] of [["#00D6C9", 14], ["#FFE45C", 24]]) {
+      ctx.strokeStyle = c; ctx.globalAlpha = .55; ctx.beginPath();
+      for (let x = x0 + w * .55, i = 0; x < x0 + w + 20 * k; x += 16 * k, i++) ctx.lineTo(x, y0 + (dy + (i % 2 ? 9 : 0)) * k);
+      ctx.stroke();
+    }
+    ctx.restore();
+    ctx.fillStyle = "#00D6C9"; ctx.fillRect(x0, y0 + 72 * k, w, 3 * k);
+    ctx.fillStyle = "#FFE45C"; ctx.fillRect(x0, y0 + 75 * k, w, 3 * k);
+  }
   const F_TEXTE = '"Archivo", "Helvetica Neue", Arial, sans-serif';
   // v6 : chaque rond est accroché à son jouet (id + case), plus à un numéro de page
   const CLE_LOCALE = "catalogue-souhaits-v6", CLE_ANCIENNE = "catalogue-souhaits-v5", RONDS = "ronds6";
@@ -730,30 +801,30 @@ svg { display: block; }
   const estDuplo = p => /duplo/i.test(p.marque + " " + p.nom);
   const SECTIONS = [
     { cle: "duplo", titre: "LEGO DUPLO" },
-    { cle: "retro", titre: "Les classiques des années 90" },
-    { cle: "coups", titre: "Nos coups de cœur" },
-    { cle: "lego", titre: "Les ensembles LEGO" },
-    { cle: "batir", titre: "Pour bâtir" },
-    { cle: "teleguides", titre: "Les téléguidés" },
-    { cle: "autos", titre: "Autos, camions et pistes" },
-    { cle: "cool", titre: "Des affaires cool" },
-    { cle: "jouer", titre: "Pour faire semblant" },
-    { cle: "jeux", titre: "Jeux en famille" },
-    { cle: "livres", titre: "Les livres d'ici" },
-    { cle: "art", titre: "Bricoler et découvrir" },
-    { cle: "dehors", titre: "Jouer dehors" },
-    { cle: "d2-retro", titre: "2 ans · Les classiques des années 90" },
-    { cle: "d2-coups", titre: "2 ans · Coups de cœur" },
-    { cle: "d2-bouger", titre: "2 ans · Bouger" },
-    { cle: "d2-apprendre", titre: "2 ans · Apprendre" },
-    { cle: "d2-montessori", titre: "2 ans · Montessori" },
-    { cle: "d2-semblant", titre: "2 ans · Faire semblant" },
-    { cle: "d2-musique", titre: "2 ans · Musique" },
-    { cle: "d2-art", titre: "2 ans · Bricoler" },
-    { cle: "d2-bain", titre: "2 ans · Bain et sable" },
-    { cle: "d2-calins", titre: "2 ans · Câlins" },
-    { cle: "d2-livres", titre: "2 ans · Livres" },
-    { cle: "papa", titre: "Pour les 33 ans" },
+    { cle: "retro", titre: "📼 Les années 90" },
+    { cle: "coups", titre: "⭐ Nos coups de cœur" },
+    { cle: "lego", titre: "🧱 Les ensembles LEGO" },
+    { cle: "batir", titre: "🏗️ Pour bâtir" },
+    { cle: "teleguides", titre: "🎮 Les téléguidés" },
+    { cle: "autos", titre: "🏎️ Autos, camions et pistes" },
+    { cle: "cool", titre: "😎 Des affaires cool" },
+    { cle: "jouer", titre: "🎭 Pour faire semblant" },
+    { cle: "jeux", titre: "🎲 Jeux en famille" },
+    { cle: "livres", titre: "📚 Les livres d'ici" },
+    { cle: "art", titre: "🎨 Bricoler et découvrir" },
+    { cle: "dehors", titre: "⛄ Jouer dehors" },
+    { cle: "d2-retro", titre: "📼 Les années 90" },
+    { cle: "d2-coups", titre: "⭐ Coups de cœur" },
+    { cle: "d2-bouger", titre: "🛝 Bouger" },
+    { cle: "d2-apprendre", titre: "🧩 Apprendre" },
+    { cle: "d2-montessori", titre: "🌱 Montessori" },
+    { cle: "d2-semblant", titre: "🧸 Faire semblant" },
+    { cle: "d2-musique", titre: "🥁 Musique" },
+    { cle: "d2-art", titre: "🖍️ Bricoler" },
+    { cle: "d2-bain", titre: "🛁 Bain et sable" },
+    { cle: "d2-calins", titre: "🤗 Câlins" },
+    { cle: "d2-livres", titre: "📖 Livres" },
+    { cle: "papa", titre: "🛷 Pour Jean-Philippe (33 ans)" },
   ];
   const PAGES = [];
   {
@@ -937,7 +1008,7 @@ svg { display: block; }
   }
 
   /* ---------- État ---------- */
-  const etat = { vue: "accueil", enfant: null, pages: {}, crayon: {}, outil: "crayon", noms: {}, doigtDessine: false, coeurs: {}, pretes: {},
+  const etat = { vue: "accueil", enfant: null, pages: {}, crayon: {}, outil: "crayon", noms: {}, doigtDessine: false, coeurs: {}, pretes: {}, reserves: {},
     // « dessin » : on trace le rond (Apple Pencil, souris) ; « clic » : toucher ou cliquer un jouet l'entoure tout seul
     mode: (window.matchMedia && matchMedia("(pointer: fine)").matches && !("ontouchstart" in window)) ? "clic" : "dessin" };
   // chaque enfant a son propre catalogue : seulement les pages de son âge
@@ -1004,13 +1075,13 @@ svg { display: block; }
       const o = JSON.parse(brut);
       // les ronds de l'ancienne version ne savaient pas à quel jouet ils appartenaient : on ne les reprend pas
       if (!ancien) { for (const k in (o.T || {})) T[k] = o.T[k].map(dec); if (recaler().size) setTimeout(ecrireLocal, 0); }
-      etat.noms = o.noms || {}; etat.pretes = o.pretes || {};
+      etat.noms = o.noms || {}; etat.pretes = o.pretes || {}; etat.reserves = o.reserves || {};
       for (const k in (o.coeurs || {})) if (Array.isArray(o.coeurs[k])) etat.coeurs[k] = o.coeurs[k].slice(0, MAX_COEURS);
     } catch (e) { /* stockage indisponible */ }
   }
   function ecrireLocal() {
     try {
-      const o = { T: {}, noms: etat.noms, coeurs: etat.coeurs, pretes: etat.pretes };
+      const o = { T: {}, noms: etat.noms, coeurs: etat.coeurs, pretes: etat.pretes, reserves: etat.reserves };
       for (const k in T) if (T[k].length) o.T[k] = T[k].map(enc);
       localStorage.setItem(CLE_LOCALE, JSON.stringify(o));
     } catch (e) { /* stockage indisponible */ }
@@ -1048,6 +1119,13 @@ svg { display: block; }
     ecritureNoms = ecritureNoms.then(() => db.doc("reglages/noms").set(noms)).catch(() => {});
   }
 
+  let ecritureReserves = Promise.resolve();
+  function sauverReserves(k) {
+    ecrireLocal();
+    if (!db) return;
+    const ids = (etat.reserves[k] || []).slice();
+    ecritureReserves = ecritureReserves.then(() => db.doc("reserves/" + k).set({ ids })).catch(() => avis("La réservation n'a pas pu être partagée. Elle reste notée sur cet appareil."));
+  }
   let ecriturePretes = Promise.resolve();
   function sauverPretes() {
     ecrireLocal();
@@ -1107,6 +1185,10 @@ svg { display: block; }
       for (const d of snap.docs) if (etat.coeurs[d.id] && Array.isArray(d.data()?.ids)) etat.coeurs[d.id] = d.data().ids.slice(0, MAX_COEURS);
       ecrireLocal(); rafraichir();
     }, () => {});
+    db.collection("reserves").onSnapshot(snap => {
+      for (const d of snap.docs) if (Array.isArray(d.data()?.ids)) etat.reserves[d.id] = d.data().ids.slice();
+      ecrireLocal(); rafraichir(); if (!$("fen-achats").hidden && achatsDe) rendreAchats(achatsDe);
+    }, () => {});
     db.doc("reglages/pretes").onSnapshot(s => {
       if (s.exists) { etat.pretes = { ...(s.data() || {}) }; ecrireLocal(); rafraichir(); }
     }, () => {});
@@ -1144,10 +1226,16 @@ svg { display: block; }
     ctx.setTransform(s, 0, 0, s, dx, dy);
     ctx.fillStyle = COUL.papier; ctx.fillRect(0, 0, W, H);
     // bandeau
-    ctx.fillStyle = COUL.rouge; ctx.fillRect(0, 0, W, 72);
-    ctx.fillStyle = COUL.or; ctx.fillRect(0, 72, W, 6);
-    ctx.fillStyle = "#fff"; ctx.font = `800 36px ${F_TITRE}`; ctx.textBaseline = "alphabetic";
-    ctx.fillText(pg.titre, M, 50);
+    const retro = /retro$/.test(pg.cle);
+    if (retro) bandeauRetro(ctx, 0, 0, W);
+    else { ctx.fillStyle = COUL.rouge; ctx.fillRect(0, 0, W, 72); ctx.fillStyle = COUL.or; ctx.fillRect(0, 72, W, 6); }
+    ctx.textBaseline = "alphabetic";
+    if (retro) {
+      // titre années 90 : lettres épaisses, ombre décalée turquoise
+      ctx.font = `38px ${F_RETRO}`;
+      ctx.fillStyle = "#00D6C9"; ctx.fillText(pg.titre, M + 3, 54);
+      ctx.fillStyle = "#FFE45C"; ctx.fillText(pg.titre, M, 51);
+    } else { ctx.fillStyle = "#fff"; ctx.font = `800 36px ${F_TITRE}`; ctx.fillText(pg.titre, M, 50); }
     ctx.textAlign = "right"; ctx.fillStyle = COUL.or; ctx.font = `900 20px ${F_TEXTE}`;
     if (!barreDansBandeau) { const nu = numeroPage(idx); ctx.fillText(nu ? "PAGE " + nu[0] : "PAGE BONUS", W - M, 46); }
     ctx.textAlign = "left";
@@ -1287,8 +1375,8 @@ svg { display: block; }
       const x = c.getContext("2d");
       // la feuille couvre tout l'écran : papier partout, bandeau rouge jusqu'en haut
       x.fillStyle = COUL.papier; x.fillRect(0, 0, pw, ph);
-      x.fillStyle = COUL.rouge; x.fillRect(0, 0, pw, oy + 72 * echelle);
-      x.fillStyle = COUL.or; x.fillRect(0, oy + 72 * echelle, pw, 6 * echelle);
+      if (/retro$/.test(PAGES[idx].cle)) { x.save(); x.translate(0, oy - 72 * echelle * 0); x.restore(); x.fillStyle = "#3B1C8C"; x.fillRect(0, 0, pw, oy); bandeauRetro(x, 0, oy, pw, echelle); x.fillStyle = "#3B1C8C"; }
+      else { x.fillStyle = COUL.rouge; x.fillRect(0, 0, pw, oy + 72 * echelle); x.fillStyle = COUL.or; x.fillRect(0, oy + 72 * echelle, pw, 6 * echelle); }
       dessinerPage(x, idx, echelle, ox, oy);
       BASES.set(idx, c);
       for (const k of BASES.keys()) if (Math.abs(k - idx) > 2 && k !== pageCourante()) BASES.delete(k);
@@ -1313,8 +1401,8 @@ svg { display: block; }
   let barreDansBandeau = false;
   // la largeur du plus long titre de ce catalogue, en unités de page
   function titreMax() {
-    const c = document.createElement("canvas").getContext("2d"); c.font = `800 36px ${F_TITRE}`;
-    return Math.max(0, ...(PAGES_DE[etat.enfant] || []).map(i => c.measureText(PAGES[i].titre).width));
+    const c = document.createElement("canvas").getContext("2d");
+    return Math.max(0, ...(PAGES_DE[etat.enfant] || []).map(i => { c.font = /retro$/.test(PAGES[i].cle) ? `38px ${F_RETRO}` : `800 36px ${F_TITRE}`; return c.measureText(PAGES[i].titre).width; }));
   }
   function dimensionner() {
     if (etat.vue !== "catalogue") return;
@@ -1792,7 +1880,8 @@ svg { display: block; }
   function avis(t) { const el = $("toast"); el.textContent = t; el.hidden = false; clearTimeout(minuterieAvis); minuterieAvis = setTimeout(() => { el.hidden = true; }, 4500); }
 
   /* ---------- Vues ---------- */
-  const initiale = nom => (/^\d/.test(nom) ? nom.match(/^\d+/)[0] : (nom.trim()[0] || "?").toUpperCase());
+  // « Pierre-Alexis » → PA, « Laurent » → L, « 33 ans » → 33
+  const initiale = nom => (/^\d/.test(nom) ? nom.match(/^\d+/)[0] : nom.trim().split(/[-\s]+/).filter(Boolean).slice(0, 2).map(m => m[0].toUpperCase()).join("") || "?");
   const nbCadeaux = n => n + (n > 1 ? " cadeaux entourés" : " cadeau entouré");
   const SVG_LISTE = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/><path d="M9 13h7M9 17h5"/></svg>`;
   function rendreAccueil() {
@@ -1822,7 +1911,7 @@ svg { display: block; }
       rang.append(coche, o, prixEtq);
       o.querySelector(".pastille-age").textContent = initiale(nom);
       o.querySelector(".texte b").textContent = nom;
-      o.querySelector(".texte small").textContent = n ? nbCadeaux(n) + (nc ? " · " + nc + " ♥" : "") : "Ouvrir le catalogue";
+      o.querySelector(".texte small").textContent = [e.age && !/\d/.test(nom) ? e.age : "", n ? nbCadeaux(n) + (nc ? " · " + nc + " ♥" : "") : "Ouvrir le catalogue"].filter(Boolean).join(" · ");
       const boule = o.querySelector(".boule");
       boule.setAttribute("aria-label", "Ouvrir le catalogue de " + nom);
       boule.addEventListener("click", () => lancerOuverture(e.id));
@@ -2060,42 +2149,62 @@ svg { display: block; }
       + "Le PDF donne la liste des cadeaux entourés avec les prix, puis chaque page telle que l'enfant l'a laissée.";
     corps.appendChild(n);
   }
+  let achatsDe = null;
+  const SVG_LIEN = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>`;
+  const SVG_CADEAU = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M12 8v13M3 12h18M12 8c-2-4-6-4-6-1.5S10 8 12 8zm0 0c2-4 6-4 6-1.5S14 8 12 8z"/></svg>`;
   function rendreAchats(k) {
-    const liste = choisis(k), corps = $("corps-achats");
-    $("titre-achats").textContent = "La liste de " + nomDe(k);
+    achatsDe = k;
+    const liste = choisis(k), corps = $("corps-achats"), res = new Set(etat.reserves[k] || []);
+    $("titre-achats").textContent = "Les souhaits de " + nomDe(k);
     corps.innerHTML = "";
-    const intro = document.createElement("p"); intro.className = "note";
-    intro.textContent = liste.length
-      ? nbCadeaux(liste.length) + " · total " + prix(liste.reduce((s, c) => s + c.p.prix, 0)) + ". Prix vus en ligne le 20 novembre 2026, avant taxes. Le bouton ouvre la page du magasin."
-      : "Rien d'entouré pour l'instant.";
-    corps.appendChild(intro);
-    const ok = c => c.p.prix <= TROP_CHER;
-    const groupes = [["Super cœurs", liste.filter(c => c.coeur && ok(c))], ["Les autres choix", liste.filter(c => !c.coeur && ok(c))], ["Trop cher (plus de 50 $)", liste.filter(c => !ok(c))]];
-    for (const [titre, lot] of groupes) {
-      if (!lot.length) continue;
-      const h = document.createElement("p"); h.className = "titre-section";
-      h.innerHTML = (titre === "Super cœurs" ? SVG_COEUR(true) : "") + "<span></span>"; h.lastChild.textContent = titre;
-      corps.appendChild(h);
-      const box = document.createElement("div");
-      for (const c of lot) {
-        const r = document.createElement("div"); r.className = "achat";
-        const im = document.createElement("img"); vignetteDans(im, c.p); r.appendChild(im);
-        const inf = document.createElement("div"); inf.className = "infos";
-        const b = document.createElement("b"); b.textContent = c.p.nom; inf.appendChild(b);
-        const sm = document.createElement("small");
-        sm.textContent = [c.p.marque, c.p.age ? ageTexte(c.p.age) : "", "page " + (c.page + 1) + ", article " + c.lettre].filter(Boolean).join(" · ");
-        inf.appendChild(sm); r.appendChild(inf);
-        const dr = document.createElement("div"); dr.className = "droite";
-        const pr = document.createElement("span"); pr.className = "prix"; pr.textContent = prix(c.p.prix); dr.appendChild(pr);
-        if (c.p.url) {
-          const a = document.createElement("a"); a.href = c.p.url; a.target = "_blank"; a.rel = "noopener noreferrer";
-          a.innerHTML = `<span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>`;
-          a.firstChild.textContent = "Acheter chez " + (c.p.source || "le magasin");
-          dr.appendChild(a);
+    if (!liste.length) { const v = document.createElement("p"); v.className = "vide"; v.textContent = "Rien d'entouré pour l'instant."; corps.appendChild(v); }
+    else {
+      const total = liste.reduce((t, c) => t + c.p.prix, 0), pris = liste.filter(c => res.has(c.p.id)), reste = liste.filter(c => !res.has(c.p.id));
+      const resume = document.createElement("div"); resume.className = "resume-achats";
+      resume.innerHTML = `<div><b>${liste.length}</b><span>${liste.length > 1 ? "souhaits" : "souhait"}</span></div>
+        <div><b>${pris.length}</b><span>${pris.length > 1 ? "déjà offerts" : "déjà offert"}</span></div>
+        <div><b>${prix(reste.reduce((t, c) => t + c.p.prix, 0))}</b><span>reste à offrir</span></div>`;
+      corps.appendChild(resume);
+      const aide = document.createElement("p"); aide.className = "note";
+      aide.textContent = "« Je l'offre » raye le cadeau pour toute la famille : personne d'autre ne l'achètera. Prix vus en ligne le 20 novembre 2026, avant taxes.";
+      corps.appendChild(aide);
+      const ok = c => c.p.prix <= TROP_CHER;
+      const groupes = [["Super cœurs", liste.filter(c => c.coeur && ok(c))], ["Ses autres choix", liste.filter(c => !c.coeur && ok(c))], ["Trop cher (plus de 50 $)", liste.filter(c => !ok(c))]];
+      for (const [titre, lot] of groupes) {
+        if (!lot.length) continue;
+        const h = document.createElement("p"); h.className = "titre-section";
+        h.innerHTML = (titre === "Super cœurs" ? SVG_COEUR(true) : "") + "<span></span>"; h.lastChild.textContent = titre;
+        corps.appendChild(h);
+        const grille = document.createElement("div"); grille.className = "grille-achats";
+        // ce qui est déjà offert descend en bas de son groupe
+        for (const c of [...lot.filter(c => !res.has(c.p.id)), ...lot.filter(c => res.has(c.p.id))]) {
+          const pris1 = res.has(c.p.id);
+          const r = document.createElement("article"); r.className = "carte-achat" + (pris1 ? " offert" : "");
+          const im = document.createElement("img"); vignetteDans(im, c.p);
+          const inf = document.createElement("div"); inf.className = "infos";
+          inf.innerHTML = `<span class="marque"></span><b></b><small></small>`;
+          inf.querySelector(".marque").textContent = c.p.marque || "";
+          inf.querySelector("b").textContent = c.p.nom;
+          inf.querySelector("small").textContent = [c.p.age ? ageTexte(c.p.age) : "", "page " + (c.page + 1) + " · " + c.lettre].filter(Boolean).join(" · ");
+          const bas = document.createElement("div"); bas.className = "bas";
+          const pr = document.createElement("span"); pr.className = "prix"; pr.textContent = prix(c.p.prix); bas.appendChild(pr);
+          if (c.p.url) {
+            const a = document.createElement("a"); a.className = "lien-magasin"; a.href = c.p.url; a.target = "_blank"; a.rel = "noopener noreferrer";
+            a.innerHTML = `<span></span>${SVG_LIEN}`; a.firstChild.textContent = c.p.source || "Le magasin"; bas.appendChild(a);
+          }
+          const b = document.createElement("button"); b.type = "button"; b.className = "offrir"; b.setAttribute("aria-pressed", String(pris1));
+          b.innerHTML = pris1 ? `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Offert · annuler</span>` : `${SVG_CADEAU}<span>Je l'offre</span>`;
+          b.addEventListener("click", () => {
+            const l = etat.reserves[k] = (etat.reserves[k] || []).slice(), i = l.indexOf(c.p.id);
+            if (i >= 0) l.splice(i, 1); else l.push(c.p.id);
+            sauverReserves(k); rendreAchats(k);
+          });
+          inf.appendChild(bas);
+          r.append(im, inf, b);
+          grille.appendChild(r);
         }
-        r.appendChild(dr); box.appendChild(r);
+        corps.appendChild(grille);
       }
-      corps.appendChild(box);
     }
     const act = document.createElement("div"); act.className = "actions";
     act.appendChild(boutonPdf(k));
@@ -2139,11 +2248,20 @@ svg { display: block; }
   }
   dessinerRameau($("rameau-hg"), 5); dessinerRameau($("rameau-bd"), 9);
 
+  // le guide s'ouvre à la première visite sur cet appareil ; le bouton « Comment ça marche » le rouvre
+  const ouvrirGuide = () => { $("guide").hidden = false; setTimeout(() => $("guide-go").focus(), 50); };
+  const fermerGuide = () => { $("guide").hidden = true; try { localStorage.setItem("catalogue-guide-vu", "1"); } catch (_) {} };
+  $("guide-go").addEventListener("click", fermerGuide);
+  $("guide").addEventListener("click", e => { if (e.target === $("guide")) fermerGuide(); });
+  $("ouvrir-guide").addEventListener("click", ouvrirGuide);
+  document.addEventListener("keydown", e => { if (e.key === "Escape" && !$("guide").hidden) fermerGuide(); });
+  try { if (localStorage.getItem("catalogue-guide-vu") !== "1") setTimeout(ouvrirGuide, 900); } catch (_) { setTimeout(ouvrirGuide, 900); }
+
   /* ---------- Démarrage ---------- */
   lireLocal();
   try { etat.doigtDessine = localStorage.getItem("catalogue-doigt") === "1"; const m = localStorage.getItem("catalogue-mode"); if (m === "clic" || m === "dessin") etat.mode = m; } catch (_) {}
   rendreAccueil();
-  const polices = ["800 48px Fraunces", "italic 600 20px Fraunces", "900 26px Archivo", "800 16px Archivo", "500 14px Archivo", "700 16px Archivo"];
+  const polices = ["800 48px Fraunces", "italic 600 20px Fraunces", "48px Bungee", "900 26px Archivo", "800 16px Archivo", "500 14px Archivo", "700 16px Archivo"];
   Promise.race([Promise.all(polices.map(p => document.fonts.load(p))), new Promise(r => setTimeout(r, 2500))])
     .then(() => { BASES.clear(); planifier(); });
   brancherDb();
