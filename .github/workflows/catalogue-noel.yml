@@ -3,7 +3,7 @@ name: Catalogue de Noël (GitHub Pages)
 on:
   push:
     branches: [main]
-    paths: ["catalogue-noel/**", ".github/workflows/catalogue-noel.yml"]
+    paths: ["catalogue-noel/**", "catalogue-noel-source/**", ".github/workflows/catalogue-noel.yml"]
   workflow_dispatch:
 
 permissions:
@@ -23,6 +23,9 @@ jobs:
       url: ${{ steps.deploiement.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+      # une modification faite en ligne dans catalogue-noel-source/ (prix, noms, jouets retirés, interface) se reconstruit ici
+      - name: Reconstruire l'app
+        run: python3 catalogue-noel-source/construire.py
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
