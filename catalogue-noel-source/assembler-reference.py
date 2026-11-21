@@ -130,7 +130,10 @@ from PIL import Image
 ORDRE = ["retro", "coups", "lego", "batir", "teleguides", "autos", "cool", "jouer", "jeux", "livres", "art", "dehors",
          "d2-retro", "d2-coups", "d2-bouger", "d2-apprendre", "d2-vehicules", "d2-semblant", "d2-musique", "d2-art", "d2-bain", "d2-calins", "d2-livres", "papa"]
 rang = {c: i for i, c in enumerate(ORDRE)}
-tri = sorted(ok, key=lambda it: (rang.get(it["categorie"], 99), it["prix"]))
+import hashlib
+# dans une même catégorie, un ordre mêlé mais toujours le même (pas par prix)
+tri = sorted(ok, key=lambda it: (rang.get(it["categorie"], 99), hashlib.md5(("noel26" + it["id"]).encode()).hexdigest()))
+ok = tri
 CELL, N = 384, 6
 os.makedirs(os.path.join(D, "planches"), exist_ok=True)
 for f_old in os.listdir(os.path.join(D, "planches")):

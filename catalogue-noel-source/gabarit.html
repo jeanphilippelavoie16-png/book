@@ -424,6 +424,19 @@ svg { display: block; }
 .etiquette-prix::after { content: ""; position: absolute; left: -20px; top: 50%; width: 24px; height: 2px; background: repeating-linear-gradient(90deg, #C9A86A 0 3px, #A8864C 3px 5px); }
 @media (max-width: 560px) { .etiquette-prix { width: 78px; height: 50px; } .etiquette-prix b { font-size: 15px; } }
 .cote-droit .lien-parents { flex: none; white-space: nowrap; }
+.cote-droit .astuce-accueil { display: none; }
+.cote-droit { gap: 14px; }
+.pied-accueil { margin-top: 4px; }
+.coupon {
+  position: relative; margin-top: 6px; padding: 14px 18px 14px 20px; max-width: 34em; transform: rotate(-1.2deg);
+  background: #FFF3C4; color: #3A2410; border: 2px dashed #B23A2A; border-radius: 6px;
+  box-shadow: 0 0 0 6px #FFF3C4, 0 12px 24px -8px rgba(0,0,0,.5);
+}
+.coupon .ciseaux { position: absolute; top: -15px; left: 22px; width: 24px; height: 24px; padding: 2px; color: #B23A2A; background: #FFF3C4; border-radius: 50%; transform: rotate(-90deg); }
+.coupon-titre { display: inline-block; margin-bottom: 4px; padding: 3px 10px; border-radius: 3px; background: #B23A2A; color: #FFF3C4;
+  font: 900 12px/1.2 var(--ui); letter-spacing: .16em; text-transform: uppercase; }
+.coupon p { margin: 0; font: 500 14px/1.45 var(--ui); }
+.coupon p b { font-weight: 800; color: #B23A2A; }
 .note-parents { margin: 0; max-width: 26em; font: italic 400 12.5px/1.4 "Fraunces", Georgia, serif; color: rgba(246,239,223,.6); }
 .note-parents b { font-style: normal; font-family: var(--ui); font-weight: 700; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: rgba(242,213,143,.75); }
 .choix-mode { display: grid; gap: 8px; }
@@ -528,7 +541,11 @@ svg { display: block; }
       </div>
       <div class="pied-accueil">
         <button class="lien-parents" id="ouvrir-parents" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Coin des parents</button>
-        <p class="note-parents"><b>Petit mot aux parents :</b> dans la liste de prix, tout ce qui dépasse 50 $ est rangé sous « Trop cher ». Aucun risque de chicane : les enfants ne savent pas encore lire.</p>
+      </div>
+      <div class="coupon" role="note">
+        <svg class="ciseaux" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.1 15.9M14.5 14.5 20 20M8.1 8.1 12 12"/></svg>
+        <span class="coupon-titre">À lire, les parents!</span>
+        <p>Dans la liste de prix, tout ce qui dépasse <b>50 $</b> est rangé sous <b>« Trop cher »</b>. Aucun risque de chicane : les enfants ne savent pas encore lire.</p>
       </div>
     </div>
   </div>
@@ -680,7 +697,7 @@ svg { display: block; }
   {
     const restants = new Set(PRODUITS);
     for (const sec of SECTIONS) {
-      const lot = [...restants].filter(p => p.categorie === sec.cle).sort((a, b) => a.prix - b.prix);
+      const lot = [...restants].filter(p => p.categorie === sec.cle);   // l'ordre mêlé vient de l'assembleur
       lot.forEach(p => restants.delete(p));
       sec.debut = PAGES.length;
       const nb = Math.ceil(lot.length / PAR_PAGE);
