@@ -23,5 +23,10 @@ Les ronds et les super cœurs restent dans l'iPad (une liste par appareil).
 
 ## Crédits d'images
 
-- Photo de la page « Pour les 33 ans » : *Adolf Hitler cropped restored.jpg*, 1937, auteur inconnu
-  (Bundesarchiv), CC BY-SA 3.0 de — https://commons.wikimedia.org/wiki/File:Adolf_Hitler_cropped_restored.jpg
+- Verdure et bonshommes en pain d'épice de l'accueil (`deco/`) : openclipart.org, licence CC0 1.0.
+  - `plante-sapin2.webp` et `plante-pin-cones.webp` (Pine branch) : Almeidah — openclipart.org/detail/266237 et /266238
+  - `plante-gui.webp` (Mistletoe 2), `plante-epinette.webp` (Common spruce, detailed), `plante-houx2.webp` (Holly colour),
+    `plante-laurier.webp` (Bay laurel) : Firkin — openclipart.org/detail/265932, /238005, /274220, /237802
+  - `sapin.svg`, `houx.svg`, `biscuit.svg` : openclipart.org, CC0 1.0
+- Paquet de Marlboro (page de Jean-Philippe) : Jared Preston, retouché par Pittigrilli, Wikimedia Commons, CC BY-SA 3.0.
+- Photos de la famille (`portraits/`) : photos de JP.

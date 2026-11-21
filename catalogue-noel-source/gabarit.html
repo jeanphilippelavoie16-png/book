@@ -876,27 +876,27 @@ svg { display: block; }
 /* très grands écrans : on garde des proportions de babillard */
 @media (min-width: 1500px) { .tableau { max-width: 1400px; } }
 
-/* ===== Babillard : objets de Noël ===== */
-.objets { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
-.objets .o { position: absolute; height: auto; filter: drop-shadow(3px 7px 6px rgba(40,20,5,.45)); }
-.o-sapin  { width: clamp(180px, 22vw, 300px); right: -40px; bottom: -30px; transform: rotate(-35deg); }
-.o-houx   { width: clamp(110px, 12vw, 170px); left: 24px; top: 34px; transform: rotate(-18deg); z-index: 2; }
-.o-canne  { width: clamp(46px, 5vw, 66px); left: 30%; bottom: 26px; transform: rotate(38deg); }
-.o-boule  { width: clamp(70px, 7vw, 96px); right: 25%; top: 46px; transform: rotate(8deg); }
-.o-boule2 { width: clamp(56px, 5.5vw, 76px); right: 21.5%; top: 92px; transform: rotate(-10deg); }
-.o-biscuit{ width: clamp(110px, 11vw, 150px); right: 22%; bottom: 30px; transform: rotate(-8deg); }
-.o-bas    { width: clamp(70px, 7vw, 96px); left: 46px; bottom: 30px; transform: rotate(12deg); }
-.o-cadeau { width: clamp(80px, 8vw, 110px); left: 40%; bottom: 18px; transform: rotate(-6deg); }
-.o-carte  { width: clamp(110px, 10vw, 140px); right: 30px; top: 46%; padding: 8px 8px 10px; background: #FBF3DF; transform: rotate(6deg);
-  box-shadow: 4px 8px 12px rgba(40,20,5,.4); filter: none !important; }
-.o-carte img { display: block; width: 100%; height: auto; }
-.o-carte .punaise { top: -8px; }
+/* ===== Babillard : verdure de Noël, piquée dans les coins du liège ===== */
+.objets { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.objets .o { position: absolute; height: auto; filter: drop-shadow(4px 9px 7px rgba(40,20,5,.42)); }
 #accueil .tableau { position: relative; z-index: 1; }
-@media (max-aspect-ratio: 1/1), (max-width: 900px) { .o-canne, .o-cadeau, .o-carte { display: none; } .o-biscuit { right: 6%; } .o-boule, .o-boule2 { display: none; } }
-@media (max-width: 1320px) { .o-carte, .o-boule, .o-boule2 { display: none; } .o-houx { width: 96px; left: 2px; top: 10px; } }
-@media (max-width: 600px) { .objets .o { display: none; } .objets .o-houx, .objets .o-sapin { display: block; } .o-houx { width: 90px; left: 6px; top: 30px; } .o-sapin { width: 160px; } }
-@media (max-aspect-ratio: 1/1) and (min-width: 601px) { .objets .o-boule, .objets .o-boule2, .objets .o-cadeau { display: block; } .o-boule { right: auto; left: 18%; top: 215px; width: 92px; } .o-boule2 { right: auto; left: 31%; top: 250px; width: 72px; } .o-cadeau { left: 8%; bottom: auto; top: 230px; width: 96px; } }
-@media (max-height: 500px) and (orientation: landscape) { .objets .o { display: none; } }
+/* haut gauche : houx et gui sous les lumières */
+.o-houx    { width: clamp(120px, 12vw, 180px); left: 4px; top: 8px; transform: rotate(-24deg); }
+.o-gui     { width: clamp(130px, 13vw, 200px); right: -18px; top: -26px; transform: rotate(196deg) scaleX(-1); }
+/* bas gauche : épinette et son cône, laurier et houx gravé */
+.o-epinette{ width: clamp(190px, 18vw, 260px); left: -14px; bottom: -40px; transform: rotate(38deg); }
+.o-laurier { width: clamp(140px, 13vw, 190px); left: -60px; bottom: 150px; transform: rotate(72deg); }
+.o-houx2   { width: clamp(100px, 9vw, 135px); left: 128px; bottom: 6px; transform: rotate(-14deg); }
+/* bas droite : la grosse branche de sapin, un pin à cocottes, le sapin touffu */
+.o-sapin   { width: clamp(200px, 22vw, 320px); right: -50px; bottom: -40px; transform: rotate(-35deg); }
+.o-pin     { width: clamp(140px, 12.5vw, 185px); right: 170px; bottom: -36px; transform: rotate(-22deg); }
+.o-sapin2  { width: clamp(120px, 11vw, 165px); right: -46px; bottom: 210px; transform: rotate(-82deg); }
+.o-biscuit { width: clamp(110px, 10vw, 140px); left: clamp(230px, 20vw, 300px); bottom: 26px; transform: rotate(-6deg); }
+
+@media (max-aspect-ratio: 1/1) and (min-width: 601px) { .o-biscuit { left: auto; right: 34%; bottom: 8px; } .o-gui { right: auto; left: 40%; top: 34px; width: 170px; transform: rotate(176deg) scaleX(-1); } .o-houx2 { left: auto; right: 37%; top: 150px; bottom: auto; width: 110px; transform: rotate(18deg); } }
+@media (max-width: 600px) { .objets .o { display: none; } .objets .o-houx, .objets .o-sapin, .objets .o-gui, .objets .o-epinette { display: block; }
+  .o-houx { width: 84px; left: 0; top: 18px; } .o-gui { width: 96px; right: -14px; top: -14px; } .o-sapin { width: 170px; } .o-epinette { width: 140px; bottom: -60px; } }
+@media (max-height: 500px) and (orientation: landscape) { .objets .o { display: none; } .objets .o-sapin { display: block; width: 170px; } }
 
 /* ===== Polaroïds : de vraies photos instantanées ===== */
 #accueil .polaroid { padding: 11px 11px 0; background:
@@ -918,7 +918,7 @@ svg { display: block; }
 .banniere h1 { font-size: clamp(28px, 2.7vw, 42px); line-height: .95; }
 .banniere h1 .h1-haut { display: block; white-space: nowrap; font-size: .58em; letter-spacing: .04em; color: #C8302A; text-shadow: 2px 2px 0 #FFD36B; }
 .banniere h1 em { display: block; white-space: nowrap; margin-top: 4px; }
-.dodos { padding-top: 10px; margin-top: 12px; border-top: 2px dashed rgba(30,39,64,.18); }
+.dodos { white-space: nowrap; font-size: clamp(18px, 1.9vw, 26px); padding-top: 10px; margin-top: 12px; border-top: 2px dashed rgba(30,39,64,.18); }
 @media (min-aspect-ratio: 1/1) and (min-width: 901px) and (min-height: 501px) {
   .tableau { grid-template-columns: minmax(240px, .78fr) minmax(0, 1.55fr) minmax(240px, .68fr); gap: 22px 30px; }
   .notes { gap: 30px; }
@@ -941,9 +941,15 @@ svg { display: block; }
   <div class="cadre-bois" aria-hidden="true"></div>
   <svg class="lumieres" id="lumieres" aria-hidden="true" preserveAspectRatio="none"></svg>
   <div class="objets" aria-hidden="true">
-    <img class="o o-sapin" src="deco/sapin.svg" alt="">
-    <img class="o o-houx" src="deco/houx.svg" alt="">
-    <img class="o o-biscuit" src="deco/biscuit.svg" alt="">
+    <img class="o o-gui" src="deco/plante-gui.webp" alt="" decoding="async">
+    <img class="o o-houx" src="deco/houx.svg" alt="" decoding="async">
+    <img class="o o-laurier" src="deco/plante-laurier.webp" alt="" decoding="async">
+    <img class="o o-epinette" src="deco/plante-epinette.webp" alt="" decoding="async">
+    <img class="o o-houx2" src="deco/plante-houx2.webp" alt="" decoding="async">
+    <img class="o o-sapin2" src="deco/plante-sapin2.webp" alt="" decoding="async">
+    <img class="o o-pin" src="deco/plante-pin-cones.webp" alt="" decoding="async">
+    <img class="o o-sapin" src="deco/sapin.svg" alt="" decoding="async">
+    <img class="o o-biscuit" src="deco/biscuit.svg" alt="" decoding="async">
   </div>
   <div class="tableau">
     <header class="banniere">
