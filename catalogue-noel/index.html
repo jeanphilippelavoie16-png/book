@@ -16,6 +16,7 @@
 <style>[hidden]{display:none!important} html,body{margin:0;height:100%}</style>
 </head>
 <body>
+<script>window.FIREBASE_FAMILLE = {"famille": "famille-556ac90ffe0f", "config": {"apiKey": "AIzaSyARoBIe_qDKK_UQ0SVt-p6qb-ePE9BvZmo", "authDomain": "noel-ecd29.firebaseapp.com", "projectId": "noel-ecd29", "storageBucket": "noel-ecd29.firebasestorage.app", "messagingSenderId": "100597527246", "appId": "1:100597527246:web:fc7a04d3d3e85c78b7d69f"}};</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400..900&family=Inter:wght@400..800&family=Shrikhand&family=Fraunces:ital,opsz,wght@1,9..144,600&display=swap">
@@ -457,6 +458,16 @@ svg { display: block; }
 .coupon p b { font-weight: 800; color: #B23A2A; }
 .note-parents { margin: 0; max-width: 26em; font: italic 400 12.5px/1.4 "Fraunces", Georgia, serif; color: rgba(246,239,223,.6); }
 .note-parents b { font-style: normal; font-family: var(--ui); font-weight: 700; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: rgba(242,213,143,.75); }
+.coche-prete { flex: none; display: grid; justify-items: center; gap: 4px; padding: 0; background: none; border: 0; color: #F2D58F; cursor: pointer; }
+.coche-prete .case { width: 34px; height: 34px; border-radius: 9px; display: grid; place-items: center; border: 2px solid rgba(242,213,143,.7); background: rgba(11,36,26,.4); color: transparent; transition: background .2s, color .2s, transform .15s; }
+.coche-prete .case svg { width: 22px; height: 22px; }
+.coche-prete .mot { font: 700 10px/1 var(--ui); letter-spacing: .12em; text-transform: uppercase; opacity: .8; }
+.coche-prete:active .case { transform: scale(.9); }
+.coche-prete[aria-checked="true"] .case { background: #2E9E5B; border-color: #6FE09A; color: #fff; box-shadow: 0 0 16px rgba(111,224,154,.45); }
+.coche-prete[aria-checked="true"] .mot { color: #8FF0B4; opacity: 1; }
+.carte-enf.prete::before { background: #2E9E5B; }
+.carte-enf.prete .texte small::after { content: " · liste prête ✓"; color: #1F7A4D; font-weight: 700; }
+@media (max-width: 560px) { .coche-prete .case { width: 28px; height: 28px; } .rang-enf { gap: 8px; } }
 .choix-mode { display: grid; gap: 8px; }
 .choix-mode button { display: grid; gap: 3px; text-align: left; padding: 12px 14px; border-radius: 14px; background: rgba(255,255,255,.05); box-shadow: inset 0 0 0 1px var(--ligne); color: var(--texte); }
 .choix-mode button b { font-size: 15px; } .choix-mode button small { color: var(--texte-2); font-size: 13px; line-height: 1.35; }
@@ -892,7 +903,7 @@ svg { display: block; }
   }
 
   /* ---------- État ---------- */
-  const etat = { vue: "accueil", enfant: null, pages: {}, crayon: {}, outil: "crayon", noms: {}, doigtDessine: false, coeurs: {},
+  const etat = { vue: "accueil", enfant: null, pages: {}, crayon: {}, outil: "crayon", noms: {}, doigtDessine: false, coeurs: {}, pretes: {},
     // « dessin » : on trace le rond (Apple Pencil, souris) ; « clic » : toucher ou cliquer un jouet l'entoure tout seul
     mode: (window.matchMedia && matchMedia("(pointer: fine)").matches && !("ontouchstart" in window)) ? "clic" : "dessin" };
   // chaque enfant a son propre catalogue : seulement les pages de son âge
@@ -924,13 +935,13 @@ svg { display: block; }
       if (!brut) return;
       const o = JSON.parse(brut);
       for (const k in (o.T || {})) T[k] = o.T[k].map(dec);
-      etat.noms = o.noms || {};
+      etat.noms = o.noms || {}; etat.pretes = o.pretes || {};
       for (const k in (o.coeurs || {})) if (Array.isArray(o.coeurs[k])) etat.coeurs[k] = o.coeurs[k].slice(0, MAX_COEURS);
     } catch (e) { /* stockage indisponible */ }
   }
   function ecrireLocal() {
     try {
-      const o = { T: {}, noms: etat.noms, coeurs: etat.coeurs };
+      const o = { T: {}, noms: etat.noms, coeurs: etat.coeurs, pretes: etat.pretes };
       for (const k in T) if (T[k].length) o.T[k] = T[k].map(enc);
       localStorage.setItem(CLE_LOCALE, JSON.stringify(o));
     } catch (e) { /* stockage indisponible */ }
@@ -968,6 +979,13 @@ svg { display: block; }
     ecritureNoms = ecritureNoms.then(() => db.doc("reglages/noms").set(noms)).catch(() => {});
   }
 
+  let ecriturePretes = Promise.resolve();
+  function sauverPretes() {
+    ecrireLocal();
+    if (!db) return;
+    const pretes = { ...etat.pretes };
+    ecriturePretes = ecriturePretes.then(() => db.doc("reglages/pretes").set(pretes)).catch(() => {});
+  }
   let ecritureCoeurs = Promise.resolve();
   function sauverCoeurs(k) {
     ecrireLocal();
@@ -1017,6 +1035,9 @@ svg { display: block; }
     db.collection("coeurs").onSnapshot(snap => {
       for (const d of snap.docs) if (etat.coeurs[d.id] && Array.isArray(d.data()?.ids)) etat.coeurs[d.id] = d.data().ids.slice(0, MAX_COEURS);
       ecrireLocal(); rafraichir();
+    }, () => {});
+    db.doc("reglages/pretes").onSnapshot(s => {
+      if (s.exists) { etat.pretes = { ...(s.data() || {}) }; ecrireLocal(); rafraichir(); }
     }, () => {});
     db.doc("reglages/noms").onSnapshot(s => {
       if (s.exists) { etat.noms = { ...(s.data() || {}) }; ecrireLocal(); rafraichir(); }
@@ -1701,7 +1722,14 @@ svg { display: block; }
       const rang = document.createElement("div"); rang.className = "rang-enf"; rang.style.setProperty("--c", c);
       const prixEtq = document.createElement("button"); prixEtq.type = "button"; prixEtq.className = "mini-liste etiquette-prix";
       prixEtq.innerHTML = `<span class="oeillet" aria-hidden="true"></span><b>Liste</b><small>et prix</small>`;
-      rang.append(o, prixEtq);
+      const pret = !!etat.pretes[e.id];
+      const coche = document.createElement("button"); coche.type = "button"; coche.className = "coche-prete";
+      coche.setAttribute("role", "checkbox"); coche.setAttribute("aria-checked", String(pret));
+      coche.setAttribute("aria-label", "La liste de " + nom + " est prête");
+      coche.innerHTML = `<span class="case"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="mot">${pret ? "Prête!" : "Prête?"}</span>`;
+      coche.addEventListener("click", () => { etat.pretes[e.id] = !etat.pretes[e.id]; if (!etat.pretes[e.id]) delete etat.pretes[e.id]; sauverPretes(); rendreAccueil(); });
+      if (pret) o.classList.add("prete");
+      rang.append(coche, o, prixEtq);
       o.querySelector(".pastille-age").textContent = initiale(nom);
       o.querySelector(".texte b").textContent = nom;
       o.querySelector(".texte small").textContent = n ? nbCadeaux(n) + (nc ? " · " + nc + " ♥" : "") : "Ouvrir le catalogue";
@@ -1786,7 +1814,7 @@ svg { display: block; }
     etat.pages[etat.enfant] = n; rendreBarre(); planifier();
   }
   function rafraichir() {
-    if (etat.vue === "accueil") rendreAccueil(); else { rendreBarre(); planifier(); }
+    if (etat.vue === "accueil") rendreAccueil(); else { rendreBarre(); majCompte(); planifier(); }
     if (!$("fen-liste").hidden) rendreListe(listeDe);
     if (!$("fen-parents").hidden && !document.activeElement?.matches?.("#corps-parents input")) rendreParents();
   }
