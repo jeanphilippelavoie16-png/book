@@ -1860,6 +1860,26 @@
 ]
 },
 {
+"id": "b9-kosmos-70",
+"categorie": "batir",
+"marque": "Thames & Kosmos",
+"nom": "Marble Run – circuit à billes de 70 pièces avec sauts, boucle et toupies",
+"age": "6+",
+"prix": 64.99,
+"source": "Brightbean",
+"url": "https://brightbean.com/products/thames-kosmos-classic-marble-run-70-piece-stem-building-set",
+"img": "planches/p02.jpg",
+"ageCible": null,
+"accroche": "Les billes sautent et font des cascades!",
+"sp": [
+2,
+1156,
+1156,
+376,
+376
+]
+},
+{
 "id": "b7-clixo-dinos",
 "categorie": "batir",
 "marque": "Clixo",
@@ -1873,7 +1893,7 @@
 "accroche": "Des dinos mous qui s'aimantent!",
 "sp": [
 2,
-1156,
+1540,
 1156,
 376,
 376
@@ -1893,7 +1913,7 @@
 "accroche": "Ton astronaute en mini-pièces!",
 "sp": [
 2,
-1577,
+1961,
 1156,
 301,
 376
@@ -1913,8 +1933,8 @@
 "accroche": "Ça colle partout… et fait POP!",
 "sp": [
 2,
-1924,
-1156,
+4,
+1540,
 376,
 376
 ]
@@ -1933,7 +1953,27 @@
 "accroche": "Des rovers qui brillent dans le noir!",
 "sp": [
 2,
-4,
+388,
+1540,
+376,
+376
+]
+},
+{
+"id": "b9-connetix-galaxie",
+"categorie": "batir",
+"marque": "Connetix",
+"nom": "Circuit à billes magnétique Galaxie, 61 pièces à paillettes et billes lumineuses",
+"age": "3+",
+"prix": 99.99,
+"source": "Brightbean",
+"url": "https://brightbean.com/products/connetix-ball-run-galaxy-pack-61-piece-glitter-magnetic-tiles-ball-run-with-light-balls-space-colour-palette-ages-3",
+"img": "planches/p02.jpg",
+"ageCible": null,
+"accroche": "Des billes qui s'allument dans le noir!",
+"sp": [
+2,
+772,
 1540,
 376,
 376
@@ -1953,7 +1993,7 @@
 "accroche": "Visse, boulonne, invente ta machine!",
 "sp": [
 2,
-388,
+1156,
 1540,
 376,
 376
@@ -1973,7 +2013,7 @@
 "accroche": "Plonge avec le requin!",
 "sp": [
 2,
-772,
+1540,
 1540,
 376,
 376
@@ -1993,7 +2033,7 @@
 "accroche": "Ta grande roue qui tourne vraiment!",
 "sp": [
 2,
-1156,
+1924,
 1540,
 376,
 376
@@ -2013,8 +2053,8 @@
 "accroche": "Clic! Ça colle et ça se plie!",
 "sp": [
 2,
-1540,
-1542,
+4,
+1926,
 376,
 371
 ]
@@ -2033,8 +2073,8 @@
 "accroche": "Des fenêtres et des portes aimantées!",
 "sp": [
 2,
+388,
 1924,
-1540,
 376,
 376
 ]
@@ -2053,7 +2093,7 @@
 "accroche": "Des petits morceaux pour tout inventer",
 "sp": [
 2,
-46,
+814,
 1924,
 291,
 376
@@ -2073,7 +2113,27 @@
 "accroche": "Ça plie, ça clique, ça tient!",
 "sp": [
 2,
-388,
+1156,
+1924,
+376,
+376
+]
+},
+{
+"id": "b9-gravitrax-roi-lion",
+"categorie": "batir",
+"marque": "Ravensburger (Disney)",
+"nom": "GraviTrax Junior – ensemble de départ Le Roi Lion, 71 pièces et 9 personnages",
+"age": "3+",
+"prix": 59.99,
+"source": "Clément",
+"url": "https://clement.ca/products/gravitrax-junior-roi-lion-rav-73437",
+"img": "planches/p02.jpg",
+"ageCible": null,
+"accroche": "Les billes roulent avec Simba!",
+"sp": [
+2,
+1540,
 1924,
 376,
 376
@@ -2093,7 +2153,7 @@
 "accroche": "Bâtis la piste, lance la bille!",
 "sp": [
 2,
-772,
+1924,
 1924,
 376,
 376
@@ -2108,13 +2168,13 @@
 "prix": 70.0,
 "source": "Indigo",
 "url": "https://www.indigo.ca/fr/products/magna-tiles%C2%AE-62-piece-magnetic-construction-set",
-"img": "planches/p02.jpg",
+"img": "planches/p03.jpg",
 "ageCible": "les deux",
 "accroche": "Des tours qui collent toutes seules!",
 "sp": [
-2,
-1156,
-1924,
+3,
+4,
+4,
 376,
 376
 ]
@@ -2128,15 +2188,55 @@
 "prix": 47.99,
 "source": "L'Entrejeux",
 "url": "https://lentrejeux.com/products/marble-rush-m100e-ensemble-de-depart",
-"img": "planches/p02.jpg",
+"img": "planches/p03.jpg",
 "ageCible": null,
 "accroche": "Trois, deux, un… lancement de billes!",
 "sp": [
-2,
-1558,
-1942,
+3,
+406,
+22,
 340,
 340
+]
+},
+{
+"id": "b9-gravity-maze-builder",
+"categorie": "batir",
+"marque": "ThinkFun",
+"nom": "Gravity Maze Builder – tours à billes à empiler, 60 défis",
+"age": "5+",
+"prix": 32.99,
+"source": "Mastermind Toys",
+"url": "https://www.mastermindtoys.com/products/gravity-maze-builder",
+"img": "planches/p03.jpg",
+"ageCible": null,
+"accroche": "J'empile, je lâche la bille, bingo!",
+"sp": [
+3,
+795,
+4,
+329,
+376
+]
+},
+{
+"id": "b9-gravitrax-desert-ext",
+"categorie": "batir",
+"marque": "Ravensburger",
+"nom": "GraviTrax Junior – extension Mon désert, 33 pièces (cactus et animaux)",
+"age": "3+",
+"prix": 39.99,
+"source": "Toy Sense",
+"url": "https://toysense.ca/products/rav-gravitrax-junior-my-desert-extension-set",
+"img": "planches/p03.jpg",
+"ageCible": null,
+"accroche": "Encore plus de désert pour mes billes!",
+"sp": [
+3,
+1164,
+4,
+359,
+376
 ]
 },
 {
@@ -2148,13 +2248,13 @@
 "prix": 44.99,
 "source": "Toytown",
 "url": "https://www.toytown.ca/products/1-2-3-build-it-rocket-train-copter",
-"img": "planches/p02.jpg",
+"img": "planches/p03.jpg",
 "ageCible": null,
 "accroche": "Une fusée? Non, un train!",
 "sp": [
-2,
-1924,
-1924,
+3,
+1540,
+4,
 376,
 376
 ]
@@ -2173,8 +2273,28 @@
 "accroche": "Une auto de héros à bâtir!",
 "sp": [
 3,
+1924,
 4,
+376,
+376
+]
+},
+{
+"id": "b9-tumble-trax",
+"categorie": "batir",
+"marque": "Learning Resources",
+"nom": "Tumble Trax – piste à billes magnétique qui colle au frigo, 14 rampes et 4 billes",
+"age": "5+",
+"prix": 49.99,
+"source": "Scholar's Choice",
+"url": "https://scholarschoice.ca/products/tumble-trax-magnetic-marble-run",
+"img": "planches/p03.jpg",
+"ageCible": null,
+"accroche": "Ma piste de billes sur le frigo!",
+"sp": [
+3,
 4,
+388,
 376,
 376
 ]
@@ -2194,7 +2314,27 @@
 "sp": [
 3,
 388,
-4,
+388,
+376,
+376
+]
+},
+{
+"id": "b9-quercetti-rocheuses",
+"categorie": "batir",
+"marque": "Quercetti",
+"nom": "Circuit à billes Rocky Mountain – Les Rocheuses, 105 pièces",
+"age": "5+",
+"prix": 39.99,
+"source": "Brightbean",
+"url": "https://brightbean.com/products/quercetti-rocky-mountain",
+"img": "planches/p03.jpg",
+"ageCible": null,
+"accroche": "Une tour de billes haute comme moi!",
+"sp": [
+3,
+772,
+388,
 376,
 376
 ]
@@ -2213,8 +2353,8 @@
 "accroche": "Tourne la manivelle, tout bouge!",
 "sp": [
 3,
-772,
-4,
+1156,
+388,
 376,
 376
 ]
@@ -2233,8 +2373,8 @@
 "accroche": "De petites tuiles pour l'auto!",
 "sp": [
 3,
-1156,
-4,
+1540,
+388,
 376,
 376
 ]
@@ -2253,8 +2393,8 @@
 "accroche": "Ça remonte les billes tout seul!",
 "sp": [
 3,
-1565,
-4,
+1949,
+388,
 326,
 376
 ]
@@ -2273,8 +2413,8 @@
 "accroche": "L'auto jaune devient un robot !",
 "sp": [
 3,
-1924,
 4,
+772,
 376,
 376
 ]
@@ -2293,8 +2433,8 @@
 "accroche": "Il roule de côté, comme un crabe !",
 "sp": [
 3,
-4,
 388,
+772,
 376,
 376
 ]
@@ -2313,8 +2453,8 @@
 "accroche": "J'ouvre les portes avec la manette !",
 "sp": [
 3,
-388,
-388,
+772,
+772,
 376,
 376
 ]
@@ -2333,8 +2473,8 @@
 "accroche": "Les portes s'ouvrent avec la manette !",
 "sp": [
 3,
+1156,
 772,
-388,
 376,
 376
 ]
@@ -2353,8 +2493,8 @@
 "accroche": "Les portes s'ouvrent en ailes !",
 "sp": [
 3,
-1156,
-388,
+1540,
+772,
 376,
 376
 ]
@@ -2373,8 +2513,8 @@
 "accroche": "Bip bip, c'est le jour des vidanges !",
 "sp": [
 3,
-1540,
-425,
+1924,
+809,
 376,
 301
 ]
@@ -2393,8 +2533,8 @@
 "accroche": "Un bouton : camion, puis robot !",
 "sp": [
 3,
-1925,
-388,
+5,
+1156,
 373,
 376
 ]
@@ -2413,8 +2553,8 @@
 "accroche": "Elle tourne sur place, comme la vraie !",
 "sp": [
 3,
-4,
-809,
+388,
+1193,
 376,
 301
 ]
@@ -2433,8 +2573,8 @@
 "accroche": "La Lambo jaune de mes rêves !",
 "sp": [
 3,
-388,
 772,
+1156,
 376,
 376
 ]
@@ -2453,8 +2593,8 @@
 "accroche": "Sa benne bascule pour vrai !",
 "sp": [
 3,
-772,
-772,
+1156,
+1156,
 376,
 376
 ]
@@ -2473,8 +2613,8 @@
 "accroche": "Les portes montent vers le ciel !",
 "sp": [
 3,
+1540,
 1156,
-772,
 376,
 376
 ]
@@ -2493,8 +2633,8 @@
 "accroche": "Toit ouvert, direction le chalet !",
 "sp": [
 3,
-1540,
-772,
+1924,
+1156,
 376,
 376
 ]
@@ -2513,8 +2653,8 @@
 "accroche": "Yoshi fonce dans le salon !",
 "sp": [
 3,
-1924,
-808,
+4,
+1576,
 376,
 303
 ]
@@ -2533,8 +2673,8 @@
 "accroche": "Pousse la neige comme un pro !",
 "sp": [
 3,
-4,
-1156,
+388,
+1540,
 376,
 376
 ]
@@ -2553,8 +2693,8 @@
 "accroche": "Le Grand Prix dans la cuisine !",
 "sp": [
 3,
-388,
-1256,
+772,
+1640,
 376,
 176
 ]
@@ -2573,8 +2713,8 @@
 "accroche": "Une vraie Ski-Doo dans la neige !",
 "sp": [
 3,
-772,
 1156,
+1540,
 376,
 376
 ]
@@ -2593,8 +2733,8 @@
 "accroche": "Au champ avec mon tracteur rouge !",
 "sp": [
 3,
-1156,
-1156,
+1540,
+1540,
 376,
 376
 ]
@@ -2613,8 +2753,8 @@
 "accroche": "Elle fait le looping toute seule !",
 "sp": [
 3,
+1924,
 1540,
-1156,
 376,
 376
 ]
@@ -2633,8 +2773,8 @@
 "accroche": "Une vraie Formule 1 rouge !",
 "sp": [
 3,
+4,
 1924,
-1156,
 376,
 376
 ]
@@ -2653,8 +2793,8 @@
 "accroche": "Course sur ma piste orange !",
 "sp": [
 3,
-4,
-1540,
+388,
+1924,
 376,
 376
 ]
@@ -2673,8 +2813,8 @@
 "accroche": "Vite, le T. rex nous suit !",
 "sp": [
 3,
-388,
-1602,
+772,
+1986,
 376,
 251
 ]
@@ -2693,8 +2833,8 @@
 "accroche": "Le géant des mines de Fermont !",
 "sp": [
 3,
-772,
-1540,
+1156,
+1924,
 376,
 376
 ]
@@ -2713,8 +2853,8 @@
 "accroche": "En voiture pour le pôle Nord !",
 "sp": [
 3,
-1156,
-1587,
+1540,
+1971,
 376,
 282
 ]
@@ -2733,8 +2873,8 @@
 "accroche": "L'auto la plus vite du monde !",
 "sp": [
 3,
-1540,
-1540,
+1924,
+1924,
 376,
 376
 ]
@@ -2748,13 +2888,13 @@
 "prix": 79.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/3197553-fr-minecraft-wagonnet-telecommande",
-"img": "planches/p03.jpg",
+"img": "planches/p04.jpg",
 "ageCible": null,
 "accroche": "Steve fait des wheelies !",
 "sp": [
-3,
-1924,
-1540,
+4,
+4,
+4,
 376,
 376
 ]
@@ -2768,13 +2908,13 @@
 "prix": 58.98,
 "source": "Kids On Wheelz (kidsonwheelz.ca)",
 "url": "https://kidsonwheelz.ca/products/rastar-1-14-porsche-911-gt3-cup-remote-control-car-with-working-lights",
-"img": "planches/p03.jpg",
+"img": "planches/p04.jpg",
 "ageCible": null,
 "accroche": "Une vraie Porsche de course !",
 "sp": [
-3,
 4,
-1924,
+388,
+4,
 376,
 376
 ]
@@ -2788,13 +2928,13 @@
 "prix": 69.99,
 "source": "Voltz Toys (voltztoys.ca)",
 "url": "https://voltztoys.ca/products/rastar-range-rover-sport-sv-1-14-rc-car",
-"img": "planches/p03.jpg",
+"img": "planches/p04.jpg",
 "ageCible": null,
 "accroche": "Le gros VUS chic, en petit !",
 "sp": [
-3,
-388,
-1924,
+4,
+772,
+4,
 376,
 376
 ]
@@ -2808,13 +2948,13 @@
 "prix": 75.0,
 "source": "Indigo",
 "url": "https://www.indigo.ca/fr/products/sharper-image%C2%AE-porsche-taycan-turbo-s-1-20-scale-rc-electric-vehicle",
-"img": "planches/p03.jpg",
+"img": "planches/p04.jpg",
 "ageCible": null,
 "accroche": "Je conduis avec un vrai volant !",
 "sp": [
-3,
-772,
-1924,
+4,
+1156,
+4,
 376,
 376
 ]
@@ -2828,13 +2968,13 @@
 "prix": 67.98,
 "source": "Kids On Wheelz (kidsonwheelz.ca)",
 "url": "https://kidsonwheelz.ca/products/1-35-rc-cat-950m-wheel-loader-23003",
-"img": "planches/p03.jpg",
+"img": "planches/p04.jpg",
 "ageCible": null,
 "accroche": "Je déneige la cour, moi aussi !",
 "sp": [
-3,
-1156,
-1924,
+4,
+1540,
+4,
 376,
 376
 ]
@@ -2848,13 +2988,13 @@
 "prix": 9.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/3197514-fr-hot-wheels-bolides-a-retrofriction-echelle-143-tirer-et-relacher-les-modeles-peuvent-varier",
-"img": "planches/p03.jpg",
+"img": "planches/p04.jpg",
 "ageCible": null,
 "accroche": "Tire, lâche… et zoum !",
 "sp": [
-3,
-1540,
+4,
 1924,
+4,
 376,
 376
 ]
@@ -2868,13 +3008,13 @@
 "prix": 34.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/3130526-fr-hot-wheels-pack-de-10-voitures-de-base",
-"img": "planches/p03.jpg",
+"img": "planches/p04.jpg",
 "ageCible": null,
 "accroche": "Dix bolides d'un coup!",
 "sp": [
-3,
-1924,
-1924,
+4,
+4,
+388,
 376,
 376
 ]
@@ -2893,8 +3033,8 @@
 "accroche": "Une auto pour chaque lettre !",
 "sp": [
 4,
-4,
-4,
+388,
+388,
 376,
 376
 ]
@@ -2913,8 +3053,8 @@
 "accroche": "L'auto de la série télé !",
 "sp": [
 4,
+772,
 388,
-4,
 376,
 376
 ]
@@ -2933,8 +3073,8 @@
 "accroche": "Yoshi, Peach ou Luigi qui volent !",
 "sp": [
 4,
-772,
-4,
+1156,
+388,
 376,
 376
 ]
@@ -2953,8 +3093,8 @@
 "accroche": "L'auto file toute seule sur la piste",
 "sp": [
 4,
-1156,
-10,
+1540,
+394,
 376,
 364
 ]
@@ -2973,8 +3113,8 @@
 "accroche": "Saute à travers les flammes!",
 "sp": [
 4,
-1540,
-4,
+1924,
+388,
 376,
 376
 ]
@@ -2993,8 +3133,8 @@
 "accroche": "Un stationnement pour 54 autos",
 "sp": [
 4,
-1924,
 4,
+772,
 376,
 376
 ]
@@ -3013,8 +3153,8 @@
 "accroche": "Cinq vraies écuries de F1",
 "sp": [
 4,
-4,
 388,
+772,
 376,
 376
 ]
@@ -3033,8 +3173,8 @@
 "accroche": "Mario contre Luigi, go !",
 "sp": [
 4,
-388,
-467,
+772,
+851,
 376,
 218
 ]
@@ -3053,8 +3193,8 @@
 "accroche": "La Batmobile en vrai métal!",
 "sp": [
 4,
-772,
-427,
+1156,
+811,
 376,
 298
 ]
@@ -3073,8 +3213,8 @@
 "accroche": "Lance, saute, gagne le trophée !",
 "sp": [
 4,
-1156,
-410,
+1540,
+794,
 376,
 331
 ]
@@ -3093,8 +3233,8 @@
 "accroche": "Une piste longue comme le salon !",
 "sp": [
 4,
-1540,
-388,
+1924,
+772,
 376,
 376
 ]
@@ -3113,8 +3253,8 @@
 "accroche": "Monte l'auto, pis lance-la !",
 "sp": [
 4,
-1924,
-388,
+4,
+1156,
 376,
 376
 ]
@@ -3133,8 +3273,8 @@
 "accroche": "Un gros camion pour ton char",
 "sp": [
 4,
-4,
-772,
+388,
+1156,
 376,
 376
 ]
@@ -3153,8 +3293,8 @@
 "accroche": "Une petite ville qui se ferme",
 "sp": [
 4,
-388,
 772,
+1156,
 376,
 376
 ]
@@ -3173,8 +3313,8 @@
 "accroche": "Deux F1, un levier : partez !",
 "sp": [
 4,
-772,
-772,
+1156,
+1156,
 376,
 376
 ]
@@ -3193,8 +3333,8 @@
 "accroche": "Trois étages de rampes et de poursuites!",
 "sp": [
 4,
+1540,
 1156,
-772,
 376,
 376
 ]
@@ -3213,8 +3353,8 @@
 "accroche": "Le requin avale ton auto !",
 "sp": [
 4,
-1540,
-772,
+1924,
+1156,
 376,
 376
 ]
@@ -3233,8 +3373,8 @@
 "accroche": "Cinq autos de la même gang",
 "sp": [
 4,
-1924,
-772,
+4,
+1540,
 376,
 376
 ]
@@ -3253,8 +3393,8 @@
 "accroche": "Eau chaude, eau froide : magie !",
 "sp": [
 4,
-44,
-1156,
+428,
+1540,
 296,
 376
 ]
@@ -3273,8 +3413,8 @@
 "accroche": "Katchow ! Flash gagne !",
 "sp": [
 4,
-388,
-1214,
+772,
+1598,
 376,
 260
 ]
@@ -3293,8 +3433,8 @@
 "accroche": "Trois vitesses dans ta poche",
 "sp": [
 4,
-772,
 1156,
+1540,
 376,
 376
 ]
@@ -3313,8 +3453,8 @@
 "accroche": "Plus haute que toi, ou presque !",
 "sp": [
 4,
-1156,
-1156,
+1540,
+1540,
 376,
 376
 ]
@@ -3333,8 +3473,8 @@
 "accroche": "Un looping à l'envers !",
 "sp": [
 4,
-1545,
-1156,
+1929,
+1540,
 365,
 376
 ]
@@ -3353,8 +3493,8 @@
 "accroche": "Six autos, six belles couleurs",
 "sp": [
 4,
+4,
 1924,
-1156,
 376,
 376
 ]
@@ -3373,8 +3513,8 @@
 "accroche": "Mario fait des wheelies !",
 "sp": [
 4,
-4,
-1540,
+388,
+1924,
 376,
 376
 ]
@@ -3393,8 +3533,8 @@
 "accroche": "Lance ton auto… évite le broyeur!",
 "sp": [
 4,
-388,
-1540,
+772,
+1924,
 376,
 376
 ]
@@ -3413,8 +3553,8 @@
 "accroche": "Des camions de travail en métal!",
 "sp": [
 4,
-772,
-1540,
+1156,
+1924,
 376,
 376
 ]
@@ -3433,8 +3573,8 @@
 "accroche": "Ton garage qui se transporte",
 "sp": [
 4,
-1156,
 1540,
+1924,
 376,
 376
 ]
@@ -3453,8 +3593,8 @@
 "accroche": "Encore plus de piste !",
 "sp": [
 4,
-1540,
-1540,
+1924,
+1924,
 376,
 376
 ]
@@ -3468,13 +3608,13 @@
 "prix": 14.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/3197995-fr-hasbro-figurine-articulee-spider-man-de-30-cm-serie-titan-hero",
-"img": "planches/p04.jpg",
+"img": "planches/p05.jpg",
 "ageCible": null,
 "accroche": "Un grand Spider-Man rien qu'à moi!",
 "sp": [
+5,
 4,
-1924,
-1540,
+4,
 376,
 376
 ]
@@ -3488,13 +3628,13 @@
 "prix": 19.99,
 "source": "Toytown",
 "url": "https://toytown.ca/products/glo-pals-party-pals",
-"img": "planches/p04.jpg",
+"img": "planches/p05.jpg",
 "ageCible": null,
 "accroche": "Le bain devient une discothèque!",
 "sp": [
+5,
+439,
 4,
-55,
-1924,
 273,
 376
 ]
@@ -3508,13 +3648,13 @@
 "prix": 29.99,
 "source": "Clément",
 "url": "https://clement.ca/products/ens-de-5-outils-stn-754st004",
-"img": "planches/p04.jpg",
+"img": "planches/p05.jpg",
 "ageCible": null,
 "accroche": "Des vrais outils, comme papa!",
 "sp": [
+5,
+772,
 4,
-388,
-1924,
 376,
 376
 ]
@@ -3528,13 +3668,13 @@
 "prix": 39.99,
 "source": "Mastermind Toys",
 "url": "https://www.mastermindtoys.com/products/spy-x-lazer-trap-alarm",
-"img": "planches/p04.jpg",
+"img": "planches/p05.jpg",
 "ageCible": null,
 "accroche": "Personne n'entre dans ma chambre!",
 "sp": [
+5,
+1156,
 4,
-772,
-1924,
 376,
 376
 ]
@@ -3548,13 +3688,13 @@
 "prix": 99.99,
 "source": "Mastermind Toys",
 "url": "https://www.mastermindtoys.com/products/mastermind-toys-deluxe-diy-fort-150-piece-set",
-"img": "planches/p04.jpg",
+"img": "planches/p05.jpg",
 "ageCible": null,
 "accroche": "Une cabane géante dans le salon!",
 "sp": [
+5,
+1540,
 4,
-1156,
-1924,
 376,
 376
 ]
@@ -3568,13 +3708,13 @@
 "prix": 49.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/3196966-fr-bitzee-aquarium-jouet-numerique-interactif-avec-30-poissons-virtuels-ecran-led-tactile-enfant-5-ans-et",
-"img": "planches/p04.jpg",
+"img": "planches/p05.jpg",
 "ageCible": null,
 "accroche": "Des poissons qui répondent à mon doigt!",
 "sp": [
-4,
-1540,
+5,
 1924,
+4,
 376,
 376
 ]
@@ -3588,13 +3728,13 @@
 "prix": 44.99,
 "source": "Clément",
 "url": "https://clement.ca/products/fabrique-de-slime-daw-277004",
-"img": "planches/p04.jpg",
+"img": "planches/p05.jpg",
 "ageCible": null,
 "accroche": "Ma propre usine à slime!",
 "sp": [
+5,
 4,
-1924,
-1924,
+388,
 376,
 376
 ]
@@ -3613,8 +3753,8 @@
 "accroche": "Que la Force soit avec moi!",
 "sp": [
 5,
-4,
-4,
+388,
+388,
 376,
 376
 ]
@@ -3633,8 +3773,8 @@
 "accroche": "Mes premières vraies cartes Pokémon!",
 "sp": [
 5,
+772,
 388,
-4,
 376,
 376
 ]
@@ -3653,8 +3793,8 @@
 "accroche": "Des trésors cachés dans la pâte!",
 "sp": [
 5,
-772,
-4,
+1156,
+388,
 376,
 376
 ]
@@ -3673,8 +3813,8 @@
 "accroche": "Le vrai chef des Autobots!",
 "sp": [
 5,
-1156,
-4,
+1540,
+388,
 376,
 376
 ]
@@ -3693,8 +3833,8 @@
 "accroche": "Un Pokémon monstre en roche!",
 "sp": [
 5,
-1540,
-4,
+1924,
+388,
 376,
 376
 ]
@@ -3713,8 +3853,8 @@
 "accroche": "Un dino géant qui mord!",
 "sp": [
 5,
-1924,
 4,
+772,
 376,
 376
 ]
@@ -3733,8 +3873,8 @@
 "accroche": "Pikachu et sa gang!",
 "sp": [
 5,
-4,
 388,
+772,
 376,
 376
 ]
@@ -3753,8 +3893,8 @@
 "accroche": "Quatre bras pour frapper!",
 "sp": [
 5,
-388,
-388,
+772,
+772,
 376,
 376
 ]
@@ -3773,8 +3913,8 @@
 "accroche": "Pow pow pow, ça brille!",
 "sp": [
 5,
+1156,
 772,
-388,
 376,
 376
 ]
@@ -3793,8 +3933,8 @@
 "accroche": "Une bibitte robot qui court partout!",
 "sp": [
 5,
-1156,
-388,
+1540,
+772,
 376,
 376
 ]
@@ -3813,8 +3953,8 @@
 "accroche": "Je chante avec une voix de monstre!",
 "sp": [
 5,
-1540,
-388,
+1924,
+772,
 376,
 376
 ]
@@ -3833,8 +3973,8 @@
 "accroche": "Spider-Man en moto, vroum!",
 "sp": [
 5,
-1924,
-388,
+4,
+1156,
 376,
 376
 ]
@@ -3853,8 +3993,8 @@
 "accroche": "Hulk écrase tout! GRRR!",
 "sp": [
 5,
-4,
-772,
+388,
+1156,
 376,
 376
 ]
@@ -3873,8 +4013,8 @@
 "accroche": "Je suis Batman!",
 "sp": [
 5,
-388,
 772,
+1156,
 376,
 376
 ]
@@ -3893,8 +4033,8 @@
 "accroche": "Un coup de pied, ça s'envole!",
 "sp": [
 5,
-772,
-772,
+1156,
+1156,
 376,
 376
 ]
@@ -3913,8 +4053,8 @@
 "accroche": "Pchou! Comme Spider-Man!",
 "sp": [
 5,
+1540,
 1156,
-772,
 376,
 376
 ]
@@ -3933,8 +4073,8 @@
 "accroche": "Des dinos dans un jardin qui brille!",
 "sp": [
 5,
-1540,
-772,
+1924,
+1156,
 376,
 376
 ]
@@ -3953,8 +4093,8 @@
 "accroche": "Bumblebee, robot ou char!",
 "sp": [
 5,
-1924,
-772,
+4,
+1540,
 376,
 376
 ]
@@ -3973,8 +4113,8 @@
 "accroche": "Un gros robot bleu de combat!",
 "sp": [
 5,
-4,
-1156,
+388,
+1540,
 376,
 376
 ]
@@ -3993,8 +4133,8 @@
 "accroche": "Je vois dans le noir!",
 "sp": [
 5,
-419,
-1156,
+803,
+1540,
 313,
 376
 ]
@@ -4013,8 +4153,8 @@
 "accroche": "Je vois la lune de proche!",
 "sp": [
 5,
-772,
 1156,
+1540,
 376,
 376
 ]
@@ -4033,8 +4173,8 @@
 "accroche": "Une vraie montre avec une caméra!",
 "sp": [
 5,
-1156,
-1156,
+1540,
+1540,
 376,
 376
 ]
@@ -4053,8 +4193,8 @@
 "accroche": "Une hache de guerrier, en mousse!",
 "sp": [
 5,
+1924,
 1540,
-1156,
 376,
 376
 ]
@@ -4073,8 +4213,8 @@
 "accroche": "Abracadabra, c'est moi le magicien!",
 "sp": [
 5,
+4,
 1924,
-1156,
 376,
 376
 ]
@@ -4093,8 +4233,8 @@
 "accroche": "Un soldat de l'Empire!",
 "sp": [
 5,
-4,
-1540,
+388,
+1924,
 376,
 376
 ]
@@ -4113,8 +4253,8 @@
 "accroche": "Mon histoire projetée au plafond!",
 "sp": [
 5,
-388,
-1540,
+772,
+1924,
 376,
 376
 ]
@@ -4133,8 +4273,8 @@
 "accroche": "Quatre gadgets d'espion sur ma ceinture!",
 "sp": [
 5,
-772,
-1540,
+1156,
+1924,
 376,
 376
 ]
@@ -4153,8 +4293,8 @@
 "accroche": "Mon robot met son armure!",
 "sp": [
 5,
-1156,
 1540,
+1924,
 376,
 376
 ]
@@ -4173,8 +4313,8 @@
 "accroche": "Je pilote mon avion!",
 "sp": [
 5,
-1593,
-1540,
+1977,
+1924,
 269,
 376
 ]
@@ -4188,13 +4328,13 @@
 "prix": 49.99,
 "source": "Clément",
 "url": "https://clement.ca/products/jouet-aspirateur-dyson-dys-68750",
-"img": "planches/p05.jpg",
+"img": "planches/p06.jpg",
 "ageCible": null,
 "accroche": "Il aspire pour vrai!",
 "sp": [
-5,
-1924,
-1540,
+6,
+4,
+4,
 376,
 376
 ]
@@ -4208,13 +4348,13 @@
 "prix": 39.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/3198010-fr-hasbro-marvel-avengers-bouclier-de-combat-reactif-de-captain-america-jouet",
-"img": "planches/p05.jpg",
+"img": "planches/p06.jpg",
 "ageCible": null,
 "accroche": "Mon bouclier s'allume quand je bloque!",
 "sp": [
-5,
+6,
+388,
 4,
-1924,
 376,
 376
 ]
@@ -4228,13 +4368,13 @@
 "prix": 49.99,
 "source": "Toytown",
 "url": "https://www.toytown.ca/products/t-rex-costume",
-"img": "planches/p05.jpg",
+"img": "planches/p06.jpg",
 "ageCible": null,
 "accroche": "RAAAWR! Le T. rex est arrivé!",
 "sp": [
-5,
-450,
-1924,
+6,
+834,
+4,
 251,
 376
 ]
@@ -4248,13 +4388,13 @@
 "prix": 49.99,
 "source": "STIHL Canada",
 "url": "https://shop.stihl.ca/products/toy-chainsaw",
-"img": "planches/p05.jpg",
+"img": "planches/p06.jpg",
 "ageCible": null,
 "accroche": "Comme la vraie scie de papa!",
 "sp": [
-5,
-772,
-1986,
+6,
+1156,
+66,
 376,
 251
 ]
@@ -4268,13 +4408,13 @@
 "prix": 29.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/3197998-fr-hasbro-marvel-avengers-jouet-de-deguisement-poings-fracassants-de-hulk",
-"img": "planches/p05.jpg",
+"img": "planches/p06.jpg",
 "ageCible": null,
 "accroche": "J'ai les mains de Hulk!",
 "sp": [
-5,
-1156,
-1924,
+6,
+1540,
+4,
 376,
 376
 ]
@@ -4288,13 +4428,13 @@
 "prix": 14.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/3197994-fr-hasbro-masque-de-super-heros-spider-man-jouet",
-"img": "planches/p05.jpg",
+"img": "planches/p06.jpg",
 "ageCible": null,
 "accroche": "Personne sait que c'est moi!",
 "sp": [
-5,
-1540,
+6,
 1924,
+4,
 376,
 376
 ]
@@ -4308,13 +4448,13 @@
 "prix": 43.99,
 "source": "Toytown",
 "url": "https://www.toytown.ca/products/folkmanis-chipmunk-hand-puppet",
-"img": "planches/p05.jpg",
+"img": "planches/p06.jpg",
 "ageCible": null,
 "accroche": "Le petit suisse qui parle!",
 "sp": [
-5,
-1924,
-1924,
+6,
+4,
+388,
 376,
 376
 ]
@@ -4333,8 +4473,8 @@
 "accroche": "Le casque orange du bûcheron!",
 "sp": [
 6,
-4,
-66,
+388,
+450,
 376,
 251
 ]
@@ -4353,8 +4493,8 @@
 "accroche": "Brosse les grosses dents d'Hippo!",
 "sp": [
 6,
+772,
 388,
-4,
 376,
 376
 ]
@@ -4373,8 +4513,8 @@
 "accroche": "Au feu! Le chef arrive!",
 "sp": [
 6,
-772,
-4,
+1156,
+388,
 376,
 376
 ]
@@ -4393,8 +4533,8 @@
 "accroche": "Trois appareils de vrai chef!",
 "sp": [
 6,
-1156,
-4,
+1540,
+388,
 376,
 376
 ]
@@ -4413,8 +4553,8 @@
 "accroche": "Le rideau se lève : spectacle!",
 "sp": [
 6,
-1540,
-4,
+1924,
+388,
 376,
 376
 ]
@@ -4433,8 +4573,8 @@
 "accroche": "En garde, dragon!",
 "sp": [
 6,
-1977,
-4,
+57,
+772,
 269,
 376
 ]
@@ -4453,8 +4593,8 @@
 "accroche": "Une cachette rien qu'à moi!",
 "sp": [
 6,
-4,
 388,
+772,
 376,
 376
 ]
@@ -4473,8 +4613,8 @@
 "accroche": "Vroum! Premier à l'arrivée!",
 "sp": [
 6,
-441,
-388,
+825,
+772,
 269,
 376
 ]
@@ -4493,8 +4633,8 @@
 "accroche": "Halte! C'est la police!",
 "sp": [
 6,
+1156,
 772,
-388,
 376,
 376
 ]
@@ -4513,8 +4653,8 @@
 "accroche": "Trois, deux, un… décollage!",
 "sp": [
 6,
-1209,
-388,
+1593,
+772,
 269,
 376
 ]
@@ -4533,8 +4673,8 @@
 "accroche": "Je suis un vrai tricératops!",
 "sp": [
 6,
-1602,
-388,
+1986,
+772,
 251,
 376
 ]
@@ -4553,8 +4693,8 @@
 "accroche": "Mon armure de vrai chevalier!",
 "sp": [
 6,
-1986,
-388,
+66,
+1156,
 251,
 376
 ]
@@ -4573,8 +4713,8 @@
 "accroche": "J'ouvre la bouche : il rugit!",
 "sp": [
 6,
-4,
-772,
+388,
+1156,
 376,
 376
 ]
@@ -4593,8 +4733,8 @@
 "accroche": "À l'abordage, moussaillon!",
 "sp": [
 6,
-441,
-772,
+825,
+1156,
 269,
 376
 ]
@@ -4613,8 +4753,8 @@
 "accroche": "Vroum! Les feuilles s'envolent!",
 "sp": [
 6,
-772,
-834,
+1156,
+1218,
 376,
 252
 ]
@@ -4633,8 +4773,8 @@
 "accroche": "Les outils toujours à la ceinture!",
 "sp": [
 6,
+1540,
 1156,
-772,
 376,
 376
 ]
@@ -4653,8 +4793,8 @@
 "accroche": "Je suis le Mandalorien!",
 "sp": [
 6,
-1540,
-772,
+1924,
+1156,
 376,
 376
 ]
@@ -4673,8 +4813,8 @@
 "accroche": "Un café pour maman, s'il vous plaît!",
 "sp": [
 6,
-1924,
-772,
+4,
+1540,
 376,
 376
 ]
@@ -4693,8 +4833,8 @@
 "accroche": "Ramène les hiboux au nid avant le jour",
 "sp": [
 6,
-4,
-1156,
+388,
+1540,
 376,
 376
 ]
@@ -4713,8 +4853,8 @@
 "accroche": "Un océan géant sur le plancher!",
 "sp": [
 6,
-388,
-1156,
+772,
+1540,
 376,
 376
 ]
@@ -4733,8 +4873,8 @@
 "accroche": "Retourne tes cartes de fruits rigolos!",
 "sp": [
 6,
-772,
 1156,
+1540,
 376,
 376
 ]
@@ -4753,8 +4893,8 @@
 "accroche": "Attrape la noix de coco le premier!",
 "sp": [
 6,
-1156,
-1156,
+1540,
+1540,
 376,
 376
 ]
@@ -4773,8 +4913,8 @@
 "accroche": "Devine le code secret des animaux!",
 "sp": [
 6,
-1540,
-1176,
+1924,
+1560,
 376,
 336
 ]
@@ -4793,8 +4933,8 @@
 "accroche": "Cueillons les fruits avant le corbeau!",
 "sp": [
 6,
-1924,
-1181,
+4,
+1949,
 376,
 325
 ]
@@ -4813,8 +4953,8 @@
 "accroche": "Ours, saumons et forêts à placer!",
 "sp": [
 6,
-4,
-1540,
+388,
+1924,
 376,
 376
 ]
@@ -4833,8 +4973,8 @@
 "accroche": "Le plus rapide à trouver gagne!",
 "sp": [
 6,
-388,
-1540,
+772,
+1924,
 376,
 376
 ]
@@ -4853,8 +4993,8 @@
 "accroche": "Un chantier en grosses pièces",
 "sp": [
 6,
-772,
-1540,
+1156,
+1924,
 376,
 376
 ]
@@ -4873,8 +5013,8 @@
 "accroche": "Grimpe les échelles, gare aux serpents!",
 "sp": [
 6,
-1156,
 1540,
+1924,
 376,
 376
 ]
@@ -4893,8 +5033,8 @@
 "accroche": "Sors le camion de crème glacée!",
 "sp": [
 6,
-1540,
-1540,
+1924,
+1924,
 376,
 376
 ]
@@ -4908,13 +5048,13 @@
 "prix": 16.95,
 "source": "Board Game Bliss",
 "url": "https://www.boardgamebliss.com/products/super-miaou-french-edition",
-"img": "planches/p06.jpg",
+"img": "planches/p07.jpg",
 "ageCible": null,
 "accroche": "Recrute le chat super-héros!",
 "sp": [
-6,
-1924,
-1540,
+7,
+4,
+4,
 376,
 376
 ]
@@ -4928,13 +5068,13 @@
 "prix": 9.95,
 "source": "Board Game Bliss",
 "url": "https://www.boardgamebliss.com/products/uno-junior-2-0",
-"img": "planches/p06.jpg",
+"img": "planches/p07.jpg",
 "ageCible": null,
 "accroche": "Mon premier UNO avec des animaux!",
 "sp": [
-6,
+7,
+388,
 4,
-1924,
 376,
 376
 ]
@@ -4948,13 +5088,13 @@
 "prix": 39.99,
 "source": "Clément",
 "url": "https://clement.ca/products/croque-carotte-rav-22393",
-"img": "planches/p06.jpg",
+"img": "planches/p07.jpg",
 "ageCible": null,
 "accroche": "Attention aux trous, petits lapins!",
 "sp": [
-6,
-388,
-1924,
+7,
+772,
+4,
 376,
 376
 ]
@@ -4968,13 +5108,13 @@
 "prix": 38.95,
 "source": "Board Game Bliss",
 "url": "https://www.boardgamebliss.com/products/my-very-first-games-animal-upon-animal-junior",
-"img": "planches/p06.jpg",
+"img": "planches/p07.jpg",
 "ageCible": null,
 "accroche": "Empile les animaux, tout doucement!",
 "sp": [
-6,
-776,
-1924,
+7,
+1160,
+4,
 368,
 376
 ]
@@ -4988,13 +5128,13 @@
 "prix": 28.95,
 "source": "Board Game Bliss",
 "url": "https://www.boardgamebliss.com/products/outfoxed",
-"img": "planches/p06.jpg",
+"img": "planches/p07.jpg",
 "ageCible": null,
 "accroche": "Qui a volé la tarte? Trouve le renard!",
 "sp": [
-6,
-1156,
-1924,
+7,
+1540,
+4,
 376,
 376
 ]
@@ -5008,13 +5148,13 @@
 "prix": 46.99,
 "source": "Clément",
 "url": "https://clement.ca/products/pandaland-egl-gla3155",
-"img": "planches/p06.jpg",
+"img": "planches/p07.jpg",
 "ageCible": null,
 "accroche": "Une journée au parc des pandas!",
 "sp": [
-6,
-1540,
+7,
 1924,
+4,
 376,
 376
 ]
@@ -5028,13 +5168,13 @@
 "prix": 34.99,
 "source": "Clément",
 "url": "https://clement.ca/products/coco-crazy-rav-20902",
-"img": "planches/p06.jpg",
+"img": "planches/p07.jpg",
 "ageCible": null,
 "accroche": "Lance la balle dans les cocos!",
 "sp": [
-6,
-1924,
-1924,
+7,
+4,
+388,
 376,
 376
 ]
@@ -5053,8 +5193,8 @@
 "accroche": "Trouve les œufs sous les pingouins!",
 "sp": [
 7,
-4,
-4,
+388,
+388,
 376,
 376
 ]
@@ -5073,8 +5213,8 @@
 "accroche": "Fais courir tes enfants dans le village!",
 "sp": [
 7,
-437,
-4,
+821,
+388,
 278,
 376
 ]
@@ -5093,8 +5233,8 @@
 "accroche": "Achète, encaisse et deviens riche!",
 "sp": [
 7,
-772,
-4,
+1156,
+388,
 376,
 376
 ]
@@ -5113,8 +5253,8 @@
 "accroche": "Grimpe la tour sans tout faire tomber!",
 "sp": [
 7,
-1156,
-4,
+1540,
+388,
 376,
 376
 ]
@@ -5133,8 +5273,8 @@
 "accroche": "Construis tes repaires de pirates!",
 "sp": [
 7,
-1549,
-4,
+1933,
+388,
 357,
 376
 ]
@@ -5153,8 +5293,8 @@
 "accroche": "Au feu! Les pompiers arrivent!",
 "sp": [
 7,
-1924,
 4,
+772,
 376,
 376
 ]
@@ -5173,8 +5313,8 @@
 "accroche": "Quel escargot gagnera la course?",
 "sp": [
 7,
-4,
 388,
+772,
 376,
 376
 ]
@@ -5193,8 +5333,8 @@
 "accroche": "Brasse les dés des animaux!",
 "sp": [
 7,
-388,
-388,
+772,
+772,
 376,
 376
 ]
@@ -5213,8 +5353,8 @@
 "accroche": "Bloque les tunnels du bandit, ensemble!",
 "sp": [
 7,
+1156,
 772,
-388,
 376,
 376
 ]
@@ -5233,8 +5373,8 @@
 "accroche": "Chasse les monstres du placard!",
 "sp": [
 7,
-1156,
-388,
+1540,
+772,
 376,
 376
 ]
@@ -5253,8 +5393,8 @@
 "accroche": "Le gros mange le petit!",
 "sp": [
 7,
-1540,
-401,
+1924,
+785,
 376,
 349
 ]
@@ -5273,8 +5413,8 @@
 "accroche": "Une licorne qui pète? Ça se peut!",
 "sp": [
 7,
-1924,
-388,
+4,
+1156,
 376,
 376
 ]
@@ -5293,8 +5433,8 @@
 "accroche": "Grimpe aux lianes, ramasse les bananes!",
 "sp": [
 7,
-4,
-772,
+388,
+1156,
 376,
 376
 ]
@@ -5313,8 +5453,8 @@
 "accroche": "Cinq bananes? Vite, sonne la cloche!",
 "sp": [
 7,
-435,
-772,
+819,
+1156,
 281,
 376
 ]
@@ -5333,8 +5473,8 @@
 "accroche": "Le tout nouveau petit héros!",
 "sp": [
 7,
-772,
-772,
+1156,
+1156,
 376,
 376
 ]
@@ -5353,8 +5493,8 @@
 "accroche": "Une course folle à en rire!",
 "sp": [
 7,
-1174,
-772,
+1558,
+1156,
 339,
 376
 ]
@@ -5373,8 +5513,8 @@
 "accroche": "Vive les insectes rigolos!",
 "sp": [
 7,
-1590,
-772,
+1974,
+1156,
 276,
 376
 ]
@@ -5393,8 +5533,8 @@
 "accroche": "Trouve celui qui cloche!",
 "sp": [
 7,
-1950,
-772,
+30,
+1540,
 323,
 376
 ]
@@ -5413,8 +5553,8 @@
 "accroche": "De la neige pour Noël, vite!",
 "sp": [
 7,
-46,
-1156,
+430,
+1540,
 291,
 376
 ]
@@ -5433,8 +5573,8 @@
 "accroche": "Un chien en forme de banane!",
 "sp": [
 7,
-420,
-1156,
+804,
+1540,
 312,
 376
 ]
@@ -5453,8 +5593,8 @@
 "accroche": "Un monstre pas si terrible!",
 "sp": [
 7,
-773,
-1156,
+1157,
+1540,
 374,
 376
 ]
@@ -5473,8 +5613,8 @@
 "accroche": "Trouve les monstres partout au Québec!",
 "sp": [
 7,
-1168,
-1156,
+1552,
+1540,
 352,
 376
 ]
@@ -5493,8 +5633,8 @@
 "accroche": "Pompiers, bétonnière ou déménagement?",
 "sp": [
 7,
-1550,
-1156,
+1934,
+1540,
 356,
 376
 ]
@@ -5513,8 +5653,8 @@
 "accroche": "Qu'y a-t-il derrière les arbres?",
 "sp": [
 7,
-1974,
-1156,
+54,
+1924,
 276,
 376
 ]
@@ -5533,8 +5673,8 @@
 "accroche": "On va à la pêche!",
 "sp": [
 7,
-49,
-1540,
+433,
+1924,
 285,
 376
 ]
@@ -5553,8 +5693,8 @@
 "accroche": "Glissade, flocons et bons amis!",
 "sp": [
 7,
-388,
-1579,
+772,
+1963,
 376,
 298
 ]
@@ -5573,8 +5713,8 @@
 "accroche": "Livraison de lettres dans l'espace!",
 "sp": [
 7,
-813,
-1540,
+1197,
+1924,
 294,
 376
 ]
@@ -5593,8 +5733,8 @@
 "accroche": "Frisson prépare un Noël parfait!",
 "sp": [
 7,
-1194,
-1540,
+1578,
+1924,
 300,
 376
 ]
@@ -5613,8 +5753,8 @@
 "accroche": "Brrr! Un hiver bien froid!",
 "sp": [
 7,
-1540,
-1540,
+1924,
+1924,
 376,
 376
 ]
@@ -5628,13 +5768,13 @@
 "prix": 19.95,
 "source": "Leslibraires.ca",
 "url": "https://www.leslibraires.ca/livres/grand-maman-monstre-9782898700767",
-"img": "planches/p07.jpg",
+"img": "planches/p08.jpg",
 "ageCible": null,
 "accroche": "Une grand-maman chez les monstres!",
 "sp": [
-7,
-1968,
-1540,
+8,
+48,
+4,
 288,
 376
 ]
@@ -5648,13 +5788,13 @@
 "prix": 23.95,
 "source": "Leslibraires.ca",
 "url": "https://www.leslibraires.ca/livres/croki-jacques-goldstyn-9782897771591.html",
-"img": "planches/p07.jpg",
+"img": "planches/p08.jpg",
 "ageCible": null,
 "accroche": "Un petit garçon pas comme les autres.",
 "sp": [
-7,
-64,
-1924,
+8,
+448,
+4,
 255,
 376
 ]
@@ -5668,13 +5808,13 @@
 "prix": 21.95,
 "source": "Leslibraires.ca",
 "url": "https://www.leslibraires.ca/livres/la-fabuleuse-nuit-de-noel-marilyn-faucher-9782897740153.html",
-"img": "planches/p07.jpg",
+"img": "planches/p08.jpg",
 "ageCible": null,
 "accroche": "La nuit magique du 24!",
 "sp": [
-7,
-423,
-1924,
+8,
+807,
+4,
 305,
 376
 ]
@@ -5688,13 +5828,13 @@
 "prix": 22.95,
 "source": "Leslibraires.ca",
 "url": "https://www.leslibraires.ca/livres/le-lion-et-l-oiseau-marianne-dubuc-9782925081135.html",
-"img": "planches/p07.jpg",
+"img": "planches/p08.jpg",
 "ageCible": null,
 "accroche": "Un lion, un oiseau, un hiver.",
 "sp": [
-7,
-810,
-1924,
+8,
+1194,
+4,
 299,
 376
 ]
@@ -5708,13 +5848,13 @@
 "prix": 19.95,
 "source": "Leslibraires.ca",
 "url": "https://www.leslibraires.ca/livres/le-loup-dans-le-livre-mathieu-lavoie-9782925081012.html",
-"img": "planches/p07.jpg",
+"img": "planches/p08.jpg",
 "ageCible": null,
 "accroche": "Attention, un loup dans les pages!",
 "sp": [
-7,
-1197,
-1924,
+8,
+1581,
+4,
 294,
 376
 ]
@@ -5728,13 +5868,13 @@
 "prix": 14.95,
 "source": "Leslibraires.ca",
 "url": "https://www.leslibraires.ca/livres/la-doudou-aime-trop-noel-9782898700187",
-"img": "planches/p07.jpg",
+"img": "planches/p08.jpg",
 "ageCible": null,
 "accroche": "La doudou fête Noël aussi!",
 "sp": [
-7,
-1540,
+8,
 1924,
+4,
 376,
 376
 ]
@@ -5748,13 +5888,13 @@
 "prix": 16.95,
 "source": "Leslibraires.ca",
 "url": "https://www.leslibraires.ca/livres/la-lutine-9782898820205",
-"img": "planches/p07.jpg",
+"img": "planches/p08.jpg",
 "ageCible": null,
 "accroche": "Qui gâte le père Noël?",
 "sp": [
-7,
-1924,
-1966,
+8,
+4,
+430,
 376,
 292
 ]
@@ -5773,8 +5913,8 @@
 "accroche": "Colorie avec Passe-Carreau!",
 "sp": [
 8,
-26,
-4,
+410,
+388,
 332,
 376
 ]
@@ -5793,8 +5933,8 @@
 "accroche": "Des petits gâteaux pour toute la famille!",
 "sp": [
 8,
-388,
-44,
+772,
+428,
 376,
 296
 ]
@@ -5813,8 +5953,8 @@
 "accroche": "Gratte, et les couleurs apparaissent!",
 "sp": [
 8,
-781,
-4,
+1165,
+388,
 358,
 376
 ]
@@ -5833,8 +5973,8 @@
 "accroche": "Un petit jardin qui brille la nuit!",
 "sp": [
 8,
-1156,
-4,
+1540,
+388,
 376,
 376
 ]
@@ -5853,8 +5993,8 @@
 "accroche": "Ton atelier de peintre dans une valise",
 "sp": [
 8,
-1540,
-13,
+1924,
+397,
 376,
 358
 ]
@@ -5873,8 +6013,8 @@
 "accroche": "Colle, décolle et recolle!",
 "sp": [
 8,
-1924,
 4,
+772,
 376,
 376
 ]
@@ -5893,8 +6033,8 @@
 "accroche": "Programme ton petit chien rigolo!",
 "sp": [
 8,
-4,
-397,
+388,
+781,
 376,
 357
 ]
@@ -5913,8 +6053,8 @@
 "accroche": "Des bestioles toutes douces à crocheter!",
 "sp": [
 8,
-410,
-388,
+794,
+772,
 332,
 376
 ]
@@ -5933,8 +6073,8 @@
 "accroche": "Casse la roche, découvre les cristaux!",
 "sp": [
 8,
-835,
-388,
+1219,
+772,
 249,
 376
 ]
@@ -5953,8 +6093,8 @@
 "accroche": "Décore tes ailes qui brillent!",
 "sp": [
 8,
-1156,
-429,
+1540,
+813,
 376,
 293
 ]
@@ -5973,8 +6113,8 @@
 "accroche": "Quarante bracelets pour toi et tes amis!",
 "sp": [
 8,
-1540,
-388,
+1924,
+772,
 376,
 376
 ]
@@ -5993,8 +6133,8 @@
 "accroche": "Colorie tes dinos, lave, recommence!",
 "sp": [
 8,
-1924,
-388,
+4,
+1156,
 376,
 376
 ]
@@ -6013,8 +6153,8 @@
 "accroche": "Les petites bêtes deviennent géantes!",
 "sp": [
 8,
-4,
-772,
+388,
+1156,
 376,
 376
 ]
@@ -6033,8 +6173,8 @@
 "accroche": "Des bestioles brillantes dans la fenêtre!",
 "sp": [
 8,
-447,
-772,
+831,
+1156,
 258,
 376
 ]
@@ -6053,8 +6193,8 @@
 "accroche": "Regarde éclore tes petites bêtes!",
 "sp": [
 8,
-772,
-792,
+1156,
+1176,
 376,
 336
 ]
@@ -6073,8 +6213,8 @@
 "accroche": "Peins l'éléphant comme un vrai artiste!",
 "sp": [
 8,
+1540,
 1156,
-772,
 376,
 376
 ]
@@ -6093,8 +6233,8 @@
 "accroche": "Qu’y a-t-il dans un requin?",
 "sp": [
 8,
-1540,
-778,
+1924,
+1162,
 376,
 363
 ]
@@ -6113,8 +6253,8 @@
 "accroche": "Le squelette du T. rex brille!",
 "sp": [
 8,
-1924,
-772,
+4,
+1540,
 376,
 376
 ]
@@ -6133,8 +6273,8 @@
 "accroche": "Allume ta première ampoule toi-même!",
 "sp": [
 8,
-4,
-1156,
+388,
+1540,
 376,
 376
 ]
@@ -6153,8 +6293,8 @@
 "accroche": "Une pizza toute chaude en pâte!",
 "sp": [
 8,
-388,
-1156,
+772,
+1540,
 376,
 376
 ]
@@ -6173,8 +6313,8 @@
 "accroche": "Couds ton sac papillon tout seul!",
 "sp": [
 8,
-772,
-1208,
+1156,
+1592,
 376,
 271
 ]
@@ -6193,8 +6333,8 @@
 "accroche": "Les étoiles au plafond de ta chambre!",
 "sp": [
 8,
-1209,
-1156,
+1593,
+1540,
 269,
 376
 ]
@@ -6213,8 +6353,8 @@
 "accroche": "Le pinceau s'allume de la couleur!",
 "sp": [
 8,
+1924,
 1540,
-1156,
 376,
 376
 ]
@@ -6233,8 +6373,8 @@
 "accroche": "Habille trois squelettes de dinosaures",
 "sp": [
 8,
+4,
 1924,
-1156,
 376,
 376
 ]
@@ -6253,8 +6393,8 @@
 "accroche": "Fabrique tes propres petits monstres!",
 "sp": [
 8,
-7,
-1540,
+391,
+1924,
 369,
 376
 ]
@@ -6273,8 +6413,8 @@
 "accroche": "Creuse et trouve de vrais fossiles!",
 "sp": [
 8,
-388,
-1548,
+772,
+1932,
 376,
 360
 ]
@@ -6293,8 +6433,8 @@
 "accroche": "Ça bouillonne, une créature apparaît!",
 "sp": [
 8,
-772,
-1540,
+1156,
+1924,
 376,
 376
 ]
@@ -6313,8 +6453,8 @@
 "accroche": "Le gros aimant attire tout!",
 "sp": [
 8,
-1167,
-1540,
+1551,
+1924,
 353,
 376
 ]
@@ -6333,8 +6473,8 @@
 "accroche": "Dessine partout sur le trottoir!",
 "sp": [
 8,
-1540,
-1540,
+1924,
+1924,
 376,
 376
 ]
@@ -6348,13 +6488,13 @@
 "prix": 21.99,
 "source": "Mastermind Toys",
 "url": "https://www.mastermindtoys.com/products/creativity-for-kids-magic-swirl-kaleidoscope",
-"img": "planches/p08.jpg",
+"img": "planches/p09.jpg",
 "ageCible": null,
 "accroche": "Fabrique ton kaléidoscope qui tourbillonne!",
 "sp": [
-8,
-1927,
-1540,
+9,
+7,
+4,
 369,
 376
 ]
@@ -6368,13 +6508,13 @@
 "prix": 19.99,
 "source": "Toytown",
 "url": "https://www.toytown.ca/products/creart-paint-by-number-sleeping-cat-and-dog",
-"img": "planches/p08.jpg",
+"img": "planches/p09.jpg",
 "ageCible": null,
 "accroche": "Un vrai tableau, numéro par numéro!",
 "sp": [
-8,
-4,
-1962,
+9,
+388,
+42,
 376,
 299
 ]
@@ -6388,13 +6528,13 @@
 "prix": 29.99,
 "source": "Toytown",
 "url": "https://www.toytown.ca/products/sensory-bin-dinosaur-dig",
-"img": "planches/p08.jpg",
+"img": "planches/p09.jpg",
 "ageCible": null,
 "accroche": "Creuse le sable, trouve les squelettes!",
 "sp": [
-8,
-388,
-2020,
+9,
+772,
+100,
 376,
 184
 ]
@@ -6408,13 +6548,13 @@
 "prix": 29.99,
 "source": "Clément",
 "url": "https://www.clement.ca/products/lampe-frontale-verte-led-502537",
-"img": "planches/p08.jpg",
+"img": "planches/p09.jpg",
 "ageCible": null,
 "accroche": "Une lumière sur le front, comme papa!",
 "sp": [
-8,
-772,
-1924,
+9,
+1156,
+4,
 376,
 376
 ]
@@ -6428,13 +6568,13 @@
 "prix": 19.99,
 "source": "Indigo",
 "url": "https://www.indigo.ca/fr/products/crayola-light-up-activity-board",
-"img": "planches/p08.jpg",
+"img": "planches/p09.jpg",
 "ageCible": null,
 "accroche": "Dessine et regarde ça s’allumer!",
 "sp": [
-8,
-1156,
-1932,
+9,
+1540,
+12,
 376,
 359
 ]
@@ -6448,13 +6588,13 @@
 "prix": 19.99,
 "source": "Toytown",
 "url": "https://www.toytown.ca/products/sticker-wow-dog-with-book-stickers",
-"img": "planches/p08.jpg",
+"img": "planches/p09.jpg",
 "ageCible": null,
 "accroche": "Clac! Le chien colle les autocollants!",
 "sp": [
-8,
-1611,
-1924,
+9,
+1995,
+4,
 233,
 376
 ]
@@ -6468,13 +6608,13 @@
 "prix": 22.79,
 "source": "Mastermind Toys",
 "url": "https://www.mastermindtoys.com/products/c4k-deluxe-scratch-art",
-"img": "planches/p08.jpg",
+"img": "planches/p09.jpg",
 "ageCible": null,
 "accroche": "Gratte le noir, l’arc-en-ciel apparaît!",
 "sp": [
-8,
-1926,
-1924,
+9,
+6,
+388,
 372,
 376
 ]
@@ -6493,8 +6633,8 @@
 "accroche": "De grosses perles pour petits doigts!",
 "sp": [
 9,
-43,
-4,
+427,
+388,
 298,
 376
 ]
@@ -6513,8 +6653,8 @@
 "accroche": "Deux bestioles toutes douces à fabriquer!",
 "sp": [
 9,
-465,
-4,
+849,
+388,
 221,
 376
 ]
@@ -6533,8 +6673,8 @@
 "accroche": "Tes dessins s’allument et bougent!",
 "sp": [
 9,
-772,
-4,
+1156,
+388,
 376,
 376
 ]
@@ -6553,8 +6693,8 @@
 "accroche": "Cinquante couleurs pour tout colorier!",
 "sp": [
 9,
-1256,
-4,
+1640,
+388,
 176,
 376
 ]
@@ -6573,8 +6713,8 @@
 "accroche": "Ouvre grand, docteur dentiste!",
 "sp": [
 9,
-1540,
-47,
+1924,
+431,
 376,
 289
 ]
@@ -6593,8 +6733,8 @@
 "accroche": "Un doigt, un point, une couleur!",
 "sp": [
 9,
-1924,
-62,
+4,
+830,
 376,
 260
 ]
@@ -6613,8 +6753,8 @@
 "accroche": "De l'eau, et les dinos apparaissent!",
 "sp": [
 9,
-4,
 388,
+772,
 376,
 376
 ]
@@ -6633,8 +6773,8 @@
 "accroche": "Dessine ton histoire, raconte-la!",
 "sp": [
 9,
-388,
-388,
+772,
+772,
 376,
 376
 ]
@@ -6653,8 +6793,8 @@
 "accroche": "Regarde loin, puis tout près!",
 "sp": [
 9,
-772,
-429,
+1156,
+813,
 376,
 293
 ]
@@ -6673,8 +6813,8 @@
 "accroche": "Des dinos à colorier partout!",
 "sp": [
 9,
-1210,
-388,
+1594,
+772,
 268,
 376
 ]
@@ -6693,8 +6833,8 @@
 "accroche": "Une maison pour tes insectes trouvés!",
 "sp": [
 9,
-1599,
-388,
+1983,
+772,
 258,
 376
 ]
@@ -6713,8 +6853,8 @@
 "accroche": "Trace comme un vrai dessinateur!",
 "sp": [
 9,
-1924,
-388,
+4,
+1156,
 376,
 376
 ]
@@ -6733,8 +6873,8 @@
 "accroche": "Ton dino qui fait pousser du gazon!",
 "sp": [
 9,
-4,
-772,
+388,
+1156,
 376,
 375
 ]
@@ -6753,8 +6893,8 @@
 "accroche": "Des perles qui collent avec de l'eau!",
 "sp": [
 9,
-388,
 772,
+1156,
 376,
 376
 ]
@@ -6773,8 +6913,8 @@
 "accroche": "Regarde une fourmi en géant!",
 "sp": [
 9,
-772,
-772,
+1156,
+1156,
 376,
 376
 ]
@@ -6793,8 +6933,8 @@
 "accroche": "L’espace projeté sur ton mur!",
 "sp": [
 9,
-1214,
-772,
+1598,
+1156,
 259,
 376
 ]
@@ -6813,8 +6953,8 @@
 "accroche": "Branche les fils, le rover s’allume!",
 "sp": [
 9,
-1540,
-791,
+1924,
+1175,
 376,
 338
 ]
@@ -6833,8 +6973,8 @@
 "accroche": "Colorie Pikachu et ses amis!",
 "sp": [
 9,
-1924,
-777,
+4,
+1545,
 376,
 365
 ]
@@ -6853,8 +6993,8 @@
 "accroche": "Colle les carrés, l’image apparaît!",
 "sp": [
 9,
-4,
-1156,
+388,
+1540,
 376,
 376
 ]
@@ -6873,8 +7013,8 @@
 "accroche": "Fais rouler l'auto sans la toucher!",
 "sp": [
 9,
-388,
-1161,
+772,
+1545,
 376,
 365
 ]
@@ -6893,8 +7033,8 @@
 "accroche": "Ça mousse, ça bouillonne, ça pétille!",
 "sp": [
 9,
-772,
 1156,
+1540,
 376,
 376
 ]
@@ -6913,8 +7053,8 @@
 "accroche": "Ça tourne et ça glisse vite!",
 "sp": [
 9,
-1156,
-1156,
+1540,
+1540,
 376,
 376
 ]
@@ -6933,8 +7073,8 @@
 "accroche": "Plus grand à chaque pas!",
 "sp": [
 9,
+1924,
 1540,
-1156,
 376,
 376
 ]
@@ -6953,8 +7093,8 @@
 "accroche": "Ma canne pour le lac gelé!",
 "sp": [
 9,
+4,
 1924,
-1156,
 376,
 376
 ]
@@ -6973,8 +7113,8 @@
 "accroche": "Ma lumière à moi, sur ma tuque!",
 "sp": [
 9,
-58,
-1540,
+442,
+1924,
 267,
 376
 ]
@@ -6993,8 +7133,8 @@
 "accroche": "Un contre un dans l'entrée!",
 "sp": [
 9,
-388,
-1540,
+772,
+1924,
 376,
 376
 ]
@@ -7013,8 +7153,8 @@
 "accroche": "La luge la plus rapide!",
 "sp": [
 9,
-772,
-1540,
+1156,
+1924,
 376,
 376
 ]
@@ -7033,8 +7173,8 @@
 "accroche": "La cible bascule à chaque lancer!",
 "sp": [
 9,
-1156,
 1540,
+1924,
 376,
 376
 ]
@@ -7053,8 +7193,8 @@
 "accroche": "Quatre couleurs pour explorer la nuit!",
 "sp": [
 9,
-1540,
-1540,
+1924,
+1924,
 376,
 376
 ]
@@ -7068,13 +7208,13 @@
 "prix": 49.99,
 "source": "Toytown",
 "url": "https://www.toytown.ca/products/b-active-woo-hue-parachute-15-balls",
-"img": "planches/p09.jpg",
+"img": "planches/p10.jpg",
 "ageCible": null,
 "accroche": "Tout le monde tient le parachute!",
 "sp": [
-9,
-1924,
-1540,
+10,
+4,
+4,
 376,
 376
 ]
@@ -7088,13 +7228,13 @@
 "prix": 44.5,
 "source": "Clément",
 "url": "https://clement.ca/products/ens-moulin-sable-et-eau-dat-4945",
-"img": "planches/p09.jpg",
+"img": "planches/p10.jpg",
 "ageCible": null,
 "accroche": "Verse le sable, la roue tourne!",
 "sp": [
-9,
+10,
+388,
 4,
-1924,
 376,
 376
 ]
@@ -7108,13 +7248,13 @@
 "prix": 15.99,
 "source": "Toytown",
 "url": "https://www.toytown.ca/products/gayla-flapper-kites",
-"img": "planches/p09.jpg",
+"img": "planches/p10.jpg",
 "ageCible": null,
 "accroche": "Il bat des ailes dans le ciel!",
 "sp": [
-9,
-388,
-1924,
+10,
+772,
+4,
 376,
 376
 ]
@@ -7128,13 +7268,13 @@
 "prix": 29.99,
 "source": "Mastermind Toys",
 "url": "https://www.mastermindtoys.com/products/litehawk-hawkrocket",
-"img": "planches/p09.jpg",
+"img": "planches/p10.jpg",
 "ageCible": null,
 "accroche": "Ma fusée touche le ciel!",
 "sp": [
-9,
-772,
-1924,
+10,
+1156,
+4,
 376,
 376
 ]
@@ -7148,13 +7288,13 @@
 "prix": 29.99,
 "source": "Toytown",
 "url": "https://www.toytown.ca/products/geosafari-jr-kidnoculars",
-"img": "planches/p09.jpg",
+"img": "planches/p10.jpg",
 "ageCible": null,
 "accroche": "Espionne les oiseaux de la forêt",
 "sp": [
-9,
-1156,
-1924,
+10,
+1540,
+4,
 376,
 376
 ]
@@ -7168,13 +7308,13 @@
 "prix": 24.99,
 "source": "Angling Sports",
 "url": "https://anglingsports.ca/products/arctic-tip-up",
-"img": "planches/p09.jpg",
+"img": "planches/p10.jpg",
 "ageCible": null,
 "accroche": "Le drapeau se lève : ça mord!",
 "sp": [
-9,
-1540,
+10,
 1924,
+4,
 376,
 376
 ]
@@ -7188,13 +7328,13 @@
 "prix": 34.99,
 "source": "L'Entrejeux",
 "url": "https://lentrejeux.com/products/trigo-lancer-de-lanneau",
-"img": "planches/p09.jpg",
+"img": "planches/p10.jpg",
 "ageCible": null,
 "accroche": "Accroche tes anneaux sur l'étoile!",
 "sp": [
-9,
-1924,
-1924,
+10,
+4,
+388,
 376,
 376
 ]
@@ -7213,8 +7353,8 @@
 "accroche": "Cours dessous, tu vas être trempé!",
 "sp": [
 10,
-4,
-4,
+388,
+388,
 376,
 376
 ]
@@ -7233,8 +7373,8 @@
 "accroche": "Boing! Je saute dans le ciel!",
 "sp": [
 10,
-388,
-30,
+772,
+414,
 376,
 324
 ]
@@ -7253,8 +7393,8 @@
 "accroche": "Je descends en ski-bob!",
 "sp": [
 10,
-772,
-4,
+1156,
+388,
 376,
 376
 ]
@@ -7273,8 +7413,8 @@
 "accroche": "Abats-les toutes avec la boule lumineuse!",
 "sp": [
 10,
-1156,
-4,
+1540,
+388,
 376,
 376
 ]
@@ -7293,8 +7433,8 @@
 "accroche": "Des milliers de bulles!",
 "sp": [
 10,
-1540,
-4,
+1924,
+388,
 376,
 376
 ]
@@ -7313,8 +7453,8 @@
 "accroche": "Attrape-le au vol!",
 "sp": [
 10,
-1924,
 4,
+772,
 376,
 376
 ]
@@ -7333,8 +7473,8 @@
 "accroche": "Attrape les poissons au bord de l'eau!",
 "sp": [
 10,
-4,
 388,
+772,
 376,
 376
 ]
@@ -7353,8 +7493,8 @@
 "accroche": "Esquive les balles du monstre!",
 "sp": [
 10,
-388,
-388,
+772,
+772,
 376,
 376
 ]
@@ -7373,8 +7513,8 @@
 "accroche": "Des vraies raquettes comme papa!",
 "sp": [
 10,
+1156,
 772,
-388,
 376,
 376
 ]
@@ -7393,8 +7533,8 @@
 "accroche": "Je grimpe comme un ninja!",
 "sp": [
 10,
-1156,
-456,
+1540,
+840,
 376,
 239
 ]
@@ -7413,8 +7553,8 @@
 "accroche": "Ta pelle à toi pour le fort!",
 "sp": [
 10,
-1540,
-388,
+1924,
+772,
 376,
 376
 ]
@@ -7433,8 +7573,8 @@
 "accroche": "Un filet de badminton dans la cour!",
 "sp": [
 10,
-1924,
-391,
+4,
+1159,
 376,
 370
 ]
@@ -7453,8 +7593,8 @@
 "accroche": "Pèse sur sa bedaine : des bulles!",
 "sp": [
 10,
-4,
-772,
+388,
+1156,
 376,
 376
 ]
@@ -7473,8 +7613,8 @@
 "accroche": "Marche sur une corde entre deux arbres!",
 "sp": [
 10,
-388,
 772,
+1156,
 376,
 376
 ]
@@ -7493,8 +7633,8 @@
 "accroche": "Saute dessus, la méduse t'arrose!",
 "sp": [
 10,
-772,
-772,
+1156,
+1156,
 376,
 376
 ]
@@ -7513,8 +7653,8 @@
 "accroche": "Il lance… et compte!",
 "sp": [
 10,
+1540,
 1156,
-772,
 376,
 376
 ]
@@ -7533,8 +7673,8 @@
 "accroche": "Elle rebondit jusqu'à la lune!",
 "sp": [
 10,
-1540,
-772,
+1924,
+1156,
 376,
 376
 ]
@@ -7553,8 +7693,8 @@
 "accroche": "On descend la côte à deux!",
 "sp": [
 10,
-1924,
-772,
+4,
+1540,
 376,
 376
 ]
@@ -7573,8 +7713,8 @@
 "accroche": "Un vrai panier dans l'entrée!",
 "sp": [
 10,
-80,
-1156,
+464,
+1540,
 224,
 376
 ]
@@ -7593,8 +7733,8 @@
 "accroche": "Splash! Je glisse sur le ventre!",
 "sp": [
 10,
-388,
-1156,
+772,
+1540,
 376,
 376
 ]
@@ -7613,8 +7753,8 @@
 "accroche": "Un ballon doux pour botter fort!",
 "sp": [
 10,
-772,
 1156,
+1540,
 376,
 376
 ]
@@ -7633,8 +7773,8 @@
 "accroche": "Il lance… et compte!",
 "sp": [
 10,
-1156,
-1156,
+1540,
+1540,
 376,
 376
 ]
@@ -7653,8 +7793,8 @@
 "accroche": "Frappe fort, elle revient!",
 "sp": [
 10,
-1626,
-1156,
+2010,
+1540,
 203,
 376
 ]
@@ -7673,8 +7813,8 @@
 "accroche": "Glisse sur le dos d'un ours polaire!",
 "sp": [
 10,
-1924,
-1179,
+4,
+1947,
 376,
 329
 ]
@@ -7693,8 +7833,8 @@
 "accroche": "Plante ta fléchette dans l'anneau!",
 "sp": [
 10,
-4,
-1562,
+388,
+1946,
 376,
 331
 ]
@@ -7713,8 +7853,8 @@
 "accroche": "Je tourne en descendant!",
 "sp": [
 10,
-388,
-1549,
+772,
+1933,
 376,
 357
 ]
@@ -7733,8 +7873,8 @@
 "accroche": "Bonne nuit, Caillou!",
 "sp": [
 10,
-772,
-1540,
+1156,
+1924,
 375,
 376
 ]
@@ -7753,8 +7893,8 @@
 "accroche": "Huit couleurs à pétrir",
 "sp": [
 10,
-1156,
 1540,
+1924,
 376,
 376
 ]
@@ -7773,8 +7913,8 @@
 "accroche": "Vroum! Ma première auto à moi.",
 "sp": [
 10,
-1540,
-1540,
+1924,
+1924,
 376,
 376
 ]
@@ -7788,13 +7928,13 @@
 "prix": 35.99,
 "source": "Toy Sense",
 "url": "https://toysense.ca/products/fisher-price-farmer-says-see-n-say",
-"img": "planches/p10.jpg",
+"img": "planches/p11.jpg",
 "ageCible": null,
 "accroche": "Tire la corde, la vache meugle!",
 "sp": [
-10,
-1924,
-1547,
+11,
+4,
+11,
 376,
 361
 ]
@@ -7808,13 +7948,13 @@
 "prix": 29.99,
 "source": "L'Entrejeux",
 "url": "https://lentrejeux.com/products/little-people-autobus-scolaire",
-"img": "planches/p10.jpg",
+"img": "planches/p11.jpg",
 "ageCible": null,
 "accroche": "Tout le monde à bord!",
 "sp": [
-10,
+11,
+388,
 4,
-1924,
 376,
 376
 ]
@@ -7828,13 +7968,13 @@
 "prix": 29.99,
 "source": "Toytown",
 "url": "https://www.toytown.ca/products/fisher-price-corn-popper",
-"img": "planches/p10.jpg",
+"img": "planches/p11.jpg",
 "ageCible": null,
 "accroche": "Pop-pop-pop quand je marche!",
 "sp": [
-10,
-410,
-1924,
+11,
+794,
+4,
 331,
 376
 ]
@@ -7848,13 +7988,13 @@
 "prix": 16.99,
 "source": "Toytown",
 "url": "https://www.toytown.ca/products/fisher-price-babys-first-blocks",
-"img": "planches/p10.jpg",
+"img": "planches/p11.jpg",
 "ageCible": null,
 "accroche": "Plouf, le bloc tombe dans le seau",
 "sp": [
-10,
-772,
-1965,
+11,
+1156,
+45,
 376,
 293
 ]
@@ -7868,13 +8008,13 @@
 "prix": 19.99,
 "source": "Toytown",
 "url": "https://www.toytown.ca/products/barneys-world-8-plush-character?variant=46622957273324",
-"img": "planches/p10.jpg",
+"img": "planches/p11.jpg",
 "ageCible": null,
 "accroche": "Je t'aime, tu m'aimes…",
 "sp": [
-10,
-1156,
-1924,
+11,
+1540,
+4,
 376,
 376
 ]
@@ -7888,13 +8028,13 @@
 "prix": 39.99,
 "source": "Toytown",
 "url": "https://www.toytown.ca/products/elmo-jack-in-the-box",
-"img": "planches/p10.jpg",
+"img": "planches/p11.jpg",
 "ageCible": null,
 "accroche": "Tourne, tourne… coucou Elmo!",
 "sp": [
-10,
-1540,
+11,
 1924,
+4,
 376,
 376
 ]
@@ -7908,13 +8048,13 @@
 "prix": 33.0,
 "source": "Indigo",
 "url": "https://www.indigo.ca/fr/products/mega-bloks%C2%AE-first-builders%E2%84%A2-big-building-bag",
-"img": "planches/p10.jpg",
+"img": "planches/p11.jpg",
 "ageCible": null,
 "accroche": "J'empile jusqu'au plafond!",
 "sp": [
-10,
-1924,
-1924,
+11,
+4,
+388,
 376,
 376
 ]
@@ -7933,8 +8073,8 @@
 "accroche": "Le grand ami jaune de Sésame",
 "sp": [
 11,
-4,
-4,
+388,
+388,
 376,
 376
 ]
@@ -7953,8 +8093,8 @@
 "accroche": "Meuh! Les animaux vont dodo.",
 "sp": [
 11,
+772,
 388,
-4,
 376,
 376
 ]
@@ -7973,8 +8113,8 @@
 "accroche": "Je grimpe, je glisse, encore!",
 "sp": [
 11,
-772,
-4,
+1156,
+388,
 376,
 376
 ]
@@ -7993,8 +8133,8 @@
 "accroche": "Allô? C'est grand-maman!",
 "sp": [
 11,
-1182,
-4,
+1566,
+388,
 324,
 376
 ]
@@ -8013,8 +8153,8 @@
 "accroche": "Les anneaux de chez grand-maman",
 "sp": [
 11,
-1540,
-4,
+1924,
+388,
 376,
 375
 ]
@@ -8033,8 +8173,8 @@
 "accroche": "Winnie cherche son miel",
 "sp": [
 11,
-1924,
 4,
+772,
 376,
 376
 ]
@@ -8053,8 +8193,8 @@
 "accroche": "Un gros camion qui bascule",
 "sp": [
 11,
-4,
 388,
+772,
 376,
 376
 ]
@@ -8073,8 +8213,8 @@
 "accroche": "Mon lapin tout doux!",
 "sp": [
 11,
-388,
-388,
+772,
+772,
 376,
 376
 ]
@@ -8093,8 +8233,8 @@
 "accroche": "Pierre le caillou veut un ami",
 "sp": [
 11,
+1156,
 772,
-388,
 376,
 376
 ]
@@ -8113,8 +8253,8 @@
 "accroche": "Je tourne, je bascule!",
 "sp": [
 11,
-1156,
-452,
+1540,
+836,
 376,
 248
 ]
@@ -8133,8 +8273,8 @@
 "accroche": "Un petit ours pour la sieste",
 "sp": [
 11,
-1610,
-388,
+1994,
+772,
 236,
 376
 ]
@@ -8153,8 +8293,8 @@
 "accroche": "Empile, écoute, fais-la tomber!",
 "sp": [
 11,
-1924,
-388,
+4,
+1156,
 376,
 376
 ]
@@ -8173,8 +8313,8 @@
 "accroche": "Un chat-valise à chevaucher",
 "sp": [
 11,
-4,
-772,
+388,
+1156,
 376,
 376
 ]
@@ -8193,8 +8333,8 @@
 "accroche": "Colle, pousse : ça tourne vite!",
 "sp": [
 11,
-401,
-772,
+785,
+1156,
 349,
 376
 ]
@@ -8213,8 +8353,8 @@
 "accroche": "Je fais pleuvoir le nuage!",
 "sp": [
 11,
-772,
-773,
+1156,
+1157,
 376,
 374
 ]
@@ -8233,8 +8373,8 @@
 "accroche": "Zippe, boutonne… et il rigole!",
 "sp": [
 11,
+1540,
 1156,
-772,
 376,
 376
 ]
@@ -8253,8 +8393,8 @@
 "accroche": "Touche pas l'orignal… ou oui!",
 "sp": [
 11,
-1540,
-772,
+1924,
+1156,
 376,
 376
 ]
@@ -8273,8 +8413,8 @@
 "accroche": "Papa tire, moi je glisse!",
 "sp": [
 11,
-1924,
-772,
+4,
+1540,
 376,
 376
 ]
@@ -8293,8 +8433,8 @@
 "accroche": "Une boîte qui chante au dodo",
 "sp": [
 11,
-4,
-1156,
+388,
+1540,
 376,
 376
 ]
@@ -8313,8 +8453,8 @@
 "accroche": "Ça tourne, ça descend!",
 "sp": [
 11,
-388,
-1156,
+772,
+1540,
 376,
 376
 ]
@@ -8333,8 +8473,8 @@
 "accroche": "Je lance, je dis le mot!",
 "sp": [
 11,
-772,
 1156,
+1540,
 376,
 376
 ]
@@ -8353,8 +8493,8 @@
 "accroche": "Moi! C'est moi qui choisis!",
 "sp": [
 11,
-1156,
-1156,
+1540,
+1540,
 376,
 376
 ]
@@ -8373,8 +8513,8 @@
 "accroche": "Soulève les volets du père Noël",
 "sp": [
 11,
-1590,
-1156,
+1974,
+1540,
 276,
 376
 ]
@@ -8393,8 +8533,8 @@
 "accroche": "Trois berceuses pour s'endormir",
 "sp": [
 11,
+4,
 1924,
-1156,
 376,
 376
 ]
@@ -8413,8 +8553,8 @@
 "accroche": "Je rampe dans le tunnel!",
 "sp": [
 11,
-4,
-1540,
+388,
+1924,
 376,
 376
 ]
@@ -8433,8 +8573,8 @@
 "accroche": "Pop pop! Un arc-en-ciel qui roule",
 "sp": [
 11,
-388,
-1540,
+772,
+1924,
 376,
 376
 ]
@@ -8453,8 +8593,8 @@
 "accroche": "Pas de pédales, juste l'équilibre!",
 "sp": [
 11,
-772,
-1540,
+1156,
+1924,
 376,
 376
 ]
@@ -8473,8 +8613,8 @@
 "accroche": "Wouf! Je roule sur mon chien!",
 "sp": [
 11,
-1156,
 1540,
+1924,
 376,
 376
 ]
@@ -8493,8 +8633,8 @@
 "accroche": "Un gros ballon à botter!",
 "sp": [
 11,
-1540,
-1540,
+1924,
+1924,
 376,
 376
 ]
@@ -8508,13 +8648,13 @@
 "prix": 39.99,
 "source": "Le Grenier des Petits",
 "url": "https://www.grenierdespetits.ca/products/little-smoby-tortue-a-balles",
-"img": "planches/p11.jpg",
+"img": "planches/p12.jpg",
 "ageCible": null,
 "accroche": "Elle me suit, les balles roulent!",
 "sp": [
-11,
-1924,
-1540,
+12,
+4,
+4,
 376,
 376
 ]
@@ -8528,13 +8668,13 @@
 "prix": 125.99,
 "source": "Clément",
 "url": "https://clement.ca/products/trottinette-5en1-scoobi-rouge-lak-lk60003",
-"img": "planches/p11.jpg",
+"img": "planches/p12.jpg",
 "ageCible": null,
 "accroche": "Tricycle aujourd'hui, trottinette demain!",
 "sp": [
-11,
+12,
+388,
 4,
-1924,
 376,
 376
 ]
@@ -8548,13 +8688,13 @@
 "prix": 89.99,
 "source": "L'Entrejeux",
 "url": "https://lentrejeux.com/products/smoby-draisienne-balance-first-bike",
-"img": "planches/p11.jpg",
+"img": "planches/p12.jpg",
 "ageCible": null,
 "accroche": "Mon vélo sans pédales!",
 "sp": [
-11,
-388,
-1924,
+12,
+772,
+4,
 376,
 376
 ]
@@ -8568,13 +8708,13 @@
 "prix": 119.99,
 "source": "Bureau en Gros",
 "url": "https://www.bureauengros.com/products/2516841-fr-winther-gonge-mini-haut",
-"img": "planches/p11.jpg",
+"img": "planches/p12.jpg",
 "ageCible": null,
 "accroche": "Je tourne, je bascule, je ris!",
 "sp": [
-11,
-772,
-1924,
+12,
+1156,
+4,
 376,
 376
 ]
@@ -8588,13 +8728,13 @@
 "prix": 39.99,
 "source": "Clément",
 "url": "https://clement.ca/products/tondeuse-dat-4733",
-"img": "planches/p11.jpg",
+"img": "planches/p12.jpg",
 "ageCible": null,
 "accroche": "Vroum-vroum, je tonds avec papa!",
 "sp": [
-11,
-1156,
-1924,
+12,
+1540,
+4,
 376,
 376
 ]
@@ -8608,13 +8748,13 @@
 "prix": 9.99,
 "source": "Clément",
 "url": "https://clement.ca/products/pelle-pour-enfant-rouge-era-2000533",
-"img": "planches/p11.jpg",
+"img": "planches/p12.jpg",
 "ageCible": null,
 "accroche": "Je déneige comme papa!",
 "sp": [
-11,
-1540,
+12,
 1924,
+4,
 376,
 376
 ]
@@ -8628,13 +8768,13 @@
 "prix": 35.0,
 "source": "Indigo",
 "url": "https://www.indigo.ca/fr/products/b-toys-lets-go-bowling",
-"img": "planches/p11.jpg",
+"img": "planches/p12.jpg",
 "ageCible": null,
 "accroche": "Strike! Les petites balles rebondissent!",
 "sp": [
-11,
-1924,
-1924,
+12,
+4,
+388,
 376,
 376
 ]
@@ -8653,8 +8793,8 @@
 "accroche": "La baleine arrose, je cours!",
 "sp": [
 12,
-4,
-4,
+388,
+388,
 376,
 376
 ]
@@ -8673,8 +8813,8 @@
 "accroche": "Mes premiers coups de pédale!",
 "sp": [
 12,
+772,
 388,
-4,
 376,
 376
 ]
@@ -8693,8 +8833,8 @@
 "accroche": "Je tire, il ramasse mes blocs!",
 "sp": [
 12,
-772,
-4,
+1156,
+388,
 376,
 376
 ]
@@ -8713,8 +8853,8 @@
 "accroche": "L'orignal suit tes pas",
 "sp": [
 12,
-1156,
-4,
+1540,
+388,
 376,
 376
 ]
@@ -8733,8 +8873,8 @@
 "accroche": "Boing, boing dans le salon!",
 "sp": [
 12,
-1540,
-4,
+1924,
+388,
 376,
 376
 ]
@@ -8753,8 +8893,8 @@
 "accroche": "Je pousse ma brouette!",
 "sp": [
 12,
-1924,
 4,
+772,
 376,
 376
 ]
@@ -8773,8 +8913,8 @@
 "accroche": "Ses huit pattes m'arrosent partout!",
 "sp": [
 12,
-4,
-432,
+388,
+816,
 376,
 288
 ]
@@ -8793,8 +8933,8 @@
 "accroche": "Coin-coin! Ses ailes battent!",
 "sp": [
 12,
-388,
-388,
+772,
+772,
 376,
 376
 ]
@@ -8813,8 +8953,8 @@
 "accroche": "Je conduis le tracteur comme grand-papa!",
 "sp": [
 12,
+1156,
 772,
-388,
 376,
 376
 ]
@@ -8833,8 +8973,8 @@
 "accroche": "Mes roues s'allument quand je file!",
 "sp": [
 12,
-1156,
-388,
+1540,
+772,
 376,
 376
 ]
@@ -8853,8 +8993,8 @@
 "accroche": "L’oiseau trône au sommet de la tour!",
 "sp": [
 12,
-1564,
-388,
+1948,
+772,
 328,
 376
 ]
@@ -8873,8 +9013,8 @@
 "accroche": "Les animaux montent dans le camion!",
 "sp": [
 12,
-1935,
-388,
+15,
+1156,
 353,
 376
 ]
@@ -8893,8 +9033,8 @@
 "accroche": "Touche l’image, elle te parle!",
 "sp": [
 12,
-4,
-772,
+388,
+1156,
 376,
 376
 ]
@@ -8913,8 +9053,8 @@
 "accroche": "La bonne clé ouvre la porte!",
 "sp": [
 12,
-388,
-779,
+772,
+1163,
 376,
 361
 ]
@@ -8933,8 +9073,8 @@
 "accroche": "Tape la balle, elle roule!",
 "sp": [
 12,
-772,
-772,
+1156,
+1156,
 376,
 376
 ]
@@ -8953,8 +9093,8 @@
 "accroche": "Le chien mange, le lapin dort",
 "sp": [
 12,
+1540,
 1156,
-772,
 376,
 376
 ]
@@ -8973,8 +9113,8 @@
 "accroche": "Empile les lettres de ton nom",
 "sp": [
 12,
-1540,
-772,
+1924,
+1156,
 376,
 376
 ]
@@ -8993,8 +9133,8 @@
 "accroche": "Tourne la manivelle, les billes se trient!",
 "sp": [
 12,
-1924,
-772,
+4,
+1540,
 376,
 376
 ]
@@ -9013,8 +9153,8 @@
 "accroche": "Content, fâché, triste : trouve pareil!",
 "sp": [
 12,
-4,
-1156,
+388,
+1540,
 376,
 376
 ]
@@ -9033,8 +9173,8 @@
 "accroche": "Grand, petit; chaud, froid",
 "sp": [
 12,
-388,
-1156,
+772,
+1540,
 376,
 376
 ]
@@ -9053,8 +9193,8 @@
 "accroche": "Rond, carré, triangle : ça rentre!",
 "sp": [
 12,
-772,
-1160,
+1156,
+1544,
 376,
 368
 ]
@@ -9073,8 +9213,8 @@
 "accroche": "La fraise rouge, la coccinelle rouge",
 "sp": [
 12,
-1156,
-1156,
+1540,
+1540,
 376,
 376
 ]
@@ -9093,8 +9233,8 @@
 "accroche": "Qui est triste? Qui rit?",
 "sp": [
 12,
+1924,
 1540,
-1156,
 376,
 376
 ]
@@ -9113,8 +9253,8 @@
 "accroche": "Empile, déverrouille, trouve la lettre!",
 "sp": [
 12,
+4,
 1924,
-1156,
 376,
 376
 ]
@@ -9133,8 +9273,8 @@
 "accroche": "Pousse les bulles jusqu'à dix",
 "sp": [
 12,
-4,
-1540,
+388,
+1924,
 376,
 376
 ]
@@ -9153,8 +9293,8 @@
 "accroche": "Glisse les formes entre les élastiques",
 "sp": [
 12,
-388,
-1540,
+772,
+1924,
 376,
 376
 ]
@@ -9173,8 +9313,8 @@
 "accroche": "Clic! La vache a des pattes.",
 "sp": [
 12,
-812,
-1540,
+1196,
+1924,
 295,
 376
 ]
@@ -9193,8 +9333,8 @@
 "accroche": "Pique les couleurs à la bonne place.",
 "sp": [
 12,
-1156,
-1589,
+1540,
+1973,
 376,
 277
 ]
@@ -9213,8 +9353,8 @@
 "accroche": "Des blocs mous qui roulent!",
 "sp": [
 12,
-1540,
-1577,
+1924,
+1961,
 376,
 301
 ]
@@ -9228,13 +9368,13 @@
 "prix": 29.99,
 "source": "Placote",
 "url": "https://placote.com/products/de-la-tete-aux-pieds",
-"img": "planches/p12.jpg",
+"img": "planches/p13.jpg",
 "ageCible": null,
 "accroche": "Le nez, le pied, dans le bain!",
 "sp": [
-12,
-1924,
-1540,
+13,
+4,
+4,
 376,
 376
 ]
@@ -9248,13 +9388,13 @@
 "prix": 24.99,
 "source": "L'Entrejeux",
 "url": "https://lentrejeux.com/products/battat-ens-de-tubes-sensoriels-lil-barn-buddies",
-"img": "planches/p12.jpg",
+"img": "planches/p13.jpg",
 "ageCible": null,
 "accroche": "Étire le cochon, il s'allonge!",
 "sp": [
-12,
+13,
+388,
 4,
-1924,
 376,
 376
 ]
@@ -9268,13 +9408,13 @@
 "prix": 14.99,
 "source": "Mastermind Toys",
 "url": "https://www.mastermindtoys.com/products/pipsquigz-loops-teal",
-"img": "planches/p12.jpg",
+"img": "planches/p13.jpg",
 "ageCible": null,
 "accroche": "Colle, tire… et pop!",
 "sp": [
-12,
-388,
-1924,
+13,
+772,
+4,
 376,
 376
 ]
@@ -9288,13 +9428,13 @@
 "prix": 29.99,
 "source": "Toytown",
 "url": "https://www.toytown.ca/products/taf-toys-activity-buckles-board",
-"img": "planches/p12.jpg",
+"img": "planches/p13.jpg",
 "ageCible": null,
 "accroche": "Clic, zip, j’attache tout seul!",
 "sp": [
-12,
-772,
-1924,
+13,
+1156,
+4,
 376,
 376
 ]
@@ -9308,13 +9448,13 @@
 "prix": 14.99,
 "source": "Mastermind Toys",
 "url": "https://www.mastermindtoys.com/products/ravensburger-my-first-puzzles-on-safari-2-5pc-puzzles",
-"img": "planches/p12.jpg",
+"img": "planches/p13.jpg",
 "ageCible": null,
 "accroche": "Le lion va où?",
 "sp": [
-12,
-1156,
-1924,
+13,
+1540,
+4,
 376,
 376
 ]
@@ -9328,13 +9468,13 @@
 "prix": 12.0,
 "source": "Indigo",
 "url": "https://www.indigo.ca/fr/products/b-toys-stackin-squishy-cups-soft-stacking-cups-for-babies",
-"img": "planches/p12.jpg",
+"img": "planches/p13.jpg",
 "ageCible": null,
 "accroche": "J'empile, je renverse!",
 "sp": [
-12,
-1540,
+13,
 1924,
+4,
 376,
 376
 ]
@@ -9348,13 +9488,13 @@
 "prix": 17.49,
 "source": "Clément",
 "url": "https://clement.ca/products/livre-apprentissage-les-formes-lip-590071",
-"img": "planches/p12.jpg",
+"img": "planches/p13.jpg",
 "ageCible": null,
 "accroche": "Colle le carré sur la vache",
 "sp": [
-12,
-1924,
-1924,
+13,
+4,
+388,
 376,
 376
 ]
@@ -9373,8 +9513,8 @@
 "accroche": "Appuie : les balles sautent!",
 "sp": [
 13,
-4,
-4,
+388,
+388,
 376,
 376
 ]
@@ -9393,8 +9533,8 @@
 "accroche": "Ouvre la fenêtre : qui saute?",
 "sp": [
 13,
+772,
 388,
-4,
 376,
 376
 ]
@@ -9413,8 +9553,8 @@
 "accroche": "Je plante mes fleurs-formes!",
 "sp": [
 13,
-772,
-4,
+1156,
+388,
 376,
 376
 ]
@@ -9433,8 +9573,8 @@
 "accroche": "Touche le poil de l'ours blanc",
 "sp": [
 13,
-1156,
-4,
+1540,
+388,
 376,
 376
 ]
@@ -9453,8 +9593,8 @@
 "accroche": "Trouve tout ce qui est jaune",
 "sp": [
 13,
-1540,
-4,
+1924,
+388,
 376,
 376
 ]
@@ -9473,8 +9613,8 @@
 "accroche": "Touche les trous : un, deux, trois",
 "sp": [
 13,
-1924,
 4,
+772,
 376,
 376
 ]
@@ -9493,8 +9633,8 @@
 "accroche": "Où se cache le cachalot?",
 "sp": [
 13,
-4,
 388,
+772,
 376,
 376
 ]
@@ -9513,8 +9653,8 @@
 "accroche": "Tire le cordon, il revient!",
 "sp": [
 13,
-388,
-388,
+772,
+772,
 376,
 376
 ]
@@ -9533,8 +9673,8 @@
 "accroche": "Le cochon en trois morceaux",
 "sp": [
 13,
+1156,
 772,
-388,
 376,
 376
 ]
@@ -9553,8 +9693,8 @@
 "accroche": "Dans, sur, sous : cherche bien!",
 "sp": [
 13,
-1156,
-388,
+1540,
+772,
 376,
 376
 ]
@@ -9573,8 +9713,8 @@
 "accroche": "Lance le dé, dis le mot!",
 "sp": [
 13,
-1540,
-388,
+1924,
+772,
 376,
 376
 ]
@@ -9593,8 +9733,8 @@
 "accroche": "Trouve l'ami qui a peur",
 "sp": [
 13,
-1924,
-388,
+4,
+1156,
 376,
 376
 ]
@@ -9613,8 +9753,8 @@
 "accroche": "Où est le bébé de la vache?",
 "sp": [
 13,
-4,
-772,
+388,
+1156,
 376,
 376
 ]
@@ -9633,8 +9773,8 @@
 "accroche": "Où se cache le petit chat?",
 "sp": [
 13,
-388,
 772,
+1156,
 376,
 376
 ]
@@ -9653,8 +9793,8 @@
 "accroche": "Un, deux, trois… jusqu'à dix!",
 "sp": [
 13,
-772,
-772,
+1156,
+1156,
 376,
 376
 ]
@@ -9673,8 +9813,8 @@
 "accroche": "Quatre cônes, plein de formes",
 "sp": [
 13,
+1540,
 1156,
-772,
 376,
 376
 ]
@@ -9693,8 +9833,8 @@
 "accroche": "Pin-pon! Au feu, vite!",
 "sp": [
 13,
-1540,
-772,
+1924,
+1156,
 376,
 376
 ]
@@ -9713,8 +9853,8 @@
 "accroche": "Vide la benne, recommence!",
 "sp": [
 13,
-1924,
-772,
+4,
+1540,
 376,
 376
 ]
@@ -9733,8 +9873,8 @@
 "accroche": "Pin-pon, l'échelle monte!",
 "sp": [
 13,
-4,
-1156,
+388,
+1540,
 376,
 376
 ]
@@ -9753,8 +9893,8 @@
 "accroche": "Ascenseur, glissade… et vroum!",
 "sp": [
 13,
-388,
-1156,
+772,
+1540,
 376,
 376
 ]
@@ -9773,8 +9913,8 @@
 "accroche": "Remplis l'auto de blocs doux!",
 "sp": [
 13,
-772,
 1156,
+1540,
 376,
 376
 ]
@@ -9793,8 +9933,8 @@
 "accroche": "Un bulldozer et un pick-up!",
 "sp": [
 13,
-1156,
-1156,
+1540,
+1540,
 376,
 376
 ]
@@ -9813,8 +9953,8 @@
 "accroche": "Les autos montent sur la remorque!",
 "sp": [
 13,
+1924,
 1540,
-1156,
 376,
 376
 ]
@@ -9833,8 +9973,8 @@
 "accroche": "On trie, on ramasse!",
 "sp": [
 13,
+4,
 1924,
-1156,
 376,
 376
 ]
@@ -9853,8 +9993,8 @@
 "accroche": "On trie, on charge, on chante!",
 "sp": [
 13,
-4,
-1540,
+388,
+1924,
 376,
 376
 ]
@@ -9873,8 +10013,8 @@
 "accroche": "Six petites autos à pousser",
 "sp": [
 13,
-388,
-1540,
+772,
+1924,
 376,
 376
 ]
@@ -9893,8 +10033,8 @@
 "accroche": "Une petite auto toute ronde!",
 "sp": [
 13,
-772,
-1540,
+1156,
+1924,
 376,
 376
 ]
@@ -9913,8 +10053,8 @@
 "accroche": "On charge, on vide, on recommence!",
 "sp": [
 13,
-1156,
 1540,
+1924,
 376,
 376
 ]
@@ -9933,8 +10073,8 @@
 "accroche": "Charge l'auto, on la remorque!",
 "sp": [
 13,
-1540,
-1540,
+1924,
+1924,
 376,
 376
 ]
@@ -9948,13 +10088,13 @@
 "prix": 89.99,
 "source": "Mastermind Toys",
 "url": "https://www.mastermindtoys.com/products/brio-r-c-race-car-black-gold",
-"img": "planches/p13.jpg",
+"img": "planches/p14.jpg",
 "ageCible": null,
 "accroche": "Ta première auto téléguidée!",
 "sp": [
-13,
-1924,
-1572,
+14,
+4,
+36,
 376,
 312
 ]
@@ -9968,13 +10108,13 @@
 "prix": 39.99,
 "source": "L'Entrejeux",
 "url": "https://lentrejeux.com/products/b-active-quatre-autos-a-friction-wheeels",
-"img": "planches/p13.jpg",
+"img": "planches/p14.jpg",
 "ageCible": null,
 "accroche": "Recule, lâche… et vroum!",
 "sp": [
-13,
+14,
+388,
 4,
-1924,
 376,
 376
 ]
@@ -9988,13 +10128,13 @@
 "prix": 39.99,
 "source": "Clément",
 "url": "https://www.clement.ca/products/rouleau-compresseur-soft-clemm-clm-17495",
-"img": "planches/p13.jpg",
+"img": "planches/p14.jpg",
 "ageCible": null,
 "accroche": "Le rouleau mange les blocs!",
 "sp": [
-13,
-388,
-1924,
+14,
+772,
+4,
 376,
 376
 ]
@@ -10008,13 +10148,13 @@
 "prix": 32.99,
 "source": "Toytown",
 "url": "https://www.toytown.ca/products/battat-garbage-truck",
-"img": "planches/p13.jpg",
+"img": "planches/p14.jpg",
 "ageCible": null,
 "accroche": "Le camion vide les bacs",
 "sp": [
-13,
-772,
-1924,
+14,
+1156,
+4,
 376,
 376
 ]
@@ -10028,13 +10168,13 @@
 "prix": 29.99,
 "source": "Toytown",
 "url": "https://www.toytown.ca/products/little-people-large-tractor",
-"img": "planches/p13.jpg",
+"img": "planches/p14.jpg",
 "ageCible": null,
 "accroche": "En route vers la ferme!",
 "sp": [
-13,
-1156,
-1924,
+14,
+1540,
+4,
 376,
 376
 ]
@@ -10048,13 +10188,13 @@
 "prix": 24.99,
 "source": "Toytown",
 "url": "https://www.toytown.ca/products/battat-wonder-wheels-tractor-trailer",
-"img": "planches/p13.jpg",
+"img": "planches/p14.jpg",
 "ageCible": null,
 "accroche": "Le tracteur tire sa remorque",
 "sp": [
-13,
-1540,
+14,
 1924,
+4,
 376,
 376
 ]
@@ -10068,13 +10208,13 @@
 "prix": 29.99,
 "source": "B. toys Canada (btoys.ca)",
 "url": "https://btoys.ca/products/loadie-loader-blue-bx1728",
-"img": "planches/p13.jpg",
+"img": "planches/p14.jpg",
 "ageCible": null,
 "accroche": "La pelle monte et descend",
 "sp": [
-13,
-1924,
-1924,
+14,
+4,
+388,
 376,
 376
 ]
@@ -10093,8 +10233,8 @@
 "accroche": "Six portes, six clés, deux p'tits patients !",
 "sp": [
 14,
-4,
-4,
+388,
+388,
 376,
 376
 ]
@@ -10113,8 +10253,8 @@
 "accroche": "Allô? Mes clés, mon téléphone!",
 "sp": [
 14,
+772,
 388,
-4,
 376,
 376
 ]
@@ -10133,8 +10273,8 @@
 "accroche": "Je répare tout, comme papa!",
 "sp": [
 14,
-772,
-4,
+1156,
+388,
 376,
 376
 ]
@@ -10153,8 +10293,8 @@
 "accroche": "Trois Tonies tout doux",
 "sp": [
 14,
-1156,
-4,
+1540,
+388,
 376,
 376
 ]
@@ -10173,8 +10313,8 @@
 "accroche": "Écoute la mer qui roule",
 "sp": [
 14,
-1540,
-4,
+1924,
+388,
 376,
 376
 ]
@@ -10193,8 +10333,8 @@
 "accroche": "Tout un orchestre dans la boîte",
 "sp": [
 14,
-1924,
 4,
+772,
 376,
 376
 ]
@@ -10213,8 +10353,8 @@
 "accroche": "Le dino qui fait tambourin",
 "sp": [
 14,
-4,
 388,
+772,
 376,
 376
 ]
@@ -10233,8 +10373,8 @@
 "accroche": "Boum-boum! La parade commence!",
 "sp": [
 14,
-388,
-388,
+772,
+772,
 376,
 376
 ]
@@ -10253,8 +10393,8 @@
 "accroche": "Le piano chat qui miaule",
 "sp": [
 14,
+1156,
 772,
-388,
 376,
 376
 ]
@@ -10273,8 +10413,8 @@
 "accroche": "Un croco qui brille la nuit",
 "sp": [
 14,
-1156,
-388,
+1540,
+772,
 376,
 376
 ]
@@ -10293,8 +10433,8 @@
 "accroche": "Cot-cot! Je tape fort!",
 "sp": [
 14,
-1540,
-388,
+1924,
+772,
 376,
 376
 ]
@@ -10313,8 +10453,8 @@
 "accroche": "Une oie qui joue du piano",
 "sp": [
 14,
-1924,
-388,
+4,
+1156,
 376,
 376
 ]
@@ -10333,8 +10473,8 @@
 "accroche": "Vroum ! Woofer prend la route",
 "sp": [
 14,
-4,
-772,
+388,
+1156,
 376,
 376
 ]
@@ -10353,8 +10493,8 @@
 "accroche": "Ding ding, les sardines chantent!",
 "sp": [
 14,
-388,
 772,
+1156,
 376,
 376
 ]
@@ -10373,8 +10513,8 @@
 "accroche": "Boum, chika, ding : quel orchestre !",
 "sp": [
 14,
-772,
-772,
+1156,
+1156,
 376,
 376
 ]
@@ -10393,8 +10533,8 @@
 "accroche": "Chanter, compter, apprendre !",
 "sp": [
 14,
+1540,
 1156,
-772,
 376,
 376
 ]
@@ -10413,8 +10553,8 @@
 "accroche": "Une baleine qui chante doucement",
 "sp": [
 14,
-1540,
-772,
+1924,
+1156,
 376,
 376
 ]
@@ -10433,8 +10573,8 @@
 "accroche": "Des comptines pour la route",
 "sp": [
 14,
-1924,
-772,
+4,
+1540,
 376,
 376
 ]
@@ -10453,8 +10593,8 @@
 "accroche": "Ding-ding, le renard qui roule!",
 "sp": [
 14,
-4,
-1156,
+388,
+1540,
 376,
 376
 ]
@@ -10473,8 +10613,8 @@
 "accroche": "Secoue, ça fait la pluie",
 "sp": [
 14,
-426,
-1194,
+810,
+1578,
 300,
 300
 ]
@@ -10493,8 +10633,8 @@
 "accroche": "Tape, tape, la girafe chante !",
 "sp": [
 14,
-772,
 1156,
+1540,
 376,
 376
 ]
@@ -10513,8 +10653,8 @@
 "accroche": "Une petite vedette au micro!",
 "sp": [
 14,
-1156,
-1156,
+1540,
+1540,
 376,
 376
 ]
@@ -10533,8 +10673,8 @@
 "accroche": "Colle, décolle, recolle la ferme",
 "sp": [
 14,
+1924,
 1540,
-1156,
 376,
 376
 ]
@@ -10553,8 +10693,8 @@
 "accroche": "Les couleurs apparaissent par magie",
 "sp": [
 14,
+4,
 1924,
-1156,
 376,
 376
 ]
@@ -10573,8 +10713,8 @@
 "accroche": "Je dessine avec mon doigt!",
 "sp": [
 14,
-4,
-1540,
+388,
+1924,
 376,
 376
 ]
@@ -10593,8 +10733,8 @@
 "accroche": "Mes premières mains pleines de couleurs",
 "sp": [
 14,
-388,
-1540,
+772,
+1924,
 376,
 376
 ]
@@ -10613,8 +10753,8 @@
 "accroche": "Un peu d'eau, et voilà!",
 "sp": [
 14,
-773,
-1540,
+1157,
+1924,
 374,
 376
 ]
@@ -10633,8 +10773,8 @@
 "accroche": "On colorie dans le bain!",
 "sp": [
 14,
-1156,
 1540,
+1924,
 376,
 376
 ]
@@ -10653,8 +10793,8 @@
 "accroche": "Premiers gribouillis tout en rondeur",
 "sp": [
 14,
-1540,
-1540,
+1924,
+1924,
 376,
 376
 ]
@@ -10668,13 +10808,13 @@
 "prix": 38.99,
 "source": "Mastermind Toys",
 "url": "https://www.mastermindtoys.com/products/glo-pals-sensory-jar-surfs-up-blue",
-"img": "planches/p14.jpg",
+"img": "planches/p15.jpg",
 "ageCible": null,
 "accroche": "Neuf couleurs qui s'allument doucement",
 "sp": [
-14,
-1924,
-1540,
+15,
+4,
+4,
 376,
 376
 ]
@@ -10688,13 +10828,13 @@
 "prix": 9.99,
 "source": "Toytown",
 "url": "https://www.toytown.ca/products/my-first-crayola-washable-tripod-grip-markers-8-pack",
-"img": "planches/p14.jpg",
+"img": "planches/p15.jpg",
 "ageCible": null,
 "accroche": "Gros marqueurs, zéro tache",
 "sp": [
-14,
+15,
+388,
 4,
-1924,
 376,
 376
 ]
@@ -10708,13 +10848,13 @@
 "prix": 24.99,
 "source": "Clément",
 "url": "https://clement.ca/products/mes-premiers-feutres-kij-122cl211",
-"img": "planches/p14.jpg",
+"img": "planches/p15.jpg",
 "ageCible": null,
 "accroche": "Des feutres en forme de galet",
 "sp": [
-14,
-388,
-1924,
+15,
+772,
+4,
 376,
 376
 ]
@@ -10728,13 +10868,13 @@
 "prix": 4.49,
 "source": "Toytown",
 "url": "https://www.toytown.ca/products/my-first-crayola-washable-tripod-grip-crayons-8-pack",
-"img": "planches/p14.jpg",
+"img": "planches/p15.jpg",
 "ageCible": null,
 "accroche": "Des crayons faits pour sa menotte",
 "sp": [
-14,
-772,
-1924,
+15,
+1156,
+4,
 376,
 376
 ]
@@ -10748,13 +10888,13 @@
 "prix": 22.99,
 "source": "Clément",
 "url": "https://clement.ca/products/animaux-4-de-bain-canada-nou-ca01",
-"img": "planches/p14.jpg",
+"img": "planches/p15.jpg",
 "ageCible": null,
 "accroche": "Les bêtes du bois au bain",
 "sp": [
-14,
-1156,
-1924,
+15,
+1540,
+4,
 376,
 376
 ]
@@ -10768,13 +10908,13 @@
 "prix": 19.99,
 "source": "Clément",
 "url": "https://clement.ca/products/petit-ens-plage-seau-et-outil-dat-2625",
-"img": "planches/p14.jpg",
+"img": "planches/p15.jpg",
 "ageCible": null,
 "accroche": "Je creuse un gros trou!",
 "sp": [
-14,
-1540,
+15,
 1924,
+4,
 376,
 376
 ]
@@ -10788,13 +10928,13 @@
 "prix": 17.99,
 "source": "Clément",
 "url": "https://clement.ca/products/sous-marin-pour-le-bain-tig-6-1553",
-"img": "planches/p14.jpg",
+"img": "planches/p15.jpg",
 "ageCible": null,
 "accroche": "Le sous-marin m'arrose!",
 "sp": [
-14,
-1924,
-1924,
+15,
+4,
+388,
 376,
 376
 ]
@@ -10813,8 +10953,8 @@
 "accroche": "Des tuyaux sur le mur du bain!",
 "sp": [
 15,
-4,
-4,
+388,
+388,
 376,
 376
 ]
@@ -10833,8 +10973,8 @@
 "accroche": "Je pêche dans la baignoire!",
 "sp": [
 15,
+772,
 388,
-4,
 376,
 376
 ]
@@ -10853,8 +10993,8 @@
 "accroche": "Il pleut sur le paon!",
 "sp": [
 15,
-772,
-4,
+1156,
+388,
 376,
 376
 ]
@@ -10873,8 +11013,8 @@
 "accroche": "Mon seau tout doux!",
 "sp": [
 15,
-1156,
-4,
+1540,
+388,
 376,
 376
 ]
@@ -10893,8 +11033,8 @@
 "accroche": "Le tracteur va au sable!",
 "sp": [
 15,
-1540,
-4,
+1924,
+388,
 376,
 376
 ]
@@ -10913,8 +11053,8 @@
 "accroche": "Mon bateau sur la plage!",
 "sp": [
 15,
-1924,
 4,
+772,
 376,
 376
 ]
@@ -10933,8 +11073,8 @@
 "accroche": "Ça arrose partout!",
 "sp": [
 15,
-4,
 388,
+772,
 376,
 376
 ]
@@ -10953,8 +11093,8 @@
 "accroche": "J'attrape les poissons!",
 "sp": [
 15,
-388,
-388,
+772,
+772,
 376,
 376
 ]
@@ -10973,8 +11113,8 @@
 "accroche": "Ça coule par le hibou!",
 "sp": [
 15,
+1156,
 772,
-388,
 376,
 376
 ]
@@ -10993,8 +11133,8 @@
 "accroche": "Cinq canards en rang!",
 "sp": [
 15,
-1156,
-479,
+1540,
+863,
 376,
 193
 ]
@@ -11013,8 +11153,8 @@
 "accroche": "Ça tourne quand je verse!",
 "sp": [
 15,
-1540,
-388,
+1924,
+772,
 376,
 376
 ]
@@ -11033,8 +11173,8 @@
 "accroche": "Trois, deux, un… splash!",
 "sp": [
 15,
-1924,
-388,
+4,
+1156,
 376,
 376
 ]
@@ -11053,8 +11193,8 @@
 "accroche": "J'arrose, la fleur s'ouvre!",
 "sp": [
 15,
-4,
-772,
+388,
+1156,
 376,
 376
 ]
@@ -11073,8 +11213,8 @@
 "accroche": "Des étoiles qui brillent dans l'eau!",
 "sp": [
 15,
-388,
 772,
+1156,
 376,
 376
 ]
@@ -11093,8 +11233,8 @@
 "accroche": "Teddy navigue dans le bain",
 "sp": [
 15,
-772,
-772,
+1156,
+1156,
 376,
 376
 ]
@@ -11113,8 +11253,8 @@
 "accroche": "Des bestioles qui arrosent",
 "sp": [
 15,
+1540,
 1156,
-772,
 376,
 376
 ]
@@ -11133,8 +11273,8 @@
 "accroche": "Ding! Ding! dans le bain",
 "sp": [
 15,
-1540,
-772,
+1924,
+1156,
 376,
 376
 ]
@@ -11153,8 +11293,8 @@
 "accroche": "Les canards font la course!",
 "sp": [
 15,
-1924,
-772,
+4,
+1540,
 376,
 376
 ]
@@ -11173,8 +11313,8 @@
 "accroche": "Un labo d'eau dans le bain!",
 "sp": [
 15,
-4,
-1156,
+388,
+1540,
 376,
 376
 ]
@@ -11193,8 +11333,8 @@
 "accroche": "L'eau tourne, tourne, tourne",
 "sp": [
 15,
-388,
-1156,
+772,
+1540,
 376,
 376
 ]
@@ -11213,8 +11353,8 @@
 "accroche": "Je pompe l'eau du bain!",
 "sp": [
 15,
-772,
 1156,
+1540,
 376,
 376
 ]
@@ -11233,8 +11373,8 @@
 "accroche": "Pschitt! La girafe m'arrose!",
 "sp": [
 15,
-1156,
-1156,
+1540,
+1540,
 376,
 376
 ]
@@ -11253,8 +11393,8 @@
 "accroche": "Un bateau qui verse l'eau",
 "sp": [
 15,
+1924,
 1540,
-1156,
 376,
 376
 ]
@@ -11273,8 +11413,8 @@
 "accroche": "Bluey nage avec moi!",
 "sp": [
 15,
+4,
 1924,
-1156,
 376,
 376
 ]
@@ -11293,8 +11433,8 @@
 "accroche": "Des vagues pour mes bateaux!",
 "sp": [
 15,
-4,
-1572,
+388,
+1956,
 376,
 312
 ]
@@ -11313,8 +11453,8 @@
 "accroche": "Prêt pour la tempête de neige",
 "sp": [
 15,
-388,
-1540,
+772,
+1924,
 376,
 376
 ]
@@ -11333,8 +11473,8 @@
 "accroche": "Bingo vient faire dodo",
 "sp": [
 15,
-772,
-1540,
+1156,
+1924,
 376,
 376
 ]
@@ -11353,8 +11493,8 @@
 "accroche": "Des étoiles plein le plafond!",
 "sp": [
 15,
-1156,
 1540,
+1924,
 376,
 376
 ]
@@ -11373,8 +11513,8 @@
 "accroche": "Une petite lumière dans le ventre",
 "sp": [
 15,
-1540,
-1540,
+1924,
+1924,
 376,
 376
 ]
@@ -11388,13 +11528,13 @@
 "prix": 34.99,
 "source": "Clément",
 "url": "https://clement.ca/products/doudou-activites-chien-mmr-mm43312",
-"img": "planches/p15.jpg",
+"img": "planches/p16.jpg",
 "ageCible": null,
 "accroche": "Plein d'étiquettes à tripoter",
 "sp": [
-15,
-1924,
-1540,
+16,
+4,
+4,
 376,
 376
 ]
@@ -11408,13 +11548,13 @@
 "prix": 30.0,
 "source": "Indigo",
 "url": "https://www.indigo.ca/fr/products/gund-philbin-classic-teddy-bear-premium-stuffed-animal-for-ages-1-and-up-chocolate-brown-12",
-"img": "planches/p15.jpg",
+"img": "planches/p16.jpg",
 "ageCible": null,
 "accroche": "Le vrai nounours d'autrefois",
 "sp": [
-15,
+16,
+388,
 4,
-1924,
 376,
 376
 ]
@@ -11428,13 +11568,13 @@
 "prix": 61.99,
 "source": "Clément",
 "url": "https://clement.ca/products/sirop-derable-jlc-a2maps",
-"img": "planches/p15.jpg",
+"img": "planches/p16.jpg",
 "ageCible": null,
 "accroche": "Le cruchon de sirop qui sourit",
 "sp": [
-15,
-388,
-1924,
+16,
+772,
+4,
 376,
 376
 ]
@@ -11448,13 +11588,13 @@
 "prix": 35.0,
 "source": "Indigo",
 "url": "https://www.indigo.ca/fr/products/gund-sebastian-tuxedo-kitten-plush-toy-premium-cat-stuffed-animal-for-ages-1-and-up-black-white-14",
-"img": "planches/p15.jpg",
+"img": "planches/p16.jpg",
 "ageCible": null,
 "accroche": "Un minou à flatter",
 "sp": [
-15,
-772,
-1924,
+16,
+1156,
+4,
 376,
 376
 ]
@@ -11468,13 +11608,13 @@
 "prix": 39.99,
 "source": "Clément",
 "url": "https://clement.ca/products/orignal-musical-bruce-ltb-303877",
-"img": "planches/p15.jpg",
+"img": "planches/p16.jpg",
 "ageCible": null,
 "accroche": "On tire, l'orignal chante Noël",
 "sp": [
-15,
-1156,
-1924,
+16,
+1540,
+4,
 376,
 376
 ]
@@ -11488,13 +11628,13 @@
 "prix": 36.0,
 "source": "Toytown",
 "url": "https://www.toytown.ca/products/moulin-roty-la-grande-famille-albert-sheep-soft-toy-30cm-medium",
-"img": "planches/p15.jpg",
+"img": "planches/p16.jpg",
 "ageCible": null,
 "accroche": "Un mouton pour faire dodo",
 "sp": [
-15,
-1619,
-1924,
+16,
+2003,
+4,
 217,
 376
 ]
@@ -11508,13 +11648,13 @@
 "prix": 69.99,
 "source": "Clément",
 "url": "https://clement.ca/products/billy-le-lapin-lumineux-musica-doo-bga120-bu",
-"img": "planches/p15.jpg",
+"img": "planches/p16.jpg",
 "ageCible": null,
 "accroche": "Il s'allume et chante pour dormir",
 "sp": [
-15,
-1924,
-1924,
+16,
+4,
+388,
 376,
 376
 ]
@@ -11533,8 +11673,8 @@
 "accroche": "Lourd juste assez pour rassurer",
 "sp": [
 16,
-4,
-4,
+388,
+388,
 376,
 376
 ]
@@ -11553,8 +11693,8 @@
 "accroche": "Meuh! Une vache toute douce",
 "sp": [
 16,
+772,
 388,
-4,
 376,
 376
 ]
@@ -11573,8 +11713,8 @@
 "accroche": "Une poupée toute en tissu",
 "sp": [
 16,
-772,
-4,
+1156,
+388,
 376,
 376
 ]
@@ -11593,8 +11733,8 @@
 "accroche": "La maman de Bluey, toute moelleuse",
 "sp": [
 16,
-1156,
-4,
+1540,
+388,
 376,
 376
 ]
@@ -11613,8 +11753,8 @@
 "accroche": "Coin-coin, en salopette!",
 "sp": [
 16,
-1540,
-4,
+1924,
+388,
 376,
 376
 ]
@@ -11633,8 +11773,8 @@
 "accroche": "Ruben arrive avec son casque",
 "sp": [
 16,
-1924,
 4,
+772,
 376,
 376
 ]
@@ -11653,8 +11793,8 @@
 "accroche": "Un petit cochon tout frisé",
 "sp": [
 16,
-4,
 388,
+772,
 376,
 376
 ]
@@ -11673,8 +11813,8 @@
 "accroche": "Une vache poilue à flatter",
 "sp": [
 16,
-388,
-388,
+772,
+772,
 376,
 376
 ]
@@ -11693,8 +11833,8 @@
 "accroche": "Une berceuse dans un renard",
 "sp": [
 16,
+1156,
 772,
-388,
 376,
 376
 ]
@@ -11713,8 +11853,8 @@
 "accroche": "Un lapin doux, cousu ici",
 "sp": [
 16,
-1200,
-388,
+1584,
+772,
 288,
 376
 ]
@@ -11733,8 +11873,8 @@
 "accroche": "Un livre qui fait crouche-crouche",
 "sp": [
 16,
-1540,
-388,
+1924,
+772,
 376,
 376
 ]
@@ -11753,8 +11893,8 @@
 "accroche": "Même la mouffette, on l'aime!",
 "sp": [
 16,
-1924,
-388,
+4,
+1156,
 376,
 376
 ]
@@ -11773,8 +11913,8 @@
 "accroche": "Le castor a des dents orange!",
 "sp": [
 16,
-4,
-772,
+388,
+1156,
 376,
 376
 ]
@@ -11793,8 +11933,8 @@
 "accroche": "Ourson veut son lit!",
 "sp": [
 16,
-388,
 772,
+1156,
 376,
 376
 ]
@@ -11813,8 +11953,8 @@
 "accroche": "Oh oh! Qu'est-ce qu'il voit?",
 "sp": [
 16,
-772,
-772,
+1156,
+1156,
 376,
 376
 ]
@@ -11833,8 +11973,8 @@
 "accroche": "Miam! Le petit monstre a faim!",
 "sp": [
 16,
+1540,
 1156,
-772,
 376,
 376
 ]
@@ -11853,8 +11993,8 @@
 "accroche": "Appuie, ça chante Alouette!",
 "sp": [
 16,
-1556,
-772,
+1940,
+1156,
 343,
 376
 ]
@@ -11873,8 +12013,8 @@
 "accroche": "Lance et compte, comme les grands!",
 "sp": [
 16,
-1931,
-772,
+11,
+1540,
 361,
 376
 ]
@@ -11893,8 +12033,8 @@
 "accroche": "Touche, c'est doux ou ça pique?",
 "sp": [
 16,
-40,
-1156,
+424,
+1540,
 304,
 376
 ]
@@ -11913,8 +12053,8 @@
 "accroche": "Quel bruit ça fait?",
 "sp": [
 16,
-388,
-1156,
+772,
+1540,
 376,
 376
 ]
@@ -11933,8 +12073,8 @@
 "accroche": "Dodo, petit bonhomme de neige!",
 "sp": [
 16,
-772,
-1163,
+1156,
+1547,
 376,
 361
 ]
@@ -11953,8 +12093,8 @@
 "accroche": "En route dans l'auto bleue!",
 "sp": [
 16,
-1156,
-1156,
+1540,
+1540,
 376,
 376
 ]
@@ -11973,8 +12113,8 @@
 "accroche": "Chante Noël avec Maryse!",
 "sp": [
 16,
-1561,
-1156,
+1945,
+1540,
 333,
 376
 ]
@@ -11993,8 +12133,8 @@
 "accroche": "Plouf! Enzo flotte dans le bain!",
 "sp": [
 16,
+4,
 1924,
-1156,
 376,
 376
 ]
@@ -12013,8 +12153,8 @@
 "accroche": "Splash dans la boue!",
 "sp": [
 16,
-4,
-1540,
+388,
+1924,
 376,
 376
 ]
@@ -12033,8 +12173,8 @@
 "accroche": "Popote attend le père Noël!",
 "sp": [
 16,
-388,
-1540,
+772,
+1924,
 376,
 376
 ]
@@ -12053,8 +12193,8 @@
 "accroche": "Tire, l'ours polaire bouge!",
 "sp": [
 16,
-779,
-1540,
+1163,
+1924,
 361,
 376
 ]
@@ -12073,8 +12213,8 @@
 "accroche": "Accroché bien fort au dos de Baba",
 "sp": [
 16,
-1156,
 1540,
+1924,
 376,
 376
 ]
@@ -12093,8 +12233,8 @@
 "accroche": "Qui se cache dans la neige?",
 "sp": [
 16,
-1544,
-1540,
+1928,
+1924,
 367,
 376
 ]
@@ -12108,13 +12248,13 @@
 "prix": 9.95,
 "source": "Leslibraires.ca",
 "url": "https://www.leslibraires.ca/livres/mes-100-premiers-mots-anne-paradis-9782924786970.html",
-"img": "planches/p16.jpg",
+"img": "planches/p17.jpg",
 "ageCible": null,
 "accroche": "Cent mots dans ma poignée",
 "sp": [
-16,
-1952,
-1540,
+17,
+32,
+4,
 319,
 376
 ]
@@ -12128,13 +12268,13 @@
 "prix": 14.95,
 "source": "Leslibraires.ca",
 "url": "https://www.leslibraires.ca/livres/toast-tartine-ou-rotie-comme-tu-preferes-9782925154778",
-"img": "planches/p16.jpg",
+"img": "planches/p17.jpg",
 "ageCible": null,
 "accroche": "Une rôtie qui fait des grimaces",
 "sp": [
-16,
-41,
-1924,
+17,
+425,
+4,
 301,
 376
 ]
@@ -12148,13 +12288,13 @@
 "prix": 17.95,
 "source": "Leslibraires.ca",
 "url": "https://www.leslibraires.ca/livres/dans-ma-ruelle-il-y-a-melanie-perreault-9782895407782.html",
-"img": "planches/p16.jpg",
+"img": "planches/p17.jpg",
 "ageCible": null,
 "accroche": "Tout plein d'amis dans la ruelle",
 "sp": [
-16,
-441,
-1924,
+17,
+825,
+4,
 269,
 376
 ]
@@ -12168,13 +12308,13 @@
 "prix": 13.95,
 "source": "Leslibraires.ca",
 "url": "https://www.leslibraires.ca/livres/ton-petit-livre-d-art-anne-sophie-tilly-9782897148522.html",
-"img": "planches/p16.jpg",
+"img": "planches/p17.jpg",
 "ageCible": null,
 "accroche": "Des tableaux pleins de couleurs",
 "sp": [
-16,
-772,
-1924,
+17,
+1156,
+4,
 376,
 376
 ]
@@ -12188,13 +12328,13 @@
 "prix": 24.95,
 "source": "Leslibraires.ca",
 "url": "https://www.leslibraires.ca/livres/mon-livre-a-toucher-de-noel-kim-huynh-9782898530746.html",
-"img": "planches/p16.jpg",
+"img": "planches/p17.jpg",
 "ageCible": null,
 "accroche": "Touche la barbe du père Noël!",
 "sp": [
-16,
-1161,
-1924,
+17,
+1545,
+4,
 365,
 376
 ]
@@ -12208,13 +12348,13 @@
 "prix": 19.95,
 "source": "Leslibraires.ca",
 "url": "https://www.leslibraires.ca/livres/mon-premier-imagier-de-noel-9782898248313",
-"img": "planches/p16.jpg",
+"img": "planches/p17.jpg",
 "ageCible": null,
 "accroche": "Le sapin, les lutins, les cadeaux!",
 "sp": [
-16,
-1547,
-1924,
+17,
+1931,
+4,
 362,
 376
 ]
@@ -12228,13 +12368,13 @@
 "prix": 12.95,
 "source": "Leslibraires.ca",
 "url": "https://www.leslibraires.ca/livres/la-cachette-9782898830174",
-"img": "planches/p16.jpg",
+"img": "planches/p17.jpg",
 "ageCible": null,
 "accroche": "Pas de sieste! Je me cache!",
 "sp": [
-16,
-1924,
-1924,
+17,
+4,
+388,
 375,
 376
 ]
@@ -12253,8 +12393,8 @@
 "accroche": "Un livre aussi grand que moi!",
 "sp": [
 17,
-67,
-4,
+451,
+388,
 250,
 376
 ]
@@ -12273,8 +12413,8 @@
 "accroche": "Une petite mouche très gourmande",
 "sp": [
 17,
+772,
 388,
-4,
 376,
 376
 ]
@@ -12293,8 +12433,8 @@
 "accroche": "Vroum! Gaston répare tout!",
 "sp": [
 17,
-798,
-4,
+1182,
+388,
 323,
 376
 ]
@@ -12313,8 +12453,8 @@
 "accroche": "Un chat qui marche debout!",
 "sp": [
 17,
-1202,
-4,
+1586,
+388,
 283,
 376
 ]
@@ -12333,8 +12473,8 @@
 "accroche": "Chut! L'hippo va faire dodo",
 "sp": [
 17,
-1540,
-4,
+1924,
+388,
 375,
 376
 ]
@@ -12353,8 +12493,8 @@
 "accroche": "Deux souris, du matin au dodo",
 "sp": [
 17,
-1924,
 4,
+772,
 376,
 376
 ]
@@ -12373,8 +12513,8 @@
 "accroche": "Où se cache le chat?",
 "sp": [
 17,
-61,
-388,
+445,
+772,
 261,
 376
 ]
@@ -12393,8 +12533,8 @@
 "accroche": "Deux bébés et une tétine",
 "sp": [
 17,
-388,
-388,
+772,
+772,
 376,
 376
 ]
@@ -12413,8 +12553,8 @@
 "accroche": "On fait un gâteau ensemble!",
 "sp": [
 17,
+1156,
 772,
-388,
 376,
 376
 ]
@@ -12433,8 +12573,8 @@
 "accroche": "L'orignal n'a qu'à bien se tenir",
 "sp": [
 17,
-1156,
-388,
+1540,
+772,
 376,
 376
 ]
@@ -12453,8 +12593,8 @@
 "accroche": "Quatre roues, c'était pas assez",
 "sp": [
 17,
-1540,
-439,
+1924,
+823,
 376,
 273
 ]
@@ -12473,8 +12613,8 @@
 "accroche": "Le fleuve est à papa",
 "sp": [
 17,
-1924,
-435,
+4,
+1203,
 376,
 282
 ]
@@ -12493,8 +12633,8 @@
 "accroche": "Pour souder le cadeau de maman",
 "sp": [
 17,
-4,
-772,
+388,
+1156,
 376,
 376
 ]
@@ -12513,8 +12653,8 @@
 "accroche": "Le carré de sable chauffé de papa",
 "sp": [
 17,
-388,
 772,
+1156,
 376,
 376
 ]
@@ -12533,8 +12673,8 @@
 "accroche": "Papa a été très sage cette année",
 "sp": [
 17,
-772,
-819,
+1156,
+1203,
 376,
 282
 ]
