@@ -50,6 +50,8 @@ open(os.path.join(APP, "index.html"), "w").write(index)
 h = hashlib.sha1(index.encode())
 for p in planches:
     h.update(open(os.path.join(APP, p), "rb").read())
+if os.path.exists(os.path.join(APP, "rire.gif")):
+    h.update(open(os.path.join(APP, "rire.gif"), "rb").read())
 version = h.hexdigest()[:10]
 coquille = ["./", "index.html", "manifest.webmanifest", "rire.gif", "icones/apple-touch-icon.png", "icones/icone-192.png", "icones/icone-512.png"] + planches
 sw = """// Catalogue des Souhaits : tout le catalogue reste dans l'iPad, même sans réseau.
