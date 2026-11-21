@@ -568,7 +568,14 @@ svg { display: block; }
 }
 .outils.barre-verre > * { pointer-events: auto; }
 .outils .sep { width: 1px; height: 26px; margin: 0 4px; background: rgba(255,255,255,.55); }
-.outils.barre-verre.dans-bandeau { width: auto; justify-content: flex-end; gap: 6px; padding-left: 0; padding-right: 12px; }
+.outils.barre-verre.dans-bandeau { width: auto; justify-content: flex-end; gap: 6px; }
+/* la capsule : fond sombre translucide, les boutons blancs ressortent sur n'importe quel thème */
+.outils.barre-verre { left: 50%; right: auto; transform: translateX(-50%); width: max-content; max-width: calc(100vw - 16px);
+  margin-top: 6px; padding: 5px 7px !important; border-radius: 999px; background: rgba(14,17,28,.62) !important;
+  -webkit-backdrop-filter: blur(10px) saturate(140%) !important; backdrop-filter: blur(10px) saturate(140%) !important;
+  box-shadow: 0 0 0 1px rgba(255,255,255,.14), 0 8px 22px rgba(0,0,0,.35) !important; pointer-events: auto; }
+.outils.barre-verre.dans-bandeau { margin-top: 0; }
+.outils .sep { background: rgba(255,255,255,.3); }
 .outils.dans-bandeau .ic, .outils.dans-bandeau .qui { --d: 40px; }
 .outils.dans-bandeau .ic svg { width: 19px; height: 19px; }
 .outils.dans-bandeau .sep { height: 22px; margin: 0 2px; }
@@ -609,17 +616,19 @@ svg { display: block; }
   .outils .sep { margin: 0 2px; }
 }
 @media (max-width: 640px) {
-  .outils .ic, .outils .qui { --d: 28px; }
-  .outils .pastille { --d: 18px; }
-  .outils .pastille i { width: 14px; height: 14px; }
-  .outils .pastilles { gap: 1px; }
-  .outils .ic svg { width: 14px; height: 14px; }
-  .outils .qui .mini-avatar { font-size: 14px; }
-  .outils.barre-verre { gap: 2px; padding-left: 4px; padding-right: 4px; padding-top: calc(env(safe-area-inset-top, 0px) + 8px); }
+  /* téléphone : de vrais boutons pour le doigt (44 px et plus) */
+  .outils .ic, .outils .qui { --d: 46px; }
+  .outils .ic svg { width: 21px; height: 21px; }
+  .outils .qui .mini-avatar { font-size: 19px; }
+  .outils.barre-verre { gap: 8px; top: calc(env(safe-area-inset-top, 0px) + 6px); }
   .outils .sep { display: none; }
-  .outils .compte { min-width: 15px; height: 15px; font-size: 9px; padding: 0 3px; }
-  .outils .coeurs-restants { width: 20px; }
-  .outils .coeurs-restants svg { width: 9px; height: 9px; }
+  .outils .compte { min-width: 20px; height: 20px; font-size: 12px; padding: 0 5px; }
+  .outils .coeurs-restants { width: 28px; }
+  .outils .coeurs-restants svg { width: 13px; height: 13px; }
+  .outils.outils-bas { top: auto; bottom: calc(env(safe-area-inset-bottom, 0px) + 10px); margin-top: 0; gap: 6px; }
+  .outils.outils-bas .ic { --d: 48px; }
+  .outils.outils-bas #prec, .outils.outils-bas #suiv { --d: 48px; background: #1E2740; color: #fff; }
+  .outils.outils-bas #prec:disabled, .outils.outils-bas #suiv:disabled { background: rgba(255,255,255,.25); color: rgba(255,255,255,.6); }
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
 
@@ -667,7 +676,15 @@ svg { display: block; }
 
 /* les fiches des enfants : polaroïd + post-it + étiquette de prix */
 #accueil .enfants { grid-area: enfants; display: grid; grid-template-columns: 1fr 1fr; gap: 34px 30px; align-content: center; margin: 0; }
-.fiche { position: relative; transform: rotate(var(--r)); }
+.fiche { position: relative; transform: translate(var(--dx, 0), var(--dy, 0)) rotate(var(--r)); }
+@media (min-width: 601px) and (min-height: 501px) {
+  #accueil .enfants { gap: 18px 6px; }
+  #accueil .enfants .fiche:nth-child(1) { width: 92%; justify-self: end; }
+  #accueil .enfants .fiche:nth-child(2) { width: 86%; justify-self: start; }
+  #accueil .enfants .fiche:nth-child(3) { width: 88%; justify-self: center; }
+  #accueil .enfants .fiche:nth-child(4) { width: 94%; justify-self: start; margin-top: 14px; }
+}
+@media (max-width: 600px) { .fiche { --dx: 0px !important; --dy: 0px !important; } }
 .fiche .punaise { --pc: var(--c); }
 #accueil .polaroid { position: relative; display: grid; width: 100%; padding: 12px 12px 14px; background: #FDFBF5; border: 0; cursor: pointer; text-align: center;
   box-shadow: 0 1px 0 rgba(0,0,0,.08), 8px 14px 20px rgba(40,20,5,.42); transition: transform .2s ease, box-shadow .2s ease; }
@@ -716,8 +733,17 @@ svg { display: block; }
 }
 #accueil.ouverture::after { content: ""; position: fixed; inset: 0; z-index: 10; background: #FBF4E4; opacity: 0; animation: fondu .22s forwards; }
 
+/* ===== Babillard : vrai liège, vrai cadre de bois ===== */
+#accueil.babillard { background: #B98A52 url("liege.jpg") 0 0 / 420px repeat !important; box-shadow: none !important; }
+#accueil.babillard .tableau::before { content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background: radial-gradient(ellipse 80% 70% at 50% 45%, rgba(255,236,200,.16), transparent 60%), radial-gradient(ellipse at center, transparent 55%, rgba(40,20,5,.42) 100%); }
+#accueil.babillard .tableau > * { position: relative; z-index: 1; }
+.cadre-bois { position: fixed; inset: 0; z-index: 5; pointer-events: none; border: 22px solid #6B4423;
+  border-image: url("bois.jpg") 40 / 22px round; box-shadow: inset 0 0 0 1px rgba(0,0,0,.5), inset 3px 4px 10px rgba(0,0,0,.55), inset -2px -2px 6px rgba(255,220,170,.08); }
+.cadre-bois::before { content: ""; position: absolute; inset: -22px; border: 1px solid rgba(255,220,170,.25); pointer-events: none; }
+.lumieres { top: calc(env(safe-area-inset-top, 0px) + 12px); z-index: 6; }
 /* ===== Babillard : finitions ===== */
-#accueil.babillard {
+#accueil.babillard.ancien {
   background-color: #B98A52;
   background-image:
     radial-gradient(ellipse at 50% 40%, rgba(255,230,190,.18), transparent 70%),
@@ -730,9 +756,14 @@ svg { display: block; }
   box-shadow: inset 0 0 0 4px #2E1B0B, inset 0 0 0 16px #6B4423, inset 0 0 0 18px #8A5A30, inset 0 0 0 20px #3E2611, inset 0 0 80px 30px rgba(40,20,5,.4);
 }
 .lumieres { position: fixed; left: 0; right: 0; top: calc(env(safe-area-inset-top, 0px) + 6px); width: 100%; height: 60px; z-index: 4; pointer-events: none; overflow: visible; }
-.lumieres .fil { fill: none; stroke: #1F3A28; stroke-width: 2.2; }
-.lumieres .ampoule { animation: lueur 2.4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
-@keyframes lueur { 0%, 100% { opacity: 1; } 50% { opacity: .55; } }
+.lumieres .fil { fill: none; stroke: #1B3524; stroke-width: 2.4; }
+.lumieres .fil-torsade { fill: none; stroke: #4E7D5B; stroke-width: 1; stroke-dasharray: 2.5 3.5; opacity: .8; }
+.lumieres .fil-ombre { fill: none; stroke: rgba(30,12,0,.35); stroke-width: 3; transform: translate(2px, 5px); filter: blur(1.5px); }
+.lumieres .halos { mix-blend-mode: screen; }
+.lumieres .halo { opacity: 1; }
+.lumieres .ampoules { filter: drop-shadow(0 0 3px rgba(255,240,200,.55)) drop-shadow(1px 3px 2px rgba(30,12,0,.35)); }
+.lumieres .halo.vif { animation: scintille 5s ease-in-out infinite; }
+@keyframes scintille { 0%, 100% { opacity: .95; } 46% { opacity: .95; } 50% { opacity: .55; } 54% { opacity: .95; } }
 .tableau { padding-top: calc(env(safe-area-inset-top, 0px) + 58px); }
 .banniere { background: #FDF8EC repeating-linear-gradient(0deg, transparent 0 26px, rgba(27,100,200,.12) 26px 27px); padding-left: 34px; }
 .banniere::before { content: ""; position: absolute; left: 20px; top: 0; bottom: 0; width: 2px; background: rgba(215,38,61,.35); }
@@ -759,14 +790,171 @@ svg { display: block; }
 #accueil .cle-parents .punaise { top: -32px; }
 #accueil .mini-liste.carton { background: #D8B27A linear-gradient(170deg, rgba(255,255,255,.18), transparent 60%); }
 #accueil .mini-liste.carton::before { content: ""; position: absolute; left: -26px; top: 50%; width: 30px; height: 1.5px; background: #6B4423; transform: rotate(-12deg); }
+
+/* ===== Fenêtre « Comment ça marche » : carte de vœux ===== */
+.guide { background: rgba(20,12,4,.55); }
+.guide .guide-carte { width: min(920px, 100%); padding: 0; border-radius: 6px; background: #FBF6EA; color: #1E2740; text-align: left;
+  display: grid; grid-template-columns: 1.15fr 1fr; align-items: stretch; overflow: visible;
+  box-shadow: 0 30px 70px -20px rgba(0,0,0,.7), 0 0 0 1px rgba(120,80,30,.25); }
+.guide .guide-carte::before { content: ""; position: absolute; inset: 10px; border: 1px solid rgba(200,48,42,.35); pointer-events: none; border-radius: 3px; }
+.guide .guide-video { position: relative; margin: 26px 0 26px 26px; padding: 10px 10px 34px; background: #fff; transform: rotate(-1.5deg); align-self: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,.12), 0 16px 30px -12px rgba(0,0,0,.45); border-radius: 2px; }
+.guide .guide-video video { display: block; width: 100%; height: auto; aspect-ratio: 1180 / 820; object-fit: cover; border-radius: 1px; }
+.guide .guide-video .ruban-adh { top: -12px; }
+.guide-texte { padding: 38px 40px 34px 34px; display: grid; align-content: center; gap: 14px; }
+.guide-sur { margin: 0; font: 400 22px/1 "Permanent Marker", cursive; color: #C8302A; transform: rotate(-2deg); }
+.guide .guide-texte h2 { margin: 0; font: italic 600 clamp(30px, 3.6vw, 40px)/1 "Fraunces", Georgia, serif; color: #1A1F33; }
+.guide .guide-etapes { counter-reset: g; list-style: none; margin: 4px 0 0; padding: 0; display: grid; gap: 12px; grid-template-columns: 1fr; }
+.guide .guide-etapes li { counter-increment: g; display: grid; grid-template-columns: 34px 1fr; align-items: baseline; padding: 0; background: none; box-shadow: none; font: 400 16px/1.4 var(--ui); color: #3A3F52; }
+.guide .guide-etapes li::before { content: counter(g); position: static; width: auto; height: auto; background: none; color: #C8302A; font: italic 600 26px/1 "Fraunces", Georgia, serif; }
+.guide .guide-etapes b { font-weight: 700; color: #1E2740; }
+.guide .guide-parents { margin: 4px 0 0; padding-top: 12px; border-top: 1px dashed rgba(30,39,64,.2); font: italic 400 14px/1.45 "Fraunces", Georgia, serif; color: #5B5E6E; }
+.guide .guide-go { justify-self: start; margin-top: 6px; padding: 13px 30px; border-radius: 999px; background: #C8302A; color: #FFF6E5; font: 700 16px var(--ui); letter-spacing: .02em; box-shadow: 0 10px 22px -10px rgba(140,20,15,.8); }
+.guide .guide-go::after { content: " →"; }
+.guide-adultes { grid-column: 1 / -1; display: grid; grid-template-columns: 220px 1fr; gap: 22px; align-items: center; margin: 0 26px 26px; padding: 18px; border-radius: 4px;
+  background: #EFE6D2; border: 1px dashed rgba(30,39,64,.22); }
+.ga-video { position: relative; background: #1E2740; border-radius: 6px; overflow: hidden; box-shadow: 0 8px 18px -8px rgba(0,0,0,.5); }
+.ga-video video { display: block; width: 100%; height: auto; aspect-ratio: 840 / 700; object-fit: cover; }
+.ga-titre { margin: 0 0 8px; font: 400 20px/1 "Permanent Marker", cursive; color: #1F7A4D; }
+.guide-adultes ol { counter-reset: a; list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.guide-adultes li { counter-increment: a; display: grid; grid-template-columns: 26px 1fr; align-items: baseline; font: 400 14.5px/1.4 var(--ui); color: #3A3F52; }
+.guide-adultes li::before { content: counter(a); color: #1F7A4D; font: italic 600 20px/1 "Fraunces", Georgia, serif; }
+.guide-adultes b { color: #1E2740; }
+@media (max-width: 760px), (max-aspect-ratio: 1/1) { .guide-adultes { grid-template-columns: 1fr; margin: 0 22px 22px; } .ga-video { max-width: 300px; } }
+@media (max-height: 500px) and (orientation: landscape) { .guide-adultes { grid-template-columns: 160px 1fr; margin: 0 14px 14px; padding: 10px; gap: 12px; } .guide-adultes li { font-size: 12.5px; } }
+@media (max-width: 760px), (max-aspect-ratio: 1/1) {
+  .guide .guide-carte { grid-template-columns: 1fr; }
+  .guide .guide-video { margin: 22px 22px 0; }
+  .guide-texte { padding: 20px 24px 26px; }
+}
+@media (max-height: 500px) and (orientation: landscape) {
+  .guide .guide-carte { grid-template-columns: 1fr 1.1fr; }
+  .guide .guide-video { margin: 14px 0 14px 14px; padding: 6px 6px 18px; }
+  .guide-texte { padding: 14px 18px; gap: 6px; }
+  .guide .guide-texte h2 { font-size: 24px; } .guide .guide-etapes { gap: 4px; } .guide .guide-etapes li { font-size: 13px; } .guide .guide-parents { display: none; }
+}
+
+/* ===== Babillard : adapté à chaque écran ===== */
+@media (max-aspect-ratio: 1/1), (max-width: 900px) {
+  .tableau { grid-template-columns: 1fr 1fr; grid-template-areas: "banniere mag" "enfants enfants" "notes notes"; gap: 24px 22px; }
+  #accueil .enfants { gap: 30px 26px; max-width: 640px; justify-self: center; width: 100%; }
+  .mag { max-width: 200px; }
+}
+@media (max-width: 600px) {
+  .tableau { grid-template-columns: 1fr; grid-template-areas: "banniere" "enfants" "notes" "mag"; padding: calc(env(safe-area-inset-top, 0px) + 54px) 26px calc(env(safe-area-inset-bottom, 0px) + 34px); gap: 26px; }
+  .banniere { justify-self: stretch; padding: 16px 18px 14px 28px; }
+  .banniere h1 { font-size: 26px; } .dodos { font-size: 19px; margin-top: 8px; }
+  #accueil .enfants { grid-template-columns: 1fr 1fr; gap: 22px 16px; }
+  #accueil .polaroid { padding: 8px 8px 10px; }
+  .polaroid .nom { font-size: 18px; margin-top: 6px; } .polaroid .sous { font-size: 12px; }
+  /* sur téléphone, le post-it et l'étiquette passent sous la photo, côte à côte */
+  .fiche { display: grid; }
+  #accueil .coche-prete.postit-mini, #accueil .mini-liste.carton { position: static; transform: none; width: auto; height: 40px; margin-top: 8px; }
+  .fiche { grid-template-columns: 1fr 1fr; column-gap: 6px; } .fiche .polaroid { grid-column: 1 / -1; }
+  #accueil .coche-prete.postit-mini { display: flex; gap: 4px; justify-content: center; } #accueil .postit-mini .crochet { font-size: 18px; } #accueil .postit-mini .mot { font-size: 13px; }
+  #accueil .mini-liste.carton { clip-path: none; border-radius: 4px; padding: 0 6px; } #accueil .mini-liste.carton::before, .carton .trou { display: none; }
+  .carton b { font-size: 14px; } .carton small { font-size: 8px; }
+  .notes { grid-template-columns: 1fr 1fr; gap: 22px; } #accueil .notes .coupon { grid-column: 1 / -1; }
+  #accueil .postit { width: auto; height: 110px; } #accueil .postit b { font-size: 18px; }
+  .mag { max-width: 240px; justify-self: center; }
+  .cadre-bois { border-width: 12px; border-image-width: 12px; }
+  .lumieres { height: 40px; }
+}
+/* téléphone couché : tout tient sur une rangée, sans défiler */
+@media (max-height: 500px) and (orientation: landscape) {
+  .tableau { grid-template-columns: auto 1fr; grid-template-areas: "banniere enfants" "notes enfants"; padding: 34px 30px 18px; gap: 12px 22px; align-items: start; }
+  .mag { display: none; }
+  .banniere { padding: 10px 14px 10px 24px; } .banniere h1 { font-size: 18px; } .dodos { font-size: 15px; margin-top: 4px; }
+  #accueil .enfants { grid-template-columns: repeat(4, 1fr); gap: 14px; align-content: start; }
+  #accueil .polaroid { padding: 6px 6px 8px; } .polaroid .nom { font-size: 14px; margin-top: 4px; } .polaroid .sous { font-size: 10px; }
+  #accueil .coche-prete.postit-mini { width: 50px; height: 44px; bottom: 54px; left: -10px; } #accueil .postit-mini .mot { font-size: 11px; } #accueil .postit-mini .crochet { font-size: 16px; }
+  #accueil .mini-liste.carton { width: 64px; height: 38px; bottom: 58px; right: -12px; padding-left: 10px; } .carton b { font-size: 13px; } .carton small { font-size: 7px; }
+  .notes { grid-template-columns: 1fr; gap: 10px; } #accueil .postit { width: 120px; height: 70px; } #accueil .postit b { font-size: 14px; } #accueil .postit small { display: none; }
+  #accueil .notes .coupon { display: none; } #accueil .cle-parents { min-width: 0; font-size: 14px; }
+  .cadre-bois { border-width: 10px; border-image-width: 10px; } .lumieres { height: 30px; top: 4px; }
+}
+/* très grands écrans : on garde des proportions de babillard */
+@media (min-width: 1500px) { .tableau { max-width: 1400px; } }
+
+/* ===== Babillard : verdure de Noël, piquée dans les coins du liège ===== */
+.objets { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.objets .o { position: absolute; height: auto; filter: drop-shadow(4px 9px 7px rgba(40,20,5,.42)); }
+#accueil .tableau { position: relative; z-index: 1; }
+/* haut gauche : houx et gui sous les lumières */
+.o-houx    { width: clamp(120px, 12vw, 180px); left: 4px; top: 8px; transform: rotate(-24deg); }
+.o-gui     { width: clamp(130px, 13vw, 200px); right: -18px; top: -26px; transform: rotate(196deg) scaleX(-1); }
+/* bas gauche : épinette et son cône, laurier et houx gravé */
+.o-epinette{ width: clamp(190px, 18vw, 260px); left: -14px; bottom: -40px; transform: rotate(38deg); }
+.o-laurier { width: clamp(140px, 13vw, 190px); left: -60px; bottom: 150px; transform: rotate(72deg); }
+.o-houx2   { width: clamp(100px, 9vw, 135px); left: 128px; bottom: 6px; transform: rotate(-14deg); }
+/* bas droite : la grosse branche de sapin, un pin à cocottes, le sapin touffu */
+.o-sapin   { width: clamp(200px, 22vw, 320px); right: -50px; bottom: -40px; transform: rotate(-35deg); }
+.o-pin     { width: clamp(140px, 12.5vw, 185px); right: 170px; bottom: -36px; transform: rotate(-22deg); }
+.o-sapin2  { width: clamp(120px, 11vw, 165px); right: -46px; bottom: 210px; transform: rotate(-82deg); }
+.o-biscuit { width: clamp(110px, 10vw, 140px); left: clamp(230px, 20vw, 300px); bottom: 26px; transform: rotate(-6deg); }
+
+@media (max-aspect-ratio: 1/1) and (min-width: 601px) { .o-biscuit { left: auto; right: 34%; bottom: 8px; } .o-gui { right: auto; left: 40%; top: 34px; width: 170px; transform: rotate(176deg) scaleX(-1); } .o-houx2 { left: auto; right: 37%; top: 150px; bottom: auto; width: 110px; transform: rotate(18deg); } }
+@media (max-width: 600px) { .objets .o { display: none; } .objets .o-houx, .objets .o-sapin, .objets .o-gui, .objets .o-epinette { display: block; }
+  .o-houx { width: 84px; left: 0; top: 18px; } .o-gui { width: 96px; right: -14px; top: -14px; } .o-sapin { width: 170px; } .o-epinette { width: 140px; bottom: -60px; } }
+@media (max-height: 500px) and (orientation: landscape) { .objets .o { display: none; } .objets .o-sapin { display: block; width: 170px; } }
+
+/* ===== Polaroïds : de vraies photos instantanées ===== */
+#accueil .polaroid { padding: 11px 11px 0; background:
+    linear-gradient(175deg, rgba(255,255,255,.75), rgba(255,255,255,0) 40%),
+    radial-gradient(rgba(0,0,0,.035) 1px, transparent 1.4px) 0 0 / 4px 4px,
+    #F7F4EC;
+  border-radius: 2px;
+  box-shadow: 0 1px 1px rgba(0,0,0,.18), 0 6px 8px -2px rgba(40,20,5,.35), 10px 18px 24px -6px rgba(40,20,5,.45); }
+#accueil .polaroid::before { content: ""; position: absolute; left: 6%; right: 6%; bottom: -2px; height: 14px; z-index: -1; border-radius: 50%;
+  box-shadow: 0 10px 14px rgba(30,15,5,.5); }
+.polaroid .photo { box-shadow: inset 0 0 0 1px rgba(0,0,0,.18), inset 0 0 26px rgba(40,20,10,.35); filter: sepia(.12) saturate(1.12) contrast(1.06) brightness(1.03); }
+.polaroid .photo::after { background:
+    linear-gradient(125deg, rgba(255,255,255,.28) 0%, rgba(255,255,255,.06) 30%, transparent 46%),
+    radial-gradient(ellipse at center, transparent 58%, rgba(60,30,10,.28) 100%); }
+.polaroid .nom { margin-top: 14px; }
+.polaroid .sous { margin-bottom: 16px; }
+
+/* ===== Passe qualité : composition du babillard ===== */
+.banniere h1 { font-size: clamp(28px, 2.7vw, 42px); line-height: .95; }
+.banniere h1 .h1-haut { display: block; white-space: nowrap; font-size: .58em; letter-spacing: .04em; color: #C8302A; text-shadow: 2px 2px 0 #FFD36B; }
+.banniere h1 em { display: block; white-space: nowrap; margin-top: 4px; }
+.dodos { white-space: nowrap; font-size: clamp(18px, 1.9vw, 26px); padding-top: 10px; margin-top: 12px; border-top: 2px dashed rgba(30,39,64,.18); }
+@media (min-aspect-ratio: 1/1) and (min-width: 901px) and (min-height: 501px) {
+  .tableau { grid-template-columns: minmax(240px, .78fr) minmax(0, 1.55fr) minmax(240px, .68fr); gap: 22px 30px; }
+  .notes { gap: 30px; }
+  #accueil .notes .coupon p { padding-right: 40px; }
+}
+/* tablette debout : titre et aides à gauche, catalogue à droite, les photos dessous */
+@media (max-aspect-ratio: 1/1) and (min-width: 601px) {
+  .tableau { grid-template-columns: 1fr 1fr .95fr; grid-template-areas: "banniere banniere mag" "postit cle mag" "enfants enfants enfants" "coupon coupon coupon"; gap: 26px 24px; align-items: start; }
+  .notes { display: contents; }
+  #accueil .postit { grid-area: postit; justify-self: center; width: 160px; height: 128px; }
+  #accueil .cle-parents { grid-area: cle; justify-self: center; align-self: center; }
+  #accueil .notes .coupon { grid-area: coupon; justify-self: center; width: min(520px, 100%); margin-top: 10px; }
+  .mag { max-width: 230px; justify-self: end; margin-right: 8px; }
+  .banniere { justify-self: start; }
+  #accueil .enfants { max-width: 660px; }
+}
 </style>
 
 <main id="accueil" class="babillard">
+  <div class="cadre-bois" aria-hidden="true"></div>
   <svg class="lumieres" id="lumieres" aria-hidden="true" preserveAspectRatio="none"></svg>
+  <div class="objets" aria-hidden="true">
+    <img class="o o-gui" src="deco/plante-gui.webp" alt="" decoding="async">
+    <img class="o o-houx" src="deco/houx.svg" alt="" decoding="async">
+    <img class="o o-laurier" src="deco/plante-laurier.webp" alt="" decoding="async">
+    <img class="o o-epinette" src="deco/plante-epinette.webp" alt="" decoding="async">
+    <img class="o o-houx2" src="deco/plante-houx2.webp" alt="" decoding="async">
+    <img class="o o-sapin2" src="deco/plante-sapin2.webp" alt="" decoding="async">
+    <img class="o o-pin" src="deco/plante-pin-cones.webp" alt="" decoding="async">
+    <img class="o o-sapin" src="deco/sapin.svg" alt="" decoding="async">
+    <img class="o o-biscuit" src="deco/biscuit.svg" alt="" decoding="async">
+  </div>
   <div class="tableau">
     <header class="banniere">
       <span class="punaise p-rouge" aria-hidden="true"></span>
-      <h1>La liste au<br><em>père Noël</em></h1>
+      <h1><span class="h1-haut">La liste au</span> <em>père Noël</em></h1>
       <p class="dodos" id="rebours"></p>
     </header>
 
@@ -865,19 +1053,29 @@ svg { display: block; }
 </div>
 <div class="guide" id="guide" hidden role="dialog" aria-modal="true" aria-labelledby="guide-titre">
   <div class="guide-carte">
-    <div class="guide-ruban">Joyeux Noël!</div>
-    <h2 id="guide-titre">Comment ça marche</h2>
-    <div class="guide-corps">
-    <div class="guide-video"><video id="guide-video" src="demo.mp4" poster="demo.jpg" muted loop playsinline preload="auto" aria-label="Démonstration : choisir son nom, entourer, super cœur, la liste, Prête, Je l'offre"></video></div>
-    <ol class="guide-etapes">
-      <li><span class="g-ico">🏷️</span><b>Choisis ton étiquette</b><small>Ton prénom ouvre <em>ton</em> catalogue.</small></li>
-      <li><span class="g-ico">✏️</span><b>Un rond = un souhait</b><small>Entoure les jouets que tu veux. Glisse pour tourner la page.</small></li>
-      <li><span class="g-ico">❤️</span><b>3 super cœurs</b><small>Pour tes trois préférés entre tous.</small></li>
-      <li><span class="g-ico">✅</span><b>Coche « Prête »</b><small>Quand ta liste est finie.</small></li>
-    </ol>
+    <div class="guide-video"><span class="ruban-adh" aria-hidden="true"></span><video id="guide-video" src="demo.mp4" poster="demo.jpg" muted loop playsinline preload="auto" aria-label="Démonstration : choisir son nom, entourer, super cœur, la liste, Prête, Je l'offre"></video></div>
+    <div class="guide-texte">
+      <p class="guide-sur">Joyeux Noël</p>
+      <h2 id="guide-titre">Comment ça marche</h2>
+      <ol class="guide-etapes">
+        <li><span><b>Touche ton nom</b> pour ouvrir ton catalogue.</span></li>
+        <li><span><b>Fais un rond</b> autour des jouets que tu veux.</span></li>
+        <li><span><b>Trois super cœurs</b> pour tes grands préférés.</span></li>
+        <li><span><b>Coche « Prête »</b> quand ta liste est finie.</span></li>
+      </ol>
+      <button class="guide-go" id="guide-go" type="button">C'est parti</button>
     </div>
-    <p class="guide-parents"><b>Pour les parents</b> — « Liste et prix » montre chaque souhait, son prix et où l'acheter. « Je l'offre » le raye pour toute la famille.</p>
-    <button class="guide-go" id="guide-go" type="button">C'est parti!</button>
+    <div class="guide-adultes">
+      <div class="ga-video"><video id="guide-video2" src="demo-parents.mp4" poster="demo-parents.jpg" muted loop playsinline preload="auto" aria-label="Démonstration : ouvrir Liste et prix et réserver un cadeau"></video></div>
+      <div class="ga-texte">
+        <p class="ga-titre">Pour les grands</p>
+        <ol>
+          <li><span>Touche l'étiquette <b>« Liste et prix »</b> sous la photo d'un enfant.</span></li>
+          <li><span>Chaque souhait y est, avec son prix et le lien vers le magasin.</span></li>
+          <li><span><b>« Je l'offre »</b> réserve le cadeau : il est rayé pour toute la famille, personne d'autre ne l'achètera.</span></li>
+        </ol>
+      </div>
+    </div>
   </div>
 </div>
 <div class="voile" id="fen-achats" hidden>
@@ -1614,6 +1812,20 @@ svg { display: block; }
   document.body.appendChild(sonde);
 
   let barreDansBandeau = false;
+  const ORDRE_BARRE = [...$("outils").children];
+  const AU_POUCE = ["prec", "outil-crayon", "outil-gomme", "outil-coeur", "annuler", "suiv"];
+  let barreBas = null;
+  function placerBarres() {
+    const tel = innerWidth <= 640;
+    if (tel && !barreBas) {
+      barreBas = document.createElement("div"); barreBas.className = "barre-verre outils outils-bas"; barreBas.id = "outils-bas";
+      $("lecteur").appendChild(barreBas);
+      for (const id of AU_POUCE) barreBas.appendChild($(id));
+    } else if (!tel && barreBas) {
+      const o = $("outils"); for (const el of ORDRE_BARRE) o.appendChild(el);
+      barreBas.remove(); barreBas = null;
+    }
+  }
   // la largeur du plus long titre de ce catalogue, en unités de page
   function titreMax() {
     const c = document.createElement("canvas").getContext("2d");
@@ -1623,24 +1835,27 @@ svg { display: block; }
     if (etat.vue !== "catalogue") return;
     const cs = getComputedStyle(sonde);
     const sg = parseFloat(cs.paddingLeft) || 0, sd = parseFloat(cs.paddingRight) || 0, sb = parseFloat(cs.paddingBottom) || 0, st = parseFloat(cs.paddingTop) || 0;
+    placerBarres();
     const L = window.innerWidth, Hh = window.innerHeight, outils = $("outils");
     // d'abord : les boutons dans le bandeau rouge de la page, à droite du titre, si tout tient
+    outils.style.transform = "";
     const essai = () => {
       const bas0 = sb + 4, g0 = sg + 4, d0 = sd + 4, dW = L - g0 - d0, dH = Hh - (st + 2) - bas0;
       const f0 = dW / dH > 1.05 ? "L" : "P", W0 = FORMATS[f0].W, H0 = FORMATS[f0].H;
       let w0 = dW, h0 = w0 * H0 / W0; if (h0 > dH) { h0 = dH; w0 = h0 * W0 / H0; }
-      const k = w0 / W0, larg = [...outils.children].reduce((t, el) => t + el.getBoundingClientRect().width + 6, 0);
+      const k = w0 / W0, larg = [...outils.children].reduce((t, el) => t + el.getBoundingClientRect().width + 6, 0) + 24;
       return (M + titreMax() + 30) * k + larg + 20 <= w0 && 72 * k >= 44 ? { k, w0, x0: g0 + (dW - w0) / 2 } : null;
     };
     outils.classList.add("dans-bandeau"); outils.style.cssText = "";
-    const e = essai();
+    const e = barreBas ? null : essai();
     if (!!e !== barreDansBandeau) BASES.clear();
     barreDansBandeau = !!e;
     if (e) {
       const hb = 72 * e.k;   // hauteur du bandeau rouge à l'écran
-      Object.assign(outils.style, { top: (st + 2) + "px", left: "auto", right: Math.max(4, L - (e.x0 + e.w0)) + "px", height: hb + "px", paddingTop: "0", paddingBottom: "0", alignItems: "center" });
+      Object.assign(outils.style, { top: (st + 2 + hb / 2) + "px", left: "auto", right: Math.max(8, L - (e.x0 + e.w0) + 8) + "px", transform: "translateY(-50%)" });
     } else outils.classList.remove("dans-bandeau");
-    const haut = barreDansBandeau ? st + 2 : outils.getBoundingClientRect().bottom + 4, bas = sb + 4, gauche = sg + 4, droite = sd + 4;
+    const haut = barreDansBandeau ? st + 2 : outils.getBoundingClientRect().bottom + 4, gauche = sg + 4, droite = sd + 4;
+    const bas = barreBas ? Hh - barreBas.getBoundingClientRect().top + 6 : sb + 4;
     const dispoW = L - gauche - droite, dispoH = Hh - haut - bas;
     if (dispoW < 50 || dispoH < 50) return;
     const f = dispoW / dispoH > 1.05 ? "L" : "P";
@@ -2051,11 +2266,6 @@ svg { display: block; }
         if (p.url) pdf.link(60 * f, y * f, (CWp - 120) * f, 150 * f, { url: p.url });
         y += hRang;
       }
-      if (r === nbRes - 1 && liste.length) {
-        x.fillStyle = COUL.encre; x.font = `900 34px ${F_TEXTE}`; x.textAlign = "right";
-        x.fillText("Total : " + prix(liste.reduce((s, c) => s + c.p.prix, 0)), CWp - 60, y + 60);
-        x.textAlign = "left";
-      }
       x.fillStyle = COUL.douce; x.font = `600 20px ${F_TEXTE}`; x.textAlign = "center";
       x.fillText("Prix vus en ligne le 20 novembre 2026, avant taxes. Les pages entourées suivent.", CWp / 2, CHp - 40);
       pdf.addImage(cv.toDataURL("image/jpeg", 0.9), "JPEG", 0, 0, PW, PH, undefined, "FAST");
@@ -2109,7 +2319,8 @@ svg { display: block; }
     const box = $("enfants"); box.innerHTML = "";
     ENFANTS.forEach((e, i) => {
       const n = choisis(e.id).length, nc = (etat.coeurs[e.id] || []).length, c = CRAYONS[etat.crayon[e.id]].c, nom = nomDe(e.id), pret = !!etat.pretes[e.id];
-      const f = document.createElement("div"); f.className = "fiche" + (pret ? " prete" : ""); f.style.setProperty("--c", c); f.style.setProperty("--r", [-3, 2.5, -1.5, 3][i % 4] + "deg");
+      const f = document.createElement("div"); f.className = "fiche" + (pret ? " prete" : ""); f.style.setProperty("--c", c); f.style.setProperty("--r", [-6, 4.5, -2.5, 7][i % 4] + "deg");
+      f.style.setProperty("--dx", [-14, 26, -18, 24][i % 4] + "px"); f.style.setProperty("--dy", [6, -22, 16, -8][i % 4] + "px"); f.style.zIndex = [2, 3, 4, 5][i % 4];
       f.innerHTML = `<span class="punaise" aria-hidden="true"></span>
         <button class="boule polaroid" type="button"><span class="photo"><span class="init"></span></span><span class="nom"></span><span class="sous"></span></button>
         <button class="coche-prete postit-mini" type="button" role="checkbox"><span class="crochet">✓</span><span class="mot"></span></button>
@@ -2118,7 +2329,7 @@ svg { display: block; }
       init.textContent = initiale(nom);
       const ph = new Image(); ph.onload = () => { init.remove(); photo.style.backgroundImage = `url("${ph.src}")`; }; ph.src = "portraits/" + e.id + ".jpg";
       f.querySelector(".nom").textContent = nom;
-      f.querySelector(".sous").textContent = [e.age && !/\d/.test(nom) ? e.age : "", n ? nbCadeaux(n) + (nc ? " · " + nc + " ♥" : "") : ""].filter(Boolean).join(" · ");
+      f.querySelector(".sous").textContent = e.age && !/\d/.test(nom) ? e.age : "";
       const boule = f.querySelector(".boule");
       boule.setAttribute("aria-label", "Ouvrir le catalogue de " + nom);
       boule.addEventListener("click", () => lancerOuverture(e.id));
@@ -2266,7 +2477,7 @@ svg { display: block; }
     }
     const a = document.createElement("div"); a.className = "actions";
     const t = document.createElement("span"); t.className = "total";
-    t.textContent = liste.length ? nbCadeaux(liste.length) + " · total " + prix(liste.reduce((s, c) => s + c.p.prix, 0)) : "";
+    t.textContent = "";
     a.appendChild(t);
     a.appendChild(document.createElement("span")).style.flex = "1";
     a.appendChild(boutonPdf(k));
@@ -2333,7 +2544,7 @@ svg { display: block; }
       const h = document.createElement("h3"); h.textContent = nomDe(e.id); b.appendChild(h);
       const p = document.createElement("p"); p.className = "note";
       p.textContent = liste.length
-        ? nbCadeaux(liste.length) + " · total " + prix(liste.reduce((s, c) => s + c.p.prix, 0))
+        ? "Sa liste est commencée."
         : (pagesDessinees(e.id).length ? "Des dessins, mais aucun jouet clairement entouré." : "Rien d'entouré pour l'instant.");
       b.appendChild(p);
       const a = document.createElement("div"); a.className = "actions";
@@ -2429,23 +2640,46 @@ svg { display: block; }
 
   function guirlande() {
     const sv = $("lumieres"); if (!sv) return;
-    const W = innerWidth, n = Math.max(2, Math.round(W / 260)), pas = W / n, C = ["#FF4D5E", "#FFD45C", "#4DC3FF", "#7CF08F", "#FF8AE2"];
-    let d = "M -10 4", h = "";
-    for (let i = 0; i < n; i++) { const x0 = i * pas, x1 = x0 + pas; d += ` Q ${x0 + pas / 2} 46 ${x1} 4`; }
-    sv.setAttribute("viewBox", `0 0 ${W} 60`);
-    sv.innerHTML = `<path class="fil" d="${d}"/>`;
-    const p = sv.querySelector("path"), L = p.getTotalLength();
-    for (let l = 20, k = 0; l < L; l += 46, k++) {
-      const q = p.getPointAtLength(l), c = C[k % C.length];
-      h += `<g class="ampoule" style="animation-delay:${(-k * .37).toFixed(2)}s"><circle cx="${q.x}" cy="${q.y + 9}" r="10" fill="${c}" opacity=".25"/><rect x="${q.x - 3}" y="${q.y}" width="6" height="5" rx="1" fill="#2B3A2E"/><ellipse cx="${q.x}" cy="${q.y + 10}" rx="4.2" ry="6" fill="${c}"/><ellipse cx="${q.x - 1.4}" cy="${q.y + 8}" rx="1.2" ry="2" fill="#fff" opacity=".7"/></g>`;
+    const W = innerWidth, tel = W <= 600 || innerHeight <= 500, n = Math.max(2, Math.round(W / (tel ? 190 : 250))), pas = W / n;
+    // ampoules C9 : verre teinté, filament blanc chaud, halo qui déborde sur le liège
+    const C = [["#FF3B30", "#FFB3A8", "#8E0E0A"], ["#FFC226", "#FFF1B8", "#A86A00"], ["#2E8BFF", "#BFE0FF", "#0A3C8C"], ["#2FD46B", "#C6F7D6", "#0B6B2E"], ["#FF6FB5", "#FFD3EA", "#9C1F5C"], ["#FF8A1F", "#FFD9AE", "#9A4300"]];
+    const sag = tel ? 30 : 44, H = sag + 70;
+    let d = "M -20 6";
+    for (let i = 0; i < n; i++) { const x0 = i * pas, x1 = x0 + pas; d += ` C ${x0 + pas * .28} ${sag + 4} ${x0 + pas * .72} ${sag + 4} ${x1} 6`; }
+    let defs = "<defs>";
+    C.forEach(([c, clair, fonce], k) => {
+      defs += `<radialGradient id="v${k}" cx="42%" cy="38%" r="70%"><stop offset="0" stop-color="#FFFDF4"/><stop offset=".22" stop-color="${clair}"/><stop offset=".62" stop-color="${c}"/><stop offset="1" stop-color="${fonce}"/></radialGradient>`;
+      defs += `<radialGradient id="h${k}"><stop offset="0" stop-color="${clair}" stop-opacity="1"/><stop offset=".14" stop-color="${c}" stop-opacity=".7"/><stop offset=".45" stop-color="${c}" stop-opacity=".22"/><stop offset="1" stop-color="${c}" stop-opacity="0"/></radialGradient>`;
+    });
+    defs += `<linearGradient id="douille" x1="0" x2="1"><stop offset="0" stop-color="#16301F"/><stop offset=".45" stop-color="#3D6B4A"/><stop offset="1" stop-color="#0E2216"/></linearGradient></defs>`;
+    sv.setAttribute("viewBox", `0 0 ${W} ${H}`); sv.style.height = H + "px";
+    sv.innerHTML = defs + `<path class="fil-ombre" d="${d}"/><path class="fil" d="${d}"/><path class="fil-torsade" d="${d}"/><g class="halos"></g><g class="ampoules"></g>`;
+    const p = sv.querySelector(".fil"), L = p.getTotalLength(), ecart = tel ? 40 : 52;
+    let halos = "", amp = "";
+    for (let l = 26, k = 0; l < L - 10; l += ecart, k++) {
+      const q = p.getPointAtLength(l), q2 = p.getPointAtLength(Math.min(L, l + 1));
+      if (q.x < -6 || q.x > W + 6) continue;
+      const t = Math.atan2(q2.y - q.y, q2.x - q.x) * 180 / Math.PI;
+      const ang = t + (k % 2 ? 1 : -1) * (6 + (k * 37 % 11));      // chaque ampoule pend un peu de travers
+      const ci = (k * 5 + 1) % C.length, sc = tel ? .85 : 1.15;
+      const rad = (ang + 90) * Math.PI / 180, hx = q.x + Math.cos(rad) * 17 * sc, hy = q.y + Math.sin(rad) * 17 * sc;
+      const vif = k % 6 === 2 ? " vif" : "";
+      halos += `<circle class="halo${vif}" style="animation-delay:${(-k * 1.7 % 5).toFixed(2)}s" cx="${hx.toFixed(1)}" cy="${hy.toFixed(1)}" r="${(42 * sc).toFixed(1)}" fill="url(#h${ci})"/>`;
+      amp += `<g transform="translate(${q.x.toFixed(1)} ${q.y.toFixed(1)}) rotate(${ang.toFixed(1)}) scale(${sc})">`
+        + `<rect x="-3.6" y="-1" width="7.2" height="9" rx="1.6" fill="url(#douille)"/><path d="M-3.6 2.5h7.2M-3.6 5h7.2" stroke="rgba(255,255,255,.12)" stroke-width=".8"/>`
+        + `<path d="M-4 8 C-7.6 12.5 -7.4 21 -2.2 26.5 Q0 29 2.2 26.5 C7.4 21 7.6 12.5 4 8 Z" fill="url(#v${ci})"/>`
+        + `<path d="M-2.6 11.5 C-4.4 14 -4.4 18 -3 20.5" stroke="#fff" stroke-opacity=".75" stroke-width="1.3" fill="none" stroke-linecap="round"/>`
+        + `<ellipse cx="0" cy="16" rx="1.6" ry="3.2" fill="#FFFBEA" opacity=".9"/></g>`;
     }
-    sv.insertAdjacentHTML("beforeend", h);
+    sv.querySelector(".halos").innerHTML = halos;
+    sv.querySelector(".ampoules").innerHTML = amp;
   }
   guirlande(); addEventListener("resize", guirlande);
 
   // le guide s'ouvre à la première visite sur cet appareil ; le bouton « Comment ça marche » le rouvre
-  const ouvrirGuide = () => { $("guide").hidden = false; const v = $("guide-video"); try { v.currentTime = 0; v.play().catch(() => {}); } catch (_) {} setTimeout(() => $("guide-go").focus(), 50); };
-  const fermerGuide = () => { $("guide").hidden = true; try { $("guide-video").pause(); } catch (_) {} try { localStorage.setItem("catalogue-guide-vu", "1"); } catch (_) {} };
+  const videosGuide = () => ["guide-video", "guide-video2"].map($).filter(Boolean);
+  const ouvrirGuide = () => { $("guide").hidden = false; for (const v of videosGuide()) { try { v.currentTime = 0; v.play().catch(() => {}); } catch (_) {} } setTimeout(() => $("guide-go").focus(), 50); };
+  const fermerGuide = () => { $("guide").hidden = true; for (const v of videosGuide()) { try { v.pause(); } catch (_) {} } try { localStorage.setItem("catalogue-guide-vu", "1"); } catch (_) {} };
   $("guide-go").addEventListener("click", fermerGuide);
   $("guide").addEventListener("click", e => { if (e.target === $("guide")) fermerGuide(); });
   $("ouvrir-guide").addEventListener("click", ouvrirGuide);
