@@ -935,6 +935,14 @@ svg { display: block; }
   .banniere { justify-self: start; }
   #accueil .enfants { max-width: 660px; }
 }
+/* téléphone : l'avis aux parents tout en haut, sous la note du père Noël */
+@media (max-width: 600px) {
+  .tableau { grid-template-columns: 1fr 1fr; grid-template-areas: "banniere banniere" "coupon coupon" "enfants enfants" "postit cle" "mag mag"; column-gap: 18px; }
+  .notes { display: contents; }
+  #accueil .notes .coupon { grid-area: coupon; margin: 6px 4px 4px; }
+  #accueil .postit { grid-area: postit; width: 100%; }
+  #accueil .cle-parents { grid-area: cle; align-self: center; min-width: 0; width: 100%; }
+}
 </style>
 
 <main id="accueil" class="babillard">
@@ -1101,7 +1109,9 @@ svg { display: block; }
 
   /* ---------- Constantes ---------- */
   // Deux formats de page : portrait (tablette debout) et paysage (tablette couchée).
-  const FORMATS = { P: { W: 1000, H: 1300 }, L: { W: 1300, H: 910 } };
+  // T : téléphone debout — deux jouets par rangée, le texte sous chaque photo, la page défile
+  const FORMATS = { P: { W: 1000, H: 1300 }, L: { W: 1300, H: 910 }, T: { W: 600, H: 2140 } };
+  const LES_FORMATS = ["P", "L", "T"];
   let FMT = "P", W = 1000, H = 1300, BAS = H - 30, H_ENTREE = 50;
   function regler(f) { FMT = f; W = FORMATS[f].W; H = FORMATS[f].H; BAS = H - 30; H_ENTREE = f === "L" ? 46 : 50; }
   const M = 32, G = 24, HAUT = 96;
@@ -1304,9 +1314,22 @@ svg { display: block; }
     // les petites photos d'abord, la vedette par-dessus
     return { zones, ordre: ordre.slice().sort((a, b) => (zones[a].vedette - zones[b].vedette) || (rnd() - 0.5)), yTexte };
   }
+  // le téléphone : deux colonnes, chaque description sous sa photo, en gros
+  const T_RANG = 384, T_TXT = 96;
+  function disposerT(pg) {
+    const n = pg.items.length, X0 = 18, X1 = W - 18, Y0 = HAUT + 6, gc = 16, cw = (X1 - X0 - gc) / 2;
+    const zones = pg.items.map((p, i) => {
+      const lig = Math.floor(i / 2), seul = i === n - 1 && n % 2 === 1, col = i % 2;
+      const x = seul ? X0 + (X1 - X0 - cw) / 2 : X0 + col * (cw + gc), y = Y0 + lig * T_RANG;
+      const hPhoto = T_RANG - T_TXT - 18;
+      return { photo: { x: x + 6, y: y + 6, w: cw - 12, h: hPhoto - 6 }, rot: 0, fx: .5, fy: .5, vedette: false,
+               lettre: LETTRES[i], rang: i, texte: { x, y: y + hPhoto + 4, w: cw, h: T_TXT } };
+    });
+    return { zones, ordre: zones.map((_, i) => i), yTexte: BAS, fin: Y0 + Math.ceil(n / 2) * T_RANG };
+  }
   PAGES.forEach((pg, i) => {
     pg.m = {};
-    for (const f of ["P", "L"]) { regler(f); pg.m[f] = disposer(pg, i); }
+    for (const f of LES_FORMATS) { regler(f); pg.m[f] = f === "T" ? disposerT(pg) : disposer(pg, i); }
     Object.defineProperties(pg, {
       zones: { get() { return this.m[FMT].zones; } },
       ordreDessin: { get() { return this.m[FMT].ordre; } },
@@ -1648,6 +1671,7 @@ svg { display: block; }
     if (!(dx || dy)) bandeau(ctx, pg.cle, 0, 0, W);
     const th = themeDe(pg.cle);
     ctx.textBaseline = "alphabetic"; ctx.font = th.titre.police(1);
+    { const place = W - 2 * M - (barreDansBandeau ? 0 : 110), lt = ctx.measureText(pg.titre).width; if (lt > place) ctx.font = th.titre.police(place / lt); }
     ctx.fillStyle = th.titre.ombre; ctx.fillText(pg.titre, M + 3, 53);
     ctx.fillStyle = th.titre.couleur; ctx.fillText(pg.titre, M, 50);
     ctx.textAlign = "right"; ctx.fillStyle = th.titre.couleur; ctx.font = `900 20px ${F_TEXTE}`;
@@ -1655,7 +1679,8 @@ svg { display: block; }
     ctx.textAlign = "left";
 
     // filet de cadre
-    ctx.strokeStyle = COUL.filet; ctx.lineWidth = 2; ctx.strokeRect(10, 86, W - 20, H - 106);
+    const finT = FMT === "T" ? pg.m.T.fin + 44 : H;
+    ctx.strokeStyle = COUL.filet; ctx.lineWidth = 2; ctx.strokeRect(10, 86, W - 20, finT - 106);
     const n = pg.items.length;
     const posee = [];
     for (const i of pg.ordreDessin) {
@@ -1686,8 +1711,9 @@ svg { display: block; }
     }
     ctx.textAlign = "left";
     // descriptions en colonnes, serrées : lettre, nom, marque et âge, prix
-    ctx.fillStyle = COUL.encre; ctx.fillRect(M, pg.yTexte - 2, W - 2 * M, 2);
-    for (let i = 0; i < n; i++) {
+    if (FMT === "T") dessinerTextesT(ctx, pg);
+    else ctx.fillRect(M, pg.yTexte - 2, W - 2 * M, 2);
+    for (let i = 0; i < (FMT === "T" ? 0 : n); i++) {
       const t = pg.zones[i].texte, p = pg.items[i];
       ctx.textAlign = "left";
       ctx.fillStyle = COUL.rouge; ctx.font = `900 15px ${F_TEXTE}`;
@@ -1705,9 +1731,23 @@ svg { display: block; }
     }
     // pied
     ctx.fillStyle = COUL.douce; ctx.font = `700 11px ${F_TEXTE}`; ctx.textAlign = "center";
-    ctx.fillText("LE CATALOGUE DES SOUHAITS  ·  NOËL 2026  ·  " + (numeroPage(idx) ? numeroPage(idx).join(" / ") : "BONUS"), W / 2, H - 8);
+    ctx.fillText("LE CATALOGUE DES SOUHAITS  ·  NOËL 2026  ·  " + (numeroPage(idx) ? numeroPage(idx).join(" / ") : "BONUS"), W / 2, finT - 8);
     ctx.textAlign = "left";
     ctx.restore();
+  }
+  // téléphone : sous chaque photo, le prix en gros, le nom sur deux lignes, la marque et l'âge
+  function dessinerTextesT(ctx, pg) {
+    pg.items.forEach((p, i) => {
+      const t = pg.zones[i].texte;
+      ctx.textAlign = "left"; ctx.fillStyle = COUL.rouge; ctx.font = `900 27px ${F_TEXTE}`;
+      ctx.fillText(prix(p.prix), t.x + 4, t.y + 24);
+      ctx.fillStyle = COUL.encre; ctx.font = `800 21px ${F_TEXTE}`;
+      const nom = lignes(ctx, p.nom, t.w - 8, 2);
+      ctx.fillText(nom[0], t.x + 4, t.y + 50);
+      if (nom[1]) ctx.fillText(lignes(ctx, nom[1], t.w - 8, 1)[0], t.x + 4, t.y + 73);
+      ctx.fillStyle = COUL.douce; ctx.font = `500 16px ${F_TEXTE}`;
+      ctx.fillText(lignes(ctx, [p.marque, p.age ? ageTexte(p.age) : ""].filter(Boolean).join(" · "), t.w - 8, 1)[0], t.x + 4, t.y + (nom[1] ? 94 : 72));
+    });
   }
   function cadreDessin(ctx, r) {
     ctx.save();
@@ -1781,11 +1821,35 @@ svg { display: block; }
   let echelle = 1, pw = 0, ph = 0, ox = 0, oy = 0, dprAff = 1, trait = null, rafId = 0;
   let tour = null;                         // page en train de tourner
   let geste = null, dernierStylet = -1e9;
+  // téléphone : la page est plus haute que l'écran et défile (px CSS)
+  let defile = 0, defMax = 0, hautCss = 0, basCss = 0, pageDefile = -1, inertie = 0;
+  const decalPx = () => Math.round(defile * dprAff);
+  function calcDefMax() {
+    if (FMT !== "T") { defMax = 0; defile = 0; return; }
+    const finCss = (PAGES[pageCourante()].m.T.fin + 50) * zone.w / W;
+    defMax = Math.max(0, hautCss + finCss - (innerHeight - basCss));
+    defile = Math.max(0, Math.min(defMax, defile)); zone.y = hautCss - defile;
+  }
+  function majDefile(v) { defile = Math.max(0, Math.min(defMax, v)); zone.y = hautCss - defile; planifier(); }
+  // un rond fait sur un autre écran (iPad couché, debout, téléphone) se montre ici aussi, sur le même jouet
+  function projeter(st, idx) {
+    const ou = OU.get(st.id); if (!ou || ou[0] !== idx) return null;
+    const z = PAGES[idx].m[FMT].zones[ou[1]].photo, r = st.r;
+    return { c: st.c, id: st.id, p: st.p.map((v, n) => n % 2 ? z.y + (v - r[1]) / r[3] * z.h : z.x + (v - r[0]) / r[2] * z.w) };
+  }
+  function traitsDe(kid, idx) {
+    const ici = T[cle(kid, idx)] || [], vus = new Set(ici.filter(st => st.id).map(st => st.id)), out = ici.slice();
+    for (const f of LES_FORMATS) {
+      if (f === FMT) continue;
+      for (const st of (T[cle(kid, idx, f)] || [])) { if (!st.id || vus.has(st.id)) continue; const q = projeter(st, idx); if (q) { vus.add(st.id); out.push(q); } }
+    }
+    return out;
+  }
 
   function base(idx) {
     let c = BASES.get(idx);
     if (!c) {
-      c = document.createElement("canvas"); c.width = pw; c.height = ph;
+      c = document.createElement("canvas"); c.width = pw; c.height = FMT === "T" ? Math.max(ph, oy + Math.ceil((PAGES[idx].m.T.fin + 60) * echelle)) : ph;
       const x = c.getContext("2d");
       // la feuille couvre tout l'écran : papier partout, bandeau rouge jusqu'en haut
       x.fillStyle = COUL.papier; x.fillRect(0, 0, pw, ph);
@@ -1796,14 +1860,15 @@ svg { display: block; }
     }
     return c;
   }
-  function avecRonds(idx, n) {
+  function avecRonds(idx, n, dec = 0) {
     const c = tampons[n];
     if (c.width !== pw || c.height !== ph) { c.width = pw; c.height = ph; }
     const x = c.getContext("2d");
     x.setTransform(1, 0, 0, 1, 0, 0); x.clearRect(0, 0, pw, ph);
-    x.drawImage(base(idx), 0, 0);
-    for (const st of (T[cle(etat.enfant, idx)] || [])) dessinerTrait(x, st, echelle, ox, oy);
-    dessinerCoeurs(x, idx, echelle, etat.enfant, ox, oy);
+    x.fillStyle = COUL.papier; x.fillRect(0, 0, pw, ph);
+    x.drawImage(base(idx), 0, -dec);
+    for (const st of traitsDe(etat.enfant, idx)) dessinerTrait(x, st, echelle, ox, oy - dec);
+    dessinerCoeurs(x, idx, echelle, etat.enfant, ox, oy - dec);
     return c;
   }
 
@@ -1858,15 +1923,17 @@ svg { display: block; }
     const bas = barreBas ? Hh - barreBas.getBoundingClientRect().top + 6 : sb + 4;
     const dispoW = L - gauche - droite, dispoH = Hh - haut - bas;
     if (dispoW < 50 || dispoH < 50) return;
-    const f = dispoW / dispoH > 1.05 ? "L" : "P";
-    if (f !== FMT) { regler(f); BASES.clear(); tour = null; trait = null; geste = null; }
+    const f = dispoW / dispoH > 1.05 ? "L" : (barreBas ? "T" : "P");
+    if (f !== FMT) { regler(f); BASES.clear(); tour = null; trait = null; geste = null; defile = 0; }
     let w = dispoW, h = w * H / W;
-    if (h > dispoH) { h = dispoH; w = h * W / H; }
+    if (h > dispoH && FMT !== "T") { h = dispoH; w = h * W / H; }
+    hautCss = haut; basCss = bas;
     zone.x = gauche + (dispoW - w) / 2; zone.y = haut; zone.w = w; zone.h = h;
+    calcDefMax();
     Object.assign(toile.style, { left: "0px", top: "0px", width: L + "px", height: Hh + "px" });
-    const dpr = Math.min(window.devicePixelRatio || 1, 2.5);
+    const dpr = Math.min(window.devicePixelRatio || 1, FMT === "T" ? 2 : 2.5);
     const nw = Math.round(L * dpr), nh = Math.round(Hh * dpr);
-    const nox = Math.round(zone.x * dpr), noy = Math.round(zone.y * dpr), nech = (w * dpr) / W;
+    const nox = Math.round(zone.x * dpr), noy = Math.round(hautCss * dpr), nech = (w * dpr) / W;
     if (nw !== pw || nh !== ph || nox !== ox || noy !== oy || Math.abs(nech - echelle) > 1e-6) {
       pw = nw; ph = nh; ox = nox; oy = noy; echelle = nech; toile.width = pw; toile.height = ph; BASES.clear(); tour = null;
     }
@@ -1881,12 +1948,15 @@ svg { display: block; }
     ctx.setTransform(1, 0, 0, 1, 0, 0);
     if (tour) { dessinerTournant(ctx, tour.haut, tour.dessous, tour.P, tour.cy); return; }
     const idx = pageCourante();
+    if (idx !== pageDefile) { pageDefile = idx; defile = 0; calcDefMax(); }
     priorite(idx);
+    const d = decalPx();
     ctx.clearRect(0, 0, pw, ph);
-    ctx.drawImage(base(idx), 0, 0);
-    for (const st of (T[cle(etat.enfant, idx)] || [])) dessinerTrait(ctx, st, echelle, ox, oy);
-    if (trait) dessinerTrait(ctx, trait, echelle, ox, oy);
-    if (dessinerCoeurs(ctx, idx, echelle, etat.enfant, ox, oy)) planifier();
+    if (d) { ctx.fillStyle = COUL.papier; ctx.fillRect(0, 0, pw, ph); }
+    ctx.drawImage(base(idx), 0, -d);
+    for (const st of traitsDe(etat.enfant, idx)) dessinerTrait(ctx, st, echelle, ox, oy - d);
+    if (trait) dessinerTrait(ctx, trait, echelle, ox, oy - d);
+    if (dessinerCoeurs(ctx, idx, echelle, etat.enfant, ox, oy - d)) planifier();
     // préparer les pages voisines pendant que l'enfant regarde
     clearTimeout(prechauffe);
     prechauffe = setTimeout(() => {
@@ -1960,7 +2030,7 @@ svg { display: block; }
     if (autre < 0) return false;
     // vers l'avant : la page courante tourne et découvre la suivante ;
     // vers l'arrière : la page d'avant revient se poser par-dessus.
-    const haut = avecRonds(dir > 0 ? idx : autre, 0), dessous = avecRonds(dir > 0 ? autre : idx, 1);
+    const haut = avecRonds(dir > 0 ? idx : autre, 0, dir > 0 ? decalPx() : 0), dessous = avecRonds(dir > 0 ? autre : idx, 1, dir > 0 ? 0 : decalPx());
     tour = { dir, haut, dessous, cy, cible: autre, anim: false, P: { x: dir > 0 ? pw : -pw, y: cy } };
     return true;
   }
@@ -2006,9 +2076,12 @@ svg { display: block; }
   const dansPage = e => e.clientX >= zone.x && e.clientX <= zone.x + zone.w && e.clientY >= zone.y && e.clientY <= zone.y + zone.h;
   const versPage = e => [Math.round((e.clientX - zone.x) / zone.w * W), Math.round((e.clientY - zone.y) / zone.h * H)];
   function gommer(x, y) {
-    const k = cle(etat.enfant, pageCourante()), arr = T[k] || [], avant = arr.length;
-    T[k] = arr.filter(st => { for (let i = 0; i < st.p.length; i += 2) if (Math.hypot(st.p[i] - x, st.p[i + 1] - y) < 28) return false; return true; });
-    return T[k].length !== avant;
+    const idx = pageCourante(), k = cle(etat.enfant, idx), arr = T[k] || [], avant = arr.length;
+    const touche = st => { for (let i = 0; i < st.p.length; i += 2) if (Math.hypot(st.p[i] - x, st.p[i + 1] - y) < 28) return true; return false; };
+    T[k] = arr.filter(st => !touche(st));
+    let change = T[k].length !== avant;
+    for (const st of traitsDe(etat.enfant, idx)) if (st.id && !arr.includes(st) && touche(st)) change = retirerJouet(st.id, idx) || change;
+    return change;
   }
   function debutTrait(e) {
     geste = { type: etat.outil === "gomme" ? "gomme" : "trait", id: e.pointerId, change: false };
@@ -2028,7 +2101,7 @@ svg { display: block; }
       if (now - dernierStylet < 800) return;                     // paume posée pendant qu'on dessine
       if (Math.max(e.width || 0, e.height || 0) > 70) return;    // contact trop large : une paume
       if (etat.doigtDessine) { if (dansPage(e) && !tour) { if (etat.outil === "coeur") basculerCoeur(e); else debutTrait(e); } return; }
-      geste = { type: "glisse", id: e.pointerId, x0: e.clientX, y0: e.clientY, hist: [[now, e.clientX]] };
+      geste = { type: "glisse", doigt: true, id: e.pointerId, x0: e.clientX, y0: e.clientY, hist: [[now, e.clientX]] };
       try { scene.setPointerCapture(e.pointerId); } catch (_) {}
       return;
     }
@@ -2051,6 +2124,11 @@ svg { display: block; }
       const dx = e.clientX - geste.x0, dy = e.clientY - geste.y0;
       geste.bouge = Math.max(geste.bouge || 0, Math.hypot(dx, dy));
       geste.hist.push([performance.now(), e.clientX]); if (geste.hist.length > 6) geste.hist.shift();
+      if (FMT === "T" && !tour && (geste.def || (Math.abs(dy) > 8 && Math.abs(dy) > Math.abs(dx)))) {
+        if (!geste.def) { geste.def = { d0: defile + dy, hist: [] }; cancelAnimationFrame(inertie); }
+        geste.def.hist.push([performance.now(), e.clientY]); if (geste.def.hist.length > 6) geste.def.hist.shift();
+        majDefile(geste.def.d0 - dy); return;
+      }
       if (!tour) {
         if (Math.abs(dx) < 10 || Math.abs(dx) < Math.abs(dy)) return;
         const cy = geste.y0 - zone.y > zone.h * 0.45 ? ph : 0;
@@ -2073,10 +2151,21 @@ svg { display: block; }
   function finGeste(e) {
     if (!geste || e.pointerId !== geste.id) return;
     const g = geste; geste = null;
+    if (g.type === "glisse" && g.def) {
+      // le doigt lâche la page en mouvement : elle continue sur sa lancée
+      const h = g.def.hist; let v = 0;
+      if (h.length > 1) { const a = h[0], b = h[h.length - 1]; v = -(b[1] - a[1]) / Math.max(16, b[0] - a[0]); }
+      let t0 = performance.now();
+      const pas = now => { const dt = now - t0; t0 = now; v *= Math.pow(0.995, dt); majDefile(defile + v * dt); if (Math.abs(v) > 0.02 && defile > 0 && defile < defMax) inertie = requestAnimationFrame(pas); };
+      inertie = requestAnimationFrame(pas);
+      return;
+    }
     if (g.type === "glisse") {
       // un simple toucher du doigt avec l'outil cœur donne (ou reprend) un super cœur
       if (!tour && (g.bouge || 0) < 12 && etat.outil === "coeur" && e.type === "pointerup" && dansPage(e)) { basculerCoeur(e); return; }
-      if (!tour && (g.bouge || 0) < 12 && etat.mode === "clic" && etat.outil === "crayon" && e.type === "pointerup" && dansPage(e)) { entourerAuClic(e); return; }
+      // un toucher : avec la souris en mode clic, ou avec le doigt (téléphone, iPad sans crayon), entoure le jouet
+      if (!tour && (g.bouge || 0) < 12 && (etat.mode === "clic" || g.doigt) && etat.outil === "crayon" && e.type === "pointerup" && dansPage(e)) { entourerAuClic(e); return; }
+      if (!tour && (g.bouge || 0) < 12 && g.doigt && etat.outil === "gomme" && e.type === "pointerup" && dansPage(e)) { effacerJouet(e); return; }
       if (!tour || tour.anim) return;
       let v = 0;
       if (g.hist.length > 1) { const a = g.hist[0], b = g.hist[g.hist.length - 1]; v = (b[1] - a[1]) / Math.max(16, b[0] - a[0]); }
@@ -2091,6 +2180,7 @@ svg { display: block; }
     else if (trait) { (T[k] = T[k] || []).push(accrocher(trait, pageCourante())); trait = null; sauverPage(k); majCompte(); }
     planifier();
   }
+  scene.addEventListener("wheel", e => { if (etat.vue === "catalogue" && FMT === "T" && !tour) { e.preventDefault(); majDefile(defile + e.deltaY); } }, { passive: false });
   function jouetSous(x, y) {
     const pg = PAGES[pageCourante()], m = pg.m[FMT];
     let i = -1, mieux = Infinity;
@@ -2103,12 +2193,26 @@ svg { display: block; }
     });
     return i;
   }
+  // retire les ronds de ce jouet, faits sur n'importe quel écran
+  function retirerJouet(id, idx) {
+    let fait = false;
+    for (const f of LES_FORMATS) {
+      const k = cle(etat.enfant, idx, f), arr = T[k] || [], reste = arr.filter(st => (st.auto || st.id) !== id);
+      if (reste.length !== arr.length) { T[k] = reste; sauverPage(k); fait = true; }
+    }
+    if (fait) { majCompte(); planifier(); }
+    return fait;
+  }
+  function effacerJouet(e) {
+    const [x, y] = versPage(e), i = jouetSous(x, y); if (i < 0) return;
+    retirerJouet(PAGES[pageCourante()].items[i].id, pageCourante());
+  }
   function entourerAuClic(e) {
     const [x, y] = versPage(e), i = jouetSous(x, y); if (i < 0) return;
     const pg = PAGES[pageCourante()], m = pg.m[FMT], id = pg.items[i].id, k = cle(etat.enfant, pageCourante());
-    const arr = T[k] = T[k] || [], deja = arr.findIndex(st => (st.auto || st.id) === id && st.p.length === 130);
-    if (deja >= 0) arr.splice(deja, 1);
-    else {
+    const arr = T[k] = T[k] || [];
+    if (retirerJouet(id, pageCourante())) return;
+    {
       const r = (m.posee && m.posee[i]) || m.zones[i].photo, cx = r.x + r.w / 2, cy = r.y + r.h / 2;
       const rx = r.w / 2 + 16, ry = r.h / 2 + 14, rnd = hasard(id.length * 31 + arr.length), p = [];
       const a0 = -2.2 + rnd() * .4, tours = 1.12;
@@ -2181,7 +2285,7 @@ svg { display: block; }
     const out = [];
     PAGES.forEach((pg, pi) => {
       const pris = new Set();
-      for (const f of ["P", "L"]) {
+      for (const f of LES_FORMATS) {
         const arr = T[cle(k, pi, f)] || [];
         for (const st of arr) { const i = vise(st, { zones: pg.m[f].zones }); if (i >= 0) pris.add(i); }
       }
@@ -2192,7 +2296,7 @@ svg { display: block; }
   const pagesDessinees = k => {
     const out = [], ids = etat.coeurs[k] || [];
     PAGES.forEach((pg, i) => {
-      const fs = ["P", "L"].filter(f => (T[cle(k, i, f)] || []).length);
+      const fs = LES_FORMATS.filter(f => (T[cle(k, i, f)] || []).length);
       if (!fs.length && pg.items.some(p => ids.includes(p.id))) fs.push("P");
       fs.forEach(f => out.push([i, f]));
     });
@@ -2394,7 +2498,7 @@ svg { display: block; }
     astuceVue = true;
     try { sessionStorage.setItem("astuce-vue", "1"); } catch (_) {}
     $("astuce-tourner").textContent = etat.mode === "clic" ? "Glisse la page ou clique sur les flèches pour la tourner" : "Glisse ton doigt pour tourner la page";
-    $("astuce-rond").textContent = etat.mode === "clic" ? "Touche ou clique un jouet : le rond se fait tout seul" : "Fais un rond avec le crayon autour de ce que tu veux";
+    $("astuce-rond").textContent = etat.mode === "clic" ? "Touche ou clique un jouet : le rond se fait tout seul" : "Touche un jouet avec ton doigt, ou fais un rond autour avec le crayon";
     $("astuce").hidden = false;
     setTimeout(() => { $("astuce").hidden = true; }, 3800);
   }
