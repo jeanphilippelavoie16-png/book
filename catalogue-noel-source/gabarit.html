@@ -2679,12 +2679,14 @@ svg { display: block; }
   // le guide s'ouvre à la première visite sur cet appareil ; le bouton « Comment ça marche » le rouvre
   const videosGuide = () => ["guide-video", "guide-video2"].map($).filter(Boolean);
   const ouvrirGuide = () => { $("guide").hidden = false; for (const v of videosGuide()) { try { v.currentTime = 0; v.play().catch(() => {}); } catch (_) {} } setTimeout(() => $("guide-go").focus(), 50); };
-  const fermerGuide = () => { $("guide").hidden = true; for (const v of videosGuide()) { try { v.pause(); } catch (_) {} } try { localStorage.setItem("catalogue-guide-vu", "1"); } catch (_) {} };
+  const fermerGuide = () => { $("guide").hidden = true; for (const v of videosGuide()) { try { v.pause(); } catch (_) {} } };
   $("guide-go").addEventListener("click", fermerGuide);
   $("guide").addEventListener("click", e => { if (e.target === $("guide")) fermerGuide(); });
   $("ouvrir-guide").addEventListener("click", ouvrirGuide);
   document.addEventListener("keydown", e => { if (e.key === "Escape" && !$("guide").hidden) fermerGuide(); });
-  try { if (localStorage.getItem("catalogue-guide-vu") !== "1") setTimeout(ouvrirGuide, 900); } catch (_) { setTimeout(ouvrirGuide, 900); }
+  // « Comment ça marche » s'ouvre à chaque ouverture de la page (les tests automatiques le sautent)
+  let sansGuide = false; try { sansGuide = localStorage.getItem("catalogue-sans-guide") === "1"; } catch (_) {}
+  if (!sansGuide) ouvrirGuide();
 
   /* ---------- Démarrage ---------- */
   lireLocal();
