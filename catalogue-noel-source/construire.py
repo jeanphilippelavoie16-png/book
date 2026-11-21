@@ -43,6 +43,11 @@ if ("serviceWorker" in navigator) addEventListener("load", () => navigator.servi
 </body>
 </html>
 """
+CFG = os.path.join("/home/user/book/catalogue-noel-source" if not os.path.exists(os.path.join(os.path.dirname(os.path.abspath(__file__)), "firebase.json")) else os.path.dirname(os.path.abspath(__file__)), "firebase.json")
+if os.path.exists(CFG):
+    cfg = json.load(open(CFG))
+    if cfg.get("config", {}).get("apiKey") and cfg.get("famille"):
+        tete = tete.replace("<body>\n", "<body>\n<script>window.FIREBASE_FAMILLE = " + json.dumps(cfg) + ";</script>\n", 1)
 index = tete + corps + pied
 open(os.path.join(APP, "index.html"), "w").write(index)
 
@@ -93,7 +98,7 @@ self.addEventListener("fetch", e => {
     return;
   }
   // images, polices, bibliothèque PDF : le cache d'abord, puis on le garnit
-  if (url.origin === location.origin || /fonts\\.(googleapis|gstatic)\\.com|cdnjs\\.cloudflare\\.com/.test(url.host)) {
+  if (url.origin === location.origin || /fonts\\.(googleapis|gstatic)\\.com|cdnjs\\.cloudflare\\.com/.test(url.host) || url.href.includes("gstatic.com/firebasejs/")) {
     e.respondWith((async () => {
       const deja = await caches.match(req, { ignoreSearch: url.origin === location.origin });
       if (deja) return deja;

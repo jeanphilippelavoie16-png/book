@@ -975,10 +975,24 @@ svg { display: block; }
     const ids = (etat.coeurs[k] || []).slice();
     ecritureCoeurs = ecritureCoeurs.then(() => db.doc("coeurs/" + k).set({ ids })).catch(() => avis("La sauvegarde en ligne a échoué. Les cœurs restent gardés sur cette tablette."));
   }
+  // Hors de Claude (le site GitHub), les listes se partagent par Firebase si la famille l'a configuré.
+  const charger = src => new Promise((ok, non) => { const e = document.createElement("script"); e.src = src; e.onload = ok; e.onerror = non; document.head.appendChild(e); });
+  async function dbFirebase(cfg) {
+    const v = "10.14.1", base = "https://www.gstatic.com/firebasejs/" + v + "/";
+    await charger(base + "firebase-app-compat.js");
+    await Promise.all([charger(base + "firebase-auth-compat.js"), charger(base + "firebase-firestore-compat.js")]);
+    const app = window.firebase.apps.length ? window.firebase.app() : window.firebase.initializeApp(cfg.config);
+    await app.auth().signInAnonymously();
+    const fs = app.firestore(), racine = "familles/" + cfg.famille;
+    // même vocabulaire que la base Claude : collection(), doc(), set(), delete(), onSnapshot()
+    return { collection: nom => fs.collection(racine + "/" + nom), doc: chemin => fs.doc(racine + "/" + chemin) };
+  }
   async function brancherDb() {
     const c = window.claude;
-    if (!c || typeof c.use !== "function") return;
-    try { db = await c.use("db"); } catch (e) { db = null; }
+    if (c && typeof c.use === "function") { try { db = await c.use("db"); } catch (e) { db = null; } }
+    else if (window.FIREBASE_FAMILLE && window.FIREBASE_FAMILLE.config) {
+      try { db = await dbFirebase(window.FIREBASE_FAMILLE); } catch (e) { db = null; console.warn("Firebase indisponible : listes gardées sur cet appareil.", e); }
+    }
     if (!db) return;
     const locaux = { ...T };
     let premier = true;
