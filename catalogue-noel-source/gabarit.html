@@ -716,8 +716,17 @@ svg { display: block; }
 }
 #accueil.ouverture::after { content: ""; position: fixed; inset: 0; z-index: 10; background: #FBF4E4; opacity: 0; animation: fondu .22s forwards; }
 
+/* ===== Babillard : vrai liège, vrai cadre de bois ===== */
+#accueil.babillard { background: #B98A52 url("liege.jpg") 0 0 / 420px repeat !important; box-shadow: none !important; }
+#accueil.babillard .tableau::before { content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background: radial-gradient(ellipse 80% 70% at 50% 45%, rgba(255,236,200,.16), transparent 60%), radial-gradient(ellipse at center, transparent 55%, rgba(40,20,5,.42) 100%); }
+#accueil.babillard .tableau > * { position: relative; z-index: 1; }
+.cadre-bois { position: fixed; inset: 0; z-index: 5; pointer-events: none; border: 22px solid #6B4423;
+  border-image: url("bois.jpg") 40 / 22px round; box-shadow: inset 0 0 0 1px rgba(0,0,0,.5), inset 3px 4px 10px rgba(0,0,0,.55), inset -2px -2px 6px rgba(255,220,170,.08); }
+.cadre-bois::before { content: ""; position: absolute; inset: -22px; border: 1px solid rgba(255,220,170,.25); pointer-events: none; }
+.lumieres { top: calc(env(safe-area-inset-top, 0px) + 12px); z-index: 6; }
 /* ===== Babillard : finitions ===== */
-#accueil.babillard {
+#accueil.babillard.ancien {
   background-color: #B98A52;
   background-image:
     radial-gradient(ellipse at 50% 40%, rgba(255,230,190,.18), transparent 70%),
@@ -762,6 +771,7 @@ svg { display: block; }
 </style>
 
 <main id="accueil" class="babillard">
+  <div class="cadre-bois" aria-hidden="true"></div>
   <svg class="lumieres" id="lumieres" aria-hidden="true" preserveAspectRatio="none"></svg>
   <div class="tableau">
     <header class="banniere">

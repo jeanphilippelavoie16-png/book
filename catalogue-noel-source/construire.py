@@ -59,7 +59,7 @@ for _f in ("rire.gif", "couverture.webp", "demo.mp4"):
     if os.path.exists(os.path.join(APP, _f)):
         h.update(open(os.path.join(APP, _f), "rb").read())
 version = h.hexdigest()[:10]
-coquille = ["./", "index.html", "manifest.webmanifest", "rire.gif", "couverture.webp", "demo.jpg", "portraits/k1.jpg", "portraits/k2.jpg", "portraits/k3.jpg", "portraits/k4.jpg", "icones/apple-touch-icon.png", "icones/icone-192.png", "icones/icone-512.png"] + planches
+coquille = ["./", "index.html", "manifest.webmanifest", "rire.gif", "couverture.webp", "demo.jpg", "liege.jpg", "bois.jpg", "portraits/k1.jpg", "portraits/k2.jpg", "portraits/k3.jpg", "portraits/k4.jpg", "icones/apple-touch-icon.png", "icones/icone-192.png", "icones/icone-512.png"] + planches
 sw = """// Catalogue des Souhaits : tout le catalogue reste dans l'iPad, même sans réseau.
 const VERSION = "souhaits-%s";
 const COQUILLE = %s;
